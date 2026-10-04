@@ -1,0 +1,78 @@
+{
+  "key": "sell.general",
+  "vertical": "SELL",
+  "title": "Selling: tell us about the property",
+  "description": "Your answers help prepare a checklist for the sale. What a seller must disclose depends on the state and is drawn from sourced rules.",
+  "sections": [
+    {
+      "title": "The property",
+      "questions": [
+        {"key": "property.address", "type": "ADDRESS", "label": "Property address", "required": true},
+        {
+          "key": "sell.property_type", "type": "SELECT", "label": "Type of property", "required": true,
+          "options": [
+            {"value": "house", "label": "House"},
+            {"value": "unit", "label": "Unit or apartment"},
+            {"value": "townhouse", "label": "Townhouse"},
+            {"value": "vacant_land", "label": "Vacant land"},
+            {"value": "rural", "label": "Rural property"},
+            {"value": "commercial", "label": "Commercial property"}
+          ]
+        },
+        {"key": "sell.is_owner", "type": "BOOLEAN", "label": "Are you an owner of the property?", "required": true},
+        {
+          "key": "sell.authority", "type": "SELECT", "label": "On what basis are you selling it?", "required": true,
+          "visible_when": {"fact": "sell.is_owner", "op": "equals", "value": false},
+          "options": [
+            {"value": "attorney", "label": "Under a power of attorney"},
+            {"value": "executor", "label": "As executor or administrator of an estate"},
+            {"value": "agent", "label": "As an authorised agent"},
+            {"value": "other", "label": "Other"}
+          ]
+        },
+        {"key": "sell.has_mortgage", "type": "BOOLEAN", "label": "Is there a mortgage on the property?"}
+      ]
+    },
+    {
+      "title": "Works and features",
+      "questions": [
+        {"key": "sell.building_works", "type": "BOOLEAN", "label": "Has any building work been done on the property while you have owned it?", "required": true},
+        {"key": "sell.building_works_description", "type": "TEXTAREA", "label": "What work was done, and when?", "required": true, "validation": {"max_length": 2000}, "visible_when": {"fact": "sell.building_works", "op": "equals", "value": true}},
+        {
+          "key": "sell.building_works_approvals", "type": "SELECT", "label": "Were approvals obtained for that work?",
+          "visible_when": {"fact": "sell.building_works", "op": "equals", "value": true},
+          "options": [
+            {"value": "all", "label": "Yes, for all of it"},
+            {"value": "some", "label": "For some of it"},
+            {"value": "none", "label": "No"},
+            {"value": "unsure", "label": "Not sure"}
+          ]
+        },
+        {"key": "sell.has_pool", "type": "BOOLEAN", "label": "Is there a swimming pool or spa?", "required": true},
+        {
+          "key": "sell.pool_certificate", "type": "SELECT", "label": "Do you have a current pool safety or compliance certificate?",
+          "visible_when": {"fact": "sell.has_pool", "op": "equals", "value": true},
+          "options": [{"value": "yes", "label": "Yes"}, {"value": "no", "label": "No"}, {"value": "unsure", "label": "Not sure"}]
+        },
+        {"key": "sell.is_tenanted", "type": "BOOLEAN", "label": "Is the property currently rented to a tenant?", "required": true},
+        {"key": "sell.lease_end_date", "type": "DATE", "label": "When does the current lease end?", "visible_when": {"fact": "sell.is_tenanted", "op": "equals", "value": true}}
+      ]
+    },
+    {
+      "title": "Sale plans",
+      "questions": [
+        {
+          "key": "sell.method", "type": "SELECT", "label": "How do you expect to sell?",
+          "options": [
+            {"value": "private_treaty", "label": "Private sale with a set price"},
+            {"value": "auction", "label": "Auction"},
+            {"value": "expressions_of_interest", "label": "Expressions of interest"},
+            {"value": "unsure", "label": "Not decided"}
+          ]
+        },
+        {"key": "sell.target_listing_date", "type": "DATE", "label": "When would you like to list the property?"},
+        {"key": "sell.has_conveyancer", "type": "BOOLEAN", "label": "Have you engaged a conveyancer or solicitor?"}
+      ]
+    }
+  ]
+}

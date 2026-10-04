@@ -12,6 +12,7 @@ from typing import Annotated
 
 from pydantic import Field, SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
+from sqlalchemy.engine import make_url
 
 _INSECURE_DEFAULT_SECRET = "dev-insecure-change-me"  # noqa: S105 - sentinel, rejected in production
 
@@ -35,6 +36,10 @@ def _split_csv(value: object) -> object:
     return value
 
 
+def _db_user(url: str) -> str | None:
+    return make_url(url).username
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
@@ -46,9 +51,13 @@ class Settings(BaseSettings):
 
     secret_key: SecretStr = SecretStr(_INSECURE_DEFAULT_SECRET)
 
+    # The application connects as a dedicated non-owner role that is subject to row-level
+    # security (see ``python -m app.cli provision-db-role``). Migrations and operator commands
+    # that change reference data use the owner role from MIGRATION_DATABASE_URL.
     database_url: str = (
-        "postgresql+psycopg://approvalready:approvalready@localhost:5432/approvalready"
+        "postgresql+psycopg://approvalready_app:approvalready_app@localhost:5432/approvalready"
     )
+    migration_database_url: str | None = None
     database_pool_size: int = Field(default=10, ge=1, le=100)
     database_max_overflow: int = Field(default=10, ge=0, le=100)
     database_connect_timeout_seconds: float = Field(default=3.0, gt=0)
@@ -139,8 +148,13 @@ class Settings(BaseSettings):
 
     @property
     def sync_database_url(self) -> str:
-        """Same DSN for sync use (Alembic, Celery). psycopg 3 serves both modes."""
+        """Same DSN for sync use (Celery). psycopg 3 serves both modes."""
         return self.database_url
+
+    @property
+    def owner_database_url(self) -> str:
+        """DSN of the schema owner: migrations, role provisioning, reference-data sync."""
+        return self.migration_database_url or self.database_url
 
     @model_validator(mode="after")
     def _reject_unsafe_production_config(self) -> Settings:
@@ -160,6 +174,13 @@ class Settings(BaseSettings):
             problems.append("COOKIE_SECURE must be true in production")
         if not self.web_base_url.startswith("https://"):
             problems.append("WEB_BASE_URL must use https:// in production")
+        if self.migration_database_url and _db_user(self.migration_database_url) == _db_user(
+            self.database_url
+        ):
+            problems.append(
+                "DATABASE_URL must use the application role, not the owner in "
+                "MIGRATION_DATABASE_URL (row-level security does not apply to the owner)"
+            )
         if self.email_provider == EmailProviderKind.MEMORY:
             problems.append("EMAIL_PROVIDER=memory is for tests only")
         if problems:

@@ -326,6 +326,43 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/business-profiles": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Business Profiles */
+        get: operations["list_business_profiles_v1_organisations__organisation_id__business_profiles_get"];
+        put?: never;
+        /** Create Business Profile */
+        post: operations["create_business_profile_v1_organisations__organisation_id__business_profiles_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/business-profiles/{profile_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Business Profile */
+        get: operations["get_business_profile_v1_organisations__organisation_id__business_profiles__profile_id__get"];
+        put?: never;
+        post?: never;
+        /** Delete Business Profile */
+        delete: operations["delete_business_profile_v1_organisations__organisation_id__business_profiles__profile_id__delete"];
+        options?: never;
+        head?: never;
+        /** Update Business Profile */
+        patch: operations["update_business_profile_v1_organisations__organisation_id__business_profiles__profile_id__patch"];
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/invitations": {
         parameters: {
             query?: never;
@@ -415,6 +452,344 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/projects": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Projects */
+        get: operations["list_projects_v1_organisations__organisation_id__projects_get"];
+        put?: never;
+        /** Create Project */
+        post: operations["create_project_v1_organisations__organisation_id__projects_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Project */
+        get: operations["get_project_v1_organisations__organisation_id__projects__project_id__get"];
+        put?: never;
+        post?: never;
+        /** Delete Project */
+        delete: operations["delete_project_v1_organisations__organisation_id__projects__project_id__delete"];
+        options?: never;
+        head?: never;
+        /** Update Project */
+        patch: operations["update_project_v1_organisations__organisation_id__projects__project_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/reminders": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Reminders */
+        get: operations["list_reminders_v1_organisations__organisation_id__projects__project_id__reminders_get"];
+        put?: never;
+        /** Create Reminder */
+        post: operations["create_reminder_v1_organisations__organisation_id__projects__project_id__reminders_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/reminders/{reminder_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Cancel Reminder */
+        delete: operations["cancel_reminder_v1_organisations__organisation_id__projects__project_id__reminders__reminder_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Change Project Status */
+        post: operations["change_project_status_v1_organisations__organisation_id__projects__project_id__status_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/status-events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Status Events */
+        get: operations["list_status_events_v1_organisations__organisation_id__projects__project_id__status_events_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/submissions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Start Submission
+         * @description Start the questionnaire for this project, or return the one already in progress.
+         */
+        post: operations["start_submission_v1_organisations__organisation_id__projects__project_id__submissions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/tasks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Tasks */
+        get: operations["list_tasks_v1_organisations__organisation_id__projects__project_id__tasks_get"];
+        put?: never;
+        /** Create Task */
+        post: operations["create_task_v1_organisations__organisation_id__projects__project_id__tasks_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/tasks/{task_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Delete Task */
+        delete: operations["delete_task_v1_organisations__organisation_id__projects__project_id__tasks__task_id__delete"];
+        options?: never;
+        head?: never;
+        /** Update Task */
+        patch: operations["update_task_v1_organisations__organisation_id__projects__project_id__tasks__task_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/properties": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Properties */
+        get: operations["list_properties_v1_organisations__organisation_id__properties_get"];
+        put?: never;
+        /** Create Property */
+        post: operations["create_property_v1_organisations__organisation_id__properties_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/properties/{property_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Property */
+        get: operations["get_property_v1_organisations__organisation_id__properties__property_id__get"];
+        put?: never;
+        post?: never;
+        /** Delete Property */
+        delete: operations["delete_property_v1_organisations__organisation_id__properties__property_id__delete"];
+        options?: never;
+        head?: never;
+        /** Update Property */
+        patch: operations["update_property_v1_organisations__organisation_id__properties__property_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/submissions/{submission_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Submission */
+        get: operations["get_submission_v1_organisations__organisation_id__submissions__submission_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/submissions/{submission_id}/answers": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Save Answers */
+        put: operations["save_answers_v1_organisations__organisation_id__submissions__submission_id__answers_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/submissions/{submission_id}/reopen": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Reopen Answers */
+        post: operations["reopen_answers_v1_organisations__organisation_id__submissions__submission_id__reopen_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/submissions/{submission_id}/submit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Submit Answers */
+        post: operations["submit_answers_v1_organisations__organisation_id__submissions__submission_id__submit_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/vessels": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Vessels */
+        get: operations["list_vessels_v1_organisations__organisation_id__vessels_get"];
+        put?: never;
+        /** Create Vessel */
+        post: operations["create_vessel_v1_organisations__organisation_id__vessels_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/vessels/{vessel_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Vessel */
+        get: operations["get_vessel_v1_organisations__organisation_id__vessels__vessel_id__get"];
+        put?: never;
+        post?: never;
+        /** Delete Vessel */
+        delete: operations["delete_vessel_v1_organisations__organisation_id__vessels__vessel_id__delete"];
+        options?: never;
+        head?: never;
+        /** Update Vessel */
+        patch: operations["update_vessel_v1_organisations__organisation_id__vessels__vessel_id__patch"];
+        trace?: never;
+    };
+    "/v1/questionnaires": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Questionnaires */
+        get: operations["list_questionnaires_v1_questionnaires_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/questionnaires/{key}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Questionnaire */
+        get: operations["get_questionnaire_v1_questionnaires__key__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/version": {
         parameters: {
             query?: never;
@@ -447,6 +822,43 @@ export interface components {
              * @constant
              */
             status: "accepted";
+        };
+        /** AddressIn */
+        AddressIn: {
+            /** Line1 */
+            line1: string;
+            /** Line2 */
+            line2?: string | null;
+            /** Postcode */
+            postcode: string;
+            state: components["schemas"]["AustralianState"];
+            /** Suburb */
+            suburb: string;
+        };
+        /** AddressOut */
+        AddressOut: {
+            /** Lga Code */
+            lga_code: string | null;
+            /** Line1 */
+            line1: string;
+            /** Line2 */
+            line2: string | null;
+            /** Postcode */
+            postcode: string;
+            /** State */
+            state: string;
+            /** Suburb */
+            suburb: string;
+        };
+        /** AnswersUpdate */
+        AnswersUpdate: {
+            /**
+             * Answers
+             * @description Question key to answer. null clears an answer.
+             */
+            answers: {
+                [key: string]: unknown;
+            };
         };
         /** AuditChainOut */
         AuditChainOut: {
@@ -484,6 +896,92 @@ export interface components {
             /** Target Type */
             target_type: string | null;
         };
+        /**
+         * AustralianState
+         * @enum {string}
+         */
+        AustralianState: "NSW" | "VIC" | "QLD" | "SA" | "WA" | "TAS" | "NT" | "ACT";
+        /** BusinessCreate */
+        BusinessCreate: {
+            /** Abn */
+            abn?: string | null;
+            /** Acn */
+            acn?: string | null;
+            address?: components["schemas"]["AddressIn"] | null;
+            /** Anzsic Code */
+            anzsic_code?: string | null;
+            employee_band?: components["schemas"]["EmployeeBand"] | null;
+            entity_type: components["schemas"]["EntityType"];
+            /** Established On */
+            established_on?: string | null;
+            /** Gst Registered */
+            gst_registered?: boolean | null;
+            /** Legal Name */
+            legal_name: string;
+            /** Trading Name */
+            trading_name?: string | null;
+            turnover_band?: components["schemas"]["TurnoverBand"] | null;
+        };
+        /** BusinessOut */
+        BusinessOut: {
+            /** Abn */
+            abn: string | null;
+            /** Acn */
+            acn: string | null;
+            address: components["schemas"]["AddressOut"] | null;
+            /** Anzsic Code */
+            anzsic_code: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Employee Band */
+            employee_band: string | null;
+            /** Entity Type */
+            entity_type: string;
+            /** Established On */
+            established_on: string | null;
+            /** Gst Registered */
+            gst_registered: boolean | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Legal Name */
+            legal_name: string;
+            /** Trading Name */
+            trading_name: string | null;
+            /** Turnover Band */
+            turnover_band: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /** BusinessUpdate */
+        BusinessUpdate: {
+            /** Abn */
+            abn?: string | null;
+            /** Acn */
+            acn?: string | null;
+            address?: components["schemas"]["AddressIn"] | null;
+            /** Anzsic Code */
+            anzsic_code?: string | null;
+            employee_band?: components["schemas"]["EmployeeBand"] | null;
+            entity_type?: components["schemas"]["EntityType"] | null;
+            /** Established On */
+            established_on?: string | null;
+            /** Gst Registered */
+            gst_registered?: boolean | null;
+            /** Legal Name */
+            legal_name?: string | null;
+            /** Trading Name */
+            trading_name?: string | null;
+            turnover_band?: components["schemas"]["TurnoverBand"] | null;
+        };
         /** DependencyCheck */
         DependencyCheck: {
             /** Latency Ms */
@@ -502,6 +1000,16 @@ export interface components {
              */
             email: string;
         };
+        /**
+         * EmployeeBand
+         * @enum {string}
+         */
+        EmployeeBand: "NONE" | "1_4" | "5_19" | "20_199" | "200_PLUS";
+        /**
+         * EntityType
+         * @enum {string}
+         */
+        EntityType: "SOLE_TRADER" | "PARTNERSHIP" | "COMPANY" | "TRUST" | "INCORPORATED_ASSOCIATION" | "COOPERATIVE" | "OTHER";
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -606,6 +1114,13 @@ export interface components {
             /** Roles */
             roles: string[];
         };
+        /** OptionOut */
+        OptionOut: {
+            /** Label */
+            label: string;
+            /** Value */
+            value: string;
+        };
         /** OrganisationCreate */
         OrganisationCreate: {
             /** Abn */
@@ -650,6 +1165,11 @@ export interface components {
             /** Name */
             name?: string | null;
         };
+        /**
+         * OwnershipRole
+         * @enum {string}
+         */
+        OwnershipRole: "OWNER" | "AUTHORISED_AGENT" | "LANDLORD" | "PROSPECTIVE_BUYER" | "LESSEE";
         /** PasswordChangeRequest */
         PasswordChangeRequest: {
             /** Current Password */
@@ -664,6 +1184,247 @@ export interface components {
             /** Token */
             token: string;
         };
+        /** Progress */
+        Progress: {
+            /** Answered */
+            answered: number;
+            /** Required Remaining */
+            required_remaining: number;
+            /** Visible */
+            visible: number;
+        };
+        /** ProjectCreate */
+        ProjectCreate: {
+            /** Business Profile Id */
+            business_profile_id?: string | null;
+            /** Description */
+            description?: string | null;
+            /** Property Id */
+            property_id?: string | null;
+            /** Title */
+            title: string;
+            vertical: components["schemas"]["Vertical"];
+            /** Vessel Id */
+            vessel_id?: string | null;
+        };
+        /** ProjectDetailOut */
+        ProjectDetailOut: {
+            /** Allowed Status Changes */
+            allowed_status_changes: string[];
+            /** Business Profile Id */
+            business_profile_id: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Description */
+            description: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Open Tasks */
+            open_tasks: number;
+            /**
+             * Organisation Id
+             * Format: uuid
+             */
+            organisation_id: string;
+            /** Property Id */
+            property_id: string | null;
+            /** Reference Code */
+            reference_code: string;
+            status: components["schemas"]["ProjectStatus"];
+            /** Submissions */
+            submissions: components["schemas"]["SubmissionSummary"][];
+            /** Title */
+            title: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            vertical: components["schemas"]["Vertical"];
+            /** Vessel Id */
+            vessel_id: string | null;
+        };
+        /** ProjectOut */
+        ProjectOut: {
+            /** Allowed Status Changes */
+            allowed_status_changes: string[];
+            /** Business Profile Id */
+            business_profile_id: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Description */
+            description: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Organisation Id
+             * Format: uuid
+             */
+            organisation_id: string;
+            /** Property Id */
+            property_id: string | null;
+            /** Reference Code */
+            reference_code: string;
+            status: components["schemas"]["ProjectStatus"];
+            /** Title */
+            title: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            vertical: components["schemas"]["Vertical"];
+            /** Vessel Id */
+            vessel_id: string | null;
+        };
+        /**
+         * ProjectStatus
+         * @enum {string}
+         */
+        ProjectStatus: "DRAFT" | "IN_PROGRESS" | "ASSESSED" | "IN_REVIEW" | "COMPLETED" | "ARCHIVED";
+        /** ProjectStatusChange */
+        ProjectStatusChange: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "IN_PROGRESS" | "COMPLETED" | "ARCHIVED";
+        };
+        /** ProjectUpdate */
+        ProjectUpdate: {
+            /** Business Profile Id */
+            business_profile_id?: string | null;
+            /** Description */
+            description?: string | null;
+            /** Property Id */
+            property_id?: string | null;
+            /** Title */
+            title?: string | null;
+            /** Vessel Id */
+            vessel_id?: string | null;
+        };
+        /** PropertyCreate */
+        PropertyCreate: {
+            address: components["schemas"]["AddressIn"];
+            /** Land Area M2 */
+            land_area_m2?: number | string | null;
+            /** Lot Plan */
+            lot_plan?: string | null;
+            /** @default OWNER */
+            relationship: components["schemas"]["OwnershipRole"];
+            /** Title Reference */
+            title_reference?: string | null;
+        };
+        /** PropertyOut */
+        PropertyOut: {
+            address: components["schemas"]["AddressOut"];
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Land Area M2 */
+            land_area_m2: string | null;
+            /** Lot Plan */
+            lot_plan: string | null;
+            /** Relationships */
+            relationships: string[];
+            /** Title Reference */
+            title_reference: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /** PropertyUpdate */
+        PropertyUpdate: {
+            address?: components["schemas"]["AddressIn"] | null;
+            /** Land Area M2 */
+            land_area_m2?: number | string | null;
+            /** Lot Plan */
+            lot_plan?: string | null;
+            /** Title Reference */
+            title_reference?: string | null;
+        };
+        /**
+         * Propulsion
+         * @enum {string}
+         */
+        Propulsion: "INBOARD" | "OUTBOARD" | "STERNDRIVE" | "JET" | "SAIL" | "SAIL_AUXILIARY" | "MANUAL" | "OTHER";
+        /** QuestionOut */
+        QuestionOut: {
+            /** Help Text */
+            help_text: string | null;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /** Options */
+            options: components["schemas"]["OptionOut"][];
+            /** Required */
+            required: boolean;
+            /** Type */
+            type: string;
+            /** Validation */
+            validation: {
+                [key: string]: unknown;
+            };
+            /**
+             * Visible When
+             * @description Condition AST. The browser may evaluate it for instant branching; the API re-evaluates on every save and is authoritative.
+             */
+            visible_when: {
+                [key: string]: unknown;
+            } | null;
+        };
+        /** QuestionnaireOut */
+        QuestionnaireOut: {
+            /** Description */
+            description: string | null;
+            /** Key */
+            key: string;
+            /** Sections */
+            sections: components["schemas"]["SectionOut"][];
+            /** Title */
+            title: string;
+            /** Version */
+            version: number;
+            /** Vertical */
+            vertical: string;
+        };
+        /** QuestionnaireSummary */
+        QuestionnaireSummary: {
+            /** Description */
+            description: string | null;
+            /** Key */
+            key: string;
+            /** Published At */
+            published_at: string | null;
+            /** Title */
+            title: string;
+            /** Version */
+            version: number;
+            /** Vertical */
+            vertical: string;
+        };
         /** ReadyResponse */
         ReadyResponse: {
             /** Checks */
@@ -676,6 +1437,11 @@ export interface components {
              */
             status: "ok" | "error";
         };
+        /**
+         * Recurrence
+         * @enum {string}
+         */
+        Recurrence: "WEEKLY" | "MONTHLY" | "YEARLY";
         /** RegisterRequest */
         RegisterRequest: {
             /** Display Name */
@@ -687,6 +1453,76 @@ export interface components {
             email: string;
             /** Password */
             password: string;
+        };
+        /**
+         * ReminderChannel
+         * @enum {string}
+         */
+        ReminderChannel: "EMAIL" | "IN_APP";
+        /** ReminderCreate */
+        ReminderCreate: {
+            /** @default EMAIL */
+            channel: components["schemas"]["ReminderChannel"];
+            /**
+             * Fires At
+             * Format: date-time
+             */
+            fires_at: string;
+            /**
+             * Recipient User Id
+             * @description Defaults to the person creating the reminder.
+             */
+            recipient_user_id?: string | null;
+            recurrence?: components["schemas"]["Recurrence"] | null;
+            /** Task Id */
+            task_id?: string | null;
+            /** Title */
+            title: string;
+        };
+        /** ReminderOut */
+        ReminderOut: {
+            /** Channel */
+            channel: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Fires At
+             * Format: date-time
+             */
+            fires_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /**
+             * Recipient User Id
+             * Format: uuid
+             */
+            recipient_user_id: string;
+            /** Recurrence */
+            recurrence: string | null;
+            /** Status */
+            status: string;
+            /** Task Id */
+            task_id: string | null;
+            /** Title */
+            title: string;
+        };
+        /** SectionOut */
+        SectionOut: {
+            /** Questions */
+            questions: components["schemas"]["QuestionOut"][];
+            /** Title */
+            title: string;
         };
         /** SessionOut */
         SessionOut: {
@@ -710,6 +1546,88 @@ export interface components {
             permissions: string[];
             user: components["schemas"]["UserOut"];
         };
+        /** StatusEventOut */
+        StatusEventOut: {
+            /** Actor Id */
+            actor_id: string | null;
+            /** From Status */
+            from_status: string | null;
+            /**
+             * Occurred At
+             * Format: date-time
+             */
+            occurred_at: string;
+            /** To Status */
+            to_status: string;
+        };
+        /** SubmissionOut */
+        SubmissionOut: {
+            /** Answers */
+            answers: {
+                [key: string]: unknown;
+            };
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Missing Required */
+            missing_required: string[];
+            progress: components["schemas"]["Progress"];
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /**
+             * Pruned
+             * @description Answers removed by this save because their question is now hidden.
+             */
+            pruned: string[];
+            questionnaire: components["schemas"]["QuestionnaireOut"];
+            /** Status */
+            status: string;
+            /** Submitted At */
+            submitted_at: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /** Visible */
+            visible: string[];
+        };
+        /** SubmissionStart */
+        SubmissionStart: {
+            /**
+             * Questionnaire Key
+             * @description Defaults to the only questionnaire for the project's vertical.
+             */
+            questionnaire_key?: string | null;
+        };
+        /** SubmissionSummary */
+        SubmissionSummary: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Questionnaire Key */
+            questionnaire_key: string;
+            /** Questionnaire Title */
+            questionnaire_title: string;
+            /** Status */
+            status: string;
+            /** Submitted At */
+            submitted_at: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /** Version */
+            version: number;
+        };
         /** SwitchOrganisationRequest */
         SwitchOrganisationRequest: {
             /**
@@ -718,11 +1636,75 @@ export interface components {
              */
             organisation_id: string;
         };
+        /** TaskCreate */
+        TaskCreate: {
+            /** Assignee User Id */
+            assignee_user_id?: string | null;
+            /** Due On */
+            due_on?: string | null;
+            /** Notes */
+            notes?: string | null;
+            /** Title */
+            title: string;
+        };
+        /** TaskOut */
+        TaskOut: {
+            /** Assignee User Id */
+            assignee_user_id: string | null;
+            /** Completed At */
+            completed_at: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Due On */
+            due_on: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Notes */
+            notes: string | null;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** Source */
+            source: string;
+            status: components["schemas"]["TaskStatus"];
+            /** Title */
+            title: string;
+        };
+        /**
+         * TaskStatus
+         * @enum {string}
+         */
+        TaskStatus: "OPEN" | "DONE" | "CANCELLED";
+        /** TaskUpdate */
+        TaskUpdate: {
+            /** Assignee User Id */
+            assignee_user_id?: string | null;
+            /** Due On */
+            due_on?: string | null;
+            /** Notes */
+            notes?: string | null;
+            status?: components["schemas"]["TaskStatus"] | null;
+            /** Title */
+            title?: string | null;
+        };
         /** TokenRequest */
         TokenRequest: {
             /** Token */
             token: string;
         };
+        /**
+         * TurnoverBand
+         * @enum {string}
+         */
+        TurnoverBand: "UNDER_75K" | "75K_2M" | "2M_10M" | "10M_50M" | "OVER_50M";
         /** UserOut */
         UserOut: {
             /** Display Name */
@@ -760,6 +1742,108 @@ export interface components {
             name: string;
             /** Version */
             version: string;
+        };
+        /**
+         * Vertical
+         * @enum {string}
+         */
+        Vertical: "PLANNING" | "VESSEL" | "BUSINESS" | "GRANT" | "SELL" | "RENT";
+        /** VesselCreate */
+        VesselCreate: {
+            /** Activity */
+            activity?: string | null;
+            /** Crew */
+            crew?: number | null;
+            /** Hin */
+            hin?: string | null;
+            /** Hull Material */
+            hull_material?: string | null;
+            /** Length M */
+            length_m?: number | string | null;
+            /** Max Passengers */
+            max_passengers?: number | null;
+            /** Name */
+            name: string;
+            /** Operating Area */
+            operating_area?: string | null;
+            propulsion?: components["schemas"]["Propulsion"] | null;
+            /** State Rego */
+            state_rego?: string | null;
+            /** Uvi */
+            uvi?: string | null;
+            vessel_type: components["schemas"]["VesselType"];
+        };
+        /** VesselOut */
+        VesselOut: {
+            /** Activity */
+            activity: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Crew */
+            crew: number | null;
+            /** Hin */
+            hin: string | null;
+            /** Hull Material */
+            hull_material: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Length M */
+            length_m: string | null;
+            /** Max Passengers */
+            max_passengers: number | null;
+            /** Name */
+            name: string;
+            /** Operating Area */
+            operating_area: string | null;
+            /** Propulsion */
+            propulsion: string | null;
+            /** State Rego */
+            state_rego: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /** Uvi */
+            uvi: string | null;
+            /** Vessel Type */
+            vessel_type: string;
+        };
+        /**
+         * VesselType
+         * @enum {string}
+         */
+        VesselType: "MOTOR" | "SAIL" | "PERSONAL_WATERCRAFT" | "PADDLE" | "BARGE" | "OTHER";
+        /** VesselUpdate */
+        VesselUpdate: {
+            /** Activity */
+            activity?: string | null;
+            /** Crew */
+            crew?: number | null;
+            /** Hin */
+            hin?: string | null;
+            /** Hull Material */
+            hull_material?: string | null;
+            /** Length M */
+            length_m?: number | string | null;
+            /** Max Passengers */
+            max_passengers?: number | null;
+            /** Name */
+            name?: string | null;
+            /** Operating Area */
+            operating_area?: string | null;
+            propulsion?: components["schemas"]["Propulsion"] | null;
+            /** State Rego */
+            state_rego?: string | null;
+            /** Uvi */
+            uvi?: string | null;
+            vessel_type?: components["schemas"]["VesselType"] | null;
         };
     };
     responses: never;
@@ -1345,6 +2429,170 @@ export interface operations {
             };
         };
     };
+    list_business_profiles_v1_organisations__organisation_id__business_profiles_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BusinessOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_business_profile_v1_organisations__organisation_id__business_profiles_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["BusinessCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BusinessOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_business_profile_v1_organisations__organisation_id__business_profiles__profile_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                profile_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BusinessOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_business_profile_v1_organisations__organisation_id__business_profiles__profile_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                profile_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_business_profile_v1_organisations__organisation_id__business_profiles__profile_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                profile_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["BusinessUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BusinessOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_invitations_v1_organisations__organisation_id__invitations_get: {
         parameters: {
             query?: never;
@@ -1525,6 +2773,1043 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["MemberOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_projects_v1_organisations__organisation_id__projects_get: {
+        parameters: {
+            query?: {
+                vertical?: components["schemas"]["Vertical"] | null;
+                include_archived?: boolean;
+            };
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProjectOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_project_v1_organisations__organisation_id__projects_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProjectCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProjectDetailOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_project_v1_organisations__organisation_id__projects__project_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProjectDetailOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_project_v1_organisations__organisation_id__projects__project_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_project_v1_organisations__organisation_id__projects__project_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProjectUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProjectDetailOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_reminders_v1_organisations__organisation_id__projects__project_id__reminders_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReminderOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_reminder_v1_organisations__organisation_id__projects__project_id__reminders_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReminderCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReminderOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cancel_reminder_v1_organisations__organisation_id__projects__project_id__reminders__reminder_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                reminder_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    change_project_status_v1_organisations__organisation_id__projects__project_id__status_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProjectStatusChange"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProjectDetailOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_status_events_v1_organisations__organisation_id__projects__project_id__status_events_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StatusEventOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    start_submission_v1_organisations__organisation_id__projects__project_id__submissions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SubmissionStart"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Created */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_tasks_v1_organisations__organisation_id__projects__project_id__tasks_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TaskOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_task_v1_organisations__organisation_id__projects__project_id__tasks_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TaskCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TaskOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_task_v1_organisations__organisation_id__projects__project_id__tasks__task_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                task_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_task_v1_organisations__organisation_id__projects__project_id__tasks__task_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                task_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TaskUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TaskOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_properties_v1_organisations__organisation_id__properties_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PropertyOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_property_v1_organisations__organisation_id__properties_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PropertyCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PropertyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_property_v1_organisations__organisation_id__properties__property_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                property_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PropertyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_property_v1_organisations__organisation_id__properties__property_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                property_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_property_v1_organisations__organisation_id__properties__property_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                property_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PropertyUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PropertyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_submission_v1_organisations__organisation_id__submissions__submission_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                submission_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    save_answers_v1_organisations__organisation_id__submissions__submission_id__answers_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                submission_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AnswersUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    reopen_answers_v1_organisations__organisation_id__submissions__submission_id__reopen_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                submission_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    submit_answers_v1_organisations__organisation_id__submissions__submission_id__submit_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                submission_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_vessels_v1_organisations__organisation_id__vessels_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["VesselOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_vessel_v1_organisations__organisation_id__vessels_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["VesselCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["VesselOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_vessel_v1_organisations__organisation_id__vessels__vessel_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                vessel_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["VesselOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_vessel_v1_organisations__organisation_id__vessels__vessel_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                vessel_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_vessel_v1_organisations__organisation_id__vessels__vessel_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                vessel_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["VesselUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["VesselOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_questionnaires_v1_questionnaires_get: {
+        parameters: {
+            query?: {
+                vertical?: components["schemas"]["Vertical"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QuestionnaireSummary"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_questionnaire_v1_questionnaires__key__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                key: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QuestionnaireOut"];
                 };
             };
             /** @description Validation Error */

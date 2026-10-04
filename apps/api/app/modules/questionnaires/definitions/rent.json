@@ -1,0 +1,69 @@
+{
+  "key": "rent.general",
+  "vertical": "RENT",
+  "title": "Renting out a property",
+  "description": "Your answers help build the compliance checklist and reminders for your rental. Minimum standards differ by state and are drawn from sourced rules.",
+  "sections": [
+    {
+      "title": "The property",
+      "questions": [
+        {"key": "property.address", "type": "ADDRESS", "label": "Property address", "required": true},
+        {
+          "key": "rent.property_type", "type": "SELECT", "label": "Type of property", "required": true,
+          "options": [
+            {"value": "house", "label": "House"},
+            {"value": "unit", "label": "Unit or apartment"},
+            {"value": "townhouse", "label": "Townhouse"},
+            {"value": "room", "label": "A room in a shared home"},
+            {"value": "other", "label": "Other"}
+          ]
+        },
+        {"key": "rent.bedrooms", "type": "NUMBER", "label": "Bedrooms", "required": true, "validation": {"min": "0", "max": "30"}},
+        {"key": "rent.bathrooms", "type": "NUMBER", "label": "Bathrooms", "validation": {"min": "0", "max": "30"}},
+        {"key": "rent.furnished", "type": "BOOLEAN", "label": "Is it rented furnished?"}
+      ]
+    },
+    {
+      "title": "Tenancy",
+      "questions": [
+        {
+          "key": "rent.managed_by", "type": "SELECT", "label": "Who manages the tenancy?", "required": true,
+          "options": [{"value": "self", "label": "I manage it myself"}, {"value": "agent", "label": "A property manager or agent"}]
+        },
+        {"key": "rent.is_tenanted", "type": "BOOLEAN", "label": "Is it currently rented to a tenant?", "required": true},
+        {"key": "rent.lease_start_date", "type": "DATE", "label": "When did the current lease start?", "visible_when": {"fact": "rent.is_tenanted", "op": "equals", "value": true}},
+        {"key": "rent.lease_end_date", "type": "DATE", "label": "When does it end?", "help_text": "Leave blank for a periodic (month-to-month) lease.", "visible_when": {"fact": "rent.is_tenanted", "op": "equals", "value": true}},
+        {"key": "rent.weekly_rent_cents", "type": "CURRENCY", "label": "Current weekly rent", "validation": {"min": "0", "max": "100000000"}, "visible_when": {"fact": "rent.is_tenanted", "op": "equals", "value": true}},
+        {
+          "key": "rent.bond_lodged", "type": "SELECT", "label": "Was the bond lodged with the state bond authority?",
+          "visible_when": {"fact": "rent.is_tenanted", "op": "equals", "value": true},
+          "options": [{"value": "yes", "label": "Yes"}, {"value": "no", "label": "No"}, {"value": "no_bond", "label": "No bond was taken"}, {"value": "unsure", "label": "Not sure"}]
+        }
+      ]
+    },
+    {
+      "title": "Safety and maintenance",
+      "questions": [
+        {
+          "key": "rent.smoke_alarms", "type": "MULTISELECT", "label": "What do you know about the smoke alarms?",
+          "help_text": "Tick everything that applies. Leave blank if you are not sure.",
+          "options": [
+            {"value": "photoelectric", "label": "Photoelectric"},
+            {"value": "ionisation", "label": "Ionisation"},
+            {"value": "interconnected", "label": "Interconnected"},
+            {"value": "hardwired", "label": "Hardwired to mains power"},
+            {"value": "ten_year_battery", "label": "10-year sealed battery"}
+          ]
+        },
+        {"key": "rent.smoke_alarms_last_tested", "type": "DATE", "label": "When were the smoke alarms last tested?"},
+        {"key": "rent.has_pool", "type": "BOOLEAN", "label": "Is there a swimming pool or spa?", "required": true},
+        {
+          "key": "rent.pool_certificate", "type": "SELECT", "label": "Do you have a current pool safety or compliance certificate?",
+          "visible_when": {"fact": "rent.has_pool", "op": "equals", "value": true},
+          "options": [{"value": "yes", "label": "Yes"}, {"value": "no", "label": "No"}, {"value": "unsure", "label": "Not sure"}]
+        },
+        {"key": "rent.known_repairs", "type": "TEXTAREA", "label": "Are there any repairs you already know about?", "validation": {"max_length": 2000}}
+      ]
+    }
+  ]
+}

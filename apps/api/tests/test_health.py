@@ -24,7 +24,7 @@ async def test_version(client: AsyncClient) -> None:
 
 
 @pytest.mark.integration
-async def test_ready_when_dependencies_up(client: AsyncClient) -> None:
+async def test_ready_when_dependencies_up(migrated: None, client: AsyncClient) -> None:
     response = await client.get("/health/ready")
     assert response.status_code == 200, response.text
     body = response.json()
@@ -34,7 +34,7 @@ async def test_ready_when_dependencies_up(client: AsyncClient) -> None:
 
 
 @pytest.mark.integration
-async def test_ready_reports_redis_outage(client_factory) -> None:  # type: ignore[no-untyped-def]
+async def test_ready_reports_redis_outage(migrated: None, client_factory) -> None:  # type: ignore[no-untyped-def]
     async with client_factory(redis_url="redis://127.0.0.1:1/0") as client:
         response = await client.get("/health/ready")
     assert response.status_code == 503
@@ -55,3 +55,27 @@ async def test_ready_reports_database_outage_without_leaking_dsn(client_factory)
     for secret in ("secretuser", "secretpass", "secretdb", "127.0.0.1"):
         assert secret not in response.text
     assert TEST_DATABASE_URL not in response.text
+
+
+@pytest.mark.integration
+async def test_ready_refuses_a_role_that_bypasses_rls_in_production(
+    migrated: None,
+    client_factory,  # type: ignore[no-untyped-def]
+) -> None:
+    from tests.conftest import TEST_APP_DATABASE_URL
+
+    production = {
+        "app_env": "production",
+        "secret_key": "x" * 40,
+        "cors_origins": ["https://app.approvalready.com.au"],
+        "email_provider": "console",
+        "migration_database_url": None,
+    }
+    async with client_factory(database_url=TEST_DATABASE_URL, **production) as client:
+        response = await client.get("/health/ready")
+    assert response.status_code == 503
+    assert response.json()["checks"]["database_role"]["status"] == "error"
+
+    async with client_factory(database_url=TEST_APP_DATABASE_URL, **production) as client:
+        response = await client.get("/health/ready")
+    assert response.json()["checks"]["database_role"]["status"] == "ok"

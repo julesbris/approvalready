@@ -1,0 +1,91 @@
+{
+  "key": "business.general",
+  "vertical": "BUSINESS",
+  "title": "Starting or changing a business",
+  "description": "Your answers describe the business, its premises and its activities. Licences and approvals are identified later from sourced rules.",
+  "sections": [
+    {
+      "title": "Your business",
+      "questions": [
+        {
+          "key": "business.activity", "type": "SELECT", "label": "What kind of business is it?", "required": true,
+          "options": [
+            {"value": "food_service", "label": "Café, restaurant or takeaway"},
+            {"value": "food_manufacturing", "label": "Food manufacturing"},
+            {"value": "retail", "label": "Retail shop"},
+            {"value": "personal_services", "label": "Hair, beauty or personal care"},
+            {"value": "health_services", "label": "Health or allied health"},
+            {"value": "trades", "label": "Trades and construction"},
+            {"value": "accommodation", "label": "Short-term accommodation"},
+            {"value": "entertainment", "label": "Entertainment or events"},
+            {"value": "childcare_education", "label": "Childcare or education"},
+            {"value": "other", "label": "Something else"}
+          ]
+        },
+        {"key": "business.description", "type": "TEXTAREA", "label": "Describe what the business does", "required": true, "validation": {"min_length": 10, "max_length": 2000}},
+        {"key": "business.has_abn", "type": "BOOLEAN", "label": "Does the business have an ABN?", "required": true},
+        {"key": "business.abn", "type": "TEXT", "label": "ABN", "required": true, "validation": {"pattern": "[0-9]{2} ?[0-9]{3} ?[0-9]{3} ?[0-9]{3}", "pattern_message": "Enter the 11-digit ABN."}, "visible_when": {"fact": "business.has_abn", "op": "equals", "value": true}},
+        {
+          "key": "business.entity_type", "type": "SELECT", "label": "Business structure", "required": true,
+          "options": [
+            {"value": "SOLE_TRADER", "label": "Sole trader"},
+            {"value": "PARTNERSHIP", "label": "Partnership"},
+            {"value": "COMPANY", "label": "Company"},
+            {"value": "TRUST", "label": "Trust"},
+            {"value": "INCORPORATED_ASSOCIATION", "label": "Incorporated association"},
+            {"value": "COOPERATIVE", "label": "Co-operative"},
+            {"value": "OTHER", "label": "Other"}
+          ]
+        },
+        {
+          "key": "business.employee_band", "type": "SELECT", "label": "How many people will work in the business?",
+          "options": [
+            {"value": "NONE", "label": "Just me"},
+            {"value": "1_4", "label": "1 to 4 employees"},
+            {"value": "5_19", "label": "5 to 19 employees"},
+            {"value": "20_199", "label": "20 to 199 employees"},
+            {"value": "200_PLUS", "label": "200 or more employees"}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Premises",
+      "questions": [
+        {
+          "key": "business.premises_type", "type": "SELECT", "label": "Where will the business operate?", "required": true,
+          "options": [
+            {"value": "leased_commercial", "label": "Leased commercial premises"},
+            {"value": "owned_commercial", "label": "Commercial premises I own"},
+            {"value": "home", "label": "From home"},
+            {"value": "mobile", "label": "Mobile (vehicle, van or market stall)"},
+            {"value": "online", "label": "Online only"}
+          ]
+        },
+        {"key": "business.premises_address", "type": "ADDRESS", "label": "Premises address", "required": true, "visible_when": {"fact": "business.premises_type", "op": "in", "value": ["leased_commercial", "owned_commercial", "home"]}},
+        {"key": "business.fit_out_planned", "type": "BOOLEAN", "label": "Are you planning building or fit-out work at the premises?", "visible_when": {"fact": "business.premises_type", "op": "in", "value": ["leased_commercial", "owned_commercial"]}}
+      ]
+    },
+    {
+      "title": "Activities",
+      "questions": [
+        {"key": "business.handles_food", "type": "BOOLEAN", "label": "Will you prepare, sell or serve food?", "required": true},
+        {
+          "key": "business.food_activities", "type": "MULTISELECT", "label": "Which of these will you do?", "required": true,
+          "visible_when": {"fact": "business.handles_food", "op": "equals", "value": true},
+          "options": [
+            {"value": "prepare_on_site", "label": "Prepare food on site"},
+            {"value": "serve_on_premises", "label": "Serve food to eat on the premises"},
+            {"value": "sell_packaged", "label": "Sell pre-packaged food"},
+            {"value": "deliver", "label": "Deliver food"},
+            {"value": "mobile_food", "label": "Sell food from a vehicle or stall"}
+          ]
+        },
+        {"key": "business.sells_alcohol", "type": "BOOLEAN", "label": "Will you sell or serve alcohol?", "required": true},
+        {"key": "business.footpath_use", "type": "BOOLEAN", "label": "Do you plan to use the footpath for tables, chairs or signs?", "visible_when": {"fact": "business.premises_type", "op": "in", "value": ["leased_commercial", "owned_commercial"]}},
+        {"key": "business.live_music_or_events", "type": "BOOLEAN", "label": "Will there be live music, amplified sound or events?"},
+        {"key": "business.opening_date", "type": "DATE", "label": "When do you want to open or make the change?"}
+      ]
+    }
+  ]
+}

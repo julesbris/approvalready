@@ -12,7 +12,14 @@ import uuid
 from collections.abc import Iterable
 from datetime import datetime
 
-from sqlalchemy import CheckConstraint, DateTime, ForeignKey, MetaData, func
+from sqlalchemy import (
+    CheckConstraint,
+    DateTime,
+    ForeignKey,
+    ForeignKeyConstraint,
+    MetaData,
+    func,
+)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, declared_attr, mapped_column
 
@@ -52,6 +59,10 @@ class UUIDPrimaryKeyMixin:
 
 
 class TimestampMixin:
+    # Fetch server-generated values (updated_at on UPDATE) with RETURNING, so they never need
+    # a lazy load, which async sessions cannot do.
+    __mapper_args__ = {"eager_defaults": True}  # noqa: RUF012
+
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
     )
@@ -72,7 +83,42 @@ class SoftDeleteMixin:
     deleted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
-def enum_check(column: str, values: Iterable[str], name: str | None = None) -> CheckConstraint:
+def enum_check(
+    column: str, values: Iterable[str], name: str | None = None, *, nullable: bool = False
+) -> CheckConstraint:
     """``CHECK (column IN (...))`` for text-backed enums (see DOMAIN_MODEL.md conventions)."""
     quoted = ", ".join(f"'{v}'" for v in values)
-    return CheckConstraint(f"{column} IN ({quoted})", name=name or f"{column}_valid")
+    sql = f"{column} IN ({quoted})"
+    if nullable:
+        sql = f"{column} IS NULL OR {sql}"
+    return CheckConstraint(sql, name=name or f"{column}_valid")
+
+
+class TenantMixin:
+    """Tenant-owned row (``T`` in DOMAIN_MODEL.md). Protected by a row-level security policy on
+    ``organisation_id`` (see ``app/db/tenant.py``); the migration that creates the table must
+    call ``enable_tenant_rls`` and ``tests/test_rls.py`` fails if it does not."""
+
+    @declared_attr
+    def organisation_id(cls) -> Mapped[uuid.UUID]:
+        return mapped_column(
+            UUID(as_uuid=True),
+            ForeignKey("organisation.id", ondelete="CASCADE"),
+            nullable=False,
+            index=True,
+        )
+
+
+def tenant_fk(
+    column: str, target_table: str, *, ondelete: str | None = None
+) -> ForeignKeyConstraint:
+    """Composite foreign key ``(organisation_id, <col>) -> target(organisation_id, id)``.
+
+    Foreign-key checks bypass row-level security, so a plain FK would let a row point at
+    another organisation's row. Including ``organisation_id`` makes that impossible.
+    """
+    return ForeignKeyConstraint(
+        ["organisation_id", column],
+        [f"{target_table}.organisation_id", f"{target_table}.id"],
+        ondelete=ondelete,
+    )

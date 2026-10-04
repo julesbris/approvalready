@@ -6,7 +6,7 @@ from alembic.migration import MigrationContext
 from sqlalchemy import create_engine, text
 
 from app.db.base import Base
-from tests.conftest import TEST_DATABASE_URL
+from tests.conftest import TEST_DATABASE_URL, prepare_database
 
 pytestmark = pytest.mark.integration
 
@@ -31,7 +31,7 @@ def test_upgrade_downgrade_roundtrip() -> None:
     assert {"pgcrypto", "citext"} <= _extensions()
     command.downgrade(cfg, "base")
     assert not ({"pgcrypto", "citext"} & _extensions())
-    command.upgrade(cfg, "head")
+    prepare_database()  # later tests need the app role's grants and the questionnaires
     assert {"pgcrypto", "citext"} <= _extensions()
 
 

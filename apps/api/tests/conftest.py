@@ -6,14 +6,23 @@ from collections.abc import AsyncIterator
 import pytest
 from fastapi import FastAPI
 from httpx import ASGITransport, AsyncClient
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+from sqlalchemy.pool import NullPool
 
 from app.core.config import EmailProviderKind, Environment, Settings
 from app.main import create_app
 from tests.harness import ApiHarness
 
+# Owner (runs migrations, provisions roles, syncs reference data).
 TEST_DATABASE_URL = os.environ.get(
     "TEST_DATABASE_URL",
     "postgresql+psycopg://approvalready:approvalready@localhost:5432/approvalready_test",
+)
+# What the application connects as: a non-owner role subject to row-level security,
+# created by ``prepare_database``.
+TEST_APP_DATABASE_URL = os.environ.get(
+    "TEST_APP_DATABASE_URL",
+    "postgresql+psycopg://approvalready_app:approvalready_app@localhost:5432/approvalready_test",
 )
 TEST_REDIS_URL = os.environ.get("TEST_REDIS_URL", "redis://localhost:6379/15")
 
@@ -21,7 +30,8 @@ TEST_REDIS_URL = os.environ.get("TEST_REDIS_URL", "redis://localhost:6379/15")
 def make_settings(**overrides: object) -> Settings:
     values: dict[str, object] = {
         "app_env": Environment.TEST,
-        "database_url": TEST_DATABASE_URL,
+        "database_url": TEST_APP_DATABASE_URL,
+        "migration_database_url": TEST_DATABASE_URL,
         "redis_url": TEST_REDIS_URL,
         "cors_origins": ["http://localhost:3000"],
         "allowed_hosts": ["testserver", "localhost"],
@@ -76,15 +86,28 @@ def client_factory():  # type: ignore[no-untyped-def]
 # --- Database-backed fixtures (Milestone 2+) -------------------------------------------
 
 
-@pytest.fixture(scope="session")
-def migrated() -> None:
-    """Bring the test database to the latest migration once per run."""
+def prepare_database() -> None:
+    """What a deploy's ``migrate`` step does: migrate, provision the app role, publish the
+    bundled questionnaires."""
+    import asyncio
+
     from alembic import command
     from alembic.config import Config
+
+    from app import cli
 
     cfg = Config("alembic.ini")
     cfg.attributes["database_url"] = TEST_DATABASE_URL
     command.upgrade(cfg, "head")
+    settings = make_settings()
+    assert asyncio.run(cli.provision_db_role(settings)) == 0
+    assert asyncio.run(cli.sync_questionnaires(settings)) == 0
+
+
+@pytest.fixture(scope="session")
+def migrated() -> None:
+    """Bring the test database to the latest migration once per run."""
+    prepare_database()
 
 
 @pytest.fixture
@@ -96,3 +119,14 @@ async def api(migrated: None, app: FastAPI, client: AsyncClient) -> AsyncIterato
         yield harness
     finally:
         await harness.aclose()
+
+
+@pytest.fixture
+async def owner_sessions(migrated: None) -> AsyncIterator[async_sessionmaker[AsyncSession]]:
+    """Sessions as the schema owner (a superuser in tests): bypasses RLS and privileges.
+    For setting up and inspecting state the application role must not be able to touch."""
+    engine = create_async_engine(TEST_DATABASE_URL, poolclass=NullPool)
+    try:
+        yield async_sessionmaker(engine, expire_on_commit=False)
+    finally:
+        await engine.dispose()

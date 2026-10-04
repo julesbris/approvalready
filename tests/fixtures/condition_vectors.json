@@ -1,0 +1,803 @@
+[
+ {
+  "name": "equals string match",
+  "condition": {
+   "fact": "a",
+   "op": "equals",
+   "value": "x"
+  },
+  "facts": {
+   "a": "x"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "equals string mismatch",
+  "condition": {
+   "fact": "a",
+   "op": "equals",
+   "value": "x"
+  },
+  "facts": {
+   "a": "y"
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "equals is case sensitive",
+  "condition": {
+   "fact": "a",
+   "op": "equals",
+   "value": "x"
+  },
+  "facts": {
+   "a": "X"
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "equals int and float",
+  "condition": {
+   "fact": "n",
+   "op": "equals",
+   "value": 1
+  },
+  "facts": {
+   "n": 1.0
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "equals number vs numeric string",
+  "condition": {
+   "fact": "n",
+   "op": "equals",
+   "value": 600
+  },
+  "facts": {
+   "n": "600"
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "equals bool",
+  "condition": {
+   "fact": "b",
+   "op": "equals",
+   "value": true
+  },
+  "facts": {
+   "b": true
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "bool is not a number",
+  "condition": {
+   "fact": "b",
+   "op": "equals",
+   "value": 1
+  },
+  "facts": {
+   "b": true
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "number is not a bool",
+  "condition": {
+   "fact": "n",
+   "op": "equals",
+   "value": true
+  },
+  "facts": {
+   "n": 1
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "equals missing fact is unknown",
+  "condition": {
+   "fact": "a",
+   "op": "equals",
+   "value": "x"
+  },
+  "facts": {},
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "equals null fact is unknown",
+  "condition": {
+   "fact": "a",
+   "op": "equals",
+   "value": "x"
+  },
+  "facts": {
+   "a": null
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "equals empty string is missing",
+  "condition": {
+   "fact": "a",
+   "op": "equals",
+   "value": "x"
+  },
+  "facts": {
+   "a": ""
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "equals list fact single value",
+  "condition": {
+   "fact": "m",
+   "op": "equals",
+   "value": "x"
+  },
+  "facts": {
+   "m": [
+    "x"
+   ]
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "equals dates",
+  "condition": {
+   "fact": "d",
+   "op": "equals",
+   "value": "2026-01-31"
+  },
+  "facts": {
+   "d": "2026-01-31"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "not_equals",
+  "condition": {
+   "fact": "a",
+   "op": "not_equals",
+   "value": "x"
+  },
+  "facts": {
+   "a": "y"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "not_equals missing is unknown",
+  "condition": {
+   "fact": "a",
+   "op": "not_equals",
+   "value": "x"
+  },
+  "facts": {},
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "greater_than numbers",
+  "condition": {
+   "fact": "n",
+   "op": "greater_than",
+   "value": 600
+  },
+  "facts": {
+   "n": 600.5
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "greater_than equal is false",
+  "condition": {
+   "fact": "n",
+   "op": "greater_than",
+   "value": 600
+  },
+  "facts": {
+   "n": 600
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "greater_equal boundary",
+  "condition": {
+   "fact": "n",
+   "op": "greater_equal",
+   "value": 600
+  },
+  "facts": {
+   "n": 600
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "less_than",
+  "condition": {
+   "fact": "n",
+   "op": "less_than",
+   "value": 10
+  },
+  "facts": {
+   "n": -3
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "less_equal boundary",
+  "condition": {
+   "fact": "n",
+   "op": "less_equal",
+   "value": 10
+  },
+  "facts": {
+   "n": 10.0
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "decimal precision",
+  "condition": {
+   "fact": "n",
+   "op": "greater_than",
+   "value": 0.1
+  },
+  "facts": {
+   "n": 0.2
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "ordering dates",
+  "condition": {
+   "fact": "d",
+   "op": "greater_than",
+   "value": "2026-01-01"
+  },
+  "facts": {
+   "d": "2026-02-01"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "ordering dates before",
+  "condition": {
+   "fact": "d",
+   "op": "less_than",
+   "value": "2026-01-01"
+  },
+  "facts": {
+   "d": "2025-12-31"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "ordering string is unknown",
+  "condition": {
+   "fact": "a",
+   "op": "greater_than",
+   "value": 5
+  },
+  "facts": {
+   "a": "abc"
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "ordering bool fact is unknown",
+  "condition": {
+   "fact": "b",
+   "op": "greater_than",
+   "value": 0
+  },
+  "facts": {
+   "b": true
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "ordering date vs number is unknown",
+  "condition": {
+   "fact": "d",
+   "op": "greater_than",
+   "value": 5
+  },
+  "facts": {
+   "d": "2026-01-01"
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "ordering missing is unknown",
+  "condition": {
+   "fact": "n",
+   "op": "greater_than",
+   "value": 5
+  },
+  "facts": {},
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "contains list member",
+  "condition": {
+   "fact": "m",
+   "op": "contains",
+   "value": "x"
+  },
+  "facts": {
+   "m": [
+    "x",
+    "y"
+   ]
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "contains list non-member",
+  "condition": {
+   "fact": "m",
+   "op": "contains",
+   "value": "z"
+  },
+  "facts": {
+   "m": [
+    "x",
+    "y"
+   ]
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "contains substring case-insensitive",
+  "condition": {
+   "fact": "t",
+   "op": "contains",
+   "value": "inlet"
+  },
+  "facts": {
+   "t": "Within Trinity Inlet"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "contains on number is unknown",
+  "condition": {
+   "fact": "n",
+   "op": "contains",
+   "value": "1"
+  },
+  "facts": {
+   "n": 10
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "contains empty list is missing",
+  "condition": {
+   "fact": "m",
+   "op": "contains",
+   "value": "x"
+  },
+  "facts": {
+   "m": []
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "not_contains",
+  "condition": {
+   "fact": "m",
+   "op": "not_contains",
+   "value": "z"
+  },
+  "facts": {
+   "m": [
+    "x"
+   ]
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "not_contains member",
+  "condition": {
+   "fact": "m",
+   "op": "not_contains",
+   "value": "x"
+  },
+  "facts": {
+   "m": [
+    "x"
+   ]
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "in",
+  "condition": {
+   "fact": "a",
+   "op": "in",
+   "value": [
+    "x",
+    "y"
+   ]
+  },
+  "facts": {
+   "a": "y"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "in numbers",
+  "condition": {
+   "fact": "n",
+   "op": "in",
+   "value": [
+    1,
+    2
+   ]
+  },
+  "facts": {
+   "n": 2.0
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "in miss",
+  "condition": {
+   "fact": "a",
+   "op": "in",
+   "value": [
+    "x",
+    "y"
+   ]
+  },
+  "facts": {
+   "a": "z"
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "in with list fact is unknown",
+  "condition": {
+   "fact": "m",
+   "op": "in",
+   "value": [
+    "x"
+   ]
+  },
+  "facts": {
+   "m": [
+    "x"
+   ]
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "not_in",
+  "condition": {
+   "fact": "a",
+   "op": "not_in",
+   "value": [
+    "x"
+   ]
+  },
+  "facts": {
+   "a": "y"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "not_in missing is unknown",
+  "condition": {
+   "fact": "a",
+   "op": "not_in",
+   "value": [
+    "x"
+   ]
+  },
+  "facts": {},
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "exists present",
+  "condition": {
+   "fact": "a",
+   "op": "exists"
+  },
+  "facts": {
+   "a": "x"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "exists false value counts",
+  "condition": {
+   "fact": "b",
+   "op": "exists"
+  },
+  "facts": {
+   "b": false
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "exists zero counts",
+  "condition": {
+   "fact": "n",
+   "op": "exists"
+  },
+  "facts": {
+   "n": 0
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "exists absent",
+  "condition": {
+   "fact": "a",
+   "op": "exists"
+  },
+  "facts": {},
+  "expected": "FALSE"
+ },
+ {
+  "name": "exists empty list",
+  "condition": {
+   "fact": "m",
+   "op": "exists"
+  },
+  "facts": {
+   "m": []
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "missing absent",
+  "condition": {
+   "fact": "a",
+   "op": "missing"
+  },
+  "facts": {},
+  "expected": "TRUE"
+ },
+ {
+  "name": "missing present",
+  "condition": {
+   "fact": "a",
+   "op": "missing"
+  },
+  "facts": {
+   "a": "x"
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "all true",
+  "condition": {
+   "all": [
+    {
+     "fact": "a",
+     "op": "equals",
+     "value": "x"
+    },
+    {
+     "fact": "n",
+     "op": "greater_than",
+     "value": 1
+    }
+   ]
+  },
+  "facts": {
+   "a": "x",
+   "n": 2
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "all one false wins over unknown",
+  "condition": {
+   "all": [
+    {
+     "fact": "a",
+     "op": "equals",
+     "value": "x"
+    },
+    {
+     "fact": "n",
+     "op": "greater_than",
+     "value": 1
+    }
+   ]
+  },
+  "facts": {
+   "a": "y"
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "all unknown",
+  "condition": {
+   "all": [
+    {
+     "fact": "a",
+     "op": "equals",
+     "value": "x"
+    },
+    {
+     "fact": "n",
+     "op": "greater_than",
+     "value": 1
+    }
+   ]
+  },
+  "facts": {
+   "a": "x"
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "any one true wins over unknown",
+  "condition": {
+   "any": [
+    {
+     "fact": "a",
+     "op": "equals",
+     "value": "x"
+    },
+    {
+     "fact": "n",
+     "op": "greater_than",
+     "value": 1
+    }
+   ]
+  },
+  "facts": {
+   "a": "x"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "any unknown",
+  "condition": {
+   "any": [
+    {
+     "fact": "a",
+     "op": "equals",
+     "value": "x"
+    },
+    {
+     "fact": "n",
+     "op": "greater_than",
+     "value": 1
+    }
+   ]
+  },
+  "facts": {
+   "a": "y"
+  },
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "any all false",
+  "condition": {
+   "any": [
+    {
+     "fact": "a",
+     "op": "equals",
+     "value": "x"
+    },
+    {
+     "fact": "n",
+     "op": "greater_than",
+     "value": 1
+    }
+   ]
+  },
+  "facts": {
+   "a": "y",
+   "n": 0
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "not true",
+  "condition": {
+   "not": {
+    "fact": "a",
+    "op": "equals",
+    "value": "x"
+   }
+  },
+  "facts": {
+   "a": "x"
+  },
+  "expected": "FALSE"
+ },
+ {
+  "name": "not unknown stays unknown",
+  "condition": {
+   "not": {
+    "fact": "a",
+    "op": "equals",
+    "value": "x"
+   }
+  },
+  "facts": {},
+  "expected": "UNKNOWN"
+ },
+ {
+  "name": "not missing",
+  "condition": {
+   "not": {
+    "fact": "a",
+    "op": "missing"
+   }
+  },
+  "facts": {
+   "a": "x"
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "nested",
+  "condition": {
+   "all": [
+    {
+     "any": [
+      {
+       "fact": "t",
+       "op": "equals",
+       "value": "sec"
+      },
+      {
+       "fact": "t",
+       "op": "equals",
+       "value": "new"
+      }
+     ]
+    },
+    {
+     "not": {
+      "fact": "lots",
+      "op": "greater_than",
+      "value": 2
+     }
+    }
+   ]
+  },
+  "facts": {
+   "t": "new",
+   "lots": 2
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "dotted fact paths",
+  "condition": {
+   "fact": "property.land_area_m2",
+   "op": "greater_equal",
+   "value": 600
+  },
+  "facts": {
+   "property.land_area_m2": 800
+  },
+  "expected": "TRUE"
+ },
+ {
+  "name": "equals list fact with two values",
+  "condition": {
+   "fact": "m",
+   "op": "equals",
+   "value": "x"
+  },
+  "facts": {
+   "m": [
+    "x",
+    "y"
+   ]
+  },
+  "expected": "FALSE"
+ }
+]
