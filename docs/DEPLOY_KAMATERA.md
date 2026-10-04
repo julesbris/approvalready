@@ -112,6 +112,8 @@ cp .env.example .env && chmod 600 .env
 Fill `.env`. Generate secrets with `openssl rand -hex 32` (hex keeps them URL-safe for the
 database DSN). Required: `PRIMARY_DOMAIN`, `ACME_EMAIL`, `CORS_ORIGINS` (https only),
 `ALLOWED_HOSTS` (include `api.<domain>`), `SECRET_KEY` (≥ 32 chars), `POSTGRES_PASSWORD`,
+`APP_DB_PASSWORD` (different from `POSTGRES_PASSWORD`; `APP_DB_USER` defaults to
+`approvalready_app`),
 `REDIS_PASSWORD`, `EMAIL_FROM`, `SMTP_HOST` (plus `SMTP_USERNAME`/`SMTP_PASSWORD` for the
 relay; STARTTLS on 587 with certificate verification by default). The API refuses to start in
 production with unsafe values (including non-Secure cookies or a non-https `WEB_BASE_URL`).
@@ -125,8 +127,19 @@ docker compose -f docker-compose.prod.yml --env-file .env build
 docker compose -f docker-compose.prod.yml --env-file .env up -d --wait
 ```
 
-`migrate` runs `alembic upgrade head` once and exits; `api` and `worker` start only after it
-succeeds.
+`migrate` runs once and exits; `api` and `worker` start only after it succeeds. It is the only
+service given the database owner's credentials, and it:
+
+1. runs `alembic upgrade head`;
+2. runs `python -m app.cli provision-db-role`, which creates or updates the application's login
+   role (`APP_DB_USER`/`APP_DB_PASSWORD`) without superuser, BYPASSRLS or ownership, so
+   row-level security applies to everything the API and worker do;
+3. runs `python -m app.cli questionnaires sync`, publishing any changed questionnaire
+   definitions as new versions (unchanged ones are left alone).
+
+`/health/ready` reports `database_role` as failing in production if the API's role is ever a
+superuser, can bypass RLS or owns tables. To rotate `APP_DB_PASSWORD`, change it in `.env` and
+re-run `migrate` before restarting `api` and `worker`.
 
 Create the first administrator: register and confirm an account through the web app, then
 
