@@ -27,7 +27,7 @@ const config: NextConfig = {
       {
         // Everything except the nonce-CSP paths (NONCE_CSP_PATHS in src/lib/csp.ts).
         source:
-          "/((?!login|register|verify-email|forgot-password|reset-password|account|invitations).*)",
+          "/((?!login|register|verify-email|forgot-password|reset-password|account|invitations|projects).*)",
         headers: [{ key: "Content-Security-Policy", value: csp }],
       },
     ];

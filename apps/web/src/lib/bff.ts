@@ -1,7 +1,7 @@
 /** Rules for the `/api/v1/*` backend-for-frontend proxy (kept pure so they are unit tested). */
 
 /** Top-level API areas the browser may reach through the proxy. */
-const PROXIED_ROOTS = new Set(["auth", "organisations", "invitations", "admin"]);
+const PROXIED_ROOTS = new Set(["auth", "organisations", "invitations", "questionnaires", "admin"]);
 
 /** Request headers forwarded to the API. Anything else (e.g. Authorization) is dropped. */
 const FORWARDED_HEADERS = [
