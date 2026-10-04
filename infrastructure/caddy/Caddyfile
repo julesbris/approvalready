@@ -1,0 +1,62 @@
+# ApprovalReady reverse proxy. Hostnames derive from PRIMARY_DOMAIN
+# (e.g. approvalready.com.au). Behind Cloudflare use SSL mode "Full (strict)".
+{
+	email {$ACME_EMAIL}
+	servers {
+		# Cloudflare and other trusted proxies set X-Forwarded-For; trust only private ranges
+		# here and add Cloudflare ranges explicitly when proxied (see DEPLOY_KAMATERA.md).
+		trusted_proxies static private_ranges
+	}
+}
+
+(common) {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=63072000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+		-X-Powered-By
+	}
+	log {
+		output stdout
+		format json
+	}
+}
+
+# API
+api.{$PRIMARY_DOMAIN} {
+	import common
+	request_body {
+		max_size 25MB
+	}
+	reverse_proxy api:8000 {
+		health_uri /health/live
+		health_interval 15s
+	}
+}
+
+# Public site, customer app, partner portal and review portal are one Next.js
+# application; it resolves brand and surface from the Host header.
+{$PRIMARY_DOMAIN}, app.{$PRIMARY_DOMAIN}, partners.{$PRIMARY_DOMAIN}, review.{$PRIMARY_DOMAIN} {
+	import common
+	request_body {
+		max_size 10MB
+	}
+	reverse_proxy web:3000 {
+		health_uri /api/health
+		health_interval 15s
+	}
+}
+
+www.{$PRIMARY_DOMAIN} {
+	redir https://{$PRIMARY_DOMAIN}{uri} permanent
+}
+
+# Marketing domains that 301 to a vertical path. Add one block per owned domain once DNS
+# points here (domain availability is not assumed). From Milestone 2-3 these move to
+# on-demand TLS gated by the API's brand_domain table.
+#
+# planningready.com.au, www.planningready.com.au {
+# 	redir https://{$PRIMARY_DOMAIN}/planning{uri} permanent
+# }

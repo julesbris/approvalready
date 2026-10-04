@@ -1,0 +1,20 @@
+{
+  "name": "approvalready",
+  "private": true,
+  "version": "0.1.0",
+  "description": "ApprovalReady platform monorepo",
+  "workspaces": [
+    "apps/web",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev:web": "npm run dev --workspace @approvalready/web",
+    "build:web": "npm run build --workspace @approvalready/web",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  }
+}

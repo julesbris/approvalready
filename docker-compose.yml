@@ -1,0 +1,102 @@
+# Local development stack.
+#   cp .env.example .env && docker compose up --build
+# API hot-reloads from ./apps/api. For web hot reload run `npm run dev:web` on the host
+# (the `web` service here runs the production build).
+name: approvalready-dev
+
+x-api-env: &api-env
+  APP_ENV: development
+  LOG_LEVEL: ${LOG_LEVEL:-INFO}
+  SECRET_KEY: ${SECRET_KEY:-dev-insecure-change-me}
+  DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-approvalready}:${POSTGRES_PASSWORD:-approvalready}@db:5432/${POSTGRES_DB:-approvalready}
+  REDIS_URL: redis://:${REDIS_PASSWORD:-approvalready}@redis:6379/0
+  CORS_ORIGINS: http://localhost:3000
+  ALLOWED_HOSTS: localhost,127.0.0.1,api
+
+services:
+  db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-approvalready}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-approvalready}
+      POSTGRES_DB: ${POSTGRES_DB:-approvalready}
+    volumes:
+      - pgdata:/var/lib/postgresql
+    ports:
+      - "127.0.0.1:5432:5432" # loopback only, for local tools
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:8-alpine
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD:-approvalready}", "--appendonly", "yes"]
+    environment:
+      REDISCLI_AUTH: ${REDIS_PASSWORD:-approvalready}
+    volumes:
+      - redisdata:/data
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  migrate:
+    build: ./apps/api
+    command: ["migrate"]
+    environment: *api-env
+    depends_on:
+      db: { condition: service_healthy }
+
+  api:
+    build: ./apps/api
+    command: ["api-dev"]
+    environment: *api-env
+    volumes:
+      - ./apps/api/app:/app/app
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+      redis: { condition: service_healthy }
+
+  worker:
+    build: ./apps/api
+    command: ["worker"]
+    environment: *api-env
+    healthcheck:
+      test: ["CMD-SHELL", "celery -A app.worker inspect ping -d celery@$$HOSTNAME --timeout 5"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+      redis: { condition: service_healthy }
+
+  scheduler:
+    build: ./apps/api
+    command: ["scheduler"]
+    environment: *api-env
+    healthcheck:
+      disable: true
+    depends_on:
+      redis: { condition: service_healthy }
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    environment:
+      API_INTERNAL_URL: http://api:8000
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      api: { condition: service_healthy }
+
+volumes:
+  pgdata:
+  redisdata:

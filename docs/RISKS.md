@@ -1,0 +1,39 @@
+# Risks
+
+Likelihood/impact: H/M/L. Owner milestone = where the mitigation is built.
+
+## 1. Security risks
+
+| # | Risk | L/I | Mitigation | Milestone |
+|---|---|---|---|---|
+| S1 | **Cross-tenant data leakage** (a customer or partner reads another organisation's project, documents or leads). | M/H | All data access through repositories requiring an `AuthContext`; tenant filter applied centrally; Postgres RLS as second layer; automated tenant-isolation test suite that hits every endpoint as a foreign org. | 2–3, continuous |
+| S2 | **Partner PII leakage before consent/claim** via a list endpoint, export, notification email or analytics query. | M/H | Separate whitelisted `LeadPublicView` schema; contact fields only from the claim endpoint; release recorded in audit; notification templates take the public view only; tests assert no PII keys in anonymised payloads. | 15 |
+| S3 | **Prompt injection** from uploaded PDFs/webpages changing behaviour, exfiltrating other data or inventing requirements. | H/H | AI has no tools with side effects; uploads passed as delimited data; system prompts not user-editable; per-job context limited to that project; output schema validation and post-check that every claim maps to an input finding ID; humans review before anything becomes `VERIFIED`. | 12 |
+| S4 | **Malicious uploads** (malware, polyglot files, zip bombs, XXE in DOCX/XLSX, oversized files). | M/H | Size limits at Caddy and API; magic-byte MIME detection vs declared; ClamAV scan interface (documents unusable until `CLEAN`); parse in worker with resource limits; `defusedxml`; never serve uploads inline from the app origin (signed URLs, `Content-Disposition: attachment`). | 6 |
+| S5 | **Account takeover** (credential stuffing, weak resets). | M/H | Argon2id; per-account and per-IP throttling; breached-password check (k-anonymity HIBP range API, optional); single-use hashed reset tokens with short expiry; session revocation on reset; MFA/passkeys later. | 2 |
+| S6 | **Session theft / CSRF / XSS.** | M/H | `__Host-` HTTP-only Secure cookies, no tokens in localStorage; SameSite + CSRF token; strict CSP with nonces; React escaping; no `dangerouslySetInnerHTML` on user/AI content without sanitisation. | 1 (headers), 2 |
+| S7 | **Payment-state spoofing** (client claims to have paid; forged webhooks; replayed events). | M/H | Stripe signature + timestamp verification; idempotent `stripe_event` store; entitlements derived only from server state. | 13–14 |
+| S8 | **Lead-claim race conditions** (more than N claims, double charging). | M/M | Row lock on lead; unique constraints; fee + claim + audit in one transaction; concurrency test. | 15 |
+| S9 | **Exposed data services** (Postgres/Redis reachable from internet). | L/H | No published ports for db/redis in prod compose; internal Docker network; UFW + provider firewall; Redis `requirepass`; test in CI that prod compose publishes only proxy ports. | 1 |
+| S10 | **Secrets leakage** (committed `.env`, secrets in logs or images). | M/H | `.env` gitignored, `.env.example` only; secrets via env/Docker secrets on host; log redaction of auth headers/cookies; secret scanning in CI. | 1, 17 |
+| S11 | **Privilege escalation via admin surface or role misassignment.** | L/H | Platform roles only via `PLATFORM_ADMIN` org; admin actions audited; optional IP allowlist for `/admin`; SUPERADMIN count kept tiny. | 2 |
+| S12 | **Audit log tampering.** | L/M | App role lacks UPDATE/DELETE on `audit_event`; hash chain; off-host backup. | 2 |
+| S13 | **Single-host failure / data loss** (Kamatera VM). | M/H | Nightly `pg_dump` + WAL archiving to off-site S3, tested restore runbook, object storage off-host. | 17 |
+| S14 | **Supply-chain risk** (npm/PyPI). | M/M | Lockfiles, Dependabot/Renovate, pinned base images, minimal images, non-root containers. | 1, continuous |
+
+## 2. Regulatory-data risks
+
+| # | Risk | L/I | Mitigation |
+|---|---|---|---|
+| R1 | **Stale rules.** Planning schemes, fees, AMSA exemptions, grant rounds and tenancy laws change; a published rule silently goes out of date. | H/H | `effective_from/to` on sources and rule versions; `next_review_due` on every source reference; scheduler raises review tasks; content hashing of source snapshots to detect changed pages; findings degrade to `REVIEW_REQUIRED` when a source is past review date. |
+| R2 | **LLM hallucination presented as fact** (invented clauses, fees, dates, criteria). | H/H | Architecture forbids AI-originated requirements; AI output validated against findings; generated documents show source list and review status; AI text visually distinct from deterministic findings. |
+| R3 | **Fabricated or assumed government integrations.** No public API exists for many councils, ePlanning, Titles Queensland, AMSA, RTA bond lodgement, etc. | H/H | Provider interfaces with development mocks (clearly labelled `MOCK` in UI and data); no claims of live integration; manual capture with provenance where no API exists; licensed data (e.g. title searches, G-NAF terms) checked before use. |
+| R4 | **Unauthorised legal/financial advice.** Conveyancing, legal advice, financial product advice (AFSL) and credit (ACL) are regulated; tenant selection has anti-discrimination obligations. | M/H | Product framed as information + preparation tools; professional handoff for regulated steps; clear limitations section on every report; no AI tenant selection or ranking; mortgage/finance referrals only to licensed partners with disclosure. Obtain Australian legal advice before launch. |
+| R5 | **Misleading conduct under Australian Consumer Law** (overstated certainty, undisclosed paid placement). | M/H | Four-level confidence model, never manufactured certainty; "Sponsored"/commercial-relationship disclosure recorded on every referral; no arbitrary grant success percentages. |
+| R6 | **Privacy Act 1988 / APPs** (and the 2024+ reforms: statutory tort, children's privacy, automated decision transparency). | M/H | Separate consents (service, marketing, referral) with versioned text; data minimisation to partners; export/deletion request workflow; retention policies; privacy policy explains automated processing; Notifiable Data Breaches response plan. |
+| R7 | **Spam Act 2003** for partner and marketing messages. | M/M | Marketing consent separate; unsubscribe in all commercial messages; partner contact only after referral consent. |
+| R8 | **Jurisdictional variance.** Rules differ by state and LGA; QLD-first content wrongly applied elsewhere. | H/M | Every rule set scoped by jurisdiction/LGA; out-of-scope locations yield `UNKNOWN` with a clear message, not the nearest match. |
+| R9 | **Source licensing/copyright.** Reproducing large portions of planning schemes or paid standards (e.g. Australian Standards, NSCV parts) may breach licence terms. | M/M | Store short extracts with citation and link; check Creative Commons terms (many QLD/Cth sources are CC BY 4.0) and attribute; do not reproduce paid standards. |
+| R10 | **Reviewer overrides without basis.** | L/M | Override requires reason and optional new source reference; audited; shown in report. |
+| R11 | **Thin/duplicated SEO content** flagged by search engines or misleading users. | M/M | SEO pages generated only from reviewed, sourced content; no mass AI pages; `noindex` until reviewed. |
+| R12 | **Grant data accuracy** (rounds open/close, criteria change mid-round). | H/M | Round dates must cite source; daily scheduler flags rounds near close; `NEEDS_INFORMATION` instead of guessing; drafts never fabricate applicant facts (only from profile data, missing facts listed). |

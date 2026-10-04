@@ -1,0 +1,70 @@
+[project]
+name = "approvalready-api"
+version = "0.1.0"
+description = "ApprovalReady API: modular monolith for Australian approvals, compliance, property and funding."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.120",
+    "uvicorn[standard]>=0.38",
+    "pydantic>=2.12",
+    "pydantic-settings>=2.11",
+    "sqlalchemy[asyncio]>=2.0.40",
+    "alembic>=1.16",
+    "psycopg[binary,pool]>=3.2",
+    "redis>=6.0",
+    "celery[redis]>=5.5",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4",
+    "pytest-asyncio>=1.0",
+    "httpx>=0.28",
+    "ruff>=0.13",
+    "mypy>=1.18",
+    "pyyaml>=6.0",
+]
+
+[tool.uv]
+# Deployed as an application (copied into the image), not installed as a package.
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+markers = [
+    "integration: requires PostgreSQL and Redis (see scripts/test-services.sh)",
+]
+filterwarnings = ["error::DeprecationWarning:app.*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "ASYNC", "RUF", "SIM"]
+ignore = ["S101"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "tests"]
+known-third-party = ["alembic"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S105", "S106"]
+"alembic/**" = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+exclude = ["alembic/versions"]
+
+[[tool.mypy.overrides]]
+module = ["celery.*", "yaml"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["app.worker"]
+disallow_untyped_decorators = false
