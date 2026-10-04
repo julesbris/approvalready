@@ -1,7 +1,7 @@
 """Declarative base and shared column conventions for all domain models.
 
 Conventions (see docs/DOMAIN_MODEL.md): UUIDv7 primary keys, ``created_at``/``updated_at``
-in UTC, ``created_by`` and optional soft delete. Domain tables arrive from Milestone 2.
+in UTC, ``created_by`` and optional soft delete.
 """
 
 from __future__ import annotations
@@ -9,9 +9,10 @@ from __future__ import annotations
 import os
 import time
 import uuid
+from collections.abc import Iterable
 from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, MetaData, func
+from sqlalchemy import CheckConstraint, DateTime, ForeignKey, MetaData, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, declared_attr, mapped_column
 
@@ -69,3 +70,9 @@ class CreatedByMixin:
 
 class SoftDeleteMixin:
     deleted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
+def enum_check(column: str, values: Iterable[str], name: str | None = None) -> CheckConstraint:
+    """``CHECK (column IN (...))`` for text-backed enums (see DOMAIN_MODEL.md conventions)."""
+    quoted = ", ".join(f"'{v}'" for v in values)
+    return CheckConstraint(f"{column} IN ({quoted})", name=name or f"{column}_valid")

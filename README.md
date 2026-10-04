@@ -50,6 +50,8 @@ docker compose up --build     # db, redis, migrate, api, worker, scheduler, web
 | http://localhost:3000 | Web |
 | http://localhost:8000/health/ready | API readiness (DB + Redis) |
 | http://localhost:8000/docs | API docs (disabled in production) |
+| http://localhost:3000/register | Create an account (emails land in Mailpit) |
+| http://localhost:8025 | Mailpit: development mailbox |
 
 Web with hot reload: `npm install && npm run dev:web` (expects the API on :8000).
 
@@ -60,9 +62,12 @@ make test        # API (pytest, real Postgres 18 + Redis) and web (vitest)
 make lint        # ruff, mypy, eslint, tsc
 ```
 
+After changing API routes or schemas, regenerate the web's types with
+`npm run generate:types` (CI fails if they are stale).
+
 `scripts/test-services.sh up` starts throwaway Postgres and Redis containers bound to
 loopback for the API suite; `down` removes them.
 
 ## Status
 
-Milestone 1 (infrastructure) is complete. See [`TODO.md`](TODO.md) for what is next.
+Milestones 1 (infrastructure) and 2 (authentication, organisations, RBAC, audit) are complete. See [`TODO.md`](TODO.md) for what is next.

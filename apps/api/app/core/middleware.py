@@ -9,6 +9,7 @@ import uuid
 from collections.abc import Iterable
 
 from starlette.datastructures import MutableHeaders
+from starlette.responses import JSONResponse
 from starlette.types import ASGIApp, Message, Receive, Scope, Send
 
 from app.core.logging import request_id_var
@@ -97,3 +98,33 @@ class SecurityHeadersMiddleware:
             await send(message)
 
         await self.app(scope, receive, send_wrapper)
+
+
+UNSAFE_METHODS = frozenset({"POST", "PUT", "PATCH", "DELETE"})
+
+
+class OriginCheckMiddleware:
+    """Rejects state-changing browser requests from origins outside the allowlist.
+
+    Complements SameSite cookies and the CSRF token, and covers endpoints that run before a
+    session exists (login CSRF on /v1/auth/login). Requests without an Origin header
+    (server-to-server calls from the web app, CLI tools) are passed through.
+    """
+
+    def __init__(self, app: ASGIApp, *, allowed_origins: Iterable[str]) -> None:
+        self.app = app
+        self.allowed = frozenset(o.rstrip("/") for o in allowed_origins)
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
+        if scope["type"] != "http" or scope["method"] not in UNSAFE_METHODS:
+            await self.app(scope, receive, send)
+            return
+        origin = dict(scope["headers"]).get(b"origin", b"").decode("latin-1")
+        if origin and origin.rstrip("/") not in self.allowed:
+            response = JSONResponse(
+                {"detail": {"code": "origin_rejected", "message": "Request origin not allowed."}},
+                status_code=403,
+            )
+            await response(scope, receive, send)
+            return
+        await self.app(scope, receive, send)

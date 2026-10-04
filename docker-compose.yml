@@ -12,6 +12,12 @@ x-api-env: &api-env
   REDIS_URL: redis://:${REDIS_PASSWORD:-approvalready}@redis:6379/0
   CORS_ORIGINS: http://localhost:3000
   ALLOWED_HOSTS: localhost,127.0.0.1,api
+  WEB_BASE_URL: http://localhost:3000
+  # Plain-HTTP localhost: Safari rejects Secure cookies there, so use unprefixed names.
+  COOKIE_SECURE: "false"
+  EMAIL_PROVIDER: smtp
+  SMTP_HOST: mailpit
+  SMTP_PORT: "1025"
 
 services:
   db:
@@ -45,6 +51,12 @@ services:
       timeout: 3s
       retries: 20
 
+  # Development mailbox: every email the API sends lands here (UI on http://localhost:8025).
+  mailpit:
+    image: axllent/mailpit:v1.27
+    ports:
+      - "127.0.0.1:8025:8025"
+
   migrate:
     build: ./apps/api
     command: ["migrate"]
@@ -63,6 +75,7 @@ services:
     depends_on:
       migrate: { condition: service_completed_successfully }
       redis: { condition: service_healthy }
+      mailpit: { condition: service_started }
 
   worker:
     build: ./apps/api

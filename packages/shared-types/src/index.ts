@@ -1,29 +1,32 @@
 /**
- * API contracts shared by the web app and (later) generated from the FastAPI OpenAPI schema.
- * Keep in sync with apps/api/app/api/health.py until codegen is introduced (Milestone 2).
+ * API contracts shared by the web app. `api.ts` is generated from the FastAPI OpenAPI
+ * schema (`npm run generate:types` at the repo root); never edit it by hand. CI fails if
+ * it is out of date with the API.
  */
 
-export type CheckStatus = "ok" | "error";
+import type { components, paths } from "./api";
 
-export interface LiveResponse {
-  status: "ok";
-}
+export type { components, paths };
 
-export interface DependencyCheck {
-  status: CheckStatus;
-  latency_ms: number;
-}
+type Schemas = components["schemas"];
 
-export interface ReadyResponse {
-  status: CheckStatus;
-  checks: Record<string, DependencyCheck>;
-}
+export type LiveResponse = Schemas["LiveResponse"];
+export type DependencyCheck = Schemas["DependencyCheck"];
+export type ReadyResponse = Schemas["ReadyResponse"];
+export type VersionResponse = Schemas["VersionResponse"];
+export type CheckStatus = DependencyCheck["status"];
 
-export interface VersionResponse {
-  name: string;
-  version: string;
-  git_sha: string;
-  environment: string;
+export type SessionOut = Schemas["SessionOut"];
+export type UserOut = Schemas["UserOut"];
+export type MembershipOut = Schemas["MembershipOut"];
+export type OrganisationOut = Schemas["OrganisationOut"];
+export type MemberOut = Schemas["MemberOut"];
+export type InvitationOut = Schemas["InvitationOut"];
+export type AuditEventOut = Schemas["AuditEventOut"];
+
+/** Error body returned by the API for every handled error. */
+export interface ApiErrorBody {
+  detail: { code: string; message: string } | Array<{ msg: string; loc: (string | number)[] }>;
 }
 
 /** Regulatory confidence levels. Every regulatory outcome uses exactly one of these. */

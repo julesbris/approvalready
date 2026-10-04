@@ -237,24 +237,107 @@ Cookies: session cookies are host-only per surface (`__Host-` prefix), so a part
 session on `partners.` is not sent to `app.`. The API is called server-side from Next.js
 (BFF pattern) for authenticated pages, so the browser never holds a bearer token.
 
-## 5. Authentication and authorisation (design; built in Milestone 2)
+## 5. Authentication and authorisation (built in Milestone 2)
 
-* Argon2id password hashing (`argon2-cffi`), per-account + per-IP login throttling in Redis.
-* Opaque, random session tokens (256-bit) stored hashed in `session` table; delivered in
-  `__Host-` HTTP-only, Secure, SameSite=Lax cookies. Short idle timeout (30 min) with
-  sliding rotation; absolute lifetime (14 days); rotation on privilege change; server-side
-  revocation. No JWTs in browser storage. (Opaque sessions chosen over JWT because instant
-  revocation matters for suspending partners and bad actors.)
-* CSRF: SameSite=Lax + double-submit token header for state-changing requests.
-* `auth_identity` table keyed by `(provider, subject)` so Google/Microsoft OIDC and WebAuthn
-  passkeys slot in later without schema change.
-* Authorisation is a backend policy layer: every query for tenant data goes through a
-  repository that requires an `AuthContext(user, active_org, roles, permissions)` and
-  filters by `organisation_id`. Postgres Row-Level Security is enabled on tenant tables as
-  defence-in-depth (`SET LOCAL app.current_org`). Roles: `CUSTOMER`, `PROFESSIONAL`,
-  `PARTNER_USER`, `PARTNER_ADMIN`, `STAFF`, `ADMIN`, `SUPERADMIN`, granted per
-  organisation membership; platform roles (`STAFF+`) only via membership of the
-  ApprovalReady admin organisation.
+```mermaid
+sequenceDiagram
+    actor B as Browser
+    participant W as Next.js (app host)
+    participant A as FastAPI
+    participant DB as PostgreSQL
+    participant R as Redis
+    B->>W: POST /api/v1/auth/login (same origin)
+    W->>A: POST /v1/auth/login (Origin, XFF forwarded)
+    A->>R: per-account / per-IP failure counters
+    A->>DB: Argon2id verify, insert auth_session (token hash), audit_event
+    A-->>W: Set-Cookie __Host-ar_session (HttpOnly) + __Host-ar_csrf
+    W-->>B: Set-Cookie relayed unchanged (host-only cookies on the app host)
+    B->>W: POST /api/v1/... + X-CSRF-Token header
+    W->>A: cookie + CSRF header
+    A->>DB: resolve session → user → membership → role → permission
+```
+
+* **Passwords:** Argon2id (`argon2-cffi` defaults, RFC 9106 profile), rehash on login when
+  parameters change. Minimum 12 characters, maximum 256, not equal to the email. Unknown
+  emails still run an Argon2 verification against a dummy hash (timing).
+* **Sessions:** opaque 256-bit tokens; only SHA-256 hashes are stored (`auth_session`).
+  Idle timeout 30 min (sliding, written at most once a minute), absolute lifetime 14 days,
+  periodic rotation every 60 min with a 60 s grace period for in-flight requests, strict
+  rotation (no grace) on privilege changes (organisation switch, password change).
+  Server-side revocation: logout, logout everywhere, password change (other sessions),
+  password reset (all sessions). No JWTs anywhere, nothing in browser storage.
+* **Cookies:** `__Host-ar_session` (HttpOnly, Secure, SameSite=Lax, Path=/, no Domain) and
+  `__Host-ar_csrf` (readable by script). `COOKIE_SECURE=false` (dev/test only, refused in
+  production) drops the prefix so plain-HTTP localhost works.
+* **BFF:** the browser only calls the web origin. `/api/v1/*` in Next.js proxies an
+  allowlist of API areas (`auth`, `organisations`, `invitations`, `admin`), forwarding only
+  allowlisted headers and relaying `Set-Cookie`. Server components fetch the session with
+  the user's cookies (`src/lib/session.ts`).
+* **CSRF:** SameSite=Lax, plus a double-submit token for every cookie-authenticated
+  state change. The token is `HMAC(SECRET_KEY, session_id)`, so it survives token rotation
+  and cannot be forged by planting a cookie. An Origin check rejects state-changing requests
+  from origins outside `CORS_ORIGINS` (covers login CSRF, before a session exists).
+* **Enumeration resistance:** register, resend-verification and password-reset requests
+  always return `202 {"status":"accepted"}`. Registering an existing address emails that
+  address instead of returning an error. Login says "email not verified" only after a
+  correct password.
+* **Throttling (Redis, fixed windows):** 5 failed logins per account and 30 per IP per
+  15 min, then 429 with `Retry-After`; 30 unauthenticated auth requests per IP per minute;
+  3 emails of one kind per address per hour (no mail bombing). Email addresses are hashed
+  in Redis keys.
+* **Email verification and reset:** single-use hashed tokens in `one_time_token`; issuing
+  a new link invalidates older ones. Login requires a verified email. Reset links expire
+  after 60 min and sign the user out everywhere.
+* **Email delivery:** `EmailProvider` protocol with SMTP (Mailpit in dev, any relay in
+  production, verified STARTTLS), console and in-memory implementations.
+* **Future SSO/passkeys:** `auth_identity (provider, subject)` exists; Google/Microsoft
+  OIDC and WebAuthn plug in by creating sessions through the same `create_session`.
+
+**Organisations and RBAC.** Every user gets a `PERSONAL` organisation at registration with
+`CUSTOMER` + `ORG_ADMIN`. Users can create `BUSINESS` and `PROFESSIONAL_PRACTICE`
+organisations; `PARTNER` organisations arrive through the partner application flow
+(Milestone 14) and the `PLATFORM_ADMIN` organisation is bootstrapped by CLI only
+(`python -m app.cli grant-platform-role`). Members join by emailed, single-use invitation
+bound to the invited address.
+
+| Role | Granted in | Permissions (summary) |
+|---|---|---|
+| `CUSTOMER` | PERSONAL, BUSINESS | org read, members read, project read/write |
+| `ORG_ADMIN` | PERSONAL, BUSINESS, PROFESSIONAL_PRACTICE | org update, members manage, invitations, org audit |
+| `PROFESSIONAL` | PROFESSIONAL_PRACTICE | review.perform, project read |
+| `PARTNER_USER` | PARTNER | lead read/claim |
+| `PARTNER_ADMIN` | PARTNER | partner user + org admin |
+| `STAFF` | PLATFORM_ADMIN | platform users/organisations read, source.verify |
+| `ADMIN` | PLATFORM_ADMIN | staff + platform audit, rule.publish, org admin |
+| `SUPERADMIN` | PLATFORM_ADMIN | admin + platform.roles.manage |
+
+`ORG_ADMIN` is an addition to the brief's role list: business and practice owners need to
+manage their members without being given partner or platform roles. Rules enforced in the
+service layer (and the first one again by a database trigger):
+
+1. A role can only be granted in the organisation kinds it lists.
+2. No escalation: an actor can only grant roles whose permissions are a subset of their
+   own, and can only change or remove members whose permissions are a subset of theirs.
+3. Every organisation keeps at least one active member with `org.members.manage`.
+
+Authorisation lives in `app/api/deps.py`. Routes under `/v1/organisations/{id}` resolve the
+caller's *current* membership of that organisation on every request (so removal or demotion
+takes effect immediately) and answer **404** when there is none, so other tenants'
+organisations are indistinguishable from non-existent ones. Platform permissions apply only
+while the session's active organisation is the `PLATFORM_ADMIN` organisation (explicit
+context switch, audited). Postgres Row-Level Security is the planned second layer once the
+first tenant-owned business tables land (Milestone 3; see `docs/RISKS.md` S1).
+
+**Audit.** `audit_event` is append-only: `BEFORE UPDATE/DELETE/TRUNCATE` triggers reject
+changes for every role, including the owner. Each row stores `hash = SHA-256(canonical JSON
+of the row + prev_hash)`; writers serialise on a transaction-scoped advisory lock so `seq`
+order equals chain order, and the event commits in the same transaction as the change it
+records. `python -m app.cli verify-audit` and `GET /v1/admin/audit/verify` (platform
+`platform.audit.read`) recompute the chain and report the first broken row. Audited actions
+include registration, verification, login success/failure (email hashed, never stored in
+clear), logout, password reset/change, organisation switch, organisation create/update,
+member role changes and removals, invitations created/revoked/accepted, and platform role
+grants.
 
 ## 6. Partner-subscription architecture
 
@@ -412,3 +495,16 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Host allowlist | `ALLOWED_HOSTS` plus always-trusted internal hosts (`127.0.0.1` for Docker health checks, `api` for web→API calls); neither is routable through Caddy. |
 | CI | GitHub Actions: ruff, mypy, pytest against Postgres 18 + Redis services; web lint, typecheck, vitest, build; image builds; compose validation. |
 | Verified | 42 API/infrastructure tests on Python 3.13 and 3.14, 9 web tests, prod stack smoke test through Caddy. |
+
+## 12. Milestone 2 as built
+
+| Concern | Implementation |
+|---|---|
+| Modules | `app/modules/identity` (users, credentials, sessions, tokens, emails), `app/modules/tenancy` (organisations, members, invitations, RBAC catalogue), `app/modules/audit` (hash-chained log). |
+| Migration | `0002`: 11 tables, role/permission seed (frozen snapshot of `rbac.py`, checked by tests), audit immutability triggers, `member_role` organisation-kind trigger. |
+| API | `/v1/auth/*` (register, verify-email, resend, login, logout, logout-all, session, switch organisation, password reset request/confirm, change password), `/v1/organisations/*` (create, read, update, members, roles, invitations, audit events), `/v1/invitations/accept`, `/v1/admin/audit/verify`. |
+| Web | BFF proxy `/api/v1/*`, pages `/login`, `/register`, `/verify-email`, `/forgot-password`, `/reset-password`, `/invitations/accept`, `/account`. Per-request nonce CSP (`'strict-dynamic'`, no `'unsafe-inline'` scripts) on these pages via `src/proxy.ts`; statically generated public pages keep the baseline policy. |
+| Types | `packages/shared-types/src/api.ts` generated from the API's OpenAPI schema (`npm run generate:types`); CI fails if the schema or types are stale. |
+| Dev email | Mailpit in `docker-compose.yml` (UI `http://localhost:8025`). |
+| Ops | `python -m app.cli grant-platform-role --email … --role SUPERADMIN`, `python -m app.cli verify-audit`. |
+| Verified | 106 API/infrastructure tests (auth flows, throttling, rotation/expiry, CSRF/origin, tenant isolation as an outsider on every org route, privilege rules, append-only and tamper detection, RBAC seed), web unit tests, manual end-to-end run through the Next.js proxy. |

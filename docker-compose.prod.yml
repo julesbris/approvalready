@@ -27,7 +27,15 @@ x-api-env: &api-env
   REDIS_URL: redis://:${REDIS_PASSWORD:?REDIS_PASSWORD is required}@redis:6379/0
   CORS_ORIGINS: ${CORS_ORIGINS:?CORS_ORIGINS is required}
   ALLOWED_HOSTS: ${ALLOWED_HOSTS:?ALLOWED_HOSTS is required}
-  FORWARDED_ALLOW_IPS: "*" # only Caddy can reach the API (no published port)
+  FORWARDED_ALLOW_IPS: "*" # only Caddy and web can reach the API (no published port)
+  WEB_BASE_URL: https://app.${PRIMARY_DOMAIN:?}
+  EMAIL_PROVIDER: smtp
+  EMAIL_FROM: ${EMAIL_FROM:?EMAIL_FROM is required}
+  SMTP_HOST: ${SMTP_HOST:?SMTP_HOST is required}
+  SMTP_PORT: ${SMTP_PORT:-587}
+  SMTP_USERNAME: ${SMTP_USERNAME:-}
+  SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+  SMTP_STARTTLS: ${SMTP_STARTTLS:-true}
   WEB_CONCURRENCY: ${WEB_CONCURRENCY:-2}
 
 x-api-image: &api-image

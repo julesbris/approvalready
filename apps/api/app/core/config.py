@@ -23,6 +23,12 @@ class Environment(StrEnum):
     PRODUCTION = "production"
 
 
+class EmailProviderKind(StrEnum):
+    CONSOLE = "console"  # logs the message (development)
+    SMTP = "smtp"  # Mailpit in development; a transactional provider's SMTP relay in production
+    MEMORY = "memory"  # tests
+
+
 def _split_csv(value: object) -> object:
     if isinstance(value, str):
         return [item.strip() for item in value.split(",") if item.strip()]
@@ -70,6 +76,38 @@ class Settings(BaseSettings):
 
     health_check_timeout_seconds: float = Field(default=2.0, gt=0)
 
+    # --- Authentication (Milestone 2) ---
+    # Public origin of the web app; used to build links in emails (verify, reset, invite).
+    web_base_url: str = "http://localhost:3000"
+    # Secure cookies use the __Host- prefix. Plain-HTTP test clients cannot send Secure
+    # cookies, so this may be disabled outside production only.
+    cookie_secure: bool = True
+    session_idle_minutes: int = Field(default=30, ge=5, le=24 * 60)
+    session_absolute_days: int = Field(default=14, ge=1, le=90)
+    session_rotation_minutes: int = Field(default=60, ge=1)
+    session_rotation_grace_seconds: int = Field(default=60, ge=0, le=600)
+    password_min_length: int = Field(default=12, ge=8)
+    email_verification_ttl_hours: int = Field(default=48, ge=1)
+    password_reset_ttl_minutes: int = Field(default=60, ge=5)
+    invitation_ttl_days: int = Field(default=7, ge=1)
+    # Login throttling (Redis, fixed window). Failures only; success clears the account key.
+    login_window_seconds: int = Field(default=15 * 60, ge=60)
+    login_max_failures_per_account: int = Field(default=5, ge=1)
+    login_max_failures_per_ip: int = Field(default=30, ge=1)
+    # Coarse per-IP limit on unauthenticated auth endpoints (register, reset, resend, login).
+    auth_requests_per_ip_per_minute: int = Field(default=30, ge=1)
+    # Emails of a given kind sent to one address per hour (stops mail bombing a victim).
+    auth_emails_per_address_per_hour: int = Field(default=3, ge=1)
+
+    # --- Email ---
+    email_provider: EmailProviderKind = EmailProviderKind.CONSOLE
+    email_from: str = "ApprovalReady <no-reply@approvalready.com.au>"
+    smtp_host: str = "localhost"
+    smtp_port: int = 1025
+    smtp_username: str | None = None
+    smtp_password: SecretStr | None = None
+    smtp_starttls: bool = False
+
     @field_validator("cors_origins", "allowed_hosts", "internal_hosts", mode="before")
     @classmethod
     def _parse_csv(cls, value: object) -> object:
@@ -78,6 +116,14 @@ class Settings(BaseSettings):
     @property
     def is_production(self) -> bool:
         return self.app_env in {Environment.PRODUCTION, Environment.STAGING}
+
+    @property
+    def session_cookie_name(self) -> str:
+        return "__Host-ar_session" if self.cookie_secure else "ar_session"
+
+    @property
+    def csrf_cookie_name(self) -> str:
+        return "__Host-ar_csrf" if self.cookie_secure else "ar_csrf"
 
     @property
     def trusted_hosts(self) -> list[str]:
@@ -110,6 +156,12 @@ class Settings(BaseSettings):
             problems.append("CORS_ORIGINS must use https:// in production")
         if "*" in self.allowed_hosts:
             problems.append("ALLOWED_HOSTS must not contain '*'")
+        if not self.cookie_secure:
+            problems.append("COOKIE_SECURE must be true in production")
+        if not self.web_base_url.startswith("https://"):
+            problems.append("WEB_BASE_URL must use https:// in production")
+        if self.email_provider == EmailProviderKind.MEMORY:
+            problems.append("EMAIL_PROVIDER=memory is for tests only")
         if problems:
             raise ValueError("Unsafe production configuration: " + "; ".join(problems))
         return self
