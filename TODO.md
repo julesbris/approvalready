@@ -20,20 +20,25 @@ tests and updated docs before the next starts.
 - [x] `docs/DEPLOY_KAMATERA.md` initial runbook
 - [x] Prod stack smoke-tested end to end through Caddy (TLS, API ready, web, worker round trip, DB/Redis unreachable from host and proxy)
 
-## Milestone 2 — Authentication, organisations, RBAC, audit
-- [ ] `app_user`, `password_credential`, `session`, `one_time_token`, `auth_identity`
-- [ ] Register (creates PERSONAL org), login, logout, email verification, password reset
-- [ ] Opaque session cookies (`__Host-`), rotation, idle/absolute expiry, revocation
-- [ ] CSRF double-submit, login throttling (Redis), rate limiting middleware
-- [ ] Per-request CSP nonces in Next.js so `script-src 'unsafe-inline'` can be removed
-- [ ] Generate `packages/shared-types` from the FastAPI OpenAPI schema
-- [ ] Organisations, members, invitations, roles, permissions, policy layer
-- [ ] RLS policies + `SET LOCAL app.current_org`
-- [ ] Append-only `audit_event` with hash chain
-- [ ] Email provider interface + dev mailbox (Mailpit)
-- [ ] Tests: auth flows, throttling, tenant isolation harness
+## Milestone 2 — Authentication, organisations, RBAC, audit ✅
+- [x] `app_user`, `password_credential`, `auth_session`, `one_time_token`, `auth_identity` (schema for future SSO/passkeys)
+- [x] Register (creates PERSONAL org), login, logout, logout everywhere, email verification (+ resend), password reset, password change
+- [x] Opaque session cookies (`__Host-`), rotation with grace period, strict rotation on privilege change, idle/absolute expiry, revocation
+- [x] CSRF (HMAC-bound double-submit token + Origin check), login throttling and auth rate limits (Redis), per-address email caps
+- [x] Per-request CSP nonces for dynamic (auth/app) pages; static SEO pages keep the baseline policy (see Milestone 17)
+- [x] `packages/shared-types` generated from the FastAPI OpenAPI schema; CI checks freshness
+- [x] Organisations, members, invitations, roles (+ `ORG_ADMIN`), permissions, policy layer, no-escalation and last-admin rules
+- [x] Append-only `audit_event` with hash chain, org audit endpoint, platform verify endpoint and CLI
+- [x] Email provider interface (SMTP, console, memory) + dev mailbox (Mailpit)
+- [x] Web: BFF proxy, sign in, register, verify email, forgot/reset password, accept invitation, account page
+- [x] Tests: auth flows, throttling, expiry/rotation, CSRF/origin, tenant isolation, privilege rules, audit tamper detection
+- [ ] Moved to Milestone 3: RLS policies + `SET LOCAL app.current_org` with a dedicated non-superuser app DB role (needs the first tenant-owned tables to be meaningful)
+- [ ] Moved to backlog: generic API-wide rate-limiting middleware (auth endpoints are limited now)
 
 ## Milestone 3 — Projects, questionnaires
+- [ ] Separate app DB role (non-owner, no BYPASSRLS); migrations keep the owner role
+- [ ] RLS policies on tenant tables + `SET LOCAL app.current_org` per request; RLS test harness
+- [ ] Organisation management UI (create business, invite, roles, switch active organisation)
 - [ ] Customer entities: property, address, vessel, business profile
 - [ ] Projects with vertical/status, tasks, reminders
 - [ ] Questionnaire versioning, all question types, `visible_when` branching, validation
@@ -101,10 +106,14 @@ tests and updated docs before the next starts.
 ## Milestone 17 — Production hardening
 - [ ] Backups (pg_dump + WAL to off-site S3), restore drills
 - [ ] Monitoring (uptime, logs, metrics, error tracking), alerting
-- [ ] Security testing (ZAP baseline, dependency audit), CSP tightening
+- [ ] Security testing (ZAP baseline, dependency audit), CSP tightening (hash-based CSP for static pages)
 - [ ] Kamatera go-live
 
 ## Backlog / decisions to revisit
+- [ ] Generic per-user/per-IP rate limiting for all API routes (auth routes already limited)
+- [ ] Breached-password check (HIBP k-anonymity range API) at registration and reset
+- [ ] MFA (TOTP) and passkeys via `auth_identity`; Google/Microsoft OIDC
+- [ ] Send transactional email from the worker (outbox) instead of in-request
 - [ ] `npm audit` flags `braces` (high) via `eslint-config-next` → `fast-glob`; dev-only lint tooling, not shipped in images. Re-check on next eslint-config-next release
 - [ ] Brand/domain tables + Next.js host middleware (planned for Milestone 2–3 alongside surfaces)
 - [ ] Decide object storage vendor (Wasabi / Backblaze B2 / AWS S3 Sydney) — prefer an Australian region

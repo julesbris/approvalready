@@ -1,4 +1,5 @@
-"""Import every module that defines mapped tables so Alembic autogenerate sees them.
+"""Import every module that defines mapped tables so Alembic autogenerate sees them."""
 
-Empty in Milestone 1; identity/tenancy/audit models are added in Milestone 2.
-"""
+from app.modules.audit import models as audit_models  # noqa: F401
+from app.modules.identity import models as identity_models  # noqa: F401
+from app.modules.tenancy import models as tenancy_models  # noqa: F401

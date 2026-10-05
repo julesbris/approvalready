@@ -11,6 +11,7 @@ export default function HomePage() {
           <Link className="wordmark" href="/">
             {brand.productName}
           </Link>
+          <Link href="/login">Sign in</Link>
         </div>
       </header>
       <main className="container">

@@ -1,6 +1,7 @@
 # PostgreSQL Domain Model
 
-Status: **proposed** (Milestone 1 creates only extensions; tables arrive per milestone).
+Status: **proposed**, built per milestone. Section 1 (identity, tenancy) and `audit_event`
+are **built** (migration `0002`, Milestone 2); the rest is the plan.
 Target: PostgreSQL 18, SQLAlchemy 2 declarative models, Alembic migrations.
 
 ## Conventions
@@ -27,21 +28,23 @@ Shared enums:
 
 ---
 
-## 1. Identity and tenancy
+## 1. Identity and tenancy (built, Milestone 2)
 
 | Table | Key columns | Notes |
 |---|---|---|
-| `app_user` **SD** | `email citext unique`, `email_verified_at`, `display_name`, `status` (`ACTIVE`,`LOCKED`,`SUSPENDED`,`DELETION_REQUESTED`), `last_login_at`, `locale` | No password here. |
-| `password_credential` | `user_id unique`, `password_hash` (Argon2id), `password_changed_at`, `failed_attempts`, `locked_until` | Separate so OIDC-only users have none. |
-| `auth_identity` | `user_id`, `provider` (`GOOGLE`,`MICROSOFT`,`PASSKEY`), `subject`, `public_key` (passkeys), unique `(provider, subject)` | Future SSO/passkeys. |
-| `session` | `user_id`, `token_hash bytea unique`, `surface`, `active_organisation_id`, `ip`, `user_agent`, `expires_at`, `idle_expires_at`, `rotated_from_id`, `revoked_at` | Opaque tokens; rotation chain. |
-| `one_time_token` | `user_id`, `purpose` (`EMAIL_VERIFY`,`PASSWORD_RESET`,`INVITE`), `token_hash`, `expires_at`, `used_at` | Single use. |
-| `organisation` **SD** | `kind` (`PERSONAL`,`BUSINESS`,`PROFESSIONAL_PRACTICE`,`PARTNER`,`PLATFORM_ADMIN`), `name`, `abn char(11) null`, `status` | Every user gets a `PERSONAL` org. |
-| `organisation_member` **SD** | `organisation_id`, `user_id`, `status` (`INVITED`,`ACTIVE`,`REMOVED`), unique `(organisation_id, user_id)` | |
-| `role` | `key` unique (`CUSTOMER`,`PROFESSIONAL`,`PARTNER_USER`,`PARTNER_ADMIN`,`STAFF`,`ADMIN`,`SUPERADMIN`), `scope` (`ORG`,`PLATFORM`) | Seeded. |
-| `permission` | `key` unique (e.g. `project.read`, `lead.claim`, `rule.publish`) | Seeded. |
-| `role_permission` | `role_id`, `permission_id` PK pair | |
-| `member_role` | `organisation_member_id`, `role_id` PK pair | Platform roles valid only in `PLATFORM_ADMIN` org (check in service + trigger). |
+| `app_user` **SD** | `email citext unique` (stored lower-case), `email_verified_at`, `display_name`, `status` (`ACTIVE`,`LOCKED`,`SUSPENDED`,`DELETION_REQUESTED`), `last_login_at`, `locale` | No password here. |
+| `password_credential` | `user_id unique`, `password_hash` (Argon2id), `password_changed_at` | Separate so OIDC/passkey-only users have none. Failed-attempt counters live in Redis, not here. |
+| `auth_identity` | `user_id`, `provider` (`GOOGLE`,`MICROSOFT`,`PASSKEY`), `subject`, `public_key`, `last_used_at`, unique `(provider, subject)` | Future SSO/passkeys; schema only. |
+| `auth_session` | `user_id`, `token_hash bytea unique`, `previous_token_hash` (partial unique), `previous_token_valid_until`, `surface`, `active_organisation_id`, `ip`, `user_agent`, `last_seen_at`, `rotated_at`, `idle_expires_at`, `expires_at`, `revoked_at`, `revoked_reason` | Opaque tokens. Rotation replaces the hash in place and keeps the previous one for a grace period (instead of a `rotated_from_id` chain). Named `auth_session` to avoid confusion with ORM sessions. |
+| `one_time_token` | `user_id`, `purpose` (`EMAIL_VERIFY`,`PASSWORD_RESET`), `token_hash unique`, `expires_at`, `used_at` | Single use; issuing a new one invalidates older unused ones. |
+| `organisation` **SD** | `kind` (`PERSONAL`,`BUSINESS`,`PROFESSIONAL_PRACTICE`,`PARTNER`,`PLATFORM_ADMIN`), `name`, `abn char(11) null` (format check; checksum validated in the API), `status` (`ACTIVE`,`SUSPENDED`), `created_by` | Every user gets a `PERSONAL` org. |
+| `organisation_member` | `organisation_id`, `user_id`, `status` (`ACTIVE`,`REMOVED`), `created_by`, unique `(organisation_id, user_id)` | Removal is a status change; re-invitation reactivates the row. |
+| `organisation_invitation` | `organisation_id`, `email citext`, `role_keys text[]`, `token_hash unique`, `expires_at`, `accepted_at`, `accepted_by`, `revoked_at`, `created_by`; partial unique `(organisation_id, email)` while open | Replaces the earlier `one_time_token` purpose `INVITE`: invitations carry roles and outlive a user account. |
+| `role` | `key` unique (`CUSTOMER`,`ORG_ADMIN`,`PROFESSIONAL`,`PARTNER_USER`,`PARTNER_ADMIN`,`STAFF`,`ADMIN`,`SUPERADMIN`), `scope` (`ORG`,`PLATFORM`), `description`, `allowed_org_kinds text[]` | Seeded by migration. `ORG_ADMIN` added for business/practice owners. |
+| `permission` | `key` unique (e.g. `org.members.manage`, `project.write`, `lead.claim`, `rule.publish`), `description` | Seeded. |
+| `role_permission` | `role_id`, `permission_id` PK pair | Seeded. |
+| `member_role` | `organisation_member_id`, `role_id` PK pair, `granted_by`, `granted_at` | Trigger rejects a role outside its `allowed_org_kinds` (so platform roles exist only in the `PLATFORM_ADMIN` org). |
+| `audit_event` **AO** | `seq bigint identity unique`, `occurred_at`, `actor_user_id`, `organisation_id`, `action`, `target_type`, `target_id`, `ip`, `user_agent`, `request_id`, `details jsonb`, `prev_hash`, `hash unique` | No foreign keys (outlives what it describes). Triggers block UPDATE/DELETE/TRUNCATE; SHA-256 hash chain. |
 
 ## 2. Customer entities
 
@@ -208,7 +211,7 @@ Shared enums:
 
 | Table | Key columns | Notes |
 |---|---|---|
-| `audit_event` **AO** | `occurred_at`, `actor_user_id`, `actor_org_id`, `action` (e.g. `auth.login.succeeded`, `lead.contact.released`, `finding.overridden`), `subject_type`, `subject_id`, `organisation_id`, `ip`, `request_id`, `before jsonb`, `after jsonb`, `prev_hash`, `hash` | Hash chain makes tampering evident; monthly range partitions. |
+| `audit_event` **AO** | See section 1 (built). Before/after values go in `details`. | Monthly range partitions when volume warrants (the chain is ordered by `seq`, so partitioning does not affect verification). |
 | `notification` | `user_id`, `channel` (`EMAIL`,`IN_APP`,`SMS`), `template_key`, `payload`, `status`, `sent_at` | |
 | `brand` | `key`, `product_name`, `logo_asset`, `theme_accent`, `default_vertical`, `seo jsonb` | |
 | `brand_domain` | `hostname unique`, `brand_id`, `surface`, `mode` (`PRIMARY`,`REDIRECT`,`ALIAS`), `redirect_target` | |

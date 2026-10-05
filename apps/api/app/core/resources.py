@@ -13,6 +13,7 @@ from sqlalchemy.ext.asyncio import (
 )
 
 from app.core.config import Settings
+from app.core.email import EmailProvider, create_email_provider
 
 
 @dataclass
@@ -20,6 +21,7 @@ class Resources:
     engine: AsyncEngine
     session_factory: async_sessionmaker[AsyncSession]
     redis: Redis
+    email: EmailProvider
 
     async def close(self) -> None:
         await self.redis.aclose()
@@ -44,4 +46,5 @@ def create_resources(settings: Settings) -> Resources:
         engine=engine,
         session_factory=async_sessionmaker(engine, expire_on_commit=False),
         redis=redis,
+        email=create_email_provider(settings),
     )

@@ -49,6 +49,10 @@ jobs:
       - run: uv run ruff format --check .
       - run: uv run mypy app
       - run: uv run pytest -q tests ../../tests/infrastructure
+      - name: OpenAPI schema is committed and current
+        run: |
+          uv run python scripts/export_openapi.py
+          git diff --exit-code -- ../../packages/shared-types/openapi.json
 
   web:
     runs-on: ubuntu-latest
@@ -59,6 +63,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Generated API types match the committed OpenAPI schema
+        run: |
+          npm run generate --workspace @approvalready/shared-types
+          git diff --exit-code -- packages/shared-types/src/api.ts
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test

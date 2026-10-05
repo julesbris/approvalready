@@ -112,7 +112,10 @@ cp .env.example .env && chmod 600 .env
 Fill `.env`. Generate secrets with `openssl rand -hex 32` (hex keeps them URL-safe for the
 database DSN). Required: `PRIMARY_DOMAIN`, `ACME_EMAIL`, `CORS_ORIGINS` (https only),
 `ALLOWED_HOSTS` (include `api.<domain>`), `SECRET_KEY` (≥ 32 chars), `POSTGRES_PASSWORD`,
-`REDIS_PASSWORD`. The API refuses to start in production with unsafe values.
+`REDIS_PASSWORD`, `EMAIL_FROM`, `SMTP_HOST` (plus `SMTP_USERNAME`/`SMTP_PASSWORD` for the
+relay; STARTTLS on 587 with certificate verification by default). The API refuses to start in
+production with unsafe values (including non-Secure cookies or a non-https `WEB_BASE_URL`).
+`SECRET_KEY` also signs CSRF tokens: changing it forces users to reload open pages.
 Validate: `make prod-config`.
 
 ## 7. First deployment
@@ -124,6 +127,17 @@ docker compose -f docker-compose.prod.yml --env-file .env up -d --wait
 
 `migrate` runs `alembic upgrade head` once and exits; `api` and `worker` start only after it
 succeeds.
+
+Create the first administrator: register and confirm an account through the web app, then
+
+```bash
+docker compose -f docker-compose.prod.yml --env-file .env exec api \
+  python -m app.cli grant-platform-role --email you@example.com --role SUPERADMIN
+```
+
+This creates the `PLATFORM_ADMIN` organisation on first use. There is no HTTP endpoint for
+this step by design. Check the audit log's hash chain at any time with
+`... exec api python -m app.cli verify-audit`.
 
 ## 8. Persistent volumes
 

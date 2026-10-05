@@ -12,8 +12,14 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from app.api import health
 from app.core.config import Settings, get_settings
 from app.core.logging import configure_logging
-from app.core.middleware import RequestContextMiddleware, SecurityHeadersMiddleware
+from app.core.middleware import (
+    OriginCheckMiddleware,
+    RequestContextMiddleware,
+    SecurityHeadersMiddleware,
+)
 from app.core.resources import create_resources
+from app.modules.identity.router import router as auth_router
+from app.modules.tenancy.router import router as tenancy_router
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
@@ -51,11 +57,14 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         expose_headers=["x-request-id"],
         max_age=600,
     )
+    app.add_middleware(OriginCheckMiddleware, allowed_origins=settings.cors_origins)
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.trusted_hosts)
     app.add_middleware(SecurityHeadersMiddleware, hsts=settings.is_production)
     app.add_middleware(RequestContextMiddleware)
 
     app.include_router(health.router)
+    app.include_router(auth_router)
+    app.include_router(tenancy_router)
     return app
 
 

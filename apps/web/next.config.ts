@@ -1,24 +1,14 @@
 import type { NextConfig } from "next";
 
+import { staticCsp } from "./src/lib/csp";
+
 const isProd = process.env.NODE_ENV === "production";
 
-// Baseline CSP. Next.js still needs inline scripts for hydration; Milestone 2 moves to
-// per-request nonces (tracked in TODO.md) so 'unsafe-inline' can be dropped for scripts.
-const csp = [
-  "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"}`,
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
-  "font-src 'self'",
-  "connect-src 'self'",
-  "frame-ancestors 'none'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "object-src 'none'",
-].join("; ");
+// Static pages get the baseline policy; dynamically rendered app/auth pages get a strict
+// per-request nonce policy from src/proxy.ts instead (see src/lib/csp.ts).
+const csp = staticCsp(!isProd);
 
 const securityHeaders = [
-  { key: "Content-Security-Policy", value: csp },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
@@ -32,7 +22,15 @@ const config: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ["@approvalready/ui", "@approvalready/shared-types"],
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      {
+        // Everything except the nonce-CSP paths (NONCE_CSP_PATHS in src/lib/csp.ts).
+        source:
+          "/((?!login|register|verify-email|forgot-password|reset-password|account|invitations).*)",
+        headers: [{ key: "Content-Security-Policy", value: csp }],
+      },
+    ];
   },
 };
 

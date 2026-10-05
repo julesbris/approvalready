@@ -15,6 +15,7 @@
     "build:web": "npm run build --workspace @approvalready/web",
     "lint": "npm run lint --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "test": "npm run test --workspaces --if-present",
+    "generate:types": "cd apps/api && uv run python scripts/export_openapi.py && cd ../.. && npm run generate --workspace @approvalready/shared-types"
   }
 }
