@@ -111,6 +111,14 @@ rejected until uploads exist (Milestone 6). Submissions record `submitted_by`, r
 | `source_reference` | `source_document_id`, `section`, `clause`, `page`, `extracted_text`, `structured_interpretation jsonb`, `verification_status`, `verified_by`, `verified_at`, `last_reviewed_at`, `next_review_due` | The atomic citation. |
 | `source_review_event` **AO** | `source_reference_id`, `action`, `reviewer_id`, `notes` | |
 
+As built (Milestone 4): snapshots are a separate append-only `source_snapshot` table
+(`source_document_id`, `retrieved_at`, `content_text`, `content_hash`, `captured_by`), so
+`source_document` has no `retrieved_at`/`content_hash`/`archived_document_id` (object storage
+comes with Milestone 6). `source_reference` has `interpretation text` instead of
+`structured_interpretation jsonb`, and `verified_snapshot_id` (the snapshot it was checked
+against). Review events also store `from_status` and `to_status`. Jurisdiction codes are `CTH`,
+a state or territory, or `LGA:<STATE>_<NAME>`.
+
 ## 6. Rules
 
 | Table | Key columns | Notes |
@@ -122,6 +130,13 @@ rejected until uploads exist (Milestone 6). Submissions record `submitted_by`, r
 | `rule_source` | `rule_version_id`, `source_reference_id`, `relationship` (`BASIS`,`SUPPORTING`,`EXCEPTION`) | Required for `VERIFIED`. |
 | `rule_test_case` | `rule_version_id`, `facts jsonb`, `expected jsonb` | Must pass before publish. |
 
+As built (Milestone 4): `rule_set.applies_when` (a condition) replaces `scope`, plus
+`description`. `rule_version` has `DRAFT`, `PUBLISHED`, `RETIRED` (no `IN_REVIEW` yet), `notes`,
+and at most one published version per rule; `rule_outcome` uses `on_result` with `title` and
+`detail` and no per-outcome confidence (confidence is derived from sources). `rule_test_case`
+has `name` and `expected_result`. Everything under a version is immutable once it leaves draft
+(triggers).
+
 ## 7. Assessments
 
 | Table | Key columns | Notes |
@@ -130,6 +145,13 @@ rejected until uploads exist (Milestone 6). Submissions record `submitted_by`, r
 | `assessment_finding` **T AO** | `assessment_id`, `rule_version_id`, `result` (`MATCH`,`NO_MATCH`,`UNKNOWN`), `outcome_type`, `confidence`, `explanation_key`, `trace jsonb` (leaf-by-leaf evaluation), `missing_facts text[]` | Overrides are separate rows, never edits. |
 | `approval_requirement` **T** | `assessment_id`, `finding_id`, `kind`, `authority_source_organisation_id`, `pathway`, `certainty` (`REQUIRED`,`LIKELY_REQUIRED`,`MAY_APPLY`,`NOT_IDENTIFIED`) | BusinessReady approval map uses `certainty`. |
 | `evidence_requirement` **T** | `assessment_id`, `finding_id`, `kind`, `description_key`, `satisfied_by_evidence_id null` | |
+
+As built (Milestone 4): one assessment covers every published rule set for the project's
+vertical (`rule_sets jsonb` records each set's scope), with `engine_version`, `facts_hash`,
+`status` (`COMPLETED`, `NO_APPLICABLE_RULES`) and `created_by`; both tables are append-only.
+Findings store `ordinal`, the rule key and title, outcome `title`/`detail`, `confidence_reasons`
+and cited `sources jsonb` as they stood at run time, instead of `explanation_key`.
+`approval_requirement` and `evidence_requirement` are not built yet (Milestone 5).
 
 ## 8. Documents and evidence
 

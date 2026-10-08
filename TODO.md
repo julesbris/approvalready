@@ -48,15 +48,18 @@ tests and updated docs before the next starts.
 - [ ] Moved to Milestone 11 (RentReady reminders need it first): reminder delivery via Celery beat + email/in-app notifications
 - [ ] Moved to Milestone 5: entity UI (property/vessel/business pickers on projects), questionnaire prefill from entities
 - [ ] Moved to Milestone 6: FILE question uploads (type exists; answers rejected until the upload pipeline lands)
-- [ ] Moved to Milestone 4: questionnaire authoring in the admin UI (definitions are reviewed JSON files synced on migrate for now)
+- [ ] Moved to Milestone 4, then to backlog: questionnaire authoring in the admin UI (definitions stay reviewed JSON files synced on migrate)
 
-## Milestone 4 — Sources, rules, assessments
-- [ ] Source organisations/documents/references, verification workflow, snapshots
-- [x] Condition AST (Pydantic), evaluator with three-valued logic, operator table, no eval (built in Milestone 3 for questionnaire branching)
-- [ ] Rule versioning, publish gate (test cases pass, sources linked)
-- [ ] Assessment runs, findings, confidence derivation, trace
-- [ ] Admin UI for sources and rules
-- [ ] Tests: every operator, nesting, unknown propagation, version pinning, reproducibility
+## Milestone 4 — Sources, rules, assessments ✅
+- [x] Source organisations/documents/references, verification workflow (verify against a snapshot, dispute, supersede, reopen; edits reset to unverified), append-only snapshots with change detection and review history
+- [x] Condition AST (Pydantic), evaluator with three-valued logic, operator table, no eval (built in Milestone 3 for questionnaire branching); evaluation trace added
+- [x] Rule sets with jurisdiction and scope condition, rule versioning (draft → published → retired, immutable once published, enforced by triggers), publish gate (valid condition, start date, outcomes, a basis source, usable sources, every test case passes)
+- [x] Assessment runs on submitted answers, findings with confidence derivation, leaf-by-leaf trace, missing facts, pinned rule versions, facts hash and replay
+- [x] Admin UI for sources (review queue, documents, snapshots, references, review actions) and rules (rule sets, draft editor, checks, try-it, publish/retire/new version); customer assessment report
+- [x] Tests: every operator, nesting, unknown propagation, version pinning, reproducibility, confidence derivation, publish gate, RLS and privilege map for the new tables
+- [ ] Moved to Milestone 5: `approval_requirement` / `evidence_requirement` tables and tasks created from findings (they need real PlanningReady rules to shape them)
+- [ ] Moved to Milestone 11 (with reminder delivery): scheduled review reminders for references nearing `next_review_due` (overdue ones already show in the review queue and lower confidence)
+- [ ] Moved to backlog: questionnaire authoring in the admin UI
 
 ## Milestone 5 — PlanningReady proof of concept
 - [ ] One LGA (Cairns, QLD) × categories (secondary dwelling, subdivision first) with real sourced rules
@@ -115,6 +118,8 @@ tests and updated docs before the next starts.
 - [ ] Kamatera go-live
 
 ## Backlog / decisions to revisit
+- [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
+- [ ] Fetch source documents automatically for snapshots (manual capture only for now; no claims of live integration)
 - [ ] Generic per-user/per-IP rate limiting for all API routes (auth routes already limited)
 - [ ] Breached-password check (HIBP k-anonymity range API) at registration and reset
 - [ ] MFA (TOTP) and passkeys via `auth_identity`; Google/Microsoft OIDC

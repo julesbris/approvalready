@@ -1,6 +1,7 @@
 "use client";
 
 import type {
+  AssessmentOut,
   MemberOut,
   ProjectDetailOut,
   ProjectOut,
@@ -13,6 +14,7 @@ import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
+import { CONFIDENCE_LABELS } from "@/lib/assessment";
 import { apiRequest } from "@/lib/client-api";
 import {
   STATUS_ACTIONS,
@@ -74,6 +76,11 @@ export function ProjectWorkspace(props: Props) {
   async function startQuestionnaire() {
     const started = await run(() => apiRequest("POST", `${base}/submissions`, {}));
     if (started) router.push(`/projects/${project.id}/questionnaire`);
+  }
+
+  async function runAssessment() {
+    const assessment = await run(() => apiRequest<AssessmentOut>("POST", `${base}/assessments`));
+    if (assessment) router.push(`/projects/${project.id}/assessments/${assessment.data.id}`);
   }
 
   async function addTask(event: FormEvent<HTMLFormElement>) {
@@ -142,6 +149,8 @@ export function ProjectWorkspace(props: Props) {
   }
 
   const statusChanges = project.allowed_status_changes as ProjectStatus[];
+  const submitted = project.submissions.some((s) => s.status === "SUBMITTED");
+  const latest = project.latest_assessment;
   const scheduled = reminders.filter((r) => r.status === "SCHEDULED");
 
   return (
@@ -212,6 +221,41 @@ export function ProjectWorkspace(props: Props) {
             ))}
           </ul>
         )}
+      </section>
+
+      <section className="panel" aria-labelledby="assessment-title">
+        <h2 id="assessment-title" className="section-title">
+          Assessment
+        </h2>
+        {latest ? (
+          <p>
+            <Link href={`/projects/${project.id}/assessments/${latest.id}`}>
+              Assessed {formatDate(latest.assessed_on)}
+            </Link>
+            : {CONFIDENCE_LABELS[latest.overall_confidence]} ·{" "}
+            {latest.status === "NO_APPLICABLE_RULES"
+              ? "no reviewed rules cover this yet"
+              : `${latest.findings} finding${latest.findings === 1 ? "" : "s"}`}
+          </p>
+        ) : (
+          <p className="muted">
+            An assessment checks your submitted answers against the rules our team has sourced and
+            reviewed, and shows how confident we are in each result.
+          </p>
+        )}
+        {canWrite ? (
+          <>
+            <button
+              type="button"
+              className={latest ? "button button-secondary" : "button"}
+              disabled={busy || !submitted || project.status === "ARCHIVED"}
+              onClick={runAssessment}
+            >
+              {latest ? "Run a new assessment" : "Run assessment"}
+            </button>
+            {!submitted ? <p className="hint">Submit your answers first.</p> : null}
+          </>
+        ) : null}
       </section>
 
       <section className="panel" aria-labelledby="tasks-title">

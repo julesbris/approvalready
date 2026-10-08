@@ -5,6 +5,11 @@ import type { ReactNode } from "react";
 import { OrgSwitcher } from "@/components/app/OrgSwitcher";
 import { defaultBrand } from "@/lib/brand";
 
+/** Platform staff working in the platform organisation (display only; the API decides). */
+export function isStaff(session: SessionOut): boolean {
+  return ["source.manage", "rule.author"].some((p) => session.permissions.includes(p));
+}
+
 /** Layout for signed-in pages: header with navigation and the active-organisation switcher. */
 export function AppShell({
   session,
@@ -23,6 +28,7 @@ export function AppShell({
           <nav aria-label="Main" className="app-nav">
             <Link href="/projects">Projects</Link>
             <Link href="/account">Account</Link>
+            {isStaff(session) ? <Link href="/admin">Admin</Link> : null}
           </nav>
           <OrgSwitcher
             organisations={session.organisations}

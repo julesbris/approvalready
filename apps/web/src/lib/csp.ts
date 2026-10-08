@@ -18,6 +18,7 @@ export const NONCE_CSP_PATHS = [
   "/account",
   "/invitations",
   "/projects",
+  "/admin",
 ] as const;
 
 export function usesNonceCsp(pathname: string): boolean {
