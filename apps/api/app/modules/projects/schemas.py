@@ -6,6 +6,7 @@ from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
+from app.modules.assessments.schemas import AssessmentSummary
 from app.modules.projects.models import (
     ProjectStatus,
     Recurrence,
@@ -72,6 +73,7 @@ class ProjectOut(BaseModel):
 class ProjectDetailOut(ProjectOut):
     submissions: list[SubmissionSummary]
     open_tasks: int
+    latest_assessment: AssessmentSummary | None
 
 
 class StatusEventOut(BaseModel):

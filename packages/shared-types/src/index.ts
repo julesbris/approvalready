@@ -55,3 +55,28 @@ export type Confidence = (typeof CONFIDENCE_LEVELS)[number];
 
 export const VERTICALS = ["PLANNING", "VESSEL", "BUSINESS", "GRANT", "SELL", "RENT"] as const;
 export type Vertical = (typeof VERTICALS)[number];
+
+export type RuleResult = Schemas["RuleResult"];
+export type OutcomeType = Schemas["OutcomeType"];
+export type AssessmentSummary = Schemas["AssessmentSummary"];
+export type AssessmentOut = Schemas["AssessmentOut"];
+export type FindingOut = Schemas["FindingOut"];
+export type FindingSourceOut = Schemas["FindingSourceOut"];
+export type RuleSetScopeOut = Schemas["RuleSetScopeOut"];
+
+export type SourceOrganisationOut = Schemas["SourceOrganisationOut"];
+export type SourceDocumentOut = Schemas["SourceDocumentOut"];
+export type SnapshotSummary = Schemas["SnapshotSummary"];
+export type SnapshotOut = Schemas["SnapshotOut"];
+export type SnapshotCaptured = Schemas["SnapshotCaptured"];
+export type SourceReferenceOut = Schemas["SourceReferenceOut"];
+export type ReviewEventOut = Schemas["ReviewEventOut"];
+
+export type RuleSetOut = Schemas["RuleSetOut"];
+export type RuleSummary = Schemas["RuleSummary"];
+export type RuleOut = Schemas["RuleOut"];
+export type RuleVersionOut = Schemas["RuleVersionOut"];
+export type RuleVersionSummary = Schemas["RuleVersionSummary"];
+export type RuleVersionContent = Schemas["RuleVersionContent"];
+export type PublishChecksOut = Schemas["PublishChecksOut"];
+export type EvaluateOut = Schemas["EvaluateOut"];

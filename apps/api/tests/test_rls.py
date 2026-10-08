@@ -24,6 +24,7 @@ pytestmark = pytest.mark.integration
 
 APP_GROUP = "approvalready_rw"
 CRUD = {"SELECT", "INSERT", "UPDATE", "DELETE"}
+WRITE = {"SELECT", "INSERT", "UPDATE"}
 APPEND = {"SELECT", "INSERT"}
 READ = {"SELECT"}
 
@@ -58,6 +59,20 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "question_option": READ,
     "questionnaire_submission": CRUD,
     "question_response": CRUD,
+    "source_organisation": WRITE,
+    "source_document": WRITE,
+    "source_snapshot": APPEND,
+    "source_reference": WRITE,
+    "source_review_event": APPEND,
+    "rule_set": WRITE,
+    "rule": WRITE,
+    "rule_version": CRUD,
+    "rule_outcome": CRUD,
+    "rule_source": CRUD,
+    "rule_test_case": CRUD,
+    "rule_fact_dependency": CRUD,
+    "assessment": APPEND,
+    "assessment_finding": APPEND,
 }
 
 TENANT_TABLES = sorted(
@@ -142,7 +157,9 @@ async def test_privileges_match_the_reviewed_map(
 async def test_every_tenant_table_has_forced_rls(
     api: ApiHarness, owner_sessions: async_sessionmaker[AsyncSession]
 ) -> None:
-    assert "project" in TENANT_TABLES and "question_response" in TENANT_TABLES
+    assert {"project", "question_response", "assessment", "assessment_finding"} <= set(
+        TENANT_TABLES
+    )
     async with owner_sessions() as db:
         rows = (
             await db.execute(

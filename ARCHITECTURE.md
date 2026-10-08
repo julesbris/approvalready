@@ -490,6 +490,13 @@ unless aggregated across ≥ k partners (k-anonymity threshold, default 5).
 * `RuleVersion` is immutable once `PUBLISHED`; edits create a new version. An assessment
   stores `rule_version_id` for every finding plus a hash of the input facts, making
   results reproducible.
+* Confidence is derived, never typed in: a finding starts at the rule version's
+  `max_confidence` and is lowered by its sources on the assessment date. `VERIFIED` needs
+  every basis source verified, in force and within its review date, against an unchanged
+  snapshot; unverified sources give `LIKELY`; disputed, superseded, out-of-force, overdue or
+  changed sources give `REVIEW_REQUIRED`; an `UNKNOWN` result gives `UNKNOWN`. Supporting and
+  exception sources can lower a finding but never raise it above `LIKELY`. Overall confidence is
+  the lowest finding's.
 
 ## 9. AI layer (design; built in Milestone 12)
 
@@ -552,3 +559,17 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | API | `/v1/organisations/{id}/projects` (+ `/status`, `/status-events`, `/tasks`, `/reminders`, `/submissions`), `/v1/organisations/{id}/submissions/{id}` (+ `/answers`, `/submit`, `/reopen`), `/v1/organisations/{id}/properties`, `/vessels`, `/business-profiles`, `/v1/questionnaires[/{key}]`. |
 | Web | App shell with an active-organisation switcher; `/projects`, `/projects/new`, `/projects/[id]` (status, questionnaire, tasks, reminders), `/projects/[id]/questionnaire` (section by section, instant branching, save per section, API errors shown per question, review and submit, reopen), `/account` (organisations, add a business) and `/account/organisations/[id]` (members, roles, invitations, leave). All on the nonce CSP. |
 | Verified | 285 API tests (branching, every operator, validation of every question type, versioning and immutability, RLS on every tenant table and the privilege map, cross-tenant writes and references refused by the database, 404s for outsiders on every new route), 11 infrastructure tests, 126 web tests (including the shared condition vectors), and a browser run against a live API: register, create a project, add a task, answer with branching, a server-side validation error, review, submit, add a business and invite a member. |
+
+## 14. Milestone 4 as built
+
+| Concern | Implementation |
+|---|---|
+| Modules | `app/modules/regulatory` (source organisations, documents, snapshots, references, review events), `app/modules/rules` (rule sets, rules, versions, outcomes, sources, test cases, fact dependencies; `engine.py` is pure and has no database access), `app/modules/assessments` (assessment, finding). |
+| Migration | `0004`: 14 tables. Sources and rules are platform tables (no `organisation_id`, no RLS); the application role gets select/insert/update on them, full CRUD only on draft rule-version parts, and select/insert only on `source_snapshot`, `source_review_event`, `assessment` and `assessment_finding`. Assessments are tenant tables with `ENABLE`/`FORCE` RLS and composite tenant foreign keys to project and submission. Triggers make a rule version and its outcomes, sources, test cases and fact dependencies immutable once it leaves `DRAFT` (published → retired is the only allowed change), even for the owner. Seeds `source.manage` and `rule.author` for platform staff, admins and superadmins. |
+| Access | Admin routes (`/v1/admin/source-*`, `/v1/admin/rule-*`, `/v1/admin/rules/*`) use platform permissions, which only count while the platform organisation is the active one. Verifying references needs `source.verify`; publishing and retiring need `rule.publish`. |
+| Sources | Captured by hand with provenance (official URL, type, jurisdiction code such as `QLD` or `LGA:QLD_CAIRNS`, version label, in-force dates, licence). Snapshots store the pasted text with its SHA-256; an identical capture is a no-op. A reference is verified against the latest snapshot and gets a next review date (a year by default). Editing a reference sets it back to unverified; a new snapshot, an overdue review or the document leaving force puts it in the review queue. Every transition is an append-only review event and an audit event. |
+| Rules | A rule set has a vertical, jurisdiction and optional `applies_when` condition (out of scope skips it; unknown scope asks for the missing facts). Each rule has one draft at a time; publishing runs the gate and retires the previous published version. The assessment uses the version published and in force on the assessment date. Warnings (allowed, shown before publishing): unverified sources, facts no questionnaire collects. |
+| Assessments | `POST /v1/organisations/{id}/projects/{id}/assessments` runs on the latest submitted answers (409 if none or the project is archived), stores the facts snapshot and hash, engine version, rule sets and scope, and one finding per applicable rule with outcome, confidence and reasons, trace, missing facts and source citations. The assessment date is today in Australia/Brisbane time. A project moves to `ASSESSED`. Replaying stored facts against the pinned versions gives the same findings (tested). |
+| Web | `/projects/[id]` has an Assessment panel; `/projects/[id]/assessments/[id]` shows the report (disclaimer, overall confidence, findings grouped by what to do, missing information, "why we say this" from the trace, sources). `/admin` (review queue), `/admin/sources[/id]`, `/admin/rules[/id]`, `/admin/rules/versions/[id]` (draft editor with JSON condition, outcomes per result, source picker, test cases, checks, try-it). All on the nonce CSP. |
+| Not built | Requirement tables and tasks from findings (Milestone 5), review reminders (Milestone 11), questionnaire authoring UI and automatic source fetching (backlog). No real regulatory content is shipped: tests use example.com sources and a "Test Council". |
+| Verified | 397 API and infrastructure tests, 141 web tests, lint, types and the production build. |

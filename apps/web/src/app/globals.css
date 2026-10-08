@@ -667,3 +667,136 @@ fieldset.question {
   display: grid;
   gap: 8px;
 }
+
+/* Assessments and admin (Milestone 4) */
+.admin-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ar-border);
+}
+
+.admin-nav a[aria-current="page"] {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ar-ink);
+}
+
+.finding-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.finding {
+  padding: 14px 16px;
+  border: 1px solid var(--ar-border);
+  border-radius: var(--ar-radius);
+  background: var(--ar-surface);
+}
+
+.finding-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.finding-title {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.finding-label {
+  margin: 12px 0 4px;
+  font-weight: 600;
+}
+
+.finding details,
+.finding .button-row {
+  margin-top: 12px;
+}
+
+.because,
+.sources,
+.history {
+  margin: 4px 0;
+  padding-left: 20px;
+}
+
+.confidence-verified {
+  border-color: #2e7d32;
+}
+
+.confidence-likely {
+  border-color: var(--ar-accent);
+}
+
+.confidence-review_required {
+  border-color: #b26a00;
+}
+
+.confidence-unknown {
+  border-style: dashed;
+}
+
+.extract {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-left: 3px solid var(--ar-border);
+  background: var(--ar-surface-subtle);
+  white-space: pre-wrap;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 16px;
+  margin: 0;
+}
+
+.facts dt {
+  font-weight: 600;
+}
+
+.facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.code-input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875rem;
+}
+
+.check-pass::before {
+  content: "✓ ";
+}
+
+.check-fail::before {
+  content: "✗ ";
+}
+
+.check-fail {
+  color: #b00020;
+}
+
+.plain-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  align-items: end;
+  gap: 12px;
+}

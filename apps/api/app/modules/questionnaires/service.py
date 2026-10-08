@@ -22,7 +22,7 @@ from app.core.errors import ApiError, not_found
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
 from app.modules.projects.models import Project
-from app.modules.questionnaires.definition import QuestionnaireDef
+from app.modules.questionnaires.definition import ADDRESS_FIELDS, QuestionnaireDef
 from app.modules.questionnaires.engine import (
     AnswerInvalid,
     AnswerState,
@@ -38,6 +38,7 @@ from app.modules.questionnaires.models import (
     QuestionnaireVersion,
     QuestionOption,
     QuestionResponse,
+    QuestionType,
     QuestionVersion,
     SubmissionStatus,
     VersionStatus,
@@ -243,6 +244,22 @@ async def published_version(db: AsyncSession, key: str) -> QuestionnaireVersion 
             .where(Questionnaire.key == key, QuestionnaireVersion.status == VersionStatus.PUBLISHED)
         )
     ).scalar_one_or_none()
+
+
+async def fact_labels(db: AsyncSession, vertical: str) -> dict[str, str]:
+    """Every fact the vertical's published questionnaires collect, with the question that
+    asks for it (structured answers add ``key.field`` facts). Lets rule authors see
+    whether a rule reads facts anyone collects, and customers which question is missing."""
+    labels: dict[str, str] = {}
+    for _, version in await published_versions(db, vertical):
+        for q in (await compiled(db, version.id)).questions:
+            labels.setdefault(q.key, q.label)
+            if q.type == QuestionType.ADDRESS:
+                for name in ADDRESS_FIELDS:
+                    labels.setdefault(f"{q.key}.{name}", f"{q.label} ({name})")
+            for f in q.validation.fields or []:
+                labels.setdefault(f"{q.key}.{f.key}", f"{q.label}: {f.label}")
+    return labels
 
 
 # --- Submissions -----------------------------------------------------------------------

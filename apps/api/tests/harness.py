@@ -128,3 +128,31 @@ class ApiHarness:
     async def aclose(self) -> None:
         for c in self._clients:
             await c.aclose()
+
+
+async def platform_user(api: ApiHarness, role: str = "ADMIN", name: str = "Staff") -> User:
+    """A user holding a platform role, signed in with the platform organisation active."""
+    from sqlalchemy import select
+
+    from app import cli
+    from app.modules.tenancy.models import Organisation
+
+    settings = api.app.state.settings
+    factory = api.app.state.resources.session_factory
+
+    async def platform_org() -> Organisation | None:
+        async with factory() as db:
+            return (
+                await db.execute(select(Organisation).where(Organisation.kind == "PLATFORM_ADMIN"))
+            ).scalar_one_or_none()
+
+    if await platform_org() is None:
+        founder = await api.user(name="Founder")
+        assert await cli.grant_platform_role(founder.email, cli.RoleKey.SUPERADMIN, settings) == 0
+    user = await api.user(name=name)
+    assert await cli.grant_platform_role(user.email, cli.RoleKey(role), settings) == 0
+    org = await platform_org()
+    assert org is not None
+    r = await user.put("/v1/auth/session/organisation", json={"organisation_id": str(org.id)})
+    assert r.status_code == 200, r.text
+    return user
