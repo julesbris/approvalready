@@ -164,7 +164,7 @@ Full model: [`docs/DOMAIN_MODEL.md`](docs/DOMAIN_MODEL.md). Conventions:
 * UUID primary keys (`uuid` type; v7 generated application-side for index locality).
 * Every table: `created_at`, `updated_at` (timestamptz, UTC), `created_by` (nullable FK to user).
   Soft-deletable tables add `deleted_at`. Audit and finding tables are append-only (no update/delete grants for the app role on `audit_event`).
-* Tenancy: every tenant-owned row carries `organisation_id`. Every user gets a personal organisation on registration, so "personal account" is just an organisation of kind `PERSONAL`. This removes the user-or-org polymorphism everywhere else.
+* Tenancy: every tenant-owned row carries `organisation_id`. Every user gets a personal organisation on registration, so "personal account" is just an organisation of kind `PERSONAL`. This removes the user-or-org polymorphism everywhere else. Tenant tables are also protected by Postgres row-level security (see §3.1).
 * Enumerations stored as `text` with `CHECK` constraints (cheaper to evolve than PG enums) and mirrored as Python `StrEnum`.
 * Money as `bigint` cents + `currency char(3)` (default `AUD`). Prices never hard-coded.
 * JSONB only for genuinely schemaless payloads (rule condition AST, answer values, AI output); everything queried or joined is a column.
@@ -190,6 +190,32 @@ Bounded contexts and their main aggregates:
 | Grants | GrantProfile, GrantProgram, GrantRound, GrantEligibilityRule (→ RuleVersion), GrantMatch |
 | Property | SaleProject, SaleOffer, RentalPropertyProfile, Tenancy, TenantApplication, Inspection, InspectionItem, PropertyMaintenanceItem |
 | Platform | AuditEvent, Notification, Brand, BrandDomain, FeatureFlag |
+
+### 3.1 Database roles and row-level security (built in Milestone 3)
+
+Application authorisation (membership and permission checks on every `/organisations/{id}`
+route) is the first line. Row-level security is the second: if application code ever forgets a
+tenant filter, the database still returns nothing from other organisations.
+
+| Role | Used by | Can |
+|---|---|---|
+| Owner (`POSTGRES_USER`) | `migrate` only (`MIGRATION_DATABASE_URL`) | Owns every table; runs Alembic, `provision-db-role`, `questionnaires sync`. |
+| `approvalready_rw` (NOLOGIN group) | — | Holds the application's grants, table by table (reviewed map in the `0003` migration, asserted by `tests/test_rls.py`). Reference and questionnaire-definition tables are read-only; `audit_event` and `project_status_event` are insert/select only. |
+| `approvalready_app` (LOGIN, `APP_DB_USER`) | `api`, `worker` (`DATABASE_URL`) | Member of `approvalready_rw`; `NOSUPERUSER NOBYPASSRLS`, owns nothing. `/health/ready` fails in production if this ever stops being true. |
+
+* Every table with `organisation_id` (the `TenantMixin` tables) has `ENABLE` and `FORCE ROW
+  LEVEL SECURITY` and one policy, `tenant_isolation`:
+  `organisation_id = nullif(current_setting('app.current_org', true), '')::uuid` for both
+  `USING` and `WITH CHECK`. With no tenant bound, nothing is visible and nothing can be written.
+* The tenant is bound per transaction (`set_config('app.current_org', …, true)`), only after the
+  membership check in `require_org_permission`. A SQLAlchemy `after_begin` listener re-applies it
+  at the start of every transaction in the same request, and the transaction-local setting
+  cannot leak to the next user of a pooled connection.
+* Foreign-key checks bypass RLS, so tenant-to-tenant references are composite:
+  `(organisation_id, project_id) → project(organisation_id, id)`. A row can never point at
+  another organisation's row, even when written by the owner.
+* Identity and tenancy tables (users, sessions, memberships) are not tenant-scoped: they are read
+  before a tenant is known, and stay protected by application authorisation.
 
 ## 4. Domain-routing architecture
 
@@ -446,14 +472,18 @@ Partner analytics are computed per partner only (own leads, spend, conversion, r
 time, category and geography performance). No competitor data, no market-wide figures
 unless aggregated across ≥ k partners (k-anonymity threshold, default 5).
 
-## 8. Rules engine (design; built in Milestone 4)
+## 8. Rules engine (condition AST and evaluator built in Milestone 3; rules in Milestone 4)
 
 * Condition AST in JSONB, validated by a Pydantic discriminated union:
   `{"all": [...]}`, `{"any": [...]}`, `{"not": {...}}`, and leaf
   `{"fact": "property.lot_size_m2", "op": "greater_equal", "value": 600}`.
 * Operators: `equals, not_equals, greater_than, less_than, greater_equal, less_equal,
-  contains, not_contains, in, not_in, exists, missing, all, any`. Implemented as a
-  dispatch table of pure functions. No `eval`, no expression strings.
+  contains, not_contains, in, not_in, exists, missing`, combined with `all`/`any`/`not`.
+  Implemented as a dispatch table of pure functions (`app/modules/conditions`). No `eval`,
+  no expression strings. Depth and size are capped (8 levels, 100 nodes).
+* The same AST drives questionnaire branching (`visible_when`). The browser has a TypeScript
+  mirror for instant show/hide (`apps/web/src/lib/conditions.ts`); both run the shared vectors
+  in `tests/fixtures/condition_vectors.json`, and the API re-evaluates on every save.
 * Three-valued logic: a leaf on a missing fact yields `UNKNOWN`, which propagates
   (`all` with an unknown and no false → unknown). This is what turns missing
   information into `UNKNOWN` / `NEEDS_INFORMATION` instead of a false negative.
@@ -508,3 +538,17 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Dev email | Mailpit in `docker-compose.yml` (UI `http://localhost:8025`). |
 | Ops | `python -m app.cli grant-platform-role --email … --role SUPERADMIN`, `python -m app.cli verify-audit`. |
 | Verified | 106 API/infrastructure tests (auth flows, throttling, rotation/expiry, CSRF/origin, tenant isolation as an outsider on every org route, privilege rules, append-only and tamper detection, RBAC seed), web unit tests, manual end-to-end run through the Next.js proxy. |
+
+## 13. Milestone 3 as built
+
+| Concern | Implementation |
+|---|---|
+| Modules | `app/modules/entities` (address, property + ownership, vessel, business profile), `app/modules/projects` (project, status history, task, reminder), `app/modules/conditions` (condition AST + three-valued evaluator), `app/modules/questionnaires` (definitions, versioning, engine, submissions). |
+| Migration | `0003`: 16 tables, application DB role grants, RLS on every tenant table, composite tenant foreign keys, triggers that make published questionnaire versions immutable (even for the owner). |
+| Database roles | See §3.1. `python -m app.cli provision-db-role` creates or updates the login role from `DATABASE_URL`; the `migrate` service runs it after `alembic upgrade head`. |
+| Questionnaires | Reviewed JSON definitions in `app/modules/questionnaires/definitions/` (one per vertical, `<vertical>.general`), synced by `python -m app.cli questionnaires sync` on every migrate. An unchanged definition is a no-op (content hash); a changed one becomes a new published version and retires the previous one. Submissions stay pinned to the version they started on. A question's key is also its fact path; address and object answers expose `key.field` facts. `visible_when` may only reference earlier questions. Hidden answers are pruned on save; validation is all-or-nothing with per-question messages; submit requires every visible required question. The definitions only collect facts: none of them states or implies an approval outcome. |
+| Projects | Reference codes (`PLN-`, `VSL-`, `BUS-`, `GRT-`, `SEL-`, `RNT-` + 6 Crockford base32 characters). Users can move between `DRAFT`, `IN_PROGRESS`, `COMPLETED` and `ARCHIVED`; `ASSESSED` and `IN_REVIEW` are reserved for the system (Milestones 4 and 7). Every change is recorded in `project_status_event` and the audit log. Starting a questionnaire moves a draft project to in progress. Delete is soft. |
+| Reminders | Stored with recurrence and recipient (must be a member). Delivery is not built yet and the UI says so; see TODO. |
+| API | `/v1/organisations/{id}/projects` (+ `/status`, `/status-events`, `/tasks`, `/reminders`, `/submissions`), `/v1/organisations/{id}/submissions/{id}` (+ `/answers`, `/submit`, `/reopen`), `/v1/organisations/{id}/properties`, `/vessels`, `/business-profiles`, `/v1/questionnaires[/{key}]`. |
+| Web | App shell with an active-organisation switcher; `/projects`, `/projects/new`, `/projects/[id]` (status, questionnaire, tasks, reminders), `/projects/[id]/questionnaire` (section by section, instant branching, save per section, API errors shown per question, review and submit, reopen), `/account` (organisations, add a business) and `/account/organisations/[id]` (members, roles, invitations, leave). All on the nonce CSP. |
+| Verified | 285 API tests (branching, every operator, validation of every question type, versioning and immutability, RLS on every tenant table and the privilege map, cross-tenant writes and references refused by the database, 404s for outsiders on every new route), 11 infrastructure tests, 126 web tests (including the shared condition vectors), and a browser run against a live API: register, create a project, add a task, answer with branching, a server-side validation error, review, submit, add a business and invite a member. |

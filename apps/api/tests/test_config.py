@@ -70,3 +70,20 @@ def test_celery_urls_default_to_redis() -> None:
     settings = make_settings(redis_url="redis://cache:6379/2")
     assert settings.broker_url == "redis://cache:6379/2"
     assert settings.result_backend == "redis://cache:6379/2"
+
+
+def test_production_rejects_owner_as_application_role() -> None:
+    owner = "postgresql+psycopg://approvalready:pw@db:5432/approvalready"
+    with pytest.raises(ValidationError, match="application role"):
+        make_settings(
+            app_env=Environment.PRODUCTION,
+            secret_key=SecretStr(STRONG_SECRET),
+            cors_origins=["https://app.example"],
+            database_url=owner,
+            migration_database_url=owner,
+        )
+
+
+def test_owner_url_falls_back_to_database_url() -> None:
+    settings = make_settings(migration_database_url=None)
+    assert settings.owner_database_url == settings.database_url

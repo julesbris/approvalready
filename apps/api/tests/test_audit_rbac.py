@@ -5,6 +5,7 @@ from __future__ import annotations
 import pytest
 from sqlalchemy import select, text
 from sqlalchemy.exc import DBAPIError
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
 from app import cli
 from app.modules.audit import service as audit
@@ -65,17 +66,27 @@ async def test_failed_logins_are_audited_without_the_address(api: ApiHarness) ->
         "TRUNCATE audit_event",
     ],
 )
-async def test_audit_log_is_append_only(api: ApiHarness, statement: str) -> None:
+async def test_audit_log_is_append_only(
+    api: ApiHarness, owner_sessions: async_sessionmaker[AsyncSession], statement: str
+) -> None:
     await api.user()  # make sure there is at least one row
+    # The application role has no UPDATE/DELETE/TRUNCATE privilege on the table at all...
     async with api.app.state.resources.session_factory() as db:
+        with pytest.raises(DBAPIError, match="permission denied"):
+            await db.execute(text(statement))
+        await db.rollback()
+    # ...and the triggers stop even the owner.
+    async with owner_sessions() as db:
         with pytest.raises(DBAPIError, match="append-only"):
             await db.execute(text(statement))
         await db.rollback()
 
 
-async def test_hash_chain_verifies_and_detects_tampering(api: ApiHarness) -> None:
+async def test_hash_chain_verifies_and_detects_tampering(
+    api: ApiHarness, owner_sessions: async_sessionmaker[AsyncSession]
+) -> None:
     await api.user()
-    factory = api.app.state.resources.session_factory
+    factory = owner_sessions
     async with factory() as db:
         assert (await audit.verify_chain(db)).ok
 

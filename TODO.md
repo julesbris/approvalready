@@ -32,22 +32,27 @@ tests and updated docs before the next starts.
 - [x] Email provider interface (SMTP, console, memory) + dev mailbox (Mailpit)
 - [x] Web: BFF proxy, sign in, register, verify email, forgot/reset password, accept invitation, account page
 - [x] Tests: auth flows, throttling, expiry/rotation, CSRF/origin, tenant isolation, privilege rules, audit tamper detection
-- [ ] Moved to Milestone 3: RLS policies + `SET LOCAL app.current_org` with a dedicated non-superuser app DB role (needs the first tenant-owned tables to be meaningful)
+- [x] Moved to Milestone 3 (done there): RLS policies + `SET LOCAL app.current_org` with a dedicated non-superuser app DB role (needs the first tenant-owned tables to be meaningful)
 - [ ] Moved to backlog: generic API-wide rate-limiting middleware (auth endpoints are limited now)
 
-## Milestone 3 — Projects, questionnaires
-- [ ] Separate app DB role (non-owner, no BYPASSRLS); migrations keep the owner role
-- [ ] RLS policies on tenant tables + `SET LOCAL app.current_org` per request; RLS test harness
-- [ ] Organisation management UI (create business, invite, roles, switch active organisation)
-- [ ] Customer entities: property, address, vessel, business profile
-- [ ] Projects with vertical/status, tasks, reminders
-- [ ] Questionnaire versioning, all question types, `visible_when` branching, validation
-- [ ] Customer UI: create project, select vertical, guided questionnaire
-- [ ] Tests: branching, validation, versioning
+## Milestone 3 — Projects, questionnaires ✅
+- [x] Separate app DB role (non-owner, no BYPASSRLS); migrations keep the owner role (`provision-db-role` CLI, readiness check in production)
+- [x] RLS policies (ENABLE + FORCE) on every tenant table, transaction-local `app.current_org`, composite tenant foreign keys; RLS test harness and reviewed privilege map
+- [x] Organisation management UI (create business, members, roles, invitations, leave, switch active organisation)
+- [x] Customer entities: property (+ ownership), address, vessel, business profile (API)
+- [x] Projects with vertical/status workflow and status history, tasks, reminders (stored; delivery below)
+- [x] Questionnaire versioning (immutable published versions, submissions pinned), 12 question types, `visible_when` branching, validation, pruning of hidden answers, submit/reopen
+- [x] Condition AST + three-valued evaluator (shared with Milestone 4), TypeScript mirror for instant branching, shared test vectors
+- [x] Customer UI: projects, create project, select vertical, project workspace, guided questionnaire with review
+- [x] Tests: branching, validation, versioning, RLS, tenant isolation, web components
+- [ ] Moved to Milestone 11 (RentReady reminders need it first): reminder delivery via Celery beat + email/in-app notifications
+- [ ] Moved to Milestone 5: entity UI (property/vessel/business pickers on projects), questionnaire prefill from entities
+- [ ] Moved to Milestone 6: FILE question uploads (type exists; answers rejected until the upload pipeline lands)
+- [ ] Moved to Milestone 4: questionnaire authoring in the admin UI (definitions are reviewed JSON files synced on migrate for now)
 
 ## Milestone 4 — Sources, rules, assessments
 - [ ] Source organisations/documents/references, verification workflow, snapshots
-- [ ] Condition AST (Pydantic), evaluator with three-valued logic, operator table, no eval
+- [x] Condition AST (Pydantic), evaluator with three-valued logic, operator table, no eval (built in Milestone 3 for questionnaire branching)
 - [ ] Rule versioning, publish gate (test cases pass, sources linked)
 - [ ] Assessment runs, findings, confidence derivation, trace
 - [ ] Admin UI for sources and rules
@@ -115,7 +120,7 @@ tests and updated docs before the next starts.
 - [ ] MFA (TOTP) and passkeys via `auth_identity`; Google/Microsoft OIDC
 - [ ] Send transactional email from the worker (outbox) instead of in-request
 - [ ] `npm audit` flags `braces` (high) via `eslint-config-next` → `fast-glob`; dev-only lint tooling, not shipped in images. Re-check on next eslint-config-next release
-- [ ] Brand/domain tables + Next.js host middleware (planned for Milestone 2–3 alongside surfaces)
+- [ ] Brand/domain tables + Next.js host middleware (not needed until a second brand or partner surface; Milestone 14)
 - [ ] Decide object storage vendor (Wasabi / Backblaze B2 / AWS S3 Sydney) — prefer an Australian region
 - [ ] Obtain Australian legal advice on advice/referral/licensing boundaries before launch
 - [ ] Review `julesbris/council-signon-system` for reusable council-domain assets

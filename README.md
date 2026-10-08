@@ -32,6 +32,7 @@ docs/             Architecture, domain model, risks, deployment
 scripts/          Developer scripts
 tests/
   infrastructure/ Guards on deployment config (e.g. no public DB ports)
+  fixtures/       Data shared by the API and web tests (condition evaluator vectors)
 docker-compose.yml        Local development stack
 docker-compose.prod.yml   Single-host production stack
 ```
@@ -51,6 +52,7 @@ docker compose up --build     # db, redis, migrate, api, worker, scheduler, web
 | http://localhost:8000/health/ready | API readiness (DB + Redis) |
 | http://localhost:8000/docs | API docs (disabled in production) |
 | http://localhost:3000/register | Create an account (emails land in Mailpit) |
+| http://localhost:3000/projects | Projects and guided questionnaires (after signing in) |
 | http://localhost:8025 | Mailpit: development mailbox |
 
 Web with hot reload: `npm install && npm run dev:web` (expects the API on :8000).
@@ -70,4 +72,5 @@ loopback for the API suite; `down` removes them.
 
 ## Status
 
-Milestones 1 (infrastructure) and 2 (authentication, organisations, RBAC, audit) are complete. See [`TODO.md`](TODO.md) for what is next.
+Milestones 1 (infrastructure), 2 (authentication, organisations, RBAC, audit) and 3 (projects,
+questionnaires, row-level security) are complete. See [`TODO.md`](TODO.md) for what is next.

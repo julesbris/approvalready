@@ -22,6 +22,7 @@ from app.core.errors import ApiError, forbidden, not_found, unauthenticated
 from app.core.ratelimit import RateLimiter
 from app.core.resources import Resources
 from app.core.security import constant_time_equals, csrf_token_for
+from app.db.tenant import bind_tenant
 from app.modules.audit.service import RequestMeta
 from app.modules.identity import service as identity
 from app.modules.identity.models import AppUser, AuthSession
@@ -160,6 +161,9 @@ def require_org_permission(
             raise not_found("Organisation")
         if permission not in found.permissions:
             raise forbidden()
+        # From here on this request's database session can only see this organisation's
+        # tenant-owned rows (row-level security, app/db/tenant.py).
+        await bind_tenant(db, found.organisation.id)
         return OrgContext(auth, found.organisation, found.role_keys, found.permissions)
 
     return dependency

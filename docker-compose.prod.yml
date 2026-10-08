@@ -23,7 +23,9 @@ x-api-env: &api-env
   APP_VERSION: ${APP_VERSION:-0.1.0}
   GIT_SHA: ${GIT_SHA:-unknown}
   SECRET_KEY: ${SECRET_KEY:?SECRET_KEY is required}
-  DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:?}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@db:5432/${POSTGRES_DB:?}
+  # The application role (non-owner, subject to row-level security). Created and kept in
+  # sync by the migrate service; the owner credentials below are given to migrate only.
+  DATABASE_URL: postgresql+psycopg://${APP_DB_USER:-approvalready_app}:${APP_DB_PASSWORD:?APP_DB_PASSWORD is required}@db:5432/${POSTGRES_DB:?}
   REDIS_URL: redis://:${REDIS_PASSWORD:?REDIS_PASSWORD is required}@redis:6379/0
   CORS_ORIGINS: ${CORS_ORIGINS:?CORS_ORIGINS is required}
   ALLOWED_HOSTS: ${ALLOWED_HOSTS:?ALLOWED_HOSTS is required}
@@ -94,7 +96,9 @@ services:
   migrate:
     <<: *api-image
     command: ["migrate"]
-    environment: *api-env
+    environment:
+      <<: *api-env
+      MIGRATION_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:?}:${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}@db:5432/${POSTGRES_DB:?}
     restart: "no"
     security_opt:
       - no-new-privileges:true

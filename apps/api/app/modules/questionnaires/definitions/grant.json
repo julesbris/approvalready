@@ -1,0 +1,91 @@
+{
+  "key": "grant.general",
+  "vertical": "GRANT",
+  "title": "Grants: tell us about you and your project",
+  "description": "Your answers are matched against each grant round's published eligibility criteria. We only show programs and dates we can cite.",
+  "sections": [
+    {
+      "title": "About the applicant",
+      "questions": [
+        {
+          "key": "grant.applicant_type", "type": "SELECT", "label": "Who would apply?", "required": true,
+          "options": [
+            {"value": "business", "label": "A business"},
+            {"value": "primary_producer", "label": "A primary producer"},
+            {"value": "not_for_profit", "label": "A not-for-profit organisation"},
+            {"value": "individual", "label": "An individual"}
+          ]
+        },
+        {"key": "grant.has_abn", "type": "BOOLEAN", "label": "Does the applicant have an ABN?", "required": true},
+        {
+          "key": "grant.state", "type": "SELECT", "label": "State or territory where the project will happen", "required": true,
+          "options": [
+            {"value": "NSW", "label": "New South Wales"}, {"value": "VIC", "label": "Victoria"},
+            {"value": "QLD", "label": "Queensland"}, {"value": "SA", "label": "South Australia"},
+            {"value": "WA", "label": "Western Australia"}, {"value": "TAS", "label": "Tasmania"},
+            {"value": "NT", "label": "Northern Territory"}, {"value": "ACT", "label": "Australian Capital Territory"}
+          ]
+        },
+        {"key": "grant.postcode", "type": "TEXT", "label": "Postcode where the project will happen", "required": true, "validation": {"pattern": "[0-9]{4}", "pattern_message": "Enter a 4-digit postcode."}},
+        {
+          "key": "grant.trading_age", "type": "SELECT", "label": "How long has the business been trading?", "required": true,
+          "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
+          "options": [
+            {"value": "not_yet", "label": "Not trading yet"},
+            {"value": "under_1", "label": "Less than a year"},
+            {"value": "1_to_3", "label": "1 to 3 years"},
+            {"value": "over_3", "label": "More than 3 years"}
+          ]
+        },
+        {
+          "key": "grant.employee_band", "type": "SELECT", "label": "Number of employees",
+          "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
+          "options": [
+            {"value": "NONE", "label": "None"},
+            {"value": "1_4", "label": "1 to 4"},
+            {"value": "5_19", "label": "5 to 19"},
+            {"value": "20_199", "label": "20 to 199"},
+            {"value": "200_PLUS", "label": "200 or more"}
+          ]
+        },
+        {
+          "key": "grant.turnover_band", "type": "SELECT", "label": "Annual turnover",
+          "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
+          "options": [
+            {"value": "UNDER_75K", "label": "Under $75,000"},
+            {"value": "75K_2M", "label": "$75,000 to $2 million"},
+            {"value": "2M_10M", "label": "$2 million to $10 million"},
+            {"value": "10M_50M", "label": "$10 million to $50 million"},
+            {"value": "OVER_50M", "label": "Over $50 million"}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The project",
+      "questions": [
+        {
+          "key": "grant.project_purpose", "type": "MULTISELECT", "label": "What is the project for?", "required": true,
+          "options": [
+            {"value": "equipment", "label": "Buying equipment"},
+            {"value": "export", "label": "Exporting"},
+            {"value": "research", "label": "Research and development"},
+            {"value": "training", "label": "Training staff"},
+            {"value": "energy", "label": "Energy efficiency or renewable energy"},
+            {"value": "digital", "label": "Digital or technology upgrades"},
+            {"value": "hiring", "label": "Hiring new staff"},
+            {"value": "infrastructure", "label": "Building or infrastructure"},
+            {"value": "events", "label": "Events or community activities"},
+            {"value": "other", "label": "Something else"}
+          ]
+        },
+        {"key": "grant.project_description", "type": "TEXTAREA", "label": "Describe the project", "required": true, "validation": {"min_length": 20, "max_length": 3000}},
+        {"key": "grant.total_cost_cents", "type": "CURRENCY", "label": "Estimated total cost of the project", "required": true, "validation": {"min": "0", "max": "100000000000"}},
+        {"key": "grant.co_contribution_available", "type": "BOOLEAN", "label": "Could the applicant pay for part of the project?", "required": true},
+        {"key": "grant.co_contribution_cents", "type": "CURRENCY", "label": "How much could the applicant contribute?", "required": true, "validation": {"min": "0", "max": "100000000000"}, "visible_when": {"fact": "grant.co_contribution_available", "op": "equals", "value": true}},
+        {"key": "grant.project_started", "type": "BOOLEAN", "label": "Has any work on the project already started?", "required": true, "help_text": "Grant guidelines often treat work that is already under way differently, so we ask up front."},
+        {"key": "grant.project_start_date", "type": "DATE", "label": "When would the project start?", "visible_when": {"fact": "grant.project_started", "op": "equals", "value": false}}
+      ]
+    }
+  ]
+}

@@ -18,7 +18,10 @@ from app.core.middleware import (
     SecurityHeadersMiddleware,
 )
 from app.core.resources import create_resources
+from app.modules.entities.router import router as entities_router
 from app.modules.identity.router import router as auth_router
+from app.modules.projects.router import router as projects_router
+from app.modules.questionnaires.router import router as questionnaires_router
 from app.modules.tenancy.router import router as tenancy_router
 
 
@@ -65,6 +68,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(health.router)
     app.include_router(auth_router)
     app.include_router(tenancy_router)
+    app.include_router(projects_router)
+    app.include_router(entities_router)
+    app.include_router(questionnaires_router)
     return app
 
 

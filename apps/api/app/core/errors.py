@@ -1,4 +1,4 @@
-"""Uniform API errors: ``{"detail": {"code": "...", "message": "..."}}``.
+"""Uniform API errors: ``{"detail": {"code": "...", "message": "...", "fields"?: {...}}}``.
 
 ``code`` is stable and machine-readable (the web app branches on it); ``message`` is a
 human-readable English sentence safe to show to the user.
@@ -16,8 +16,13 @@ class ApiError(HTTPException):
         code: str,
         message: str,
         headers: dict[str, str] | None = None,
+        fields: dict[str, str] | None = None,
     ) -> None:
-        super().__init__(status_code, {"code": code, "message": message}, headers)
+        detail: dict[str, object] = {"code": code, "message": message}
+        if fields:
+            # Per-field messages (e.g. questionnaire answers), keyed by field or question key.
+            detail["fields"] = fields
+        super().__init__(status_code, detail, headers)
         self.code = code
 
 

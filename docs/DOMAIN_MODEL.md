@@ -13,7 +13,7 @@ Target: PostgreSQL 18, SQLAlchemy 2 declarative models, Alembic migrations.
 | Soft delete | `deleted_at timestamptz null` on customer-facing aggregates (marked **SD**). Partial unique indexes use `where deleted_at is null`. |
 | Append-only | Marked **AO**: no `updated_at`/`deleted_at`; app DB role has `INSERT, SELECT` only. |
 | Immutable after publish | Marked **IM**: versions with `status = 'PUBLISHED'` reject updates (trigger). |
-| Tenancy | Tenant-owned tables carry `organisation_id uuid not null` (marked **T**) + RLS policy `organisation_id = current_setting('app.current_org')::uuid` as defence-in-depth behind application authorisation. |
+| Tenancy | Tenant-owned tables carry `organisation_id uuid not null` (marked **T**) + RLS policy `tenant_isolation` (`organisation_id = nullif(current_setting('app.current_org', true), '')::uuid`, forced, for reads and writes) as defence-in-depth behind application authorisation. References between tenant tables are composite `(organisation_id, x_id)` foreign keys. See ARCHITECTURE.md §3.1. |
 | Enums | `text` + `CHECK (col in (...))`, mirrored by Python `StrEnum`. |
 | Money | `amount_cents bigint not null`, `currency char(3) not null default 'AUD'`. |
 | Geography | Postcode/suburb/LGA/state as columns; `location geography(Point,4326)` via PostGIS when radius matching lands (Milestone 15). |
@@ -46,7 +46,13 @@ Shared enums:
 | `member_role` | `organisation_member_id`, `role_id` PK pair, `granted_by`, `granted_at` | Trigger rejects a role outside its `allowed_org_kinds` (so platform roles exist only in the `PLATFORM_ADMIN` org). |
 | `audit_event` **AO** | `seq bigint identity unique`, `occurred_at`, `actor_user_id`, `organisation_id`, `action`, `target_type`, `target_id`, `ip`, `user_agent`, `request_id`, `details jsonb`, `prev_hash`, `hash unique` | No foreign keys (outlives what it describes). Triggers block UPDATE/DELETE/TRUNCATE; SHA-256 hash chain. |
 
-## 2. Customer entities
+## 2. Customer entities (built, Milestone 3, except where noted)
+
+As built: `customer_profile`, `vessel_certificate` and `business_profile.ownership_flags` are
+not built yet (no milestone needs them before BusinessReady/VesselReady/GrantReady). `address`
+is tenant-owned (**T**) so it can be protected by RLS; `property_ownership.evidence_id` waits
+for documents (Milestone 6). Entities are reachable through the API; their UI arrives with
+PlanningReady (Milestone 5).
 
 | Table | Key columns | Notes |
 |---|---|---|
@@ -58,7 +64,15 @@ Shared enums:
 | `vessel` **T SD** | `name`, `vessel_type`, `length_m numeric(6,2)`, `hull_material`, `propulsion`, `max_passengers`, `crew`, `operating_area` (AMSA class text, sourced), `activity`, `uvi null`, `hin null`, `state_rego null` | |
 | `vessel_certificate` **T** | `vessel_id`, `kind`, `number`, `issued_on`, `expires_on`, `evidence_id` | |
 
-## 3. Projects, tasks, reminders
+## 3. Projects, tasks, reminders (built, Milestone 3)
+
+As built: `project` adds `description`; status display labels live in the web app, not a
+lookup table. `task` has `notes`, `status` (`OPEN`,`DONE`), `completed_at` (set exactly when
+done), and no `kind`/`finding_id` until findings exist (Milestone 4). `reminder` is simplified
+to `project_id`, `task_id null`, `recipient_user_id` (a member), `title`, `fires_at`
+(timezone-aware, future), `channel` (`EMAIL`,`IN_APP`), `status`
+(`SCHEDULED`,`SENT`,`CANCELLED`), `recurrence null` (`WEEKLY`,`MONTHLY`,`YEARLY`), `sent_at`;
+the generic `subject_type/subject_id` returns with RentReady. Delivery is not built yet.
 
 | Table | Key columns | Notes |
 |---|---|---|
@@ -67,7 +81,16 @@ Shared enums:
 | `task` **T SD** | `project_id`, `title`, `kind`, `status`, `due_on`, `assignee_user_id`, `source` (`RULE`,`USER`,`REVIEWER`), `finding_id null` | Tasks generated from findings link back. |
 | `reminder` **T** | `project_id null`, `subject_type`, `subject_id`, `fires_at`, `channel`, `status`, `recurrence_rule null` | RentReady rent review, lease renewal, etc. |
 
-## 4. Questionnaire engine
+## 4. Questionnaire engine (built, Milestone 3)
+
+As built: a question's `key` is its fact path (no separate `fact_path` column); address and
+object answers also provide `key.field` facts. `questionnaire_version` adds `title`,
+`description` and `content_hash` (re-syncing an unchanged definition is a no-op), with at most
+one `PUBLISHED` version per questionnaire. `question_version` and `question_option` cannot be
+changed once their version is published (triggers), and the application role can only read
+definition tables. `question_response` has no `uploaded_document_id` yet: FILE answers are
+rejected until uploads exist (Milestone 6). Submissions record `submitted_by`, responses
+`answered_by`.
 
 | Table | Key columns | Notes |
 |---|---|---|

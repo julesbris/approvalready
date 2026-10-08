@@ -1,0 +1,65 @@
+{
+  "key": "planning.general",
+  "vertical": "PLANNING",
+  "title": "Planning and building: tell us about your project",
+  "description": "Your answers describe the site and what you want to build. They are facts for the assessment, not an assessment themselves.",
+  "sections": [
+    {
+      "title": "The site",
+      "questions": [
+        {"key": "property.address", "type": "ADDRESS", "label": "Site address", "required": true},
+        {"key": "property.lot_plan", "type": "TEXT", "label": "Lot and plan (if known)", "help_text": "Shown on your rates notice or title search, for example Lot 12 on RP123456.", "validation": {"max_length": 50}},
+        {"key": "property.land_area_m2", "type": "DECIMAL", "label": "Land area (square metres, if known)", "validation": {"min": "1", "max": "100000000", "max_decimal_places": 2}},
+        {"key": "property.has_existing_dwelling", "type": "BOOLEAN", "label": "Is there an existing house on the land?", "required": true}
+      ]
+    },
+    {
+      "title": "What you want to do",
+      "questions": [
+        {
+          "key": "planning.development_type", "type": "SELECT", "label": "What are you planning?", "required": true,
+          "options": [
+            {"value": "secondary_dwelling", "label": "A secondary dwelling (granny flat)"},
+            {"value": "new_dwelling", "label": "A new house"},
+            {"value": "extension", "label": "An extension or renovation"},
+            {"value": "subdivision", "label": "Subdividing the land"},
+            {"value": "change_of_use", "label": "Changing how a building is used"},
+            {"value": "other", "label": "Something else"}
+          ]
+        },
+        {"key": "planning.secondary_dwelling_bedrooms", "type": "NUMBER", "label": "How many bedrooms would the secondary dwelling have?", "required": true, "validation": {"min": "0", "max": "10"}, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "secondary_dwelling"}},
+        {"key": "planning.secondary_dwelling_floor_area_m2", "type": "DECIMAL", "label": "Approximate floor area of the secondary dwelling (square metres)", "validation": {"min": "1", "max": "1000", "max_decimal_places": 1}, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "secondary_dwelling"}},
+        {"key": "planning.storeys", "type": "NUMBER", "label": "How many storeys will the building have?", "required": true, "validation": {"min": "1", "max": "20"}, "visible_when": {"fact": "planning.development_type", "op": "in", "value": ["new_dwelling", "extension", "secondary_dwelling"]}},
+        {"key": "planning.proposed_lots", "type": "NUMBER", "label": "How many lots would there be in total after subdividing?", "required": true, "validation": {"min": "2", "max": "500"}, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "subdivision"}},
+        {"key": "planning.current_use", "type": "TEXT", "label": "How is the building used now?", "required": true, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "change_of_use"}},
+        {"key": "planning.proposed_use", "type": "TEXT", "label": "How do you want to use it?", "required": true, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "change_of_use"}},
+        {"key": "planning.other_description", "type": "TEXTAREA", "label": "Describe what you are planning", "required": true, "validation": {"max_length": 2000}, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "other"}}
+      ]
+    },
+    {
+      "title": "What you know about the site",
+      "questions": [
+        {
+          "key": "planning.known_constraints", "type": "MULTISELECT", "label": "As far as you know, do any of these apply to the site?",
+          "help_text": "Leave this blank if you are not sure. We do not assume a constraint is absent because it is not ticked.",
+          "options": [
+            {"value": "heritage", "label": "Heritage listing"},
+            {"value": "flooding", "label": "Flood or storm tide area"},
+            {"value": "bushfire", "label": "Bushfire-prone area"},
+            {"value": "vegetation", "label": "Protected vegetation"},
+            {"value": "easement", "label": "Easements, or sewer or stormwater pipes"},
+            {"value": "steep_slope", "label": "Steep slope"}
+          ]
+        },
+        {"key": "planning.constraints_details", "type": "TEXTAREA", "label": "Tell us what you know about these", "validation": {"max_length": 2000}, "visible_when": {"fact": "planning.known_constraints", "op": "exists"}}
+      ]
+    },
+    {
+      "title": "Timing and help",
+      "questions": [
+        {"key": "planning.target_start_date", "type": "DATE", "label": "When would you like to start?"},
+        {"key": "planning.has_professional", "type": "BOOLEAN", "label": "Is a designer, builder or town planner already involved?"}
+      ]
+    }
+  ]
+}

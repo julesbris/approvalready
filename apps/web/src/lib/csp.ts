@@ -17,6 +17,7 @@ export const NONCE_CSP_PATHS = [
   "/reset-password",
   "/account",
   "/invitations",
+  "/projects",
 ] as const;
 
 export function usesNonceCsp(pathname: string): boolean {

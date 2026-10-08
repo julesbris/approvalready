@@ -5,7 +5,7 @@
 
 export type ApiResult<T> =
   | { ok: true; status: number; data: T }
-  | { ok: false; status: number; code: string; message: string };
+  | { ok: false; status: number; code: string; message: string; fields?: Record<string, string> };
 
 const CSRF_COOKIES = ["__Host-ar_csrf", "ar_csrf"];
 
@@ -17,11 +17,23 @@ export function readCsrfToken(cookieString: string): string | undefined {
   return undefined;
 }
 
-export function errorFrom(status: number, body: unknown): { code: string; message: string } {
+export type ApiErrorInfo = { code: string; message: string; fields?: Record<string, string> };
+
+export function errorFrom(status: number, body: unknown): ApiErrorInfo {
   const detail = (body as { detail?: unknown } | null)?.detail;
   if (detail && typeof detail === "object" && !Array.isArray(detail)) {
-    const { code, message } = detail as { code?: string; message?: string };
-    if (code && message) return { code, message };
+    const { code, message, fields } = detail as {
+      code?: string;
+      message?: string;
+      fields?: unknown;
+    };
+    if (code && message) {
+      // Per-field messages (e.g. questionnaire answers), keyed by field or question key.
+      if (fields && typeof fields === "object" && !Array.isArray(fields)) {
+        return { code, message, fields: fields as Record<string, string> };
+      }
+      return { code, message };
+    }
   }
   if (Array.isArray(detail)) {
     // FastAPI validation errors.

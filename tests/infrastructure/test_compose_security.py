@@ -60,7 +60,7 @@ def test_redis_requires_password(prod: dict[str, Any]) -> None:
 
 def test_production_secrets_are_mandatory(prod: dict[str, Any]) -> None:
     raw = (ROOT / "docker-compose.prod.yml").read_text()
-    for var in ("SECRET_KEY", "POSTGRES_PASSWORD", "REDIS_PASSWORD"):
+    for var in ("SECRET_KEY", "POSTGRES_PASSWORD", "APP_DB_PASSWORD", "REDIS_PASSWORD"):
         assert f"${{{var}:?" in raw, f"{var} must fail fast when unset"
 
 
@@ -73,3 +73,19 @@ def test_dev_ports_bind_to_loopback_only(dev: dict[str, Any]) -> None:
     for name, svc in dev["services"].items():
         for port in svc.get("ports", []):
             assert str(port).startswith("127.0.0.1:"), f"{name} exposes {port} beyond loopback"
+
+
+@pytest.mark.parametrize("compose", ["prod", "dev"])
+def test_only_migrate_gets_owner_credentials(
+    compose: str, prod: dict[str, Any], dev: dict[str, Any]
+) -> None:
+    """Long-running services connect as the application role, so row-level security applies
+    to them. Only the one-shot migrate service sees the owner's credentials."""
+    services = (prod if compose == "prod" else dev)["services"]
+    for name, svc in services.items():
+        env = svc.get("environment") or {}
+        if name == "migrate":
+            assert "POSTGRES_USER" in env["MIGRATION_DATABASE_URL"]
+        else:
+            assert "MIGRATION_DATABASE_URL" not in env, name
+            assert "POSTGRES_PASSWORD" not in str(env.get("DATABASE_URL", "")), name

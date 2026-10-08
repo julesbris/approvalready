@@ -18,7 +18,11 @@ case "${1:-api}" in
     exec celery -A app.worker beat --loglevel="${LOG_LEVEL:-INFO}" --schedule=/tmp/celerybeat-schedule
     ;;
   migrate)
-    exec alembic upgrade head
+    # As the owner (MIGRATION_DATABASE_URL): schema, then the application's login role,
+    # then publish changed questionnaire definitions.
+    alembic upgrade head
+    python -m app.cli provision-db-role
+    exec python -m app.cli questionnaires sync
     ;;
   *)
     exec "$@"

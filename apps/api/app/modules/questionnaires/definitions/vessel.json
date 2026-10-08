@@ -1,0 +1,78 @@
+{
+  "key": "vessel.general",
+  "vertical": "VESSEL",
+  "title": "Vessels: tell us about your vessel",
+  "description": "Your answers describe the vessel and how it will be used. Operating area classes and survey requirements are determined later from sourced rules, not from these answers alone.",
+  "sections": [
+    {
+      "title": "The vessel",
+      "questions": [
+        {"key": "vessel.name", "type": "TEXT", "label": "Vessel name", "required": true, "validation": {"max_length": 120}},
+        {
+          "key": "vessel.type", "type": "SELECT", "label": "Type of vessel", "required": true,
+          "options": [
+            {"value": "motor", "label": "Motor boat"},
+            {"value": "sail", "label": "Sailing vessel"},
+            {"value": "personal_watercraft", "label": "Personal watercraft (jet ski)"},
+            {"value": "paddle", "label": "Paddle craft"},
+            {"value": "barge", "label": "Barge"},
+            {"value": "other", "label": "Other"}
+          ]
+        },
+        {"key": "vessel.length_m", "type": "DECIMAL", "label": "Overall length (metres)", "required": true, "validation": {"min": "0.5", "max": "500", "max_decimal_places": 2}},
+        {
+          "key": "vessel.propulsion", "type": "SELECT", "label": "Main propulsion",
+          "options": [
+            {"value": "inboard", "label": "Inboard engine"},
+            {"value": "outboard", "label": "Outboard engine"},
+            {"value": "sterndrive", "label": "Sterndrive"},
+            {"value": "jet", "label": "Jet"},
+            {"value": "sail", "label": "Sail only"},
+            {"value": "sail_auxiliary", "label": "Sail with auxiliary engine"},
+            {"value": "manual", "label": "Paddle or oar"},
+            {"value": "other", "label": "Other"}
+          ]
+        },
+        {"key": "vessel.has_uvi", "type": "BOOLEAN", "label": "Does the vessel already have a Unique Vessel Identifier (UVI)?", "required": true},
+        {"key": "vessel.uvi", "type": "TEXT", "label": "UVI", "required": true, "validation": {"max_length": 20}, "visible_when": {"fact": "vessel.has_uvi", "op": "equals", "value": true}}
+      ]
+    },
+    {
+      "title": "How it will be used",
+      "questions": [
+        {"key": "vessel.commercial_use", "type": "BOOLEAN", "label": "Will the vessel be used for a business purpose?", "required": true},
+        {
+          "key": "vessel.commercial_activities", "type": "MULTISELECT", "label": "What will it be used for?", "required": true,
+          "visible_when": {"fact": "vessel.commercial_use", "op": "equals", "value": true},
+          "options": [
+            {"value": "passenger_tours", "label": "Tours or charters carrying passengers"},
+            {"value": "fishing", "label": "Fishing"},
+            {"value": "hire_and_drive", "label": "Hire and drive"},
+            {"value": "workboat", "label": "Work or service vessel"},
+            {"value": "training", "label": "Training"},
+            {"value": "other", "label": "Other"}
+          ]
+        },
+        {"key": "vessel.max_passengers", "type": "NUMBER", "label": "Maximum number of passengers", "required": true, "validation": {"min": "1", "max": "5000"}, "visible_when": {"all": [{"fact": "vessel.commercial_use", "op": "equals", "value": true}, {"fact": "vessel.commercial_activities", "op": "contains", "value": "passenger_tours"}]}},
+        {"key": "vessel.crew", "type": "NUMBER", "label": "Number of crew", "validation": {"min": "0", "max": "500"}, "visible_when": {"fact": "vessel.commercial_use", "op": "equals", "value": true}},
+        {"key": "vessel.operating_area_description", "type": "TEXTAREA", "label": "Where will the vessel operate?", "required": true, "help_text": "Describe the waters, for example \"within Trinity Inlet\" or \"up to 30 nautical miles offshore from Cairns\".", "validation": {"max_length": 1000}},
+        {
+          "key": "vessel.home_state", "type": "SELECT", "label": "State or territory where the vessel is based", "required": true,
+          "options": [
+            {"value": "NSW", "label": "New South Wales"}, {"value": "VIC", "label": "Victoria"},
+            {"value": "QLD", "label": "Queensland"}, {"value": "SA", "label": "South Australia"},
+            {"value": "WA", "label": "Western Australia"}, {"value": "TAS", "label": "Tasmania"},
+            {"value": "NT", "label": "Northern Territory"}, {"value": "ACT", "label": "Australian Capital Territory"}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "History",
+      "questions": [
+        {"key": "vessel.is_new_build", "type": "BOOLEAN", "label": "Is this a new build?", "required": true},
+        {"key": "vessel.surveyed_before", "type": "SELECT", "label": "Has the vessel been surveyed before?", "options": [{"value": "yes", "label": "Yes"}, {"value": "no", "label": "No"}, {"value": "unsure", "label": "Not sure"}], "visible_when": {"fact": "vessel.is_new_build", "op": "equals", "value": false}}
+      ]
+    }
+  ]
+}

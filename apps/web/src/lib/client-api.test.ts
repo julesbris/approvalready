@@ -18,6 +18,13 @@ describe("errorFrom", () => {
       errorFrom(401, { detail: { code: "invalid_credentials", message: "Wrong." } }),
     ).toEqual({ code: "invalid_credentials", message: "Wrong." });
   });
+  it("passes per-field messages through", () => {
+    expect(
+      errorFrom(422, {
+        detail: { code: "answers_invalid", message: "Check.", fields: { "a.b": "Enter a number." } },
+      }),
+    ).toEqual({ code: "answers_invalid", message: "Check.", fields: { "a.b": "Enter a number." } });
+  });
   it("summarises validation errors", () => {
     expect(errorFrom(422, { detail: [{ msg: "Value error, Enter a valid ABN", loc: [] }] })).toEqual(
       { code: "invalid", message: "Enter a valid ABN" },

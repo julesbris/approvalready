@@ -24,9 +24,29 @@ export type MemberOut = Schemas["MemberOut"];
 export type InvitationOut = Schemas["InvitationOut"];
 export type AuditEventOut = Schemas["AuditEventOut"];
 
+export type ProjectOut = Schemas["ProjectOut"];
+export type ProjectDetailOut = Schemas["ProjectDetailOut"];
+export type ProjectCreate = Schemas["ProjectCreate"];
+export type ProjectStatus = Schemas["ProjectStatus"];
+export type StatusEventOut = Schemas["StatusEventOut"];
+export type TaskOut = Schemas["TaskOut"];
+export type ReminderOut = Schemas["ReminderOut"];
+export type SubmissionSummary = Schemas["SubmissionSummary"];
+export type SubmissionOut = Schemas["SubmissionOut"];
+export type QuestionnaireOut = Schemas["QuestionnaireOut"];
+export type QuestionnaireSummary = Schemas["QuestionnaireSummary"];
+export type SectionOut = Schemas["SectionOut"];
+export type QuestionOut = Schemas["QuestionOut"];
+export type OptionOut = Schemas["OptionOut"];
+export type PropertyOut = Schemas["PropertyOut"];
+export type VesselOut = Schemas["VesselOut"];
+export type BusinessProfileOut = Schemas["BusinessOut"];
+
 /** Error body returned by the API for every handled error. */
 export interface ApiErrorBody {
-  detail: { code: string; message: string } | Array<{ msg: string; loc: (string | number)[] }>;
+  detail:
+    | { code: string; message: string; fields?: Record<string, string> }
+    | Array<{ msg: string; loc: (string | number)[] }>;
 }
 
 /** Regulatory confidence levels. Every regulatory outcome uses exactly one of these. */

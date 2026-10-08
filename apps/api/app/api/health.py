@@ -2,8 +2,9 @@
 
 * ``/health/live``  - the process is up and serving. Never touches dependencies, so a
   database outage does not cause the orchestrator to restart healthy API containers.
-* ``/health/ready`` - PostgreSQL and Redis are reachable. Returns 503 otherwise, which
-  takes the instance out of rotation without killing it.
+* ``/health/ready`` - PostgreSQL and Redis are reachable (and, in production, the database
+  role is one row-level security applies to). Returns 503 otherwise, which takes the
+  instance out of rotation without killing it.
 """
 
 from __future__ import annotations
@@ -56,6 +57,24 @@ async def _check_database(resources: Resources) -> None:
             raise RuntimeError("unexpected SELECT 1 result")
 
 
+async def _check_database_role(resources: Resources) -> None:
+    """Row-level security does not apply to superusers, BYPASSRLS roles or table owners, so a
+    production instance connected as one of those must not take traffic."""
+    async with resources.engine.connect() as conn:
+        unsafe = (
+            await conn.execute(
+                text(
+                    "SELECT rolsuper OR rolbypassrls OR EXISTS ("
+                    "  SELECT 1 FROM pg_tables WHERE tableowner = current_user"
+                    "  AND schemaname = 'public') "
+                    "FROM pg_roles WHERE rolname = current_user"
+                )
+            )
+        ).scalar_one()
+        if unsafe:
+            raise RuntimeError("database role bypasses row-level security")
+
+
 async def _check_redis(resources: Resources) -> None:
     if not await resources.redis.ping():
         raise RuntimeError("redis ping returned falsy")
@@ -92,10 +111,13 @@ async def ready(request: Request, response: Response) -> ReadyResponse:
     resources: Resources = request.app.state.resources
     settings: Settings = request.app.state.settings
     timeout = settings.health_check_timeout_seconds
-    results = await asyncio.gather(
+    checks_to_run = [
         _timed("database", _check_database(resources), timeout),
         _timed("redis", _check_redis(resources), timeout),
-    )
+    ]
+    if settings.is_production:
+        checks_to_run.append(_timed("database_role", _check_database_role(resources), timeout))
+    results = await asyncio.gather(*checks_to_run)
     checks = dict(results)
     healthy = all(check.status == "ok" for check in checks.values())
     if not healthy:
