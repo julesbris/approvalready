@@ -128,6 +128,158 @@
         "title": "AnswersUpdate",
         "type": "object"
       },
+      "AssessmentOut": {
+        "properties": {
+          "assessed_on": {
+            "format": "date",
+            "title": "Assessed On",
+            "type": "string"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "engine_version": {
+            "title": "Engine Version",
+            "type": "string"
+          },
+          "fact_labels": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Question labels for the facts that appear in this assessment.",
+            "title": "Fact Labels",
+            "type": "object"
+          },
+          "facts": {
+            "additionalProperties": true,
+            "description": "The facts assessed (encoded, see rules engine).",
+            "title": "Facts",
+            "type": "object"
+          },
+          "facts_hash": {
+            "title": "Facts Hash",
+            "type": "string"
+          },
+          "finding_list": {
+            "items": {
+              "$ref": "#/components/schemas/FindingOut"
+            },
+            "title": "Finding List",
+            "type": "array"
+          },
+          "findings": {
+            "title": "Findings",
+            "type": "integer"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "overall_confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "rule_sets": {
+            "items": {
+              "$ref": "#/components/schemas/RuleSetScopeOut"
+            },
+            "title": "Rule Sets",
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AssessmentStatus"
+          },
+          "submission_id": {
+            "format": "uuid",
+            "title": "Submission Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "submission_id",
+          "assessed_on",
+          "status",
+          "overall_confidence",
+          "findings",
+          "created_at",
+          "engine_version",
+          "facts_hash",
+          "facts",
+          "fact_labels",
+          "rule_sets",
+          "finding_list"
+        ],
+        "title": "AssessmentOut",
+        "type": "object"
+      },
+      "AssessmentStatus": {
+        "enum": [
+          "COMPLETED",
+          "NO_APPLICABLE_RULES"
+        ],
+        "title": "AssessmentStatus",
+        "type": "string"
+      },
+      "AssessmentSummary": {
+        "properties": {
+          "assessed_on": {
+            "format": "date",
+            "title": "Assessed On",
+            "type": "string"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "findings": {
+            "title": "Findings",
+            "type": "integer"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "overall_confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AssessmentStatus"
+          },
+          "submission_id": {
+            "format": "uuid",
+            "title": "Submission Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "submission_id",
+          "assessed_on",
+          "status",
+          "overall_confidence",
+          "findings",
+          "created_at"
+        ],
+        "title": "AssessmentSummary",
+        "type": "object"
+      },
       "AuditChainOut": {
         "properties": {
           "checked": {
@@ -637,6 +789,17 @@
         "title": "BusinessUpdate",
         "type": "object"
       },
+      "Confidence": {
+        "description": "How far a finding can be relied on, highest first (see ``rules/engine.py``).",
+        "enum": [
+          "VERIFIED",
+          "LIKELY",
+          "REVIEW_REQUIRED",
+          "UNKNOWN"
+        ],
+        "title": "Confidence",
+        "type": "string"
+      },
       "DependencyCheck": {
         "properties": {
           "latency_ms": {
@@ -696,6 +859,278 @@
         ],
         "title": "EntityType",
         "type": "string"
+      },
+      "EvaluateIn": {
+        "additionalProperties": false,
+        "properties": {
+          "facts": {
+            "additionalProperties": true,
+            "title": "Facts",
+            "type": "object"
+          },
+          "on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Assessment date; defaults to today.",
+            "title": "On"
+          }
+        },
+        "required": [
+          "facts"
+        ],
+        "title": "EvaluateIn",
+        "type": "object"
+      },
+      "EvaluateOut": {
+        "properties": {
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "confidence_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Confidence Reasons",
+            "type": "array"
+          },
+          "missing_facts": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Facts",
+            "type": "array"
+          },
+          "outcome": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OutcomeOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/RuleResult"
+          },
+          "trace": {
+            "additionalProperties": true,
+            "title": "Trace",
+            "type": "object"
+          }
+        },
+        "required": [
+          "result",
+          "outcome",
+          "confidence",
+          "confidence_reasons",
+          "missing_facts",
+          "trace"
+        ],
+        "title": "EvaluateOut",
+        "type": "object"
+      },
+      "FindingOut": {
+        "properties": {
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "confidence_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Confidence Reasons",
+            "type": "array"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "missing_facts": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Facts",
+            "type": "array"
+          },
+          "outcome_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OutcomeType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "result": {
+            "$ref": "#/components/schemas/RuleResult"
+          },
+          "rule_key": {
+            "title": "Rule Key",
+            "type": "string"
+          },
+          "rule_set_id": {
+            "format": "uuid",
+            "title": "Rule Set Id",
+            "type": "string"
+          },
+          "rule_title": {
+            "title": "Rule Title",
+            "type": "string"
+          },
+          "rule_version_id": {
+            "format": "uuid",
+            "title": "Rule Version Id",
+            "type": "string"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/FindingSourceOut"
+            },
+            "title": "Sources",
+            "type": "array"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "trace": {
+            "additionalProperties": true,
+            "description": "Leaf-by-leaf evaluation of the rule.",
+            "title": "Trace",
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "rule_set_id",
+          "rule_version_id",
+          "rule_key",
+          "rule_title",
+          "result",
+          "outcome_type",
+          "title",
+          "detail",
+          "confidence",
+          "confidence_reasons",
+          "missing_facts",
+          "trace",
+          "sources"
+        ],
+        "title": "FindingOut",
+        "type": "object"
+      },
+      "FindingSourceOut": {
+        "properties": {
+          "citation": {
+            "title": "Citation",
+            "type": "string"
+          },
+          "clause": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Clause"
+          },
+          "document_title": {
+            "title": "Document Title",
+            "type": "string"
+          },
+          "in_force": {
+            "title": "In Force",
+            "type": "boolean"
+          },
+          "organisation_name": {
+            "title": "Organisation Name",
+            "type": "string"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "reference_id": {
+            "format": "uuid",
+            "title": "Reference Id",
+            "type": "string"
+          },
+          "relationship": {
+            "title": "Relationship",
+            "type": "string"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "verification_status": {
+            "title": "Verification Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference_id",
+          "relationship",
+          "verification_status",
+          "citation",
+          "document_title",
+          "organisation_name",
+          "url",
+          "section",
+          "clause",
+          "page",
+          "in_force"
+        ],
+        "title": "FindingSourceOut",
+        "type": "object"
       },
       "HTTPValidationError": {
         "properties": {
@@ -1060,6 +1495,91 @@
         "title": "OrganisationUpdate",
         "type": "object"
       },
+      "OutcomeIn": {
+        "additionalProperties": false,
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "on_result": {
+            "$ref": "#/components/schemas/RuleResult"
+          },
+          "outcome_type": {
+            "$ref": "#/components/schemas/OutcomeType"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "on_result",
+          "outcome_type",
+          "title"
+        ],
+        "title": "OutcomeIn",
+        "type": "object"
+      },
+      "OutcomeOut": {
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "on_result": {
+            "$ref": "#/components/schemas/RuleResult"
+          },
+          "outcome_type": {
+            "$ref": "#/components/schemas/OutcomeType"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "on_result",
+          "outcome_type",
+          "title",
+          "detail"
+        ],
+        "title": "OutcomeOut",
+        "type": "object"
+      },
+      "OutcomeType": {
+        "enum": [
+          "APPROVAL_REQUIRED",
+          "APPROVAL_LIKELY",
+          "NOT_REQUIRED",
+          "EVIDENCE_REQUIRED",
+          "PROFESSIONAL_REQUIRED",
+          "REFERRAL_CATEGORY",
+          "CROSS_SELL",
+          "WARNING",
+          "INFO"
+        ],
+        "title": "OutcomeType",
+        "type": "string"
+      },
       "OwnershipRole": {
         "enum": [
           "OWNER",
@@ -1245,6 +1765,16 @@
             "title": "Id",
             "type": "string"
           },
+          "latest_assessment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AssessmentSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "open_tasks": {
             "title": "Open Tasks",
             "type": "integer"
@@ -1320,7 +1850,8 @@
           "created_at",
           "updated_at",
           "submissions",
-          "open_tasks"
+          "open_tasks",
+          "latest_assessment"
         ],
         "title": "ProjectDetailOut",
         "type": "object"
@@ -1738,6 +2269,68 @@
         "title": "Propulsion",
         "type": "string"
       },
+      "PublishCheck": {
+        "properties": {
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "passed": {
+            "title": "Passed",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "key",
+          "passed",
+          "message"
+        ],
+        "title": "PublishCheck",
+        "type": "object"
+      },
+      "PublishChecksOut": {
+        "properties": {
+          "checks": {
+            "items": {
+              "$ref": "#/components/schemas/PublishCheck"
+            },
+            "title": "Checks",
+            "type": "array"
+          },
+          "ready": {
+            "description": "Every check passed: the version can be published.",
+            "title": "Ready",
+            "type": "boolean"
+          },
+          "test_results": {
+            "items": {
+              "$ref": "#/components/schemas/TestCaseResultOut"
+            },
+            "title": "Test Results",
+            "type": "array"
+          },
+          "warnings": {
+            "description": "Allowed, but worth knowing before publishing.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "ready",
+          "checks",
+          "warnings",
+          "test_results"
+        ],
+        "title": "PublishChecksOut",
+        "type": "object"
+      },
       "QuestionOut": {
         "properties": {
           "help_text": {
@@ -2115,6 +2708,908 @@
         "title": "ReminderOut",
         "type": "object"
       },
+      "ReviewAction": {
+        "enum": [
+          "CREATED",
+          "EDITED",
+          "VERIFIED",
+          "DISPUTED",
+          "SUPERSEDED",
+          "REOPENED"
+        ],
+        "title": "ReviewAction",
+        "type": "string"
+      },
+      "ReviewEventOut": {
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/ReviewAction"
+          },
+          "from_status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VerificationStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "occurred_at": {
+            "format": "date-time",
+            "title": "Occurred At",
+            "type": "string"
+          },
+          "reviewer_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewer Id"
+          },
+          "reviewer_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewer Name"
+          },
+          "to_status": {
+            "$ref": "#/components/schemas/VerificationStatus"
+          }
+        },
+        "required": [
+          "id",
+          "action",
+          "from_status",
+          "to_status",
+          "reviewer_id",
+          "reviewer_name",
+          "notes",
+          "occurred_at"
+        ],
+        "title": "ReviewEventOut",
+        "type": "object"
+      },
+      "RuleCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "condition": {
+            "additionalProperties": true,
+            "description": "Condition AST for the first draft.",
+            "title": "Condition",
+            "type": "object"
+          },
+          "key": {
+            "maxLength": 100,
+            "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)*$",
+            "title": "Key",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "title",
+          "condition"
+        ],
+        "title": "RuleCreate",
+        "type": "object"
+      },
+      "RuleOut": {
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "rule_set_id": {
+            "format": "uuid",
+            "title": "Rule Set Id",
+            "type": "string"
+          },
+          "rule_set_key": {
+            "title": "Rule Set Key",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "versions": {
+            "items": {
+              "$ref": "#/components/schemas/RuleVersionSummary"
+            },
+            "title": "Versions",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "rule_set_id",
+          "rule_set_key",
+          "key",
+          "title",
+          "versions"
+        ],
+        "title": "RuleOut",
+        "type": "object"
+      },
+      "RuleResult": {
+        "description": "A rule's condition evaluated against the facts (three-valued).",
+        "enum": [
+          "MATCH",
+          "NO_MATCH",
+          "UNKNOWN"
+        ],
+        "title": "RuleResult",
+        "type": "string"
+      },
+      "RuleSetCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "applies_when": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Condition AST; omit when the rule set applies everywhere.",
+            "title": "Applies When"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "jurisdiction": {
+            "pattern": "^(CTH|QLD|NSW|VIC|SA|WA|TAS|NT|ACT|LGA:[A-Z][A-Z0-9_]{1,59})$",
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "key": {
+            "maxLength": 100,
+            "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)*$",
+            "title": "Key",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "vertical": {
+            "$ref": "#/components/schemas/Vertical"
+          }
+        },
+        "required": [
+          "key",
+          "vertical",
+          "jurisdiction",
+          "title"
+        ],
+        "title": "RuleSetCreate",
+        "type": "object"
+      },
+      "RuleSetOut": {
+        "properties": {
+          "applies_when": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applies When"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "jurisdiction": {
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "rules": {
+            "items": {
+              "$ref": "#/components/schemas/RuleSummary"
+            },
+            "title": "Rules",
+            "type": "array"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "vertical": {
+            "$ref": "#/components/schemas/Vertical"
+          }
+        },
+        "required": [
+          "id",
+          "key",
+          "vertical",
+          "jurisdiction",
+          "title",
+          "description",
+          "applies_when",
+          "rules",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "RuleSetOut",
+        "type": "object"
+      },
+      "RuleSetScopeOut": {
+        "properties": {
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "missing_facts": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Facts",
+            "type": "array"
+          },
+          "not_in_force": {
+            "description": "Rules with no version in force that day.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Not In Force",
+            "type": "array"
+          },
+          "rule_set_id": {
+            "format": "uuid",
+            "title": "Rule Set Id",
+            "type": "string"
+          },
+          "scope": {
+            "description": "IN_SCOPE, OUT_OF_SCOPE or NEEDS_INFORMATION.",
+            "title": "Scope",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "rule_set_id",
+          "key",
+          "title",
+          "scope",
+          "missing_facts",
+          "not_in_force"
+        ],
+        "title": "RuleSetScopeOut",
+        "type": "object"
+      },
+      "RuleSetUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "applies_when": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applies When"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "jurisdiction": {
+            "anyOf": [
+              {
+                "pattern": "^(CTH|QLD|NSW|VIC|SA|WA|TAS|NT|ACT|LGA:[A-Z][A-Z0-9_]{1,59})$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jurisdiction"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          }
+        },
+        "title": "RuleSetUpdate",
+        "type": "object"
+      },
+      "RuleSourceIn": {
+        "additionalProperties": false,
+        "properties": {
+          "relationship": {
+            "$ref": "#/components/schemas/SourceRelationship",
+            "default": "BASIS"
+          },
+          "source_reference_id": {
+            "format": "uuid",
+            "title": "Source Reference Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_reference_id"
+        ],
+        "title": "RuleSourceIn",
+        "type": "object"
+      },
+      "RuleSourceOut": {
+        "properties": {
+          "citation": {
+            "title": "Citation",
+            "type": "string"
+          },
+          "relationship": {
+            "$ref": "#/components/schemas/SourceRelationship"
+          },
+          "source_reference_id": {
+            "format": "uuid",
+            "title": "Source Reference Id",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "verification_status": {
+            "title": "Verification Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_reference_id",
+          "relationship",
+          "citation",
+          "url",
+          "verification_status"
+        ],
+        "title": "RuleSourceOut",
+        "type": "object"
+      },
+      "RuleSummary": {
+        "properties": {
+          "draft_version_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Draft Version Id"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "latest_version": {
+            "title": "Latest Version",
+            "type": "integer"
+          },
+          "published_version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published Version"
+          },
+          "published_version_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published Version Id"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "key",
+          "title",
+          "published_version",
+          "published_version_id",
+          "draft_version_id",
+          "latest_version"
+        ],
+        "title": "RuleSummary",
+        "type": "object"
+      },
+      "RuleUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "title": "RuleUpdate",
+        "type": "object"
+      },
+      "RuleVersionContent": {
+        "additionalProperties": false,
+        "description": "The whole editable content of a draft (replaces what is stored).",
+        "properties": {
+          "condition": {
+            "additionalProperties": true,
+            "title": "Condition",
+            "type": "object"
+          },
+          "effective_from": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "max_confidence": {
+            "$ref": "#/components/schemas/Confidence",
+            "default": "VERIFIED"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "outcomes": {
+            "items": {
+              "$ref": "#/components/schemas/OutcomeIn"
+            },
+            "maxItems": 3,
+            "title": "Outcomes",
+            "type": "array"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/RuleSourceIn"
+            },
+            "maxItems": 20,
+            "title": "Sources",
+            "type": "array"
+          },
+          "test_cases": {
+            "items": {
+              "$ref": "#/components/schemas/TestCaseIn"
+            },
+            "maxItems": 50,
+            "title": "Test Cases",
+            "type": "array"
+          }
+        },
+        "required": [
+          "condition"
+        ],
+        "title": "RuleVersionContent",
+        "type": "object"
+      },
+      "RuleVersionOut": {
+        "properties": {
+          "condition": {
+            "additionalProperties": true,
+            "title": "Condition",
+            "type": "object"
+          },
+          "content_hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Hash"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "created_by": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created By"
+          },
+          "effective_from": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "fact_paths": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Fact Paths",
+            "type": "array"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "max_confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "outcomes": {
+            "items": {
+              "$ref": "#/components/schemas/OutcomeOut"
+            },
+            "title": "Outcomes",
+            "type": "array"
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published At"
+          },
+          "published_by": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published By"
+          },
+          "rule_id": {
+            "format": "uuid",
+            "title": "Rule Id",
+            "type": "string"
+          },
+          "rule_key": {
+            "title": "Rule Key",
+            "type": "string"
+          },
+          "rule_set_id": {
+            "format": "uuid",
+            "title": "Rule Set Id",
+            "type": "string"
+          },
+          "rule_set_key": {
+            "title": "Rule Set Key",
+            "type": "string"
+          },
+          "rule_title": {
+            "title": "Rule Title",
+            "type": "string"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/RuleSourceOut"
+            },
+            "title": "Sources",
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RuleVersionStatus"
+          },
+          "test_cases": {
+            "items": {
+              "$ref": "#/components/schemas/TestCaseOut"
+            },
+            "title": "Test Cases",
+            "type": "array"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "vertical": {
+            "$ref": "#/components/schemas/Vertical"
+          }
+        },
+        "required": [
+          "id",
+          "rule_id",
+          "rule_key",
+          "rule_title",
+          "rule_set_id",
+          "rule_set_key",
+          "vertical",
+          "version",
+          "status",
+          "condition",
+          "effective_from",
+          "effective_to",
+          "max_confidence",
+          "notes",
+          "outcomes",
+          "sources",
+          "test_cases",
+          "fact_paths",
+          "content_hash",
+          "created_by",
+          "published_by",
+          "published_at",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "RuleVersionOut",
+        "type": "object"
+      },
+      "RuleVersionStatus": {
+        "enum": [
+          "DRAFT",
+          "PUBLISHED",
+          "RETIRED"
+        ],
+        "title": "RuleVersionStatus",
+        "type": "string"
+      },
+      "RuleVersionSummary": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "effective_from": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RuleVersionStatus"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "status",
+          "effective_from",
+          "effective_to",
+          "published_at",
+          "created_at"
+        ],
+        "title": "RuleVersionSummary",
+        "type": "object"
+      },
       "SectionOut": {
         "properties": {
           "questions": {
@@ -2193,6 +3688,1072 @@
         ],
         "title": "SessionOut",
         "type": "object"
+      },
+      "SnapshotCaptured": {
+        "properties": {
+          "captured_at": {
+            "format": "date-time",
+            "title": "Captured At",
+            "type": "string"
+          },
+          "changed": {
+            "description": "False when the content matched the latest snapshot (nothing new stored).",
+            "title": "Changed",
+            "type": "boolean"
+          },
+          "characters": {
+            "title": "Characters",
+            "type": "integer"
+          },
+          "content_hash": {
+            "description": "SHA-256 of the captured text, hex.",
+            "title": "Content Hash",
+            "type": "string"
+          },
+          "content_text": {
+            "title": "Content Text",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "retrieved_at",
+          "captured_at",
+          "content_hash",
+          "characters",
+          "content_text",
+          "changed"
+        ],
+        "title": "SnapshotCaptured",
+        "type": "object"
+      },
+      "SnapshotCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "content_text": {
+            "maxLength": 1000000,
+            "minLength": 1,
+            "title": "Content Text",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "description": "When the content was retrieved from the source.",
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "content_text",
+          "retrieved_at"
+        ],
+        "title": "SnapshotCreate",
+        "type": "object"
+      },
+      "SnapshotOut": {
+        "properties": {
+          "captured_at": {
+            "format": "date-time",
+            "title": "Captured At",
+            "type": "string"
+          },
+          "characters": {
+            "title": "Characters",
+            "type": "integer"
+          },
+          "content_hash": {
+            "description": "SHA-256 of the captured text, hex.",
+            "title": "Content Hash",
+            "type": "string"
+          },
+          "content_text": {
+            "title": "Content Text",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "retrieved_at",
+          "captured_at",
+          "content_hash",
+          "characters",
+          "content_text"
+        ],
+        "title": "SnapshotOut",
+        "type": "object"
+      },
+      "SnapshotSummary": {
+        "properties": {
+          "captured_at": {
+            "format": "date-time",
+            "title": "Captured At",
+            "type": "string"
+          },
+          "characters": {
+            "title": "Characters",
+            "type": "integer"
+          },
+          "content_hash": {
+            "description": "SHA-256 of the captured text, hex.",
+            "title": "Content Hash",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "retrieved_at",
+          "captured_at",
+          "content_hash",
+          "characters"
+        ],
+        "title": "SnapshotSummary",
+        "type": "object"
+      },
+      "SourceDocumentCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "effective_from": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "jurisdiction": {
+            "pattern": "^(CTH|QLD|NSW|VIC|SA|WA|TAS|NT|ACT|LGA:[A-Z][A-Z0-9_]{1,59})$",
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "licence": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Licence"
+          },
+          "source_organisation_id": {
+            "format": "uuid",
+            "title": "Source Organisation Id",
+            "type": "string"
+          },
+          "source_type": {
+            "$ref": "#/components/schemas/SourceType"
+          },
+          "supersedes_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supersedes Id"
+          },
+          "title": {
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "maxLength": 2000,
+            "pattern": "^https?://\\S+$",
+            "title": "Url",
+            "type": "string"
+          },
+          "version_label": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Label"
+          }
+        },
+        "required": [
+          "source_organisation_id",
+          "jurisdiction",
+          "title",
+          "url",
+          "source_type"
+        ],
+        "title": "SourceDocumentCreate",
+        "type": "object"
+      },
+      "SourceDocumentOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "effective_from": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "jurisdiction": {
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "latest_snapshot": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SnapshotSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "licence": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Licence"
+          },
+          "organisation_name": {
+            "title": "Organisation Name",
+            "type": "string"
+          },
+          "reference_counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "description": "References by verification status.",
+            "title": "Reference Counts",
+            "type": "object"
+          },
+          "source_organisation_id": {
+            "format": "uuid",
+            "title": "Source Organisation Id",
+            "type": "string"
+          },
+          "source_type": {
+            "$ref": "#/components/schemas/SourceType"
+          },
+          "supersedes_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supersedes Id"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "version_label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Label"
+          }
+        },
+        "required": [
+          "id",
+          "source_organisation_id",
+          "organisation_name",
+          "jurisdiction",
+          "title",
+          "url",
+          "source_type",
+          "version_label",
+          "effective_from",
+          "effective_to",
+          "licence",
+          "supersedes_id",
+          "latest_snapshot",
+          "reference_counts",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "SourceDocumentOut",
+        "type": "object"
+      },
+      "SourceDocumentUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "effective_from": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective From"
+          },
+          "effective_to": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Effective To"
+          },
+          "jurisdiction": {
+            "anyOf": [
+              {
+                "pattern": "^(CTH|QLD|NSW|VIC|SA|WA|TAS|NT|ACT|LGA:[A-Z][A-Z0-9_]{1,59})$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jurisdiction"
+          },
+          "licence": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Licence"
+          },
+          "source_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SourceType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "supersedes_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supersedes Id"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://\\S+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          },
+          "version_label": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version Label"
+          }
+        },
+        "title": "SourceDocumentUpdate",
+        "type": "object"
+      },
+      "SourceOrganisationCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "jurisdiction": {
+            "pattern": "^(CTH|QLD|NSW|VIC|SA|WA|TAS|NT|ACT|LGA:[A-Z][A-Z0-9_]{1,59})$",
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/SourceOrganisationKind"
+          },
+          "name": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://\\S+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "required": [
+          "name",
+          "kind",
+          "jurisdiction"
+        ],
+        "title": "SourceOrganisationCreate",
+        "type": "object"
+      },
+      "SourceOrganisationKind": {
+        "enum": [
+          "LEGISLATURE",
+          "COUNCIL",
+          "STATE_AGENCY",
+          "CTH_AGENCY",
+          "REGULATOR",
+          "GRANT_BODY"
+        ],
+        "title": "SourceOrganisationKind",
+        "type": "string"
+      },
+      "SourceOrganisationOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "jurisdiction": {
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/SourceOrganisationKind"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "jurisdiction",
+          "website",
+          "created_at"
+        ],
+        "title": "SourceOrganisationOut",
+        "type": "object"
+      },
+      "SourceOrganisationUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "jurisdiction": {
+            "anyOf": [
+              {
+                "pattern": "^(CTH|QLD|NSW|VIC|SA|WA|TAS|NT|ACT|LGA:[A-Z][A-Z0-9_]{1,59})$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jurisdiction"
+          },
+          "kind": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SourceOrganisationKind"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://\\S+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "title": "SourceOrganisationUpdate",
+        "type": "object"
+      },
+      "SourceReferenceCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "clause": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Clause"
+          },
+          "extracted_text": {
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Extracted Text",
+            "type": "string"
+          },
+          "interpretation": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interpretation"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "maxLength": 20,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section"
+          }
+        },
+        "required": [
+          "extracted_text"
+        ],
+        "title": "SourceReferenceCreate",
+        "type": "object"
+      },
+      "SourceReferenceOut": {
+        "properties": {
+          "allowed_actions": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Allowed Actions",
+            "type": "array"
+          },
+          "attention": {
+            "description": "Why this reference needs a reviewer's attention.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Attention",
+            "type": "array"
+          },
+          "citation": {
+            "title": "Citation",
+            "type": "string"
+          },
+          "clause": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Clause"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "document_title": {
+            "title": "Document Title",
+            "type": "string"
+          },
+          "extracted_text": {
+            "title": "Extracted Text",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "interpretation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interpretation"
+          },
+          "last_reviewed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Reviewed At"
+          },
+          "next_review_due": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Review Due"
+          },
+          "organisation_name": {
+            "title": "Organisation Name",
+            "type": "string"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "rule_versions": {
+            "description": "Rule versions citing this reference.",
+            "title": "Rule Versions",
+            "type": "integer"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section"
+          },
+          "source_document_id": {
+            "format": "uuid",
+            "title": "Source Document Id",
+            "type": "string"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "verification_status": {
+            "$ref": "#/components/schemas/VerificationStatus"
+          },
+          "verified_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verified At"
+          },
+          "verified_by": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verified By"
+          },
+          "verified_snapshot_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verified Snapshot Id"
+          }
+        },
+        "required": [
+          "id",
+          "source_document_id",
+          "document_title",
+          "organisation_name",
+          "url",
+          "citation",
+          "section",
+          "clause",
+          "page",
+          "extracted_text",
+          "interpretation",
+          "verification_status",
+          "verified_by",
+          "verified_at",
+          "verified_snapshot_id",
+          "last_reviewed_at",
+          "next_review_due",
+          "attention",
+          "allowed_actions",
+          "rule_versions",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "SourceReferenceOut",
+        "type": "object"
+      },
+      "SourceReferenceUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "clause": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Clause"
+          },
+          "extracted_text": {
+            "anyOf": [
+              {
+                "maxLength": 10000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Extracted Text"
+          },
+          "interpretation": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interpretation"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "maxLength": 20,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "section": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Section"
+          }
+        },
+        "title": "SourceReferenceUpdate",
+        "type": "object"
+      },
+      "SourceRelationship": {
+        "enum": [
+          "BASIS",
+          "SUPPORTING",
+          "EXCEPTION"
+        ],
+        "title": "SourceRelationship",
+        "type": "string"
+      },
+      "SourceReview": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "enum": [
+              "VERIFY",
+              "DISPUTE",
+              "SUPERSEDE",
+              "REOPEN"
+            ],
+            "title": "Action",
+            "type": "string"
+          },
+          "next_review_due": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "VERIFY only. Defaults to a year from today.",
+            "title": "Next Review Due"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "title": "SourceReview",
+        "type": "object"
+      },
+      "SourceType": {
+        "enum": [
+          "LEGISLATION",
+          "REGULATION",
+          "PLANNING_SCHEME",
+          "POLICY",
+          "GUIDELINE",
+          "FORM",
+          "FEE_SCHEDULE",
+          "WEBPAGE",
+          "GRANT_GUIDELINES"
+        ],
+        "title": "SourceType",
+        "type": "string"
       },
       "StatusEventOut": {
         "properties": {
@@ -2625,6 +5186,88 @@
         "title": "TaskUpdate",
         "type": "object"
       },
+      "TestCaseIn": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_result": {
+            "$ref": "#/components/schemas/RuleResult"
+          },
+          "facts": {
+            "additionalProperties": true,
+            "description": "Facts by fact path. Decimals may be written as {'$decimal': '1.5'}.",
+            "title": "Facts",
+            "type": "object"
+          },
+          "name": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "facts",
+          "expected_result"
+        ],
+        "title": "TestCaseIn",
+        "type": "object"
+      },
+      "TestCaseOut": {
+        "properties": {
+          "expected_result": {
+            "$ref": "#/components/schemas/RuleResult"
+          },
+          "facts": {
+            "additionalProperties": true,
+            "title": "Facts",
+            "type": "object"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "facts",
+          "expected_result"
+        ],
+        "title": "TestCaseOut",
+        "type": "object"
+      },
+      "TestCaseResultOut": {
+        "properties": {
+          "actual": {
+            "$ref": "#/components/schemas/RuleResult"
+          },
+          "expected": {
+            "$ref": "#/components/schemas/RuleResult"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "passed": {
+            "title": "Passed",
+            "type": "boolean"
+          },
+          "trace": {
+            "additionalProperties": true,
+            "title": "Trace",
+            "type": "object"
+          }
+        },
+        "required": [
+          "name",
+          "expected",
+          "actual",
+          "passed",
+          "trace"
+        ],
+        "title": "TestCaseResultOut",
+        "type": "object"
+      },
       "TokenRequest": {
         "properties": {
           "token": {
@@ -2719,6 +5362,16 @@
         ],
         "title": "ValidationError",
         "type": "object"
+      },
+      "VerificationStatus": {
+        "enum": [
+          "UNVERIFIED",
+          "VERIFIED",
+          "DISPUTED",
+          "SUPERSEDED"
+        ],
+        "title": "VerificationStatus",
+        "type": "string"
       },
       "VersionResponse": {
         "properties": {
@@ -3311,6 +5964,1480 @@
         ]
       }
     },
+    "/v1/admin/rule-sets": {
+      "get": {
+        "operationId": "list_rule_sets_v1_admin_rule_sets_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "vertical",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vertical"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Vertical"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RuleSetOut"
+                  },
+                  "title": "Response List Rule Sets V1 Admin Rule Sets Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Rule Sets",
+        "tags": [
+          "admin: rules"
+        ]
+      },
+      "post": {
+        "operationId": "create_rule_set_v1_admin_rule_sets_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleSetCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleSetOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Rule Set",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/rule-sets/{rule_set_id}": {
+      "get": {
+        "operationId": "get_rule_set_v1_admin_rule_sets__rule_set_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "rule_set_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Rule Set Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleSetOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Rule Set",
+        "tags": [
+          "admin: rules"
+        ]
+      },
+      "patch": {
+        "operationId": "update_rule_set_v1_admin_rule_sets__rule_set_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "rule_set_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Rule Set Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleSetUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleSetOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Rule Set",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/rule-sets/{rule_set_id}/rules": {
+      "post": {
+        "description": "Create a rule with its first draft version.",
+        "operationId": "create_rule_v1_admin_rule_sets__rule_set_id__rules_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "rule_set_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Rule Set Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Rule",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/rule-versions/{version_id}": {
+      "delete": {
+        "operationId": "delete_rule_version_v1_admin_rule_versions__version_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "version_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Version Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Rule Version",
+        "tags": [
+          "admin: rules"
+        ]
+      },
+      "get": {
+        "operationId": "get_rule_version_v1_admin_rule_versions__version_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "version_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Version Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleVersionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Rule Version",
+        "tags": [
+          "admin: rules"
+        ]
+      },
+      "put": {
+        "operationId": "save_rule_version_v1_admin_rule_versions__version_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "version_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Version Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleVersionContent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleVersionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Save Rule Version",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/rule-versions/{version_id}/checks": {
+      "get": {
+        "description": "Run the publish gate (including every test case) without publishing.",
+        "operationId": "check_rule_version_v1_admin_rule_versions__version_id__checks_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "version_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Version Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublishChecksOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Check Rule Version",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/rule-versions/{version_id}/evaluate": {
+      "post": {
+        "description": "Try the version against some facts, with the confidence its sources allow today.",
+        "operationId": "evaluate_rule_version_v1_admin_rule_versions__version_id__evaluate_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "version_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Version Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluateIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvaluateOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Evaluate Rule Version",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/rule-versions/{version_id}/publish": {
+      "post": {
+        "operationId": "publish_rule_version_v1_admin_rule_versions__version_id__publish_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "version_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Version Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleVersionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Publish Rule Version",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/rule-versions/{version_id}/retire": {
+      "post": {
+        "operationId": "retire_rule_version_v1_admin_rule_versions__version_id__retire_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "version_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Version Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleVersionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Retire Rule Version",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/rules/{rule_id}": {
+      "get": {
+        "operationId": "get_rule_v1_admin_rules__rule_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "rule_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Rule Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Rule",
+        "tags": [
+          "admin: rules"
+        ]
+      },
+      "patch": {
+        "operationId": "update_rule_v1_admin_rules__rule_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "rule_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Rule Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RuleUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Rule",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/rules/{rule_id}/versions": {
+      "post": {
+        "description": "Start a new draft, copied from the latest version.",
+        "operationId": "create_rule_version_v1_admin_rules__rule_id__versions_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "rule_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Rule Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuleVersionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Rule Version",
+        "tags": [
+          "admin: rules"
+        ]
+      }
+    },
+    "/v1/admin/source-documents": {
+      "get": {
+        "operationId": "list_source_documents_v1_admin_source_documents_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "source_organisation_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source Organisation Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SourceDocumentOut"
+                  },
+                  "title": "Response List Source Documents V1 Admin Source Documents Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Source Documents",
+        "tags": [
+          "admin: sources"
+        ]
+      },
+      "post": {
+        "operationId": "create_source_document_v1_admin_source_documents_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SourceDocumentCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceDocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Source Document",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-documents/{document_id}": {
+      "get": {
+        "operationId": "get_source_document_v1_admin_source_documents__document_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceDocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Source Document",
+        "tags": [
+          "admin: sources"
+        ]
+      },
+      "patch": {
+        "operationId": "update_source_document_v1_admin_source_documents__document_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SourceDocumentUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceDocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Source Document",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-documents/{document_id}/references": {
+      "post": {
+        "operationId": "create_source_reference_v1_admin_source_documents__document_id__references_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SourceReferenceCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceReferenceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Source Reference",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-documents/{document_id}/snapshots": {
+      "get": {
+        "operationId": "list_document_snapshots_v1_admin_source_documents__document_id__snapshots_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SnapshotSummary"
+                  },
+                  "title": "Response List Document Snapshots V1 Admin Source Documents  Document Id  Snapshots Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Document Snapshots",
+        "tags": [
+          "admin: sources"
+        ]
+      },
+      "post": {
+        "description": "Store the document's current content. Unchanged content returns the latest snapshot\nwith ``changed: false``.",
+        "operationId": "capture_document_snapshot_v1_admin_source_documents__document_id__snapshots_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapshotCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotCaptured"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Capture Document Snapshot",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-documents/{document_id}/snapshots/{snapshot_id}": {
+      "get": {
+        "operationId": "get_document_snapshot_v1_admin_source_documents__document_id__snapshots__snapshot_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "snapshot_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Snapshot Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Document Snapshot",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-organisations": {
+      "get": {
+        "operationId": "list_source_organisations_v1_admin_source_organisations_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SourceOrganisationOut"
+                  },
+                  "title": "Response List Source Organisations V1 Admin Source Organisations Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Source Organisations",
+        "tags": [
+          "admin: sources"
+        ]
+      },
+      "post": {
+        "operationId": "create_source_organisation_v1_admin_source_organisations_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SourceOrganisationCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceOrganisationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Source Organisation",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-organisations/{source_organisation_id}": {
+      "patch": {
+        "operationId": "update_source_organisation_v1_admin_source_organisations__source_organisation_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "source_organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Source Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SourceOrganisationUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceOrganisationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Source Organisation",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-references": {
+      "get": {
+        "description": "All references, or the review queue with ``needs_attention=true``.",
+        "operationId": "list_source_references_v1_admin_source_references_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "source_document_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source Document Id"
+            }
+          },
+          {
+            "in": "query",
+            "name": "verification_status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/VerificationStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Verification Status"
+            }
+          },
+          {
+            "in": "query",
+            "name": "needs_attention",
+            "required": false,
+            "schema": {
+              "default": false,
+              "title": "Needs Attention",
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SourceReferenceOut"
+                  },
+                  "title": "Response List Source References V1 Admin Source References Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Source References",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-references/{reference_id}": {
+      "get": {
+        "operationId": "get_source_reference_v1_admin_source_references__reference_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "reference_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Reference Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceReferenceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Source Reference",
+        "tags": [
+          "admin: sources"
+        ]
+      },
+      "patch": {
+        "operationId": "update_source_reference_v1_admin_source_references__reference_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "reference_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Reference Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SourceReferenceUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceReferenceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Source Reference",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-references/{reference_id}/events": {
+      "get": {
+        "operationId": "list_source_reference_events_v1_admin_source_references__reference_id__events_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "reference_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Reference Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ReviewEventOut"
+                  },
+                  "title": "Response List Source Reference Events V1 Admin Source References  Reference Id  Events Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Source Reference Events",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-references/{reference_id}/review": {
+      "post": {
+        "operationId": "review_source_reference_v1_admin_source_references__reference_id__review_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "reference_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Reference Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SourceReview"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceReferenceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Review Source Reference",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
     "/v1/auth/login": {
       "post": {
         "operationId": "login_v1_auth_login_post",
@@ -3888,6 +8015,59 @@
         "summary": "Update Organisation",
         "tags": [
           "organisations"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}": {
+      "get": {
+        "operationId": "get_assessment_v1_organisations__organisation_id__assessments__assessment_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "assessment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Assessment Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssessmentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Assessment",
+        "tags": [
+          "assessments"
         ]
       }
     },
@@ -4803,6 +8983,115 @@
         "summary": "Update Project",
         "tags": [
           "projects"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/assessments": {
+      "get": {
+        "operationId": "list_assessments_v1_organisations__organisation_id__projects__project_id__assessments_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/AssessmentSummary"
+                  },
+                  "title": "Response List Assessments V1 Organisations  Organisation Id  Projects  Project Id  Assessments Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Assessments",
+        "tags": [
+          "assessments"
+        ]
+      },
+      "post": {
+        "description": "Assess the project's latest submitted answers against the published rules.",
+        "operationId": "run_assessment_v1_organisations__organisation_id__projects__project_id__assessments_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssessmentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Run Assessment",
+        "tags": [
+          "assessments"
         ]
       }
     },

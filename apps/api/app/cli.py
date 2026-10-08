@@ -41,8 +41,8 @@ PLATFORM_ORG_NAME = "ApprovalReady"
 CLI_META = RequestMeta(ip=None, user_agent="app.cli")
 
 
-async def grant_platform_role(email: str, role: RoleKey) -> int:
-    resources = create_resources(get_settings())
+async def grant_platform_role(email: str, role: RoleKey, settings: Settings | None = None) -> int:
+    resources = create_resources(settings or get_settings())
     try:
         async with resources.session_factory() as db:
             user = await get_user_by_email(db, email)

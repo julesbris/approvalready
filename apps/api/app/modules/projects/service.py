@@ -1,7 +1,7 @@
 """Projects, status workflow, tasks and reminders.
 
 Status workflow. Customers move a project between the states in ``USER_TRANSITIONS``;
-``ASSESSED`` and ``IN_REVIEW`` are entered by the assessment (Milestone 4) and review
+``ASSESSED`` and ``IN_REVIEW`` are entered by the assessment (``mark_assessed``) and review
 (Milestone 7) workflows only. Every change is written to the append-only
 ``project_status_event`` table and the audit log.
 """
@@ -281,6 +281,19 @@ async def mark_started(
     """Starting a questionnaire moves a draft project into progress."""
     if project.status == S.DRAFT:
         await change_status(db, project, S.IN_PROGRESS, actor_id=actor_id, meta=meta)
+
+
+async def mark_assessed(
+    db: AsyncSession, project: Project, *, actor_id: uuid.UUID, meta: RequestMeta | None
+) -> None:
+    """A completed assessment moves the project to ``ASSESSED`` (a system transition), except
+    while it is with a professional reviewer."""
+    if project.status in (S.ASSESSED, S.IN_REVIEW, S.ARCHIVED):
+        return
+    previous = project.status
+    project.status = S.ASSESSED
+    await db.flush()
+    await _record_status(db, project, previous, actor_id=actor_id, meta=meta)
 
 
 async def delete_project(

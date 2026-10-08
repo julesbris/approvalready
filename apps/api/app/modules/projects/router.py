@@ -10,6 +10,8 @@ from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy import select
 
 from app.api.deps import DbDep, MetaDep, OrgContext, require_org_permission
+from app.modules.assessments import service as assessments
+from app.modules.assessments.router import summary_out
 from app.modules.projects import service
 from app.modules.projects.models import Project, Reminder, Task, Vertical
 from app.modules.projects.schemas import (
@@ -78,6 +80,7 @@ async def _detail(db: DbDep, p: Project) -> ProjectDetailOut:
             .order_by(QuestionnaireSubmission.created_at.desc())
         )
     ).all()
+    assessed = await assessments.list_for_project(db, p)
     return ProjectDetailOut(
         **_project_out(p).model_dump(),
         submissions=[
@@ -93,6 +96,7 @@ async def _detail(db: DbDep, p: Project) -> ProjectDetailOut:
             for s, v, q in rows
         ],
         open_tasks=await service.open_task_count(db, p),
+        latest_assessment=summary_out(*assessed[0]) if assessed else None,
     )
 
 

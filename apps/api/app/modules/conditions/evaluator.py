@@ -125,20 +125,29 @@ def _missing(value: Any) -> bool:
     return value is None or (isinstance(value, list | str) and len(value) == 0)
 
 
+def _all(results: list[Tri]) -> Tri:
+    if Tri.FALSE in results:
+        return Tri.FALSE
+    return Tri.UNKNOWN if Tri.UNKNOWN in results else Tri.TRUE
+
+
+def _any(results: list[Tri]) -> Tri:
+    if Tri.TRUE in results:
+        return Tri.TRUE
+    return Tri.UNKNOWN if Tri.UNKNOWN in results else Tri.FALSE
+
+
 def evaluate(node: All | AnyOf | Not | Leaf, facts: Mapping[str, Any]) -> Tri:
     if isinstance(node, All):
-        results = [evaluate(child, facts) for child in node.all]
-        if Tri.FALSE in results:
-            return Tri.FALSE
-        return Tri.UNKNOWN if Tri.UNKNOWN in results else Tri.TRUE
+        return _all([evaluate(child, facts) for child in node.all])
     if isinstance(node, AnyOf):
-        results = [evaluate(child, facts) for child in node.any]
-        if Tri.TRUE in results:
-            return Tri.TRUE
-        return Tri.UNKNOWN if Tri.UNKNOWN in results else Tri.FALSE
+        return _any([evaluate(child, facts) for child in node.any])
     if isinstance(node, Not):
         return _negate(evaluate(node.not_, facts))
+    return _leaf(node, facts)
 
+
+def _leaf(node: Leaf, facts: Mapping[str, Any]) -> Tri:
     fact = facts.get(node.fact)
     if node.op is Op.EXISTS:
         return Tri.of(not _missing(fact))
@@ -147,3 +156,68 @@ def evaluate(node: All | AnyOf | Not | Leaf, facts: Mapping[str, Any]) -> Tri:
     if _missing(fact):
         return Tri.UNKNOWN
     return _OPERATORS[node.op](fact, node.value)
+
+
+# --- Tracing ----------------------------------------------------------------------------
+
+
+def json_safe(value: Any) -> Any:
+    """A fact value as JSON (``Decimal`` as a string, dates as ISO strings)."""
+    if isinstance(value, Decimal):
+        return str(value)
+    if isinstance(value, date):
+        return value.isoformat()
+    if isinstance(value, list):
+        return [json_safe(v) for v in value]
+    if isinstance(value, dict):
+        return {str(k): json_safe(v) for k, v in value.items()}
+    return value
+
+
+def trace(node: All | AnyOf | Not | Leaf, facts: Mapping[str, Any]) -> dict[str, Any]:
+    """Evaluate ``node`` and record every step: the explanation stored with a finding.
+
+    The ``result`` at the root always equals ``evaluate(node, facts)``. Leaves record the
+    fact's value at evaluation time (``actual``) and whether it was missing.
+    """
+    if isinstance(node, All):
+        parts = [trace(child, facts) for child in node.all]
+        result = _all([Tri(p["result"]) for p in parts])
+        return {"kind": "all", "result": str(result), "children": parts}
+    if isinstance(node, AnyOf):
+        parts = [trace(child, facts) for child in node.any]
+        result = _any([Tri(p["result"]) for p in parts])
+        return {"kind": "any", "result": str(result), "children": parts}
+    if isinstance(node, Not):
+        inner = trace(node.not_, facts)
+        return {
+            "kind": "not",
+            "result": str(_negate(Tri(inner["result"]))),
+            "children": [inner],
+        }
+    actual = facts.get(node.fact)
+    return {
+        "kind": "leaf",
+        "fact": node.fact,
+        "op": str(node.op),
+        "value": node.value,
+        "actual": json_safe(actual),
+        "missing": _missing(actual),
+        "result": str(_leaf(node, facts)),
+    }
+
+
+def missing_facts(traced: Mapping[str, Any]) -> list[str]:
+    """Facts whose absence made a leaf ``UNKNOWN`` (what to ask the customer for)."""
+    found: list[str] = []
+
+    def walk(n: Mapping[str, Any]) -> None:
+        if n["kind"] == "leaf":
+            if n["missing"] and n["result"] == Tri.UNKNOWN and n["fact"] not in found:
+                found.append(n["fact"])
+            return
+        for child in n["children"]:
+            walk(child)
+
+    walk(traced)
+    return found

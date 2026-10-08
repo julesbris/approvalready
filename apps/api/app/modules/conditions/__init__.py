@@ -1,6 +1,6 @@
-"""Condition AST shared by questionnaire branching (``visible_when``) and, from Milestone 4,
-regulatory rules. Data only: JSON validated by Pydantic and evaluated by a dispatch table of
-pure functions. There is no ``eval`` and no expression language to parse.
+"""Condition AST shared by questionnaire branching (``visible_when``) and regulatory rules
+(``app/modules/rules``). Data only: JSON validated by Pydantic and evaluated by a dispatch
+table of pure functions. There is no ``eval`` and no expression language to parse.
 
 Evaluation uses three-valued logic. A comparison on a fact that is missing yields
 ``UNKNOWN`` rather than ``FALSE``, and ``UNKNOWN`` propagates through ``all``/``any``/``not``,
@@ -23,7 +23,7 @@ from app.modules.conditions.ast import (
     parse_condition,
     referenced_facts,
 )
-from app.modules.conditions.evaluator import Tri, evaluate
+from app.modules.conditions.evaluator import Tri, evaluate, json_safe, missing_facts, trace
 
 __all__ = [
     "MAX_DEPTH",
@@ -36,6 +36,9 @@ __all__ = [
     "Op",
     "Tri",
     "evaluate",
+    "json_safe",
+    "missing_facts",
     "parse_condition",
     "referenced_facts",
+    "trace",
 ]

@@ -55,6 +55,392 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/rule-sets": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Rule Sets */
+        get: operations["list_rule_sets_v1_admin_rule_sets_get"];
+        put?: never;
+        /** Create Rule Set */
+        post: operations["create_rule_set_v1_admin_rule_sets_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/rule-sets/{rule_set_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Rule Set */
+        get: operations["get_rule_set_v1_admin_rule_sets__rule_set_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Rule Set */
+        patch: operations["update_rule_set_v1_admin_rule_sets__rule_set_id__patch"];
+        trace?: never;
+    };
+    "/v1/admin/rule-sets/{rule_set_id}/rules": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create Rule
+         * @description Create a rule with its first draft version.
+         */
+        post: operations["create_rule_v1_admin_rule_sets__rule_set_id__rules_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/rule-versions/{version_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Rule Version */
+        get: operations["get_rule_version_v1_admin_rule_versions__version_id__get"];
+        /** Save Rule Version */
+        put: operations["save_rule_version_v1_admin_rule_versions__version_id__put"];
+        post?: never;
+        /** Delete Rule Version */
+        delete: operations["delete_rule_version_v1_admin_rule_versions__version_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/rule-versions/{version_id}/checks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Check Rule Version
+         * @description Run the publish gate (including every test case) without publishing.
+         */
+        get: operations["check_rule_version_v1_admin_rule_versions__version_id__checks_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/rule-versions/{version_id}/evaluate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Evaluate Rule Version
+         * @description Try the version against some facts, with the confidence its sources allow today.
+         */
+        post: operations["evaluate_rule_version_v1_admin_rule_versions__version_id__evaluate_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/rule-versions/{version_id}/publish": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Publish Rule Version */
+        post: operations["publish_rule_version_v1_admin_rule_versions__version_id__publish_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/rule-versions/{version_id}/retire": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Retire Rule Version */
+        post: operations["retire_rule_version_v1_admin_rule_versions__version_id__retire_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/rules/{rule_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Rule */
+        get: operations["get_rule_v1_admin_rules__rule_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Rule */
+        patch: operations["update_rule_v1_admin_rules__rule_id__patch"];
+        trace?: never;
+    };
+    "/v1/admin/rules/{rule_id}/versions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create Rule Version
+         * @description Start a new draft, copied from the latest version.
+         */
+        post: operations["create_rule_version_v1_admin_rules__rule_id__versions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/source-documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Source Documents */
+        get: operations["list_source_documents_v1_admin_source_documents_get"];
+        put?: never;
+        /** Create Source Document */
+        post: operations["create_source_document_v1_admin_source_documents_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/source-documents/{document_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Source Document */
+        get: operations["get_source_document_v1_admin_source_documents__document_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Source Document */
+        patch: operations["update_source_document_v1_admin_source_documents__document_id__patch"];
+        trace?: never;
+    };
+    "/v1/admin/source-documents/{document_id}/references": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Source Reference */
+        post: operations["create_source_reference_v1_admin_source_documents__document_id__references_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/source-documents/{document_id}/snapshots": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Document Snapshots */
+        get: operations["list_document_snapshots_v1_admin_source_documents__document_id__snapshots_get"];
+        put?: never;
+        /**
+         * Capture Document Snapshot
+         * @description Store the document's current content. Unchanged content returns the latest snapshot
+         *     with ``changed: false``.
+         */
+        post: operations["capture_document_snapshot_v1_admin_source_documents__document_id__snapshots_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/source-documents/{document_id}/snapshots/{snapshot_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Document Snapshot */
+        get: operations["get_document_snapshot_v1_admin_source_documents__document_id__snapshots__snapshot_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/source-organisations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Source Organisations */
+        get: operations["list_source_organisations_v1_admin_source_organisations_get"];
+        put?: never;
+        /** Create Source Organisation */
+        post: operations["create_source_organisation_v1_admin_source_organisations_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/source-organisations/{source_organisation_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Source Organisation */
+        patch: operations["update_source_organisation_v1_admin_source_organisations__source_organisation_id__patch"];
+        trace?: never;
+    };
+    "/v1/admin/source-references": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Source References
+         * @description All references, or the review queue with ``needs_attention=true``.
+         */
+        get: operations["list_source_references_v1_admin_source_references_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/source-references/{reference_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Source Reference */
+        get: operations["get_source_reference_v1_admin_source_references__reference_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Source Reference */
+        patch: operations["update_source_reference_v1_admin_source_references__reference_id__patch"];
+        trace?: never;
+    };
+    "/v1/admin/source-references/{reference_id}/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Source Reference Events */
+        get: operations["list_source_reference_events_v1_admin_source_references__reference_id__events_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/source-references/{reference_id}/review": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Review Source Reference */
+        post: operations["review_source_reference_v1_admin_source_references__reference_id__review_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/auth/login": {
         parameters: {
             query?: never;
@@ -309,6 +695,23 @@ export interface paths {
         patch: operations["update_organisation_v1_organisations__organisation_id__patch"];
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Assessment */
+        get: operations["get_assessment_v1_organisations__organisation_id__assessments__assessment_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/audit-events": {
         parameters: {
             query?: never;
@@ -487,6 +890,27 @@ export interface paths {
         head?: never;
         /** Update Project */
         patch: operations["update_project_v1_organisations__organisation_id__projects__project_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/assessments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Assessments */
+        get: operations["list_assessments_v1_organisations__organisation_id__projects__project_id__assessments_get"];
+        put?: never;
+        /**
+         * Run Assessment
+         * @description Assess the project's latest submitted answers against the published rules.
+         */
+        post: operations["run_assessment_v1_organisations__organisation_id__projects__project_id__assessments_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/v1/organisations/{organisation_id}/projects/{project_id}/reminders": {
@@ -860,6 +1284,97 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /** AssessmentOut */
+        AssessmentOut: {
+            /**
+             * Assessed On
+             * Format: date
+             */
+            assessed_on: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Engine Version */
+            engine_version: string;
+            /**
+             * Fact Labels
+             * @description Question labels for the facts that appear in this assessment.
+             */
+            fact_labels: {
+                [key: string]: string;
+            };
+            /**
+             * Facts
+             * @description The facts assessed (encoded, see rules engine).
+             */
+            facts: {
+                [key: string]: unknown;
+            };
+            /** Facts Hash */
+            facts_hash: string;
+            /** Finding List */
+            finding_list: components["schemas"]["FindingOut"][];
+            /** Findings */
+            findings: number;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            overall_confidence: components["schemas"]["Confidence"];
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** Rule Sets */
+            rule_sets: components["schemas"]["RuleSetScopeOut"][];
+            status: components["schemas"]["AssessmentStatus"];
+            /**
+             * Submission Id
+             * Format: uuid
+             */
+            submission_id: string;
+        };
+        /**
+         * AssessmentStatus
+         * @enum {string}
+         */
+        AssessmentStatus: "COMPLETED" | "NO_APPLICABLE_RULES";
+        /** AssessmentSummary */
+        AssessmentSummary: {
+            /**
+             * Assessed On
+             * Format: date
+             */
+            assessed_on: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Findings */
+            findings: number;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            overall_confidence: components["schemas"]["Confidence"];
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            status: components["schemas"]["AssessmentStatus"];
+            /**
+             * Submission Id
+             * Format: uuid
+             */
+            submission_id: string;
+        };
         /** AuditChainOut */
         AuditChainOut: {
             /** Checked */
@@ -982,6 +1497,12 @@ export interface components {
             trading_name?: string | null;
             turnover_band?: components["schemas"]["TurnoverBand"] | null;
         };
+        /**
+         * Confidence
+         * @description How far a finding can be relied on, highest first (see ``rules/engine.py``).
+         * @enum {string}
+         */
+        Confidence: "VERIFIED" | "LIKELY" | "REVIEW_REQUIRED" | "UNKNOWN";
         /** DependencyCheck */
         DependencyCheck: {
             /** Latency Ms */
@@ -1010,6 +1531,102 @@ export interface components {
          * @enum {string}
          */
         EntityType: "SOLE_TRADER" | "PARTNERSHIP" | "COMPANY" | "TRUST" | "INCORPORATED_ASSOCIATION" | "COOPERATIVE" | "OTHER";
+        /** EvaluateIn */
+        EvaluateIn: {
+            /** Facts */
+            facts: {
+                [key: string]: unknown;
+            };
+            /**
+             * On
+             * @description Assessment date; defaults to today.
+             */
+            on?: string | null;
+        };
+        /** EvaluateOut */
+        EvaluateOut: {
+            confidence: components["schemas"]["Confidence"];
+            /** Confidence Reasons */
+            confidence_reasons: string[];
+            /** Missing Facts */
+            missing_facts: string[];
+            outcome: components["schemas"]["OutcomeOut"] | null;
+            result: components["schemas"]["RuleResult"];
+            /** Trace */
+            trace: {
+                [key: string]: unknown;
+            };
+        };
+        /** FindingOut */
+        FindingOut: {
+            confidence: components["schemas"]["Confidence"];
+            /** Confidence Reasons */
+            confidence_reasons: string[];
+            /** Detail */
+            detail: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Missing Facts */
+            missing_facts: string[];
+            outcome_type: components["schemas"]["OutcomeType"] | null;
+            result: components["schemas"]["RuleResult"];
+            /** Rule Key */
+            rule_key: string;
+            /**
+             * Rule Set Id
+             * Format: uuid
+             */
+            rule_set_id: string;
+            /** Rule Title */
+            rule_title: string;
+            /**
+             * Rule Version Id
+             * Format: uuid
+             */
+            rule_version_id: string;
+            /** Sources */
+            sources: components["schemas"]["FindingSourceOut"][];
+            /** Title */
+            title: string | null;
+            /**
+             * Trace
+             * @description Leaf-by-leaf evaluation of the rule.
+             */
+            trace: {
+                [key: string]: unknown;
+            };
+        };
+        /** FindingSourceOut */
+        FindingSourceOut: {
+            /** Citation */
+            citation: string;
+            /** Clause */
+            clause: string | null;
+            /** Document Title */
+            document_title: string;
+            /** In Force */
+            in_force: boolean;
+            /** Organisation Name */
+            organisation_name: string;
+            /** Page */
+            page: string | null;
+            /**
+             * Reference Id
+             * Format: uuid
+             */
+            reference_id: string;
+            /** Relationship */
+            relationship: string;
+            /** Section */
+            section: string | null;
+            /** Url */
+            url: string;
+            /** Verification Status */
+            verification_status: string;
+        };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -1165,6 +1782,29 @@ export interface components {
             /** Name */
             name?: string | null;
         };
+        /** OutcomeIn */
+        OutcomeIn: {
+            /** Detail */
+            detail?: string | null;
+            on_result: components["schemas"]["RuleResult"];
+            outcome_type: components["schemas"]["OutcomeType"];
+            /** Title */
+            title: string;
+        };
+        /** OutcomeOut */
+        OutcomeOut: {
+            /** Detail */
+            detail: string | null;
+            on_result: components["schemas"]["RuleResult"];
+            outcome_type: components["schemas"]["OutcomeType"];
+            /** Title */
+            title: string;
+        };
+        /**
+         * OutcomeType
+         * @enum {string}
+         */
+        OutcomeType: "APPROVAL_REQUIRED" | "APPROVAL_LIKELY" | "NOT_REQUIRED" | "EVIDENCE_REQUIRED" | "PROFESSIONAL_REQUIRED" | "REFERRAL_CATEGORY" | "CROSS_SELL" | "WARNING" | "INFO";
         /**
          * OwnershipRole
          * @enum {string}
@@ -1225,6 +1865,7 @@ export interface components {
              * Format: uuid
              */
             id: string;
+            latest_assessment: components["schemas"]["AssessmentSummary"] | null;
             /** Open Tasks */
             open_tasks: number;
             /**
@@ -1369,6 +2010,32 @@ export interface components {
          * @enum {string}
          */
         Propulsion: "INBOARD" | "OUTBOARD" | "STERNDRIVE" | "JET" | "SAIL" | "SAIL_AUXILIARY" | "MANUAL" | "OTHER";
+        /** PublishCheck */
+        PublishCheck: {
+            /** Key */
+            key: string;
+            /** Message */
+            message: string;
+            /** Passed */
+            passed: boolean;
+        };
+        /** PublishChecksOut */
+        PublishChecksOut: {
+            /** Checks */
+            checks: components["schemas"]["PublishCheck"][];
+            /**
+             * Ready
+             * @description Every check passed: the version can be published.
+             */
+            ready: boolean;
+            /** Test Results */
+            test_results: components["schemas"]["TestCaseResultOut"][];
+            /**
+             * Warnings
+             * @description Allowed, but worth knowing before publishing.
+             */
+            warnings: string[];
+        };
         /** QuestionOut */
         QuestionOut: {
             /** Help Text */
@@ -1517,6 +2184,329 @@ export interface components {
             /** Title */
             title: string;
         };
+        /**
+         * ReviewAction
+         * @enum {string}
+         */
+        ReviewAction: "CREATED" | "EDITED" | "VERIFIED" | "DISPUTED" | "SUPERSEDED" | "REOPENED";
+        /** ReviewEventOut */
+        ReviewEventOut: {
+            action: components["schemas"]["ReviewAction"];
+            from_status: components["schemas"]["VerificationStatus"] | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Notes */
+            notes: string | null;
+            /**
+             * Occurred At
+             * Format: date-time
+             */
+            occurred_at: string;
+            /** Reviewer Id */
+            reviewer_id: string | null;
+            /** Reviewer Name */
+            reviewer_name: string | null;
+            to_status: components["schemas"]["VerificationStatus"];
+        };
+        /** RuleCreate */
+        RuleCreate: {
+            /**
+             * Condition
+             * @description Condition AST for the first draft.
+             */
+            condition: {
+                [key: string]: unknown;
+            };
+            /** Key */
+            key: string;
+            /** Title */
+            title: string;
+        };
+        /** RuleOut */
+        RuleOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Key */
+            key: string;
+            /**
+             * Rule Set Id
+             * Format: uuid
+             */
+            rule_set_id: string;
+            /** Rule Set Key */
+            rule_set_key: string;
+            /** Title */
+            title: string;
+            /** Versions */
+            versions: components["schemas"]["RuleVersionSummary"][];
+        };
+        /**
+         * RuleResult
+         * @description A rule's condition evaluated against the facts (three-valued).
+         * @enum {string}
+         */
+        RuleResult: "MATCH" | "NO_MATCH" | "UNKNOWN";
+        /** RuleSetCreate */
+        RuleSetCreate: {
+            /**
+             * Applies When
+             * @description Condition AST; omit when the rule set applies everywhere.
+             */
+            applies_when?: {
+                [key: string]: unknown;
+            } | null;
+            /** Description */
+            description?: string | null;
+            /** Jurisdiction */
+            jurisdiction: string;
+            /** Key */
+            key: string;
+            /** Title */
+            title: string;
+            vertical: components["schemas"]["Vertical"];
+        };
+        /** RuleSetOut */
+        RuleSetOut: {
+            /** Applies When */
+            applies_when: {
+                [key: string]: unknown;
+            } | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Description */
+            description: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Jurisdiction */
+            jurisdiction: string;
+            /** Key */
+            key: string;
+            /** Rules */
+            rules: components["schemas"]["RuleSummary"][];
+            /** Title */
+            title: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            vertical: components["schemas"]["Vertical"];
+        };
+        /** RuleSetScopeOut */
+        RuleSetScopeOut: {
+            /** Key */
+            key: string;
+            /** Missing Facts */
+            missing_facts: string[];
+            /**
+             * Not In Force
+             * @description Rules with no version in force that day.
+             */
+            not_in_force: string[];
+            /**
+             * Rule Set Id
+             * Format: uuid
+             */
+            rule_set_id: string;
+            /**
+             * Scope
+             * @description IN_SCOPE, OUT_OF_SCOPE or NEEDS_INFORMATION.
+             */
+            scope: string;
+            /** Title */
+            title: string;
+        };
+        /** RuleSetUpdate */
+        RuleSetUpdate: {
+            /** Applies When */
+            applies_when?: {
+                [key: string]: unknown;
+            } | null;
+            /** Description */
+            description?: string | null;
+            /** Jurisdiction */
+            jurisdiction?: string | null;
+            /** Title */
+            title?: string | null;
+        };
+        /** RuleSourceIn */
+        RuleSourceIn: {
+            /** @default BASIS */
+            relationship: components["schemas"]["SourceRelationship"];
+            /**
+             * Source Reference Id
+             * Format: uuid
+             */
+            source_reference_id: string;
+        };
+        /** RuleSourceOut */
+        RuleSourceOut: {
+            /** Citation */
+            citation: string;
+            relationship: components["schemas"]["SourceRelationship"];
+            /**
+             * Source Reference Id
+             * Format: uuid
+             */
+            source_reference_id: string;
+            /** Url */
+            url: string;
+            /** Verification Status */
+            verification_status: string;
+        };
+        /** RuleSummary */
+        RuleSummary: {
+            /** Draft Version Id */
+            draft_version_id: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Key */
+            key: string;
+            /** Latest Version */
+            latest_version: number;
+            /** Published Version */
+            published_version: number | null;
+            /** Published Version Id */
+            published_version_id: string | null;
+            /** Title */
+            title: string;
+        };
+        /** RuleUpdate */
+        RuleUpdate: {
+            /** Title */
+            title: string;
+        };
+        /**
+         * RuleVersionContent
+         * @description The whole editable content of a draft (replaces what is stored).
+         */
+        RuleVersionContent: {
+            /** Condition */
+            condition: {
+                [key: string]: unknown;
+            };
+            /** Effective From */
+            effective_from?: string | null;
+            /** Effective To */
+            effective_to?: string | null;
+            /** @default VERIFIED */
+            max_confidence: components["schemas"]["Confidence"];
+            /** Notes */
+            notes?: string | null;
+            /** Outcomes */
+            outcomes?: components["schemas"]["OutcomeIn"][];
+            /** Sources */
+            sources?: components["schemas"]["RuleSourceIn"][];
+            /** Test Cases */
+            test_cases?: components["schemas"]["TestCaseIn"][];
+        };
+        /** RuleVersionOut */
+        RuleVersionOut: {
+            /** Condition */
+            condition: {
+                [key: string]: unknown;
+            };
+            /** Content Hash */
+            content_hash: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Created By */
+            created_by: string | null;
+            /** Effective From */
+            effective_from: string | null;
+            /** Effective To */
+            effective_to: string | null;
+            /** Fact Paths */
+            fact_paths: string[];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            max_confidence: components["schemas"]["Confidence"];
+            /** Notes */
+            notes: string | null;
+            /** Outcomes */
+            outcomes: components["schemas"]["OutcomeOut"][];
+            /** Published At */
+            published_at: string | null;
+            /** Published By */
+            published_by: string | null;
+            /**
+             * Rule Id
+             * Format: uuid
+             */
+            rule_id: string;
+            /** Rule Key */
+            rule_key: string;
+            /**
+             * Rule Set Id
+             * Format: uuid
+             */
+            rule_set_id: string;
+            /** Rule Set Key */
+            rule_set_key: string;
+            /** Rule Title */
+            rule_title: string;
+            /** Sources */
+            sources: components["schemas"]["RuleSourceOut"][];
+            status: components["schemas"]["RuleVersionStatus"];
+            /** Test Cases */
+            test_cases: components["schemas"]["TestCaseOut"][];
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /** Version */
+            version: number;
+            vertical: components["schemas"]["Vertical"];
+        };
+        /**
+         * RuleVersionStatus
+         * @enum {string}
+         */
+        RuleVersionStatus: "DRAFT" | "PUBLISHED" | "RETIRED";
+        /** RuleVersionSummary */
+        RuleVersionSummary: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Effective From */
+            effective_from: string | null;
+            /** Effective To */
+            effective_to: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Published At */
+            published_at: string | null;
+            status: components["schemas"]["RuleVersionStatus"];
+            /** Version */
+            version: number;
+        };
         /** SectionOut */
         SectionOut: {
             /** Questions */
@@ -1546,6 +2536,356 @@ export interface components {
             permissions: string[];
             user: components["schemas"]["UserOut"];
         };
+        /** SnapshotCaptured */
+        SnapshotCaptured: {
+            /**
+             * Captured At
+             * Format: date-time
+             */
+            captured_at: string;
+            /**
+             * Changed
+             * @description False when the content matched the latest snapshot (nothing new stored).
+             */
+            changed: boolean;
+            /** Characters */
+            characters: number;
+            /**
+             * Content Hash
+             * @description SHA-256 of the captured text, hex.
+             */
+            content_hash: string;
+            /** Content Text */
+            content_text: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Retrieved At
+             * Format: date-time
+             */
+            retrieved_at: string;
+        };
+        /** SnapshotCreate */
+        SnapshotCreate: {
+            /** Content Text */
+            content_text: string;
+            /**
+             * Retrieved At
+             * Format: date-time
+             * @description When the content was retrieved from the source.
+             */
+            retrieved_at: string;
+        };
+        /** SnapshotOut */
+        SnapshotOut: {
+            /**
+             * Captured At
+             * Format: date-time
+             */
+            captured_at: string;
+            /** Characters */
+            characters: number;
+            /**
+             * Content Hash
+             * @description SHA-256 of the captured text, hex.
+             */
+            content_hash: string;
+            /** Content Text */
+            content_text: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Retrieved At
+             * Format: date-time
+             */
+            retrieved_at: string;
+        };
+        /** SnapshotSummary */
+        SnapshotSummary: {
+            /**
+             * Captured At
+             * Format: date-time
+             */
+            captured_at: string;
+            /** Characters */
+            characters: number;
+            /**
+             * Content Hash
+             * @description SHA-256 of the captured text, hex.
+             */
+            content_hash: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Retrieved At
+             * Format: date-time
+             */
+            retrieved_at: string;
+        };
+        /** SourceDocumentCreate */
+        SourceDocumentCreate: {
+            /** Effective From */
+            effective_from?: string | null;
+            /** Effective To */
+            effective_to?: string | null;
+            /** Jurisdiction */
+            jurisdiction: string;
+            /** Licence */
+            licence?: string | null;
+            /**
+             * Source Organisation Id
+             * Format: uuid
+             */
+            source_organisation_id: string;
+            source_type: components["schemas"]["SourceType"];
+            /** Supersedes Id */
+            supersedes_id?: string | null;
+            /** Title */
+            title: string;
+            /** Url */
+            url: string;
+            /** Version Label */
+            version_label?: string | null;
+        };
+        /** SourceDocumentOut */
+        SourceDocumentOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Effective From */
+            effective_from: string | null;
+            /** Effective To */
+            effective_to: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Jurisdiction */
+            jurisdiction: string;
+            latest_snapshot: components["schemas"]["SnapshotSummary"] | null;
+            /** Licence */
+            licence: string | null;
+            /** Organisation Name */
+            organisation_name: string;
+            /**
+             * Reference Counts
+             * @description References by verification status.
+             */
+            reference_counts: {
+                [key: string]: number;
+            };
+            /**
+             * Source Organisation Id
+             * Format: uuid
+             */
+            source_organisation_id: string;
+            source_type: components["schemas"]["SourceType"];
+            /** Supersedes Id */
+            supersedes_id: string | null;
+            /** Title */
+            title: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /** Url */
+            url: string;
+            /** Version Label */
+            version_label: string | null;
+        };
+        /** SourceDocumentUpdate */
+        SourceDocumentUpdate: {
+            /** Effective From */
+            effective_from?: string | null;
+            /** Effective To */
+            effective_to?: string | null;
+            /** Jurisdiction */
+            jurisdiction?: string | null;
+            /** Licence */
+            licence?: string | null;
+            source_type?: components["schemas"]["SourceType"] | null;
+            /** Supersedes Id */
+            supersedes_id?: string | null;
+            /** Title */
+            title?: string | null;
+            /** Url */
+            url?: string | null;
+            /** Version Label */
+            version_label?: string | null;
+        };
+        /** SourceOrganisationCreate */
+        SourceOrganisationCreate: {
+            /** Jurisdiction */
+            jurisdiction: string;
+            kind: components["schemas"]["SourceOrganisationKind"];
+            /** Name */
+            name: string;
+            /** Website */
+            website?: string | null;
+        };
+        /**
+         * SourceOrganisationKind
+         * @enum {string}
+         */
+        SourceOrganisationKind: "LEGISLATURE" | "COUNCIL" | "STATE_AGENCY" | "CTH_AGENCY" | "REGULATOR" | "GRANT_BODY";
+        /** SourceOrganisationOut */
+        SourceOrganisationOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Jurisdiction */
+            jurisdiction: string;
+            kind: components["schemas"]["SourceOrganisationKind"];
+            /** Name */
+            name: string;
+            /** Website */
+            website: string | null;
+        };
+        /** SourceOrganisationUpdate */
+        SourceOrganisationUpdate: {
+            /** Jurisdiction */
+            jurisdiction?: string | null;
+            kind?: components["schemas"]["SourceOrganisationKind"] | null;
+            /** Name */
+            name?: string | null;
+            /** Website */
+            website?: string | null;
+        };
+        /** SourceReferenceCreate */
+        SourceReferenceCreate: {
+            /** Clause */
+            clause?: string | null;
+            /** Extracted Text */
+            extracted_text: string;
+            /** Interpretation */
+            interpretation?: string | null;
+            /** Page */
+            page?: string | null;
+            /** Section */
+            section?: string | null;
+        };
+        /** SourceReferenceOut */
+        SourceReferenceOut: {
+            /** Allowed Actions */
+            allowed_actions: string[];
+            /**
+             * Attention
+             * @description Why this reference needs a reviewer's attention.
+             */
+            attention: string[];
+            /** Citation */
+            citation: string;
+            /** Clause */
+            clause: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Document Title */
+            document_title: string;
+            /** Extracted Text */
+            extracted_text: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Interpretation */
+            interpretation: string | null;
+            /** Last Reviewed At */
+            last_reviewed_at: string | null;
+            /** Next Review Due */
+            next_review_due: string | null;
+            /** Organisation Name */
+            organisation_name: string;
+            /** Page */
+            page: string | null;
+            /**
+             * Rule Versions
+             * @description Rule versions citing this reference.
+             */
+            rule_versions: number;
+            /** Section */
+            section: string | null;
+            /**
+             * Source Document Id
+             * Format: uuid
+             */
+            source_document_id: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /** Url */
+            url: string;
+            verification_status: components["schemas"]["VerificationStatus"];
+            /** Verified At */
+            verified_at: string | null;
+            /** Verified By */
+            verified_by: string | null;
+            /** Verified Snapshot Id */
+            verified_snapshot_id: string | null;
+        };
+        /** SourceReferenceUpdate */
+        SourceReferenceUpdate: {
+            /** Clause */
+            clause?: string | null;
+            /** Extracted Text */
+            extracted_text?: string | null;
+            /** Interpretation */
+            interpretation?: string | null;
+            /** Page */
+            page?: string | null;
+            /** Section */
+            section?: string | null;
+        };
+        /**
+         * SourceRelationship
+         * @enum {string}
+         */
+        SourceRelationship: "BASIS" | "SUPPORTING" | "EXCEPTION";
+        /** SourceReview */
+        SourceReview: {
+            /**
+             * Action
+             * @enum {string}
+             */
+            action: "VERIFY" | "DISPUTE" | "SUPERSEDE" | "REOPEN";
+            /**
+             * Next Review Due
+             * @description VERIFY only. Defaults to a year from today.
+             */
+            next_review_due?: string | null;
+            /** Notes */
+            notes?: string | null;
+        };
+        /**
+         * SourceType
+         * @enum {string}
+         */
+        SourceType: "LEGISLATION" | "REGULATION" | "PLANNING_SCHEME" | "POLICY" | "GUIDELINE" | "FORM" | "FEE_SCHEDULE" | "WEBPAGE" | "GRANT_GUIDELINES";
         /** StatusEventOut */
         StatusEventOut: {
             /** Actor Id */
@@ -1695,6 +3035,42 @@ export interface components {
             /** Title */
             title?: string | null;
         };
+        /** TestCaseIn */
+        TestCaseIn: {
+            expected_result: components["schemas"]["RuleResult"];
+            /**
+             * Facts
+             * @description Facts by fact path. Decimals may be written as {'$decimal': '1.5'}.
+             */
+            facts: {
+                [key: string]: unknown;
+            };
+            /** Name */
+            name: string;
+        };
+        /** TestCaseOut */
+        TestCaseOut: {
+            expected_result: components["schemas"]["RuleResult"];
+            /** Facts */
+            facts: {
+                [key: string]: unknown;
+            };
+            /** Name */
+            name: string;
+        };
+        /** TestCaseResultOut */
+        TestCaseResultOut: {
+            actual: components["schemas"]["RuleResult"];
+            expected: components["schemas"]["RuleResult"];
+            /** Name */
+            name: string;
+            /** Passed */
+            passed: boolean;
+            /** Trace */
+            trace: {
+                [key: string]: unknown;
+            };
+        };
         /** TokenRequest */
         TokenRequest: {
             /** Token */
@@ -1732,6 +3108,11 @@ export interface components {
             /** Error Type */
             type: string;
         };
+        /**
+         * VerificationStatus
+         * @enum {string}
+         */
+        VerificationStatus: "UNVERIFIED" | "VERIFIED" | "DISPUTED" | "SUPERSEDED";
         /** VersionResponse */
         VersionResponse: {
             /** Environment */
@@ -1919,6 +3300,1007 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuditChainOut"];
+                };
+            };
+        };
+    };
+    list_rule_sets_v1_admin_rule_sets_get: {
+        parameters: {
+            query?: {
+                vertical?: components["schemas"]["Vertical"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleSetOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_rule_set_v1_admin_rule_sets_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RuleSetCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleSetOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_rule_set_v1_admin_rule_sets__rule_set_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                rule_set_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleSetOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_rule_set_v1_admin_rule_sets__rule_set_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                rule_set_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RuleSetUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleSetOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_rule_v1_admin_rule_sets__rule_set_id__rules_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                rule_set_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RuleCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_rule_version_v1_admin_rule_versions__version_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleVersionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    save_rule_version_v1_admin_rule_versions__version_id__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RuleVersionContent"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleVersionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_rule_version_v1_admin_rule_versions__version_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    check_rule_version_v1_admin_rule_versions__version_id__checks_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PublishChecksOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    evaluate_rule_version_v1_admin_rule_versions__version_id__evaluate_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EvaluateIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EvaluateOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    publish_rule_version_v1_admin_rule_versions__version_id__publish_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleVersionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    retire_rule_version_v1_admin_rule_versions__version_id__retire_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleVersionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_rule_v1_admin_rules__rule_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                rule_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_rule_v1_admin_rules__rule_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                rule_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RuleUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_rule_version_v1_admin_rules__rule_id__versions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                rule_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleVersionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_source_documents_v1_admin_source_documents_get: {
+        parameters: {
+            query?: {
+                source_organisation_id?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceDocumentOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_source_document_v1_admin_source_documents_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SourceDocumentCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceDocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_source_document_v1_admin_source_documents__document_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceDocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_source_document_v1_admin_source_documents__document_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SourceDocumentUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceDocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_source_reference_v1_admin_source_documents__document_id__references_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SourceReferenceCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceReferenceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_document_snapshots_v1_admin_source_documents__document_id__snapshots_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SnapshotSummary"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    capture_document_snapshot_v1_admin_source_documents__document_id__snapshots_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SnapshotCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SnapshotCaptured"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_document_snapshot_v1_admin_source_documents__document_id__snapshots__snapshot_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+                snapshot_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SnapshotOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_source_organisations_v1_admin_source_organisations_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceOrganisationOut"][];
+                };
+            };
+        };
+    };
+    create_source_organisation_v1_admin_source_organisations_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SourceOrganisationCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceOrganisationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_source_organisation_v1_admin_source_organisations__source_organisation_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                source_organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SourceOrganisationUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceOrganisationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_source_references_v1_admin_source_references_get: {
+        parameters: {
+            query?: {
+                source_document_id?: string | null;
+                verification_status?: components["schemas"]["VerificationStatus"] | null;
+                needs_attention?: boolean;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceReferenceOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_source_reference_v1_admin_source_references__reference_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                reference_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceReferenceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_source_reference_v1_admin_source_references__reference_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                reference_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SourceReferenceUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceReferenceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_source_reference_events_v1_admin_source_references__reference_id__events_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                reference_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewEventOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_source_reference_v1_admin_source_references__reference_id__review_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                reference_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SourceReview"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceReferenceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
@@ -2382,6 +4764,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["OrganisationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_assessment_v1_organisations__organisation_id__assessments__assessment_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                assessment_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AssessmentOut"];
                 };
             };
             /** @description Validation Error */
@@ -2940,6 +5354,70 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ProjectDetailOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_assessments_v1_organisations__organisation_id__projects__project_id__assessments_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AssessmentSummary"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    run_assessment_v1_organisations__organisation_id__projects__project_id__assessments_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AssessmentOut"];
                 };
             };
             /** @description Validation Error */
