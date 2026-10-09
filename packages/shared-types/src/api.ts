@@ -55,6 +55,152 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/professionals": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Professionals */
+        get: operations["list_professionals_v1_admin_professionals_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/professionals/{professional_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Professional */
+        get: operations["get_professional_v1_admin_professionals__professional_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/professionals/{professional_id}/credentials/{credential_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Check Credential
+         * @description Record that a credential was checked against the issuer's register (or rejected).
+         */
+        post: operations["check_credential_v1_admin_professionals__professional_id__credentials__credential_id__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/professionals/{professional_id}/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Set Professional Status */
+        post: operations["set_professional_status_v1_admin_professionals__professional_id__status_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/reviews": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Review Queue */
+        get: operations["review_queue_v1_admin_reviews_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/reviews/{review_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Staff Review
+         * @description A review request with the professionals who could take it. Staff see the project's
+         *     name and what was assessed, not the customer's answers or files.
+         */
+        get: operations["staff_review_v1_admin_reviews__review_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/reviews/{review_id}/assign": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Assign Review */
+        post: operations["assign_review_v1_admin_reviews__review_id__assign_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/reviews/{review_id}/unassign": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Unassign Review
+         * @description Take a review back from a professional who hasn't started it.
+         */
+        post: operations["unassign_review_v1_admin_reviews__review_id__unassign_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/rule-sets": {
         parameters: {
             query?: never;
@@ -749,6 +895,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/review": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Assessment Review
+         * @description The assessment's review status, the review on it and every reviewer change to its
+         *     findings (shown next to the original findings).
+         */
+        get: operations["assessment_review_v1_organisations__organisation_id__assessments__assessment_id__review_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/audit-events": {
         parameters: {
             query?: never;
@@ -818,7 +985,11 @@ export interface paths {
         delete: operations["delete_document_v1_organisations__organisation_id__documents__document_id__delete"];
         options?: never;
         head?: never;
-        patch?: never;
+        /**
+         * Update Document
+         * @description Share a file with the project's professional reviewer, or make it private again.
+         */
+        patch: operations["update_document_v1_organisations__organisation_id__documents__document_id__patch"];
         trace?: never;
     };
     "/v1/organisations/{organisation_id}/documents/{document_id}/content": {
@@ -1132,6 +1303,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/reviews": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Reviews */
+        get: operations["list_reviews_v1_organisations__organisation_id__projects__project_id__reviews_get"];
+        put?: never;
+        /**
+         * Request Review
+         * @description Ask a professional to check the project's latest assessment.
+         */
+        post: operations["request_review_v1_organisations__organisation_id__projects__project_id__reviews_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/projects/{project_id}/status": {
         parameters: {
             query?: never;
@@ -1257,6 +1449,77 @@ export interface paths {
         head?: never;
         /** Update Property */
         patch: operations["update_property_v1_organisations__organisation_id__properties__property_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/reviews/{review_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Review */
+        get: operations["get_review_v1_organisations__organisation_id__reviews__review_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/reviews/{review_id}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel Review */
+        post: operations["cancel_review_v1_organisations__organisation_id__reviews__review_id__cancel_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/reviews/{review_id}/comments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Customer Comment */
+        post: operations["customer_comment_v1_organisations__organisation_id__reviews__review_id__comments_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/reviews/{review_id}/resubmit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Resubmit Review
+         * @description Hand the review back to the reviewer after making the changes they asked for.
+         */
+        post: operations["resubmit_review_v1_organisations__organisation_id__reviews__review_id__resubmit_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/v1/organisations/{organisation_id}/submissions/{submission_id}": {
@@ -1400,6 +1663,269 @@ export interface paths {
         head?: never;
         /** Update Vessel */
         patch: operations["update_vessel_v1_organisations__organisation_id__vessels__vessel_id__patch"];
+        trace?: never;
+    };
+    "/v1/professional/profile": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Profile */
+        get: operations["get_profile_v1_professional_profile_get"];
+        put?: never;
+        /**
+         * Create Profile
+         * @description Set up your reviewer profile in this practice. Staff check your credentials and
+         *     activate it before you are assigned reviews.
+         */
+        post: operations["create_profile_v1_professional_profile_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Profile */
+        patch: operations["update_profile_v1_professional_profile_patch"];
+        trace?: never;
+    };
+    "/v1/professional/profile/credentials": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add Credential */
+        post: operations["add_credential_v1_professional_profile_credentials_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/profile/credentials/{credential_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Remove Credential */
+        delete: operations["remove_credential_v1_professional_profile_credentials__credential_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/profile/services": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * Set Services
+         * @description The kinds of project you review (replaces the list).
+         */
+        put: operations["set_services_v1_professional_profile_services_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** My Reviews */
+        get: operations["my_reviews_v1_professional_reviews_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews/{review_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Review Workspace
+         * @description The review with the assessment, the customer's answers and the files they shared.
+         */
+        get: operations["review_workspace_v1_professional_reviews__review_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews/{review_id}/comments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Reviewer Comment */
+        post: operations["reviewer_comment_v1_professional_reviews__review_id__comments_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews/{review_id}/decision": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Decide
+         * @description Approve, finish with comments, or ask the customer for changes.
+         */
+        post: operations["decide_v1_professional_reviews__review_id__decision_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews/{review_id}/decline": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Decline Review
+         * @description Hand back a review you can't take on (before starting it).
+         */
+        post: operations["decline_review_v1_professional_reviews__review_id__decline_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews/{review_id}/documents/{document_id}/content": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Review Document */
+        get: operations["review_document_v1_professional_reviews__review_id__documents__document_id__content_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews/{review_id}/evidence/{evidence_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Check Evidence */
+        post: operations["check_evidence_v1_professional_reviews__review_id__evidence__evidence_id__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews/{review_id}/overrides": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Override Finding
+         * @description Change a finding's outcome or confidence, with a reason (audited; the original stays
+         *     on record).
+         */
+        post: operations["override_finding_v1_professional_reviews__review_id__overrides_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews/{review_id}/start": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Start Review */
+        post: operations["start_review_v1_professional_reviews__review_id__start_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/professional/reviews/{review_id}/tasks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Add Task
+         * @description Add a task to the customer's project.
+         */
+        post: operations["add_task_v1_professional_reviews__review_id__tasks_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/v1/questionnaires": {
@@ -1598,6 +2124,20 @@ export interface components {
             submission_id: string;
         };
         /**
+         * AssessmentReviewOut
+         * @description An assessment's review state for the customer's report page.
+         */
+        AssessmentReviewOut: {
+            /**
+             * Overrides
+             * @description Every reviewer change to this assessment's findings, oldest first.
+             */
+            overrides: components["schemas"]["OverrideOut"][];
+            /** @description The review on this assessment, if any. */
+            review: components["schemas"]["ReviewOut"] | null;
+            review_status: components["schemas"]["ReviewStatus"];
+        };
+        /**
          * AssessmentStatus
          * @enum {string}
          */
@@ -1633,6 +2173,16 @@ export interface components {
              * Format: uuid
              */
             submission_id: string;
+        };
+        /** AssignIn */
+        AssignIn: {
+            /** Due On */
+            due_on?: string | null;
+            /**
+             * Professional Id
+             * Format: uuid
+             */
+            professional_id: string;
         };
         /** AuditChainOut */
         AuditChainOut: {
@@ -1675,6 +2225,11 @@ export interface components {
          * @enum {string}
          */
         AustralianState: "NSW" | "VIC" | "QLD" | "SA" | "WA" | "TAS" | "NT" | "ACT";
+        /**
+         * AuthorRole
+         * @enum {string}
+         */
+        AuthorRole: "CUSTOMER" | "REVIEWER";
         /** Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post */
         Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post: {
             /**
@@ -1772,11 +2327,137 @@ export interface components {
          */
         Certainty: "REQUIRED" | "LIKELY_REQUIRED" | "MAY_APPLY" | "NOT_IDENTIFIED";
         /**
+         * Classification
+         * @enum {string}
+         */
+        Classification: "PRIVATE" | "SHARED_WITH_REVIEWER" | "RELEASED_TO_PARTNER";
+        /** CommentIn */
+        CommentIn: {
+            /** Body */
+            body: string;
+            /** Finding Id */
+            finding_id?: string | null;
+        };
+        /** CommentOut */
+        CommentOut: {
+            /** Author Name */
+            author_name: string | null;
+            author_role: components["schemas"]["AuthorRole"];
+            /** Body */
+            body: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Finding Id */
+            finding_id: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+        };
+        /**
          * Confidence
          * @description How far a finding can be relied on, highest first (see ``rules/engine.py``).
          * @enum {string}
          */
         Confidence: "VERIFIED" | "LIKELY" | "REVIEW_REQUIRED" | "UNKNOWN";
+        /** CredentialCheckIn */
+        CredentialCheckIn: {
+            /** Notes */
+            notes?: string | null;
+            status: components["schemas"]["CredentialStatus"];
+        };
+        /** CredentialIn */
+        CredentialIn: {
+            /** Expires On */
+            expires_on?: string | null;
+            /**
+             * Issuer
+             * @description Who issued it, e.g. the licensing body or insurer.
+             */
+            issuer: string;
+            kind: components["schemas"]["CredentialKind"];
+            /**
+             * Number
+             * @description Licence, registration, membership or policy number.
+             */
+            number: string;
+        };
+        /**
+         * CredentialKind
+         * @enum {string}
+         */
+        CredentialKind: "LICENCE" | "REGISTRATION" | "MEMBERSHIP" | "INSURANCE" | "QUALIFICATION";
+        /** CredentialOut */
+        CredentialOut: {
+            /**
+             * Current
+             * @description Verified and not expired today.
+             */
+            current: boolean;
+            /** Expires On */
+            expires_on: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Issuer */
+            issuer: string;
+            kind: components["schemas"]["CredentialKind"];
+            /** Notes */
+            notes: string | null;
+            /** Number */
+            number: string;
+            status: components["schemas"]["CredentialStatus"];
+            /** Verified At */
+            verified_at: string | null;
+        };
+        /**
+         * CredentialStatus
+         * @enum {string}
+         */
+        CredentialStatus: "UNVERIFIED" | "VERIFIED" | "REJECTED";
+        /**
+         * Decision
+         * @enum {string}
+         */
+        Decision: "CHANGES_REQUIRED" | "APPROVED" | "COMPLETED";
+        /** DecisionIn */
+        DecisionIn: {
+            decision: components["schemas"]["Decision"];
+            /** Notes */
+            notes?: string | null;
+        };
+        /** DecisionOut */
+        DecisionOut: {
+            /**
+             * Assessment Id
+             * Format: uuid
+             */
+            assessment_id: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            decision: components["schemas"]["Decision"];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Notes */
+            notes: string | null;
+        };
+        /** DeclineIn */
+        DeclineIn: {
+            /** Reason */
+            reason?: string | null;
+        };
         /** DependencyCheck */
         DependencyCheck: {
             /** Latency Ms */
@@ -1787,8 +2468,15 @@ export interface components {
              */
             status: "ok" | "error";
         };
+        /**
+         * Discipline
+         * @enum {string}
+         */
+        Discipline: "TOWN_PLANNER" | "SURVEYOR" | "BUILDING_CERTIFIER" | "BUILDING_DESIGNER" | "ENGINEER" | "MARINE_SURVEYOR" | "LAWYER" | "ACCOUNTANT" | "GRANT_WRITER" | "OTHER";
         /** DocumentOut */
         DocumentOut: {
+            /** @description SHARED_WITH_REVIEWER: the assigned professional reviewer can open it too. */
+            classification: components["schemas"]["Classification"];
             /**
              * Content Type
              * @description Detected from the file's contents.
@@ -1817,6 +2505,10 @@ export interface components {
             scan_status: components["schemas"]["ScanStatus"];
             /** Size Bytes */
             size_bytes: number;
+        };
+        /** DocumentUpdateIn */
+        DocumentUpdateIn: {
+            classification: components["schemas"]["Classification"];
         };
         /** EmailRequest */
         EmailRequest: {
@@ -1862,6 +2554,12 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /** EvidenceCheckIn */
+        EvidenceCheckIn: {
+            /** Note */
+            note?: string | null;
+            status: components["schemas"]["EvidenceStatus"];
+        };
         /** EvidenceIn */
         EvidenceIn: {
             /**
@@ -1897,6 +2595,13 @@ export interface components {
             id: string;
             /** Note */
             note: string | null;
+            /**
+             * Review Note
+             * @description The reviewer's reason for their decision.
+             */
+            review_note: string | null;
+            /** Reviewed At */
+            reviewed_at: string | null;
             status: components["schemas"]["EvidenceStatus"];
         };
         /** EvidenceRequirementOut */
@@ -2235,6 +2940,70 @@ export interface components {
          * @enum {string}
          */
         OutputFormat: "PDF" | "DOCX" | "HTML";
+        /** OverrideIn */
+        OverrideIn: {
+            /**
+             * Finding Id
+             * Format: uuid
+             */
+            finding_id: string;
+            new_confidence: components["schemas"]["Confidence"];
+            /** @description Leave out to keep the finding's outcome. */
+            new_outcome_type?: components["schemas"]["OutcomeType"] | null;
+            /** Reason */
+            reason: string;
+            /** Source Reference Id */
+            source_reference_id?: string | null;
+        };
+        /** OverrideOut */
+        OverrideOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Current
+             * @description The latest change to this finding.
+             */
+            current: boolean;
+            /**
+             * Finding Id
+             * Format: uuid
+             */
+            finding_id: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            new_confidence: components["schemas"]["Confidence"];
+            new_outcome_type: components["schemas"]["OutcomeType"] | null;
+            /** Overridden By Name */
+            overridden_by_name: string | null;
+            previous_confidence: components["schemas"]["Confidence"];
+            previous_outcome_type: components["schemas"]["OutcomeType"] | null;
+            /** Reason */
+            reason: string;
+            /**
+             * Review Request Id
+             * Format: uuid
+             */
+            review_request_id: string;
+            source: components["schemas"]["OverrideSourceOut"] | null;
+        };
+        /** OverrideSourceOut */
+        OverrideSourceOut: {
+            /** Citation */
+            citation: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Verification Status */
+            verification_status: string;
+        };
         /**
          * OwnershipRole
          * @enum {string}
@@ -2287,6 +3056,88 @@ export interface components {
              * @description A valid answer for the question, ready to save.
              */
             value: unknown;
+        };
+        /** ProfessionalOut */
+        ProfessionalOut: {
+            /** Bio */
+            bio: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Credentials */
+            credentials: components["schemas"]["CredentialOut"][];
+            discipline: components["schemas"]["Discipline"];
+            /** Display Name */
+            display_name: string;
+            /** Email */
+            email: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Practice Id
+             * Format: uuid
+             */
+            practice_id: string;
+            /** Practice Name */
+            practice_name: string;
+            /**
+             * Problems
+             * @description Why they can't be assigned reviews today.
+             */
+            problems: string[];
+            /** Services */
+            services: components["schemas"]["ServiceOut"][];
+            status: components["schemas"]["ProfessionalStatus"];
+            /**
+             * User Id
+             * Format: uuid
+             */
+            user_id: string;
+        };
+        /**
+         * ProfessionalPublicOut
+         * @description What a customer sees about their reviewer.
+         */
+        ProfessionalPublicOut: {
+            discipline: components["schemas"]["Discipline"];
+            /** Display Name */
+            display_name: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Practice Name */
+            practice_name: string;
+        };
+        /**
+         * ProfessionalStatus
+         * @enum {string}
+         */
+        ProfessionalStatus: "PENDING" | "ACTIVE" | "SUSPENDED";
+        /** ProfessionalStatusIn */
+        ProfessionalStatusIn: {
+            status: components["schemas"]["ProfessionalStatus"];
+        };
+        /** ProfileIn */
+        ProfileIn: {
+            /** Bio */
+            bio?: string | null;
+            discipline: components["schemas"]["Discipline"];
+            /** Display Name */
+            display_name: string;
+        };
+        /** ProfileUpdateIn */
+        ProfileUpdateIn: {
+            /** Bio */
+            bio?: string | null;
+            /** Display Name */
+            display_name?: string | null;
         };
         /** Progress */
         Progress: {
@@ -2556,6 +3407,29 @@ export interface components {
             /** Vertical */
             vertical: string;
         };
+        /** QueueItemOut */
+        QueueItemOut: {
+            /** Assigned Professional Id */
+            assigned_professional_id: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Due On */
+            due_on: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Project Reference */
+            project_reference: string;
+            /** Project Title */
+            project_title: string;
+            status: components["schemas"]["ReviewRequestStatus"];
+            vertical: components["schemas"]["Vertical"];
+        };
         /** ReadyResponse */
         ReadyResponse: {
             /** Checks */
@@ -2655,6 +3529,14 @@ export interface components {
             /** Title */
             title: string;
         };
+        /** ResubmitIn */
+        ResubmitIn: {
+            /**
+             * Assessment Id
+             * @description Move the review to this (the project's latest) assessment.
+             */
+            assessment_id?: string | null;
+        };
         /**
          * ReviewAction
          * @enum {string}
@@ -2682,11 +3564,133 @@ export interface components {
             reviewer_name: string | null;
             to_status: components["schemas"]["VerificationStatus"];
         };
+        /** ReviewOut */
+        ReviewOut: {
+            /**
+             * Assessment Id
+             * Format: uuid
+             */
+            assessment_id: string;
+            /** Assigned At */
+            assigned_at: string | null;
+            /** Closed At */
+            closed_at: string | null;
+            /** Comments */
+            comments: components["schemas"]["CommentOut"][];
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Decisions */
+            decisions: components["schemas"]["DecisionOut"][];
+            /** Due On */
+            due_on: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Message */
+            message: string | null;
+            /** Overrides */
+            overrides: components["schemas"]["OverrideOut"][];
+            professional: components["schemas"]["ProfessionalPublicOut"] | null;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** Project Reference */
+            project_reference: string;
+            /** Project Title */
+            project_title: string;
+            /** Started At */
+            started_at: string | null;
+            status: components["schemas"]["ReviewRequestStatus"];
+            vertical: components["schemas"]["Vertical"];
+        };
+        /** ReviewRequestIn */
+        ReviewRequestIn: {
+            /**
+             * Assessment Id
+             * Format: uuid
+             */
+            assessment_id: string;
+            /** Message */
+            message?: string | null;
+        };
         /**
-         * ReviewStatus
+         * ReviewRequestStatus
          * @enum {string}
          */
-        ReviewStatus: "NOT_REVIEWED";
+        ReviewRequestStatus: "REVIEW_REQUESTED" | "ASSIGNED" | "IN_REVIEW" | "CHANGES_REQUIRED" | "APPROVED" | "COMPLETED" | "CANCELLED";
+        /**
+         * ReviewStatus
+         * @description The assessment's professional review when the report was generated (Milestone 7).
+         * @enum {string}
+         */
+        ReviewStatus: "NOT_REVIEWED" | "IN_REVIEW" | "CHANGES_REQUIRED" | "APPROVED" | "REVIEWED";
+        /** ReviewSummary */
+        ReviewSummary: {
+            /**
+             * Assessment Id
+             * Format: uuid
+             */
+            assessment_id: string;
+            /** Assigned At */
+            assigned_at: string | null;
+            /** Closed At */
+            closed_at: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Due On */
+            due_on: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Message */
+            message: string | null;
+            professional: components["schemas"]["ProfessionalPublicOut"] | null;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** Started At */
+            started_at: string | null;
+            status: components["schemas"]["ReviewRequestStatus"];
+        };
+        /** ReviewTaskIn */
+        ReviewTaskIn: {
+            /** Notes */
+            notes?: string | null;
+            /** Title */
+            title: string;
+        };
+        /**
+         * ReviewerWorkspaceOut
+         * @description Everything the assigned reviewer can see.
+         */
+        ReviewerWorkspaceOut: {
+            assessment: components["schemas"]["AssessmentOut"];
+            /** Evidence */
+            evidence: components["schemas"]["EvidenceOut"][];
+            project_status: components["schemas"]["ProjectStatus"];
+            review: components["schemas"]["ReviewOut"];
+            /** Shared Documents */
+            shared_documents: components["schemas"]["DocumentOut"][];
+            /**
+             * Tasks
+             * @description Tasks this review added to the project.
+             */
+            tasks: components["schemas"]["TaskOut"][];
+        };
         /** RuleCreate */
         RuleCreate: {
             /**
@@ -3008,6 +4012,23 @@ export interface components {
             questions: components["schemas"]["QuestionOut"][];
             /** Title */
             title: string;
+        };
+        /** ServiceIn */
+        ServiceIn: {
+            /** Description */
+            description?: string | null;
+            vertical: components["schemas"]["Vertical"];
+        };
+        /** ServiceOut */
+        ServiceOut: {
+            /** Description */
+            description: string | null;
+            vertical: components["schemas"]["Vertical"];
+        };
+        /** ServicesIn */
+        ServicesIn: {
+            /** Services */
+            services: components["schemas"]["ServiceIn"][];
         };
         /** SessionOut */
         SessionOut: {
@@ -3381,6 +4402,22 @@ export interface components {
          * @enum {string}
          */
         SourceType: "LEGISLATION" | "REGULATION" | "PLANNING_SCHEME" | "POLICY" | "GUIDELINE" | "FORM" | "FEE_SCHEDULE" | "WEBPAGE" | "GRANT_GUIDELINES";
+        /** StaffReviewOut */
+        StaffReviewOut: {
+            /**
+             * Candidates
+             * @description Active professionals who can be assigned this review today.
+             */
+            candidates: components["schemas"]["ProfessionalOut"][];
+            /** Project Reference */
+            project_reference: string;
+            /** Project Title */
+            project_title: string;
+            review: components["schemas"]["ReviewSummary"];
+            /** Rule Sets In Scope */
+            rule_sets_in_scope: string[];
+            vertical: components["schemas"]["Vertical"];
+        };
         /** StatusEventOut */
         StatusEventOut: {
             /** Actor Id */
@@ -3812,6 +4849,271 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuditChainOut"];
+                };
+            };
+        };
+    };
+    list_professionals_v1_admin_professionals_get: {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["ProfessionalStatus"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfessionalOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_professional_v1_admin_professionals__professional_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                professional_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfessionalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    check_credential_v1_admin_professionals__professional_id__credentials__credential_id__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                professional_id: string;
+                credential_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CredentialCheckIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfessionalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    set_professional_status_v1_admin_professionals__professional_id__status_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                professional_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProfessionalStatusIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfessionalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_queue_v1_admin_reviews_get: {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["ReviewRequestStatus"][] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QueueItemOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    staff_review_v1_admin_reviews__review_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StaffReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    assign_review_v1_admin_reviews__review_id__assign_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AssignIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StaffReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    unassign_review_v1_admin_reviews__review_id__unassign_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DeclineIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StaffReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
@@ -5389,6 +6691,38 @@ export interface operations {
             };
         };
     };
+    assessment_review_v1_organisations__organisation_id__assessments__assessment_id__review_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                assessment_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AssessmentReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_audit_events_v1_organisations__organisation_id__audit_events_get: {
         parameters: {
             query?: {
@@ -5637,6 +6971,42 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_document_v1_organisations__organisation_id__documents__document_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DocumentUpdateIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentOut"];
+                };
             };
             /** @description Validation Error */
             422: {
@@ -6447,6 +7817,74 @@ export interface operations {
             };
         };
     };
+    list_reviews_v1_organisations__organisation_id__projects__project_id__reviews_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewSummary"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    request_review_v1_organisations__organisation_id__projects__project_id__reviews_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReviewRequestIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     change_project_status_v1_organisations__organisation_id__projects__project_id__status_post: {
         parameters: {
             query?: never;
@@ -6860,6 +8298,142 @@ export interface operations {
             };
         };
     };
+    get_review_v1_organisations__organisation_id__reviews__review_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cancel_review_v1_organisations__organisation_id__reviews__review_id__cancel_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    customer_comment_v1_organisations__organisation_id__reviews__review_id__comments_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CommentIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    resubmit_review_v1_organisations__organisation_id__reviews__review_id__resubmit_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ResubmitIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     get_submission_v1_organisations__organisation_id__submissions__submission_id__get: {
         parameters: {
             query?: never;
@@ -7206,6 +8780,519 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["VesselOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_profile_v1_professional_profile_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfessionalOut"];
+                };
+            };
+        };
+    };
+    create_profile_v1_professional_profile_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProfileIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfessionalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_profile_v1_professional_profile_patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProfileUpdateIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfessionalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_credential_v1_professional_profile_credentials_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CredentialIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfessionalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    remove_credential_v1_professional_profile_credentials__credential_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                credential_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    set_services_v1_professional_profile_services_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ServicesIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfessionalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    my_reviews_v1_professional_reviews_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QueueItemOut"][];
+                };
+            };
+        };
+    };
+    review_workspace_v1_professional_reviews__review_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewerWorkspaceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    reviewer_comment_v1_professional_reviews__review_id__comments_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CommentIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewerWorkspaceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    decide_v1_professional_reviews__review_id__decision_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DecisionIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewerWorkspaceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    decline_review_v1_professional_reviews__review_id__decline_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DeclineIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QueueItemOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_document_v1_professional_reviews__review_id__documents__document_id__content_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": unknown;
+                };
+            };
+            /** @description See Other */
+            303: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    check_evidence_v1_professional_reviews__review_id__evidence__evidence_id__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+                evidence_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EvidenceCheckIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewerWorkspaceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    override_finding_v1_professional_reviews__review_id__overrides_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["OverrideIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewerWorkspaceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    start_review_v1_professional_reviews__review_id__start_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewerWorkspaceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_task_v1_professional_reviews__review_id__tasks_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReviewTaskIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewerWorkspaceOut"];
                 };
             };
             /** @description Validation Error */

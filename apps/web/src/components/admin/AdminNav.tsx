@@ -1,11 +1,17 @@
 import Link from "next/link";
 
 /** Section links shown at the top of every admin page. */
-export function AdminNav({ current }: { current: "home" | "sources" | "rules" }) {
+export function AdminNav({
+  current,
+}: {
+  current: "home" | "sources" | "rules" | "reviews" | "professionals";
+}) {
   const links = [
     ["home", "/admin", "Review queue"],
     ["sources", "/admin/sources", "Sources"],
     ["rules", "/admin/rules", "Rules"],
+    ["reviews", "/admin/reviews", "Professional reviews"],
+    ["professionals", "/admin/professionals", "Professionals"],
   ] as const;
   return (
     <nav aria-label="Admin" className="admin-nav">

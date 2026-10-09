@@ -317,6 +317,40 @@
         "title": "AssessmentOut",
         "type": "object"
       },
+      "AssessmentReviewOut": {
+        "description": "An assessment's review state for the customer's report page.",
+        "properties": {
+          "overrides": {
+            "description": "Every reviewer change to this assessment's findings, oldest first.",
+            "items": {
+              "$ref": "#/components/schemas/OverrideOut"
+            },
+            "title": "Overrides",
+            "type": "array"
+          },
+          "review": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReviewOut"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The review on this assessment, if any."
+          },
+          "review_status": {
+            "$ref": "#/components/schemas/ReviewStatus"
+          }
+        },
+        "required": [
+          "review_status",
+          "review",
+          "overrides"
+        ],
+        "title": "AssessmentReviewOut",
+        "type": "object"
+      },
       "AssessmentStatus": {
         "enum": [
           "COMPLETED",
@@ -374,6 +408,32 @@
           "created_at"
         ],
         "title": "AssessmentSummary",
+        "type": "object"
+      },
+      "AssignIn": {
+        "properties": {
+          "due_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Due On"
+          },
+          "professional_id": {
+            "format": "uuid",
+            "title": "Professional Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "professional_id"
+        ],
+        "title": "AssignIn",
         "type": "object"
       },
       "AuditChainOut": {
@@ -491,6 +551,14 @@
           "ACT"
         ],
         "title": "AustralianState",
+        "type": "string"
+      },
+      "AuthorRole": {
+        "enum": [
+          "CUSTOMER",
+          "REVIEWER"
+        ],
+        "title": "AuthorRole",
         "type": "string"
       },
       "Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post": {
@@ -911,6 +979,96 @@
         "title": "Certainty",
         "type": "string"
       },
+      "Classification": {
+        "enum": [
+          "PRIVATE",
+          "SHARED_WITH_REVIEWER",
+          "RELEASED_TO_PARTNER"
+        ],
+        "title": "Classification",
+        "type": "string"
+      },
+      "CommentIn": {
+        "properties": {
+          "body": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Body",
+            "type": "string"
+          },
+          "finding_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finding Id"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "title": "CommentIn",
+        "type": "object"
+      },
+      "CommentOut": {
+        "properties": {
+          "author_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Author Name"
+          },
+          "author_role": {
+            "$ref": "#/components/schemas/AuthorRole"
+          },
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "finding_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finding Id"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "finding_id",
+          "author_name",
+          "author_role",
+          "body",
+          "created_at"
+        ],
+        "title": "CommentOut",
+        "type": "object"
+      },
       "Confidence": {
         "description": "How far a finding can be relied on, highest first (see ``rules/engine.py``).",
         "enum": [
@@ -921,6 +1079,260 @@
         ],
         "title": "Confidence",
         "type": "string"
+      },
+      "CredentialCheckIn": {
+        "properties": {
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CredentialStatus"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "CredentialCheckIn",
+        "type": "object"
+      },
+      "CredentialIn": {
+        "properties": {
+          "expires_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires On"
+          },
+          "issuer": {
+            "description": "Who issued it, e.g. the licensing body or insurer.",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Issuer",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/CredentialKind"
+          },
+          "number": {
+            "description": "Licence, registration, membership or policy number.",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Number",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "issuer",
+          "number"
+        ],
+        "title": "CredentialIn",
+        "type": "object"
+      },
+      "CredentialKind": {
+        "enum": [
+          "LICENCE",
+          "REGISTRATION",
+          "MEMBERSHIP",
+          "INSURANCE",
+          "QUALIFICATION"
+        ],
+        "title": "CredentialKind",
+        "type": "string"
+      },
+      "CredentialOut": {
+        "properties": {
+          "current": {
+            "description": "Verified and not expired today.",
+            "title": "Current",
+            "type": "boolean"
+          },
+          "expires_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires On"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "issuer": {
+            "title": "Issuer",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/CredentialKind"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "number": {
+            "title": "Number",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CredentialStatus"
+          },
+          "verified_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verified At"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "issuer",
+          "number",
+          "expires_on",
+          "status",
+          "notes",
+          "verified_at",
+          "current"
+        ],
+        "title": "CredentialOut",
+        "type": "object"
+      },
+      "CredentialStatus": {
+        "enum": [
+          "UNVERIFIED",
+          "VERIFIED",
+          "REJECTED"
+        ],
+        "title": "CredentialStatus",
+        "type": "string"
+      },
+      "Decision": {
+        "enum": [
+          "CHANGES_REQUIRED",
+          "APPROVED",
+          "COMPLETED"
+        ],
+        "title": "Decision",
+        "type": "string"
+      },
+      "DecisionIn": {
+        "properties": {
+          "decision": {
+            "$ref": "#/components/schemas/Decision"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 4000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          }
+        },
+        "required": [
+          "decision"
+        ],
+        "title": "DecisionIn",
+        "type": "object"
+      },
+      "DecisionOut": {
+        "properties": {
+          "assessment_id": {
+            "format": "uuid",
+            "title": "Assessment Id",
+            "type": "string"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "decision": {
+            "$ref": "#/components/schemas/Decision"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          }
+        },
+        "required": [
+          "id",
+          "assessment_id",
+          "decision",
+          "notes",
+          "created_at"
+        ],
+        "title": "DecisionOut",
+        "type": "object"
+      },
+      "DeclineIn": {
+        "properties": {
+          "reason": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          }
+        },
+        "title": "DeclineIn",
+        "type": "object"
       },
       "DependencyCheck": {
         "properties": {
@@ -944,8 +1356,28 @@
         "title": "DependencyCheck",
         "type": "object"
       },
+      "Discipline": {
+        "enum": [
+          "TOWN_PLANNER",
+          "SURVEYOR",
+          "BUILDING_CERTIFIER",
+          "BUILDING_DESIGNER",
+          "ENGINEER",
+          "MARINE_SURVEYOR",
+          "LAWYER",
+          "ACCOUNTANT",
+          "GRANT_WRITER",
+          "OTHER"
+        ],
+        "title": "Discipline",
+        "type": "string"
+      },
       "DocumentOut": {
         "properties": {
+          "classification": {
+            "$ref": "#/components/schemas/Classification",
+            "description": "SHARED_WITH_REVIEWER: the assigned professional reviewer can open it too."
+          },
           "content_type": {
             "description": "Detected from the file's contents.",
             "title": "Content Type",
@@ -998,10 +1430,23 @@
           "content_type",
           "size_bytes",
           "scan_status",
+          "classification",
           "created_at",
           "created_by"
         ],
         "title": "DocumentOut",
+        "type": "object"
+      },
+      "DocumentUpdateIn": {
+        "properties": {
+          "classification": {
+            "$ref": "#/components/schemas/Classification"
+          }
+        },
+        "required": [
+          "classification"
+        ],
+        "title": "DocumentUpdateIn",
         "type": "object"
       },
       "EmailRequest": {
@@ -1119,6 +1564,31 @@
         "title": "EvaluateOut",
         "type": "object"
       },
+      "EvidenceCheckIn": {
+        "properties": {
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "status": {
+            "$ref": "#/components/schemas/EvidenceStatus"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "EvidenceCheckIn",
+        "type": "object"
+      },
       "EvidenceIn": {
         "properties": {
           "evidence_requirement_id": {
@@ -1182,6 +1652,30 @@
             ],
             "title": "Note"
           },
+          "review_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The reviewer's reason for their decision.",
+            "title": "Review Note"
+          },
+          "reviewed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewed At"
+          },
           "status": {
             "$ref": "#/components/schemas/EvidenceStatus"
           }
@@ -1191,6 +1685,8 @@
           "evidence_requirement_id",
           "status",
           "note",
+          "review_note",
+          "reviewed_at",
           "document",
           "created_at"
         ],
@@ -2064,6 +2560,174 @@
         "title": "OutputFormat",
         "type": "string"
       },
+      "OverrideIn": {
+        "properties": {
+          "finding_id": {
+            "format": "uuid",
+            "title": "Finding Id",
+            "type": "string"
+          },
+          "new_confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "new_outcome_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OutcomeType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Leave out to keep the finding's outcome."
+          },
+          "reason": {
+            "maxLength": 2000,
+            "minLength": 10,
+            "title": "Reason",
+            "type": "string"
+          },
+          "source_reference_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Reference Id"
+          }
+        },
+        "required": [
+          "finding_id",
+          "new_confidence",
+          "reason"
+        ],
+        "title": "OverrideIn",
+        "type": "object"
+      },
+      "OverrideOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "current": {
+            "description": "The latest change to this finding.",
+            "title": "Current",
+            "type": "boolean"
+          },
+          "finding_id": {
+            "format": "uuid",
+            "title": "Finding Id",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "new_confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "new_outcome_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OutcomeType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "overridden_by_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Overridden By Name"
+          },
+          "previous_confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "previous_outcome_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OutcomeType"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "review_request_id": {
+            "format": "uuid",
+            "title": "Review Request Id",
+            "type": "string"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OverrideSourceOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "review_request_id",
+          "finding_id",
+          "previous_outcome_type",
+          "previous_confidence",
+          "new_outcome_type",
+          "new_confidence",
+          "reason",
+          "source",
+          "overridden_by_name",
+          "created_at",
+          "current"
+        ],
+        "title": "OverrideOut",
+        "type": "object"
+      },
+      "OverrideSourceOut": {
+        "properties": {
+          "citation": {
+            "title": "Citation",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "verification_status": {
+            "title": "Verification Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "citation",
+          "verification_status"
+        ],
+        "title": "OverrideSourceOut",
+        "type": "object"
+      },
       "OwnershipRole": {
         "enum": [
           "OWNER",
@@ -2183,6 +2847,210 @@
           "is_mock"
         ],
         "title": "PrefillSuggestion",
+        "type": "object"
+      },
+      "ProfessionalOut": {
+        "properties": {
+          "bio": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bio"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "credentials": {
+            "items": {
+              "$ref": "#/components/schemas/CredentialOut"
+            },
+            "title": "Credentials",
+            "type": "array"
+          },
+          "discipline": {
+            "$ref": "#/components/schemas/Discipline"
+          },
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "practice_id": {
+            "format": "uuid",
+            "title": "Practice Id",
+            "type": "string"
+          },
+          "practice_name": {
+            "title": "Practice Name",
+            "type": "string"
+          },
+          "problems": {
+            "description": "Why they can't be assigned reviews today.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Problems",
+            "type": "array"
+          },
+          "services": {
+            "items": {
+              "$ref": "#/components/schemas/ServiceOut"
+            },
+            "title": "Services",
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ProfessionalStatus"
+          },
+          "user_id": {
+            "format": "uuid",
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "display_name",
+          "discipline",
+          "practice_name",
+          "user_id",
+          "practice_id",
+          "email",
+          "bio",
+          "status",
+          "credentials",
+          "services",
+          "problems",
+          "created_at"
+        ],
+        "title": "ProfessionalOut",
+        "type": "object"
+      },
+      "ProfessionalPublicOut": {
+        "description": "What a customer sees about their reviewer.",
+        "properties": {
+          "discipline": {
+            "$ref": "#/components/schemas/Discipline"
+          },
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "practice_name": {
+            "title": "Practice Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "display_name",
+          "discipline",
+          "practice_name"
+        ],
+        "title": "ProfessionalPublicOut",
+        "type": "object"
+      },
+      "ProfessionalStatus": {
+        "enum": [
+          "PENDING",
+          "ACTIVE",
+          "SUSPENDED"
+        ],
+        "title": "ProfessionalStatus",
+        "type": "string"
+      },
+      "ProfessionalStatusIn": {
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ProfessionalStatus"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "ProfessionalStatusIn",
+        "type": "object"
+      },
+      "ProfileIn": {
+        "properties": {
+          "bio": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bio"
+          },
+          "discipline": {
+            "$ref": "#/components/schemas/Discipline"
+          },
+          "display_name": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Display Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "display_name",
+          "discipline"
+        ],
+        "title": "ProfileIn",
+        "type": "object"
+      },
+      "ProfileUpdateIn": {
+        "properties": {
+          "bio": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bio"
+          },
+          "display_name": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Display Name"
+          }
+        },
+        "title": "ProfileUpdateIn",
         "type": "object"
       },
       "Progress": {
@@ -3053,6 +3921,70 @@
         "title": "QuestionnaireSummary",
         "type": "object"
       },
+      "QueueItemOut": {
+        "properties": {
+          "assigned_professional_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assigned Professional Id"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "due_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Due On"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "project_reference": {
+            "title": "Project Reference",
+            "type": "string"
+          },
+          "project_title": {
+            "title": "Project Title",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ReviewRequestStatus"
+          },
+          "vertical": {
+            "$ref": "#/components/schemas/Vertical"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "project_reference",
+          "project_title",
+          "vertical",
+          "assigned_professional_id",
+          "created_at",
+          "due_on"
+        ],
+        "title": "QueueItemOut",
+        "type": "object"
+      },
       "ReadyResponse": {
         "properties": {
           "checks": {
@@ -3283,6 +4215,25 @@
         "title": "ReminderOut",
         "type": "object"
       },
+      "ResubmitIn": {
+        "properties": {
+          "assessment_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Move the review to this (the project's latest) assessment.",
+            "title": "Assessment Id"
+          }
+        },
+        "title": "ResubmitIn",
+        "type": "object"
+      },
       "ReviewAction": {
         "enum": [
           "CREATED",
@@ -3371,12 +4322,389 @@
         "title": "ReviewEventOut",
         "type": "object"
       },
-      "ReviewStatus": {
+      "ReviewOut": {
+        "properties": {
+          "assessment_id": {
+            "format": "uuid",
+            "title": "Assessment Id",
+            "type": "string"
+          },
+          "assigned_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assigned At"
+          },
+          "closed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Closed At"
+          },
+          "comments": {
+            "items": {
+              "$ref": "#/components/schemas/CommentOut"
+            },
+            "title": "Comments",
+            "type": "array"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "decisions": {
+            "items": {
+              "$ref": "#/components/schemas/DecisionOut"
+            },
+            "title": "Decisions",
+            "type": "array"
+          },
+          "due_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Due On"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "overrides": {
+            "items": {
+              "$ref": "#/components/schemas/OverrideOut"
+            },
+            "title": "Overrides",
+            "type": "array"
+          },
+          "professional": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ProfessionalPublicOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "project_reference": {
+            "title": "Project Reference",
+            "type": "string"
+          },
+          "project_title": {
+            "title": "Project Title",
+            "type": "string"
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ReviewRequestStatus"
+          },
+          "vertical": {
+            "$ref": "#/components/schemas/Vertical"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "assessment_id",
+          "status",
+          "message",
+          "professional",
+          "due_on",
+          "created_at",
+          "assigned_at",
+          "started_at",
+          "closed_at",
+          "project_title",
+          "project_reference",
+          "vertical",
+          "comments",
+          "overrides",
+          "decisions"
+        ],
+        "title": "ReviewOut",
+        "type": "object"
+      },
+      "ReviewRequestIn": {
+        "properties": {
+          "assessment_id": {
+            "format": "uuid",
+            "title": "Assessment Id",
+            "type": "string"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          }
+        },
+        "required": [
+          "assessment_id"
+        ],
+        "title": "ReviewRequestIn",
+        "type": "object"
+      },
+      "ReviewRequestStatus": {
         "enum": [
-          "NOT_REVIEWED"
+          "REVIEW_REQUESTED",
+          "ASSIGNED",
+          "IN_REVIEW",
+          "CHANGES_REQUIRED",
+          "APPROVED",
+          "COMPLETED",
+          "CANCELLED"
+        ],
+        "title": "ReviewRequestStatus",
+        "type": "string"
+      },
+      "ReviewStatus": {
+        "description": "The assessment's professional review when the report was generated (Milestone 7).",
+        "enum": [
+          "NOT_REVIEWED",
+          "IN_REVIEW",
+          "CHANGES_REQUIRED",
+          "APPROVED",
+          "REVIEWED"
         ],
         "title": "ReviewStatus",
         "type": "string"
+      },
+      "ReviewSummary": {
+        "properties": {
+          "assessment_id": {
+            "format": "uuid",
+            "title": "Assessment Id",
+            "type": "string"
+          },
+          "assigned_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assigned At"
+          },
+          "closed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Closed At"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "due_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Due On"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "professional": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ProfessionalPublicOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ReviewRequestStatus"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "assessment_id",
+          "status",
+          "message",
+          "professional",
+          "due_on",
+          "created_at",
+          "assigned_at",
+          "started_at",
+          "closed_at"
+        ],
+        "title": "ReviewSummary",
+        "type": "object"
+      },
+      "ReviewTaskIn": {
+        "properties": {
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "title": "ReviewTaskIn",
+        "type": "object"
+      },
+      "ReviewerWorkspaceOut": {
+        "description": "Everything the assigned reviewer can see.",
+        "properties": {
+          "assessment": {
+            "$ref": "#/components/schemas/AssessmentOut"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceOut"
+            },
+            "title": "Evidence",
+            "type": "array"
+          },
+          "project_status": {
+            "$ref": "#/components/schemas/ProjectStatus"
+          },
+          "review": {
+            "$ref": "#/components/schemas/ReviewOut"
+          },
+          "shared_documents": {
+            "items": {
+              "$ref": "#/components/schemas/DocumentOut"
+            },
+            "title": "Shared Documents",
+            "type": "array"
+          },
+          "tasks": {
+            "description": "Tasks this review added to the project.",
+            "items": {
+              "$ref": "#/components/schemas/TaskOut"
+            },
+            "title": "Tasks",
+            "type": "array"
+          }
+        },
+        "required": [
+          "review",
+          "project_status",
+          "assessment",
+          "shared_documents",
+          "evidence",
+          "tasks"
+        ],
+        "title": "ReviewerWorkspaceOut",
+        "type": "object"
       },
       "RuleCreate": {
         "additionalProperties": false,
@@ -4265,6 +5593,72 @@
           "questions"
         ],
         "title": "SectionOut",
+        "type": "object"
+      },
+      "ServiceIn": {
+        "properties": {
+          "description": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "vertical": {
+            "$ref": "#/components/schemas/Vertical"
+          }
+        },
+        "required": [
+          "vertical"
+        ],
+        "title": "ServiceIn",
+        "type": "object"
+      },
+      "ServiceOut": {
+        "properties": {
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "vertical": {
+            "$ref": "#/components/schemas/Vertical"
+          }
+        },
+        "required": [
+          "vertical",
+          "description"
+        ],
+        "title": "ServiceOut",
+        "type": "object"
+      },
+      "ServicesIn": {
+        "properties": {
+          "services": {
+            "items": {
+              "$ref": "#/components/schemas/ServiceIn"
+            },
+            "maxItems": 6,
+            "title": "Services",
+            "type": "array"
+          }
+        },
+        "required": [
+          "services"
+        ],
+        "title": "ServicesIn",
         "type": "object"
       },
       "SessionOut": {
@@ -5390,6 +6784,49 @@
         ],
         "title": "SourceType",
         "type": "string"
+      },
+      "StaffReviewOut": {
+        "properties": {
+          "candidates": {
+            "description": "Active professionals who can be assigned this review today.",
+            "items": {
+              "$ref": "#/components/schemas/ProfessionalOut"
+            },
+            "title": "Candidates",
+            "type": "array"
+          },
+          "project_reference": {
+            "title": "Project Reference",
+            "type": "string"
+          },
+          "project_title": {
+            "title": "Project Title",
+            "type": "string"
+          },
+          "review": {
+            "$ref": "#/components/schemas/ReviewSummary"
+          },
+          "rule_sets_in_scope": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Rule Sets In Scope",
+            "type": "array"
+          },
+          "vertical": {
+            "$ref": "#/components/schemas/Vertical"
+          }
+        },
+        "required": [
+          "review",
+          "project_title",
+          "project_reference",
+          "vertical",
+          "rule_sets_in_scope",
+          "candidates"
+        ],
+        "title": "StaffReviewOut",
+        "type": "object"
       },
       "StatusEventOut": {
         "properties": {
@@ -6638,6 +8075,426 @@
         "tags": [
           "organisations",
           "admin"
+        ]
+      }
+    },
+    "/v1/admin/professionals": {
+      "get": {
+        "operationId": "list_professionals_v1_admin_professionals_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/ProfessionalStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ProfessionalOut"
+                  },
+                  "title": "Response List Professionals V1 Admin Professionals Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Professionals",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/admin/professionals/{professional_id}": {
+      "get": {
+        "operationId": "get_professional_v1_admin_professionals__professional_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "professional_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Professional Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Professional",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/admin/professionals/{professional_id}/credentials/{credential_id}": {
+      "post": {
+        "description": "Record that a credential was checked against the issuer's register (or rejected).",
+        "operationId": "check_credential_v1_admin_professionals__professional_id__credentials__credential_id__post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "professional_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Professional Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "credential_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Credential Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CredentialCheckIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Check Credential",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/admin/professionals/{professional_id}/status": {
+      "post": {
+        "operationId": "set_professional_status_v1_admin_professionals__professional_id__status_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "professional_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Professional Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfessionalStatusIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Professional Status",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/admin/reviews": {
+      "get": {
+        "operationId": "review_queue_v1_admin_reviews_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "items": {
+                    "$ref": "#/components/schemas/ReviewRequestStatus"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/QueueItemOut"
+                  },
+                  "title": "Response Review Queue V1 Admin Reviews Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Review Queue",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/admin/reviews/{review_id}": {
+      "get": {
+        "description": "A review request with the professionals who could take it. Staff see the project's\nname and what was assessed, not the customer's answers or files.",
+        "operationId": "staff_review_v1_admin_reviews__review_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Staff Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/admin/reviews/{review_id}/assign": {
+      "post": {
+        "operationId": "assign_review_v1_admin_reviews__review_id__assign_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Assign Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/admin/reviews/{review_id}/unassign": {
+      "post": {
+        "description": "Take a review back from a professional who hasn't started it.",
+        "operationId": "unassign_review_v1_admin_reviews__review_id__unassign_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeclineIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Unassign Review",
+        "tags": [
+          "review"
         ]
       }
     },
@@ -8869,6 +10726,60 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/review": {
+      "get": {
+        "description": "The assessment's review status, the review on it and every reviewer change to its\nfindings (shown next to the original findings).",
+        "operationId": "assessment_review_v1_organisations__organisation_id__assessments__assessment_id__review_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "assessment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Assessment Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssessmentReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Assessment Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/audit-events": {
       "get": {
         "operationId": "list_audit_events_v1_organisations__organisation_id__audit_events_get",
@@ -9293,6 +11204,68 @@
           }
         },
         "summary": "Get Document",
+        "tags": [
+          "documents"
+        ]
+      },
+      "patch": {
+        "description": "Share a file with the project's professional reviewer, or make it private again.",
+        "operationId": "update_document_v1_organisations__organisation_id__documents__document_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentUpdateIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Document",
         "tags": [
           "documents"
         ]
@@ -10598,6 +12571,125 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/reviews": {
+      "get": {
+        "operationId": "list_reviews_v1_organisations__organisation_id__projects__project_id__reviews_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ReviewSummary"
+                  },
+                  "title": "Response List Reviews V1 Organisations  Organisation Id  Projects  Project Id  Reviews Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Reviews",
+        "tags": [
+          "review"
+        ]
+      },
+      "post": {
+        "description": "Ask a professional to check the project's latest assessment.",
+        "operationId": "request_review_v1_organisations__organisation_id__projects__project_id__reviews_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequestIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Request Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/projects/{project_id}/status": {
       "post": {
         "operationId": "change_project_status_v1_organisations__organisation_id__projects__project_id__status_post",
@@ -11293,6 +13385,239 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/reviews/{review_id}": {
+      "get": {
+        "operationId": "get_review_v1_organisations__organisation_id__reviews__review_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/reviews/{review_id}/cancel": {
+      "post": {
+        "operationId": "cancel_review_v1_organisations__organisation_id__reviews__review_id__cancel_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Cancel Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/reviews/{review_id}/comments": {
+      "post": {
+        "operationId": "customer_comment_v1_organisations__organisation_id__reviews__review_id__comments_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Customer Comment",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/reviews/{review_id}/resubmit": {
+      "post": {
+        "description": "Hand the review back to the reviewer after making the changes they asked for.",
+        "operationId": "resubmit_review_v1_organisations__organisation_id__reviews__review_id__resubmit_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResubmitIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Resubmit Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/submissions/{submission_id}": {
       "get": {
         "operationId": "get_submission_v1_organisations__organisation_id__submissions__submission_id__get",
@@ -11865,6 +14190,725 @@
         "summary": "Update Vessel",
         "tags": [
           "entities"
+        ]
+      }
+    },
+    "/v1/professional/profile": {
+      "get": {
+        "operationId": "get_profile_v1_professional_profile_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get Profile",
+        "tags": [
+          "review"
+        ]
+      },
+      "patch": {
+        "operationId": "update_profile_v1_professional_profile_patch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileUpdateIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Profile",
+        "tags": [
+          "review"
+        ]
+      },
+      "post": {
+        "description": "Set up your reviewer profile in this practice. Staff check your credentials and\nactivate it before you are assigned reviews.",
+        "operationId": "create_profile_v1_professional_profile_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Profile",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/profile/credentials": {
+      "post": {
+        "operationId": "add_credential_v1_professional_profile_credentials_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CredentialIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Credential",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/profile/credentials/{credential_id}": {
+      "delete": {
+        "operationId": "remove_credential_v1_professional_profile_credentials__credential_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "credential_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Credential Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Remove Credential",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/profile/services": {
+      "put": {
+        "description": "The kinds of project you review (replaces the list).",
+        "operationId": "set_services_v1_professional_profile_services_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServicesIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfessionalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Services",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews": {
+      "get": {
+        "operationId": "my_reviews_v1_professional_reviews_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/QueueItemOut"
+                  },
+                  "title": "Response My Reviews V1 Professional Reviews Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "My Reviews",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews/{review_id}": {
+      "get": {
+        "description": "The review with the assessment, the customer's answers and the files they shared.",
+        "operationId": "review_workspace_v1_professional_reviews__review_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewerWorkspaceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Review Workspace",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews/{review_id}/comments": {
+      "post": {
+        "operationId": "reviewer_comment_v1_professional_reviews__review_id__comments_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewerWorkspaceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Reviewer Comment",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews/{review_id}/decision": {
+      "post": {
+        "description": "Approve, finish with comments, or ask the customer for changes.",
+        "operationId": "decide_v1_professional_reviews__review_id__decision_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DecisionIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewerWorkspaceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Decide",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews/{review_id}/decline": {
+      "post": {
+        "description": "Hand back a review you can't take on (before starting it).",
+        "operationId": "decline_review_v1_professional_reviews__review_id__decline_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeclineIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/QueueItemOut"
+                  },
+                  "title": "Response Decline Review V1 Professional Reviews  Review Id  Decline Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Decline Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews/{review_id}/documents/{document_id}/content": {
+      "get": {
+        "operationId": "review_document_v1_professional_reviews__review_id__documents__document_id__content_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/octet-stream": {}
+            },
+            "description": "Successful Response"
+          },
+          "303": {
+            "description": "See Other"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Review Document",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews/{review_id}/evidence/{evidence_id}": {
+      "post": {
+        "operationId": "check_evidence_v1_professional_reviews__review_id__evidence__evidence_id__post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "evidence_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Evidence Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvidenceCheckIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewerWorkspaceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Check Evidence",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews/{review_id}/overrides": {
+      "post": {
+        "description": "Change a finding's outcome or confidence, with a reason (audited; the original stays\non record).",
+        "operationId": "override_finding_v1_professional_reviews__review_id__overrides_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OverrideIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewerWorkspaceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Override Finding",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews/{review_id}/start": {
+      "post": {
+        "operationId": "start_review_v1_professional_reviews__review_id__start_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewerWorkspaceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Start Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/professional/reviews/{review_id}/tasks": {
+      "post": {
+        "description": "Add a task to the customer's project.",
+        "operationId": "add_task_v1_professional_reviews__review_id__tasks_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewTaskIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewerWorkspaceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Task",
+        "tags": [
+          "review"
         ]
       }
     },

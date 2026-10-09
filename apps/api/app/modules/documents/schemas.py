@@ -6,6 +6,7 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 
 from app.modules.documents.models import (
+    Classification,
     EvidenceStatus,
     GenerationStatus,
     OutputFormat,
@@ -21,6 +22,9 @@ class DocumentOut(BaseModel):
     content_type: str = Field(description="Detected from the file's contents.")
     size_bytes: int
     scan_status: ScanStatus = Field(description="Only CLEAN documents can be downloaded or used.")
+    classification: Classification = Field(
+        description="SHARED_WITH_REVIEWER: the assigned professional reviewer can open it too."
+    )
     created_at: datetime
     created_by: uuid.UUID | None
 
@@ -37,11 +41,17 @@ class EvidenceIn(BaseModel):
     note: str | None = Field(default=None, max_length=500)
 
 
+class DocumentUpdateIn(BaseModel):
+    classification: Classification
+
+
 class EvidenceOut(BaseModel):
     id: uuid.UUID
     evidence_requirement_id: uuid.UUID
     status: EvidenceStatus
     note: str | None
+    review_note: str | None = Field(description="The reviewer's reason for their decision.")
+    reviewed_at: datetime | None
     document: DocumentOut
     created_at: datetime
 

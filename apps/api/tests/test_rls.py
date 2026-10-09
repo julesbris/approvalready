@@ -80,6 +80,13 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "document_template": READ,
     "document_template_version": READ,
     "generated_document": WRITE,
+    "professional": WRITE,
+    "professional_credential": CRUD,
+    "professional_service": CRUD,
+    "review_request": WRITE,
+    "review_comment": APPEND,
+    "finding_override": APPEND,
+    "review_decision": APPEND,
 }
 
 TENANT_TABLES = sorted(

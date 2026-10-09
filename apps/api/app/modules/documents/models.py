@@ -49,13 +49,13 @@ class ScanStatus(StrEnum):
 
 class Classification(StrEnum):
     PRIVATE = "PRIVATE"  # only the organisation's members
-    SHARED_WITH_REVIEWER = "SHARED_WITH_REVIEWER"  # Milestone 7
+    SHARED_WITH_REVIEWER = "SHARED_WITH_REVIEWER"  # also visible to the assigned reviewer
     RELEASED_TO_PARTNER = "RELEASED_TO_PARTNER"  # Milestone 15
 
 
 class EvidenceStatus(StrEnum):
     SUBMITTED = "SUBMITTED"
-    ACCEPTED = "ACCEPTED"  # set by a professional reviewer (Milestone 7)
+    ACCEPTED = "ACCEPTED"  # set by the assigned professional reviewer
     REJECTED = "REJECTED"
 
 
@@ -81,7 +81,13 @@ class GenerationStatus(StrEnum):
 
 
 class ReviewStatus(StrEnum):
-    NOT_REVIEWED = "NOT_REVIEWED"  # professional review arrives in Milestone 7
+    """The assessment's professional review when the report was generated (Milestone 7)."""
+
+    NOT_REVIEWED = "NOT_REVIEWED"
+    IN_REVIEW = "IN_REVIEW"  # a review is open; the reviewer has not decided yet
+    CHANGES_REQUIRED = "CHANGES_REQUIRED"
+    APPROVED = "APPROVED"
+    REVIEWED = "REVIEWED"  # reviewed, not approved (see the reviewer's notes)
 
 
 class UploadedDocument(
@@ -139,6 +145,8 @@ class Evidence(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantMixin,
         Text, nullable=False, server_default=EvidenceStatus.SUBMITTED
     )
     note: Mapped[str | None] = mapped_column(String(500))
+    # The reviewer's reason when they accept or reject it.
+    review_note: Mapped[str | None] = mapped_column(String(500))
     reviewed_by: Mapped[uuid.UUID | None] = mapped_column(
         UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="SET NULL")
     )

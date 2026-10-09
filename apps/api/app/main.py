@@ -25,6 +25,9 @@ from app.modules.identity.router import router as auth_router
 from app.modules.projects.router import router as projects_router
 from app.modules.questionnaires.router import router as questionnaires_router
 from app.modules.regulatory.router import router as sources_router
+from app.modules.review.router import admin_router as review_admin_router
+from app.modules.review.router import customer_router as review_customer_router
+from app.modules.review.router import professional_router
 from app.modules.rules.router import router as rules_router
 from app.modules.tenancy.router import router as tenancy_router
 
@@ -79,6 +82,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(documents_router)
     app.include_router(sources_router)
     app.include_router(rules_router)
+    app.include_router(review_customer_router)
+    app.include_router(professional_router)
+    app.include_router(review_admin_router)
     return app
 
 

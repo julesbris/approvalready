@@ -100,6 +100,7 @@ async def test_upload_scan_download_and_delete(api: ApiHarness) -> None:
         "content_type": "application/pdf",
         "size_bytes": len(PDF),
         "scan_status": "CLEAN",
+        "classification": "PRIVATE",
         "created_at": None,
         "created_by": user.id,
     }

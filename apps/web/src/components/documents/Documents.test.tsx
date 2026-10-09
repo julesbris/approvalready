@@ -20,6 +20,7 @@ const DOC: DocumentOut = {
   content_type: "application/pdf",
   size_bytes: 2048,
   scan_status: "CLEAN",
+  classification: "PRIVATE",
   created_at: "2026-10-09T00:00:00Z",
   created_by: "u1",
 };
@@ -125,6 +126,8 @@ describe("documents", () => {
       evidence_requirement_id: "r1",
       status: "SUBMITTED",
       note: null,
+      review_note: null,
+      reviewed_at: null,
       document: DOC,
       created_at: "2026-10-09T00:00:00Z",
     };

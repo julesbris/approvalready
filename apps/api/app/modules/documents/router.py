@@ -36,6 +36,7 @@ from app.modules.documents.models import (
 )
 from app.modules.documents.schemas import (
     DocumentOut,
+    DocumentUpdateIn,
     EvidenceIn,
     EvidenceOut,
     GeneratedDocumentOut,
@@ -70,8 +71,22 @@ def document_out(d: UploadedDocument) -> DocumentOut:
         content_type=d.detected_mime,
         size_bytes=d.size_bytes,
         scan_status=d.scan_status,
+        classification=d.classification,
         created_at=d.created_at,
         created_by=d.created_by,
+    )
+
+
+def evidence_out(row: service.EvidenceRow) -> EvidenceOut:
+    return EvidenceOut(
+        id=row.evidence.id,
+        evidence_requirement_id=row.evidence.evidence_requirement_id,
+        status=row.evidence.status,
+        note=row.evidence.note,
+        review_note=row.evidence.review_note,
+        reviewed_at=row.evidence.reviewed_at,
+        document=document_out(row.document),
+        created_at=row.evidence.created_at,
     )
 
 
@@ -214,6 +229,19 @@ async def download_document(
     )
 
 
+@router.patch("/documents/{document_id}", response_model=DocumentOut)
+async def update_document(
+    document_id: uuid.UUID, body: DocumentUpdateIn, ctx: Write, db: DbDep, meta: MetaDep
+) -> DocumentOut:
+    """Share a file with the project's professional reviewer, or make it private again."""
+    document = await service.get_document(db, ctx.organisation.id, document_id, lock=True)
+    await service.set_classification(
+        db, document, body.classification, actor_id=ctx.auth.user.id, meta=meta
+    )
+    await db.commit()
+    return document_out(await service.get_document(db, ctx.organisation.id, document_id))
+
+
 @router.delete("/documents/{document_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_document(
     document_id: uuid.UUID, ctx: Write, db: DbDep, meta: MetaDep, resources: ResourcesDep
@@ -234,17 +262,7 @@ async def delete_document(
 @router.get("/assessments/{assessment_id}/evidence", response_model=list[EvidenceOut])
 async def list_evidence(assessment_id: uuid.UUID, ctx: Read, db: DbDep) -> list[EvidenceOut]:
     assessment, _, _ = await assessments.get(db, ctx.organisation.id, assessment_id)
-    return [
-        EvidenceOut(
-            id=row.evidence.id,
-            evidence_requirement_id=row.evidence.evidence_requirement_id,
-            status=row.evidence.status,
-            note=row.evidence.note,
-            document=document_out(row.document),
-            created_at=row.evidence.created_at,
-        )
-        for row in await service.list_evidence(db, assessment)
-    ]
+    return [evidence_out(row) for row in await service.list_evidence(db, assessment)]
 
 
 @router.post("/evidence", status_code=status.HTTP_201_CREATED, response_model=EvidenceOut)
@@ -260,14 +278,7 @@ async def add_evidence(body: EvidenceIn, ctx: Write, db: DbDep, meta: MetaDep) -
         meta=meta,
     )
     await db.commit()
-    return EvidenceOut(
-        id=row.evidence.id,
-        evidence_requirement_id=row.evidence.evidence_requirement_id,
-        status=row.evidence.status,
-        note=row.evidence.note,
-        document=document_out(row.document),
-        created_at=row.evidence.created_at,
-    )
+    return evidence_out(row)
 
 
 @router.delete("/evidence/{evidence_id}", status_code=status.HTTP_204_NO_CONTENT)

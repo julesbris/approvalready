@@ -61,7 +61,7 @@ def _limitations(a: Assessment) -> list[str]:
     return list(seen)
 
 
-async def _detail(
+async def assessment_detail(
     db: DbDep, a: Assessment, project: Project, findings: list[AssessmentFinding]
 ) -> AssessmentOut:
     approvals, evidence = await service.requirements(db, a)
@@ -116,7 +116,7 @@ async def run_assessment(
     assessment = await service.run(db, project, actor_id=ctx.auth.user.id, meta=meta)
     await db.commit()
     a, p, findings = await service.get(db, ctx.organisation.id, assessment.id)
-    return await _detail(db, a, p, findings)
+    return await assessment_detail(db, a, p, findings)
 
 
 @router.get("/projects/{project_id}/assessments", response_model=list[AssessmentSummary])
@@ -128,4 +128,4 @@ async def list_assessments(project_id: uuid.UUID, ctx: Read, db: DbDep) -> list[
 @router.get("/assessments/{assessment_id}", response_model=AssessmentOut)
 async def get_assessment(assessment_id: uuid.UUID, ctx: Read, db: DbDep) -> AssessmentOut:
     a, p, findings = await service.get(db, ctx.organisation.id, assessment_id)
-    return await _detail(db, a, p, findings)
+    return await assessment_detail(db, a, p, findings)

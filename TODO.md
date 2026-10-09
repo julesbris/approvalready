@@ -78,11 +78,15 @@ tests and updated docs before the next starts.
 - [x] Upload pipeline: size, count and rate limits, magic-byte MIME, zip checks for Office files, ClamAV scanning in a worker job, quarantine, retries and a stalled-job sweeper
 - [x] Templates (reviewed files, immutable versions) + generated PDF/DOCX/HTML with the required report metadata (`PLANNING_ASSESSMENT`)
 - [x] FILE question answers (moved from Milestone 3) and evidence linked to evidence requirements
-- [ ] Moved to Milestone 7: sharing documents with reviewers (classification) and reviewer accept/reject of evidence
+- [x] Sharing documents with reviewers (classification) and reviewer accept/reject of evidence (done in Milestone 7)
 - [ ] Moved to their verticals' milestones: templates other than `PLANNING_ASSESSMENT`
 
-## Milestone 7 — Professional review
-- [ ] Professionals, credentials, services; review workflow states; comments; overrides (audited)
+## Milestone 7 — Professional review ✅
+- [x] Professionals, credentials, services; staff credential checks and activation
+- [x] Review workflow states (request, assign, start, changes, resubmit, approve or complete, cancel, decline); comments; overrides (audited, append-only)
+- [x] Reviewer workspace: shared files, evidence accept/reject, tasks; reports show the review and changes
+- [ ] Moved to Milestone 13: paid reviews (`payment_id`, service prices)
+- [ ] Backlog: credential evidence uploads, automatic assignment, review due-date reminders
 
 ## Milestone 8 — BusinessReady
 - [ ] Business approval map (Required / Likely required / May apply / Not identified)

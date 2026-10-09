@@ -84,6 +84,23 @@ export function DocumentsPanel({ organisationId, projectId, canWrite, pollMs, ..
     }
   }
 
+  async function toggleShare(doc: DocumentOut) {
+    setBusy(true);
+    setError(null);
+    const shared = doc.classification === "SHARED_WITH_REVIEWER";
+    const result = await apiRequest<DocumentOut>(
+      "PATCH",
+      `/organisations/${organisationId}/documents/${doc.id}`,
+      { classification: shared ? "PRIVATE" : "SHARED_WITH_REVIEWER" },
+    );
+    setBusy(false);
+    if (!result.ok) {
+      setError(result.message);
+      return;
+    }
+    replace(result.data);
+  }
+
   async function remove(doc: DocumentOut) {
     if (!window.confirm(`Delete ${doc.filename}? This can't be undone.`)) return;
     setBusy(true);
@@ -107,26 +124,43 @@ export function DocumentsPanel({ organisationId, projectId, canWrite, pollMs, ..
       </h2>
       <p className="muted">
         Plans, surveys, photos and letters for this project. Every file is checked for viruses
-        before it can be opened, and only members of your organisation can see them.
+        before it can be opened, and only members of your organisation can see them, unless you
+        share a file with your professional reviewer.
       </p>
       <FormError message={error} />
       {documents.length === 0 ? <p className="muted">No files yet.</p> : null}
       <ul className="task-list">
-        {documents.map((doc) => (
-          <DocumentRow key={doc.id} organisationId={organisationId} document={doc}>
-            {canWrite ? (
-              <button
-                type="button"
-                className="button-link"
-                disabled={busy}
-                onClick={() => remove(doc)}
-                aria-label={`Delete ${doc.filename}`}
-              >
-                Delete
-              </button>
-            ) : null}
-          </DocumentRow>
-        ))}
+        {documents.map((doc) => {
+          const shared = doc.classification === "SHARED_WITH_REVIEWER";
+          const shareLabel = `${shared ? "Stop sharing" : "Share"} ${doc.filename} with your reviewer`;
+          return (
+            <DocumentRow key={doc.id} organisationId={organisationId} document={doc}>
+              {shared ? <span className="badge">Shared with your reviewer</span> : null}
+              {canWrite ? (
+                <button
+                  type="button"
+                  className="button-link"
+                  disabled={busy}
+                  onClick={() => toggleShare(doc)}
+                  aria-label={shareLabel}
+                >
+                  {shared ? "Stop sharing" : "Share with reviewer"}
+                </button>
+              ) : null}
+              {canWrite ? (
+                <button
+                  type="button"
+                  className="button-link"
+                  disabled={busy}
+                  onClick={() => remove(doc)}
+                  aria-label={`Delete ${doc.filename}`}
+                >
+                  Delete
+                </button>
+              ) : null}
+            </DocumentRow>
+          );
+        })}
       </ul>
       {canWrite ? (
         <label className="form">
