@@ -374,6 +374,9 @@ async def test_staff_manage_programs_and_sourced_rounds(api: ApiHarness) -> None
 # --- Matches on grant assessments ------------------------------------------------------
 
 
+# Name it: other tests publish their own GRANT questionnaires in the shared database.
+GENERAL = {"questionnaire_key": "grant.general"}
+
 GRANT_ANSWERS: dict[str, Any] = {
     "grant.applicant_type": "business",
     "grant.has_abn": True,
@@ -403,7 +406,9 @@ async def _grant_project(user: User, **fields: Any) -> dict[str, Any]:
 
 async def _submit(user: User, project: dict[str, Any], answers: dict[str, Any]) -> None:
     org = _org(user)
-    submission = (await user.post(f"{org}/projects/{project['id']}/submissions", json={})).json()
+    r = await user.post(f"{org}/projects/{project['id']}/submissions", json=GENERAL)
+    assert r.status_code in (200, 201), r.text
+    submission = r.json()
     r = await user.put(f"{org}/submissions/{submission['id']}/answers", json={"answers": answers})
     assert r.status_code == 200, r.text
     r = await user.post(f"{org}/submissions/{submission['id']}/submit")
@@ -558,7 +563,9 @@ async def test_business_profile_prefills_the_grant_questionnaire(api: ApiHarness
     )
     assert r.status_code == 201, r.text
     project = await _grant_project(user, business_profile_id=r.json()["id"])
-    submission = (await user.post(f"{org}/projects/{project['id']}/submissions", json={})).json()
+    submission = (
+        await user.post(f"{org}/projects/{project['id']}/submissions", json=GENERAL)
+    ).json()
     r = await user.get(f"{org}/submissions/{submission['id']}/prefill")
     assert r.status_code == 200, r.text
     found = {s["key"]: s["value"] for s in r.json()["suggestions"]}
