@@ -1,9 +1,19 @@
 "use client";
 
-import type { ProjectDetailOut, PropertyOut } from "@approvalready/shared-types";
+import type {
+  AddressMatchOut,
+  ProjectDetailOut,
+  PropertyOut,
+} from "@approvalready/shared-types";
 import { type FormEvent, useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
+import { AddressSearch } from "@/components/lookups/AddressSearch";
+import {
+  fetchParcel,
+  ParcelLookupResult,
+  type ParcelState,
+} from "@/components/lookups/ParcelDetails";
 import { AU_STATES } from "@/components/questionnaire/QuestionField";
 import { apiRequest } from "@/lib/client-api";
 
@@ -20,14 +30,36 @@ export function propertyLabel(p: PropertyOut): string {
   return [a.line1, a.line2, `${a.suburb} ${a.state} ${a.postcode}`].filter(Boolean).join(", ");
 }
 
-/** The property a project is about: pick one the organisation already has, or add one. */
+const EMPTY_FORM = {
+  line1: "",
+  line2: "",
+  suburb: "",
+  state: "QLD",
+  postcode: "",
+  lot_plan: "",
+  land_area_m2: "",
+};
+
+/** The property a project is about: pick one the organisation already has, or add one.
+ * Adding one starts from a Queensland address search that fills in the lot and plan and
+ * land area, and shows what state mapping says about the land. */
 export function SitePanel({ organisationId, project, canWrite, onProjectChange, ...props }: Props) {
   const [properties, setProperties] = useState(props.properties);
   const [adding, setAdding] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [form, setForm] = useState(EMPTY_FORM);
+  const [picked, setPicked] = useState<ParcelState>({ status: "idle" });
+  const [linkedParcel, setLinkedParcel] = useState<ParcelState>({ status: "idle" });
   const org = `/organisations/${organisationId}`;
   const linked = properties.find((p) => p.id === project.property_id) ?? null;
+  const field = (name: keyof typeof EMPTY_FORM) => ({
+    name,
+    value: form[name],
+    onChange: (e: { target: { value: string } }) =>
+      setForm((f) => ({ ...f, [name]: e.target.value })),
+  });
+
 
   async function link(propertyId: string | null) {
     setBusy(true);
@@ -46,8 +78,7 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
 
   async function addProperty(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const text = (name: string) => String(form.get(name) ?? "").trim();
+    const text = (name: keyof typeof EMPTY_FORM) => form[name].trim();
     setBusy(true);
     setError(null);
     const created = await apiRequest<PropertyOut>("POST", `${org}/properties`, {
@@ -67,7 +98,40 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
       return;
     }
     setProperties((list) => [...list, created.data]);
-    if (await link(created.data.id)) setAdding(false);
+    if (await link(created.data.id)) closeForm();
+  }
+
+  function closeForm() {
+    setAdding(false);
+    setForm(EMPTY_FORM);
+    setPicked({ status: "idle" });
+  }
+
+  async function pick(match: AddressMatchOut) {
+    setForm((f) => ({
+      ...f,
+      line1: match.line1,
+      line2: "",
+      suburb: match.suburb,
+      state: match.state,
+      lot_plan: match.lot_plan_label ?? "",
+      land_area_m2: "",
+    }));
+    if (!match.lot_plan) {
+      setPicked({ status: "idle" });
+      return;
+    }
+    setPicked({ status: "loading" });
+    const state = await fetchParcel(organisationId, match.lot_plan);
+    setPicked(state);
+    // The parcel's area fills in the land area, unless one was typed meanwhile.
+    const area = state.status === "found" ? state.parcel.land_area_m2 : null;
+    if (area) setForm((f) => (f.land_area_m2 ? f : { ...f, land_area_m2: String(Number(area)) }));
+  }
+
+  async function checkLinked(lotPlan: string) {
+    setLinkedParcel({ status: "loading" });
+    setLinkedParcel(await fetchParcel(organisationId, lotPlan));
   }
 
   return (
@@ -84,9 +148,19 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
             {linked.land_area_m2 ? ` · ${linked.land_area_m2} m²` : ""}
           </p>
           <p className="hint">
-            The questionnaire can fill in these details for you. We don&apos;t look up zoning or
-            overlays yet, so those still come from you.
+            The questionnaire can fill in these details for you, with the council area, land
+            area and state-mapped overlays for Queensland land. The zone still comes from you.
           </p>
+          {linked.lot_plan && linked.address.state === "QLD" && linkedParcel.status === "idle" ? (
+            <button
+              type="button"
+              className="button button-secondary"
+              onClick={() => checkLinked(linked.lot_plan as string)}
+            >
+              Show planning information
+            </button>
+          ) : null}
+          <ParcelLookupResult state={linkedParcel} />
         </>
       ) : (
         <p className="muted">
@@ -127,22 +201,24 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
       ) : null}
       {canWrite && adding ? (
         <form className="form" onSubmit={addProperty} aria-label="Add a property">
+          <AddressSearch organisationId={organisationId} onPick={pick} disabled={busy} />
+          <ParcelLookupResult state={picked} />
           <label>
             Street address
-            <input name="line1" required maxLength={200} autoComplete="address-line1" />
+            <input {...field("line1")} required maxLength={200} autoComplete="address-line1" />
           </label>
           <label>
             Address line 2 (optional)
-            <input name="line2" maxLength={200} autoComplete="address-line2" />
+            <input {...field("line2")} maxLength={200} autoComplete="address-line2" />
           </label>
           <div className="field-row">
             <label>
               Suburb
-              <input name="suburb" required maxLength={100} autoComplete="address-level2" />
+              <input {...field("suburb")} required maxLength={100} autoComplete="address-level2" />
             </label>
             <label>
               State
-              <select name="state" required defaultValue="QLD">
+              <select {...field("state")} required>
                 {AU_STATES.map(([code, name]) => (
                   <option key={code} value={code}>
                     {name}
@@ -153,7 +229,7 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
             <label>
               Postcode
               <input
-                name="postcode"
+                {...field("postcode")}
                 required
                 inputMode="numeric"
                 pattern="[0-9]{4}"
@@ -165,11 +241,11 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
           <div className="field-row">
             <label>
               Lot and plan (optional)
-              <input name="lot_plan" maxLength={50} />
+              <input {...field("lot_plan")} maxLength={50} />
             </label>
             <label>
               Land area in m² (optional)
-              <input name="land_area_m2" inputMode="decimal" />
+              <input {...field("land_area_m2")} inputMode="decimal" />
             </label>
           </div>
           <div className="button-row tight">
@@ -180,7 +256,7 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
               type="button"
               className="button button-secondary"
               disabled={busy}
-              onClick={() => setAdding(false)}
+              onClick={closeForm}
             >
               Cancel
             </button>

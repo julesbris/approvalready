@@ -6,7 +6,7 @@ from __future__ import annotations
 import uuid
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Query, status
+from fastapi import APIRouter, Depends, Query, Request, status
 from sqlalchemy import select
 
 from app.api.deps import DbDep, MetaDep, OrgContext, SettingsDep, require_org_permission
@@ -310,13 +310,13 @@ async def get_submission(submission_id: uuid.UUID, ctx: Read, db: DbDep) -> Subm
 
 @router.get("/submissions/{submission_id}/prefill", response_model=PrefillOut)
 async def prefill_suggestions(
-    submission_id: uuid.UUID, ctx: Read, db: DbDep, settings: SettingsDep
+    submission_id: uuid.UUID, ctx: Read, db: DbDep, settings: SettingsDep, request: Request
 ) -> PrefillOut:
     """Answers we can offer from the project's property and the property facts provider.
     Nothing is saved: the customer saves the ones they want through ``/answers``."""
     submission = await questionnaires.get_submission(db, ctx.organisation.id, submission_id)
     project = await service.get_project(db, ctx.organisation.id, submission.project_id)
-    provider = get_provider(settings)
+    provider = get_provider(settings, getattr(request.app.state, "lookups", None))
     found = await property_facts.suggestions(
         db, project, await questionnaires.view(db, submission), provider
     )

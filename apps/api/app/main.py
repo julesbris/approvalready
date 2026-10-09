@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
+import httpx
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.trustedhost import TrustedHostMiddleware
@@ -24,6 +25,8 @@ from app.modules.checklists.router import router as checklists_router
 from app.modules.documents.router import router as documents_router
 from app.modules.entities.router import router as entities_router
 from app.modules.identity.router import router as auth_router
+from app.modules.lookups.router import router as lookups_router
+from app.modules.lookups.service import Lookups
 from app.modules.marketplace.router import router as marketplace_router
 from app.modules.projects.router import router as projects_router
 from app.modules.questionnaires.router import router as questionnaires_router
@@ -36,16 +39,20 @@ from app.modules.tenancy.router import router as tenancy_router
 from app.modules.vessels.router import router as vessels_router
 
 
-def create_app(settings: Settings | None = None) -> FastAPI:
+def create_app(
+    settings: Settings | None = None, lookup_transport: httpx.AsyncBaseTransport | None = None
+) -> FastAPI:
     settings = settings or get_settings()
     configure_logging(settings.log_level)
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         app.state.resources = create_resources(settings)
+        app.state.lookups = Lookups(settings, lookup_transport)
         try:
             yield
         finally:
+            await app.state.lookups.aclose()
             await app.state.resources.close()
 
     show_docs = not settings.is_production
@@ -90,6 +97,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(checklist_definitions_router)
     app.include_router(checklists_router)
     app.include_router(vessels_router)
+    app.include_router(lookups_router)
     app.include_router(review_customer_router)
     app.include_router(professional_router)
     app.include_router(review_admin_router)
