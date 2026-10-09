@@ -357,6 +357,7 @@ export function QuestionnaireRunner({
                 disabled={!editable || busy}
                 onValue={(value) => setValue(question, value)}
                 onText={(text) => setText(question, text)}
+                files={{ organisationId, projectId }}
               />
             ))}
             <div className="button-row">

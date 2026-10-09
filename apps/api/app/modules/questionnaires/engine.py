@@ -12,6 +12,7 @@ are saved, so a changed "yes" to "no" never leaves stale dependent answers behin
 from __future__ import annotations
 
 import re
+import uuid
 from collections.abc import Mapping
 from dataclasses import dataclass, field
 from datetime import date
@@ -279,6 +280,30 @@ def _object(value: Any, fields: list[FieldDef]) -> dict[str, Any]:
     return out
 
 
+DEFAULT_MAX_FILES = 5
+
+
+def _file_ids(value: Any, v: ValidationDef) -> list[str] | None:
+    """Uploaded document ids, in order, without duplicates. Whether each one exists in the
+    project and passed its virus check is the service's job (it needs the database)."""
+    if not isinstance(value, list) or not all(isinstance(x, str) for x in value):
+        raise AnswerInvalid("Upload the files again.")
+    ids: list[str] = []
+    for raw in value:
+        try:
+            normalised = str(uuid.UUID(raw))
+        except ValueError:
+            raise AnswerInvalid("Upload the files again.") from None
+        if normalised not in ids:
+            ids.append(normalised)
+    if not ids:
+        return None
+    limit = v.max_files or DEFAULT_MAX_FILES
+    if len(ids) > limit:
+        raise AnswerInvalid(f"Attach at most {limit} file{'' if limit == 1 else 's'}.")
+    return ids
+
+
 def normalise_answer(q: QuestionSpec, value: Any) -> Any:
     """Validate ``value`` for ``q`` and return its stored JSON form. ``None`` means "clear"."""
     if value is None:
@@ -324,7 +349,7 @@ def normalise_answer(q: QuestionSpec, value: Any) -> Any:
         case QT.OBJECT:
             return _object(value, v.fields or []) or None
         case QT.FILE:
-            raise AnswerInvalid("File uploads are not available yet.")
+            return _file_ids(value, v)
     raise AnswerInvalid("Unsupported question.")  # pragma: no cover
 
 

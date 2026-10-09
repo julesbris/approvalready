@@ -89,3 +89,13 @@ def test_only_migrate_gets_owner_credentials(
         else:
             assert "MIGRATION_DATABASE_URL" not in env, name
             assert "POSTGRES_PASSWORD" not in str(env.get("DATABASE_URL", "")), name
+
+
+def test_documents_share_one_volume_and_scanner(prod: dict[str, Any]) -> None:
+    for name in ("api", "worker"):
+        svc = prod["services"][name]
+        assert "uploads:/data/uploads" in svc["volumes"]
+        assert svc["environment"]["MALWARE_SCANNER"] == "clamav"
+    clamav = prod["services"]["clamav"]
+    assert "ports" not in clamav
+    assert "data" not in clamav["networks"]

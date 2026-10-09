@@ -161,14 +161,14 @@ waits for documents (Milestone 6). Both are append-only. Referral categories are
 finding payloads rather than stored separately. `task.finding_id` links a rule task to the
 finding that suggested it, and `rule_set.limitations` lists what a rule set does not check.
 
-## 8. Documents and evidence
+## 8. Documents and evidence (built, Milestone 6)
 
 | Table | Key columns | Notes |
 |---|---|---|
-| `uploaded_document` **T SD** | `storage_key`, `original_filename`, `declared_mime`, `detected_mime`, `size_bytes`, `sha256`, `scan_status` (`PENDING`,`CLEAN`,`INFECTED`,`ERROR`), `scanned_at`, `classification` (`PRIVATE`,`SHARED_WITH_REVIEWER`,`RELEASED_TO_PARTNER`) | Binary in object storage. Unusable until `CLEAN`. |
-| `evidence` **T** | `project_id`, `evidence_requirement_id null`, `uploaded_document_id`, `status` (`SUBMITTED`,`ACCEPTED`,`REJECTED`), `reviewed_by` | |
+| `uploaded_document` **T SD** | `storage_key`, `original_filename`, `declared_mime`, `detected_mime`, `size_bytes`, `sha256`, `scan_status` (`PENDING`,`CLEAN`,`INFECTED`,`ERROR`), `scanned_at`, `classification` (`PRIVATE`,`SHARED_WITH_REVIEWER`,`RELEASED_TO_PARTNER`) | Binary in object storage (local volume or S3). Unusable until `CLEAN`; infected files move to `quarantine/`. A FILE answer stores a list of these ids in `question_response.value`. |
+| `evidence` **T** | `project_id`, `evidence_requirement_id null`, `uploaded_document_id`, `status` (`SUBMITTED`,`ACCEPTED`,`REJECTED`), `reviewed_by` | Built with `evidence_requirement_id` required and unique per document; review fields wait for Milestone 7. |
 | `document_template` / `document_template_version` **IM** | `key` (`PLANNING_ASSESSMENT`,`BUSINESS_APPROVAL_MAP`,`VESSEL_PATHWAY`,`SMS`,`GRANT_ELIGIBILITY`,`GRANT_DRAFT`,`SELLER_READINESS`,`RENTAL_READINESS`,`CONDITION_REPORT`), `version`, `engine` (`JINJA_HTML`), `body`, `output_formats text[]` | |
-| `generated_document` **T** | `project_id`, `assessment_id null`, `template_version_id`, `format` (`PDF`,`DOCX`,`HTML`), `storage_key`, `status`, `review_status`, `ai_job_id null`, `content_hash` | Content always includes date, project ID, status, assumptions, missing info, sources, review status. |
+| `generated_document` **T** | `project_id`, `assessment_id null`, `template_version_id`, `format` (`PDF`,`DOCX`,`HTML`), `storage_key`, `status`, `review_status`, `ai_job_id null`, `content_hash` | Built without `ai_job_id` (Milestone 10); stores `sha256`, `size_bytes`, `attempts` and `error`. Content always includes date, project ID, status, assumptions, missing info, sources, review status. |
 
 ## 9. AI
 

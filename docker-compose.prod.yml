@@ -2,7 +2,7 @@
 #   docker compose -f docker-compose.prod.yml --env-file .env up -d
 #
 # Network design:
-#   edge  - proxy, web, api, worker, scheduler. Normal bridge (outbound internet allowed).
+#   edge  - proxy, web, api, worker, scheduler, clamav. Normal bridge (outbound internet allowed).
 #   data  - internal-only bridge (no route to the internet) for db and redis.
 # Only the proxy publishes ports. PostgreSQL and Redis publish nothing.
 name: approvalready
@@ -39,6 +39,17 @@ x-api-env: &api-env
   SMTP_PASSWORD: ${SMTP_PASSWORD:-}
   SMTP_STARTTLS: ${SMTP_STARTTLS:-true}
   WEB_CONCURRENCY: ${WEB_CONCURRENCY:-2}
+  # Documents (Milestone 6). Files go to the "uploads" volume unless STORAGE_BACKEND=s3.
+  STORAGE_BACKEND: ${STORAGE_BACKEND:-local}
+  STORAGE_LOCAL_ROOT: /data/uploads
+  STORAGE_S3_BUCKET: ${STORAGE_S3_BUCKET:-}
+  STORAGE_S3_REGION: ${STORAGE_S3_REGION:-}
+  STORAGE_S3_ENDPOINT_URL: ${STORAGE_S3_ENDPOINT_URL:-}
+  STORAGE_S3_ACCESS_KEY_ID: ${STORAGE_S3_ACCESS_KEY_ID:-}
+  STORAGE_S3_SECRET_ACCESS_KEY: ${STORAGE_S3_SECRET_ACCESS_KEY:-}
+  UPLOAD_MAX_MB: ${UPLOAD_MAX_MB:-20}
+  MALWARE_SCANNER: clamav
+  CLAMAV_HOST: clamav
 
 x-api-image: &api-image
   image: ${IMAGE_PREFIX:-approvalready}/api:${IMAGE_TAG:-latest}
@@ -87,6 +98,8 @@ services:
     environment: *api-env
     read_only: true
     tmpfs: [/tmp]
+    volumes:
+      - uploads:/data/uploads
     cap_drop: [ALL]
     networks: [edge, data]
     depends_on:
@@ -112,6 +125,8 @@ services:
     environment: *api-env
     read_only: true
     tmpfs: [/tmp]
+    volumes:
+      - uploads:/data/uploads
     cap_drop: [ALL]
     healthcheck:
       test: ["CMD-SHELL", "celery -A app.worker inspect ping -d celery@$$HOSTNAME --timeout 5"]
@@ -135,6 +150,16 @@ services:
     networks: [edge, data]
     depends_on:
       redis: { condition: service_healthy }
+
+  # Malware scanner for uploads. The worker streams each file to clamd over the edge network
+  # (no shared files). Downloads virus signatures on start, which takes a few minutes and
+  # about 1.5 GB of memory; scans wait and retry until it is ready.
+  clamav:
+    <<: *defaults
+    image: clamav/clamav:1.4
+    volumes:
+      - clamav_db:/var/lib/clamav
+    networks: [edge]
 
   db:
     <<: *defaults
@@ -186,3 +211,5 @@ volumes:
   redisdata:
   caddy_data:
   caddy_config:
+  uploads: # uploaded and generated documents: include it in backups
+  clamav_db:

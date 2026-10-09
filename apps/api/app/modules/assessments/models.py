@@ -140,11 +140,12 @@ class ApprovalRequirement(UUIDPrimaryKeyMixin, TenantMixin, Base):
 
 
 class EvidenceRequirement(UUIDPrimaryKeyMixin, TenantMixin, Base):
-    """Something the customer will need to show (a plan, a report). Linking uploaded
-    evidence arrives with documents (Milestone 6)."""
+    """Something the customer will need to show (a plan, a report). Uploaded documents are
+    offered against it as ``evidence`` rows (``app/modules/documents``)."""
 
     __tablename__ = "evidence_requirement"
     __table_args__ = (
+        UniqueConstraint("organisation_id", "id"),
         tenant_fk("assessment_id", "assessment", ondelete="CASCADE"),
         tenant_fk("finding_id", "assessment_finding", ondelete="CASCADE"),
         enum_check("confidence", Confidence),

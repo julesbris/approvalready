@@ -4,6 +4,7 @@
     python -m app.cli verify-audit
     python -m app.cli provision-db-role       # after migrations, as the owner
     python -m app.cli questionnaires sync     # publish changed bundled definitions
+    python -m app.cli documents sync-templates  # publish changed report templates
     python -m app.cli rules load-pack planning_qld_cairns --email staff@example.com [--publish]
 
 Platform roles can only be granted in the PLATFORM_ADMIN organisation, which is created on
@@ -26,6 +27,7 @@ from app.core.config import Settings, get_settings
 from app.core.resources import create_resources
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
+from app.modules.documents import templates as document_templates
 from app.modules.identity.service import get_user_by_email
 from app.modules.questionnaires import service as questionnaires
 from app.modules.questionnaires.definition import load_bundled
@@ -199,6 +201,22 @@ async def sync_questionnaires(settings: Settings) -> int:
     return 0
 
 
+async def sync_templates(settings: Settings) -> int:
+    """Publish bundled report templates whose content changed (owner only, like
+    questionnaires)."""
+    definitions = document_templates.load_bundled()
+    engine = create_async_engine(settings.owner_database_url, poolclass=NullPool)
+    try:
+        async with async_sessionmaker(engine, expire_on_commit=False)() as db:
+            results = await document_templates.sync_templates(db, definitions)
+            await db.commit()
+    finally:
+        await engine.dispose()
+    for r in results:
+        print(f"{r.key}: version {r.version} {'published' if r.changed else 'unchanged'}")
+    return 0
+
+
 async def load_pack(
     name: str, email: str, *, publish: bool, settings: Settings | None = None
 ) -> int:
@@ -254,6 +272,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("provision-db-role", help="Create/update the application's database role")
     q = sub.add_parser("questionnaires", help="Questionnaire definitions")
     q.add_argument("action", choices=["sync"])
+    d = sub.add_parser("documents", help="Report templates")
+    d.add_argument("action", choices=["sync-templates"])
     r = sub.add_parser("rules", help="Rule content packs")
     r_sub = r.add_subparsers(dest="rules_command", required=True)
     lp = r_sub.add_parser("load-pack", help="Create a pack's sources and rules (as drafts)")
@@ -267,6 +287,8 @@ def main(argv: list[str] | None = None) -> int:
         return asyncio.run(provision_db_role(get_settings()))
     if args.command == "questionnaires":
         return asyncio.run(sync_questionnaires(get_settings()))
+    if args.command == "documents":
+        return asyncio.run(sync_templates(get_settings()))
     if args.command == "rules":
         return asyncio.run(load_pack(args.name, args.email, publish=args.publish))
     return asyncio.run(verify_audit())

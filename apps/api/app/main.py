@@ -19,6 +19,7 @@ from app.core.middleware import (
 )
 from app.core.resources import create_resources
 from app.modules.assessments.router import router as assessments_router
+from app.modules.documents.router import router as documents_router
 from app.modules.entities.router import router as entities_router
 from app.modules.identity.router import router as auth_router
 from app.modules.projects.router import router as projects_router
@@ -75,6 +76,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(entities_router)
     app.include_router(questionnaires_router)
     app.include_router(assessments_router)
+    app.include_router(documents_router)
     app.include_router(sources_router)
     app.include_router(rules_router)
     return app

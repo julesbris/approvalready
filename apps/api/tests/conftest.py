@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import tempfile
 from collections.abc import AsyncIterator
 
 import pytest
@@ -9,7 +10,13 @@ from httpx import ASGITransport, AsyncClient
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.pool import NullPool
 
-from app.core.config import EmailProviderKind, Environment, Settings
+from app.core.config import (
+    EmailProviderKind,
+    Environment,
+    JobsMode,
+    MalwareScannerKind,
+    Settings,
+)
 from app.main import create_app
 from tests.harness import ApiHarness
 
@@ -25,6 +32,8 @@ TEST_APP_DATABASE_URL = os.environ.get(
     "postgresql+psycopg://approvalready_app:approvalready_app@localhost:5432/approvalready_test",
 )
 TEST_REDIS_URL = os.environ.get("TEST_REDIS_URL", "redis://localhost:6379/15")
+# Uploaded and generated documents (local storage backend) for this test run.
+TEST_STORAGE_ROOT = tempfile.mkdtemp(prefix="approvalready-test-storage-")
 
 
 def make_settings(**overrides: object) -> Settings:
@@ -36,10 +45,16 @@ def make_settings(**overrides: object) -> Settings:
         "cors_origins": ["http://localhost:3000"],
         "allowed_hosts": ["testserver", "localhost"],
         "health_check_timeout_seconds": 2.0,
+        "storage_local_root": TEST_STORAGE_ROOT,
+        # Scans and document generation run right after the request instead of on a worker.
+        "jobs_mode": JobsMode.INLINE,
         "_env_file": None,
     }
     if overrides.get("app_env") in (Environment.PRODUCTION, Environment.STAGING):
-        values.update(web_base_url="https://app.approvalready.com.au")
+        values.update(
+            web_base_url="https://app.approvalready.com.au",
+            malware_scanner=MalwareScannerKind.CLAMAV,
+        )
     else:
         # Plain-HTTP test client: no Secure cookies; capture emails in memory.
         values.update(cookie_secure=False, email_provider=EmailProviderKind.MEMORY)
@@ -88,7 +103,7 @@ def client_factory():  # type: ignore[no-untyped-def]
 
 def prepare_database() -> None:
     """What a deploy's ``migrate`` step does: migrate, provision the app role, publish the
-    bundled questionnaires."""
+    bundled questionnaires and report templates."""
     import asyncio
 
     from alembic import command
@@ -102,6 +117,7 @@ def prepare_database() -> None:
     settings = make_settings()
     assert asyncio.run(cli.provision_db_role(settings)) == 0
     assert asyncio.run(cli.sync_questionnaires(settings)) == 0
+    assert asyncio.run(cli.sync_templates(settings)) == 0
 
 
 @pytest.fixture(scope="session")

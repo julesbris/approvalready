@@ -2,6 +2,7 @@
 
 from app.modules.assessments import models as assessments_models  # noqa: F401
 from app.modules.audit import models as audit_models  # noqa: F401
+from app.modules.documents import models as documents_models  # noqa: F401
 from app.modules.entities import models as entities_models  # noqa: F401
 from app.modules.identity import models as identity_models  # noqa: F401
 from app.modules.projects import models as projects_models  # noqa: F401

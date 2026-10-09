@@ -47,7 +47,7 @@ tests and updated docs before the next starts.
 - [x] Tests: branching, validation, versioning, RLS, tenant isolation, web components
 - [ ] Moved to Milestone 11 (RentReady reminders need it first): reminder delivery via Celery beat + email/in-app notifications
 - [ ] Moved to Milestone 5: entity UI (property/vessel/business pickers on projects), questionnaire prefill from entities
-- [ ] Moved to Milestone 6: FILE question uploads (type exists; answers rejected until the upload pipeline lands)
+- [x] Moved to Milestone 6: FILE question uploads (built there)
 - [ ] Moved to Milestone 4, then to backlog: questionnaire authoring in the admin UI (definitions stay reviewed JSON files synced on migrate)
 
 ## Milestone 4 — Sources, rules, assessments ✅
@@ -73,10 +73,13 @@ tests and updated docs before the next starts.
 - [ ] Moved to backlog: vessel and business pickers (their verticals start in Milestones 8 and 9); `sitemap.xml` once the public site URL is configuration
 - [ ] Moved to backlog: a real property facts provider (council or state planning mapping), only with a licensed, documented data source
 
-## Milestone 6 — Documents
-- [ ] Object storage abstraction (local/S3), signed URLs
-- [ ] Upload pipeline: limits, magic-byte MIME, malware-scan interface (ClamAV), quarantine
-- [ ] Templates + generated PDF/DOCX/HTML with required report metadata
+## Milestone 6 — Documents ✅
+- [x] Object storage abstraction (local volume by default, S3), signed URLs for S3 and attachment-only downloads
+- [x] Upload pipeline: size, count and rate limits, magic-byte MIME, zip checks for Office files, ClamAV scanning in a worker job, quarantine, retries and a stalled-job sweeper
+- [x] Templates (reviewed files, immutable versions) + generated PDF/DOCX/HTML with the required report metadata (`PLANNING_ASSESSMENT`)
+- [x] FILE question answers (moved from Milestone 3) and evidence linked to evidence requirements
+- [ ] Moved to Milestone 7: sharing documents with reviewers (classification) and reviewer accept/reject of evidence
+- [ ] Moved to their verticals' milestones: templates other than `PLANNING_ASSESSMENT`
 
 ## Milestone 7 — Professional review
 - [ ] Professionals, credentials, services; review workflow states; comments; overrides (audited)

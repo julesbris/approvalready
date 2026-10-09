@@ -19,6 +19,10 @@ x-api-env: &api-env
   EMAIL_PROVIDER: smtp
   SMTP_HOST: mailpit
   SMTP_PORT: "1025"
+  # Documents: the uploads volume, and a scanner that only flags the EICAR test file (run
+  # the clamav service from docker-compose.prod.yml to test real scanning).
+  STORAGE_LOCAL_ROOT: /data/uploads
+  MALWARE_SCANNER: eicar
 
 services:
   db:
@@ -73,6 +77,7 @@ services:
     environment: *api-env
     volumes:
       - ./apps/api/app:/app/app
+      - uploads:/data/uploads
     ports:
       - "127.0.0.1:8000:8000"
     depends_on:
@@ -84,6 +89,8 @@ services:
     build: ./apps/api
     command: ["worker"]
     environment: *api-env
+    volumes:
+      - uploads:/data/uploads
     healthcheck:
       test: ["CMD-SHELL", "celery -A app.worker inspect ping -d celery@$$HOSTNAME --timeout 5"]
       interval: 30s
@@ -116,3 +123,4 @@ services:
 volumes:
   pgdata:
   redisdata:
+  uploads:

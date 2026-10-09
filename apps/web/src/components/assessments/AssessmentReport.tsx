@@ -1,5 +1,6 @@
 import type { AssessmentOut, FindingOut } from "@approvalready/shared-types";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 import {
   CERTAINTY_LABELS,
@@ -136,9 +137,12 @@ function Requirements({ assessment }: { assessment: AssessmentOut }) {
 export function AssessmentReport({
   assessment,
   projectId,
+  children,
 }: {
   assessment: AssessmentOut;
   projectId: string;
+  /** Interactive panels (evidence, report downloads) shown after the requirements. */
+  children?: ReactNode;
 }) {
   const groups = groupFindings(assessment.finding_list);
   const labels = assessment.fact_labels;
@@ -179,6 +183,8 @@ export function AssessmentReport({
       )}
 
       <Requirements assessment={assessment} />
+
+      {children}
 
       {needsInfo.length > 0 ? (
         <section className="panel" aria-labelledby="scope-title">

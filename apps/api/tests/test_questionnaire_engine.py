@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import uuid
 from datetime import date
 from decimal import Decimal
 from typing import Any
@@ -433,7 +434,13 @@ def test_valid_answers_normalise(question: Any, raw: Any, stored: Any) -> None:
             {"other": 1},
             "Complete the fields",
         ),
-        (q("FILE"), ["00000000-0000-0000-0000-000000000000"], "not available yet"),
+        (q("FILE"), "a-file.pdf", "Upload the files again"),
+        (q("FILE"), ["not-an-id"], "Upload the files again"),
+        (
+            q("FILE", validation={"max_files": 1}),
+            [str(uuid.uuid4()), str(uuid.uuid4())],
+            "at most 1 file",
+        ),
     ],
 )
 def test_invalid_answers_rejected(question: Any, raw: Any, message: str) -> None:

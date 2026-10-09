@@ -2,6 +2,7 @@
 
 import type {
   AssessmentOut,
+  DocumentOut,
   MemberOut,
   ProjectDetailOut,
   ProjectOut,
@@ -15,6 +16,7 @@ import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
+import { DocumentsPanel } from "@/components/documents/DocumentsPanel";
 import { SitePanel } from "@/components/projects/SitePanel";
 import { CONFIDENCE_LABELS } from "@/lib/assessment";
 import { apiRequest } from "@/lib/client-api";
@@ -34,6 +36,7 @@ type Props = {
   reminders: ReminderOut[];
   members: MemberOut[];
   properties?: PropertyOut[];
+  documents?: DocumentOut[];
   currentUserId: string;
   canWrite: boolean;
 };
@@ -273,6 +276,15 @@ export function ProjectWorkspace(props: Props) {
           </>
         ) : null}
       </section>
+
+      {props.documents ? (
+        <DocumentsPanel
+          organisationId={organisationId}
+          projectId={project.id}
+          documents={props.documents}
+          canWrite={canWrite}
+        />
+      ) : null}
 
       <section className="panel" aria-labelledby="tasks-title">
         <h2 id="tasks-title" className="section-title">

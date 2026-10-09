@@ -1,4 +1,5 @@
 import type {
+  DocumentOut,
   MemberOut,
   ProjectDetailOut,
   PropertyOut,
@@ -28,12 +29,13 @@ export default async function ProjectPage({ params }: Props) {
     );
   }
   const base = `/organisations/${orgId}`;
-  const [project, tasks, reminders, members, properties] = await Promise.all([
+  const [project, tasks, reminders, members, properties, documents] = await Promise.all([
     serverGet<ProjectDetailOut>(`${base}/projects/${projectId}`),
     serverGet<TaskOut[]>(`${base}/projects/${projectId}/tasks`),
     serverGet<ReminderOut[]>(`${base}/projects/${projectId}/reminders`),
     serverGet<MemberOut[]>(`${base}/members`),
     serverGet<PropertyOut[]>(`${base}/properties`),
+    serverGet<DocumentOut[]>(`${base}/projects/${projectId}/documents`),
   ]);
   return (
     <AppShell session={session}>
@@ -47,6 +49,7 @@ export default async function ProjectPage({ params }: Props) {
         reminders={orNotFound(reminders)}
         members={members.ok ? members.data : []}
         properties={properties.ok ? properties.data : undefined}
+        documents={orNotFound(documents)}
         currentUserId={session.user.id}
         canWrite={session.permissions.includes("project.write")}
       />
