@@ -1,24 +1,29 @@
-"""Property facts providers: where facts about a site (council area, zone, overlays) could
-come from other than the customer.
+"""Property facts providers: where facts about a site (council area, lot and plan, land
+area, mapped constraints) can come from other than the customer.
 
-No real provider exists yet. Councils and the state publish planning scheme mapping, but we
-have not integrated any of it, and we never pretend to: ``NoProvider`` (the default and the
-only choice in production) returns nothing, so every fact comes from the customer's answers.
-``MockProvider`` exists so the interface, the prefill flow and the screens can be built and
-tested. It only answers for made-up addresses in the suburb "Mockville" and labels every
-fact as made up.
+* ``NoProvider`` returns nothing, so every fact comes from the customer's answers.
+* ``QldSpatialProvider`` matches a Queensland address in the state's address data and
+  reads its parcel and state-mapped overlays (``app/modules/lookups/qld.py``). It answers
+  only when the address matches exactly one lot and plan, and never answers the zone:
+  councils' planning scheme zoning isn't published as a service we can read.
+* ``MockProvider`` only answers for made-up addresses in the suburb "Mockville" and labels
+  every fact as made up. It exists for development and tests.
 
-A real provider must return each fact with where it came from and when, and may only return
-values a questionnaire question accepts (anything else is dropped before it is offered).
+A provider returns each fact with where it came from and when, and may only return values
+a questionnaire question accepts (anything else is dropped before it is offered).
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import UTC, datetime
-from typing import Any, Protocol
+from typing import TYPE_CHECKING, Any, Protocol
 
 from app.core.config import PropertyFactsProviderKind, Settings
+from app.modules.lookups.client import LookupUnavailable
+
+if TYPE_CHECKING:
+    from app.modules.lookups.service import Lookups
 
 
 @dataclass(frozen=True)
@@ -71,7 +76,52 @@ class MockProvider:
         ]
 
 
-def get_provider(settings: Settings) -> PropertyFactsProvider:
+class QldSpatialProvider:
+    name = "qld_spatial"
+
+    def __init__(self, lookups: Lookups) -> None:
+        self.lookups = lookups
+
+    async def lookup(self, address: AddressQuery) -> list[PropertyFact]:
+        if address.state != "QLD" or not self.lookups.enabled:
+            return []
+        qld = self.lookups.qld
+        try:
+            match = await qld.match_address(address.line1, address.suburb)
+            if match is None or match.lot_plan is None:
+                return []
+            parcel = await qld.parcel(match.lot_plan)
+        except LookupUnavailable:
+            return []  # prefill is a convenience: the customer can still answer
+        if parcel is None:
+            return []
+        source = f"{parcel.source} ({parcel.lot_plan_label})"
+        at = parcel.retrieved_at
+        facts = [PropertyFact("property.lot_plan", parcel.lot_plan_label, source, None, at)]
+        if parcel.lga:
+            facts.append(PropertyFact("property.lga", parcel.lga, source, parcel.source_url, at))
+        if parcel.land_area_m2 is not None:
+            facts.append(
+                PropertyFact("property.land_area_m2", str(parcel.land_area_m2), source, None, at)
+            )
+        if parcel.constraints:
+            first = next(o for o in parcel.overlays if o.constraint)
+            facts.append(
+                PropertyFact(
+                    "planning.known_constraints",
+                    parcel.constraints,
+                    "Queensland Government state mapping: "
+                    + "; ".join(o.label for o in parcel.overlays if o.constraint),
+                    first.source_url,
+                    at,
+                )
+            )
+        return facts
+
+
+def get_provider(settings: Settings, lookups: Lookups | None = None) -> PropertyFactsProvider:
     if settings.property_facts_provider == PropertyFactsProviderKind.MOCK:
         return MockProvider()
+    if settings.property_facts_provider == PropertyFactsProviderKind.QLD_SPATIAL and lookups:
+        return QldSpatialProvider(lookups)
     return NoProvider()

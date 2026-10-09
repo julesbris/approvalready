@@ -4,11 +4,13 @@ import type {
   CertificateKind,
   CertificateOut,
   ProjectDetailOut,
+  VesselLookupOut,
   VesselOut,
 } from "@approvalready/shared-types";
 import { type FormEvent, useEffect, useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
+import { VesselLookup, VesselRecord } from "@/components/lookups/VesselLookup";
 import { apiRequest } from "@/lib/client-api";
 import { formatDate } from "@/lib/questionnaire";
 
@@ -73,8 +75,31 @@ export function VesselPanel({
   const [adding, setAdding] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [found, setFound] = useState<VesselLookupOut | null>(null);
+  const [known, setKnown] = useState({ name: "", length_m: "", uvi: "" });
   const org = `/organisations/${organisationId}`;
   const linked = vessels.find((v) => v.id === project.vessel_id) ?? null;
+  const field = (name: keyof typeof known) => ({
+    name,
+    value: known[name],
+    onChange: (e: { target: { value: string } }) =>
+      setKnown((k) => ({ ...k, [name]: e.target.value })),
+  });
+
+  function applyRecord(record: VesselLookupOut) {
+    setFound(record);
+    setKnown((k) => ({
+      name: record.name ?? k.name,
+      length_m: record.length_m ?? k.length_m,
+      uvi: record.uvi,
+    }));
+  }
+
+  function closeForm() {
+    setAdding(false);
+    setFound(null);
+    setKnown({ name: "", length_m: "", uvi: "" });
+  }
 
   async function link(vesselId: string | null) {
     setBusy(true);
@@ -115,7 +140,7 @@ export function VesselPanel({
       return;
     }
     setVessels((list) => [...list, created.data]);
-    if (await link(created.data.id)) setAdding(false);
+    if (await link(created.data.id)) closeForm();
   }
 
   return (
@@ -131,6 +156,9 @@ export function VesselPanel({
             The questionnaire can fill in the vessel&apos;s name, type, length, propulsion, UVI,
             passengers and crew from these details.
           </p>
+          {linked.uvi ? (
+            <VesselLookup organisationId={organisationId} uvi={linked.uvi} showRecord />
+          ) : null}
         </>
       ) : (
         <p className="muted">
@@ -170,10 +198,12 @@ export function VesselPanel({
       ) : null}
       {canWrite && adding ? (
         <form className="form" onSubmit={addVessel} aria-label="Add a vessel">
+          <VesselLookup organisationId={organisationId} onFound={applyRecord} disabled={busy} />
+          {found ? <VesselRecord record={found} /> : null}
           <div className="field-row">
             <label>
               Vessel name
-              <input name="name" required maxLength={120} />
+              <input {...field("name")} required maxLength={120} />
             </label>
             <label>
               Type
@@ -189,7 +219,7 @@ export function VesselPanel({
           <div className="field-row">
             <label>
               Overall length in metres (optional)
-              <input name="length_m" inputMode="decimal" pattern="[0-9]+(\.[0-9]{1,2})?" />
+              <input {...field("length_m")} inputMode="decimal" pattern="[0-9]+(\.[0-9]{1,2})?" />
             </label>
             <label>
               Propulsion (optional)
@@ -210,7 +240,7 @@ export function VesselPanel({
             </label>
             <label>
               UVI, if it has one
-              <input name="uvi" maxLength={20} />
+              <input {...field("uvi")} maxLength={20} />
             </label>
           </div>
           <div className="field-row">
@@ -235,7 +265,7 @@ export function VesselPanel({
               type="button"
               className="button button-secondary"
               disabled={busy}
-              onClick={() => setAdding(false)}
+              onClick={closeForm}
             >
               Cancel
             </button>

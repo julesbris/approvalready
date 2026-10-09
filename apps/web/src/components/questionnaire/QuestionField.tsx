@@ -3,6 +3,7 @@
 import type { QuestionOut } from "@approvalready/shared-types";
 import type { ReactNode } from "react";
 
+import { AddressSearch } from "@/components/lookups/AddressSearch";
 import { type FileContext, FileAnswer } from "@/components/questionnaire/FileAnswer";
 import { questionFields } from "@/lib/questionnaire";
 
@@ -210,6 +211,14 @@ export function QuestionField(props: Props) {
       const set = (field: string, fieldValue: string) => onValue({ ...address, [field]: fieldValue });
       return group(
         <div className="address-fields">
+          {files && !disabled ? (
+            <AddressSearch
+              organisationId={files.organisationId}
+              onPick={(m) =>
+                onValue({ ...address, line1: m.line1, line2: "", suburb: m.suburb, state: m.state })
+              }
+            />
+          ) : null}
           <label>
             Street address
             <input

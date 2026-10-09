@@ -127,3 +127,8 @@ export type CertificateKind = Schemas["CertificateKind"];
 export type SmsOut = Schemas["SmsOut"];
 export type SmsSectionOut = Schemas["SmsSectionOut"];
 export type SmsElementOut = Schemas["SmsElementOut"];
+
+export type AddressMatchOut = Schemas["AddressMatchOut"];
+export type AddressSearchOut = Schemas["AddressSearchOut"];
+export type ParcelOut = Schemas["ParcelOut"];
+export type VesselLookupOut = Schemas["VesselLookupOut"];
