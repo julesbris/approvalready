@@ -78,7 +78,9 @@ done), and no `kind`/`finding_id` until findings exist (Milestone 4). `reminder`
 to `project_id`, `task_id null`, `recipient_user_id` (a member), `title`, `fires_at`
 (timezone-aware, future), `channel` (`EMAIL`,`IN_APP`), `status`
 (`SCHEDULED`,`SENT`,`CANCELLED`), `recurrence null` (`WEEKLY`,`MONTHLY`,`YEARLY`), `sent_at`;
-the generic `subject_type/subject_id` returns with RentReady. Delivery is not built yet.
+Milestone 11 builds delivery: `project_id` becomes optional and reminders gain `source_key`
+(set on reminders the system plans from dates, such as `tenancy:<id>:end:<date>:60`),
+`body` and `link_path`, in place of the generic `subject_type/subject_id`.
 
 | Table | Key columns | Notes |
 |---|---|---|
@@ -267,7 +269,18 @@ required `source_reference_id`; `grant_match` is append-only per assessment with
 `program_id`, `round_id` (the round shown at the time), `ordinal`, `confidence` and
 `criteria jsonb`.
 
-## 15. PropertyReady (SellReady + RentReady)
+## 15. PropertyReady (SellReady + RentReady) (built, Milestone 11)
+
+As built: tables hang off the project rather than the property (one `sale_project` per sell
+project, one `rental_property` per rent project), so they follow the project's tenant and
+vertical. `sale_project` statuses are `PREPARING`, `READY_TO_LIST`, `LISTED`, `UNDER_OFFER`,
+`UNDER_CONTRACT`, `SETTLED`, `WITHDRAWN`, with `listed_on`, `contract_on`, `settlement_on` and
+the disclosure recorded on the sale (`disclosure_given_on/to`, `disclosure_document_ids`, or a
+not-needed note). The vault is `sale_document` (upload, category, `in_disclosure`). The rental
+profile is `rental_property` (listing status, rent and period, bond, bedrooms, bathrooms);
+`tenancy` status is computed from its dates; `tenant_application.checks` holds whether each
+document was provided (no scores); `maintenance_item` replaces `property_maintenance_item`.
+Inspections have no `SALE_OPEN_HOME` kind yet.
 
 | Table | Key columns |
 |---|---|
@@ -286,7 +299,7 @@ required `source_reference_id`; `grant_match` is append-only per assessment with
 | Table | Key columns | Notes |
 |---|---|---|
 | `audit_event` **AO** | See section 1 (built). Before/after values go in `details`. | Monthly range partitions when volume warrants (the chain is ordered by `seq`, so partitioning does not affect verification). |
-| `notification` | `user_id`, `channel` (`EMAIL`,`IN_APP`,`SMS`), `template_key`, `payload`, `status`, `sent_at` | |
+| `notification` **T** | Built in Milestone 11 as `recipient_user_id`, `kind` (`REMINDER`,`GRANT_ROUND`,`SOURCES_DUE`), `title`, `body`, `link_path`, `project_id null`, `reminder_id null`, `dedupe_key` (unique per recipient), `email_status`, `emailed_at`, `read_at` | In-app always; email when requested. No SMS yet. |
 | `brand` | `key`, `product_name`, `logo_asset`, `theme_accent`, `default_vertical`, `seo jsonb` | |
 | `brand_domain` | `hostname unique`, `brand_id`, `surface`, `mode` (`PRIMARY`,`REDIRECT`,`ALIAS`), `redirect_target` | |
 | `feature_flag` | `key`, `scope`, `value jsonb` | |

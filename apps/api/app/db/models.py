@@ -9,10 +9,13 @@ from app.modules.entities import models as entities_models  # noqa: F401
 from app.modules.grants import models as grants_models  # noqa: F401
 from app.modules.identity import models as identity_models  # noqa: F401
 from app.modules.marketplace import models as marketplace_models  # noqa: F401
+from app.modules.notifications import models as notifications_models  # noqa: F401
 from app.modules.projects import models as projects_models  # noqa: F401
 from app.modules.questionnaires import models as questionnaires_models  # noqa: F401
 from app.modules.regulatory import models as regulatory_models  # noqa: F401
+from app.modules.rentals import models as rentals_models  # noqa: F401
 from app.modules.review import models as review_models  # noqa: F401
 from app.modules.rules import models as rules_models  # noqa: F401
+from app.modules.sales import models as sales_models  # noqa: F401
 from app.modules.tenancy import models as tenancy_models  # noqa: F401
 from app.modules.vessels import models as vessels_models  # noqa: F401

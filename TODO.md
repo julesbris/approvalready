@@ -45,7 +45,7 @@ tests and updated docs before the next starts.
 - [x] Condition AST + three-valued evaluator (shared with Milestone 4), TypeScript mirror for instant branching, shared test vectors
 - [x] Customer UI: projects, create project, select vertical, project workspace, guided questionnaire with review
 - [x] Tests: branching, validation, versioning, RLS, tenant isolation, web components
-- [ ] Moved to Milestone 11 (RentReady reminders need it first): reminder delivery via Celery beat + email/in-app notifications
+- [x] Reminder delivery via Celery beat + email/in-app notifications (built in Milestone 11)
 - [ ] Moved to Milestone 5: entity UI (property/vessel/business pickers on projects), questionnaire prefill from entities
 - [x] Moved to Milestone 6: FILE question uploads (built there)
 - [ ] Moved to Milestone 4, then to backlog: questionnaire authoring in the admin UI (definitions stay reviewed JSON files synced on migrate)
@@ -58,7 +58,7 @@ tests and updated docs before the next starts.
 - [x] Admin UI for sources (review queue, documents, snapshots, references, review actions) and rules (rule sets, draft editor, checks, try-it, publish/retire/new version); customer assessment report
 - [x] Tests: every operator, nesting, unknown propagation, version pinning, reproducibility, confidence derivation, publish gate, RLS and privilege map for the new tables
 - [ ] Moved to Milestone 5: `approval_requirement` / `evidence_requirement` tables and tasks created from findings (they need real PlanningReady rules to shape them)
-- [ ] Moved to Milestone 11 (with reminder delivery): scheduled review reminders for references nearing `next_review_due` (overdue ones already show in the review queue and lower confidence)
+- [x] Built in Milestone 11 (weekly staff alert): scheduled review reminders for references nearing `next_review_due` (overdue ones already show in the review queue and lower confidence)
 - [ ] Moved to backlog: questionnaire authoring in the admin UI
 
 ## Milestone 5 — PlanningReady proof of concept ✅
@@ -102,7 +102,7 @@ tests and updated docs before the next starts.
 - [x] Survey checklist and registration prep: reviewed checklists (initial survey, non-survey approval, certificate of operation, UVI, Queensland registration) added to a project by the rules that name them or by the customer
 - [x] `VESSEL_PATHWAY` report and the approval map on vessel assessments
 - [ ] Next: verify the pack's references; read Exemption 02 and 03 schedules and Marine Orders 503 and 505 into rules (survey frequency, crewing, which certificate each crew member needs); Queensland smooth and partially smooth water boundaries; other states' registration
-- [ ] Moved to Milestone 11 (with reminder delivery): reminders before a vessel certificate expires (expiring ones are flagged now)
+- [x] Built in Milestone 11: reminders 60 and 14 days before a vessel certificate expires
 
 ## Milestone 10 — GrantReady ✅
 - [x] Grant programs and rounds (platform data kept by staff in `/admin/grants`); every round's status and dates cite a source reference, and the dates refine the status (an open round past its closing date reads as closed)
@@ -111,14 +111,17 @@ tests and updated docs before the next starts.
 - [x] Grant profile: the `grant.general` questionnaire (v2 adds ABN age, GST, entity type, turnover, export stage, innovation and National Reconstruction Fund areas) with prefill from the linked business profile (moved from Milestone 8, which only prefilled `business.*` facts)
 - [x] `GRANT_ELIGIBILITY` report (PDF, DOCX, HTML)
 - [~] Content pack `grants_au_qld` (3 programs, 3 rule sets, 14 rules, 9 references): Export Market Development Grants (Austrade), the Industry Growth Program (business.gov.au) and Queensland's Business Growth Fund. Every reference is an **unverified summary**. None of the three was open to applications when read on 2026-10-09
-- [ ] Moved to Milestone 11 (with reminder delivery): alerts when a matched program's round opens or is about to close (closing within 14 days is flagged now)
+- [x] Built in Milestone 11: alerts when a matched program's round opens within 7 days or is about to close
 - [ ] Moved to Milestone 12: `GRANT_DRAFT` application drafting (needs the AI layer)
 - [ ] Next: verify the pack's references; read each program's guidelines (not just its web pages) into rules; more programs (state and council grants, Cairns); a program-creation form in the admin screens (the API and the pack create them today); reviewer overrides are not applied to matches yet
 
-## Milestone 11 — PropertyReady
-- [ ] SellReady: sale project lifecycle, checklist, disclosure workflow, vault, offers, enquiries
-- [ ] RentReady: compliance checklists, listings, applications (no AI selection), tenancy, inspections (mobile), maintenance, reminders
-- [ ] Rules-driven cross-sell offers
+## Milestone 11 — PropertyReady ✅
+- [x] SellReady: sale project lifecycle, checklists, disclosure workflow (contract needs disclosure given or not needed), document vault, offers, enquiries, settlement reminders
+- [x] RentReady: compliance checklists, listings, applications with document checks (no AI selection or scoring), tenancies, inspections (phone-first, photos), maintenance, bond, lease-end and rent-review reminders
+- [x] Reminder delivery (Celery beat), in-app notifications and email, header bell and `/notifications`
+- [x] Rules-driven cross-sell offers (`cross_sell` on `CROSS_SELL` outcomes, shown on assessment reports)
+- [~] Content pack `property_qld` (2 rule sets, 20 rules, 21 references, 6 checklists). Every reference is an **unverified summary**
+- [ ] Next: verify the pack's references (open points: entry notice period for showing buyers, disclosure timing rules); other states; Form 1 entry condition report and disclosure statement generation; notification preferences
 
 ## Milestone 12 — AI abstraction and drafting ✅
 - [x] `AIProvider` protocol (`generate_structured`, `generate_text`); providers `none` (default), `mock` (refused in production) and `anthropic` (official SDK, JSON structured output, refusal fallback), chosen by `AI_PROVIDER`

@@ -531,6 +531,291 @@
         "title": "AnswersUpdate",
         "type": "object"
       },
+      "ApplicationCheckOut": {
+        "properties": {
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "provided": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Null until someone has looked.",
+            "title": "Provided"
+          }
+        },
+        "required": [
+          "key",
+          "label",
+          "provided"
+        ],
+        "title": "ApplicationCheckOut",
+        "type": "object"
+      },
+      "ApplicationCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "applicant_contact": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applicant Contact"
+          },
+          "applicant_name": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Applicant Name",
+            "type": "string"
+          },
+          "household_size": {
+            "anyOf": [
+              {
+                "maximum": 30.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Household Size"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "preferred_start_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preferred Start On"
+          },
+          "received_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Defaults to today.",
+            "title": "Received On"
+          }
+        },
+        "required": [
+          "applicant_name"
+        ],
+        "title": "ApplicationCreate",
+        "type": "object"
+      },
+      "ApplicationOut": {
+        "properties": {
+          "applicant_contact": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applicant Contact"
+          },
+          "applicant_name": {
+            "title": "Applicant Name",
+            "type": "string"
+          },
+          "checks": {
+            "items": {
+              "$ref": "#/components/schemas/ApplicationCheckOut"
+            },
+            "title": "Checks",
+            "type": "array"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "household_size": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Household Size"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "missing": {
+            "description": "Labels of the documents not provided yet.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing",
+            "type": "array"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "preferred_start_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preferred Start On"
+          },
+          "received_on": {
+            "format": "date",
+            "title": "Received On",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ApplicationStatus"
+          },
+          "tenancy_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenancy Id"
+          }
+        },
+        "required": [
+          "id",
+          "applicant_name",
+          "applicant_contact",
+          "household_size",
+          "preferred_start_on",
+          "received_on",
+          "status",
+          "checks",
+          "missing",
+          "notes",
+          "tenancy_id",
+          "created_at"
+        ],
+        "title": "ApplicationOut",
+        "type": "object"
+      },
+      "ApplicationStatus": {
+        "enum": [
+          "RECEIVED",
+          "SHORTLISTED",
+          "APPROVED",
+          "DECLINED",
+          "WITHDRAWN"
+        ],
+        "title": "ApplicationStatus",
+        "type": "string"
+      },
+      "ApplicationUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "checks": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Check key \u2192 provided (true/false) or not looked at (null).",
+            "title": "Checks"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "title": "ApplicationUpdate",
+        "type": "object"
+      },
       "ApprovalMapEntryOut": {
         "properties": {
           "authority": {
@@ -736,6 +1021,14 @@
             "format": "date-time",
             "title": "Created At",
             "type": "string"
+          },
+          "cross_sell": {
+            "description": "Other products the rules suggest (CROSS_SELL findings that matched), each product once.",
+            "items": {
+              "$ref": "#/components/schemas/CrossSellOut"
+            },
+            "title": "Cross Sell",
+            "type": "array"
           },
           "engine_version": {
             "title": "Engine Version",
@@ -2480,6 +2773,47 @@
         "title": "CredentialStatus",
         "type": "string"
       },
+      "CrossSellOut": {
+        "properties": {
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "finding_id": {
+            "format": "uuid",
+            "title": "Finding Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "vertical": {
+            "description": "The product suggested, e.g. RENT.",
+            "title": "Vertical",
+            "type": "string"
+          }
+        },
+        "required": [
+          "vertical",
+          "title",
+          "detail",
+          "finding_id",
+          "confidence"
+        ],
+        "title": "CrossSellOut",
+        "type": "object"
+      },
       "Decision": {
         "enum": [
           "CHANGES_REQUIRED",
@@ -2609,6 +2943,121 @@
           "OTHER"
         ],
         "title": "Discipline",
+        "type": "string"
+      },
+      "DisclosureGive": {
+        "additionalProperties": false,
+        "properties": {
+          "given_on": {
+            "format": "date",
+            "title": "Given On",
+            "type": "string"
+          },
+          "given_to": {
+            "description": "The buyer (or their representative) it was given to.",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Given To",
+            "type": "string"
+          }
+        },
+        "required": [
+          "given_on",
+          "given_to"
+        ],
+        "title": "DisclosureGive",
+        "type": "object"
+      },
+      "DisclosureNotNeeded": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "description": "Why no disclosure is needed, e.g. what the rules said.",
+            "maxLength": 1000,
+            "minLength": 10,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "note"
+        ],
+        "title": "DisclosureNotNeeded",
+        "type": "object"
+      },
+      "DisclosureOut": {
+        "properties": {
+          "changed_since_given": {
+            "description": "Documents were added to or removed from the disclosure after it was given.",
+            "title": "Changed Since Given",
+            "type": "boolean"
+          },
+          "document_ids": {
+            "description": "Vault documents marked for disclosure.",
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "title": "Document Ids",
+            "type": "array"
+          },
+          "given_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Given On"
+          },
+          "given_to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Given To"
+          },
+          "not_needed_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Not Needed Note"
+          },
+          "state": {
+            "$ref": "#/components/schemas/DisclosureState"
+          }
+        },
+        "required": [
+          "state",
+          "given_on",
+          "given_to",
+          "not_needed_note",
+          "document_ids",
+          "changed_since_given"
+        ],
+        "title": "DisclosureOut",
+        "type": "object"
+      },
+      "DisclosureState": {
+        "enum": [
+          "NOT_STARTED",
+          "PREPARING",
+          "GIVEN",
+          "NOT_NEEDED"
+        ],
+        "title": "DisclosureState",
         "type": "string"
       },
       "DocumentOut": {
@@ -2746,6 +3195,16 @@
         "title": "EmailRequest",
         "type": "object"
       },
+      "EmailStatus": {
+        "enum": [
+          "NOT_REQUESTED",
+          "PENDING",
+          "SENT",
+          "FAILED"
+        ],
+        "title": "EmailStatus",
+        "type": "string"
+      },
       "EmployeeBand": {
         "enum": [
           "NONE",
@@ -2756,6 +3215,192 @@
         ],
         "title": "EmployeeBand",
         "type": "string"
+      },
+      "EnquiryCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "channel": {
+            "anyOf": [
+              {
+                "maxLength": 60,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel"
+          },
+          "contact": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "name": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "received_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Defaults to today.",
+            "title": "Received On"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "EnquiryCreate",
+        "type": "object"
+      },
+      "EnquiryOut": {
+        "properties": {
+          "channel": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Channel"
+          },
+          "contact": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "received_on": {
+            "format": "date",
+            "title": "Received On",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/EnquiryStatus"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "contact",
+          "channel",
+          "message",
+          "status",
+          "received_on",
+          "notes",
+          "created_at"
+        ],
+        "title": "EnquiryOut",
+        "type": "object"
+      },
+      "EnquiryStatus": {
+        "enum": [
+          "NEW",
+          "RESPONDED",
+          "CLOSED"
+        ],
+        "title": "EnquiryStatus",
+        "type": "string"
+      },
+      "EnquiryUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EnquiryStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "title": "EnquiryUpdate",
+        "type": "object"
       },
       "EntityType": {
         "enum": [
@@ -4061,6 +4706,434 @@
         "title": "HTTPValidationError",
         "type": "object"
       },
+      "InspectionCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/InspectionKind"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "rooms": {
+            "anyOf": [
+              {
+                "items": {
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 30,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Rooms to inspect; defaults from the rental's bedrooms and bathrooms.",
+            "title": "Rooms"
+          },
+          "scheduled_at": {
+            "format": "date-time",
+            "title": "Scheduled At",
+            "type": "string"
+          },
+          "tenancy_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenancy Id"
+          }
+        },
+        "required": [
+          "kind",
+          "scheduled_at"
+        ],
+        "title": "InspectionCreate",
+        "type": "object"
+      },
+      "InspectionDetailOut": {
+        "properties": {
+          "completed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/InspectionItemOut"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "items_checked": {
+            "title": "Items Checked",
+            "type": "integer"
+          },
+          "items_total": {
+            "title": "Items Total",
+            "type": "integer"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/InspectionKind"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "scheduled_at": {
+            "format": "date-time",
+            "title": "Scheduled At",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InspectionStatus"
+          },
+          "tenancy_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenancy Id"
+          }
+        },
+        "required": [
+          "id",
+          "tenancy_id",
+          "kind",
+          "status",
+          "scheduled_at",
+          "completed_at",
+          "notes",
+          "items_total",
+          "items_checked",
+          "created_at",
+          "project_id",
+          "items"
+        ],
+        "title": "InspectionDetailOut",
+        "type": "object"
+      },
+      "InspectionItemCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "item": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Item",
+            "type": "string"
+          },
+          "room": {
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Room",
+            "type": "string"
+          }
+        },
+        "required": [
+          "room",
+          "item"
+        ],
+        "title": "InspectionItemCreate",
+        "type": "object"
+      },
+      "InspectionItemOut": {
+        "properties": {
+          "condition": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ItemCondition"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "item": {
+            "title": "Item",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "photo_document_ids": {
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "title": "Photo Document Ids",
+            "type": "array"
+          },
+          "position": {
+            "title": "Position",
+            "type": "integer"
+          },
+          "room": {
+            "title": "Room",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "position",
+          "room",
+          "item",
+          "condition",
+          "notes",
+          "photo_document_ids"
+        ],
+        "title": "InspectionItemOut",
+        "type": "object"
+      },
+      "InspectionItemUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "condition": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ItemCondition"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "photo_document_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "maxItems": 10,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Photo Document Ids"
+          }
+        },
+        "title": "InspectionItemUpdate",
+        "type": "object"
+      },
+      "InspectionKind": {
+        "enum": [
+          "ENTRY",
+          "ROUTINE",
+          "EXIT"
+        ],
+        "title": "InspectionKind",
+        "type": "string"
+      },
+      "InspectionOut": {
+        "properties": {
+          "completed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "items_checked": {
+            "title": "Items Checked",
+            "type": "integer"
+          },
+          "items_total": {
+            "title": "Items Total",
+            "type": "integer"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/InspectionKind"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "scheduled_at": {
+            "format": "date-time",
+            "title": "Scheduled At",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InspectionStatus"
+          },
+          "tenancy_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenancy Id"
+          }
+        },
+        "required": [
+          "id",
+          "tenancy_id",
+          "kind",
+          "status",
+          "scheduled_at",
+          "completed_at",
+          "notes",
+          "items_total",
+          "items_checked",
+          "created_at"
+        ],
+        "title": "InspectionOut",
+        "type": "object"
+      },
+      "InspectionStatus": {
+        "enum": [
+          "SCHEDULED",
+          "IN_PROGRESS",
+          "COMPLETED",
+          "CANCELLED"
+        ],
+        "title": "InspectionStatus",
+        "type": "string"
+      },
+      "InspectionUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "scheduled_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheduled At"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InspectionStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "title": "InspectionUpdate",
+        "type": "object"
+      },
       "InvitationAccept": {
         "properties": {
           "token": {
@@ -4139,6 +5212,17 @@
         "title": "InvitationOut",
         "type": "object"
       },
+      "ItemCondition": {
+        "enum": [
+          "GOOD",
+          "FAIR",
+          "POOR",
+          "DAMAGED",
+          "NOT_APPLICABLE"
+        ],
+        "title": "ItemCondition",
+        "type": "string"
+      },
       "ItemStatus": {
         "enum": [
           "OPEN",
@@ -4156,6 +5240,16 @@
           "FAILED"
         ],
         "title": "JobStatus",
+        "type": "string"
+      },
+      "ListingStatus": {
+        "enum": [
+          "NOT_LISTED",
+          "ADVERTISED",
+          "LEASED",
+          "WITHDRAWN"
+        ],
+        "title": "ListingStatus",
         "type": "string"
       },
       "LiveResponse": {
@@ -4188,6 +5282,341 @@
           "password"
         ],
         "title": "LoginRequest",
+        "type": "object"
+      },
+      "MaintenanceCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/MaintenancePriority",
+            "default": "ROUTINE"
+          },
+          "reported_by": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reported By"
+          },
+          "reported_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Defaults to today.",
+            "title": "Reported On"
+          },
+          "tenancy_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenancy Id"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "title": "MaintenanceCreate",
+        "type": "object"
+      },
+      "MaintenanceOut": {
+        "properties": {
+          "cost_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost Cents"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/MaintenancePriority"
+          },
+          "reported_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reported By"
+          },
+          "reported_on": {
+            "format": "date",
+            "title": "Reported On",
+            "type": "string"
+          },
+          "resolved_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolved On"
+          },
+          "scheduled_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheduled On"
+          },
+          "status": {
+            "$ref": "#/components/schemas/MaintenanceStatus"
+          },
+          "tenancy_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenancy Id"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "tradesperson": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tradesperson"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "tenancy_id",
+          "title",
+          "detail",
+          "priority",
+          "status",
+          "reported_on",
+          "reported_by",
+          "scheduled_on",
+          "resolved_on",
+          "tradesperson",
+          "cost_cents",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "MaintenanceOut",
+        "type": "object"
+      },
+      "MaintenancePriority": {
+        "enum": [
+          "EMERGENCY",
+          "URGENT",
+          "ROUTINE"
+        ],
+        "title": "MaintenancePriority",
+        "type": "string"
+      },
+      "MaintenanceStatus": {
+        "enum": [
+          "REPORTED",
+          "SCHEDULED",
+          "IN_PROGRESS",
+          "DONE",
+          "CANCELLED"
+        ],
+        "title": "MaintenanceStatus",
+        "type": "string"
+      },
+      "MaintenanceUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "cost_cents": {
+            "anyOf": [
+              {
+                "maximum": 10000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost Cents"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "priority": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MaintenancePriority"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "resolved_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolved On"
+          },
+          "scheduled_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheduled On"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/MaintenanceStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "tradesperson": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tradesperson"
+          }
+        },
+        "title": "MaintenanceUpdate",
+        "type": "object"
+      },
+      "MarkedReadOut": {
+        "properties": {
+          "marked": {
+            "title": "Marked",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "marked"
+        ],
+        "title": "MarkedReadOut",
         "type": "object"
       },
       "MarketplaceCategoryOut": {
@@ -4431,6 +5860,458 @@
           "where_to_check"
         ],
         "title": "NotCheckedOut",
+        "type": "object"
+      },
+      "NotificationKind": {
+        "enum": [
+          "REMINDER",
+          "GRANT_ROUND",
+          "SOURCES_DUE"
+        ],
+        "title": "NotificationKind",
+        "type": "string"
+      },
+      "NotificationListOut": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/NotificationOut"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "unread": {
+            "title": "Unread",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "unread",
+          "items"
+        ],
+        "title": "NotificationListOut",
+        "type": "object"
+      },
+      "NotificationOut": {
+        "properties": {
+          "body": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Body"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "email_status": {
+            "$ref": "#/components/schemas/EmailStatus"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/NotificationKind"
+          },
+          "link_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Link Path"
+          },
+          "project_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Project Id"
+          },
+          "read_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Read At"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "title",
+          "body",
+          "link_path",
+          "project_id",
+          "email_status",
+          "read_at",
+          "created_at"
+        ],
+        "title": "NotificationOut",
+        "type": "object"
+      },
+      "OfferCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_cents": {
+            "exclusiveMinimum": 0.0,
+            "maximum": 1000000000000.0,
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "buyer_contact": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Buyer Contact"
+          },
+          "buyer_name": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Buyer Name",
+            "type": "string"
+          },
+          "conditions": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conditions"
+          },
+          "deposit_cents": {
+            "anyOf": [
+              {
+                "maximum": 1000000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deposit Cents"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          },
+          "received_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Defaults to today.",
+            "title": "Received On"
+          },
+          "settlement_days": {
+            "anyOf": [
+              {
+                "maximum": 730.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settlement Days"
+          },
+          "subject_to_finance": {
+            "default": false,
+            "title": "Subject To Finance",
+            "type": "boolean"
+          },
+          "subject_to_inspection": {
+            "default": false,
+            "title": "Subject To Inspection",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "buyer_name",
+          "amount_cents"
+        ],
+        "title": "OfferCreate",
+        "type": "object"
+      },
+      "OfferOut": {
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "buyer_contact": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Buyer Contact"
+          },
+          "buyer_name": {
+            "title": "Buyer Name",
+            "type": "string"
+          },
+          "conditions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conditions"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "deposit_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deposit Cents"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "received_on": {
+            "format": "date",
+            "title": "Received On",
+            "type": "string"
+          },
+          "settlement_days": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settlement Days"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OfferStatus"
+          },
+          "subject_to_finance": {
+            "title": "Subject To Finance",
+            "type": "boolean"
+          },
+          "subject_to_inspection": {
+            "title": "Subject To Inspection",
+            "type": "boolean"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "buyer_name",
+          "buyer_contact",
+          "amount_cents",
+          "deposit_cents",
+          "subject_to_finance",
+          "subject_to_inspection",
+          "settlement_days",
+          "conditions",
+          "status",
+          "received_on",
+          "expires_at",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "OfferOut",
+        "type": "object"
+      },
+      "OfferStatus": {
+        "enum": [
+          "RECEIVED",
+          "COUNTERED",
+          "ACCEPTED",
+          "REJECTED",
+          "WITHDRAWN",
+          "LAPSED"
+        ],
+        "title": "OfferStatus",
+        "type": "string"
+      },
+      "OfferUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_cents": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "maximum": 1000000000000.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Amount Cents"
+          },
+          "conditions": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conditions"
+          },
+          "deposit_cents": {
+            "anyOf": [
+              {
+                "maximum": 1000000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deposit Cents"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          },
+          "settlement_days": {
+            "anyOf": [
+              {
+                "maximum": 730.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settlement Days"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OfferStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "subject_to_finance": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject To Finance"
+          },
+          "subject_to_inspection": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject To Inspection"
+          }
+        },
+        "title": "OfferUpdate",
         "type": "object"
       },
       "OptionOut": {
@@ -6558,6 +8439,17 @@
       },
       "ReminderOut": {
         "properties": {
+          "body": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Body"
+          },
           "channel": {
             "title": "Channel",
             "type": "string"
@@ -6578,9 +8470,16 @@
             "type": "string"
           },
           "project_id": {
-            "format": "uuid",
-            "title": "Project Id",
-            "type": "string"
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Project Id"
           },
           "recipient_user_id": {
             "format": "uuid",
@@ -6597,6 +8496,30 @@
               }
             ],
             "title": "Recurrence"
+          },
+          "sent_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sent At"
+          },
+          "source_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Set on reminders kept in step with a date (a lease end, a settlement); they change when that date does.",
+            "title": "Source Key"
           },
           "status": {
             "title": "Status",
@@ -6632,6 +8555,339 @@
           "created_at"
         ],
         "title": "ReminderOut",
+        "type": "object"
+      },
+      "RentPeriod": {
+        "enum": [
+          "WEEK",
+          "FORTNIGHT",
+          "MONTH"
+        ],
+        "title": "RentPeriod",
+        "type": "string"
+      },
+      "RentalOut": {
+        "properties": {
+          "applications": {
+            "title": "Applications",
+            "type": "integer"
+          },
+          "available_from": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Available From"
+          },
+          "bathrooms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bathrooms"
+          },
+          "bedrooms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bedrooms"
+          },
+          "current_tenancy_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current Tenancy Id"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "furnished": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Furnished"
+          },
+          "headline": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Headline"
+          },
+          "id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Null until the rental is first saved.",
+            "title": "Id"
+          },
+          "listing_status": {
+            "$ref": "#/components/schemas/ListingStatus"
+          },
+          "open_maintenance": {
+            "title": "Open Maintenance",
+            "type": "integer"
+          },
+          "parking": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parking"
+          },
+          "pets_considered": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pets Considered"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "rent_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rent Cents"
+          },
+          "rent_period": {
+            "$ref": "#/components/schemas/RentPeriod"
+          },
+          "upcoming_inspections": {
+            "title": "Upcoming Inspections",
+            "type": "integer"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "bedrooms",
+          "bathrooms",
+          "parking",
+          "furnished",
+          "pets_considered",
+          "listing_status",
+          "headline",
+          "description",
+          "rent_cents",
+          "rent_period",
+          "available_from",
+          "applications",
+          "current_tenancy_id",
+          "open_maintenance",
+          "upcoming_inspections",
+          "updated_at"
+        ],
+        "title": "RentalOut",
+        "type": "object"
+      },
+      "RentalUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "available_from": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Available From"
+          },
+          "bathrooms": {
+            "anyOf": [
+              {
+                "maximum": 30.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bathrooms"
+          },
+          "bedrooms": {
+            "anyOf": [
+              {
+                "maximum": 30.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bedrooms"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "maxLength": 4000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "furnished": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Furnished"
+          },
+          "headline": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Headline"
+          },
+          "listing_status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ListingStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "parking": {
+            "anyOf": [
+              {
+                "maximum": 30.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parking"
+          },
+          "pets_considered": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pets Considered"
+          },
+          "rent_cents": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "maximum": 10000000000.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The advertised rent: a fixed amount per rent period.",
+            "title": "Rent Cents"
+          },
+          "rent_period": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RentPeriod"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "title": "RentalUpdate",
         "type": "object"
       },
       "ResubmitIn": {
@@ -8021,6 +10277,389 @@
           "created_at"
         ],
         "title": "RuleVersionSummary",
+        "type": "object"
+      },
+      "SaleDocumentCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/VaultCategory"
+          },
+          "in_disclosure": {
+            "default": false,
+            "title": "In Disclosure",
+            "type": "boolean"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "uploaded_document_id": {
+            "format": "uuid",
+            "title": "Uploaded Document Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "uploaded_document_id",
+          "category"
+        ],
+        "title": "SaleDocumentCreate",
+        "type": "object"
+      },
+      "SaleDocumentOut": {
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/VaultCategory"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "filename": {
+            "title": "Filename",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "in_disclosure": {
+            "title": "In Disclosure",
+            "type": "boolean"
+          },
+          "scan_status": {
+            "title": "Scan Status",
+            "type": "string"
+          },
+          "size_bytes": {
+            "title": "Size Bytes",
+            "type": "integer"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "uploaded_document_id": {
+            "format": "uuid",
+            "title": "Uploaded Document Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "uploaded_document_id",
+          "category",
+          "title",
+          "in_disclosure",
+          "filename",
+          "size_bytes",
+          "scan_status",
+          "created_at"
+        ],
+        "title": "SaleDocumentOut",
+        "type": "object"
+      },
+      "SaleDocumentUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VaultCategory"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "in_disclosure": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "In Disclosure"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          }
+        },
+        "title": "SaleDocumentUpdate",
+        "type": "object"
+      },
+      "SaleOut": {
+        "properties": {
+          "asking_price_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Asking Price Cents"
+          },
+          "contract_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contract On"
+          },
+          "disclosure": {
+            "$ref": "#/components/schemas/DisclosureOut"
+          },
+          "id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Null until the sale is first saved.",
+            "title": "Id"
+          },
+          "listed_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Listed On"
+          },
+          "next_statuses": {
+            "items": {
+              "$ref": "#/components/schemas/SaleStatus"
+            },
+            "title": "Next Statuses",
+            "type": "array"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "offers": {
+            "title": "Offers",
+            "type": "integer"
+          },
+          "open_enquiries": {
+            "title": "Open Enquiries",
+            "type": "integer"
+          },
+          "price_guide": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Price Guide"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "settlement_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settlement On"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SaleStatus"
+          },
+          "updated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated At"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "status",
+          "next_statuses",
+          "asking_price_cents",
+          "price_guide",
+          "listed_on",
+          "contract_on",
+          "settlement_on",
+          "notes",
+          "disclosure",
+          "offers",
+          "open_enquiries",
+          "updated_at"
+        ],
+        "title": "SaleOut",
+        "type": "object"
+      },
+      "SaleStatus": {
+        "enum": [
+          "PREPARING",
+          "READY_TO_LIST",
+          "LISTED",
+          "UNDER_OFFER",
+          "UNDER_CONTRACT",
+          "SETTLED",
+          "WITHDRAWN"
+        ],
+        "title": "SaleStatus",
+        "type": "string"
+      },
+      "SaleUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "asking_price_cents": {
+            "anyOf": [
+              {
+                "maximum": 1000000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Asking Price Cents"
+          },
+          "contract_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contract On"
+          },
+          "listed_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Listed On"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "price_guide": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Price Guide"
+          },
+          "settlement_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Settlement On"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SaleStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "title": "SaleUpdate",
         "type": "object"
       },
       "ScanStatus": {
@@ -9935,6 +12574,498 @@
         "title": "TaskUpdate",
         "type": "object"
       },
+      "TenancyCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "bond_cents": {
+            "anyOf": [
+              {
+                "maximum": 10000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bond Cents"
+          },
+          "bond_lodged_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bond Lodged On"
+          },
+          "bond_reference": {
+            "anyOf": [
+              {
+                "maxLength": 60,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bond Reference"
+          },
+          "end_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Leave out for a periodic agreement.",
+            "title": "End On"
+          },
+          "last_rent_increase_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Rent Increase On"
+          },
+          "next_rent_review_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Rent Review On"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "rent_cents": {
+            "exclusiveMinimum": 0.0,
+            "maximum": 10000000000.0,
+            "title": "Rent Cents",
+            "type": "integer"
+          },
+          "rent_period": {
+            "$ref": "#/components/schemas/RentPeriod",
+            "default": "WEEK"
+          },
+          "start_on": {
+            "format": "date",
+            "title": "Start On",
+            "type": "string"
+          },
+          "tenant_contact": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenant Contact"
+          },
+          "tenant_names": {
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Tenant Names",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tenant_names",
+          "start_on",
+          "rent_cents"
+        ],
+        "title": "TenancyCreate",
+        "type": "object"
+      },
+      "TenancyOut": {
+        "properties": {
+          "application_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Application Id"
+          },
+          "bond_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bond Cents"
+          },
+          "bond_lodged_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bond Lodged On"
+          },
+          "bond_reference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bond Reference"
+          },
+          "bond_to_lodge": {
+            "description": "A bond was taken and no lodgement is recorded.",
+            "title": "Bond To Lodge",
+            "type": "boolean"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "end_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End On"
+          },
+          "ended_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ended On"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "last_rent_increase_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Rent Increase On"
+          },
+          "next_rent_review_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Rent Review On"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "periodic": {
+            "title": "Periodic",
+            "type": "boolean"
+          },
+          "rent_cents": {
+            "title": "Rent Cents",
+            "type": "integer"
+          },
+          "rent_period": {
+            "$ref": "#/components/schemas/RentPeriod"
+          },
+          "start_on": {
+            "format": "date",
+            "title": "Start On",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/TenancyStatus"
+          },
+          "tenant_contact": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenant Contact"
+          },
+          "tenant_names": {
+            "title": "Tenant Names",
+            "type": "string"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "application_id",
+          "tenant_names",
+          "tenant_contact",
+          "status",
+          "start_on",
+          "end_on",
+          "periodic",
+          "rent_cents",
+          "rent_period",
+          "bond_cents",
+          "bond_lodged_on",
+          "bond_reference",
+          "bond_to_lodge",
+          "last_rent_increase_on",
+          "next_rent_review_on",
+          "ended_on",
+          "notes",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "TenancyOut",
+        "type": "object"
+      },
+      "TenancyStatus": {
+        "enum": [
+          "UPCOMING",
+          "ACTIVE",
+          "ENDED"
+        ],
+        "title": "TenancyStatus",
+        "type": "string"
+      },
+      "TenancyUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "bond_cents": {
+            "anyOf": [
+              {
+                "maximum": 10000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bond Cents"
+          },
+          "bond_lodged_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bond Lodged On"
+          },
+          "bond_reference": {
+            "anyOf": [
+              {
+                "maxLength": 60,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bond Reference"
+          },
+          "end_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End On"
+          },
+          "ended_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When the tenant moved out.",
+            "title": "Ended On"
+          },
+          "last_rent_increase_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Rent Increase On"
+          },
+          "next_rent_review_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Rent Review On"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "rent_cents": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "maximum": 10000000000.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rent Cents"
+          },
+          "rent_period": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RentPeriod"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "start_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start On"
+          },
+          "tenant_contact": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenant Contact"
+          },
+          "tenant_names": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenant Names"
+          }
+        },
+        "title": "TenancyUpdate",
+        "type": "object"
+      },
       "TestCaseIn": {
         "additionalProperties": false,
         "properties": {
@@ -10138,6 +13269,24 @@
         ],
         "title": "ValidationError",
         "type": "object"
+      },
+      "VaultCategory": {
+        "enum": [
+          "DISCLOSURE_STATEMENT",
+          "TITLE_SEARCH",
+          "REGISTERED_PLAN",
+          "BODY_CORPORATE",
+          "POOL_SAFETY",
+          "SMOKE_ALARMS",
+          "BUILDING_APPROVAL",
+          "RATES_AND_WATER",
+          "PLANNING_AND_ZONING",
+          "TENANCY",
+          "CONTRACT",
+          "OTHER"
+        ],
+        "title": "VaultCategory",
+        "type": "string"
       },
       "VerificationStatus": {
         "enum": [
@@ -15092,6 +18241,291 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/inspection-items/{item_id}": {
+      "delete": {
+        "operationId": "remove_item_v1_organisations__organisation_id__inspection_items__item_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "item_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Item Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Remove Item",
+        "tags": [
+          "rentals"
+        ]
+      },
+      "patch": {
+        "description": "Record an item's condition, notes and photos (clean uploads on the project).",
+        "operationId": "update_item_v1_organisations__organisation_id__inspection_items__item_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "item_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Item Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InspectionItemUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InspectionItemOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Item",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/inspections/{inspection_id}": {
+      "get": {
+        "operationId": "get_inspection_v1_organisations__organisation_id__inspections__inspection_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "inspection_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Inspection Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InspectionDetailOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Inspection",
+        "tags": [
+          "rentals"
+        ]
+      },
+      "patch": {
+        "operationId": "update_inspection_v1_organisations__organisation_id__inspections__inspection_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "inspection_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Inspection Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InspectionUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InspectionDetailOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Inspection",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/inspections/{inspection_id}/items": {
+      "post": {
+        "operationId": "add_item_v1_organisations__organisation_id__inspections__inspection_id__items_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "inspection_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Inspection Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InspectionItemCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InspectionItemOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Item",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/invitations": {
       "get": {
         "operationId": "list_invitations_v1_organisations__organisation_id__invitations_get",
@@ -15397,6 +18831,69 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/maintenance-items/{item_id}": {
+      "patch": {
+        "operationId": "update_maintenance_v1_organisations__organisation_id__maintenance_items__item_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "item_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Item Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaintenanceUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaintenanceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Maintenance",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/members": {
       "get": {
         "operationId": "list_members_v1_organisations__organisation_id__members_get",
@@ -15551,6 +19048,168 @@
         "summary": "Set Member Roles",
         "tags": [
           "organisations"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/notifications": {
+      "get": {
+        "description": "Newest first, with the number still unread.",
+        "operationId": "list_notifications_v1_organisations__organisation_id__notifications_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "unread_only",
+            "required": false,
+            "schema": {
+              "default": false,
+              "title": "Unread Only",
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 50,
+              "maximum": 50,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationListOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Notifications",
+        "tags": [
+          "notifications"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/notifications/read-all": {
+      "post": {
+        "operationId": "mark_all_read_v1_organisations__organisation_id__notifications_read_all_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarkedReadOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Mark All Read",
+        "tags": [
+          "notifications"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/notifications/{notification_id}/read": {
+      "post": {
+        "operationId": "mark_read_v1_organisations__organisation_id__notifications__notification_id__read_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "notification_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Notification Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Mark Read",
+        "tags": [
+          "notifications"
         ]
       }
     },
@@ -16414,6 +20073,597 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental": {
+      "get": {
+        "operationId": "get_rental_v1_organisations__organisation_id__projects__project_id__rental_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RentalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Rental",
+        "tags": [
+          "rentals"
+        ]
+      },
+      "patch": {
+        "description": "The rental's details and listing. Advertising needs a fixed rent.",
+        "operationId": "update_rental_v1_organisations__organisation_id__projects__project_id__rental_patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RentalUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RentalOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Rental",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental/applications": {
+      "get": {
+        "description": "In the order received. No scores or rankings.",
+        "operationId": "list_applications_v1_organisations__organisation_id__projects__project_id__rental_applications_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ApplicationOut"
+                  },
+                  "title": "Response List Applications V1 Organisations  Organisation Id  Projects  Project Id  Rental Applications Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Applications",
+        "tags": [
+          "rentals"
+        ]
+      },
+      "post": {
+        "operationId": "add_application_v1_organisations__organisation_id__projects__project_id__rental_applications_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Application",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental/inspections": {
+      "get": {
+        "operationId": "list_inspections_v1_organisations__organisation_id__projects__project_id__rental_inspections_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/InspectionOut"
+                  },
+                  "title": "Response List Inspections V1 Organisations  Organisation Id  Projects  Project Id  Rental Inspections Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Inspections",
+        "tags": [
+          "rentals"
+        ]
+      },
+      "post": {
+        "description": "Schedule an inspection with a room-by-room list to fill in on a phone.",
+        "operationId": "add_inspection_v1_organisations__organisation_id__projects__project_id__rental_inspections_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InspectionCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InspectionDetailOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Inspection",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental/maintenance": {
+      "get": {
+        "description": "Open items first (emergencies at the top), then closed ones.",
+        "operationId": "list_maintenance_v1_organisations__organisation_id__projects__project_id__rental_maintenance_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/MaintenanceOut"
+                  },
+                  "title": "Response List Maintenance V1 Organisations  Organisation Id  Projects  Project Id  Rental Maintenance Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Maintenance",
+        "tags": [
+          "rentals"
+        ]
+      },
+      "post": {
+        "operationId": "add_maintenance_v1_organisations__organisation_id__projects__project_id__rental_maintenance_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaintenanceCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaintenanceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Maintenance",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental/tenancies": {
+      "get": {
+        "operationId": "list_tenancies_v1_organisations__organisation_id__projects__project_id__rental_tenancies_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/TenancyOut"
+                  },
+                  "title": "Response List Tenancies V1 Organisations  Organisation Id  Projects  Project Id  Rental Tenancies Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Tenancies",
+        "tags": [
+          "rentals"
+        ]
+      },
+      "post": {
+        "description": "Record a tenancy (an existing one, or one not from an application here).",
+        "operationId": "add_tenancy_v1_organisations__organisation_id__projects__project_id__rental_tenancies_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TenancyCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenancyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Tenancy",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/projects/{project_id}/reviews": {
       "get": {
         "operationId": "list_reviews_v1_organisations__organisation_id__projects__project_id__reviews_get",
@@ -16530,6 +20780,655 @@
         "summary": "Request Review",
         "tags": [
           "review"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale": {
+      "get": {
+        "operationId": "get_sale_v1_organisations__organisation_id__projects__project_id__sale_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Sale",
+        "tags": [
+          "sales"
+        ]
+      },
+      "patch": {
+        "description": "Change the sale's details or move it to another status (``next_statuses``).",
+        "operationId": "update_sale_v1_organisations__organisation_id__projects__project_id__sale_patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaleUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Sale",
+        "tags": [
+          "sales"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/disclosure": {
+      "delete": {
+        "description": "Undo \"given\" or \"not needed\" so the disclosure can be changed (not once under\ncontract).",
+        "operationId": "reopen_disclosure_v1_organisations__organisation_id__projects__project_id__sale_disclosure_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Reopen Disclosure",
+        "tags": [
+          "sales"
+        ]
+      },
+      "post": {
+        "description": "Record that the documents marked for disclosure were given to a buyer.",
+        "operationId": "give_disclosure_v1_organisations__organisation_id__projects__project_id__sale_disclosure_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisclosureGive"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Give Disclosure",
+        "tags": [
+          "sales"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/disclosure/not-needed": {
+      "post": {
+        "operationId": "disclosure_not_needed_v1_organisations__organisation_id__projects__project_id__sale_disclosure_not_needed_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DisclosureNotNeeded"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Disclosure Not Needed",
+        "tags": [
+          "sales"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/documents": {
+      "get": {
+        "operationId": "list_documents_v1_organisations__organisation_id__projects__project_id__sale_documents_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SaleDocumentOut"
+                  },
+                  "title": "Response List Documents V1 Organisations  Organisation Id  Projects  Project Id  Sale Documents Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Documents",
+        "tags": [
+          "sales"
+        ]
+      },
+      "post": {
+        "description": "File one of the project's uploads in the vault.",
+        "operationId": "add_document_v1_organisations__organisation_id__projects__project_id__sale_documents_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaleDocumentCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaleDocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Document",
+        "tags": [
+          "sales"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/enquiries": {
+      "get": {
+        "operationId": "list_enquiries_v1_organisations__organisation_id__projects__project_id__sale_enquiries_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EnquiryOut"
+                  },
+                  "title": "Response List Enquiries V1 Organisations  Organisation Id  Projects  Project Id  Sale Enquiries Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Enquiries",
+        "tags": [
+          "sales"
+        ]
+      },
+      "post": {
+        "operationId": "add_enquiry_v1_organisations__organisation_id__projects__project_id__sale_enquiries_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnquiryCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnquiryOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Enquiry",
+        "tags": [
+          "sales"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/offers": {
+      "get": {
+        "operationId": "list_offers_v1_organisations__organisation_id__projects__project_id__sale_offers_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/OfferOut"
+                  },
+                  "title": "Response List Offers V1 Organisations  Organisation Id  Projects  Project Id  Sale Offers Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Offers",
+        "tags": [
+          "sales"
+        ]
+      },
+      "post": {
+        "operationId": "add_offer_v1_organisations__organisation_id__projects__project_id__sale_offers_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OfferCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Offer",
+        "tags": [
+          "sales"
         ]
       }
     },
@@ -17577,6 +22476,241 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/sale-documents/{document_id}": {
+      "delete": {
+        "description": "Take a file out of the vault (the upload itself stays in the project's documents).",
+        "operationId": "remove_document_v1_organisations__organisation_id__sale_documents__document_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Remove Document",
+        "tags": [
+          "sales"
+        ]
+      },
+      "patch": {
+        "operationId": "update_document_v1_organisations__organisation_id__sale_documents__document_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaleDocumentUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaleDocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Document",
+        "tags": [
+          "sales"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/sale-enquiries/{enquiry_id}": {
+      "patch": {
+        "operationId": "update_enquiry_v1_organisations__organisation_id__sale_enquiries__enquiry_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "enquiry_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Enquiry Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnquiryUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnquiryOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Enquiry",
+        "tags": [
+          "sales"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/sale-offers/{offer_id}": {
+      "patch": {
+        "description": "Change an offer; accepting one puts a listed sale under offer.",
+        "operationId": "update_offer_v1_organisations__organisation_id__sale_offers__offer_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "offer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Offer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OfferUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Offer",
+        "tags": [
+          "sales"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/submissions/{submission_id}": {
       "get": {
         "operationId": "get_submission_v1_organisations__organisation_id__submissions__submission_id__get",
@@ -17850,6 +22984,196 @@
         "summary": "Submit Answers",
         "tags": [
           "projects"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/tenancies/{tenancy_id}": {
+      "patch": {
+        "operationId": "update_tenancy_v1_organisations__organisation_id__tenancies__tenancy_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tenancy_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Tenancy Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TenancyUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenancyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Tenancy",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/tenant-applications/{application_id}": {
+      "patch": {
+        "operationId": "update_application_v1_organisations__organisation_id__tenant_applications__application_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "application_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Application Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Application",
+        "tags": [
+          "rentals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/tenant-applications/{application_id}/tenancy": {
+      "post": {
+        "description": "Approve the application and record the tenancy it leads to.",
+        "operationId": "tenancy_from_application_v1_organisations__organisation_id__tenant_applications__application_id__tenancy_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "application_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Application Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TenancyCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenancyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Tenancy From Application",
+        "tags": [
+          "rentals"
         ]
       }
     },

@@ -30,7 +30,12 @@
             {"value": "other", "label": "Other"}
           ]
         },
-        {"key": "sell.has_mortgage", "type": "BOOLEAN", "label": "Is there a mortgage on the property?"}
+        {"key": "sell.has_mortgage", "type": "BOOLEAN", "label": "Is there a mortgage on the property?"},
+        {
+          "key": "sell.body_corporate", "type": "SELECT", "label": "Is the property a lot in a body corporate (community titles) scheme?",
+          "help_text": "Most units and many townhouses are. Your title search will say.",
+          "options": [{"value": "yes", "label": "Yes"}, {"value": "no", "label": "No"}, {"value": "unsure", "label": "Not sure"}]
+        }
       ]
     },
     {
@@ -47,6 +52,11 @@
             {"value": "none", "label": "No"},
             {"value": "unsure", "label": "Not sure"}
           ]
+        },
+        {
+          "key": "sell.owner_builder_work", "type": "SELECT", "label": "Was any of that work done under an owner-builder permit and finished in the last 6 years?",
+          "visible_when": {"fact": "sell.building_works", "op": "equals", "value": true},
+          "options": [{"value": "yes", "label": "Yes"}, {"value": "no", "label": "No"}, {"value": "unsure", "label": "Not sure"}]
         },
         {"key": "sell.has_pool", "type": "BOOLEAN", "label": "Is there a swimming pool or spa?", "required": true},
         {

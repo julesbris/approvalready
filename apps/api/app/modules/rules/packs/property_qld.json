@@ -1,0 +1,1838 @@
+{
+ "key": "property_qld",
+ "title": "PropertyReady: selling and renting residential property in Queensland",
+ "notes": "First sourced rules for SellReady and RentReady. Built from Queensland Government (seller disclosure scheme), Residential Tenancies Authority, QBCC, Queensland Fire Department and Department of Housing and Public Works web pages read on 2026-10-09. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The Property Law Act 2023, the Residential Tenancies and Rooming Accommodation Act 2008, the Building Act 1975 and the Fire Services Act 1990 themselves are not encoded.",
+ "organisations": [
+  {
+   "ref": "qld_gov",
+   "name": "Queensland Government (qld.gov.au)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "QLD",
+   "website": "https://www.qld.gov.au"
+  },
+  {
+   "ref": "rta",
+   "name": "Residential Tenancies Authority",
+   "kind": "REGULATOR",
+   "jurisdiction": "QLD",
+   "website": "https://www.rta.qld.gov.au"
+  },
+  {
+   "ref": "qbcc",
+   "name": "Queensland Building and Construction Commission",
+   "kind": "REGULATOR",
+   "jurisdiction": "QLD",
+   "website": "https://www.qbcc.qld.gov.au"
+  },
+  {
+   "ref": "qfd",
+   "name": "Queensland Fire Department",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "QLD",
+   "website": "https://www.fire.qld.gov.au"
+  },
+  {
+   "ref": "hpw",
+   "name": "Department of Housing and Public Works (Queensland)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "QLD",
+   "website": "https://www.hpw.qld.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "qld_seller_disclosure",
+   "organisation": "qld_gov",
+   "jurisdiction": "QLD",
+   "title": "Seller disclosure scheme",
+   "url": "https://www.qld.gov.au/law/housing-and-neighbours/buying-and-selling-a-property/seller-disclosure-scheme",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "qbcc_pool_sale_lease",
+   "organisation": "qbcc",
+   "jurisdiction": "QLD",
+   "title": "Buy, sell or lease a property with a pool",
+   "url": "https://qbcc.qld.gov.au/home-owner-hub/swimming-pools/buy-sell-lease-property-pool",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "qbcc_owner_builder_sale",
+   "organisation": "qbcc",
+   "jurisdiction": "QLD",
+   "title": "Sell an Owner-builder property",
+   "url": "https://www.qbcc.qld.gov.au/home-owner-hub/owner-build/sell-owner-builder-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "qfd_smoke_alarm_reforms",
+   "organisation": "qfd",
+   "jurisdiction": "QLD",
+   "title": "Smoke Alarm Reforms",
+   "url": "https://www.fire.qld.gov.au/about-us/corporate-knowledge-centre/qfdlegislation/smoke-alarm-reforms",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rta_for_sale",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "When a property is for sale",
+   "url": "https://www.rta.qld.gov.au/during-a-tenancy/events-that-impact-the-agreement/when-a-property-is-for-sale",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_entry",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Entry to the property",
+   "url": "https://www.rta.qld.gov.au/during-a-tenancy/living-in-the-property/entry-to-the-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_bond",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Rental bond",
+   "url": "https://www.rta.qld.gov.au/starting-a-tenancy/rental-bond",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_entry_condition",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Entry condition report",
+   "url": "https://www.rta.qld.gov.au/starting-a-tenancy/entry-condition-report",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_agreements",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "General tenancy agreements fact sheet",
+   "url": "https://www.rta.qld.gov.au/forms-resources/factsheets/general-tenancy-agreements-fact-sheet",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_applications",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Applying for a rental property \u2013 property managers and owners",
+   "url": "https://www.rta.qld.gov.au/forms-resources/factsheets/applying-for-a-rental-property-property-managers-and-owners",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_minimum_standards",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Minimum housing standards",
+   "url": "https://rta.qld.gov.au/forms-resources/rental-law-changes/minimum-housing-standards",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "hpw_rental_law_changes",
+   "organisation": "hpw",
+   "jurisdiction": "QLD",
+   "title": "Rental law changes",
+   "url": "https://www.hpw.qld.gov.au/what-we-do/housing/advice/renting/legislation",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rta_smoke_alarms",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Smoke alarms",
+   "url": "https://www.rta.qld.gov.au/during-a-tenancy/maintenance/smoke-alarms",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_rent_increases",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Rent increases",
+   "url": "https://www.rta.qld.gov.au/during-a-tenancy/rent-and-other-bills/rent-increases",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_emergency_repairs",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Emergency repairs",
+   "url": "https://www.rta.qld.gov.au/during-a-tenancy/repairs/emergency-repairs",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_exit_condition",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Exit condition report",
+   "url": "https://www.rta.qld.gov.au/ending-a-tenancy/vacating-a-property/exit-condition-report",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_bond_refunds",
+   "organisation": "rta",
+   "jurisdiction": "QLD",
+   "title": "Bond refunds",
+   "url": "https://www.rta.qld.gov.au/ending-a-tenancy/bond-refunds",
+   "source_type": "GUIDELINE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "disclosure_obligation",
+   "document": "qld_seller_disclosure",
+   "section": "About the scheme; Giving disclosure documents to buyers",
+   "extracted_text": "[Summary, not the source's wording] Since 1 August 2025, under the Property Law Act 2023, a seller of a residential, commercial or vacant land property must give the buyer a completed seller disclosure statement (Form 2) and the prescribed certificates before the buyer signs the contract. They can be given in person, by post or by email or other electronic means, and the seller should keep evidence that they were given. At auction they must be given or made available before the fall of the hammer.",
+   "interpretation": "Applies to almost every Queensland sale; the statement and certificates must reach the buyer before they sign. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "disclosure_contents",
+   "document": "qld_seller_disclosure",
+   "section": "What you must include in the disclosure statement; Prescribed certificates",
+   "extracted_text": "[Summary, not the source's wording] The statement has four parts: seller and property details; title and encumbrances (including unregistered encumbrances and residential tenancy or rooming accommodation agreements); land use, planning and environment (zoning, transport infrastructure notices, resumption notices, contaminated land or environmental management register listings, tree orders or applications, heritage listing); and buildings and structures (a pool on the lot or common property, and notices under the QBCC, building and planning Acts). Prescribed certificates include a title search and survey plan, certain notices, a pool safety certificate if applicable and, for a community titles scheme lot, the community management statement and a body corporate certificate (a body corporate certificate for a BUGTA lot). Structural soundness, flooding history and previous approvals are not required. The page says the list is not complete and refers to the Guide to the seller disclosure scheme.",
+   "interpretation": "Used to build the list of documents to gather. The page's list is incomplete; the Guide to the seller disclosure scheme has the detail. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "disclosure_termination",
+   "document": "qld_seller_disclosure",
+   "section": "Failing to comply",
+   "extracted_text": "[Summary, not the source's wording] The buyer may terminate the contract at any time before settlement if the seller did not give the disclosure documents, or gave inaccurate or incomplete information (even unintentionally) where the buyer shows it was material, they were unaware of it when they signed and they would not have signed had they known.",
+   "interpretation": "Explains why the documents matter: a missing or wrong statement can let the buyer walk away up to settlement. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "disclosure_exceptions",
+   "document": "qld_seller_disclosure",
+   "section": "Exceptions",
+   "extracted_text": "[Summary, not the source's wording] Some sales are exempt, for example where the buyer is the State, a government body, a constructing authority or a listed corporation, where buyer and seller are related parties, where the price is over $10 million and the buyer waives disclosure, or where a local council sells for unpaid rates. The full list is in section 2 of the Guide.",
+   "interpretation": "We do not ask about exceptions, so the disclosure finding stays 'likely'. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_sale",
+   "document": "qbcc_pool_sale_lease",
+   "section": "Selling a property with a pool",
+   "extracted_text": "[Summary, not the source's wording] A seller with a current pool safety certificate must give the buyer a copy before settlement. Without one, the seller must lodge a notice of no pool safety certificate (Form 36) with the QBCC and give the buyer a copy before settlement (at auction, before a contract is entered into). The buyer of a property with a non-shared pool must then get a certificate within 90 days of settlement; for a shared pool the pool owner (usually the body corporate) must. Certificates last 2 years for a non-shared pool and 1 year for a shared pool.",
+   "interpretation": "A property with a pool needs either a certificate or a Form 36 for the sale. Whether a particular pool or spa is a regulated pool is not decided here. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_lease",
+   "document": "qbcc_pool_sale_lease",
+   "section": "Leasing a property with a pool",
+   "extracted_text": "[Summary, not the source's wording] For a non-shared pool, a lessor must not enter into an accommodation agreement unless a pool safety certificate is in effect. For a shared pool, the lessor gives the new occupier and the pool owner a copy of a current certificate, displayed near the entrance or pool access; without one, the lessor lodges a Form 36 and the pool owner (usually the body corporate) has 90 days to obtain a certificate. A Form 36 is not an exemption from the pool safety standard.",
+   "interpretation": "A rental with its own pool needs a current certificate before the agreement is signed; shared pools follow the Form 36 path. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "owner_builder_notice",
+   "document": "qbcc_owner_builder_sale",
+   "section": "Selling an owner-builder property",
+   "extracted_text": "[Summary, not the source's wording] A seller who completed owner-builder work on the property in the last 6 years must give prospective buyers a notice before the contract is signed (two copies, one signed by the buyer and returned on or before signing) describing the work, naming the permit holder, saying it was done under an owner-builder permit and warning that the work is not covered by insurance. Without it, the seller is treated as having warranted that the work was properly done.",
+   "interpretation": "Applies only to work done under an owner-builder permit and completed within 6 years. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "smoke_alarms_sold_leased",
+   "document": "qfd_smoke_alarm_reforms",
+   "section": "Timeline and requirements",
+   "extracted_text": "[Summary, not the source's wording] From 1 January 2022, when a dwelling is sold or leased it must have photoelectric smoke alarms (AS 3786-2014, no ionisation sensor, less than 10 years old, working when tested) that are interconnected and hardwired or powered by a non-removable 10-year battery, installed on each storey, in every bedroom and in hallways connecting bedrooms to the rest of the dwelling (or the escape path on a storey without bedrooms). All other dwellings must comply from 1 January 2027.",
+   "interpretation": "Applies to dwellings, not vacant land. The page does not mention renewed leases. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "tenanted_sale",
+   "document": "rta_for_sale",
+   "section": "When a property is for sale",
+   "extracted_text": "[Summary, not the source's wording] The property manager or owner gives the tenant a Notice of lessor's intention to sell premises (Form 10) setting out how the property will be marketed. An open house or on-site auction needs the tenant's written agreement. A tenancy does not end because the property is sold: a fixed term continues with the buyer as the new owner, and for a periodic agreement a buyer wanting vacant possession needs a Notice to leave (Form 12) giving at least 2 months' notice after the contract is signed. If the property is advertised or shown within the first 2 months of a tenancy without prior written notice of the sale, the tenant may end the agreement. The tenant must be told of the new owner (attornment notice), the RTA updated with a Form 5, and the 12-month rent increase limit is not reset by the sale.",
+   "interpretation": "A tenanted sale has tenancy steps from listing until after settlement. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "entry_rules",
+   "document": "rta_entry",
+   "section": "Entry notice periods",
+   "extracted_text": "[Summary, not the source's wording] Entry needs a valid reason and an Entry notice (Form 9). Routine inspections need 7 days' notice and at most one every 3 months; repairs, smoke alarm work, valuations and showing the property to a prospective buyer (with a Form 10 given) or tenant need 48 hours. Entry is between 8am and 6pm Monday to Saturday unless the tenant agrees. After a notice to leave or notice of intention to leave, entry is limited to 2 times in 7 days.",
+   "interpretation": "An older RTA news article mentions 24 hours for showing buyers; this page says 48 hours. Confirm which applies. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_lodgement",
+   "document": "rta_bond",
+   "section": "Rental bond",
+   "extracted_text": "[Summary, not the source's wording] The bond (whatever it is called) is at most 4 weeks' rent for a general tenancy. The property manager or owner must give a receipt and lodge the bond with the RTA within 10 days; it is an offence not to. Bonds are lodged online through RTA Web Services or by post with Form 2, giving the date of the last rent increase unless an exemption applies.",
+   "interpretation": "Every bond taken for a Queensland tenancy goes to the RTA within 10 days. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "entry_condition_report",
+   "document": "rta_entry_condition",
+   "section": "Entry condition report",
+   "extracted_text": "[Summary, not the source's wording] The property manager or owner prepares and signs an Entry condition report (Form 1a) and gives the tenant a copy at the start of the tenancy (an offence not to). The tenant returns it within 7 days; the owner sends a signed copy back within 14 days and keeps it until at least a year after the tenancy ends.",
+   "interpretation": "The report is the baseline for the bond at the end. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "tenancy_agreement",
+   "document": "rta_agreements",
+   "section": "Written agreements and copies",
+   "extracted_text": "[Summary, not the source's wording] A tenancy agreement must be in writing; houses, units and townhouses use the General tenancy agreement (Form 18a) with its standard terms and any special terms that comply with the Act. The lessor or agent prepares it and pays for it, gives the proposed agreement and any body corporate by-laws before the tenant signs, and gives the tenant a copy of the signed agreement within 14 days. It must name the owner or a nominated repairer for emergency repairs, offer at least two ways to pay rent and state the date of the last rent increase (subject to exemptions).",
+   "interpretation": "Form 18a is the standard agreement for a general tenancy. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rental_applications",
+   "document": "rta_applications",
+   "section": "Application forms and information limits",
+   "extracted_text": "[Summary, not the source's wording] Applicants apply using an approved form (Form 22 for general tenancies) and the form must not ask for more than the RTA's forms contain. At most two documents per category (identity, ability to pay, suitability) may be requested; legal action, breach notices, bond history and bank statements must not be. At least two ways to apply must be offered and one must not be restrictive (online platform or paid). Unsuccessful applicants' information is destroyed within three months of the successful tenancy starting.",
+   "interpretation": "Applies when choosing a new tenant. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_bidding_and_dates",
+   "document": "hpw_rental_law_changes",
+   "section": "Rental law changes",
+   "extracted_text": "[Summary, not the source's wording] From 6 June 2024 rent bidding is banned: owners and managers cannot seek or accept more than the advertised rent, or rent in advance beyond 2 weeks (periodic) or 1 month (other tenancies). From 1 May 2025 an approved rental application form must be used. From 6 June 2024 the 12-month rent increase limit applies to the property. Minimum housing standards apply to all tenancies from 1 September 2024.",
+   "interpretation": "Gives the commencement dates the RTA pages leave out. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "minimum_standards",
+   "document": "rta_minimum_standards",
+   "section": "The standards",
+   "extracted_text": "[Summary, not the source's wording] Rental properties must meet minimum housing standards when the tenant moves in and throughout the tenancy: weatherproof and structurally sound; in good repair; secure, with working locks or latches on external doors and reachable windows; free of vermin, damp and mould (unless the tenant caused it); privacy coverings in rooms like bedrooms; adequate plumbing and drainage with hot and cold drinkable water; private bathrooms with flushable toilets; a working cook-top if a kitchen is provided; and laundry fixtures if laundry facilities are provided. Repairs needed to meet the standards are emergency repairs.",
+   "interpretation": "The standards are the floor for every Queensland rental. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rental_smoke_alarms",
+   "document": "rta_smoke_alarms",
+   "section": "Property manager and owner duties",
+   "extracted_text": "[Summary, not the source's wording] Rental dwellings must have interconnected photoelectric smoke alarms meeting AS 3786-2014. Within 30 days before a tenancy starts or is renewed, the owner or manager tests and cleans the alarms and replaces flat or nearly flat batteries, and cannot pass this to the tenant. Entry for alarm work needs 48 hours' notice. The tenant tests and cleans them at least every 12 months during the tenancy and reports problems.",
+   "interpretation": "Alarms are checked before every new or renewed tenancy. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_increases",
+   "document": "rta_rent_increases",
+   "section": "Rent increases",
+   "extracted_text": "[Summary, not the source's wording] Rent cannot be increased unless at least 12 months have passed since the current rent became payable, even under an earlier agreement, tenant or owner (an offence). A general tenancy needs at least two months' written notice. During a fixed term the agreement must also provide for the increase and say how much or how it is calculated. A tenant may apply to QCAT about an excessive increase within 30 days of the notice.",
+   "interpretation": "The 12 months run with the property, not the tenancy. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "emergency_repairs",
+   "document": "rta_emergency_repairs",
+   "section": "Emergency and routine repairs",
+   "extracted_text": "[Summary, not the source's wording] Emergency repairs include burst water services, blocked or broken toilets, serious roof leaks, gas leaks, dangerous electrical faults, flooding, serious storm or fire damage, failure of gas, electricity, water or an essential hot water, cooking or heating service, faults that make the premises unsafe or insecure (including smoke alarms) or likely to injure, and repairs needed to meet minimum housing standards. The agreement names a nominated repairer. If the owner cannot be contacted, the tenant may arrange emergency repairs up to 4 weeks' rent and seek reimbursement in writing with at least 7 days to pay. Any other repair is a routine repair.",
+   "interpretation": "Known repairs should be sorted into emergency and routine before the tenancy starts. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "exit_condition_report",
+   "document": "rta_exit_condition",
+   "section": "Exit condition report",
+   "extracted_text": "[Summary, not the source's wording] At the end of a general tenancy the tenant completes an Exit condition report (Form 14a), ideally with the owner or manager, comparing the property with the entry report allowing for fair wear and tear. The owner or manager adds comments, signs, sends a copy to the tenant within three business days and keeps it for at least a year.",
+   "interpretation": "The exit report is compared with the entry report for any bond claim. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_refund",
+   "document": "rta_bond_refunds",
+   "section": "Refund of rental bond",
+   "extracted_text": "[Summary, not the source's wording] The bond is refunded through the RTA using a Refund of rental bond (Form 4) online or on paper. If the parties do not agree, the RTA pays undisputed amounts and the other party has 14 days to lodge a dispute resolution request (Form 16). An owner or manager making a claim must give the tenant the supporting evidence within 14 days.",
+   "interpretation": "Only the RTA refunds a bond; claims need evidence given to the tenant. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "sell.qld.seller_disclosure",
+   "vertical": "SELL",
+   "jurisdiction": "QLD",
+   "title": "Queensland: selling a property",
+   "description": "The seller disclosure statement and prescribed certificates, pool safety, smoke alarms, owner-builder notices and selling with a tenant in place, from Queensland Government, QBCC, Queensland Fire Department and RTA guidance.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "QLD"
+   },
+   "limitations": [
+    "Built from Queensland Government, QBCC, Queensland Fire Department and RTA web pages, not from the Property Law Act 2023 or its regulation; the Guide to the seller disclosure scheme is not encoded item by item.",
+    "Doesn't check whether your sale is exempt from seller disclosure (for example sales to the State, between related parties or over $10 million with a waiver).",
+    "Doesn't fill in the disclosure statement or decide what has to be disclosed about encumbrances, notices, zoning, contamination or heritage; your conveyancer or solicitor does that.",
+    "Doesn't decide whether a pool or spa is a regulated pool, or whether it is shared.",
+    "Doesn't cover the contract of sale itself, auctions in detail, agents' appointments, stamp duty, capital gains tax or foreign resident clearance.",
+    "Commercial leases are not residential tenancies; the tenancy findings are for homes only.",
+    "Not legal advice. Confirm with a conveyancer or solicitor before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "seller_disclosure_statement",
+     "title": "Seller disclosure statement and prescribed certificates",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "QLD"
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Give the buyer a seller disclosure statement before they sign",
+       "detail": "Queensland sellers must give the buyer a completed seller disclosure statement (Form 2) and the prescribed certificates before the buyer signs the contract (before the fall of the hammer at auction). If they are missing, or wrong in a way that matters, the buyer may be able to end the contract up to settlement. A few sales are exempt.",
+       "payload": {
+        "approval": {
+         "kind": "SELLER_DISCLOSURE_STATEMENT",
+         "pathway": "Form 2 and prescribed certificates before the buyer signs"
+        },
+        "evidence": [
+         {
+          "kind": "SELLER_DISCLOSURE_STATEMENT",
+          "title": "Seller disclosure statement (Form 2)"
+         },
+         {
+          "kind": "TITLE_SEARCH",
+          "title": "Current title search"
+         },
+         {
+          "kind": "SURVEY_PLAN",
+          "title": "Registered survey plan"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Prepare the seller disclosure statement with your conveyancer",
+        "checklists": [
+         "sell.qld_disclosure"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "disclosure_obligation",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "disclosure_contents",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "disclosure_termination",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "disclosure_exceptions",
+       "relationship": "EXCEPTION"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "New South Wales property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "body_corporate_certificate",
+     "title": "Body corporate certificate for a community titles lot",
+     "condition": {
+      "fact": "sell.body_corporate",
+      "op": "in",
+      "value": [
+       "yes",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Include the body corporate certificate and community management statement",
+       "detail": "For a lot in a community titles scheme, the prescribed certificates include the community management statement and a body corporate certificate (a body corporate certificate for a BUGTA scheme). If you are not sure whether the property is in a scheme, check the title search.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "BODY_CORPORATE_CERTIFICATE",
+          "title": "Body corporate certificate"
+         },
+         {
+          "kind": "COMMUNITY_MANAGEMENT_STATEMENT",
+          "title": "Community management statement"
+         }
+        ],
+        "task": "Order the body corporate certificate"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Is the property in a body corporate?",
+       "detail": "Lots in a community titles scheme need extra certificates with the disclosure statement. Tell us whether the property is part of a body corporate."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "disclosure_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Body corporate lot",
+       "facts": {
+        "sell.body_corporate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "sell.body_corporate": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Freehold house",
+       "facts": {
+        "sell.body_corporate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_safety_on_sale",
+     "title": "Pool safety certificate or Form 36 on sale",
+     "condition": {
+      "fact": "sell.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Give the buyer a pool safety certificate, or a Form 36",
+       "detail": "For a property with a regulated pool, give the buyer a copy of a current pool safety certificate before settlement. Without one, lodge a notice of no pool safety certificate (Form 36) with the QBCC and give the buyer a copy (before the contract at auction). The pool is also disclosed in the seller disclosure statement.",
+       "payload": {
+        "approval": {
+         "kind": "POOL_SAFETY_CERTIFICATE",
+         "authority": "Queensland Building and Construction Commission",
+         "pathway": "Certificate from a licensed pool safety inspector, or Form 36"
+        },
+        "evidence": [
+         {
+          "kind": "POOL_SAFETY_CERTIFICATE",
+          "title": "Pool safety certificate or Form 36 notice"
+         }
+        ],
+        "checklists": [
+         "sell.preparing_to_sell"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_sale",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "disclosure_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "sell.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_certificate_missing",
+     "title": "No current pool safety certificate for the sale",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.pool_certificate",
+        "op": "in",
+        "value": [
+         "no",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "PROFESSIONAL_REQUIRED",
+       "title": "Book a pool safety inspection or prepare a Form 36",
+       "detail": "You don't have a current pool safety certificate that you know of. A licensed pool safety inspector can inspect the barrier and issue one; otherwise a Form 36 must be lodged and given to the buyer, who then has 90 days after settlement to get a certificate (the body corporate, for a shared pool).",
+       "payload": {
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Get a pool safety certificate or lodge a Form 36"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_sale",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No certificate",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has certificate",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Certificate not answered",
+       "facts": {
+        "sell.has_pool": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms_on_sale",
+     "title": "Smoke alarms when a dwelling is sold",
+     "condition": {
+      "fact": "sell.property_type",
+      "op": "not_in",
+      "value": [
+       "vacant_land",
+       "commercial"
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Check the smoke alarms meet the current standard before you sell",
+       "detail": "Since 1 January 2022 a dwelling that is sold must have interconnected photoelectric smoke alarms (AS 3786-2014, no ionisation, under 10 years old), hardwired or with a 10-year sealed battery, on each storey, in every bedroom and in hallways connecting bedrooms to the rest of the home.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ],
+        "task": "Check the smoke alarms meet the current standard",
+        "checklists": [
+         "sell.preparing_to_sell"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_alarms_sold_leased",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "House",
+       "facts": {
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Unit",
+       "facts": {
+        "sell.property_type": "unit"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant land",
+       "facts": {
+        "sell.property_type": "vacant_land"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Commercial",
+       "facts": {
+        "sell.property_type": "commercial"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "owner_builder_notice",
+     "title": "Owner-builder work notice",
+     "condition": {
+      "fact": "sell.owner_builder_work",
+      "op": "in",
+      "value": [
+       "yes",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Give buyers the owner-builder notice before they sign",
+       "detail": "If you finished work under an owner-builder permit in the last 6 years, prospective buyers must get a notice before signing: what work was done, who held the permit, that it was owner-builder work and a warning that it is not covered by insurance. Give two copies and have the buyer sign one. Without it, you are treated as warranting the work was properly done.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "OWNER_BUILDER_NOTICE",
+          "title": "Owner-builder notice signed by the buyer"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Prepare the owner-builder notice for buyers",
+        "checklists": [
+         "sell.preparing_to_sell"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "owner_builder_notice",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Owner-builder work",
+       "facts": {
+        "sell.owner_builder_work": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "sell.owner_builder_work": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Licensed builder",
+       "facts": {
+        "sell.owner_builder_work": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale",
+     "title": "Selling a tenanted home",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "commercial",
+         "vacant_land"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Tell your tenant you are selling and follow the entry rules",
+       "detail": "Give the tenant a Notice of lessor's intention to sell (Form 10) before marketing, and an Entry notice (Form 9) before each showing. Open houses and on-site auctions need the tenant's written agreement. The tenancy continues after the sale: a fixed term runs to its end, and a buyer wanting vacant possession of a periodic tenancy must give at least 2 months' notice after contracts are signed. The tenancy agreement also goes in the disclosure statement.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "Current tenancy agreement"
+         }
+        ],
+        "referral_categories": [
+         "property_manager"
+        ],
+        "task": "Give the tenant a Form 10 notice of intention to sell",
+        "checklists": [
+         "sell.preparing_to_sell"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "tenanted_sale",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "entry_rules",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "disclosure_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted house",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant house",
+       "facts": {
+        "sell.is_tenanted": false,
+        "sell.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Commercial lease",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "commercial"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Tenancy not answered",
+       "facts": {
+        "sell.property_type": "house"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale_rent_ready",
+     "title": "Managing the tenancy until settlement",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "commercial",
+         "vacant_land"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "CROSS_SELL",
+       "title": "Keep the tenancy on track until settlement with RentReady",
+       "detail": "Your tenant stays on through the sale, so the usual tenancy rules still apply until the buyer takes over: entry notices, repairs, rent and the bond, then the attornment notice and the RTA's change of owner form at settlement. RentReady keeps that checklist for you.",
+       "payload": {
+        "cross_sell": [
+         "RENT"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "tenanted_sale",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted house",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant house",
+       "facts": {
+        "sell.is_tenanted": false,
+        "sell.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Commercial lease",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "commercial"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "rent.qld.residential_tenancy",
+   "vertical": "RENT",
+   "jurisdiction": "QLD",
+   "title": "Queensland: renting out a home",
+   "description": "Tenancy agreements, condition reports, applications, bonds, minimum housing standards, smoke alarms, pool safety, rent increases, entry, repairs and the end of a tenancy, from RTA, QBCC, Queensland Fire Department and Department of Housing and Public Works guidance.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "QLD"
+   },
+   "limitations": [
+    "Built from RTA, QBCC, Queensland Fire Department and Department of Housing and Public Works web pages, not from the Residential Tenancies and Rooming Accommodation Act 2008 or its regulations.",
+    "Written for general tenancies (houses, units and townhouses). Rooming accommodation, moveable dwellings, short-term holiday letting and lodgers in the owner's home have different forms or rules and are not checked.",
+    "Doesn't check notices to leave, grounds for ending a tenancy, breach notices, pets, modifications, water charging or the details of special terms.",
+    "Doesn't check each minimum housing standard at the property; it gives you the list to walk through.",
+    "Doesn't decide whether a pool is a regulated or shared pool, or when your smoke alarms were made; it relies on your answers.",
+    "Not legal advice. Confirm with the RTA, a property manager or a solicitor before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "tenancy_agreement",
+     "title": "Written tenancy agreement and entry condition report",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "QLD"
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Use the RTA's tenancy agreement and entry condition report",
+       "detail": "A Queensland tenancy agreement must be in writing; for a house, unit or townhouse that is the General tenancy agreement (Form 18a), with a signed copy to the tenant within 14 days. An Entry condition report (Form 1a) is given at the start; the tenant returns it within 7 days and you send a signed copy back within 14 days.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "General tenancy agreement (Form 18a)"
+         },
+         {
+          "kind": "ENTRY_CONDITION_REPORT",
+          "title": "Entry condition report (Form 1a) with photos"
+         }
+        ],
+        "checklists": [
+         "rent.qld_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "tenancy_agreement",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "entry_condition_report",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Queensland rental",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian rental",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rental_applications",
+     "title": "Choosing a tenant: applications and advertised rent",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Use the approved application form and stick to the advertised rent",
+       "detail": "Applicants apply on the approved form (Form 22), you may ask for at most two documents per category, and you must offer two ways to apply, one free and not through a third-party platform. Rent bidding is banned: you can't seek or accept more than the advertised rent, or more than 2 weeks (periodic) or 1 month (fixed term) in advance.",
+       "payload": {
+        "task": "Advertise a fixed rent and use the approved application form",
+        "checklists": [
+         "rent.qld_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rental_applications",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_bidding_and_dates",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Looking for a tenant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Already tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_lodgement",
+     "title": "Bond lodged with the RTA",
+     "condition": {
+      "all": [
+       {
+        "fact": "rent.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "rent.bond_lodged",
+        "op": "in",
+        "value": [
+         "no",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Make sure the bond is lodged with the RTA",
+       "detail": "A bond taken for a Queensland tenancy must be lodged with the Residential Tenancies Authority within 10 days (online or with Form 2), and it is an offence not to. The bond is at most 4 weeks' rent. If you are not sure it was lodged, check with the RTA or your property manager.",
+       "payload": {
+        "approval": {
+         "kind": "BOND_LODGEMENT",
+         "authority": "Residential Tenancies Authority",
+         "pathway": "RTA Web Services or Form 2, within 10 days"
+        },
+        "task": "Check the bond is lodged with the RTA"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bond_lodgement",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not lodged",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Lodged",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No bond",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "no_bond"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Bond not answered",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "minimum_housing_standards",
+     "title": "Minimum housing standards",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "QLD"
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make sure the property meets the minimum housing standards",
+       "detail": "Every Queensland rental must meet the minimum housing standards when the tenant moves in and throughout the tenancy: weatherproof and structurally sound, in good repair, secure, free of vermin, damp and mould, with privacy coverings, working plumbing with hot and cold water, a private bathroom and a working cook-top if there is a kitchen. Repairs needed to meet them are emergency repairs.",
+       "payload": {
+        "task": "Walk through the minimum housing standards",
+        "checklists": [
+         "rent.qld_minimum_standards"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "minimum_standards",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_bidding_and_dates",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Queensland rental",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian rental",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms",
+     "title": "Smoke alarms in the rental",
+     "condition": {
+      "any": [
+       {
+        "fact": "rent.smoke_alarms",
+        "op": "not_contains",
+        "value": "photoelectric"
+       },
+       {
+        "fact": "rent.smoke_alarms",
+        "op": "not_contains",
+        "value": "interconnected"
+       },
+       {
+        "fact": "rent.smoke_alarms",
+        "op": "contains",
+        "value": "ionisation"
+       },
+       {
+        "all": [
+         {
+          "fact": "rent.smoke_alarms",
+          "op": "not_contains",
+          "value": "hardwired"
+         },
+         {
+          "fact": "rent.smoke_alarms",
+          "op": "not_contains",
+          "value": "ten_year_battery"
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Your smoke alarms may not meet the standard for a leased home",
+       "detail": "A dwelling leased since 1 January 2022 needs interconnected photoelectric smoke alarms (AS 3786-2014, no ionisation), hardwired or with a 10-year sealed battery, on each storey, in every bedroom and in hallways connecting bedrooms. From what you told us, at least one of these may be missing.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician",
+         "electrician"
+        ],
+        "task": "Have the smoke alarms checked against the standard",
+        "checklists": [
+         "rent.qld_smoke_alarms"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Test and clean the smoke alarms before each tenancy",
+       "detail": "Your alarms sound like the right type. Test and clean them, and replace flat batteries, within 30 days before each tenancy starts or is renewed; give 48 hours' notice to enter for alarm work.",
+       "payload": {
+        "checklists": [
+         "rent.qld_smoke_alarms"
+        ]
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "WARNING",
+       "title": "Check what type of smoke alarms the property has",
+       "detail": "Leased dwellings need interconnected photoelectric smoke alarms that are hardwired or have a 10-year sealed battery. Tell us what you know, or have them checked.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ],
+        "checklists": [
+         "rent.qld_smoke_alarms"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_alarms_sold_leased",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rental_smoke_alarms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Compliant",
+       "facts": {
+        "rent.smoke_alarms": [
+         "photoelectric",
+         "interconnected",
+         "hardwired"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Compliant, battery",
+       "facts": {
+        "rent.smoke_alarms": [
+         "photoelectric",
+         "interconnected",
+         "ten_year_battery"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not interconnected",
+       "facts": {
+        "rent.smoke_alarms": [
+         "photoelectric",
+         "hardwired"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Some ionisation",
+       "facts": {
+        "rent.smoke_alarms": [
+         "photoelectric",
+         "ionisation",
+         "interconnected",
+         "hardwired"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Removable batteries",
+       "facts": {
+        "rent.smoke_alarms": [
+         "photoelectric",
+         "interconnected"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_safety_on_lease",
+     "title": "Pool safety certificate before leasing",
+     "condition": {
+      "all": [
+       {
+        "fact": "rent.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "rent.pool_certificate",
+        "op": "in",
+        "value": [
+         "no",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Get a pool safety certificate before the lease is signed",
+       "detail": "For a rental with its own regulated pool, you must not enter into a tenancy agreement unless a pool safety certificate is in effect (2 years for a non-shared pool). For a shared pool, such as a body corporate pool, give the tenant and the pool owner a copy of the current certificate or lodge a Form 36.",
+       "payload": {
+        "approval": {
+         "kind": "POOL_SAFETY_CERTIFICATE",
+         "authority": "Queensland Building and Construction Commission",
+         "pathway": "Inspection by a licensed pool safety inspector"
+        },
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Get a pool safety certificate before the next lease"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check the pool safety certificate",
+       "detail": "A rental with a pool needs a current pool safety certificate before a lease is signed. Tell us whether you have one.",
+       "payload": {
+        "approval": {
+         "kind": "POOL_SAFETY_CERTIFICATE",
+         "authority": "Queensland Building and Construction Commission",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_lease",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Certificate not answered",
+       "facts": {
+        "rent.has_pool": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_certificate_current",
+     "title": "Keeping the pool safety certificate current",
+     "condition": {
+      "all": [
+       {
+        "fact": "rent.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "rent.pool_certificate",
+        "op": "equals",
+        "value": "yes"
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Keep the pool safety certificate current for each new lease",
+       "detail": "A pool safety certificate lasts 2 years for a non-shared pool and 1 year for a shared pool. Check it will still be in effect when the next tenancy agreement is signed, and keep the barrier compliant at all times.",
+       "payload": {
+        "task": "Note the pool safety certificate's expiry date"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_lease",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pool_sale",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "rent_increases",
+     "title": "Rent increases",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Rent can rise at most once every 12 months, with 2 months' notice",
+       "detail": "Rent can't be increased until at least 12 months after the current rent became payable, even if the tenant, agreement or owner has changed since. Give at least 2 months' written notice; during a fixed term the agreement must also provide for the increase.",
+       "payload": {
+        "task": "Diary the earliest date the rent can next change"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_increases",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_bidding_and_dates",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "entry_and_inspections",
+     "title": "Entry notices and routine inspections",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Give an entry notice before you visit",
+       "detail": "Use an Entry notice (Form 9): 7 days for a routine inspection, at most once every 3 months, and 48 hours for repairs, smoke alarms or a valuation. Entry is between 8am and 6pm Monday to Saturday unless the tenant agrees otherwise."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "entry_rules",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "known_repairs",
+     "title": "Known repairs",
+     "condition": {
+      "fact": "rent.known_repairs",
+      "op": "exists"
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Sort the known repairs into emergency and routine",
+       "detail": "Emergency repairs, such as a burst pipe, a broken toilet, a gas leak, a dangerous electrical fault, no hot water or anything needed to meet the minimum housing standards, must be done urgently, and the tenant can arrange them up to 4 weeks' rent if you can't be reached. Other repairs are routine repairs.",
+       "payload": {
+        "referral_categories": [
+         "plumber",
+         "electrician",
+         "builder"
+        ],
+        "task": "Arrange the known repairs",
+        "checklists": [
+         "rent.qld_minimum_standards"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "emergency_repairs",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "minimum_standards",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Repairs listed",
+       "facts": {
+        "rent.known_repairs": "Leaking tap in the laundry"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None listed",
+       "facts": {},
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "end_of_tenancy",
+     "title": "Ending the tenancy and the bond",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "At the end: exit condition report and the bond refund",
+       "detail": "When the tenancy ends the tenant completes an Exit condition report (Form 14a) to compare with the entry report; you add comments and send a copy within three business days. The bond is refunded through the RTA (Form 4); if you claim against it, give the tenant your evidence within 14 days.",
+       "payload": {
+        "checklists": [
+         "rent.qld_end_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exit_condition_report",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_refund",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "self_managed",
+     "title": "Managing the tenancy yourself",
+     "condition": {
+      "fact": "rent.managed_by",
+      "op": "equals",
+      "value": "self"
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "REFERRAL_CATEGORY",
+       "title": "A property manager can handle the tenancy paperwork",
+       "detail": "As a self-managing owner, you prepare the agreement and condition reports, lodge the bond, give entry notices and act as (or nominate) the emergency repairer. A property manager can do this for you.",
+       "payload": {
+        "referral_categories": [
+         "property_manager"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "tenancy_agreement",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_lodgement",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Self-managed",
+       "facts": {
+        "rent.managed_by": "self"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Agent",
+       "facts": {
+        "rent.managed_by": "agent"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

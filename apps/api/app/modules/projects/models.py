@@ -163,8 +163,12 @@ class Task(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, SoftDeleteMixin,
 
 
 class Reminder(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantMixin, Base):
-    """A scheduled nudge about a project (or one of its tasks). Delivery by the scheduler
-    arrives with notifications; until then reminders are stored and listed."""
+    """A scheduled nudge about a project (or one of its tasks), delivered by the scheduler as
+    a notification (and an email for the ``EMAIL`` channel) once ``fires_at`` passes.
+
+    System reminders (Milestone 11) are kept in step with the dates they come from (a lease
+    end, a certificate expiry): ``source_key`` names that date, e.g.
+    ``tenancy:<id>:end:60``, and they may have no project (a vessel certificate)."""
 
     __tablename__ = "reminder"
     __table_args__ = (
@@ -173,7 +177,11 @@ class Reminder(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantMixin,
         enum_check("channel", ReminderChannel),
         enum_check("status", ReminderStatus),
         enum_check("recurrence", Recurrence, nullable=True),
+        CheckConstraint(
+            "project_id IS NOT NULL OR source_key IS NOT NULL", name="project_or_system"
+        ),
         Index("ix_reminder_project_id", "project_id"),
+        Index("ix_reminder_source_key", "organisation_id", "source_key"),
         Index(
             "ix_reminder_due",
             "fires_at",
@@ -181,7 +189,7 @@ class Reminder(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantMixin,
         ),
     )
 
-    project_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    project_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
     task_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
     recipient_user_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="CASCADE"), nullable=False
@@ -197,3 +205,6 @@ class Reminder(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantMixin,
     )
     recurrence: Mapped[str | None] = mapped_column(Text)
     sent_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    source_key: Mapped[str | None] = mapped_column(String(200))
+    body: Mapped[str | None] = mapped_column(String(1000))
+    link_path: Mapped[str | None] = mapped_column(String(300))

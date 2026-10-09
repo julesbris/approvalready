@@ -127,12 +127,19 @@ class ReminderCreate(_In):
 
 class ReminderOut(BaseModel):
     id: uuid.UUID
-    project_id: uuid.UUID
+    project_id: uuid.UUID | None
     task_id: uuid.UUID | None
     recipient_user_id: uuid.UUID
     title: str
+    body: str | None = None
     fires_at: datetime
     channel: str
     status: str
     recurrence: str | None
+    sent_at: datetime | None = None
+    source_key: str | None = Field(
+        default=None,
+        description="Set on reminders kept in step with a date (a lease end, a settlement); "
+        "they change when that date does.",
+    )
     created_at: datetime

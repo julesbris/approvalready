@@ -1,0 +1,93 @@
+{
+  "key": "rent.qld_start_of_tenancy",
+  "vertical": "RENT",
+  "title": "Starting a Queensland tenancy",
+  "description": "The paperwork for a new general tenancy (house, unit or townhouse) in Queensland, from choosing a tenant to lodging the bond. Summarised from RTA and Department of Housing and Public Works pages.",
+  "sources": [
+    {
+      "title": "Applying for a rental property – property managers and owners",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/forms-resources/factsheets/applying-for-a-rental-property-property-managers-and-owners"
+    },
+    {
+      "title": "Rental law changes",
+      "organisation": "Department of Housing and Public Works (Queensland)",
+      "url": "https://www.hpw.qld.gov.au/what-we-do/housing/advice/renting/legislation"
+    },
+    {
+      "title": "General tenancy agreements fact sheet",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/forms-resources/factsheets/general-tenancy-agreements-fact-sheet"
+    },
+    {
+      "title": "Entry condition report",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/starting-a-tenancy/entry-condition-report"
+    },
+    {
+      "title": "Rental bond",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/starting-a-tenancy/rental-bond"
+    }
+  ],
+  "items": [
+    {
+      "key": "advertise_fixed_rent",
+      "title": "Advertise a fixed rent and don't seek or accept offers above it"
+    },
+    {
+      "key": "approved_application",
+      "title": "Take applications on the approved form (Form 22) and ask for no more than two documents per category"
+    },
+    {
+      "key": "application_methods",
+      "title": "Offer at least two ways to apply, one of them free and not through a third-party platform"
+    },
+    {
+      "key": "destroy_applications",
+      "title": "Securely destroy unsuccessful applicants' information within three months of the tenancy starting"
+    },
+    {
+      "key": "agreement",
+      "title": "Prepare the General tenancy agreement (Form 18a) and give it to the tenant before they sign, with any body corporate by-laws"
+    },
+    {
+      "key": "nominated_repairer",
+      "title": "Name yourself or a nominated repairer for emergency repairs in the agreement"
+    },
+    {
+      "key": "rent_payment",
+      "title": "Offer at least two ways to pay rent"
+    },
+    {
+      "key": "last_rent_increase",
+      "title": "Record the date of the last rent increase in the agreement"
+    },
+    {
+      "key": "signed_copy",
+      "title": "Give the tenant a copy of the signed agreement within 14 days"
+    },
+    {
+      "key": "entry_condition_report",
+      "title": "Complete and sign the Entry condition report (Form 1a), with photos, and give it to the tenant at the start"
+    },
+    {
+      "key": "ecr_return",
+      "title": "Send the tenant a signed copy of the completed report within 14 days of getting it back"
+    },
+    {
+      "key": "bond_receipt",
+      "title": "Take a bond of no more than 4 weeks' rent and give a receipt",
+      "required": false
+    },
+    {
+      "key": "bond_lodge",
+      "title": "Lodge the bond with the RTA within 10 days",
+      "required": false
+    },
+    {
+      "key": "keys",
+      "title": "Give the tenant keys for every lock and make sure the home is reasonably secure"
+    }
+  ]
+}

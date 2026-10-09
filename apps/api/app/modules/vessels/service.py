@@ -25,6 +25,7 @@ from app.modules.audit.service import RequestMeta
 from app.modules.documents import service as documents
 from app.modules.entities import service as entities
 from app.modules.entities.models import Vessel
+from app.modules.notifications import reminders
 from app.modules.projects.models import Project, Vertical
 from app.modules.vessels import sms
 from app.modules.vessels.models import SafetyManagementSystem, VesselCertificate
@@ -49,6 +50,18 @@ def certificate_state(certificate: VesselCertificate, today: date | None = None)
     if certificate.expires_on <= today + timedelta(days=EXPIRING_WITHIN_DAYS):
         return CertificateState.EXPIRING
     return CertificateState.CURRENT
+
+
+# Reminders before a certificate expires (our nudges, not deadlines set by a regulator).
+REMIND_DAYS_BEFORE = (60, 14)
+
+CERTIFICATE_LABELS = {
+    "CERTIFICATE_OF_SURVEY": "certificate of survey",
+    "CERTIFICATE_OF_OPERATION": "certificate of operation",
+    "EXEMPTION": "exemption",
+    "STATE_REGISTRATION": "registration",
+    "OTHER": "certificate",
+}
 
 
 # --- Certificates ----------------------------------------------------------------------
@@ -144,7 +157,49 @@ async def add_certificate(
     db.add(certificate)
     await db.flush()
     await _audit_certificate(db, "added", certificate, actor_id=actor_id, meta=meta)
+    await _sync_reminders(db, certificate, actor_id)
     return certificate
+
+
+async def _sync_reminders(
+    db: AsyncSession, certificate: VesselCertificate, actor_id: uuid.UUID
+) -> None:
+    """Remind the person who last saved the certificate before it expires."""
+    prefix = f"vessel_certificate:{certificate.id}:expiry:"
+    if certificate.deleted_at is not None:
+        await reminders.cancel(db, certificate.organisation_id, prefix)
+        return
+    vessel = await db.get(Vessel, certificate.vessel_id)
+    label = certificate.title or CERTIFICATE_LABELS.get(certificate.kind, "certificate")
+    when = certificate.expires_on.strftime("%-d %B %Y") if certificate.expires_on else ""
+    project_id = (
+        await db.execute(
+            select(Project.id)
+            .where(
+                Project.organisation_id == certificate.organisation_id,
+                Project.vessel_id == certificate.vessel_id,
+                Project.deleted_at.is_(None),
+            )
+            .order_by(Project.updated_at.desc())
+            .limit(1)
+        )
+    ).scalar_one_or_none()
+    await reminders.sync(
+        db,
+        certificate.organisation_id,
+        prefix,
+        reminders.before(
+            prefix,
+            certificate.expires_on,
+            REMIND_DAYS_BEFORE,
+            f"{vessel.name if vessel else 'Your vessel'}: {label} expires {when}",
+            "Renewing can take time. Check what the issuer needs and book any survey early.",
+        ),
+        recipient_user_id=actor_id,
+        project_id=None,
+        link_path=f"/projects/{project_id}" if project_id else "/projects",
+        actor_id=actor_id,
+    )
 
 
 async def update_certificate(
@@ -169,6 +224,7 @@ async def update_certificate(
         await _audit_certificate(
             db, "updated", certificate, actor_id=actor_id, meta=meta, fields=changed
         )
+        await _sync_reminders(db, certificate, actor_id)
     return certificate
 
 
@@ -182,6 +238,7 @@ async def delete_certificate(
     certificate.deleted_at = datetime.now(UTC)
     await db.flush()
     await _audit_certificate(db, "deleted", certificate, actor_id=actor_id, meta=meta)
+    await _sync_reminders(db, certificate, actor_id)
 
 
 # --- Safety management system ----------------------------------------------------------

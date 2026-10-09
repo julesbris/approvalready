@@ -11,9 +11,14 @@ from datetime import UTC, datetime
 from typing import Any
 
 from celery import Celery
+from celery.schedules import crontab
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+from sqlalchemy.pool import NullPool
 
 from app.core.config import get_settings
+from app.core.email import create_email_provider
 from app.modules.documents import jobs
+from app.modules.notifications import delivery
 
 settings = get_settings()
 
@@ -34,11 +39,19 @@ celery_app.conf.update(
     result_expires=3600,
     broker_connection_retry_on_startup=True,
     task_default_queue="default",
-    # Periodic jobs (reminders, subscription grace expiry, lead expiry, source review
-    # due dates) are registered here as their milestones land.
+    # Periodic jobs (subscription grace expiry, lead expiry) are registered here as their
+    # milestones land. Crontab times are Brisbane time (``timezone`` above).
     beat_schedule={
         "system-heartbeat": {"task": "system.heartbeat", "schedule": 300.0},
         "documents-requeue-stalled": {"task": "documents.requeue_stalled", "schedule": 600.0},
+        "notifications-deliver-reminders": {
+            "task": "notifications.deliver_reminders",
+            "schedule": 300.0,
+        },
+        "notifications-daily-alerts": {
+            "task": "notifications.daily_alerts",
+            "schedule": crontab(hour=7, minute=30),
+        },
     },
 )
 
@@ -117,3 +130,27 @@ def requeue_stalled() -> int:
         name = names[kind]
         celery_app.send_task(name, args=[organisation_id, target_id])
     return len(stalled)
+
+
+# --- Notifications (Milestone 11) ------------------------------------------------------
+
+
+async def _with_own_engine(job: delivery.Job) -> int:
+    engine = create_async_engine(settings.database_url, poolclass=NullPool)
+    try:
+        factory = async_sessionmaker[AsyncSession](engine, expire_on_commit=False)
+        return await job(factory, create_email_provider(settings), settings)
+    finally:
+        await engine.dispose()
+
+
+@celery_app.task(name="notifications.deliver_reminders")
+def deliver_reminders() -> int:
+    """Turn due reminders into notifications and emails (every 5 minutes)."""
+    return asyncio.run(_with_own_engine(delivery.deliver_due_reminders))
+
+
+@celery_app.task(name="notifications.daily_alerts")
+def daily_alerts() -> int:
+    """Sources due for review (staff) and grant rounds opening or closing (customers)."""
+    return asyncio.run(_with_own_engine(delivery.daily_alerts))

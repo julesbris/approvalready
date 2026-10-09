@@ -11,7 +11,7 @@
   task and outcome across all organisations, for staff. Totals only, no tenant rows.
 
 Revision ID: 0012
-Revises: 0010 (becomes 0011 once Milestone 11 is merged)
+Revises: 0011
 Create Date: 2026-10-10
 """
 
@@ -22,7 +22,7 @@ from alembic import op
 from sqlalchemy.dialects import postgresql
 
 revision: str = "0012"
-down_revision: str | None = "0010"
+down_revision: str | None = "0011"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

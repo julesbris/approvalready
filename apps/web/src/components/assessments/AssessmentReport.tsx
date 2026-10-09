@@ -22,7 +22,7 @@ import {
   uniqueSources,
 } from "@/lib/assessment";
 import { GrantMatches } from "@/components/assessments/GrantMatches";
-import { formatDateTime } from "@/lib/labels";
+import { formatDateTime, verticalName } from "@/lib/labels";
 import { formatDate } from "@/lib/questionnaire";
 import { type ReviewedFinding, applyOverrides } from "@/lib/review";
 
@@ -374,6 +374,32 @@ export function AssessmentReport({
           <p className="muted">
             These are kinds of professional, not recommendations of particular businesses.
           </p>
+        </section>
+      ) : null}
+
+      {(assessment.cross_sell ?? []).length > 0 ? (
+        <section className="panel" aria-labelledby="cross-sell-title">
+          <h2 id="cross-sell-title" className="section-title">
+            You might also need
+          </h2>
+          <ul className="finding-list">
+            {(assessment.cross_sell ?? []).map((offer) => (
+              <li key={offer.vertical} className="card">
+                <p className="card-title">{offer.title}</p>
+                {offer.detail ? <p>{offer.detail}</p> : null}
+                {projectId ? (
+                  <Link
+                    className="button button-secondary"
+                    href={`/projects/new?vertical=${offer.vertical}`}
+                  >
+                    Start a {verticalName(offer.vertical)} project
+                  </Link>
+                ) : (
+                  <p className="muted">Suggests {verticalName(offer.vertical)}.</p>
+                )}
+              </li>
+            ))}
+          </ul>
         </section>
       ) : null}
 

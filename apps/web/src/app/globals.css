@@ -941,3 +941,70 @@ fieldset.question {
   white-space: pre-wrap;
   font-size: 0.875rem;
 }
+
+/* --- PropertyReady (Milestone 11) --- */
+
+.room-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 16px;
+}
+
+.inspection-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.inspection-item {
+  display: grid;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ar-border);
+}
+
+.inspection-item-name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.condition-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.condition-buttons .button {
+  min-height: 44px;
+  padding-inline: 14px;
+}
+
+.photo-input {
+  cursor: pointer;
+}
+
+.notification-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.notification {
+  padding: 12px;
+  border: 1px solid var(--ar-border);
+  border-radius: 6px;
+}
+
+.notification-unread {
+  border-color: var(--ar-accent);
+}
+
+.notification-title {
+  margin: 0 0 4px;
+  font-weight: 600;
+}
