@@ -13,9 +13,14 @@ prose:
   "evidence": [{"kind": "SITE_PLAN", "title": "Site plan showing 3 car parks"}],
   "referral_categories": ["town_planner"],
   "task": "Confirm the level of assessment with council",
-  "checklists": ["vessel.initial_survey"]
+  "checklists": ["vessel.initial_survey"],
+  "cross_sell": ["RENT"]
 }
 ```
+
+``cross_sell`` names other products the customer may need next (a seller with a tenant may
+need RentReady until settlement); the outcome's title and detail say why. It is only allowed
+on ``CROSS_SELL`` outcomes, so an offer is always a finding of its own, with its own sources.
 
 An approval's certainty defaults from the outcome type (``APPROVAL_REQUIRED`` → required,
 ``APPROVAL_LIKELY`` → likely required, ``NOT_REQUIRED`` → not identified) and may only be
@@ -30,6 +35,7 @@ from typing import Annotated, Any
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, ValidationError
 
 from app.modules.checklists.definition import CHECKLIST_KEY_PATTERN
+from app.modules.projects.models import Vertical
 from app.modules.rules.models import KEY_PATTERN, OutcomeType
 
 CODE_PATTERN = r"^[A-Z][A-Z0-9_]{1,59}$"
@@ -105,6 +111,11 @@ class OutcomePayload(_Strict):
         max_length=5,
         description="Reviewed checklists added to the project, e.g. vessel.initial_survey.",
     )
+    cross_sell: list[Vertical] = Field(
+        default_factory=list,
+        max_length=3,
+        description="Other products to suggest (CROSS_SELL outcomes only), e.g. RENT.",
+    )
 
 
 def certainty_for(outcome_type: str, spec: ApprovalSpec) -> Certainty:
@@ -135,6 +146,10 @@ def validate_payload(outcome_type: str, payload: dict[str, Any] | None) -> dict[
         raise ValueError("referral_categories: list each category once.")
     if len(set(parsed.checklists)) != len(parsed.checklists):
         raise ValueError("checklists: list each checklist once.")
+    if parsed.cross_sell and outcome_type != OutcomeType.CROSS_SELL:
+        raise ValueError("cross_sell: only a cross_sell outcome can suggest another product.")
+    if len(set(parsed.cross_sell)) != len(parsed.cross_sell):
+        raise ValueError("cross_sell: list each product once.")
     dumped = parsed.model_dump(mode="json", exclude_defaults=True)
     return dumped or None
 

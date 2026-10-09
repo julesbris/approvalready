@@ -15,6 +15,7 @@ from app.modules.assessments.schemas import (
     ApprovalRequirementOut,
     AssessmentOut,
     AssessmentSummary,
+    CrossSellOut,
     EvidenceRequirementOut,
     FindingOut,
     FindingSourceOut,
@@ -66,6 +67,25 @@ async def _referral_categories(
         )
         for k, ids in by_key.items()
     ]
+
+
+def _cross_sell(findings: list[AssessmentFinding]) -> list[CrossSellOut]:
+    offers: dict[str, CrossSellOut] = {}
+    for f in findings:
+        if f.outcome_type != "CROSS_SELL" or f.title is None:
+            continue
+        for vertical in parse_payload(f.payload).cross_sell:
+            offers.setdefault(
+                vertical,
+                CrossSellOut(
+                    vertical=vertical,
+                    title=f.title,
+                    detail=f.detail,
+                    finding_id=f.id,
+                    confidence=f.confidence,
+                ),
+            )
+    return list(offers.values())
 
 
 def _limitations(a: Assessment) -> list[str]:
@@ -120,6 +140,7 @@ async def assessment_detail(
         ],
         referral_categories=await _referral_categories(db, findings),
         limitations=_limitations(a),
+        cross_sell=_cross_sell(findings),
         grant_matches=[
             grants_router.match_out(m, v) for m, v in await grants.matches_for(db, a.id)
         ],

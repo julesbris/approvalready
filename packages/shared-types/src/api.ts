@@ -1231,6 +1231,62 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/inspection-items/{item_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Remove Item */
+        delete: operations["remove_item_v1_organisations__organisation_id__inspection_items__item_id__delete"];
+        options?: never;
+        head?: never;
+        /**
+         * Update Item
+         * @description Record an item's condition, notes and photos (clean uploads on the project).
+         */
+        patch: operations["update_item_v1_organisations__organisation_id__inspection_items__item_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/inspections/{inspection_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Inspection */
+        get: operations["get_inspection_v1_organisations__organisation_id__inspections__inspection_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Inspection */
+        patch: operations["update_inspection_v1_organisations__organisation_id__inspections__inspection_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/inspections/{inspection_id}/items": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add Item */
+        post: operations["add_item_v1_organisations__organisation_id__inspections__inspection_id__items_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/invitations": {
         parameters: {
             query?: never;
@@ -1327,6 +1383,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/maintenance-items/{item_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Maintenance */
+        patch: operations["update_maintenance_v1_organisations__organisation_id__maintenance_items__item_id__patch"];
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/members": {
         parameters: {
             query?: never;
@@ -1375,6 +1448,60 @@ export interface paths {
         /** Set Member Roles */
         put: operations["set_member_roles_v1_organisations__organisation_id__members__member_id__roles_put"];
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/notifications": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Notifications
+         * @description Newest first, with the number still unread.
+         */
+        get: operations["list_notifications_v1_organisations__organisation_id__notifications_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/notifications/read-all": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Mark All Read */
+        post: operations["mark_all_read_v1_organisations__organisation_id__notifications_read_all_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/notifications/{notification_id}/read": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Mark Read */
+        post: operations["mark_read_v1_organisations__organisation_id__notifications__notification_id__read_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1533,6 +1660,111 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Rental */
+        get: operations["get_rental_v1_organisations__organisation_id__projects__project_id__rental_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * Update Rental
+         * @description The rental's details and listing. Advertising needs a fixed rent.
+         */
+        patch: operations["update_rental_v1_organisations__organisation_id__projects__project_id__rental_patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental/applications": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Applications
+         * @description In the order received. No scores or rankings.
+         */
+        get: operations["list_applications_v1_organisations__organisation_id__projects__project_id__rental_applications_get"];
+        put?: never;
+        /** Add Application */
+        post: operations["add_application_v1_organisations__organisation_id__projects__project_id__rental_applications_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental/inspections": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Inspections */
+        get: operations["list_inspections_v1_organisations__organisation_id__projects__project_id__rental_inspections_get"];
+        put?: never;
+        /**
+         * Add Inspection
+         * @description Schedule an inspection with a room-by-room list to fill in on a phone.
+         */
+        post: operations["add_inspection_v1_organisations__organisation_id__projects__project_id__rental_inspections_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental/maintenance": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Maintenance
+         * @description Open items first (emergencies at the top), then closed ones.
+         */
+        get: operations["list_maintenance_v1_organisations__organisation_id__projects__project_id__rental_maintenance_get"];
+        put?: never;
+        /** Add Maintenance */
+        post: operations["add_maintenance_v1_organisations__organisation_id__projects__project_id__rental_maintenance_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/rental/tenancies": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Tenancies */
+        get: operations["list_tenancies_v1_organisations__organisation_id__projects__project_id__rental_tenancies_get"];
+        put?: never;
+        /**
+         * Add Tenancy
+         * @description Record a tenancy (an existing one, or one not from an application here).
+         */
+        post: operations["add_tenancy_v1_organisations__organisation_id__projects__project_id__rental_tenancies_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/projects/{project_id}/reviews": {
         parameters: {
             query?: never;
@@ -1548,6 +1780,126 @@ export interface paths {
          * @description Ask a professional to check the project's latest assessment.
          */
         post: operations["request_review_v1_organisations__organisation_id__projects__project_id__reviews_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Sale */
+        get: operations["get_sale_v1_organisations__organisation_id__projects__project_id__sale_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * Update Sale
+         * @description Change the sale's details or move it to another status (``next_statuses``).
+         */
+        patch: operations["update_sale_v1_organisations__organisation_id__projects__project_id__sale_patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/disclosure": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Give Disclosure
+         * @description Record that the documents marked for disclosure were given to a buyer.
+         */
+        post: operations["give_disclosure_v1_organisations__organisation_id__projects__project_id__sale_disclosure_post"];
+        /**
+         * Reopen Disclosure
+         * @description Undo "given" or "not needed" so the disclosure can be changed (not once under
+         *     contract).
+         */
+        delete: operations["reopen_disclosure_v1_organisations__organisation_id__projects__project_id__sale_disclosure_delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/disclosure/not-needed": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Disclosure Not Needed */
+        post: operations["disclosure_not_needed_v1_organisations__organisation_id__projects__project_id__sale_disclosure_not_needed_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Documents */
+        get: operations["list_documents_v1_organisations__organisation_id__projects__project_id__sale_documents_get"];
+        put?: never;
+        /**
+         * Add Document
+         * @description File one of the project's uploads in the vault.
+         */
+        post: operations["add_document_v1_organisations__organisation_id__projects__project_id__sale_documents_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/enquiries": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Enquiries */
+        get: operations["list_enquiries_v1_organisations__organisation_id__projects__project_id__sale_enquiries_get"];
+        put?: never;
+        /** Add Enquiry */
+        post: operations["add_enquiry_v1_organisations__organisation_id__projects__project_id__sale_enquiries_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sale/offers": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Offers */
+        get: operations["list_offers_v1_organisations__organisation_id__projects__project_id__sale_offers_get"];
+        put?: never;
+        /** Add Offer */
+        post: operations["add_offer_v1_organisations__organisation_id__projects__project_id__sale_offers_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1776,6 +2128,64 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/sale-documents/{document_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /**
+         * Remove Document
+         * @description Take a file out of the vault (the upload itself stays in the project's documents).
+         */
+        delete: operations["remove_document_v1_organisations__organisation_id__sale_documents__document_id__delete"];
+        options?: never;
+        head?: never;
+        /** Update Document */
+        patch: operations["update_document_v1_organisations__organisation_id__sale_documents__document_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/sale-enquiries/{enquiry_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Enquiry */
+        patch: operations["update_enquiry_v1_organisations__organisation_id__sale_enquiries__enquiry_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/sale-offers/{offer_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * Update Offer
+         * @description Change an offer; accepting one puts a listed sale under offer.
+         */
+        patch: operations["update_offer_v1_organisations__organisation_id__sale_offers__offer_id__patch"];
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/submissions/{submission_id}": {
         parameters: {
             query?: never;
@@ -1859,6 +2269,60 @@ export interface paths {
         put?: never;
         /** Submit Answers */
         post: operations["submit_answers_v1_organisations__organisation_id__submissions__submission_id__submit_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/tenancies/{tenancy_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Tenancy */
+        patch: operations["update_tenancy_v1_organisations__organisation_id__tenancies__tenancy_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/tenant-applications/{application_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Application */
+        patch: operations["update_application_v1_organisations__organisation_id__tenant_applications__application_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/tenant-applications/{application_id}/tenancy": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Tenancy From Application
+         * @description Approve the application and record the tenancy it leads to.
+         */
+        post: operations["tenancy_from_application_v1_organisations__organisation_id__tenant_applications__application_id__tenancy_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -2384,6 +2848,92 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /** ApplicationCheckOut */
+        ApplicationCheckOut: {
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /**
+             * Provided
+             * @description Null until someone has looked.
+             */
+            provided: boolean | null;
+        };
+        /** ApplicationCreate */
+        ApplicationCreate: {
+            /** Applicant Contact */
+            applicant_contact?: string | null;
+            /** Applicant Name */
+            applicant_name: string;
+            /** Household Size */
+            household_size?: number | null;
+            /** Notes */
+            notes?: string | null;
+            /** Preferred Start On */
+            preferred_start_on?: string | null;
+            /**
+             * Received On
+             * @description Defaults to today.
+             */
+            received_on?: string | null;
+        };
+        /** ApplicationOut */
+        ApplicationOut: {
+            /** Applicant Contact */
+            applicant_contact: string | null;
+            /** Applicant Name */
+            applicant_name: string;
+            /** Checks */
+            checks: components["schemas"]["ApplicationCheckOut"][];
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Household Size */
+            household_size: number | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Missing
+             * @description Labels of the documents not provided yet.
+             */
+            missing: string[];
+            /** Notes */
+            notes: string | null;
+            /** Preferred Start On */
+            preferred_start_on: string | null;
+            /**
+             * Received On
+             * Format: date
+             */
+            received_on: string;
+            status: components["schemas"]["ApplicationStatus"];
+            /** Tenancy Id */
+            tenancy_id: string | null;
+        };
+        /**
+         * ApplicationStatus
+         * @enum {string}
+         */
+        ApplicationStatus: "RECEIVED" | "SHORTLISTED" | "APPROVED" | "DECLINED" | "WITHDRAWN";
+        /** ApplicationUpdate */
+        ApplicationUpdate: {
+            /**
+             * Checks
+             * @description Check key → provided (true/false) or not looked at (null).
+             */
+            checks?: {
+                [key: string]: boolean | null;
+            } | null;
+            /** Notes */
+            notes?: string | null;
+            status?: components["schemas"]["ApplicationStatus"] | null;
+        };
         /** ApprovalMapEntryOut */
         ApprovalMapEntryOut: {
             /** Authority */
@@ -2444,6 +2994,11 @@ export interface components {
              * Format: date-time
              */
             created_at: string;
+            /**
+             * Cross Sell
+             * @description Other products the rules suggest (CROSS_SELL findings that matched), each product once.
+             */
+            cross_sell?: components["schemas"]["CrossSellOut"][];
             /** Engine Version */
             engine_version: string;
             /** Evidence Requirements */
@@ -3010,6 +3565,24 @@ export interface components {
          * @enum {string}
          */
         CredentialStatus: "UNVERIFIED" | "VERIFIED" | "REJECTED";
+        /** CrossSellOut */
+        CrossSellOut: {
+            confidence: components["schemas"]["Confidence"];
+            /** Detail */
+            detail: string | null;
+            /**
+             * Finding Id
+             * Format: uuid
+             */
+            finding_id: string;
+            /** Title */
+            title: string;
+            /**
+             * Vertical
+             * @description The product suggested, e.g. RENT.
+             */
+            vertical: string;
+        };
         /**
          * Decision
          * @enum {string}
@@ -3062,6 +3635,52 @@ export interface components {
          * @enum {string}
          */
         Discipline: "TOWN_PLANNER" | "SURVEYOR" | "BUILDING_CERTIFIER" | "BUILDING_DESIGNER" | "ENGINEER" | "MARINE_SURVEYOR" | "LAWYER" | "ACCOUNTANT" | "GRANT_WRITER" | "OTHER";
+        /** DisclosureGive */
+        DisclosureGive: {
+            /**
+             * Given On
+             * Format: date
+             */
+            given_on: string;
+            /**
+             * Given To
+             * @description The buyer (or their representative) it was given to.
+             */
+            given_to: string;
+        };
+        /** DisclosureNotNeeded */
+        DisclosureNotNeeded: {
+            /**
+             * Note
+             * @description Why no disclosure is needed, e.g. what the rules said.
+             */
+            note: string;
+        };
+        /** DisclosureOut */
+        DisclosureOut: {
+            /**
+             * Changed Since Given
+             * @description Documents were added to or removed from the disclosure after it was given.
+             */
+            changed_since_given: boolean;
+            /**
+             * Document Ids
+             * @description Vault documents marked for disclosure.
+             */
+            document_ids: string[];
+            /** Given On */
+            given_on: string | null;
+            /** Given To */
+            given_to: string | null;
+            /** Not Needed Note */
+            not_needed_note: string | null;
+            state: components["schemas"]["DisclosureState"];
+        };
+        /**
+         * DisclosureState
+         * @enum {string}
+         */
+        DisclosureState: "NOT_STARTED" | "PREPARING" | "GIVEN" | "NOT_NEEDED";
         /** DocumentOut */
         DocumentOut: {
             /** @description SHARED_WITH_REVIEWER: the assigned professional reviewer can open it too. */
@@ -3108,10 +3727,71 @@ export interface components {
             email: string;
         };
         /**
+         * EmailStatus
+         * @enum {string}
+         */
+        EmailStatus: "NOT_REQUESTED" | "PENDING" | "SENT" | "FAILED";
+        /**
          * EmployeeBand
          * @enum {string}
          */
         EmployeeBand: "NONE" | "1_4" | "5_19" | "20_199" | "200_PLUS";
+        /** EnquiryCreate */
+        EnquiryCreate: {
+            /** Channel */
+            channel?: string | null;
+            /** Contact */
+            contact?: string | null;
+            /** Message */
+            message?: string | null;
+            /** Name */
+            name: string;
+            /**
+             * Received On
+             * @description Defaults to today.
+             */
+            received_on?: string | null;
+        };
+        /** EnquiryOut */
+        EnquiryOut: {
+            /** Channel */
+            channel: string | null;
+            /** Contact */
+            contact: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Message */
+            message: string | null;
+            /** Name */
+            name: string;
+            /** Notes */
+            notes: string | null;
+            /**
+             * Received On
+             * Format: date
+             */
+            received_on: string;
+            status: components["schemas"]["EnquiryStatus"];
+        };
+        /**
+         * EnquiryStatus
+         * @enum {string}
+         */
+        EnquiryStatus: "NEW" | "RESPONDED" | "CLOSED";
+        /** EnquiryUpdate */
+        EnquiryUpdate: {
+            /** Notes */
+            notes?: string | null;
+            status?: components["schemas"]["EnquiryStatus"] | null;
+        };
         /**
          * EntityType
          * @enum {string}
@@ -3527,6 +4207,143 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /** InspectionCreate */
+        InspectionCreate: {
+            kind: components["schemas"]["InspectionKind"];
+            /** Notes */
+            notes?: string | null;
+            /**
+             * Rooms
+             * @description Rooms to inspect; defaults from the rental's bedrooms and bathrooms.
+             */
+            rooms?: string[] | null;
+            /**
+             * Scheduled At
+             * Format: date-time
+             */
+            scheduled_at: string;
+            /** Tenancy Id */
+            tenancy_id?: string | null;
+        };
+        /** InspectionDetailOut */
+        InspectionDetailOut: {
+            /** Completed At */
+            completed_at: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Items */
+            items: components["schemas"]["InspectionItemOut"][];
+            /** Items Checked */
+            items_checked: number;
+            /** Items Total */
+            items_total: number;
+            kind: components["schemas"]["InspectionKind"];
+            /** Notes */
+            notes: string | null;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /**
+             * Scheduled At
+             * Format: date-time
+             */
+            scheduled_at: string;
+            status: components["schemas"]["InspectionStatus"];
+            /** Tenancy Id */
+            tenancy_id: string | null;
+        };
+        /** InspectionItemCreate */
+        InspectionItemCreate: {
+            /** Item */
+            item: string;
+            /** Room */
+            room: string;
+        };
+        /** InspectionItemOut */
+        InspectionItemOut: {
+            condition: components["schemas"]["ItemCondition"] | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Item */
+            item: string;
+            /** Notes */
+            notes: string | null;
+            /** Photo Document Ids */
+            photo_document_ids: string[];
+            /** Position */
+            position: number;
+            /** Room */
+            room: string;
+        };
+        /** InspectionItemUpdate */
+        InspectionItemUpdate: {
+            condition?: components["schemas"]["ItemCondition"] | null;
+            /** Notes */
+            notes?: string | null;
+            /** Photo Document Ids */
+            photo_document_ids?: string[] | null;
+        };
+        /**
+         * InspectionKind
+         * @enum {string}
+         */
+        InspectionKind: "ENTRY" | "ROUTINE" | "EXIT";
+        /** InspectionOut */
+        InspectionOut: {
+            /** Completed At */
+            completed_at: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Items Checked */
+            items_checked: number;
+            /** Items Total */
+            items_total: number;
+            kind: components["schemas"]["InspectionKind"];
+            /** Notes */
+            notes: string | null;
+            /**
+             * Scheduled At
+             * Format: date-time
+             */
+            scheduled_at: string;
+            status: components["schemas"]["InspectionStatus"];
+            /** Tenancy Id */
+            tenancy_id: string | null;
+        };
+        /**
+         * InspectionStatus
+         * @enum {string}
+         */
+        InspectionStatus: "SCHEDULED" | "IN_PROGRESS" | "COMPLETED" | "CANCELLED";
+        /** InspectionUpdate */
+        InspectionUpdate: {
+            /** Notes */
+            notes?: string | null;
+            /** Scheduled At */
+            scheduled_at?: string | null;
+            status?: components["schemas"]["InspectionStatus"] | null;
+        };
         /** InvitationAccept */
         InvitationAccept: {
             /** Token */
@@ -3565,10 +4382,20 @@ export interface components {
             roles: string[];
         };
         /**
+         * ItemCondition
+         * @enum {string}
+         */
+        ItemCondition: "GOOD" | "FAIR" | "POOR" | "DAMAGED" | "NOT_APPLICABLE";
+        /**
          * ItemStatus
          * @enum {string}
          */
         ItemStatus: "OPEN" | "DONE" | "NOT_APPLICABLE";
+        /**
+         * ListingStatus
+         * @enum {string}
+         */
+        ListingStatus: "NOT_LISTED" | "ADVERTISED" | "LEASED" | "WITHDRAWN";
         /** LiveResponse */
         LiveResponse: {
             /**
@@ -3587,6 +4414,97 @@ export interface components {
             email: string;
             /** Password */
             password: string;
+        };
+        /** MaintenanceCreate */
+        MaintenanceCreate: {
+            /** Detail */
+            detail?: string | null;
+            /** @default ROUTINE */
+            priority: components["schemas"]["MaintenancePriority"];
+            /** Reported By */
+            reported_by?: string | null;
+            /**
+             * Reported On
+             * @description Defaults to today.
+             */
+            reported_on?: string | null;
+            /** Tenancy Id */
+            tenancy_id?: string | null;
+            /** Title */
+            title: string;
+        };
+        /** MaintenanceOut */
+        MaintenanceOut: {
+            /** Cost Cents */
+            cost_cents: number | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Detail */
+            detail: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            priority: components["schemas"]["MaintenancePriority"];
+            /** Reported By */
+            reported_by: string | null;
+            /**
+             * Reported On
+             * Format: date
+             */
+            reported_on: string;
+            /** Resolved On */
+            resolved_on: string | null;
+            /** Scheduled On */
+            scheduled_on: string | null;
+            status: components["schemas"]["MaintenanceStatus"];
+            /** Tenancy Id */
+            tenancy_id: string | null;
+            /** Title */
+            title: string;
+            /** Tradesperson */
+            tradesperson: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /**
+         * MaintenancePriority
+         * @enum {string}
+         */
+        MaintenancePriority: "EMERGENCY" | "URGENT" | "ROUTINE";
+        /**
+         * MaintenanceStatus
+         * @enum {string}
+         */
+        MaintenanceStatus: "REPORTED" | "SCHEDULED" | "IN_PROGRESS" | "DONE" | "CANCELLED";
+        /** MaintenanceUpdate */
+        MaintenanceUpdate: {
+            /** Cost Cents */
+            cost_cents?: number | null;
+            /** Detail */
+            detail?: string | null;
+            priority?: components["schemas"]["MaintenancePriority"] | null;
+            /** Resolved On */
+            resolved_on?: string | null;
+            /** Scheduled On */
+            scheduled_on?: string | null;
+            status?: components["schemas"]["MaintenanceStatus"] | null;
+            /** Title */
+            title?: string | null;
+            /** Tradesperson */
+            tradesperson?: string | null;
+        };
+        /** MarkedReadOut */
+        MarkedReadOut: {
+            /** Marked */
+            marked: number;
         };
         /** MarketplaceCategoryOut */
         MarketplaceCategoryOut: {
@@ -3688,6 +4606,140 @@ export interface components {
             where_to_check: string | null;
             /** Why */
             why: string;
+        };
+        /**
+         * NotificationKind
+         * @enum {string}
+         */
+        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE";
+        /** NotificationListOut */
+        NotificationListOut: {
+            /** Items */
+            items: components["schemas"]["NotificationOut"][];
+            /** Unread */
+            unread: number;
+        };
+        /** NotificationOut */
+        NotificationOut: {
+            /** Body */
+            body: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            email_status: components["schemas"]["EmailStatus"];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            kind: components["schemas"]["NotificationKind"];
+            /** Link Path */
+            link_path: string | null;
+            /** Project Id */
+            project_id: string | null;
+            /** Read At */
+            read_at: string | null;
+            /** Title */
+            title: string;
+        };
+        /** OfferCreate */
+        OfferCreate: {
+            /** Amount Cents */
+            amount_cents: number;
+            /** Buyer Contact */
+            buyer_contact?: string | null;
+            /** Buyer Name */
+            buyer_name: string;
+            /** Conditions */
+            conditions?: string | null;
+            /** Deposit Cents */
+            deposit_cents?: number | null;
+            /** Expires At */
+            expires_at?: string | null;
+            /**
+             * Received On
+             * @description Defaults to today.
+             */
+            received_on?: string | null;
+            /** Settlement Days */
+            settlement_days?: number | null;
+            /**
+             * Subject To Finance
+             * @default false
+             */
+            subject_to_finance: boolean;
+            /**
+             * Subject To Inspection
+             * @default false
+             */
+            subject_to_inspection: boolean;
+        };
+        /** OfferOut */
+        OfferOut: {
+            /** Amount Cents */
+            amount_cents: number;
+            /** Buyer Contact */
+            buyer_contact: string | null;
+            /** Buyer Name */
+            buyer_name: string;
+            /** Conditions */
+            conditions: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Deposit Cents */
+            deposit_cents: number | null;
+            /** Expires At */
+            expires_at: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Received On
+             * Format: date
+             */
+            received_on: string;
+            /** Settlement Days */
+            settlement_days: number | null;
+            status: components["schemas"]["OfferStatus"];
+            /** Subject To Finance */
+            subject_to_finance: boolean;
+            /** Subject To Inspection */
+            subject_to_inspection: boolean;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /**
+         * OfferStatus
+         * @enum {string}
+         */
+        OfferStatus: "RECEIVED" | "COUNTERED" | "ACCEPTED" | "REJECTED" | "WITHDRAWN" | "LAPSED";
+        /** OfferUpdate */
+        OfferUpdate: {
+            /** Amount Cents */
+            amount_cents?: number | null;
+            /** Conditions */
+            conditions?: string | null;
+            /** Deposit Cents */
+            deposit_cents?: number | null;
+            /** Expires At */
+            expires_at?: string | null;
+            /** Settlement Days */
+            settlement_days?: number | null;
+            status?: components["schemas"]["OfferStatus"] | null;
+            /** Subject To Finance */
+            subject_to_finance?: boolean | null;
+            /** Subject To Inspection */
+            subject_to_inspection?: boolean | null;
         };
         /** OptionOut */
         OptionOut: {
@@ -4412,6 +5464,8 @@ export interface components {
         };
         /** ReminderOut */
         ReminderOut: {
+            /** Body */
+            body?: string | null;
             /** Channel */
             channel: string;
             /**
@@ -4429,11 +5483,8 @@ export interface components {
              * Format: uuid
              */
             id: string;
-            /**
-             * Project Id
-             * Format: uuid
-             */
-            project_id: string;
+            /** Project Id */
+            project_id: string | null;
             /**
              * Recipient User Id
              * Format: uuid
@@ -4441,12 +5492,93 @@ export interface components {
             recipient_user_id: string;
             /** Recurrence */
             recurrence: string | null;
+            /** Sent At */
+            sent_at?: string | null;
+            /**
+             * Source Key
+             * @description Set on reminders kept in step with a date (a lease end, a settlement); they change when that date does.
+             */
+            source_key?: string | null;
             /** Status */
             status: string;
             /** Task Id */
             task_id: string | null;
             /** Title */
             title: string;
+        };
+        /**
+         * RentPeriod
+         * @enum {string}
+         */
+        RentPeriod: "WEEK" | "FORTNIGHT" | "MONTH";
+        /** RentalOut */
+        RentalOut: {
+            /** Applications */
+            applications: number;
+            /** Available From */
+            available_from: string | null;
+            /** Bathrooms */
+            bathrooms: number | null;
+            /** Bedrooms */
+            bedrooms: number | null;
+            /** Current Tenancy Id */
+            current_tenancy_id: string | null;
+            /** Description */
+            description: string | null;
+            /** Furnished */
+            furnished: boolean | null;
+            /** Headline */
+            headline: string | null;
+            /**
+             * Id
+             * @description Null until the rental is first saved.
+             */
+            id: string | null;
+            listing_status: components["schemas"]["ListingStatus"];
+            /** Open Maintenance */
+            open_maintenance: number;
+            /** Parking */
+            parking: number | null;
+            /** Pets Considered */
+            pets_considered: boolean | null;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** Rent Cents */
+            rent_cents: number | null;
+            rent_period: components["schemas"]["RentPeriod"];
+            /** Upcoming Inspections */
+            upcoming_inspections: number;
+            /** Updated At */
+            updated_at: string | null;
+        };
+        /** RentalUpdate */
+        RentalUpdate: {
+            /** Available From */
+            available_from?: string | null;
+            /** Bathrooms */
+            bathrooms?: number | null;
+            /** Bedrooms */
+            bedrooms?: number | null;
+            /** Description */
+            description?: string | null;
+            /** Furnished */
+            furnished?: boolean | null;
+            /** Headline */
+            headline?: string | null;
+            listing_status?: components["schemas"]["ListingStatus"] | null;
+            /** Parking */
+            parking?: number | null;
+            /** Pets Considered */
+            pets_considered?: boolean | null;
+            /**
+             * Rent Cents
+             * @description The advertised rent: a fixed amount per rent period.
+             */
+            rent_cents?: number | null;
+            rent_period?: components["schemas"]["RentPeriod"] | null;
         };
         /** ResubmitIn */
         ResubmitIn: {
@@ -4939,6 +6071,115 @@ export interface components {
             status: components["schemas"]["RuleVersionStatus"];
             /** Version */
             version: number;
+        };
+        /** SaleDocumentCreate */
+        SaleDocumentCreate: {
+            category: components["schemas"]["VaultCategory"];
+            /**
+             * In Disclosure
+             * @default false
+             */
+            in_disclosure: boolean;
+            /** Title */
+            title?: string | null;
+            /**
+             * Uploaded Document Id
+             * Format: uuid
+             */
+            uploaded_document_id: string;
+        };
+        /** SaleDocumentOut */
+        SaleDocumentOut: {
+            category: components["schemas"]["VaultCategory"];
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Filename */
+            filename: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** In Disclosure */
+            in_disclosure: boolean;
+            /** Scan Status */
+            scan_status: string;
+            /** Size Bytes */
+            size_bytes: number;
+            /** Title */
+            title: string | null;
+            /**
+             * Uploaded Document Id
+             * Format: uuid
+             */
+            uploaded_document_id: string;
+        };
+        /** SaleDocumentUpdate */
+        SaleDocumentUpdate: {
+            category?: components["schemas"]["VaultCategory"] | null;
+            /** In Disclosure */
+            in_disclosure?: boolean | null;
+            /** Title */
+            title?: string | null;
+        };
+        /** SaleOut */
+        SaleOut: {
+            /** Asking Price Cents */
+            asking_price_cents: number | null;
+            /** Contract On */
+            contract_on: string | null;
+            disclosure: components["schemas"]["DisclosureOut"];
+            /**
+             * Id
+             * @description Null until the sale is first saved.
+             */
+            id: string | null;
+            /** Listed On */
+            listed_on: string | null;
+            /** Next Statuses */
+            next_statuses: components["schemas"]["SaleStatus"][];
+            /** Notes */
+            notes: string | null;
+            /** Offers */
+            offers: number;
+            /** Open Enquiries */
+            open_enquiries: number;
+            /** Price Guide */
+            price_guide: string | null;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** Settlement On */
+            settlement_on: string | null;
+            status: components["schemas"]["SaleStatus"];
+            /** Updated At */
+            updated_at: string | null;
+        };
+        /**
+         * SaleStatus
+         * @enum {string}
+         */
+        SaleStatus: "PREPARING" | "READY_TO_LIST" | "LISTED" | "UNDER_OFFER" | "UNDER_CONTRACT" | "SETTLED" | "WITHDRAWN";
+        /** SaleUpdate */
+        SaleUpdate: {
+            /** Asking Price Cents */
+            asking_price_cents?: number | null;
+            /** Contract On */
+            contract_on?: string | null;
+            /** Listed On */
+            listed_on?: string | null;
+            /** Notes */
+            notes?: string | null;
+            /** Price Guide */
+            price_guide?: string | null;
+            /** Settlement On */
+            settlement_on?: string | null;
+            status?: components["schemas"]["SaleStatus"] | null;
         };
         /**
          * ScanStatus
@@ -5592,6 +6833,131 @@ export interface components {
             /** Title */
             title?: string | null;
         };
+        /** TenancyCreate */
+        TenancyCreate: {
+            /** Bond Cents */
+            bond_cents?: number | null;
+            /** Bond Lodged On */
+            bond_lodged_on?: string | null;
+            /** Bond Reference */
+            bond_reference?: string | null;
+            /**
+             * End On
+             * @description Leave out for a periodic agreement.
+             */
+            end_on?: string | null;
+            /** Last Rent Increase On */
+            last_rent_increase_on?: string | null;
+            /** Next Rent Review On */
+            next_rent_review_on?: string | null;
+            /** Notes */
+            notes?: string | null;
+            /** Rent Cents */
+            rent_cents: number;
+            /** @default WEEK */
+            rent_period: components["schemas"]["RentPeriod"];
+            /**
+             * Start On
+             * Format: date
+             */
+            start_on: string;
+            /** Tenant Contact */
+            tenant_contact?: string | null;
+            /** Tenant Names */
+            tenant_names: string;
+        };
+        /** TenancyOut */
+        TenancyOut: {
+            /** Application Id */
+            application_id: string | null;
+            /** Bond Cents */
+            bond_cents: number | null;
+            /** Bond Lodged On */
+            bond_lodged_on: string | null;
+            /** Bond Reference */
+            bond_reference: string | null;
+            /**
+             * Bond To Lodge
+             * @description A bond was taken and no lodgement is recorded.
+             */
+            bond_to_lodge: boolean;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** End On */
+            end_on: string | null;
+            /** Ended On */
+            ended_on: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Last Rent Increase On */
+            last_rent_increase_on: string | null;
+            /** Next Rent Review On */
+            next_rent_review_on: string | null;
+            /** Notes */
+            notes: string | null;
+            /** Periodic */
+            periodic: boolean;
+            /** Rent Cents */
+            rent_cents: number;
+            rent_period: components["schemas"]["RentPeriod"];
+            /**
+             * Start On
+             * Format: date
+             */
+            start_on: string;
+            status: components["schemas"]["TenancyStatus"];
+            /** Tenant Contact */
+            tenant_contact: string | null;
+            /** Tenant Names */
+            tenant_names: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /**
+         * TenancyStatus
+         * @enum {string}
+         */
+        TenancyStatus: "UPCOMING" | "ACTIVE" | "ENDED";
+        /** TenancyUpdate */
+        TenancyUpdate: {
+            /** Bond Cents */
+            bond_cents?: number | null;
+            /** Bond Lodged On */
+            bond_lodged_on?: string | null;
+            /** Bond Reference */
+            bond_reference?: string | null;
+            /** End On */
+            end_on?: string | null;
+            /**
+             * Ended On
+             * @description When the tenant moved out.
+             */
+            ended_on?: string | null;
+            /** Last Rent Increase On */
+            last_rent_increase_on?: string | null;
+            /** Next Rent Review On */
+            next_rent_review_on?: string | null;
+            /** Notes */
+            notes?: string | null;
+            /** Rent Cents */
+            rent_cents?: number | null;
+            rent_period?: components["schemas"]["RentPeriod"] | null;
+            /** Start On */
+            start_on?: string | null;
+            /** Tenant Contact */
+            tenant_contact?: string | null;
+            /** Tenant Names */
+            tenant_names?: string | null;
+        };
         /** TestCaseIn */
         TestCaseIn: {
             expected_result: components["schemas"]["RuleResult"];
@@ -5677,6 +7043,11 @@ export interface components {
             /** Error Type */
             type: string;
         };
+        /**
+         * VaultCategory
+         * @enum {string}
+         */
+        VaultCategory: "DISCLOSURE_STATEMENT" | "TITLE_SEARCH" | "REGISTERED_PLAN" | "BODY_CORPORATE" | "POOL_SAFETY" | "SMOKE_ALARMS" | "BUILDING_APPROVAL" | "RATES_AND_WATER" | "PLANNING_AND_ZONING" | "TENANCY" | "CONTRACT" | "OTHER";
         /**
          * VerificationStatus
          * @enum {string}
@@ -8560,6 +9931,176 @@ export interface operations {
             };
         };
     };
+    remove_item_v1_organisations__organisation_id__inspection_items__item_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                item_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_item_v1_organisations__organisation_id__inspection_items__item_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                item_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["InspectionItemUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InspectionItemOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_inspection_v1_organisations__organisation_id__inspections__inspection_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                inspection_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InspectionDetailOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_inspection_v1_organisations__organisation_id__inspections__inspection_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                inspection_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["InspectionUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InspectionDetailOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_item_v1_organisations__organisation_id__inspections__inspection_id__items_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                inspection_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["InspectionItemCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InspectionItemOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_invitations_v1_organisations__organisation_id__invitations_get: {
         parameters: {
             query?: never;
@@ -8753,6 +10294,42 @@ export interface operations {
             };
         };
     };
+    update_maintenance_v1_organisations__organisation_id__maintenance_items__item_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                item_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MaintenanceUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MaintenanceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_members_v1_organisations__organisation_id__members_get: {
         parameters: {
             query?: never;
@@ -8837,6 +10414,103 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["MemberOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_notifications_v1_organisations__organisation_id__notifications_get: {
+        parameters: {
+            query?: {
+                unread_only?: boolean;
+                limit?: number;
+            };
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NotificationListOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    mark_all_read_v1_organisations__organisation_id__notifications_read_all_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarkedReadOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    mark_read_v1_organisations__organisation_id__notifications__notification_id__read_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                notification_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NotificationOut"];
                 };
             };
             /** @description Validation Error */
@@ -9348,6 +11022,346 @@ export interface operations {
             };
         };
     };
+    get_rental_v1_organisations__organisation_id__projects__project_id__rental_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RentalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_rental_v1_organisations__organisation_id__projects__project_id__rental_patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RentalUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RentalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_applications_v1_organisations__organisation_id__projects__project_id__rental_applications_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApplicationOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_application_v1_organisations__organisation_id__projects__project_id__rental_applications_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ApplicationCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApplicationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_inspections_v1_organisations__organisation_id__projects__project_id__rental_inspections_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InspectionOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_inspection_v1_organisations__organisation_id__projects__project_id__rental_inspections_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["InspectionCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InspectionDetailOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_maintenance_v1_organisations__organisation_id__projects__project_id__rental_maintenance_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MaintenanceOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_maintenance_v1_organisations__organisation_id__projects__project_id__rental_maintenance_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MaintenanceCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MaintenanceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_tenancies_v1_organisations__organisation_id__projects__project_id__rental_tenancies_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TenancyOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_tenancy_v1_organisations__organisation_id__projects__project_id__rental_tenancies_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TenancyCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TenancyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_reviews_v1_organisations__organisation_id__projects__project_id__reviews_get: {
         parameters: {
             query?: never;
@@ -9403,6 +11417,382 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_sale_v1_organisations__organisation_id__projects__project_id__sale_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SaleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_sale_v1_organisations__organisation_id__projects__project_id__sale_patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SaleUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SaleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    give_disclosure_v1_organisations__organisation_id__projects__project_id__sale_disclosure_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DisclosureGive"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SaleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    reopen_disclosure_v1_organisations__organisation_id__projects__project_id__sale_disclosure_delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SaleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    disclosure_not_needed_v1_organisations__organisation_id__projects__project_id__sale_disclosure_not_needed_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DisclosureNotNeeded"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SaleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_documents_v1_organisations__organisation_id__projects__project_id__sale_documents_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SaleDocumentOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_document_v1_organisations__organisation_id__projects__project_id__sale_documents_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SaleDocumentCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SaleDocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_enquiries_v1_organisations__organisation_id__projects__project_id__sale_enquiries_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EnquiryOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_enquiry_v1_organisations__organisation_id__projects__project_id__sale_enquiries_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EnquiryCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EnquiryOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_offers_v1_organisations__organisation_id__projects__project_id__sale_offers_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OfferOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_offer_v1_organisations__organisation_id__projects__project_id__sale_offers_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["OfferCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OfferOut"];
                 };
             };
             /** @description Validation Error */
@@ -10033,6 +12423,144 @@ export interface operations {
             };
         };
     };
+    remove_document_v1_organisations__organisation_id__sale_documents__document_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_document_v1_organisations__organisation_id__sale_documents__document_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SaleDocumentUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SaleDocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_enquiry_v1_organisations__organisation_id__sale_enquiries__enquiry_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                enquiry_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EnquiryUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EnquiryOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_offer_v1_organisations__organisation_id__sale_offers__offer_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                offer_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["OfferUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OfferOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     get_submission_v1_organisations__organisation_id__submissions__submission_id__get: {
         parameters: {
             query?: never;
@@ -10184,6 +12712,114 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_tenancy_v1_organisations__organisation_id__tenancies__tenancy_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                tenancy_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TenancyUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TenancyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_application_v1_organisations__organisation_id__tenant_applications__application_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                application_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ApplicationUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApplicationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    tenancy_from_application_v1_organisations__organisation_id__tenant_applications__application_id__tenancy_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                application_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TenancyCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TenancyOut"];
                 };
             };
             /** @description Validation Error */

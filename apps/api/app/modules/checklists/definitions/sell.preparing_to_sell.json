@@ -1,0 +1,84 @@
+{
+  "key": "sell.preparing_to_sell",
+  "vertical": "SELL",
+  "title": "Preparing a Queensland home for sale",
+  "description": "Things to prepare before listing a Queensland home: smoke alarms, the pool, owner-builder work and, if it is rented, the tenant. Summarised from QBCC, Queensland Fire Department and RTA pages.",
+  "sources": [
+    {
+      "title": "Smoke Alarm Reforms",
+      "organisation": "Queensland Fire Department",
+      "url": "https://www.fire.qld.gov.au/about-us/corporate-knowledge-centre/qfdlegislation/smoke-alarm-reforms"
+    },
+    {
+      "title": "Buy, sell or lease a property with a pool",
+      "organisation": "Queensland Building and Construction Commission",
+      "url": "https://qbcc.qld.gov.au/home-owner-hub/swimming-pools/buy-sell-lease-property-pool"
+    },
+    {
+      "title": "Sell an Owner-builder property",
+      "organisation": "Queensland Building and Construction Commission",
+      "url": "https://www.qbcc.qld.gov.au/home-owner-hub/owner-build/sell-owner-builder-property"
+    },
+    {
+      "title": "When a property is for sale",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/during-a-tenancy/events-that-impact-the-agreement/when-a-property-is-for-sale"
+    },
+    {
+      "title": "Entry to the property",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/during-a-tenancy/living-in-the-property/entry-to-the-property"
+    }
+  ],
+  "items": [
+    {
+      "key": "smoke_alarm_type",
+      "title": "Check every smoke alarm is photoelectric, interconnected and hardwired or 10-year battery powered",
+      "detail": "AS 3786-2014, no ionisation sensor, less than 10 years old and working when tested."
+    },
+    {
+      "key": "smoke_alarm_locations",
+      "title": "Check there is an alarm in every bedroom, in hallways connecting bedrooms and on every storey"
+    },
+    {
+      "key": "pool_certificate",
+      "title": "Find the current pool safety certificate, or book a licensed pool safety inspector",
+      "required": false
+    },
+    {
+      "key": "pool_form36",
+      "title": "If there will be no certificate, prepare the Form 36 notice for the QBCC and the buyer",
+      "required": false
+    },
+    {
+      "key": "owner_builder_notice",
+      "title": "If owner-builder work was finished in the last 6 years, prepare two copies of the owner-builder notice",
+      "required": false
+    },
+    {
+      "key": "tenant_form10",
+      "title": "If the home is rented, give the tenant a Notice of lessor's intention to sell (Form 10)",
+      "required": false
+    },
+    {
+      "key": "tenant_entry",
+      "title": "Give an Entry notice (Form 9) before each showing, and get the tenant's written agreement for open houses or an on-site auction",
+      "required": false
+    },
+    {
+      "key": "tenant_photos",
+      "title": "Ask the tenant before photographing the home for advertising",
+      "required": false
+    },
+    {
+      "key": "tenancy_continues",
+      "title": "Plan around the tenancy: a fixed term continues after the sale, and a periodic tenancy needs at least 2 months' notice to leave after contracts are signed",
+      "required": false
+    },
+    {
+      "key": "settlement_tenant",
+      "title": "At settlement, have the tenant told about the new owner and update the RTA's bond record (Form 5)",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "key": "sell.qld_disclosure",
+  "vertical": "SELL",
+  "title": "Queensland seller disclosure documents",
+  "description": "The documents a Queensland seller usually gathers for the seller disclosure statement (Form 2) and its prescribed certificates. Summarised from the Queensland Government's seller disclosure page; your conveyancer or solicitor confirms what applies to your sale.",
+  "sources": [
+    {
+      "title": "Seller disclosure scheme",
+      "organisation": "Queensland Government",
+      "url": "https://www.qld.gov.au/law/housing-and-neighbours/buying-and-selling-a-property/seller-disclosure-scheme"
+    },
+    {
+      "title": "Buy, sell or lease a property with a pool",
+      "organisation": "Queensland Building and Construction Commission",
+      "url": "https://qbcc.qld.gov.au/home-owner-hub/swimming-pools/buy-sell-lease-property-pool"
+    }
+  ],
+  "items": [
+    {
+      "key": "engage_conveyancer",
+      "title": "Engage a conveyancer or solicitor to prepare the disclosure statement"
+    },
+    {
+      "key": "title_search",
+      "title": "Get a current title search and the registered survey plan"
+    },
+    {
+      "key": "encumbrances",
+      "title": "List easements, covenants, leases and other encumbrances, including unregistered ones",
+      "detail": "Your conveyancer checks registered encumbrances; tell them about informal arrangements you know of."
+    },
+    {
+      "key": "tenancy_agreement",
+      "title": "Have a copy of any residential tenancy or rooming accommodation agreement ready",
+      "required": false
+    },
+    {
+      "key": "zoning",
+      "title": "Note the property's zoning under the planning scheme"
+    },
+    {
+      "key": "notices",
+      "title": "Collect any notices you have received",
+      "detail": "For example transport infrastructure or resumption notices, and notices or orders under the building, planning, QBCC and environmental protection laws."
+    },
+    {
+      "key": "environment_heritage",
+      "title": "Check the contaminated land and environmental management registers and any heritage listing"
+    },
+    {
+      "key": "trees",
+      "title": "Find any tree application or order under the dividing fences and trees law",
+      "required": false
+    },
+    {
+      "key": "pool",
+      "title": "Note whether there is a pool on the lot or on common property, and find its pool safety certificate",
+      "required": false
+    },
+    {
+      "key": "body_corporate",
+      "title": "For a body corporate lot, order the body corporate certificate and get the community management statement",
+      "required": false
+    },
+    {
+      "key": "sign_statement",
+      "title": "Check and sign the disclosure statement (Form 2)"
+    },
+    {
+      "key": "give_before_signing",
+      "title": "Give the statement and certificates to the buyer before they sign, and keep proof that you did",
+      "detail": "At auction they must be given or made available before the fall of the hammer."
+    },
+    {
+      "key": "keep_up_to_date",
+      "title": "Tell your conveyancer if anything changes before contracts are signed"
+    }
+  ]
+}

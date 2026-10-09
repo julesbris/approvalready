@@ -1,0 +1,71 @@
+{
+  "key": "rent.qld_minimum_standards",
+  "vertical": "RENT",
+  "title": "Queensland minimum housing standards",
+  "description": "A walk-through of the minimum housing standards every Queensland rental must meet when the tenant moves in and throughout the tenancy, and how repairs are treated. Summarised from RTA pages.",
+  "sources": [
+    {
+      "title": "Minimum housing standards",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://rta.qld.gov.au/forms-resources/rental-law-changes/minimum-housing-standards"
+    },
+    {
+      "title": "Emergency repairs",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/during-a-tenancy/repairs/emergency-repairs"
+    }
+  ],
+  "items": [
+    {
+      "key": "weatherproof",
+      "title": "Weatherproof and structurally sound: roof and windows keep rain out; walls, ceilings, decks and stairs are safe"
+    },
+    {
+      "key": "good_repair",
+      "title": "Fixtures, fittings and appliances in good repair and not likely to cause injury"
+    },
+    {
+      "key": "locks",
+      "title": "Working locks or latches on every external door and on windows reachable without a ladder"
+    },
+    {
+      "key": "vermin_mould",
+      "title": "Free of vermin, damp and mould"
+    },
+    {
+      "key": "privacy_coverings",
+      "title": "Curtains or blinds in bedrooms and other rooms where privacy is expected"
+    },
+    {
+      "key": "plumbing",
+      "title": "Adequate plumbing and drainage with hot and cold drinkable water"
+    },
+    {
+      "key": "bathroom",
+      "title": "Private bathroom and a flushable toilet connected to sewer, septic or another system"
+    },
+    {
+      "key": "cooktop",
+      "title": "A working cook-top if there is a kitchen",
+      "required": false
+    },
+    {
+      "key": "laundry",
+      "title": "Laundry taps and plumbing if laundry facilities are provided",
+      "required": false
+    },
+    {
+      "key": "body_corporate",
+      "title": "For a body corporate property, check which repairs are the body corporate's",
+      "required": false
+    },
+    {
+      "key": "emergency_repairs",
+      "title": "Treat repairs needed to meet the standards, and other emergency repairs, as urgent"
+    },
+    {
+      "key": "repairer_contact",
+      "title": "Make sure the tenant can reach you or the nominated repairer"
+    }
+  ]
+}

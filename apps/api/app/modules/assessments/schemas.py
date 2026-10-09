@@ -105,6 +105,14 @@ class ReferralCategoryOut(BaseModel):
     finding_ids: list[uuid.UUID]
 
 
+class CrossSellOut(BaseModel):
+    vertical: str = Field(description="The product suggested, e.g. RENT.")
+    title: str
+    detail: str | None
+    finding_id: uuid.UUID
+    confidence: Confidence
+
+
 class AssessmentOut(AssessmentSummary):
     engine_version: str
     facts_hash: str
@@ -125,6 +133,11 @@ class AssessmentOut(AssessmentSummary):
     )
     limitations: list[str] = Field(
         description="What the applicable rule sets do not check, without repeats."
+    )
+    cross_sell: list[CrossSellOut] = Field(
+        default_factory=list,
+        description="Other products the rules suggest (CROSS_SELL findings that matched), each "
+        "product once.",
     )
     grant_matches: list[GrantMatchOut] = Field(
         default_factory=list,
