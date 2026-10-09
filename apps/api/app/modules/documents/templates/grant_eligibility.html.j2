@@ -1,0 +1,68 @@
+{#- Grant eligibility body. The surrounding frame (render.py) always adds the required
+    metadata, assumptions, missing information, sources and limitations sections, so this
+    template lays out each program's match. Only the tags documented in render.py
+    (headings, paragraphs, lists, tables, strong, em) survive conversion to Word. -#}
+<h2>Summary</h2>
+<p>
+  {%- if not grants %}
+  No reviewed grant programs could be checked against your answers yet. This is not a
+  finding that no grant fits your project.
+  {%- else %}
+  We checked your answers against the published criteria of {{ grants | length }} grant
+  program{{ "" if grants | length == 1 else "s" }}. Meeting every criterion we check does
+  not mean an application will succeed: most programs are competitive and assess things we
+  can't check, such as the quality of your plan.
+  {%- endif %}
+</p>
+
+{% for g in grants %}
+<h2>{{ g.title }}</h2>
+<p>
+  <strong>{{ g.status_label }}</strong> · Confidence: {{ g.confidence_label }} ·
+  Applications: {{ g.intake_label }}
+</p>
+<p>{{ g.summary }}</p>
+{% if g.funding %}<p><em>Funding: {{ g.funding }}</em></p>{% endif %}
+<p>Run by {{ g.administrator }}. Details: {{ g.url }}</p>
+
+<h3>Criteria we checked</h3>
+<table>
+  <tr><th>Criterion</th><th>Your answers</th><th>What it means</th></tr>
+  {% for c in g.criteria %}
+  <tr>
+    <td>{{ c.title }}</td>
+    <td>{{ c.result_label }}</td>
+    <td>{{ c.outcome or "" }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% if g.missing %}
+<p>To finish this check, tell us: {{ g.missing | join("; ") }}.</p>
+{% endif %}
+
+<h3>Rounds</h3>
+{% if g.rounds %}
+<table>
+  <tr><th>Round</th><th>Status today</th><th>Opens</th><th>Closes</th><th>Source</th></tr>
+  {% for r in g.rounds %}
+  <tr>
+    <td>{{ r.title }}{% if r.note %}<br>{{ r.note }}{% endif %}</td>
+    <td>{{ r.state_label }}</td>
+    <td>{{ r.opens_on or "Not stated" }}</td>
+    <td>{{ r.closes_on or "Not stated" }}</td>
+    <td>{{ r.source }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>We have no round dates we can cite for this program.</p>
+{% endif %}
+{% endfor %}
+
+{% if referrals %}
+<h2>Who can help</h2>
+<ul>
+  {% for r in referrals %}<li>{{ r }}</li>{% endfor %}
+</ul>
+<p>These are kinds of professional, not recommendations of particular businesses.</p>
+{% endif %}

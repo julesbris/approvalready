@@ -17,12 +17,14 @@ value is a valid answer are suggested.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import date
 from typing import Any
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.entities import service as entities
 from app.modules.entities.models import BusinessProfile, Property, Vessel
+from app.modules.grants.service import today
 from app.modules.projects.models import Project
 from app.modules.property_facts.provider import AddressQuery, PropertyFactsProvider
 from app.modules.questionnaires.engine import AnswerInvalid, normalise_answer
@@ -77,6 +79,7 @@ async def _business_answers(db: AsyncSession, project: Project) -> dict[str, Any
     profile = await entities.get_entity(
         db, BusinessProfile, project.organisation_id, project.business_profile_id
     )
+    address_postcode: str | None = None
     answers: dict[str, Any] = {
         "business.has_abn": profile.abn is not None,
         "business.entity_type": profile.entity_type,
@@ -89,6 +92,7 @@ async def _business_answers(db: AsyncSession, project: Project) -> dict[str, Any
         answers["business.turnover_band"] = profile.turnover_band
     if profile.address_id is not None:
         address = (await entities.addresses(db, [profile.address_id]))[profile.address_id]
+        address_postcode = address.postcode
         answers["business.state"] = address.state
         answers["business.premises_address"] = {
             k: v
@@ -101,6 +105,46 @@ async def _business_answers(db: AsyncSession, project: Project) -> dict[str, Any
             }.items()
             if v
         }
+    answers.update(_grant_answers(profile, answers.get("business.state"), address_postcode))
+    return answers
+
+
+def _trading_age(established_on: date | None, on: date) -> str | None:
+    if established_on is None:
+        return None
+    if established_on > on:
+        return "not_yet"
+    years = (
+        on.year
+        - established_on.year
+        - ((on.month, on.day) < (established_on.month, established_on.day))
+    )
+    return "under_1" if years < 1 else "1_to_3" if years < 3 else "over_3"
+
+
+def _grant_answers(
+    profile: BusinessProfile, state: str | None, postcode: str | None
+) -> dict[str, Any]:
+    """The same business profile, phrased for the grant questionnaire (``grant.*``)."""
+    answers: dict[str, Any] = {
+        "grant.has_abn": profile.abn is not None,
+        "grant.entity_type": profile.entity_type,
+    }
+    if profile.entity_type != "INCORPORATED_ASSOCIATION":
+        answers["grant.applicant_type"] = "business"
+    if profile.abn and profile.gst_registered is not None:
+        answers["grant.gst_registered"] = profile.gst_registered
+    if profile.employee_band:
+        answers["grant.employee_band"] = profile.employee_band
+    if profile.turnover_band:
+        answers["grant.turnover_band"] = profile.turnover_band
+    age = _trading_age(profile.established_on, today())
+    if age:
+        answers["grant.trading_age"] = age
+    if state:
+        answers["grant.state"] = state
+    if postcode:
+        answers["grant.postcode"] = postcode
     return answers
 
 

@@ -7,6 +7,7 @@ from typing import Any
 from pydantic import BaseModel, Field
 
 from app.modules.assessments.models import AssessmentStatus
+from app.modules.grants.schemas import GrantMatchOut
 from app.modules.rules.models import Confidence, OutcomeType, RuleResult
 from app.modules.rules.payload import Certainty
 
@@ -124,4 +125,9 @@ class AssessmentOut(AssessmentSummary):
     )
     limitations: list[str] = Field(
         description="What the applicable rule sets do not check, without repeats."
+    )
+    grant_matches: list[GrantMatchOut] = Field(
+        default_factory=list,
+        description="Grant projects: each grant program's match, best first, with its rounds "
+        "as they stand today.",
     )

@@ -176,7 +176,8 @@ already exists.
 Available packs: `planning_qld_cairns` (Milestone 5), `business_qld_cairns` (Milestone 8,
 BusinessReady rules for Queensland and Cairns) and `vessel_au_qld` (Milestone 9, VesselReady
 rules for domestic commercial vessels from AMSA, and Queensland recreational registration
-and licences).
+and licences) and `grants_au_qld` (Milestone 10, GrantReady: three grant programs with their
+eligibility rules and first rounds; keep rounds current at `/admin/grants`).
 
 ## 8. Persistent volumes
 

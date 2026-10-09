@@ -23,10 +23,13 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Annotated
 
-from pydantic import BaseModel, ConfigDict, StringConstraints, model_validator
+from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.modules.grants import service as grants
+from app.modules.grants.models import GrantProgram
+from app.modules.grants.schemas import GrantProgramCreate, GrantRoundCreate
 from app.modules.regulatory import service as regulatory
 from app.modules.regulatory.models import SourceDocument, SourceOrganisation, SourceReference
 from app.modules.regulatory.schemas import (
@@ -90,6 +93,19 @@ class PackRuleSet(RuleSetCreate):
     rules: list[PackRule]
 
 
+class PackGrantRound(GrantRoundCreate):
+    source_reference_id: None = None  # type: ignore[assignment]
+    reference: Ref
+
+
+class PackGrantProgram(GrantProgramCreate):
+    administrator_id: None = None  # type: ignore[assignment]
+    rule_set_id: None = None  # type: ignore[assignment]
+    administrator: Ref
+    rule_set: str
+    rounds: list[PackGrantRound] = Field(default_factory=list)
+
+
 class Pack(_Strict):
     key: str
     title: str
@@ -98,6 +114,7 @@ class Pack(_Strict):
     documents: list[PackDocument]
     references: list[PackReference]
     rule_sets: list[PackRuleSet]
+    grant_programs: list[PackGrantProgram] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def _refs_resolve(self) -> Pack:
@@ -129,6 +146,17 @@ class Pack(_Strict):
             for s in rule.sources
             if s.reference not in refs
         ]
+        rule_sets = {rs.key for rs in self.rule_sets}
+        for gp in self.grant_programs:
+            if gp.administrator not in orgs:
+                problems.append(f"grant program {gp.key}: no organisation {gp.administrator}")
+            if gp.rule_set not in rule_sets:
+                problems.append(f"grant program {gp.key}: no rule set {gp.rule_set} in the pack")
+            problems += [
+                f"grant program {gp.key}: no reference {r.reference}"
+                for r in gp.rounds
+                if r.reference not in refs
+            ]
         if problems:
             raise ValueError("; ".join(problems))
         return self
@@ -219,6 +247,7 @@ async def load(db: AsyncSession, pack: Pack, actor: Actor, *, publish: bool) -> 
             report.existing.append(label)
         ref_ids[r.ref] = found_ref.id
 
+    rule_set_ids = {}
     for rs in pack.rule_sets:
         rule_set = (
             await db.execute(select(RuleSet).where(RuleSet.key == rs.key))
@@ -230,6 +259,7 @@ async def load(db: AsyncSession, pack: Pack, actor: Actor, *, publish: bool) -> 
             report.created.append(f"rule set {rs.key}")
         else:
             report.existing.append(f"rule set {rs.key}")
+        rule_set_ids[rs.key] = rule_set.id
         for pr in rs.rules:
             name = f"rule {rs.key}.{pr.key}"
             taken = (
@@ -273,4 +303,24 @@ async def load(db: AsyncSession, pack: Pack, actor: Actor, *, publish: bool) -> 
             else:
                 reasons = "; ".join(m for _, passed, m in gate.checks if not passed)
                 report.not_published.append(f"{name}: {reasons}")
+
+    for gp in pack.grant_programs:
+        name = f"grant program {gp.key}"
+        program = (
+            await db.execute(select(GrantProgram).where(GrantProgram.key == gp.key))
+        ).scalar_one_or_none()
+        if program is not None:
+            # Rounds change: staff keep them current in the admin screens, not the pack.
+            report.existing.append(name)
+            continue
+        data = gp.model_dump(exclude={"administrator", "rule_set", "rounds"})
+        data["administrator_id"] = org_ids[gp.administrator]
+        data["rule_set_id"] = rule_set_ids[gp.rule_set]
+        program = await grants.create_program(db, data, actor)
+        report.created.append(name)
+        for gr in gp.rounds:
+            round_data = gr.model_dump(exclude={"reference"})
+            round_data["source_reference_id"] = ref_ids[gr.reference]
+            await grants.create_round(db, program, round_data, actor)
+            report.created.append(f"{name} round {gr.title}")
     return report

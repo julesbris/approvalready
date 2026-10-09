@@ -1,0 +1,1370 @@
+{
+ "key": "grants_au_qld",
+ "title": "GrantReady: Australian Government and Queensland business grants",
+ "notes": "First grant programs for GrantReady: Export Market Development Grants (Austrade), the Industry Growth Program (business.gov.au) and Queensland's Business Growth Fund, from pages read on 2026-10-09. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. Rounds are created with the program and then kept current in the admin screens. None of the three programs was open to applications when read.",
+ "organisations": [
+  {
+   "ref": "austrade",
+   "name": "Austrade (Australian Trade and Investment Commission)",
+   "kind": "GRANT_BODY",
+   "jurisdiction": "CTH",
+   "website": "https://www.austrade.gov.au"
+  },
+  {
+   "ref": "business_gov_au",
+   "name": "business.gov.au (Department of Industry, Science and Resources)",
+   "kind": "GRANT_BODY",
+   "jurisdiction": "CTH",
+   "website": "https://business.gov.au"
+  },
+  {
+   "ref": "business_qld",
+   "name": "Business Queensland",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "QLD",
+   "website": "https://www.business.qld.gov.au"
+  },
+  {
+   "ref": "qld_cdsb",
+   "name": "Queensland Government small and family business news (cdsb.qld.gov.au)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "QLD",
+   "website": "https://www.cdsb.qld.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "emdg_home",
+   "organisation": "austrade",
+   "jurisdiction": "CTH",
+   "title": "Export Market Development Grants (EMDG)",
+   "url": "https://www.austrade.gov.au/en/how-we-can-help-you/grants/export-market-development-grants",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "emdg_tier1",
+   "organisation": "austrade",
+   "jurisdiction": "CTH",
+   "title": "EMDG Tier 1 eligibility criteria (Round 4)",
+   "url": "https://www.austrade.gov.au/en/how-we-can-help-you/grants/export-market-development-grants/check-eligibility/criteria/tier-1",
+   "source_type": "GRANT_GUIDELINES"
+  },
+  {
+   "ref": "emdg_tier2",
+   "organisation": "austrade",
+   "jurisdiction": "CTH",
+   "title": "EMDG Tier 2 eligibility criteria (Round 4)",
+   "url": "https://www.austrade.gov.au/en/how-we-can-help-you/grants/export-market-development-grants/check-eligibility/criteria/tier-2",
+   "source_type": "GRANT_GUIDELINES"
+  },
+  {
+   "ref": "emdg_tier3",
+   "organisation": "austrade",
+   "jurisdiction": "CTH",
+   "title": "EMDG Tier 3 eligibility criteria (Round 4)",
+   "url": "https://www.austrade.gov.au/en/how-we-can-help-you/grants/export-market-development-grants/check-eligibility/criteria/tier-3",
+   "source_type": "GRANT_GUIDELINES"
+  },
+  {
+   "ref": "emdg_round4",
+   "organisation": "austrade",
+   "jurisdiction": "CTH",
+   "title": "EMDG Round 4",
+   "url": "https://austrade.gov.au/en/how-we-can-help-you/grants/export-market-development-grants/manage/grant-rounds/round-4",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "igp",
+   "organisation": "business_gov_au",
+   "jurisdiction": "CTH",
+   "title": "Industry Growth Program",
+   "url": "https://business.gov.au/grants-and-programs/industry-growth-program",
+   "source_type": "GRANT_GUIDELINES"
+  },
+  {
+   "ref": "bgf",
+   "organisation": "business_qld",
+   "jurisdiction": "QLD",
+   "title": "Business Growth Fund Program",
+   "url": "https://www.business.qld.gov.au/starting-business/advice-support/grants/growth-fund",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bgf_round7_news",
+   "organisation": "qld_cdsb",
+   "jurisdiction": "QLD",
+   "title": "Business Growth Fund for small and family businesses opens (27 November 2025)",
+   "url": "https://www.cdsb.qld.gov.au/news/business-growth-fund-for-small-and-family-businesses-opens",
+   "source_type": "WEBPAGE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "emdg_overview",
+   "document": "emdg_home",
+   "section": "Overview and current status",
+   "extracted_text": "[Summary, not the source's wording] The EMDG program gives grants to Australian small and medium enterprises (and representative bodies) to market and promote goods and services overseas and, at tier 1, for export training. Tier 1 is for businesses ready to export, tier 2 for those exporting within existing markets and tier 3 for those exporting to new key markets. Applications for Round 4 are closed, no round is open now and the timing of the next round has not been confirmed.",
+   "interpretation": "Who EMDG is for and that no round is open. The program is governed by the Export Market Development Grants Act 1997 and the EMDG Rules 2021, which are not encoded. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "emdg_tier1_criteria",
+   "document": "emdg_tier1",
+   "section": "Tier 1 - ready to export",
+   "extracted_text": "[Summary, not the source's wording] Tier 1 applicants must not have exported before, have a valid ABN and have traded under the same ABN for at least 2 years, have annual turnover of more than $100,000 but less than $20 million, be able to spend at least $20,000 a financial year of their own money (excluding the grant), match the grant with their own money, complete Austrade-recognised export training or the Export Readiness Test, have a business-specific marketing plan, and be tax compliant. Grants are $20,000 to $30,000 a financial year.",
+   "interpretation": "Tier 1 criteria and amounts for Round 4. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "emdg_tier2_criteria",
+   "document": "emdg_tier2",
+   "section": "Tier 2 - existing markets",
+   "extracted_text": "[Summary, not the source's wording] Tier 2 applicants must already be exporting with evidence of recent export sales, have a valid ABN and have traded under the same ABN for at least 2 years, have annual turnover of more than $500,000 but less than $20 million, and be able to spend at least $20,000 a financial year of their own money (excluding the grant), matching the grant. Grants are $20,000 to $50,000 a financial year.",
+   "interpretation": "Tier 2 criteria and amounts for Round 4. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "emdg_tier3_criteria",
+   "document": "emdg_tier3",
+   "section": "Tier 3 - new key markets",
+   "extracted_text": "[Summary, not the source's wording] Tier 3 applicants must already be exporting with evidence of recent export sales and be seeking to market in new key markets, have a valid ABN and have traded under the same ABN for at least 2 years, have annual turnover of more than $1 million but less than $20 million, and be able to spend at least $20,000 a financial year of their own money, not other government funding, matching the grant. Grants are $20,000 to $80,000 a financial year, for up to two financial years (2025-26 and 2026-27).",
+   "interpretation": "Tier 3 criteria and amounts for Round 4. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "emdg_round4_dates",
+   "document": "emdg_round4",
+   "section": "Round 4 application dates",
+   "extracted_text": "[Summary, not the source's wording] Representative bodies' applications opened 10am AEDT on 6 November 2024 and closed 5pm AEDT on 20 December 2024. Tier 1 and tier 3 opened 10am AEDT on 12 November 2024 and closed 5pm AEDT on 20 December 2024. Tier 2 opened 10am AEDT on 12 November 2024 and closed 1:30pm AEDT the same day. Round 4 grant agreements cover up to two years, 2025-26 and 2026-27.",
+   "interpretation": "Round 4 opening and closing dates by tier. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "igp_eligibility",
+   "document": "igp",
+   "section": "Eligibility",
+   "extracted_text": "[Summary, not the source's wording] To be eligible the applicant must be a company incorporated in Australia, a co-operative or an incorporated trustee applying for a trust; have an ABN, be registered for GST and not be income-tax exempt; have combined annual turnover under $20 million for each of the 3 financial years before applying; and have a project in a National Reconstruction Fund priority area (value-add in resources; value-add in agriculture, forestry and fisheries; transport; medical science; renewables and low emissions technologies; defence capability; enabling capabilities). The product, process or service must be innovative: minor changes or improvements to existing products or services are not. Applicants first receive an Advisory Service and need its report before applying. Early-Stage Commercialisation grants are $50,000 to $250,000; Commercialisation and Growth grants $100,000 to $5 million, as matched funding.",
+   "interpretation": "The Industry Growth Program's eligibility criteria and grant streams. The turnover test covers three financial years; we ask about the last one only. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "igp_status",
+   "document": "igp",
+   "section": "Program status",
+   "extracted_text": "[Summary, not the source's wording] The program is currently paused to new applications. The page gives no reopening date (page metadata dated 16 September 2026).",
+   "interpretation": "Intake status as read on 2026-10-09. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bgf_program",
+   "document": "bgf",
+   "section": "About the program and Round 7",
+   "extracted_text": "[Summary, not the source's wording] The Business Growth Fund supports high-growth Queensland small and family businesses to buy specialised equipment that helps them grow, become more productive or efficient, gain market share or expand into export markets. Grants are $50,000 to $75,000 (excluding GST), paid in three milestone payments, and applicants must fund at least 50% of the total project cost. Round 7 stage 2 has closed and recipients have been notified (page last updated 12 June 2026).",
+   "interpretation": "What the fund pays for and Round 7's status. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bgf_round7_eligibility",
+   "document": "bgf_round7_news",
+   "section": "Round 7 eligibility and closing date",
+   "extracted_text": "[Summary, not the source's wording] Round 7 offers $50,000 to $75,000 per grant (up to $3.5 million in the round). Businesses must have fewer than 20 employees by headcount, 2024-25 turnover between $500,000 and $10 million, have operated for at least 3 years and show two years of high growth with clearly defined growth and employment opportunities in Queensland. Registrations of interest (the first stage) closed at 5pm on Friday 30 January 2026.",
+   "interpretation": "Round 7's eligibility summary and the registration of interest closing date. Full criteria are in the Round 7 guidelines, which were not read. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "grant.cth.emdg",
+   "vertical": "GRANT",
+   "jurisdiction": "CTH",
+   "title": "Export Market Development Grants (Austrade)",
+   "description": "Eligibility criteria for small and medium enterprises in EMDG tiers 1 to 3, from Austrade's Round 4 criteria pages. Each rule is one criterion and matches when it is met.",
+   "applies_when": {
+    "fact": "grant.applicant_type",
+    "op": "in",
+    "value": [
+     "business",
+     "primary_producer"
+    ]
+   },
+   "limitations": [
+    "Built from Austrade's Round 4 criteria pages, not the EMDG Act 1997, the EMDG Rules 2021 or the guidelines for a future round, which may change the criteria.",
+    "Checks the lowest turnover limit of any tier ($100,000); tiers 2 and 3 need more than $500,000 and $1 million.",
+    "Doesn't check export training or the Export Readiness Test (tier 1), the marketing plan, tax compliance, fitness to receive a grant or whether your products are eligible.",
+    "Representative bodies are not covered.",
+    "Meeting these criteria doesn't mean an application will succeed. Not financial or legal advice: confirm with Austrade or an adviser."
+   ],
+   "rules": [
+    {
+     "key": "same_abn_two_years",
+     "title": "Valid ABN held for at least 2 years",
+     "condition": {
+      "all": [
+       {
+        "fact": "grant.has_abn",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "grant.abn_two_years",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You've traded under the same ABN for 2 years",
+       "detail": "Every EMDG tier needs a valid ABN that the business has traded under for at least 2 years."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "EMDG needs 2 years under the same ABN",
+       "detail": "Every tier needs a valid ABN that the business has traded under for at least 2 years."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us about the ABN",
+       "detail": "Every EMDG tier needs a valid ABN held for at least 2 years."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "emdg_tier1_criteria",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "emdg_tier2_criteria",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "emdg_tier3_criteria",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ABN for 2 years",
+       "facts": {
+        "grant.has_abn": true,
+        "grant.abn_two_years": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No ABN",
+       "facts": {
+        "grant.has_abn": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Newer ABN",
+       "facts": {
+        "grant.has_abn": true,
+        "grant.abn_two_years": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "grant.has_abn": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "turnover_range",
+     "title": "Turnover over $100,000 and under $20 million",
+     "condition": {
+      "all": [
+       {
+        "fact": "grant.annual_turnover_cents",
+        "op": "greater_than",
+        "value": 10000000
+       },
+       {
+        "fact": "grant.annual_turnover_cents",
+        "op": "less_than",
+        "value": 2000000000
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your turnover is within EMDG's range",
+       "detail": "Tier 1 needs turnover over $100,000, tier 2 over $500,000 and tier 3 over $1 million, all under $20 million."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Your turnover is outside EMDG's range",
+       "detail": "EMDG tiers need annual turnover over $100,000 (tier 1), $500,000 (tier 2) or $1 million (tier 3), and under $20 million."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us your turnover",
+       "detail": "EMDG tiers set turnover limits between $100,000 and $20 million."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "emdg_tier1_criteria",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "emdg_tier2_criteria",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "emdg_tier3_criteria",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "$500k",
+       "facts": {
+        "grant.annual_turnover_cents": 50000000
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "$50k",
+       "facts": {
+        "grant.annual_turnover_cents": 5000000
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "$30m",
+       "facts": {
+        "grant.annual_turnover_cents": 3000000000
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "own_spend",
+     "title": "Can spend at least $20,000 of its own money",
+     "condition": {
+      "all": [
+       {
+        "fact": "grant.co_contribution_available",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "grant.co_contribution_cents",
+        "op": "greater_equal",
+        "value": 2000000
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You can match the grant",
+       "detail": "EMDG needs you to spend at least $20,000 a financial year of your own money, not counting the grant, and to match the grant."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "EMDG needs at least $20,000 of your own money",
+       "detail": "Every tier needs the capacity to spend at least $20,000 a financial year of your own money (not other government funding), matching the grant."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us what you could contribute",
+       "detail": "EMDG needs at least $20,000 a financial year of your own money."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "emdg_tier1_criteria",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "emdg_tier2_criteria",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "emdg_tier3_criteria",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "$30k",
+       "facts": {
+        "grant.co_contribution_available": true,
+        "grant.co_contribution_cents": 3000000
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "$10k",
+       "facts": {
+        "grant.co_contribution_available": true,
+        "grant.co_contribution_cents": 1000000
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No contribution",
+       "facts": {
+        "grant.co_contribution_available": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Amount not given",
+       "facts": {
+        "grant.co_contribution_available": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "export_stage",
+     "title": "Export stage fits a tier",
+     "condition": {
+      "fact": "grant.export_status",
+      "op": "in",
+      "value": [
+       "never",
+       "recent"
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your export stage fits a tier",
+       "detail": "If you haven't exported, tier 1 (ready to export, $20,000 to $30,000 a year) also needs export training or Austrade's Export Readiness Test. With recent export sales, tier 2 covers existing markets ($20,000 to $50,000) and tier 3 new key markets ($20,000 to $80,000).",
+       "payload": {
+        "referral_categories": [
+         "grant_writer"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "EMDG tiers need recent export sales or none at all",
+       "detail": "Tier 1 is for businesses that have never exported; tiers 2 and 3 need evidence of recent export sales."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us whether the business has exported",
+       "detail": "Which EMDG tier fits depends on whether the business has exported and has recent export sales."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "emdg_tier1_criteria",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "emdg_tier2_criteria",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "emdg_tier3_criteria",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Never exported",
+       "facts": {
+        "grant.export_status": "never"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Recent sales",
+       "facts": {
+        "grant.export_status": "recent"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No recent sales",
+       "facts": {
+        "grant.export_status": "past"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "grant.cth.industry_growth_program",
+   "vertical": "GRANT",
+   "jurisdiction": "CTH",
+   "title": "Industry Growth Program (business.gov.au)",
+   "description": "Eligibility criteria for the Industry Growth Program's commercialisation grants, from business.gov.au. Each rule is one criterion and matches when it is met.",
+   "applies_when": {
+    "fact": "grant.applicant_type",
+    "op": "in",
+    "value": [
+     "business",
+     "primary_producer"
+    ]
+   },
+   "limitations": [
+    "Built from the program page on business.gov.au, not the grant opportunity guidelines.",
+    "The turnover test covers each of the 3 financial years before you apply; we only ask about the last one.",
+    "Doesn't check income-tax exemption, the Advisory Service report you need before applying, the technology readiness level or the co-contribution, which the guidelines set.",
+    "Meeting these criteria doesn't mean an application will succeed. Not financial or legal advice: confirm with business.gov.au or an adviser."
+   ],
+   "rules": [
+    {
+     "key": "entity_type",
+     "title": "Company, co-operative or incorporated trustee",
+     "condition": {
+      "any": [
+       {
+        "fact": "grant.entity_type",
+        "op": "in",
+        "value": [
+         "COMPANY",
+         "COOPERATIVE"
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "grant.entity_type",
+          "op": "equals",
+          "value": "TRUST"
+         },
+         {
+          "fact": "grant.trustee_incorporated",
+          "op": "equals",
+          "value": true
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your entity type can apply",
+       "detail": "The program is open to Australian companies, co-operatives and incorporated trustees applying for a trust."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The program needs a company, co-operative or incorporated trustee",
+       "detail": "Individuals, partnerships, trusts without an incorporated trustee and government bodies can't apply."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us the applicant's entity type",
+       "detail": "Only companies, co-operatives and incorporated trustees can apply."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "igp_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Company",
+       "facts": {
+        "grant.entity_type": "COMPANY"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Trust, company trustee",
+       "facts": {
+        "grant.entity_type": "TRUST",
+        "grant.trustee_incorporated": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Sole trader",
+       "facts": {
+        "grant.entity_type": "SOLE_TRADER"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Trust, trustee not given",
+       "facts": {
+        "grant.entity_type": "TRUST"
+       },
+       "expected_result": "UNKNOWN"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "abn_gst",
+     "title": "ABN and GST registration",
+     "condition": {
+      "all": [
+       {
+        "fact": "grant.has_abn",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "grant.gst_registered",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You have an ABN and GST registration",
+       "detail": "The program needs both."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The program needs an ABN and GST registration",
+       "detail": "Applicants must hold an ABN and be registered for GST."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us about the ABN and GST",
+       "detail": "Applicants must hold an ABN and be registered for GST."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "igp_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Both",
+       "facts": {
+        "grant.has_abn": true,
+        "grant.gst_registered": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No GST",
+       "facts": {
+        "grant.has_abn": true,
+        "grant.gst_registered": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No ABN",
+       "facts": {
+        "grant.has_abn": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "grant.has_abn": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "turnover_under_20m",
+     "title": "Turnover under $20 million",
+     "condition": {
+      "fact": "grant.annual_turnover_cents",
+      "op": "less_than",
+      "value": 2000000000
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your turnover is under $20 million",
+       "detail": "The limit applies to each of the 3 financial years before you apply, so check the two earlier years too."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The program needs turnover under $20 million",
+       "detail": "Combined annual turnover must be under $20 million for each of the 3 financial years before you apply."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us your turnover",
+       "detail": "The program needs turnover under $20 million."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "igp_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "$2m",
+       "facts": {
+        "grant.annual_turnover_cents": 200000000
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "$25m",
+       "facts": {
+        "grant.annual_turnover_cents": 2500000000
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "nrf_priority_area",
+     "title": "Project in a National Reconstruction Fund priority area",
+     "condition": {
+      "any": [
+       {
+        "fact": "grant.nrf_priority_areas",
+        "op": "contains",
+        "value": "resources"
+       },
+       {
+        "fact": "grant.nrf_priority_areas",
+        "op": "contains",
+        "value": "agriculture"
+       },
+       {
+        "fact": "grant.nrf_priority_areas",
+        "op": "contains",
+        "value": "transport"
+       },
+       {
+        "fact": "grant.nrf_priority_areas",
+        "op": "contains",
+        "value": "medical_science"
+       },
+       {
+        "fact": "grant.nrf_priority_areas",
+        "op": "contains",
+        "value": "renewables"
+       },
+       {
+        "fact": "grant.nrf_priority_areas",
+        "op": "contains",
+        "value": "defence"
+       },
+       {
+        "fact": "grant.nrf_priority_areas",
+        "op": "contains",
+        "value": "enabling"
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your project is in a priority area",
+       "detail": "The program funds projects in the National Reconstruction Fund's priority areas."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The project needs to be in a priority area",
+       "detail": "The program only funds projects in the National Reconstruction Fund's seven priority areas."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us the project's industry area",
+       "detail": "The program only funds projects in the National Reconstruction Fund's priority areas."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "igp_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Medical science",
+       "facts": {
+        "grant.nrf_priority_areas": [
+         "medical_science"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "grant.nrf_priority_areas": [
+         "none"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "innovative",
+     "title": "Innovative product, process or service",
+     "condition": {
+      "fact": "grant.innovative",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You describe the project as innovative",
+       "detail": "The program funds commercialising innovative products, processes or services; an Industry Growth Program adviser will test this in the Advisory Service.",
+       "payload": {
+        "referral_categories": [
+         "grant_writer"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The program funds innovation",
+       "detail": "Minor changes or improvements to existing products or services are not considered innovative."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us whether the project is innovative",
+       "detail": "The program funds commercialising innovative products, processes or services."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "igp_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Innovative",
+       "facts": {
+        "grant.innovative": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not innovative",
+       "facts": {
+        "grant.innovative": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "grant.qld.business_growth_fund",
+   "vertical": "GRANT",
+   "jurisdiction": "QLD",
+   "title": "Business Growth Fund (Queensland)",
+   "description": "Eligibility criteria for the Business Growth Fund, from the Business Queensland program page and the Round 7 announcement. Each rule is one criterion and matches when it is met.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "grant.state",
+      "op": "equals",
+      "value": "QLD"
+     },
+     {
+      "fact": "grant.applicant_type",
+      "op": "in",
+      "value": [
+       "business",
+       "primary_producer"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "Built from the program page and the Round 7 announcement, not the Round 7 guidelines; a future round may change the criteria.",
+    "Doesn't check two years of high growth or the growth and employment case, which the application assesses.",
+    "Checks that you can contribute, not that your contribution is at least 50% of the project cost.",
+    "Meeting these criteria doesn't mean an application will succeed: the fund is competitive. Not financial or legal advice."
+   ],
+   "rules": [
+    {
+     "key": "fewer_than_20_employees",
+     "title": "Fewer than 20 employees",
+     "condition": {
+      "fact": "grant.employee_band",
+      "op": "in",
+      "value": [
+       "NONE",
+       "1_4",
+       "5_19"
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You have fewer than 20 employees",
+       "detail": "The fund is for small and family businesses with fewer than 20 employees by headcount."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The fund is for fewer than 20 employees",
+       "detail": "Round 7 required fewer than 20 employees by headcount."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us how many employees you have",
+       "detail": "Round 7 required fewer than 20 employees."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bgf_round7_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "5 to 19",
+       "facts": {
+        "grant.employee_band": "5_19"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "20 to 199",
+       "facts": {
+        "grant.employee_band": "20_199"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "turnover_500k_to_10m",
+     "title": "Turnover between $500,000 and $10 million",
+     "condition": {
+      "all": [
+       {
+        "fact": "grant.annual_turnover_cents",
+        "op": "greater_equal",
+        "value": 50000000
+       },
+       {
+        "fact": "grant.annual_turnover_cents",
+        "op": "less_equal",
+        "value": 1000000000
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your turnover is in the fund's range",
+       "detail": "Round 7 looked at 2024-25 turnover between $500,000 and $10 million."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Your turnover is outside the fund's range",
+       "detail": "Round 7 required 2024-25 turnover between $500,000 and $10 million."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us your turnover",
+       "detail": "Round 7 required turnover between $500,000 and $10 million."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bgf_round7_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "$2m",
+       "facts": {
+        "grant.annual_turnover_cents": 200000000
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "$300k",
+       "facts": {
+        "grant.annual_turnover_cents": 30000000
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "$12m",
+       "facts": {
+        "grant.annual_turnover_cents": 1200000000
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "trading_3_years",
+     "title": "Operating for at least 3 years",
+     "condition": {
+      "fact": "grant.trading_age",
+      "op": "equals",
+      "value": "over_3"
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You've been operating for 3 years or more",
+       "detail": "Round 7 required at least 3 years of operation."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The fund needs 3 years of operation",
+       "detail": "Round 7 required the business to have operated for at least 3 years."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us how long you've been trading",
+       "detail": "Round 7 required at least 3 years of operation."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bgf_round7_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "3 years or more",
+       "facts": {
+        "grant.trading_age": "over_3"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "1 to 3",
+       "facts": {
+        "grant.trading_age": "1_to_3"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "specialised_equipment",
+     "title": "Buying specialised equipment",
+     "condition": {
+      "fact": "grant.project_purpose",
+      "op": "contains",
+      "value": "equipment"
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your project includes equipment",
+       "detail": "The fund pays for specialised equipment that helps the business grow, become more productive, gain market share or export."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The fund pays for specialised equipment",
+       "detail": "Projects need to be buying specialised equipment."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us what the project is for",
+       "detail": "The fund pays for specialised equipment."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bgf_program",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Equipment",
+       "facts": {
+        "grant.project_purpose": [
+         "equipment",
+         "export"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Training only",
+       "facts": {
+        "grant.project_purpose": [
+         "training"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "co_contribution",
+     "title": "Can fund at least half the project",
+     "condition": {
+      "fact": "grant.co_contribution_available",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09): capped at likely until the references are verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You can contribute",
+       "detail": "You must fund at least 50% of the total project cost yourself; check that your contribution covers half.",
+       "payload": {
+        "referral_categories": [
+         "grant_writer"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The fund needs you to pay at least half",
+       "detail": "Applicants must fund at least 50% of the total project cost."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us whether you can contribute",
+       "detail": "Applicants must fund at least 50% of the total project cost."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bgf_program",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Can contribute",
+       "facts": {
+        "grant.co_contribution_available": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Can't",
+       "facts": {
+        "grant.co_contribution_available": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "grant_programs": [
+  {
+   "key": "grant.cth.emdg",
+   "title": "Export Market Development Grants (EMDG)",
+   "administrator": "austrade",
+   "jurisdiction": "CTH",
+   "url": "https://www.austrade.gov.au/en/how-we-can-help-you/grants/export-market-development-grants",
+   "rule_set": "grant.cth.emdg",
+   "summary": "Grants for Australian small and medium businesses to market and promote their goods and services overseas: tier 1 for businesses ready to export (including export training), tier 2 for exporting within existing markets and tier 3 for new key markets.",
+   "funding_summary": "$20,000 to $80,000 a financial year depending on tier; you match the grant and spend at least $20,000 a year of your own money.",
+   "min_amount_cents": 2000000,
+   "max_amount_cents": 8000000,
+   "rounds": [
+    {
+     "title": "Round 4",
+     "status": "CLOSED",
+     "opens_on": "2024-11-12",
+     "closes_on": "2024-12-20",
+     "dates_note": "Tiers 1 and 3 closed 5pm AEDT 20 December 2024; tier 2 closed 1:30pm AEDT on its opening day. Austrade says no round is open now and the next round's timing isn't confirmed.",
+     "reference": "emdg_round4_dates"
+    }
+   ]
+  },
+  {
+   "key": "grant.cth.industry_growth_program",
+   "title": "Industry Growth Program",
+   "administrator": "business_gov_au",
+   "jurisdiction": "CTH",
+   "url": "https://business.gov.au/grants-and-programs/industry-growth-program",
+   "rule_set": "grant.cth.industry_growth_program",
+   "summary": "Advice and matched grants for innovative small and medium businesses commercialising new products, processes or services in the National Reconstruction Fund priority areas. You need an Advisory Service report from a program adviser before applying.",
+   "funding_summary": "Early-Stage Commercialisation $50,000 to $250,000; Commercialisation and Growth $100,000 to $5 million; matched funding.",
+   "min_amount_cents": 5000000,
+   "max_amount_cents": 500000000,
+   "rounds": [
+    {
+     "title": "Ongoing applications",
+     "status": "PAUSED",
+     "dates_note": "Paused to new applications; no reopening date given.",
+     "reference": "igp_status"
+    }
+   ]
+  },
+  {
+   "key": "grant.qld.business_growth_fund",
+   "title": "Business Growth Fund (Queensland)",
+   "administrator": "business_qld",
+   "jurisdiction": "QLD",
+   "url": "https://www.business.qld.gov.au/starting-business/advice-support/grants/growth-fund",
+   "rule_set": "grant.qld.business_growth_fund",
+   "summary": "Grants for high-growth Queensland small and family businesses to buy specialised equipment that helps them grow, become more productive, gain market share or export.",
+   "funding_summary": "$50,000 to $75,000 (excluding GST) in three milestone payments; you fund at least 50% of the project cost.",
+   "min_amount_cents": 5000000,
+   "max_amount_cents": 7500000,
+   "rounds": [
+    {
+     "title": "Round 7",
+     "status": "CLOSED",
+     "closes_on": "2026-01-30",
+     "dates_note": "Registrations of interest closed 5pm 30 January 2026; recipients have since been notified.",
+     "reference": "bgf_round7_eligibility"
+    }
+   ]
+  }
+ ]
+}

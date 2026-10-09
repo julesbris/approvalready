@@ -128,6 +128,14 @@ export type SmsOut = Schemas["SmsOut"];
 export type SmsSectionOut = Schemas["SmsSectionOut"];
 export type SmsElementOut = Schemas["SmsElementOut"];
 
+// GrantReady (Milestone 10)
+export type GrantProgramOut = Schemas["GrantProgramOut"];
+export type GrantRoundOut = Schemas["GrantRoundOut"];
+export type GrantMatchOut = Schemas["GrantMatchOut"];
+export type MatchCriterionOut = Schemas["MatchCriterionOut"];
+export type MatchStatus = GrantMatchOut["status"];
+export type RoundStatus = GrantRoundOut["state"];
+
 export type AddressMatchOut = Schemas["AddressMatchOut"];
 export type AddressSearchOut = Schemas["AddressSearchOut"];
 export type ParcelOut = Schemas["ParcelOut"];

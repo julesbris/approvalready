@@ -24,6 +24,15 @@ const FORMATS: OutputFormat[] = ["PDF", "DOCX", "HTML"];
 
 /** The reports each kind of project can make (the API lists the same per vertical). */
 export const REPORT_TEMPLATES: Record<string, ReportTemplate[]> = {
+  GRANT: [
+    {
+      key: "GRANT_ELIGIBILITY",
+      title: "Grant eligibility check",
+      description:
+        "Each program we checked, the criteria you meet or don't, its rounds and dates with " +
+        "their sources, the answers it relies on, missing information and review status.",
+    },
+  ],
   VESSEL: [
     {
       key: "VESSEL_PATHWAY",

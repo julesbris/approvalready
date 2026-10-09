@@ -2,7 +2,7 @@
   "key": "grant.general",
   "vertical": "GRANT",
   "title": "Grants: tell us about you and your project",
-  "description": "Your answers are matched against each grant round's published eligibility criteria. We only show programs and dates we can cite.",
+  "description": "Your answers are matched against each grant program's published eligibility criteria. We only show programs and dates we can cite, and meeting the criteria we check doesn't mean an application will succeed.",
   "sections": [
     {
       "title": "About the applicant",
@@ -17,29 +17,46 @@
           ]
         },
         {"key": "grant.has_abn", "type": "BOOLEAN", "label": "Does the applicant have an ABN?", "required": true},
+        {"key": "grant.abn_two_years", "type": "BOOLEAN", "label": "Has the applicant traded under the same ABN for at least 2 years?", "required": true, "visible_when": {"fact": "grant.has_abn", "op": "equals", "value": true}},
+        {"key": "grant.gst_registered", "type": "BOOLEAN", "label": "Is the applicant registered for GST?", "required": true, "visible_when": {"fact": "grant.has_abn", "op": "equals", "value": true}},
+        {
+          "key": "grant.entity_type", "type": "SELECT", "label": "What kind of legal entity is the applicant?", "required": true, "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer", "not_for_profit"]},
+          "options": [
+            {"value": "COMPANY", "label": "Company"},
+            {"value": "COOPERATIVE", "label": "Co-operative"},
+            {"value": "TRUST", "label": "Trust"},
+            {"value": "SOLE_TRADER", "label": "Sole trader"},
+            {"value": "PARTNERSHIP", "label": "Partnership"},
+            {"value": "INCORPORATED_ASSOCIATION", "label": "Incorporated association"},
+            {"value": "OTHER", "label": "Something else"}
+          ]
+        },
+        {"key": "grant.trustee_incorporated", "type": "BOOLEAN", "label": "Is the trustee an incorporated body (a company)?", "required": true, "visible_when": {"fact": "grant.entity_type", "op": "equals", "value": "TRUST"}},
         {
           "key": "grant.state", "type": "SELECT", "label": "State or territory where the project will happen", "required": true,
           "options": [
-            {"value": "NSW", "label": "New South Wales"}, {"value": "VIC", "label": "Victoria"},
-            {"value": "QLD", "label": "Queensland"}, {"value": "SA", "label": "South Australia"},
-            {"value": "WA", "label": "Western Australia"}, {"value": "TAS", "label": "Tasmania"},
-            {"value": "NT", "label": "Northern Territory"}, {"value": "ACT", "label": "Australian Capital Territory"}
+            {"value": "NSW", "label": "New South Wales"},
+            {"value": "VIC", "label": "Victoria"},
+            {"value": "QLD", "label": "Queensland"},
+            {"value": "SA", "label": "South Australia"},
+            {"value": "WA", "label": "Western Australia"},
+            {"value": "TAS", "label": "Tasmania"},
+            {"value": "NT", "label": "Northern Territory"},
+            {"value": "ACT", "label": "Australian Capital Territory"}
           ]
         },
         {"key": "grant.postcode", "type": "TEXT", "label": "Postcode where the project will happen", "required": true, "validation": {"pattern": "[0-9]{4}", "pattern_message": "Enter a 4-digit postcode."}},
         {
-          "key": "grant.trading_age", "type": "SELECT", "label": "How long has the business been trading?", "required": true,
-          "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
+          "key": "grant.trading_age", "type": "SELECT", "label": "How long has the business been trading?", "required": true, "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
           "options": [
             {"value": "not_yet", "label": "Not trading yet"},
             {"value": "under_1", "label": "Less than a year"},
-            {"value": "1_to_3", "label": "1 to 3 years"},
-            {"value": "over_3", "label": "More than 3 years"}
+            {"value": "1_to_3", "label": "1 year to less than 3 years"},
+            {"value": "over_3", "label": "3 years or more"}
           ]
         },
         {
-          "key": "grant.employee_band", "type": "SELECT", "label": "Number of employees",
-          "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
+          "key": "grant.employee_band", "type": "SELECT", "label": "Number of employees", "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
           "options": [
             {"value": "NONE", "label": "None"},
             {"value": "1_4", "label": "1 to 4"},
@@ -49,14 +66,22 @@
           ]
         },
         {
-          "key": "grant.turnover_band", "type": "SELECT", "label": "Annual turnover",
-          "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
+          "key": "grant.turnover_band", "type": "SELECT", "label": "Annual turnover", "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
           "options": [
             {"value": "UNDER_75K", "label": "Under $75,000"},
             {"value": "75K_2M", "label": "$75,000 to $2 million"},
             {"value": "2M_10M", "label": "$2 million to $10 million"},
             {"value": "10M_50M", "label": "$10 million to $50 million"},
             {"value": "OVER_50M", "label": "Over $50 million"}
+          ]
+        },
+        {"key": "grant.annual_turnover_cents", "type": "CURRENCY", "label": "Turnover in the last financial year", "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]}, "help_text": "Some programs set exact turnover limits (for example under $20 million). Leave it blank if you're not sure and we'll tell you which programs need it.", "validation": {"min": "0", "max": "100000000000"}},
+        {
+          "key": "grant.export_status", "type": "SELECT", "label": "Has the business exported?", "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]},
+          "options": [
+            {"value": "never", "label": "No, it hasn't exported yet"},
+            {"value": "recent", "label": "Yes, with recent export sales"},
+            {"value": "past", "label": "Yes, but no recent export sales"}
           ]
         }
       ]
@@ -80,6 +105,20 @@
           ]
         },
         {"key": "grant.project_description", "type": "TEXTAREA", "label": "Describe the project", "required": true, "validation": {"min_length": 20, "max_length": 3000}},
+        {"key": "grant.innovative", "type": "BOOLEAN", "label": "Will the project bring a new or significantly improved product, process or service to market?", "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]}, "help_text": "Minor changes or improvements to existing products or services usually don't count as innovative."},
+        {
+          "key": "grant.nrf_priority_areas", "type": "MULTISELECT", "label": "Does the project fall in any of these industry areas?", "visible_when": {"fact": "grant.applicant_type", "op": "in", "value": ["business", "primary_producer"]}, "help_text": "These are the National Reconstruction Fund priority areas that some Australian Government programs use.",
+          "options": [
+            {"value": "resources", "label": "Value-add in resources"},
+            {"value": "agriculture", "label": "Value-add in agriculture, forestry and fisheries"},
+            {"value": "transport", "label": "Transport"},
+            {"value": "medical_science", "label": "Medical science"},
+            {"value": "renewables", "label": "Renewables and low emissions technologies"},
+            {"value": "defence", "label": "Defence capability"},
+            {"value": "enabling", "label": "Enabling capabilities (for example AI, robotics, quantum, software)"},
+            {"value": "none", "label": "None of these"}
+          ]
+        },
         {"key": "grant.total_cost_cents", "type": "CURRENCY", "label": "Estimated total cost of the project", "required": true, "validation": {"min": "0", "max": "100000000000"}},
         {"key": "grant.co_contribution_available", "type": "BOOLEAN", "label": "Could the applicant pay for part of the project?", "required": true},
         {"key": "grant.co_contribution_cents", "type": "CURRENCY", "label": "How much could the applicant contribute?", "required": true, "validation": {"min": "0", "max": "100000000000"}, "visible_when": {"fact": "grant.co_contribution_available", "op": "equals", "value": true}},

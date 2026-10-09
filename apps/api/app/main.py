@@ -24,6 +24,7 @@ from app.modules.checklists.router import definitions_router as checklist_defini
 from app.modules.checklists.router import router as checklists_router
 from app.modules.documents.router import router as documents_router
 from app.modules.entities.router import router as entities_router
+from app.modules.grants.router import router as grants_router
 from app.modules.identity.router import router as auth_router
 from app.modules.lookups.router import router as lookups_router
 from app.modules.lookups.service import Lookups
@@ -97,6 +98,7 @@ def create_app(
     app.include_router(checklist_definitions_router)
     app.include_router(checklists_router)
     app.include_router(vessels_router)
+    app.include_router(grants_router)
     app.include_router(lookups_router)
     app.include_router(review_customer_router)
     app.include_router(professional_router)
