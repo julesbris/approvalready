@@ -22,6 +22,7 @@ import {
   VERIFICATION_LABELS,
   uniqueSources,
 } from "@/lib/assessment";
+import { MAP_VERTICALS } from "@/lib/assessment";
 import { type ApiResult, apiRequest } from "@/lib/client-api";
 import { formatBytes } from "@/lib/documents";
 import { statusLabel, verticalName } from "@/lib/labels";
@@ -318,7 +319,7 @@ export function ReviewerWorkspace({ initial }: { initial: ReviewerWorkspaceOut }
       <AssessmentReport
         assessment={ws.assessment}
         overrides={review.overrides}
-        approvalMap={review.vertical === "BUSINESS"}
+        approvalMap={MAP_VERTICALS.has(review.vertical)}
         findingActions={
           inReview
             ? (f) => <OverrideForm finding={f} sources={sources} base={base} act={act} />

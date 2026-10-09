@@ -19,6 +19,8 @@ from app.core.middleware import (
 )
 from app.core.resources import create_resources
 from app.modules.assessments.router import router as assessments_router
+from app.modules.checklists.router import definitions_router as checklist_definitions_router
+from app.modules.checklists.router import router as checklists_router
 from app.modules.documents.router import router as documents_router
 from app.modules.entities.router import router as entities_router
 from app.modules.identity.router import router as auth_router
@@ -31,6 +33,7 @@ from app.modules.review.router import customer_router as review_customer_router
 from app.modules.review.router import professional_router
 from app.modules.rules.router import router as rules_router
 from app.modules.tenancy.router import router as tenancy_router
+from app.modules.vessels.router import router as vessels_router
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
@@ -84,6 +87,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(sources_router)
     app.include_router(rules_router)
     app.include_router(marketplace_router)
+    app.include_router(checklist_definitions_router)
+    app.include_router(checklists_router)
+    app.include_router(vessels_router)
     app.include_router(review_customer_router)
     app.include_router(professional_router)
     app.include_router(review_admin_router)

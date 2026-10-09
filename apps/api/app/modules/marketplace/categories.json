@@ -20,6 +20,9 @@
     {"key": "infection_control_trainer", "label": "Infection control trainer", "description": "Trains personal appearance service operators in infection control.", "verticals": ["BUSINESS"], "requires_credential": false, "restricted": false},
     {"key": "education_care_consultant", "label": "Early childhood education and care consultant", "description": "Helps prepare provider and service approval applications for education and care services.", "verticals": ["BUSINESS"], "requires_credential": false, "restricted": false},
     {"key": "marine_surveyor", "label": "Marine surveyor", "description": "Surveys domestic commercial vessels.", "verticals": ["VESSEL"], "requires_credential": true, "restricted": false},
+    {"key": "naval_architect", "label": "Naval architect", "description": "Designs vessels and prepares plans, stability and structural assessments for survey.", "verticals": ["VESSEL"], "requires_credential": true, "restricted": false},
+    {"key": "marine_safety_consultant", "label": "Marine safety consultant", "description": "Helps operators of commercial vessels write and maintain their safety management system and prepare for AMSA applications.", "verticals": ["VESSEL"], "requires_credential": false, "restricted": false},
+    {"key": "maritime_trainer", "label": "Maritime training provider", "description": "Trains crew towards maritime certificates of competency and licences.", "verticals": ["VESSEL"], "requires_credential": true, "restricted": false},
     {"key": "conveyancer", "label": "Conveyancer", "description": "Handles the legal transfer of property.", "verticals": ["SELL"], "requires_credential": true, "restricted": true},
     {"key": "grant_writer", "label": "Grant writer", "description": "Prepares grant applications.", "verticals": ["GRANT"], "requires_credential": false, "restricted": false}
   ]

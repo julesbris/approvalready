@@ -1,0 +1,24 @@
+{#- Safety management system draft. The text is the operator's own, from the SMS builder;
+    the frame (render.py) adds the required metadata and the assessment's assumptions,
+    sources and limitations, which describe the vessel and operation this SMS is for. -#}
+<p class="note">
+  <strong>Draft written by the operator.</strong> {{ sms.disclaimer }}
+</p>
+<p>
+  {{ sms.written }} of {{ sms.required }} required parts written.
+  {%- if sms.missing %} Still to write: {{ sms.missing | join("; ") }}.{% endif %}
+</p>
+<p><em>Structure based on: {{ sms.sources | join("; ") }}</em></p>
+
+{% for section in sms.sections %}
+<h2>{{ section.title }}</h2>
+{% for e in section.elements %}
+<h3>{{ e.title }}</h3>
+{% if e.text %}
+{% for para in e.text.split("\n\n") %}<p>{{ para }}</p>
+{% endfor %}
+{% else %}
+<p><em>{{ "Not written yet (required)." if e.required else "Not written." }}</em></p>
+{% endif %}
+{% endfor %}
+{% endfor %}

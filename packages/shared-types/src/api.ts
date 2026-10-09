@@ -788,6 +788,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/checklists": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Definitions
+         * @description Checklists a project can add, from the reviewed files (optionally for one vertical).
+         */
+        get: operations["list_definitions_v1_checklists_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/invitations/accept": {
         parameters: {
             query?: never;
@@ -988,6 +1008,44 @@ export interface paths {
         head?: never;
         /** Update Business Profile */
         patch: operations["update_business_profile_v1_organisations__organisation_id__business_profiles__profile_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/checklist-items/{item_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * Update Item
+         * @description Tick an item off, reopen it or mark it not applicable (a required item needs a note
+         *     saying why).
+         */
+        patch: operations["update_item_v1_organisations__organisation_id__checklist_items__item_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/checklists/{checklist_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Remove Checklist */
+        delete: operations["remove_checklist_v1_organisations__organisation_id__checklists__checklist_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/v1/organisations/{organisation_id}/documents/{document_id}": {
@@ -1250,6 +1308,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/checklists": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Checklists */
+        get: operations["list_checklists_v1_organisations__organisation_id__projects__project_id__checklists_get"];
+        put?: never;
+        /**
+         * Add Checklist
+         * @description Add a checklist to the project. Adding one that is already there returns it.
+         */
+        post: operations["add_checklist_v1_organisations__organisation_id__projects__project_id__checklists_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/projects/{project_id}/documents": {
         parameters: {
             query?: never;
@@ -1338,6 +1417,30 @@ export interface paths {
          * @description Ask a professional to check the project's latest assessment.
          */
         post: operations["request_review_v1_organisations__organisation_id__projects__project_id__reviews_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sms": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Sms
+         * @description The project's safety management system draft with the structure and guidance.
+         */
+        get: operations["get_sms_v1_organisations__organisation_id__projects__project_id__sms_get"];
+        /**
+         * Save Sms
+         * @description Save some parts of the SMS; parts not sent are kept.
+         */
+        put: operations["save_sms_v1_organisations__organisation_id__projects__project_id__sms_put"];
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -1648,6 +1751,24 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/vessel-certificates/{certificate_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Delete Certificate */
+        delete: operations["delete_certificate_v1_organisations__organisation_id__vessel_certificates__certificate_id__delete"];
+        options?: never;
+        head?: never;
+        /** Update Certificate */
+        patch: operations["update_certificate_v1_organisations__organisation_id__vessel_certificates__certificate_id__patch"];
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/vessels": {
         parameters: {
             query?: never;
@@ -1683,6 +1804,27 @@ export interface paths {
         head?: never;
         /** Update Vessel */
         patch: operations["update_vessel_v1_organisations__organisation_id__vessels__vessel_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/vessels/{vessel_id}/certificates": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Certificates
+         * @description The vessel's certificates, soonest expiry first.
+         */
+        get: operations["list_certificates_v1_organisations__organisation_id__vessels__vessel_id__certificates_get"];
+        put?: never;
+        /** Add Certificate */
+        post: operations["add_certificate_v1_organisations__organisation_id__vessels__vessel_id__certificates_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/v1/professional/profile": {
@@ -2369,6 +2511,215 @@ export interface components {
          * @enum {string}
          */
         Certainty: "REQUIRED" | "LIKELY_REQUIRED" | "MAY_APPLY" | "NOT_IDENTIFIED";
+        /** CertificateCreate */
+        CertificateCreate: {
+            /** Expires On */
+            expires_on?: string | null;
+            /** Issued On */
+            issued_on?: string | null;
+            /** Issuer */
+            issuer?: string | null;
+            kind: components["schemas"]["CertificateKind"];
+            /** Notes */
+            notes?: string | null;
+            /** Number */
+            number?: string | null;
+            /** Title */
+            title?: string | null;
+            /**
+             * Uploaded Document Id
+             * @description A clean upload holding a copy of the certificate.
+             */
+            uploaded_document_id?: string | null;
+        };
+        /**
+         * CertificateKind
+         * @enum {string}
+         */
+        CertificateKind: "CERTIFICATE_OF_SURVEY" | "CERTIFICATE_OF_OPERATION" | "EXEMPTION" | "STATE_REGISTRATION" | "OTHER";
+        /** CertificateOut */
+        CertificateOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Expires On */
+            expires_on: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Issued On */
+            issued_on: string | null;
+            /** Issuer */
+            issuer: string | null;
+            kind: components["schemas"]["CertificateKind"];
+            /** Notes */
+            notes: string | null;
+            /** Number */
+            number: string | null;
+            /** @description EXPIRING within 60 days of expiry (Queensland date). */
+            state: components["schemas"]["CertificateState"];
+            /** Title */
+            title: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /** Uploaded Document Id */
+            uploaded_document_id: string | null;
+            /**
+             * Vessel Id
+             * Format: uuid
+             */
+            vessel_id: string;
+        };
+        /**
+         * CertificateState
+         * @enum {string}
+         */
+        CertificateState: "CURRENT" | "EXPIRING" | "EXPIRED" | "NO_EXPIRY";
+        /** CertificateUpdate */
+        CertificateUpdate: {
+            /** Expires On */
+            expires_on?: string | null;
+            /** Issued On */
+            issued_on?: string | null;
+            /** Issuer */
+            issuer?: string | null;
+            kind?: components["schemas"]["CertificateKind"] | null;
+            /** Notes */
+            notes?: string | null;
+            /** Number */
+            number?: string | null;
+            /** Title */
+            title?: string | null;
+            /**
+             * Uploaded Document Id
+             * @description A clean upload holding a copy of the certificate.
+             */
+            uploaded_document_id?: string | null;
+        };
+        /** ChecklistAddIn */
+        ChecklistAddIn: {
+            /** Key */
+            key: string;
+        };
+        /** ChecklistDefinitionOut */
+        ChecklistDefinitionOut: {
+            /** Description */
+            description: string;
+            /** Items */
+            items: components["schemas"]["ChecklistItemDefOut"][];
+            /** Key */
+            key: string;
+            /** Sources */
+            sources: components["schemas"]["ChecklistSourceOut"][];
+            /** Title */
+            title: string;
+            vertical: components["schemas"]["Vertical"];
+        };
+        /** ChecklistItemDefOut */
+        ChecklistItemDefOut: {
+            /** Detail */
+            detail: string | null;
+            /** Key */
+            key: string;
+            /** Required */
+            required: boolean;
+            /** Title */
+            title: string;
+        };
+        /** ChecklistItemOut */
+        ChecklistItemOut: {
+            /**
+             * Checklist Id
+             * Format: uuid
+             */
+            checklist_id: string;
+            /** Completed At */
+            completed_at: string | null;
+            /** Completed By */
+            completed_by: string | null;
+            /** Detail */
+            detail: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Key */
+            key: string;
+            /** Note */
+            note: string | null;
+            /** Required */
+            required: boolean;
+            status: components["schemas"]["ItemStatus"];
+            /** Title */
+            title: string;
+        };
+        /** ChecklistItemUpdateIn */
+        ChecklistItemUpdateIn: {
+            /** Note */
+            note?: string | null;
+            status?: components["schemas"]["ItemStatus"] | null;
+        };
+        /**
+         * ChecklistOrigin
+         * @enum {string}
+         */
+        ChecklistOrigin: "RULE" | "USER";
+        /** ChecklistOut */
+        ChecklistOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Description */
+            description: string;
+            /**
+             * Done
+             * @description Items done or marked not applicable.
+             */
+            done: number;
+            /** Finding Id */
+            finding_id: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Items */
+            items: components["schemas"]["ChecklistItemOut"][];
+            /** Key */
+            key: string;
+            /** @description RULE: added by an assessment finding (cannot be removed). USER: added by the customer. */
+            origin: components["schemas"]["ChecklistOrigin"];
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** Sources */
+            sources: components["schemas"]["ChecklistSourceOut"][];
+            /** Title */
+            title: string;
+            /** Total */
+            total: number;
+        };
+        /** ChecklistSourceOut */
+        ChecklistSourceOut: {
+            /** Organisation */
+            organisation: string;
+            /** Title */
+            title: string;
+            /** Url */
+            url: string;
+        };
         /**
          * Classification
          * @enum {string}
@@ -2750,6 +3101,11 @@ export interface components {
         /** GenerateIn */
         GenerateIn: {
             format: components["schemas"]["OutputFormat"];
+            /**
+             * Template
+             * @description Which report (e.g. VESSEL_PATHWAY or SMS for vessel projects); defaults to the vertical's assessment report.
+             */
+            template?: string | null;
         };
         /** GeneratedDocumentOut */
         GeneratedDocumentOut: {
@@ -2783,6 +3139,11 @@ export interface components {
             /** Size Bytes */
             size_bytes: number | null;
             status: components["schemas"]["GenerationStatus"];
+            /**
+             * Template Key
+             * @description Which report, e.g. VESSEL_PATHWAY or SMS.
+             */
+            template_key: string;
         };
         /**
          * GenerationStatus
@@ -2831,6 +3192,11 @@ export interface components {
             /** Roles */
             roles: string[];
         };
+        /**
+         * ItemStatus
+         * @enum {string}
+         */
+        ItemStatus: "OPEN" | "DONE" | "NOT_APPLICABLE";
         /** LiveResponse */
         LiveResponse: {
             /**
@@ -4122,6 +4488,87 @@ export interface components {
             /** Permissions */
             permissions: string[];
             user: components["schemas"]["UserOut"];
+        };
+        /** SmsElementOut */
+        SmsElementOut: {
+            /** Guidance */
+            guidance: string;
+            /** Key */
+            key: string;
+            /** Required */
+            required: boolean;
+            /**
+             * Suggestion
+             * @description Starting text from the vessel's details, offered only while empty.
+             */
+            suggestion: string | null;
+            /**
+             * Text
+             * @description What the customer has written so far.
+             */
+            text: string | null;
+            /** Title */
+            title: string;
+        };
+        /** SmsOut */
+        SmsOut: {
+            /** Description */
+            description: string;
+            /** Disclaimer */
+            disclaimer: string;
+            /**
+             * Outdated Structure
+             * @description The structure changed since this SMS was last saved.
+             */
+            outdated_structure: boolean;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** Required */
+            required: number;
+            /** Saved At */
+            saved_at: string | null;
+            /** Sections */
+            sections: components["schemas"]["SmsSectionOut"][];
+            /** Sources */
+            sources: components["schemas"]["SmsSourceOut"][];
+            /** Title */
+            title: string;
+            /**
+             * Written
+             * @description Required parts with text.
+             */
+            written: number;
+        };
+        /** SmsSaveIn */
+        SmsSaveIn: {
+            /**
+             * Content
+             * @description Element key → text; null or blank clears it. Other elements are kept.
+             */
+            content: {
+                [key: string]: string | null;
+            };
+        };
+        /** SmsSectionOut */
+        SmsSectionOut: {
+            /** Elements */
+            elements: components["schemas"]["SmsElementOut"][];
+            /** Key */
+            key: string;
+            /** Title */
+            title: string;
+        };
+        /** SmsSourceOut */
+        SmsSourceOut: {
+            /** Organisation */
+            organisation: string;
+            /** Title */
+            title: string;
+            /** Url */
+            url: string;
         };
         /** SnapshotCaptured */
         SnapshotCaptured: {
@@ -6510,6 +6957,37 @@ export interface operations {
             };
         };
     };
+    list_definitions_v1_checklists_get: {
+        parameters: {
+            query?: {
+                vertical?: components["schemas"]["Vertical"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ChecklistDefinitionOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     accept_invitation_v1_invitations_accept_post: {
         parameters: {
             query?: never;
@@ -7011,6 +7489,72 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["BusinessOut"];
                 };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_item_v1_organisations__organisation_id__checklist_items__item_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                item_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ChecklistItemUpdateIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ChecklistItemOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    remove_checklist_v1_organisations__organisation_id__checklists__checklist_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                checklist_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {
@@ -7720,6 +8264,74 @@ export interface operations {
             };
         };
     };
+    list_checklists_v1_organisations__organisation_id__projects__project_id__checklists_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ChecklistOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_checklist_v1_organisations__organisation_id__projects__project_id__checklists_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ChecklistAddIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ChecklistOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_documents_v1_organisations__organisation_id__projects__project_id__documents_get: {
         parameters: {
             query?: never;
@@ -7974,6 +8586,74 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_sms_v1_organisations__organisation_id__projects__project_id__sms_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SmsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    save_sms_v1_organisations__organisation_id__projects__project_id__sms_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SmsSaveIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SmsOut"];
                 };
             };
             /** @description Validation Error */
@@ -8731,6 +9411,72 @@ export interface operations {
             };
         };
     };
+    delete_certificate_v1_organisations__organisation_id__vessel_certificates__certificate_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                certificate_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_certificate_v1_organisations__organisation_id__vessel_certificates__certificate_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                certificate_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CertificateUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CertificateOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_vessels_v1_organisations__organisation_id__vessels_get: {
         parameters: {
             query?: never;
@@ -8882,6 +9628,74 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["VesselOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_certificates_v1_organisations__organisation_id__vessels__vessel_id__certificates_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                vessel_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CertificateOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_certificate_v1_organisations__organisation_id__vessels__vessel_id__certificates_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                vessel_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CertificateCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CertificateOut"];
                 };
             };
             /** @description Validation Error */

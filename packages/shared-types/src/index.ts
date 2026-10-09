@@ -117,3 +117,13 @@ export type AssessmentReviewOut = Schemas["AssessmentReviewOut"];
 export type QueueItemOut = Schemas["QueueItemOut"];
 export type ReviewerWorkspaceOut = Schemas["ReviewerWorkspaceOut"];
 export type StaffReviewOut = Schemas["StaffReviewOut"];
+
+export type ChecklistOut = Schemas["ChecklistOut"];
+export type ChecklistItemOut = Schemas["ChecklistItemOut"];
+export type ChecklistDefinitionOut = Schemas["ChecklistDefinitionOut"];
+export type ItemStatus = Schemas["ItemStatus"];
+export type CertificateOut = Schemas["CertificateOut"];
+export type CertificateKind = Schemas["CertificateKind"];
+export type SmsOut = Schemas["SmsOut"];
+export type SmsSectionOut = Schemas["SmsSectionOut"];
+export type SmsElementOut = Schemas["SmsElementOut"];

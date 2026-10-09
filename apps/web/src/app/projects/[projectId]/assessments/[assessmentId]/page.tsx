@@ -14,8 +14,9 @@ import Link from "next/link";
 import { AppShell, NoAccess } from "@/components/app/AppShell";
 import { AssessmentReport } from "@/components/assessments/AssessmentReport";
 import { EvidencePanel } from "@/components/documents/EvidencePanel";
-import { ReportDownloads } from "@/components/documents/ReportDownloads";
+import { REPORT_TEMPLATES, ReportDownloads } from "@/components/documents/ReportDownloads";
 import { ReviewPanel } from "@/components/review/ReviewPanel";
+import { MAP_VERTICALS } from "@/lib/assessment";
 import { isOpen } from "@/lib/review";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
@@ -64,7 +65,7 @@ export default async function AssessmentPage({ params }: Props) {
         assessment={assessment}
         projectId={projectId}
         overrides={review?.overrides}
-        approvalMap={project.ok && project.data.vertical === "BUSINESS"}
+        approvalMap={project.ok && MAP_VERTICALS.has(project.data.vertical)}
         intro={
           <ReviewPanel
             organisationId={orgId}
@@ -94,6 +95,7 @@ export default async function AssessmentPage({ params }: Props) {
             (g) => g.assessment_id === assessment.id,
           )}
           canWrite={canWrite}
+          templates={project.ok ? REPORT_TEMPLATES[project.data.vertical] : undefined}
         />
       </AssessmentReport>
     </AppShell>

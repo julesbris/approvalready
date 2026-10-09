@@ -12,7 +12,8 @@ prose:
                "certainty": "MAY_APPLY"},
   "evidence": [{"kind": "SITE_PLAN", "title": "Site plan showing 3 car parks"}],
   "referral_categories": ["town_planner"],
-  "task": "Confirm the level of assessment with council"
+  "task": "Confirm the level of assessment with council",
+  "checklists": ["vessel.initial_survey"]
 }
 ```
 
@@ -28,6 +29,7 @@ from typing import Annotated, Any
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, ValidationError
 
+from app.modules.checklists.definition import CHECKLIST_KEY_PATTERN
 from app.modules.rules.models import KEY_PATTERN, OutcomeType
 
 CODE_PATTERN = r"^[A-Z][A-Z0-9_]{1,59}$"
@@ -35,6 +37,9 @@ CODE_PATTERN = r"^[A-Z][A-Z0-9_]{1,59}$"
 Code = Annotated[str, StringConstraints(strip_whitespace=True, pattern=CODE_PATTERN)]
 Text200 = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=200)]
 Text2000 = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=2000)]
+ChecklistKey = Annotated[
+    str, StringConstraints(strip_whitespace=True, pattern=CHECKLIST_KEY_PATTERN)
+]
 CategoryKey = Annotated[
     str, StringConstraints(strip_whitespace=True, max_length=60, pattern=KEY_PATTERN)
 ]
@@ -95,6 +100,11 @@ class OutcomePayload(_Strict):
     task: Text200 | None = Field(
         default=None, description="A task added to the customer's project."
     )
+    checklists: list[ChecklistKey] = Field(
+        default_factory=list,
+        max_length=5,
+        description="Reviewed checklists added to the project, e.g. vessel.initial_survey.",
+    )
 
 
 def certainty_for(outcome_type: str, spec: ApprovalSpec) -> Certainty:
@@ -123,6 +133,8 @@ def validate_payload(outcome_type: str, payload: dict[str, Any] | None) -> dict[
             )
     if len(set(parsed.referral_categories)) != len(parsed.referral_categories):
         raise ValueError("referral_categories: list each category once.")
+    if len(set(parsed.checklists)) != len(parsed.checklists):
+        raise ValueError("checklists: list each checklist once.")
     dumped = parsed.model_dump(mode="json", exclude_defaults=True)
     return dumped or None
 

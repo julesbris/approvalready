@@ -95,8 +95,14 @@ tests and updated docs before the next starts.
 - [x] Business profile picker on business and grant projects; questionnaire prefill from the profile (moved from backlog)
 - [ ] Next: verify the pack's references; other states and councils; signage, trade waste, noise and music licensing
 
-## Milestone 9 — VesselReady
-- [ ] Vessel profile, commercial pathway, SMS builder, survey checklist, registration prep
+## Milestone 9 — VesselReady ✅
+- [x] Vessel profile: vessel picker on vessel projects, questionnaire prefill from the vessel, vessel certificates with expiry (moved from backlog)
+- [~] Commercial pathway: content pack `vessel_au_qld` (2 rule sets, 12 rules, 16 references) from AMSA, Marine Order 504 (as made) and Queensland Government pages: domestic commercial vessel status, UVI, certificate of survey and non-survey approval (Exemption 02), certificate of operation (Exemption 03), SMS, simplified SMS, master's certificate of competency, Queensland recreational registration and licences. Every reference is an **unverified summary** to be captured and verified by staff
+- [x] SMS builder: Marine Order 504 Schedule 1 headings with guidance, saved part by part, starting text from the vessel, downloadable `SMS` draft (PDF, DOCX, HTML)
+- [x] Survey checklist and registration prep: reviewed checklists (initial survey, non-survey approval, certificate of operation, UVI, Queensland registration) added to a project by the rules that name them or by the customer
+- [x] `VESSEL_PATHWAY` report and the approval map on vessel assessments
+- [ ] Next: verify the pack's references; read Exemption 02 and 03 schedules and Marine Orders 503 and 505 into rules (survey frequency, crewing, which certificate each crew member needs); Queensland smooth and partially smooth water boundaries; other states' registration
+- [ ] Moved to Milestone 11 (with reminder delivery): reminders before a vessel certificate expires (expiring ones are flagged now)
 
 ## Milestone 10 — GrantReady
 - [ ] Grant profiles, programs, rounds (sourced dates), eligibility rules, match statuses

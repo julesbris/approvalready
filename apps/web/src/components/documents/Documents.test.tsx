@@ -38,6 +38,7 @@ const REPORT: GeneratedDocumentOut = {
   id: "g1",
   project_id: "p1",
   assessment_id: "a1",
+  template_key: "PLANNING_ASSESSMENT",
   format: "PDF",
   status: "PENDING",
   review_status: "NOT_REVIEWED",

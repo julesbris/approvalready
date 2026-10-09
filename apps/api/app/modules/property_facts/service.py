@@ -4,9 +4,10 @@ Suggestions are offered, never saved: the customer chooses to use them, and they
 saved through the normal answers endpoint with the normal validation. Two places they come
 from:
 
-* the property linked to the project (address, lot and plan, land area), or the business
-  profile linked to a business project (ABN, structure, size, address), which the customer
-  entered themselves;
+* the property linked to the project (address, lot and plan, land area), the business
+  profile linked to a business project (ABN, structure, size, address) or the vessel linked
+  to a vessel project (name, type, length, propulsion, UVI, passengers, crew), which the
+  customer entered themselves;
 * the configured property facts provider (``provider.py``), with its source shown.
 
 Only questions that are part of the questionnaire, not answered yet, and for which the
@@ -21,7 +22,7 @@ from typing import Any
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.entities import service as entities
-from app.modules.entities.models import BusinessProfile, Property
+from app.modules.entities.models import BusinessProfile, Property, Vessel
 from app.modules.projects.models import Project
 from app.modules.property_facts.provider import AddressQuery, PropertyFactsProvider
 from app.modules.questionnaires.engine import AnswerInvalid, normalise_answer
@@ -29,6 +30,7 @@ from app.modules.questionnaires.service import SubmissionView
 
 PROPERTY_SOURCE = "Your property details"
 BUSINESS_SOURCE = "Your business details"
+VESSEL_SOURCE = "Your vessel details"
 
 
 @dataclass(frozen=True)
@@ -102,6 +104,28 @@ async def _business_answers(db: AsyncSession, project: Project) -> dict[str, Any
     return answers
 
 
+async def _vessel_answers(db: AsyncSession, project: Project) -> dict[str, Any]:
+    if project.vessel_id is None:
+        return {}
+    vessel = await entities.get_entity(db, Vessel, project.organisation_id, project.vessel_id)
+    answers: dict[str, Any] = {
+        "vessel.name": vessel.name,
+        "vessel.type": vessel.vessel_type.lower(),
+        "vessel.has_uvi": vessel.uvi is not None,
+    }
+    if vessel.length_m is not None:
+        answers["vessel.length_m"] = str(vessel.length_m)
+    if vessel.propulsion:
+        answers["vessel.propulsion"] = vessel.propulsion.lower()
+    if vessel.uvi:
+        answers["vessel.uvi"] = vessel.uvi
+    if vessel.max_passengers is not None:
+        answers["vessel.max_passengers"] = vessel.max_passengers
+    if vessel.crew is not None:
+        answers["vessel.crew"] = vessel.crew
+    return answers
+
+
 def _address_from_answer(value: Any) -> AddressQuery | None:
     if not isinstance(value, dict):
         return None
@@ -119,6 +143,9 @@ async def suggestions(
     candidates += [
         Suggestion(k, "", v, BUSINESS_SOURCE)
         for k, v in (await _business_answers(db, project)).items()
+    ]
+    candidates += [
+        Suggestion(k, "", v, VESSEL_SOURCE) for k, v in (await _vessel_answers(db, project)).items()
     ]
     query = query or _address_from_answer(view.answers.get("property.address"))
     if query is not None:

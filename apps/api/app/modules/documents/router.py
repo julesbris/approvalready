@@ -14,6 +14,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, File, Response, UploadFile, status
 from fastapi.responses import RedirectResponse
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import (
     DbDep,
@@ -90,11 +91,19 @@ def evidence_out(row: service.EvidenceRow) -> EvidenceOut:
     )
 
 
-def generated_out(g: GeneratedDocument) -> GeneratedDocumentOut:
+async def generated_outs(
+    db: AsyncSession, items: list[GeneratedDocument]
+) -> list[GeneratedDocumentOut]:
+    keys = await service.template_keys(db, {g.template_version_id for g in items})
+    return [generated_out(g, keys[g.template_version_id]) for g in items]
+
+
+def generated_out(g: GeneratedDocument, template_key: str) -> GeneratedDocumentOut:
     return GeneratedDocumentOut(
         id=g.id,
         project_id=g.project_id,
         assessment_id=g.assessment_id,
+        template_key=template_key,
         format=g.format,
         status=g.status,
         review_status=g.review_status,
@@ -316,24 +325,31 @@ async def generate_report(
         raise rate_limited(await limiter.retry_after(limit, subject))
     assessment, project, _ = await assessments.get(db, ctx.organisation.id, assessment_id)
     generated = await service.request_report(
-        db, assessment, project, body.format, actor_id=ctx.auth.user.id, meta=meta
+        db,
+        assessment,
+        project,
+        body.format,
+        actor_id=ctx.auth.user.id,
+        meta=meta,
+        template=body.template,
     )
     await db.commit()
     org_id, generated_id = ctx.organisation.id, generated.id
     await _dispatch("generate", resources.jobs.generate(org_id, generated_id))
     db.expire_all()  # inline generation changed the row in another session
-    return generated_out(await service.get_generated(db, org_id, generated_id))
+    return (await generated_outs(db, [await service.get_generated(db, org_id, generated_id)]))[0]
 
 
 @router.get("/projects/{project_id}/generated-documents", response_model=list[GeneratedDocumentOut])
 async def list_generated(project_id: uuid.UUID, ctx: Read, db: DbDep) -> list[GeneratedDocumentOut]:
     project = await projects.get_project(db, ctx.organisation.id, project_id)
-    return [generated_out(g) for g in await service.list_generated(db, project)]
+    return await generated_outs(db, await service.list_generated(db, project))
 
 
 @router.get("/generated-documents/{generated_id}", response_model=GeneratedDocumentOut)
 async def get_generated(generated_id: uuid.UUID, ctx: Read, db: DbDep) -> GeneratedDocumentOut:
-    return generated_out(await service.get_generated(db, ctx.organisation.id, generated_id))
+    generated = await service.get_generated(db, ctx.organisation.id, generated_id)
+    return (await generated_outs(db, [generated]))[0]
 
 
 @router.get(

@@ -26,6 +26,7 @@ from app.modules.assessments.models import (
 )
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
+from app.modules.checklists import service as checklists
 from app.modules.conditions import parse_condition, trace
 from app.modules.projects import service as projects
 from app.modules.projects.models import Project, ProjectStatus, Task
@@ -165,6 +166,7 @@ async def _derive_requirements(
     than the finding behind it."""
     approval_n = evidence_n = 0
     suggestions: list[tuple[uuid.UUID, str, str | None]] = []
+    named_checklists: list[tuple[uuid.UUID, str]] = []
     for f in findings:
         if f.payload is None or f.outcome_type is None:
             continue
@@ -201,7 +203,9 @@ async def _derive_requirements(
             )
         if payload.task:
             suggestions.append((f.id, payload.task, f.title))
+        named_checklists += [(f.id, key) for key in payload.checklists]
     await db.flush()
+    await checklists.add_from_findings(db, project, named_checklists, actor_id=actor_id)
     return await projects.add_rule_tasks(db, project, suggestions, actor_id=actor_id)
 
 

@@ -58,12 +58,19 @@ class EvidenceOut(BaseModel):
 
 class GenerateIn(BaseModel):
     format: OutputFormat
+    template: str | None = Field(
+        default=None,
+        max_length=60,
+        description="Which report (e.g. VESSEL_PATHWAY or SMS for vessel projects); "
+        "defaults to the vertical's assessment report.",
+    )
 
 
 class GeneratedDocumentOut(BaseModel):
     id: uuid.UUID
     project_id: uuid.UUID
     assessment_id: uuid.UUID | None
+    template_key: str = Field(description="Which report, e.g. VESSEL_PATHWAY or SMS.")
     format: OutputFormat
     status: GenerationStatus
     review_status: ReviewStatus

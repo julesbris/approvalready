@@ -48,7 +48,13 @@ Shared enums:
 
 ## 2. Customer entities (built, Milestone 3, except where noted)
 
-As built: `customer_profile`, `vessel_certificate` and `business_profile.ownership_flags` are
+As built: `vessel_certificate` arrived in Milestone 9 with `title`, `issuer`, `notes`, an
+`uploaded_document_id` (a clean upload, instead of `evidence_id`) and soft delete; its `kind` is
+`CERTIFICATE_OF_SURVEY`, `CERTIFICATE_OF_OPERATION`, `EXEMPTION`, `STATE_REGISTRATION` or
+`OTHER`. Milestone 9 also added `safety_management_system` (one per vessel project: `content`
+jsonb of element key → text, `structure_hash`, `updated_by`) and `project_checklist` /
+`checklist_item` (a reviewed checklist copied into a project; items `OPEN`, `DONE` or
+`NOT_APPLICABLE` with a note). `customer_profile` and `business_profile.ownership_flags` are
 not built yet (no milestone needs them before BusinessReady/VesselReady/GrantReady). `address`
 is tenant-owned (**T**) so it can be protected by RLS; `property_ownership.evidence_id` waits
 for documents (Milestone 6). Entities are reachable through the API; their UI arrives with
