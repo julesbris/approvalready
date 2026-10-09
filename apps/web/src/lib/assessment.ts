@@ -148,10 +148,12 @@ export function describeLeaf(leaf: TraceNode, labels: Record<string, string>): s
 }
 
 /** Findings people need to act on first, then missing information, then the rest. */
-export function groupFindings(findings: FindingOut[]): {
-  action: FindingOut[];
-  missing: FindingOut[];
-  other: FindingOut[];
+export function groupFindings<T extends FindingOut>(
+  findings: T[],
+): {
+  action: T[];
+  missing: T[];
+  other: T[];
 } {
   const actionTypes = new Set([
     "APPROVAL_REQUIRED",

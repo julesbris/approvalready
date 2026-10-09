@@ -2,7 +2,7 @@
 
 Status workflow. Customers move a project between the states in ``USER_TRANSITIONS``;
 ``ASSESSED`` and ``IN_REVIEW`` are entered by the assessment (``mark_assessed``) and review
-(Milestone 7) workflows only. Every change is written to the append-only
+(``mark_in_review``, ``end_review``) workflows only. Every change is written to the append-only
 ``project_status_event`` table and the audit log.
 """
 
@@ -295,6 +295,30 @@ async def mark_assessed(
     project.status = S.ASSESSED
     await db.flush()
     await _record_status(db, project, previous, actor_id=actor_id, meta=meta)
+
+
+async def mark_in_review(
+    db: AsyncSession, project: Project, *, actor_id: uuid.UUID, meta: RequestMeta | None
+) -> None:
+    """A review request moves the project to ``IN_REVIEW`` (a system transition); customers
+    can't move it elsewhere until the review ends."""
+    if project.status == S.IN_REVIEW:
+        return
+    previous = project.status
+    project.status = S.IN_REVIEW
+    await db.flush()
+    await _record_status(db, project, previous, actor_id=actor_id, meta=meta)
+
+
+async def end_review(
+    db: AsyncSession, project: Project, *, actor_id: uuid.UUID, meta: RequestMeta | None
+) -> None:
+    """A finished or cancelled review hands the project back as ``ASSESSED``."""
+    if project.status != S.IN_REVIEW:
+        return
+    project.status = S.ASSESSED
+    await db.flush()
+    await _record_status(db, project, S.IN_REVIEW, actor_id=actor_id, meta=meta)
 
 
 async def delete_project(

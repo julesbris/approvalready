@@ -1,4 +1,4 @@
-import type { AssessmentOut, FindingOut } from "@approvalready/shared-types";
+import type { AssessmentOut, FindingOut, OverrideOut } from "@approvalready/shared-types";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -18,6 +18,7 @@ import {
 } from "@/lib/assessment";
 import { formatDateTime } from "@/lib/labels";
 import { formatDate } from "@/lib/questionnaire";
+import { type ReviewedFinding, applyOverrides } from "@/lib/review";
 
 function ConfidenceBadge({ level }: { level: FindingOut["confidence"] }) {
   return (
@@ -27,10 +28,35 @@ function ConfidenceBadge({ level }: { level: FindingOut["confidence"] }) {
   );
 }
 
-function Finding({ finding, labels }: { finding: FindingOut; labels: Record<string, string> }) {
+function ReviewerChange({ finding }: { finding: ReviewedFinding }) {
+  const o = finding.override;
+  if (!o) return null;
+  const was = finding.original;
+  return (
+    <div className="notice">
+      <p>
+        <strong>Changed by the professional reviewer.</strong> The assessment said{" "}
+        {was.outcome_type ? OUTCOME_LABELS[was.outcome_type] : "no outcome"} (
+        {CONFIDENCE_LABELS[was.confidence]}).
+      </p>
+      <p>{o.reason}</p>
+      {o.source ? <p className="muted">Source: {o.source.citation}</p> : null}
+    </div>
+  );
+}
+
+function Finding({
+  finding,
+  labels,
+  actions,
+}: {
+  finding: ReviewedFinding;
+  labels: Record<string, string>;
+  actions?: ReactNode;
+}) {
   const checks = leaves(finding.trace as TraceNode);
   return (
-    <li className="finding">
+    <li className="finding" id={`finding-${finding.id}`}>
       <div className="finding-head">
         <div>
           <h3 className="finding-title">{finding.title ?? finding.rule_title}</h3>
@@ -42,6 +68,7 @@ function Finding({ finding, labels }: { finding: FindingOut; labels: Record<stri
         <ConfidenceBadge level={finding.confidence} />
       </div>
       {finding.detail ? <p>{finding.detail}</p> : null}
+      <ReviewerChange finding={finding} />
       {finding.missing_facts.length > 0 ? (
         <div>
           <p className="finding-label">Information we still need</p>
@@ -84,6 +111,7 @@ function Finding({ finding, labels }: { finding: FindingOut; labels: Record<stri
           ))}
         </ul>
       </details>
+      {actions}
     </li>
   );
 }
@@ -137,14 +165,25 @@ function Requirements({ assessment }: { assessment: AssessmentOut }) {
 export function AssessmentReport({
   assessment,
   projectId,
+  overrides,
+  findingActions,
+  intro,
   children,
 }: {
   assessment: AssessmentOut;
-  projectId: string;
+  /** Links back to the customer's project (left out on the reviewer's page). */
+  projectId?: string;
+  /** Professional reviewers' changes to the findings (shown next to the originals). */
+  overrides?: OverrideOut[];
+  /** Extra controls under each finding (the reviewer's change form). */
+  findingActions?: (finding: FindingOut) => ReactNode;
+  /** Shown under the heading (the review panel). */
+  intro?: ReactNode;
   /** Interactive panels (evidence, report downloads) shown after the requirements. */
   children?: ReactNode;
 }) {
-  const groups = groupFindings(assessment.finding_list);
+  const reviewed = applyOverrides(assessment.finding_list, overrides);
+  const groups = groupFindings(reviewed);
   const labels = assessment.fact_labels;
   const needsInfo = assessment.rule_sets.filter((rs) => rs.scope === "NEEDS_INFORMATION");
   const sources = uniqueSources(assessment.finding_list);
@@ -167,6 +206,8 @@ export function AssessmentReport({
         or professional advice. Check with the approving authority or a qualified professional
         before you act on it.
       </p>
+
+      {intro}
 
       {assessment.status === "NO_APPLICABLE_RULES" ? (
         <section className="panel">
@@ -215,7 +256,12 @@ export function AssessmentReport({
             </h2>
             <ul className="finding-list">
               {list.map((f) => (
-                <Finding key={f.id} finding={f} labels={labels} />
+                <Finding
+                  key={f.id}
+                  finding={f}
+                  labels={labels}
+                  actions={findingActions?.(f)}
+                />
               ))}
             </ul>
           </section>
@@ -271,7 +317,7 @@ export function AssessmentReport({
         </section>
       ) : null}
 
-      {groups.missing.length > 0 || needsInfo.length > 0 ? (
+      {projectId && (groups.missing.length > 0 || needsInfo.length > 0) ? (
         <p>
           <Link href={`/projects/${projectId}/questionnaire`}>Update your answers</Link>, submit
           them again and run a new assessment.

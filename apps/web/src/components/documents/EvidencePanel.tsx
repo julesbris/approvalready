@@ -110,7 +110,8 @@ export function EvidencePanel(props: Props) {
         Your evidence
       </h2>
       <p className="muted">
-        Attach the files that show each of these. They stay private to your organisation.
+        Attach the files that show each of these. They stay private to your organisation, and a
+        professional reviewer you ask to check this assessment can see them.
       </p>
       <FormError message={error} />
       <ul className="finding-list">
@@ -132,6 +133,9 @@ export function EvidencePanel(props: Props) {
                     document={item.document}
                   >
                     <span className="badge">{EVIDENCE_LABELS[item.status]}</span>
+                    {item.review_note ? (
+                      <span className="muted">Reviewer: {item.review_note}</span>
+                    ) : null}
                     {canWrite && item.status === "SUBMITTED" ? (
                       <button
                         type="button"

@@ -27,6 +27,7 @@ from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
 from app.modules.documents import filetypes
 from app.modules.documents.models import (
+    Classification,
     Evidence,
     EvidenceStatus,
     GeneratedDocument,
@@ -252,6 +253,34 @@ async def record_download(
         target_id=target_id,
         meta=meta,
     )
+
+
+async def set_classification(
+    db: AsyncSession,
+    document: UploadedDocument,
+    classification: Classification,
+    *,
+    actor_id: uuid.UUID,
+    meta: RequestMeta | None,
+) -> UploadedDocument:
+    if classification == Classification.RELEASED_TO_PARTNER:
+        raise _conflict("not_available", "Sharing with partners isn't available yet.")
+    if document.classification == classification:
+        return document
+    previous = document.classification
+    document.classification = classification
+    await db.flush()
+    await audit.record(
+        db,
+        "document.classification_changed",
+        actor_user_id=actor_id,
+        organisation_id=document.organisation_id,
+        target_type="uploaded_document",
+        target_id=document.id,
+        meta=meta,
+        details={"from": previous, "to": classification},
+    )
+    return document
 
 
 # --- Scanning (runs in the worker) -----------------------------------------------------

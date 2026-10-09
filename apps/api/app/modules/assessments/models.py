@@ -4,8 +4,8 @@ An assessment evaluates every published rule of the project's vertical against t
 from a submitted questionnaire, on one date. It stores everything needed to explain and
 reproduce the result: the facts (and their hash), the exact rule versions, each rule's
 leaf-by-leaf trace, and the state of every cited source at the time. Re-running creates a
-new assessment; findings are never edited (reviewer overrides arrive in Milestone 7 as
-separate rows).
+new assessment; findings are never edited (a professional reviewer's changes are separate
+``finding_override`` rows, ``app/modules/review``).
 """
 
 from __future__ import annotations

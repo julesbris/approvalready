@@ -16,6 +16,7 @@ from zoneinfo import ZoneInfo
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.assessments import service as assessments
+from app.modules.assessments.models import AssessmentFinding
 from app.modules.documents import render
 from app.modules.documents.models import (
     DocumentTemplate,
@@ -25,6 +26,8 @@ from app.modules.documents.models import (
 )
 from app.modules.documents.service import list_evidence
 from app.modules.questionnaires import service as questionnaires
+from app.modules.review import professionals
+from app.modules.review import service as review
 from app.modules.rules.engine import decode_facts
 from app.modules.rules.payload import parse_payload
 
@@ -82,6 +85,38 @@ REVIEW_STATUS = {
         "No qualified professional has checked this report. Results marked as needing "
         "review should be confirmed before you rely on them.",
     ),
+    "IN_REVIEW": (
+        "Professional review in progress",
+        "A qualified professional is reviewing this assessment. Results may change when "
+        "they finish.",
+    ),
+    "CHANGES_REQUIRED": (
+        "Changes requested by the reviewer",
+        "The professional reviewing this assessment asked for changes before they can "
+        "finish. Their notes are below.",
+    ),
+    "APPROVED": (
+        "Reviewed and approved by a professional",
+        "A qualified professional reviewed this assessment and approved it, including any "
+        "changes they made below. It is still not a council decision.",
+    ),
+    "REVIEWED": (
+        "Reviewed by a professional, not approved",
+        "A qualified professional reviewed this assessment but did not approve it as it "
+        "stands. Read their notes before relying on it.",
+    ),
+}
+DISCIPLINES = {
+    "TOWN_PLANNER": "Town planner",
+    "SURVEYOR": "Surveyor",
+    "BUILDING_CERTIFIER": "Building certifier",
+    "BUILDING_DESIGNER": "Building designer",
+    "ENGINEER": "Engineer",
+    "MARINE_SURVEYOR": "Marine surveyor",
+    "LAWYER": "Lawyer",
+    "ACCOUNTANT": "Accountant",
+    "GRANT_WRITER": "Grant writer",
+    "OTHER": "Professional",
 }
 
 
@@ -108,6 +143,31 @@ def _format_value(value: Any) -> str:
     if isinstance(value, dict):
         return ", ".join(_format_value(v) for v in value.values() if v not in (None, ""))
     return str(value)
+
+
+def _finding(f: AssessmentFinding, override: review.OverrideRow | None) -> dict[str, Any]:
+    """A finding as the customer should read it: with the reviewer's change, if any, and
+    the original kept in the reasons."""
+    outcome, confidence = f.outcome_type, f.confidence
+    reasons = list(f.confidence_reasons)
+    if override is not None:
+        outcome, confidence = override.override.new_outcome_type, override.override.new_confidence
+        reasons.insert(
+            0,
+            f"Changed by the professional reviewer (was "
+            f"{OUTCOMES.get(f.outcome_type or '', 'No outcome')}, "
+            f"{CONFIDENCE.get(f.confidence, f.confidence)}): {override.override.reason}",
+        )
+    return {
+        "rule_title": f.rule_title,
+        "title": f.title,
+        "detail": f.detail,
+        "outcome_label": OUTCOMES.get(outcome or "", "No outcome"),
+        "result_label": RESULTS.get(f.result, f.result),
+        "confidence_label": CONFIDENCE.get(confidence, confidence),
+        "confidence_reasons": reasons,
+        "citations": [s["citation"] for s in f.sources],
+    }
 
 
 async def build_context(
@@ -159,7 +219,35 @@ async def build_context(
         for key in parse_payload(f.payload).referral_categories:
             referrals.setdefault(_referral(key), None)
 
-    review_label, review_detail = REVIEW_STATUS[generated.review_status]
+    review_status, review_request, decision = await review.review_status_for(db, assessment)
+    generated.review_status = review_status
+    review_label, review_detail = REVIEW_STATUS[review_status]
+    reviewer = None
+    if review_request is not None and review_request.assigned_professional_id is not None:
+        v = await professionals.view(
+            db, await professionals.get_professional(db, review_request.assigned_professional_id)
+        )
+        discipline = DISCIPLINES.get(v.professional.discipline, "Professional")
+        reviewer = f"{v.professional.display_name}, {discipline}, {v.practice.name}"
+    overridden = review.current_overrides(
+        await review.overrides_for_findings(db, [f.id for f in findings])
+    )
+
+    def _label(outcome: str | None, confidence: str) -> str:
+        outcome_label = OUTCOMES.get(outcome or "", "No outcome")
+        return f"{outcome_label} ({CONFIDENCE.get(confidence, confidence)})"
+
+    changes = [
+        {
+            "finding": f.title or f.rule_title,
+            "before": _label(f.outcome_type, f.confidence),
+            "after": _label(o.override.new_outcome_type, o.override.new_confidence),
+            "reason": o.override.reason,
+            "source": o.citation,
+        }
+        for f in findings
+        if (o := overridden.get(f.id)) is not None
+    ]
     generated_at = datetime.now(BRISBANE)
     return {
         "meta": {
@@ -177,6 +265,14 @@ async def build_context(
             "review_status": review_label,
             "review_status_detail": review_detail,
         },
+        "review": {
+            "reviewer": reviewer,
+            "decided_on": decision.created_at.astimezone(BRISBANE).strftime("%-d %B %Y")
+            if decision
+            else None,
+            "notes": decision.notes if decision else None,
+            "changes": changes,
+        },
         "assessment": {
             "status": assessment.status,
             "overall_confidence_label": CONFIDENCE.get(assessment.overall_confidence, "Unknown"),
@@ -184,19 +280,7 @@ async def build_context(
         "rule_sets_in_scope": [
             rs["title"] for rs in assessment.rule_sets if rs.get("scope") == "IN_SCOPE"
         ],
-        "findings": [
-            {
-                "rule_title": f.rule_title,
-                "title": f.title,
-                "detail": f.detail,
-                "outcome_label": OUTCOMES.get(f.outcome_type or "", "No outcome"),
-                "result_label": RESULTS.get(f.result, f.result),
-                "confidence_label": CONFIDENCE.get(f.confidence, f.confidence),
-                "confidence_reasons": list(f.confidence_reasons),
-                "citations": [s["citation"] for s in f.sources],
-            }
-            for f in findings
-        ],
+        "findings": [_finding(f, overridden.get(f.id)) for f in findings],
         "approvals": [
             {
                 "title": a.title,

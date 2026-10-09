@@ -190,6 +190,8 @@ finding that suggested it, and `rule_set.limitations` lists what a rule set does
 | `finding_override` **T AO** | `review_request_id`, `finding_id`, `new_outcome_type`, `new_confidence`, `reason`, `source_reference_id null`, `overridden_by` (always audited) |
 | `review_decision` **T AO** | `review_request_id`, `decision`, `decided_by`, `notes` |
 
+Built in Milestone 7 with these differences: `professional.practice_id` names the practice organisation and `discipline` uses `BUILDING_CERTIFIER`, `BUILDING_DESIGNER` and `ENGINEER`; credentials carry a `status` and `notes` instead of `evidence_id`; services have no `service_key` or `price_id` yet (Milestone 13); `review_request` has no `DRAFT` or `payment_id`, adds `CANCELLED`, `message`, `assigned_by/at`, `started_at`, `closed_at` and uses `due_on`; comments record `author_role`; overrides keep the previous outcome and confidence; decisions record the assessment and professional.
+
 ## 11. Billing (customers and partners)
 
 | Table | Key columns | Notes |

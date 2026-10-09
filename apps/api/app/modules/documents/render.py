@@ -79,6 +79,22 @@ _FRAME = """<!doctype html>
 <section data-section="review-status">
 <p class="note"><strong>Review status: {{ meta.review_status }}.</strong>
 {{ meta.review_status_detail }}</p>
+{% if review.reviewer %}
+<p>Reviewer: {{ review.reviewer }}
+{%- if review.decided_on %}, {{ review.decided_on }}{% endif %}.</p>
+{% endif %}
+{% if review.notes %}<p>Reviewer's notes: {{ review.notes }}</p>{% endif %}
+{% if review.changes %}
+<h3>Changes made by the reviewer</h3>
+<p>The reviewer changed these findings. The original result is kept for reference.</p>
+<table>
+<tr><th>Finding</th><th>Was</th><th>Now</th><th>Reason</th></tr>
+{% for c in review.changes %}<tr><td>{{ c.finding }}</td><td>{{ c.before }}</td>
+<td>{{ c.after }}</td>
+<td>{{ c.reason }}{% if c.source %} (source: {{ c.source }}){% endif %}</td></tr>
+{% endfor %}
+</table>
+{% endif %}
 </section>
 <main>
 {{ body }}

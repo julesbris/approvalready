@@ -276,6 +276,7 @@ def context(**meta: Any) -> dict[str, Any]:
             }
         ],
         "limitations": ["Does not check overlays."],
+        "review": {"reviewer": None, "decided_on": None, "notes": None, "changes": []},
     }
 
 
@@ -287,6 +288,35 @@ def test_every_report_carries_the_required_sections() -> None:
         assert text in html
     with pytest.raises(render.RenderError, match="missing required sections: sources"):
         render.check_required(html.replace('data-section="sources"', ""))
+
+
+def test_reviewed_reports_show_the_reviewer_and_their_changes() -> None:
+    ctx = context(review_status="Reviewed and approved by a professional")
+    ctx["review"] = {
+        "reviewer": "Pat Planner, Town planner, Coastal Planning",
+        "decided_on": "10 October 2026",
+        "notes": "Checked against the scheme.",
+        "changes": [
+            {
+                "finding": "Secondary dwelling size",
+                "before": "Approval likely required (Likely)",
+                "after": "Approval required (Verified)",
+                "reason": "Table 5.5.1 makes this assessable.",
+                "source": "CairnsPlan, cl. 5.5",
+            }
+        ],
+    }
+    html = render.render_html(BODY, ctx)
+    for text in (
+        "Reviewed and approved by a professional",
+        "Pat Planner, Town planner, Coastal Planning, 10 October 2026",
+        "Checked against the scheme.",
+        "Approval required (Verified)",
+        "source: CairnsPlan, cl. 5.5",
+    ):
+        assert text in html, text
+    word = render.html_to_docx(html, title="t")
+    assert word.startswith(b"PK")
 
 
 def test_templates_are_sandboxed_and_escaped() -> None:

@@ -1,9 +1,10 @@
 """Role and permission catalogue.
 
 This is the source the 0002 migration seeded from (0004 added ``source.manage`` and
-``rule.author``); ``tests/test_audit_rbac.py`` asserts the database still matches it.
-Authorisation decisions read the database, so changing a mapping means a new migration,
-never just an edit here.
+``rule.author``, 0007 ``professional.verify`` and ``review.assign``);
+``tests/test_audit_rbac.py`` asserts the database still matches it. Authorisation
+decisions read the database, so changing a mapping means a new migration, never just an
+edit here.
 """
 
 from __future__ import annotations
@@ -40,6 +41,8 @@ class Perm(StrEnum):
     SOURCE_VERIFY = "source.verify"
     RULE_AUTHOR = "rule.author"
     RULE_PUBLISH = "rule.publish"
+    PROFESSIONAL_VERIFY = "professional.verify"
+    REVIEW_ASSIGN = "review.assign"
     PLATFORM_USERS_READ = "platform.users.read"
     PLATFORM_ORGANISATIONS_READ = "platform.organisations.read"
     PLATFORM_AUDIT_READ = "platform.audit.read"
@@ -62,6 +65,8 @@ PERMISSION_DESCRIPTIONS: dict[Perm, str] = {
     Perm.SOURCE_VERIFY: "Verify regulatory source references",
     Perm.RULE_AUTHOR: "Draft and test rules",
     Perm.RULE_PUBLISH: "Publish rule versions",
+    Perm.PROFESSIONAL_VERIFY: "Verify professionals and their credentials",
+    Perm.REVIEW_ASSIGN: "Assign professional reviews",
     Perm.PLATFORM_USERS_READ: "View any user (staff)",
     Perm.PLATFORM_ORGANISATIONS_READ: "View any organisation (staff)",
     Perm.PLATFORM_AUDIT_READ: "View and verify the platform audit log",
@@ -85,6 +90,8 @@ _STAFF = {
     Perm.SOURCE_MANAGE,
     Perm.SOURCE_VERIFY,
     Perm.RULE_AUTHOR,
+    Perm.PROFESSIONAL_VERIFY,
+    Perm.REVIEW_ASSIGN,
 }
 _ADMIN = _STAFF | _ORG_ADMIN | {Perm.PLATFORM_AUDIT_READ, Perm.RULE_PUBLISH}
 
