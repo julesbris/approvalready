@@ -11,7 +11,10 @@ export default function HomePage() {
           <Link className="wordmark" href="/">
             {brand.productName}
           </Link>
-          <Link href="/login">Sign in</Link>
+          <nav className="public-nav" aria-label="Site">
+            <Link href="/guides">Guides</Link>
+            <Link href="/login">Sign in</Link>
+          </nav>
         </div>
       </header>
       <main className="container">

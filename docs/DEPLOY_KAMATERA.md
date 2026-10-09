@@ -152,6 +152,24 @@ This creates the `PLATFORM_ADMIN` organisation on first use. There is no HTTP en
 this step by design. Check the audit log's hash chain at any time with
 `... exec api python -m app.cli verify-audit`.
 
+### Loading rule content packs (Milestone 5)
+
+Rules are not loaded by deploys. A content pack (reviewed JSON in
+`apps/api/app/modules/rules/packs/`) is loaded on purpose by a platform staff member, whose
+account is named in the audit log for everything it creates:
+
+```bash
+docker compose -f docker-compose.prod.yml --env-file .env exec api \
+  python -m app.cli rules load-pack planning_qld_cairns --email you@example.com
+```
+
+This creates the pack's sources (all **unverified**) and its rules as **drafts**. Nothing
+reaches customers until someone publishes the rules at `/admin/rules`. Adding `--publish`
+publishes every rule that passes the publish gate in the same step (needs an admin, because
+publishing needs `rule.publish`); findings stay "likely" at best until the sources are
+captured and verified at `/admin/sources`. Running the command again changes nothing that
+already exists.
+
 ## 8. Persistent volumes
 
 | Volume | Contents | Backed up |

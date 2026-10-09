@@ -153,6 +153,14 @@ Findings store `ordinal`, the rule key and title, outcome `title`/`detail`, `con
 and cited `sources jsonb` as they stood at run time, instead of `explanation_key`.
 `approval_requirement` and `evidence_requirement` are not built yet (Milestone 5).
 
+As built (Milestone 5): findings carry the outcome's `payload`. `approval_requirement` has
+`finding_id` (unique), `ordinal`, `kind`, `title`, free-text `authority` and `pathway` (no
+link to a source organisation yet), `certainty` and the finding's `confidence`.
+`evidence_requirement` has `kind`, `title`, `detail` and `confidence`; `satisfied_by_evidence_id`
+waits for documents (Milestone 6). Both are append-only. Referral categories are read from the
+finding payloads rather than stored separately. `task.finding_id` links a rule task to the
+finding that suggested it, and `rule_set.limitations` lists what a rule set does not check.
+
 ## 8. Documents and evidence
 
 | Table | Key columns | Notes |

@@ -3,7 +3,12 @@
  * finding's stored trace into "because" sentences built from the customer's own answers.
  */
 
-import type { Confidence, FindingOut } from "@approvalready/shared-types";
+import type {
+  Certainty,
+  Confidence,
+  FindingOut,
+  FindingSourceOut,
+} from "@approvalready/shared-types";
 
 export const CONFIDENCE_LABELS: Record<Confidence, string> = {
   VERIFIED: "Verified",
@@ -46,6 +51,40 @@ export const VERIFICATION_LABELS: Record<string, string> = {
 };
 
 export const OUTCOME_TYPES = Object.keys(OUTCOME_LABELS);
+
+export const CERTAINTY_LABELS: Record<Certainty, string> = {
+  REQUIRED: "Required",
+  LIKELY_REQUIRED: "Likely required",
+  MAY_APPLY: "May apply",
+  NOT_IDENTIFIED: "Not identified",
+};
+
+/** Kinds of professional a finding can point to ("who can help"). */
+export const REFERRAL_LABELS: Record<string, string> = {
+  town_planner: "Town planner",
+  building_certifier: "Building certifier",
+  cadastral_surveyor: "Cadastral (land) surveyor",
+  geotechnical_engineer: "Geotechnical engineer",
+  architect: "Architect or building designer",
+  lawyer: "Lawyer",
+};
+
+export function referralLabel(key: string): string {
+  if (REFERRAL_LABELS[key]) return REFERRAL_LABELS[key];
+  const words = key.replaceAll("_", " ");
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
+
+/** Every source cited by any finding, once, in the order first cited. */
+export function uniqueSources(findings: FindingOut[]): FindingSourceOut[] {
+  const seen = new Map<string, FindingSourceOut>();
+  for (const f of findings) {
+    for (const s of f.sources) {
+      if (!seen.has(s.reference_id)) seen.set(s.reference_id, s);
+    }
+  }
+  return [...seen.values()];
+}
 
 const OPERATOR_TEXT: Record<string, string> = {
   equals: "is",
