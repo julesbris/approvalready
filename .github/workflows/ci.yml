@@ -86,8 +86,13 @@ jobs:
             docker pull "mirror.gcr.io/$image"
             docker tag "mirror.gcr.io/$image" "${image#library/}"
           done
-      - run: docker build -t approvalready/api:ci apps/api
-      - run: docker build -f apps/web/Dockerfile -t approvalready/web:ci .
+      # BUILDKIT_SYNTAX fetches the Dockerfile frontend from the mirror too.
+      - run: >-
+          docker build --build-arg BUILDKIT_SYNTAX=mirror.gcr.io/docker/dockerfile:1.7
+          -t approvalready/api:ci apps/api
+      - run: >-
+          docker build --build-arg BUILDKIT_SYNTAX=mirror.gcr.io/docker/dockerfile:1.7
+          -f apps/web/Dockerfile -t approvalready/web:ci .
       - name: Validate compose files
         run: |
           docker compose config -q
