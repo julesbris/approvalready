@@ -55,76 +55,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/v1/admin/grant-programs": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** List Programs */
-        get: operations["list_programs_v1_admin_grant_programs_get"];
-        put?: never;
-        /** Create Program */
-        post: operations["create_program_v1_admin_grant_programs_post"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/admin/grant-programs/{program_id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Get Program */
-        get: operations["get_program_v1_admin_grant_programs__program_id__get"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        /** Update Program */
-        patch: operations["update_program_v1_admin_grant_programs__program_id__patch"];
-        trace?: never;
-    };
-    "/v1/admin/grant-programs/{program_id}/rounds": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** Create Round */
-        post: operations["create_round_v1_admin_grant_programs__program_id__rounds_post"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/admin/grant-rounds/{round_id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        /** Update Round */
-        patch: operations["update_round_v1_admin_grant_rounds__round_id__patch"];
-        trace?: never;
-    };
     "/v1/admin/professionals": {
         parameters: {
             query?: never;
@@ -1266,6 +1196,67 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/lookups/addresses": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Search Addresses
+         * @description Queensland addresses matching what was typed, each with its lot and plan.
+         */
+        get: operations["search_addresses_v1_organisations__organisation_id__lookups_addresses_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/lookups/parcels/{lot_plan}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Parcel
+         * @description A Queensland lot and plan: area, tenure, council and the state-mapped overlays it
+         *     touches, and what to check elsewhere (zone, bushfire, flooding, heritage).
+         */
+        get: operations["get_parcel_v1_organisations__organisation_id__lookups_parcels__lot_plan__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/lookups/vessels/{uvi}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Vessel
+         * @description A domestic commercial vessel by its UVI, from AMSA's published list.
+         */
+        get: operations["get_vessel_v1_organisations__organisation_id__lookups_vessels__uvi__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/members": {
         parameters: {
             query?: never;
@@ -2239,6 +2230,46 @@ export interface components {
             /** Suburb */
             suburb: string;
         };
+        /** AddressMatchOut */
+        AddressMatchOut: {
+            /**
+             * Address Pid
+             * @description Queensland address identifier.
+             */
+            address_pid: number;
+            /** Label */
+            label: string;
+            /** Latitude */
+            latitude: number | null;
+            /**
+             * Lga
+             * @description The planning questionnaire's council answer.
+             */
+            lga: string | null;
+            /** Line1 */
+            line1: string;
+            /**
+             * Local Authority
+             * @description Council, e.g. 'Cairns Regional'.
+             */
+            local_authority: string | null;
+            /** Longitude */
+            longitude: number | null;
+            /**
+             * Lot Plan
+             * @description Lot and plan in the cadastre, e.g. 2RP53576.
+             */
+            lot_plan: string | null;
+            /**
+             * Lot Plan Label
+             * @description e.g. 'Lot 2 on RP53576'.
+             */
+            lot_plan_label: string | null;
+            /** State */
+            state: string;
+            /** Suburb */
+            suburb: string;
+        };
         /** AddressOut */
         AddressOut: {
             /** Lga Code */
@@ -2254,15 +2285,14 @@ export interface components {
             /** Suburb */
             suburb: string;
         };
-        /** AdministratorOut */
-        AdministratorOut: {
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /** Name */
-            name: string;
+        /** AddressSearchOut */
+        AddressSearchOut: {
+            /** Matches */
+            matches: components["schemas"]["AddressMatchOut"][];
+            /** Note */
+            note: string;
+            /** Source */
+            source: string;
         };
         /** AnswersUpdate */
         AnswersUpdate: {
@@ -2358,11 +2388,6 @@ export interface components {
             finding_list: components["schemas"]["FindingOut"][];
             /** Findings */
             findings: number;
-            /**
-             * Grant Matches
-             * @description Grant projects: each grant program's match, best first, with its rounds as they stand today.
-             */
-            grant_matches?: components["schemas"]["GrantMatchOut"][];
             /**
              * Id
              * Format: uuid
@@ -3235,183 +3260,6 @@ export interface components {
          * @enum {string}
          */
         GenerationStatus: "PENDING" | "READY" | "FAILED";
-        /** GrantMatchOut */
-        GrantMatchOut: {
-            confidence: components["schemas"]["Confidence"];
-            /** Criteria */
-            criteria: components["schemas"]["MatchCriterionOut"][];
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /** Missing Facts */
-            missing_facts: string[];
-            program: components["schemas"]["GrantProgramOut"];
-            /** Round Id At Assessment */
-            round_id_at_assessment: string | null;
-            status: components["schemas"]["MatchStatus"];
-        };
-        /** GrantProgramCreate */
-        GrantProgramCreate: {
-            /**
-             * Administrator Id
-             * Format: uuid
-             */
-            administrator_id: string;
-            /** Funding Summary */
-            funding_summary?: string | null;
-            /** Jurisdiction */
-            jurisdiction: string;
-            /** Key */
-            key: string;
-            /** Max Amount Cents */
-            max_amount_cents?: number | null;
-            /** Min Amount Cents */
-            min_amount_cents?: number | null;
-            /**
-             * Rule Set Id
-             * Format: uuid
-             */
-            rule_set_id: string;
-            /** Summary */
-            summary: string;
-            /** Title */
-            title: string;
-            /** Url */
-            url: string;
-        };
-        /** GrantProgramOut */
-        GrantProgramOut: {
-            administrator: components["schemas"]["AdministratorOut"];
-            /** Current Round Id */
-            current_round_id: string | null;
-            /** Funding Summary */
-            funding_summary: string | null;
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /** Jurisdiction */
-            jurisdiction: string;
-            /** Key */
-            key: string;
-            /** Max Amount Cents */
-            max_amount_cents: number | null;
-            /** Min Amount Cents */
-            min_amount_cents: number | null;
-            /** Rounds */
-            rounds: components["schemas"]["GrantRoundOut"][];
-            /**
-             * Rule Set Id
-             * Format: uuid
-             */
-            rule_set_id: string;
-            /** Rule Set Key */
-            rule_set_key: string;
-            status: components["schemas"]["ProgramStatus"];
-            /** Summary */
-            summary: string;
-            /** Title */
-            title: string;
-            /** Url */
-            url: string;
-        };
-        /** GrantProgramUpdate */
-        GrantProgramUpdate: {
-            /** Funding Summary */
-            funding_summary?: string | null;
-            /** Max Amount Cents */
-            max_amount_cents?: number | null;
-            /** Min Amount Cents */
-            min_amount_cents?: number | null;
-            status?: components["schemas"]["ProgramStatus"] | null;
-            /** Summary */
-            summary?: string | null;
-            /** Title */
-            title?: string | null;
-            /** Url */
-            url?: string | null;
-        };
-        /** GrantRoundCreate */
-        GrantRoundCreate: {
-            /** Closes On */
-            closes_on?: string | null;
-            /** Dates Note */
-            dates_note?: string | null;
-            /** Opens On */
-            opens_on?: string | null;
-            /**
-             * Source Reference Id
-             * Format: uuid
-             */
-            source_reference_id: string;
-            status: components["schemas"]["RoundStatus"];
-            /** Title */
-            title: string;
-        };
-        /** GrantRoundOut */
-        GrantRoundOut: {
-            /**
-             * Check Source
-             * @description The recorded status no longer fits the dates; staff should re-check.
-             */
-            check_source: boolean;
-            /** Closes On */
-            closes_on: string | null;
-            /** Closing Soon */
-            closing_soon: boolean;
-            /** Dates Note */
-            dates_note: string | null;
-            /** Days To Close */
-            days_to_close: number | null;
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /** Opens On */
-            opens_on: string | null;
-            /**
-             * Program Id
-             * Format: uuid
-             */
-            program_id: string;
-            source: components["schemas"]["RoundSourceOut"];
-            /** @description The status as of today: an open round past its closing date is closed. */
-            state: components["schemas"]["RoundStatus"];
-            /** @description What the source says. */
-            status: components["schemas"]["RoundStatus"];
-            /** Title */
-            title: string;
-            /**
-             * Updated At
-             * Format: date-time
-             */
-            updated_at: string;
-        };
-        /**
-         * GrantRoundUpdate
-         * @description Change a round when its source changes. A new status or date must cite the
-         *     reference it now comes from (the same one is fine if it was re-read).
-         */
-        GrantRoundUpdate: {
-            /** Closes On */
-            closes_on?: string | null;
-            /** Dates Note */
-            dates_note?: string | null;
-            /** Opens On */
-            opens_on?: string | null;
-            /**
-             * Source Reference Id
-             * Format: uuid
-             */
-            source_reference_id: string;
-            status?: components["schemas"]["RoundStatus"] | null;
-            /** Title */
-            title?: string | null;
-        };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -3499,34 +3347,6 @@ export interface components {
             /** Verticals */
             verticals: components["schemas"]["Vertical"][];
         };
-        /** MatchCriterionOut */
-        MatchCriterionOut: {
-            /** Finding Id */
-            finding_id?: string | null;
-            /**
-             * Kind
-             * @description CRITERION, or WHO_CAN_APPLY for the program's scope.
-             */
-            kind: string;
-            /** Missing Facts */
-            missing_facts?: string[];
-            /** Outcome */
-            outcome?: string | null;
-            /**
-             * Result
-             * @description MATCH: met. NO_MATCH: not met. UNKNOWN: unanswered.
-             */
-            result: string;
-            /** Rule Key */
-            rule_key?: string | null;
-            /** Title */
-            title: string;
-        };
-        /**
-         * MatchStatus
-         * @enum {string}
-         */
-        MatchStatus: "STRONG_MATCH" | "POSSIBLE_MATCH" | "NEEDS_INFORMATION" | "NOT_ELIGIBLE";
         /** MemberOut */
         MemberOut: {
             /** Display Name */
@@ -3569,6 +3389,15 @@ export interface components {
             organisation_id: string;
             /** Roles */
             roles: string[];
+        };
+        /** NotCheckedOut */
+        NotCheckedOut: {
+            /** Label */
+            label: string;
+            /** Where To Check */
+            where_to_check: string | null;
+            /** Why */
+            why: string;
         };
         /** OptionOut */
         OptionOut: {
@@ -3660,6 +3489,22 @@ export interface components {
          * @enum {string}
          */
         OutputFormat: "PDF" | "DOCX" | "HTML";
+        /** OverlayOut */
+        OverlayOut: {
+            /**
+             * Constraint
+             * @description The planning.known_constraints option it supports, if any.
+             */
+            constraint: string | null;
+            /** Group */
+            group: string;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /** Source Url */
+            source_url: string;
+        };
         /** OverrideIn */
         OverrideIn: {
             /**
@@ -3729,6 +3574,58 @@ export interface components {
          * @enum {string}
          */
         OwnershipRole: "OWNER" | "AUTHORISED_AGENT" | "LANDLORD" | "PROSPECTIVE_BUYER" | "LESSEE";
+        /** ParcelOut */
+        ParcelOut: {
+            /** Land Area M2 */
+            land_area_m2: string | null;
+            /** Lga */
+            lga: string | null;
+            /** Local Authority */
+            local_authority: string | null;
+            /** Locality */
+            locality: string | null;
+            /** Lot */
+            lot: string;
+            /** Lot Plan */
+            lot_plan: string;
+            /** Lot Plan Label */
+            lot_plan_label: string;
+            /**
+             * Not Checked
+             * @description Things to check elsewhere.
+             */
+            not_checked: components["schemas"]["NotCheckedOut"][];
+            /**
+             * Overlays
+             * @description State-mapped overlays the parcel touches.
+             */
+            overlays: components["schemas"]["OverlayOut"][];
+            /**
+             * Overlays Checked
+             * @description Mapping groups that were checked.
+             */
+            overlays_checked: string[];
+            /**
+             * Overlays Failed
+             * @description Mapping groups whose service didn't answer.
+             */
+            overlays_failed: string[];
+            /** Parcel Type */
+            parcel_type: string | null;
+            /** Plan */
+            plan: string;
+            /**
+             * Retrieved At
+             * Format: date-time
+             */
+            retrieved_at: string;
+            /** Source */
+            source: string;
+            /** Source Url */
+            source_url: string;
+            /** Tenure */
+            tenure: string | null;
+        };
         /** PasswordChangeRequest */
         PasswordChangeRequest: {
             /** Current Password */
@@ -3859,11 +3756,6 @@ export interface components {
             /** Display Name */
             display_name?: string | null;
         };
-        /**
-         * ProgramStatus
-         * @enum {string}
-         */
-        ProgramStatus: "ACTIVE" | "RETIRED";
         /** Progress */
         Progress: {
             /** Answered */
@@ -4423,26 +4315,6 @@ export interface components {
              */
             tasks: components["schemas"]["TaskOut"][];
         };
-        /** RoundSourceOut */
-        RoundSourceOut: {
-            /** Citation */
-            citation: string;
-            /**
-             * Reference Id
-             * Format: uuid
-             */
-            reference_id: string;
-            /** Url */
-            url: string;
-            /** Verification Status */
-            verification_status: string;
-        };
-        /**
-         * RoundStatus
-         * @description What the source says about taking applications.
-         * @enum {string}
-         */
-        RoundStatus: "UPCOMING" | "OPEN" | "PAUSED" | "CLOSED";
         /** RuleCreate */
         RuleCreate: {
             /**
@@ -5536,6 +5408,35 @@ export interface components {
             uvi?: string | null;
             vessel_type: components["schemas"]["VesselType"];
         };
+        /** VesselLookupOut */
+        VesselLookupOut: {
+            /** Displayed Identifier */
+            displayed_identifier: string | null;
+            /**
+             * Fields
+             * @description Every published column, by AMSA's header.
+             */
+            fields: {
+                [key: string]: string;
+            };
+            /** Length M */
+            length_m: string | null;
+            /**
+             * List Retrieved At
+             * Format: date-time
+             */
+            list_retrieved_at: string;
+            /** Name */
+            name: string | null;
+            /** Note */
+            note: string;
+            /** Source */
+            source: string;
+            /** Source Url */
+            source_url: string;
+            /** Uvi */
+            uvi: string;
+        };
         /** VesselOut */
         VesselOut: {
             /** Activity */
@@ -5682,195 +5583,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuditChainOut"];
-                };
-            };
-        };
-    };
-    list_programs_v1_admin_grant_programs_get: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["GrantProgramOut"][];
-                };
-            };
-        };
-    };
-    create_program_v1_admin_grant_programs_post: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["GrantProgramCreate"];
-            };
-        };
-        responses: {
-            /** @description Successful Response */
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["GrantProgramOut"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    get_program_v1_admin_grant_programs__program_id__get: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                program_id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["GrantProgramOut"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    update_program_v1_admin_grant_programs__program_id__patch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                program_id: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["GrantProgramUpdate"];
-            };
-        };
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["GrantProgramOut"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    create_round_v1_admin_grant_programs__program_id__rounds_post: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                program_id: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["GrantRoundCreate"];
-            };
-        };
-        responses: {
-            /** @description Successful Response */
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["GrantProgramOut"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
-                };
-            };
-        };
-    };
-    update_round_v1_admin_grant_rounds__round_id__patch: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                round_id: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["GrantRoundUpdate"];
-            };
-        };
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["GrantProgramOut"];
-                };
-            };
-            /** @description Validation Error */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
@@ -8428,6 +8140,103 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    search_addresses_v1_organisations__organisation_id__lookups_addresses_get: {
+        parameters: {
+            query: {
+                q: string;
+            };
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AddressSearchOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_parcel_v1_organisations__organisation_id__lookups_parcels__lot_plan__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                lot_plan: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ParcelOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_vessel_v1_organisations__organisation_id__lookups_vessels__uvi__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                uvi: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["VesselLookupOut"];
+                };
             };
             /** @description Validation Error */
             422: {

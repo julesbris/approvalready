@@ -135,3 +135,9 @@ export type GrantMatchOut = Schemas["GrantMatchOut"];
 export type MatchCriterionOut = Schemas["MatchCriterionOut"];
 export type MatchStatus = GrantMatchOut["status"];
 export type RoundStatus = GrantRoundOut["state"];
+
+// Lookups
+export type AddressMatchOut = Schemas["AddressMatchOut"];
+export type AddressSearchOut = Schemas["AddressSearchOut"];
+export type ParcelOut = Schemas["ParcelOut"];
+export type VesselLookupOut = Schemas["VesselLookupOut"];
