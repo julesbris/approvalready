@@ -78,6 +78,12 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: docker/setup-buildx-action@v3
+        with:
+          # Base images through Google's Docker Hub mirror: CI runners hit Docker Hub's
+          # anonymous pull rate limit.
+          buildkitd-config-inline: |
+            [registry."docker.io"]
+              mirrors = ["mirror.gcr.io"]
       - run: docker build -t approvalready/api:ci apps/api
       - run: docker build -f apps/web/Dockerfile -t approvalready/web:ci .
       - name: Validate compose files
