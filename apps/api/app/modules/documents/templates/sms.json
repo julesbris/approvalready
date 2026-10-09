@@ -1,0 +1,8 @@
+{
+  "key": "SMS",
+  "title": "Safety management system (draft)",
+  "vertical": "VESSEL",
+  "engine": "JINJA_HTML",
+  "body": "sms.html.j2",
+  "output_formats": ["PDF", "DOCX", "HTML"]
+}

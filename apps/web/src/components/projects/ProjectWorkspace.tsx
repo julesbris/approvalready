@@ -3,6 +3,8 @@
 import type {
   AssessmentOut,
   BusinessProfileOut,
+  ChecklistDefinitionOut,
+  ChecklistOut,
   DocumentOut,
   MemberOut,
   ProjectDetailOut,
@@ -11,6 +13,7 @@ import type {
   PropertyOut,
   ReminderOut,
   TaskOut,
+  VesselOut,
 } from "@approvalready/shared-types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -19,7 +22,9 @@ import { type FormEvent, useState } from "react";
 import { FormError } from "@/components/auth/FormStatus";
 import { DocumentsPanel } from "@/components/documents/DocumentsPanel";
 import { BusinessPanel } from "@/components/projects/BusinessPanel";
+import { ChecklistsPanel } from "@/components/projects/ChecklistsPanel";
 import { SitePanel } from "@/components/projects/SitePanel";
+import { VesselPanel } from "@/components/projects/VesselPanel";
 import { CONFIDENCE_LABELS } from "@/lib/assessment";
 import { apiRequest } from "@/lib/client-api";
 import {
@@ -39,6 +44,9 @@ type Props = {
   members: MemberOut[];
   properties?: PropertyOut[];
   businesses?: BusinessProfileOut[];
+  vessels?: VesselOut[];
+  checklists?: ChecklistOut[];
+  checklistDefinitions?: ChecklistDefinitionOut[];
   documents?: DocumentOut[];
   currentUserId: string;
   canWrite: boolean;
@@ -221,6 +229,16 @@ export function ProjectWorkspace(props: Props) {
         />
       ) : null}
 
+      {project.vertical === "VESSEL" && props.vessels ? (
+        <VesselPanel
+          organisationId={organisationId}
+          project={project}
+          vessels={props.vessels}
+          canWrite={canWrite}
+          onProjectChange={setProject}
+        />
+      ) : null}
+
       <section className="panel" aria-labelledby="questions-title">
         <h2 id="questions-title" className="section-title">
           Questionnaire
@@ -290,6 +308,32 @@ export function ProjectWorkspace(props: Props) {
           </>
         ) : null}
       </section>
+
+      {project.vertical === "VESSEL" ? (
+        <section className="panel" aria-labelledby="sms-panel-title">
+          <h2 id="sms-panel-title" className="section-title">
+            Safety management system
+          </h2>
+          <p className="muted">
+            Every domestic commercial vessel needs a safety management system. Write yours part
+            by part under the headings in Marine Order 504.
+          </p>
+          <Link className="button button-secondary" href={`/projects/${project.id}/sms`}>
+            Open the SMS builder
+          </Link>
+        </section>
+      ) : null}
+
+      {props.checklists &&
+      (props.checklists.length > 0 || (props.checklistDefinitions ?? []).length > 0) ? (
+        <ChecklistsPanel
+          organisationId={organisationId}
+          projectId={project.id}
+          checklists={props.checklists}
+          definitions={props.checklistDefinitions ?? []}
+          canWrite={canWrite}
+        />
+      ) : null}
 
       {props.documents ? (
         <DocumentsPanel

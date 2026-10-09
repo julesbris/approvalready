@@ -1,0 +1,49 @@
+{
+  "key": "vessel.qld_registration",
+  "vertical": "VESSEL",
+  "title": "Queensland recreational boat registration and licences",
+  "description": "Registering a recreational boat in Queensland and the licences to drive it. Summarised from Queensland Government pages; commercial vessels are certified through AMSA instead.",
+  "sources": [
+    {
+      "title": "Register a boat",
+      "organisation": "Queensland Government",
+      "url": "https://www.qld.gov.au/transport/boating/registration/recreational"
+    },
+    {
+      "title": "Boat and personal watercraft licences",
+      "organisation": "Queensland Government",
+      "url": "https://www.qld.gov.au/transport/boating/recreational"
+    }
+  ],
+  "items": [
+    {
+      "key": "register",
+      "title": "Register the boat before using it on Queensland waters",
+      "detail": "Boats (including personal watercraft) with an engine of 3 kW or more must be registered."
+    },
+    {
+      "key": "display_number",
+      "title": "Display the registration number",
+      "detail": "Readable from 30 metres: at least 150 mm on both sides for planing boats, 75 mm for non-planing boats and 100 mm for personal watercraft."
+    },
+    {
+      "key": "msq_endorsement",
+      "title": "Get Maritime Safety Queensland endorsement for a boat of 15 metres or more",
+      "required": false
+    },
+    {
+      "key": "marine_licence",
+      "title": "Hold a recreational marine driver licence to drive a boat with an engine over 4.5 kW",
+      "detail": "Not needed if a licensed person on board supervises and can take control. Minimum age 16."
+    },
+    {
+      "key": "pwc_licence",
+      "title": "Hold a personal watercraft licence as well if it is a jet ski",
+      "required": false
+    },
+    {
+      "key": "record_registration",
+      "title": "Record the registration and its expiry in your vessel's certificates"
+    }
+  ]
+}

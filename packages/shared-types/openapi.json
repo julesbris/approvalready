@@ -1057,6 +1057,679 @@
         "title": "Certainty",
         "type": "string"
       },
+      "CertificateCreate": {
+        "properties": {
+          "expires_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires On"
+          },
+          "issued_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issued On"
+          },
+          "issuer": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issuer"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/CertificateKind"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "number": {
+            "anyOf": [
+              {
+                "maxLength": 60,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Number"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "uploaded_document_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A clean upload holding a copy of the certificate.",
+            "title": "Uploaded Document Id"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "CertificateCreate",
+        "type": "object"
+      },
+      "CertificateKind": {
+        "enum": [
+          "CERTIFICATE_OF_SURVEY",
+          "CERTIFICATE_OF_OPERATION",
+          "EXEMPTION",
+          "STATE_REGISTRATION",
+          "OTHER"
+        ],
+        "title": "CertificateKind",
+        "type": "string"
+      },
+      "CertificateOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "expires_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires On"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "issued_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issued On"
+          },
+          "issuer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issuer"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/CertificateKind"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Number"
+          },
+          "state": {
+            "$ref": "#/components/schemas/CertificateState",
+            "description": "EXPIRING within 60 days of expiry (Queensland date)."
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "uploaded_document_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Uploaded Document Id"
+          },
+          "vessel_id": {
+            "format": "uuid",
+            "title": "Vessel Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "vessel_id",
+          "kind",
+          "title",
+          "number",
+          "issuer",
+          "issued_on",
+          "expires_on",
+          "state",
+          "uploaded_document_id",
+          "notes",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "CertificateOut",
+        "type": "object"
+      },
+      "CertificateState": {
+        "enum": [
+          "CURRENT",
+          "EXPIRING",
+          "EXPIRED",
+          "NO_EXPIRY"
+        ],
+        "title": "CertificateState",
+        "type": "string"
+      },
+      "CertificateUpdate": {
+        "properties": {
+          "expires_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires On"
+          },
+          "issued_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issued On"
+          },
+          "issuer": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Issuer"
+          },
+          "kind": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CertificateKind"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "number": {
+            "anyOf": [
+              {
+                "maxLength": 60,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Number"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "uploaded_document_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A clean upload holding a copy of the certificate.",
+            "title": "Uploaded Document Id"
+          }
+        },
+        "title": "CertificateUpdate",
+        "type": "object"
+      },
+      "ChecklistAddIn": {
+        "properties": {
+          "key": {
+            "maxLength": 80,
+            "title": "Key",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key"
+        ],
+        "title": "ChecklistAddIn",
+        "type": "object"
+      },
+      "ChecklistDefinitionOut": {
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ChecklistItemDefOut"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/ChecklistSourceOut"
+            },
+            "title": "Sources",
+            "type": "array"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "vertical": {
+            "$ref": "#/components/schemas/Vertical"
+          }
+        },
+        "required": [
+          "key",
+          "vertical",
+          "title",
+          "description",
+          "sources",
+          "items"
+        ],
+        "title": "ChecklistDefinitionOut",
+        "type": "object"
+      },
+      "ChecklistItemDefOut": {
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "required": {
+            "title": "Required",
+            "type": "boolean"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "title",
+          "detail",
+          "required"
+        ],
+        "title": "ChecklistItemDefOut",
+        "type": "object"
+      },
+      "ChecklistItemOut": {
+        "properties": {
+          "checklist_id": {
+            "format": "uuid",
+            "title": "Checklist Id",
+            "type": "string"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "completed_by": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed By"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "required": {
+            "title": "Required",
+            "type": "boolean"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ItemStatus"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "checklist_id",
+          "key",
+          "title",
+          "detail",
+          "required",
+          "status",
+          "note",
+          "completed_at",
+          "completed_by"
+        ],
+        "title": "ChecklistItemOut",
+        "type": "object"
+      },
+      "ChecklistItemUpdateIn": {
+        "properties": {
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ItemStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "title": "ChecklistItemUpdateIn",
+        "type": "object"
+      },
+      "ChecklistOrigin": {
+        "enum": [
+          "RULE",
+          "USER"
+        ],
+        "title": "ChecklistOrigin",
+        "type": "string"
+      },
+      "ChecklistOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "done": {
+            "description": "Items done or marked not applicable.",
+            "title": "Done",
+            "type": "integer"
+          },
+          "finding_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finding Id"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ChecklistItemOut"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/ChecklistOrigin",
+            "description": "RULE: added by an assessment finding (cannot be removed). USER: added by the customer."
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/ChecklistSourceOut"
+            },
+            "title": "Sources",
+            "type": "array"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "key",
+          "title",
+          "description",
+          "sources",
+          "origin",
+          "finding_id",
+          "items",
+          "done",
+          "total",
+          "created_at"
+        ],
+        "title": "ChecklistOut",
+        "type": "object"
+      },
+      "ChecklistSourceOut": {
+        "properties": {
+          "organisation": {
+            "title": "Organisation",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "organisation",
+          "url"
+        ],
+        "title": "ChecklistSourceOut",
+        "type": "object"
+      },
       "Classification": {
         "enum": [
           "PRIVATE",
@@ -2034,6 +2707,19 @@
         "properties": {
           "format": {
             "$ref": "#/components/schemas/OutputFormat"
+          },
+          "template": {
+            "anyOf": [
+              {
+                "maxLength": 60,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Which report (e.g. VESSEL_PATHWAY or SMS for vessel projects); defaults to the vertical's assessment report.",
+            "title": "Template"
           }
         },
         "required": [
@@ -2128,12 +2814,18 @@
           },
           "status": {
             "$ref": "#/components/schemas/GenerationStatus"
+          },
+          "template_key": {
+            "description": "Which report, e.g. VESSEL_PATHWAY or SMS.",
+            "title": "Template Key",
+            "type": "string"
           }
         },
         "required": [
           "id",
           "project_id",
           "assessment_id",
+          "template_key",
           "format",
           "status",
           "review_status",
@@ -2246,6 +2938,15 @@
         ],
         "title": "InvitationOut",
         "type": "object"
+      },
+      "ItemStatus": {
+        "enum": [
+          "OPEN",
+          "DONE",
+          "NOT_APPLICABLE"
+        ],
+        "title": "ItemStatus",
+        "type": "string"
       },
       "LiveResponse": {
         "properties": {
@@ -5856,6 +6557,209 @@
           "idle_expires_at"
         ],
         "title": "SessionOut",
+        "type": "object"
+      },
+      "SmsElementOut": {
+        "properties": {
+          "guidance": {
+            "title": "Guidance",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "required": {
+            "title": "Required",
+            "type": "boolean"
+          },
+          "suggestion": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Starting text from the vessel's details, offered only while empty.",
+            "title": "Suggestion"
+          },
+          "text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "What the customer has written so far.",
+            "title": "Text"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "title",
+          "guidance",
+          "required",
+          "text",
+          "suggestion"
+        ],
+        "title": "SmsElementOut",
+        "type": "object"
+      },
+      "SmsOut": {
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "disclaimer": {
+            "title": "Disclaimer",
+            "type": "string"
+          },
+          "outdated_structure": {
+            "description": "The structure changed since this SMS was last saved.",
+            "title": "Outdated Structure",
+            "type": "boolean"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "required": {
+            "title": "Required",
+            "type": "integer"
+          },
+          "saved_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Saved At"
+          },
+          "sections": {
+            "items": {
+              "$ref": "#/components/schemas/SmsSectionOut"
+            },
+            "title": "Sections",
+            "type": "array"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SmsSourceOut"
+            },
+            "title": "Sources",
+            "type": "array"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "written": {
+            "description": "Required parts with text.",
+            "title": "Written",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id",
+          "title",
+          "description",
+          "disclaimer",
+          "sources",
+          "sections",
+          "written",
+          "required",
+          "saved_at",
+          "outdated_structure"
+        ],
+        "title": "SmsOut",
+        "type": "object"
+      },
+      "SmsSaveIn": {
+        "properties": {
+          "content": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "description": "Element key \u2192 text; null or blank clears it. Other elements are kept.",
+            "maxProperties": 200,
+            "title": "Content",
+            "type": "object"
+          }
+        },
+        "required": [
+          "content"
+        ],
+        "title": "SmsSaveIn",
+        "type": "object"
+      },
+      "SmsSectionOut": {
+        "properties": {
+          "elements": {
+            "items": {
+              "$ref": "#/components/schemas/SmsElementOut"
+            },
+            "title": "Elements",
+            "type": "array"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "title",
+          "elements"
+        ],
+        "title": "SmsSectionOut",
+        "type": "object"
+      },
+      "SmsSourceOut": {
+        "properties": {
+          "organisation": {
+            "title": "Organisation",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "organisation",
+          "url"
+        ],
+        "title": "SmsSourceOut",
         "type": "object"
       },
       "SnapshotCaptured": {
@@ -10492,6 +11396,60 @@
         ]
       }
     },
+    "/v1/checklists": {
+      "get": {
+        "description": "Checklists a project can add, from the reviewed files (optionally for one vertical).",
+        "operationId": "list_definitions_v1_checklists_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "vertical",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vertical"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Vertical"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ChecklistDefinitionOut"
+                  },
+                  "title": "Response List Definitions V1 Checklists Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Definitions",
+        "tags": [
+          "checklists"
+        ]
+      }
+    },
     "/v1/invitations/accept": {
       "post": {
         "operationId": "accept_invitation_v1_invitations_accept_post",
@@ -11302,6 +12260,116 @@
         "summary": "Update Business Profile",
         "tags": [
           "entities"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/checklist-items/{item_id}": {
+      "patch": {
+        "description": "Tick an item off, reopen it or mark it not applicable (a required item needs a note\nsaying why).",
+        "operationId": "update_item_v1_organisations__organisation_id__checklist_items__item_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "item_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Item Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChecklistItemUpdateIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChecklistItemOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Item",
+        "tags": [
+          "checklists"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/checklists/{checklist_id}": {
+      "delete": {
+        "operationId": "remove_checklist_v1_organisations__organisation_id__checklists__checklist_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "checklist_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Checklist Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Remove Checklist",
+        "tags": [
+          "checklists"
         ]
       }
     },
@@ -12414,6 +13482,125 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/checklists": {
+      "get": {
+        "operationId": "list_checklists_v1_organisations__organisation_id__projects__project_id__checklists_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ChecklistOut"
+                  },
+                  "title": "Response List Checklists V1 Organisations  Organisation Id  Projects  Project Id  Checklists Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Checklists",
+        "tags": [
+          "checklists"
+        ]
+      },
+      "post": {
+        "description": "Add a checklist to the project. Adding one that is already there returns it.",
+        "operationId": "add_checklist_v1_organisations__organisation_id__projects__project_id__checklists_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChecklistAddIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChecklistOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Checklist",
+        "tags": [
+          "checklists"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/projects/{project_id}/documents": {
       "get": {
         "operationId": "list_documents_v1_organisations__organisation_id__projects__project_id__documents_get",
@@ -12880,6 +14067,122 @@
         "summary": "Request Review",
         "tags": [
           "review"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/sms": {
+      "get": {
+        "description": "The project's safety management system draft with the structure and guidance.",
+        "operationId": "get_sms_v1_organisations__organisation_id__projects__project_id__sms_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SmsOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Sms",
+        "tags": [
+          "vessels"
+        ]
+      },
+      "put": {
+        "description": "Save some parts of the SMS; parts not sent are kept.",
+        "operationId": "save_sms_v1_organisations__organisation_id__projects__project_id__sms_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SmsSaveIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SmsOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Save Sms",
+        "tags": [
+          "vessels"
         ]
       }
     },
@@ -14130,6 +15433,113 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/vessel-certificates/{certificate_id}": {
+      "delete": {
+        "operationId": "delete_certificate_v1_organisations__organisation_id__vessel_certificates__certificate_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "certificate_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Certificate Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Certificate",
+        "tags": [
+          "vessels"
+        ]
+      },
+      "patch": {
+        "operationId": "update_certificate_v1_organisations__organisation_id__vessel_certificates__certificate_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "certificate_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Certificate Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Certificate",
+        "tags": [
+          "vessels"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/vessels": {
       "get": {
         "operationId": "list_vessels_v1_organisations__organisation_id__vessels_get",
@@ -14383,6 +15793,125 @@
         "summary": "Update Vessel",
         "tags": [
           "entities"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/vessels/{vessel_id}/certificates": {
+      "get": {
+        "description": "The vessel's certificates, soonest expiry first.",
+        "operationId": "list_certificates_v1_organisations__organisation_id__vessels__vessel_id__certificates_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "vessel_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Vessel Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CertificateOut"
+                  },
+                  "title": "Response List Certificates V1 Organisations  Organisation Id  Vessels  Vessel Id  Certificates Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Certificates",
+        "tags": [
+          "vessels"
+        ]
+      },
+      "post": {
+        "operationId": "add_certificate_v1_organisations__organisation_id__vessels__vessel_id__certificates_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "vessel_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Vessel Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CertificateCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Certificate",
+        "tags": [
+          "vessels"
         ]
       }
     },

@@ -1,0 +1,1658 @@
+{
+ "key": "vessel_au_qld",
+ "title": "VesselReady: domestic commercial vessels (AMSA) and Queensland recreational boats",
+ "notes": "First sourced rules for VesselReady. Built from AMSA, Federal Register of Legislation (Marine Order 504, as made), Queensland Government and Maritime Safety Queensland pages read on 2026-10-09. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The National Law, Exemption 02 and Exemption 03 schedules and Marine Orders 503 and 505 are not encoded.",
+ "organisations": [
+  {
+   "ref": "amsa",
+   "name": "Australian Maritime Safety Authority",
+   "kind": "REGULATOR",
+   "jurisdiction": "CTH",
+   "website": "https://www.amsa.gov.au"
+  },
+  {
+   "ref": "qld_gov",
+   "name": "Queensland Government (qld.gov.au)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "QLD",
+   "website": "https://www.qld.gov.au"
+  },
+  {
+   "ref": "msq",
+   "name": "Maritime Safety Queensland",
+   "kind": "REGULATOR",
+   "jurisdiction": "QLD",
+   "website": "https://www.msq.qld.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "amsa_is_dcv",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Is it a domestic commercial vessel?",
+   "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/it-domestic-commercial-vessel",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_what_to_do",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "You have a domestic commercial vessel—what you need to do to operate it",
+   "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/you-have-domestic-commercial-vessel-what-you-need-do",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_uvi",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Obtain and display a unique vessel identifier",
+   "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/obtain-and-display-unique-vessel-identifier",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_cos",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Certificates of survey (CoS)",
+   "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/certificates-survey",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_non_survey",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Non-survey vessel approval or exemption",
+   "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/non-survey-vessel-approval-or-exemption",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_coo",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Certificates of operation (CoO)",
+   "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/certificates-operation-coo",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_ex03",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Exemption 03 - Marine Safety (Certificates of operation)",
+   "url": "https://www.amsa.gov.au/about/regulations-and-standards/exemption-3-marine-safety-certificates-operation",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "mo504",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Marine Order 504 (Certificates of operation – national law) 2024 (F2024L01458), as made",
+   "url": "https://www.legislation.gov.au/F2024L01458/asmade/2024-11-15/text/original/pdf",
+   "source_type": "REGULATION"
+  },
+  {
+   "ref": "amsa_sms",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Safety management systems",
+   "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/safety-management-systems",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_simplified_sms",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Step 2: Check eligibility for a simplified SMS",
+   "url": "https://www.amsa.gov.au/changes-marine-order-504/simplified-sms/step-2-check-eligibility-simplified-sms",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_classes",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Vessel classes and service categories",
+   "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/vessel-classes-and-service-categories",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_coxswain",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Coxswain Grade 1 near coastal",
+   "url": "https://www.amsa.gov.au/qualifications-training/domestic-qualifications/coxswain-grade-1-near-coastal",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "amsa_master24",
+   "organisation": "amsa",
+   "jurisdiction": "CTH",
+   "title": "Master less than 24 metres near coastal",
+   "url": "https://www.amsa.gov.au/qualifications-training/domestic-qualifications/master-less-24-metres-near-coastal",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "qld_register",
+   "organisation": "qld_gov",
+   "jurisdiction": "QLD",
+   "title": "Register a boat",
+   "url": "https://www.qld.gov.au/transport/boating/registration/recreational",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "qld_licences",
+   "organisation": "qld_gov",
+   "jurisdiction": "QLD",
+   "title": "Boat and personal watercraft licences",
+   "url": "https://www.qld.gov.au/transport/boating/recreational",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "msq_registration",
+   "organisation": "msq",
+   "jurisdiction": "QLD",
+   "title": "Registration (Maritime Safety Queensland)",
+   "url": "https://www.msq.qld.gov.au/registration",
+   "source_type": "WEBPAGE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "dcv_definition",
+   "document": "amsa_is_dcv",
+   "section": "2. What do you use your vessel for?",
+   "extracted_text": "[Summary, not the source's wording] A vessel used for a commercial, governmental or research activity within Australia's exclusive economic zone is a domestic commercial vessel, even if it is also used recreationally. A vessel used only for recreation is not, and is regulated by the state or territory. Foreign, defence and regulated Australian vessels, and some vessels of community groups, schools and sports bodies, are excluded.",
+   "interpretation": "Business use of a vessel inside the EEZ generally makes it a domestic commercial vessel under the Marine Safety (Domestic Commercial Vessel) National Law. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "dcv_obligations",
+   "document": "amsa_what_to_do",
+   "section": "1. Your vessel; 2. Your vessel operations; 3. Your crew",
+   "extracted_text": "[Summary, not the source's wording] Unless an exemption applies, a domestic commercial vessel needs a displayed unique vessel identifier, a certificate of survey, a certificate of operation and a safety management system, and its crew need certificates of competency. A safety management system is needed even when the vessel is exempt from a certificate of operation.",
+   "interpretation": "Lists the core obligations for operating a domestic commercial vessel. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "uvi_issue_display",
+   "document": "amsa_uvi",
+   "section": "How to display your unique vessel identifier",
+   "extracted_text": "[Summary, not the source's wording] AMSA issues a unique vessel identifier automatically with a first application for a certificate of survey, a non-survey approval or a specific exemption, or a notice of intention to build; otherwise there is a standalone application. It must be displayed within 21 days of issue (before launch for a vessel being built), above the waterline on both sides, readable from 30 metres.",
+   "interpretation": "Every domestic commercial vessel needs a UVI, with limited exceptions (tenders, vessels on the Shipping Register, some small vessels that need one but need not display it). Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "cos_required",
+   "document": "amsa_cos",
+   "section": "Do I need a certificate of survey?",
+   "extracted_text": "[Summary, not the source's wording] Every domestic commercial vessel needs a certificate of survey unless it is exempt under Exemption 02 or Exemption 40. A new vessel applies with Form 521; AMSA lists the surveys required (usually plan approval, construction and commissioning surveys) done by an accredited marine surveyor, or a recognised organisation for most vessels of 35 metres or more. A certificate is normally valid for five years.",
+   "interpretation": "The default is that a certificate of survey is required; exemptions are the exception. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "non_survey_criteria",
+   "document": "amsa_non_survey",
+   "section": "Non-survey vessel approval or exemption",
+   "extracted_text": "[Summary, not the source's wording] Without applying: human-powered vessels (including canoes and kayaks with an electric motor of 24 V or 3.5 kW or less), sailing vessels under 7.5 m with no engine or one of 3.5 kW or less, and personal watercraft under 4 m. With AMSA approval (Form 579): Class 2, 3 and 4 vessels under 12 m operating only in smooth or partially smooth (D or E) waters, Class 2 carrying no more than 4 day passengers; not for dangerous goods, primary towage, inboard engines using fuel with a flashpoint below 60 °C, or overnight hire and drive. Being exempt from survey does not remove the UVI, certificate of operation or SMS obligations.",
+   "interpretation": "Read with Exemption 02 (current compilation in force from 1 January 2026), whose Schedule 1 was not read for this summary. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "coo_required",
+   "document": "amsa_coo",
+   "section": "Certificates of operation",
+   "extracted_text": "[Summary, not the source's wording] A certificate of operation is needed before operating a domestic commercial vessel unless an exemption applies (Exemption 03 and others). New applications, variations and added vessels use Form 504; renewals use Form 553. A certificate does not transfer to a new owner.",
+   "interpretation": "The default is that a certificate of operation is required. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "ex03_criteria",
+   "document": "amsa_ex03",
+   "section": "Who is eligible",
+   "extracted_text": "[Summary, not the source's wording] From 1 July 2025 no certificate of operation is needed for: tenders, sailing vessels under 7.5 m, human-powered vessels, dragon boats, Class 2 or 3 personal watercraft, some bait-gathering and training vessels under 7.5 m, and any Class 2 or 3 vessel under 7.5 m operating only in smooth or partially smooth (D or E) waters and carrying no passengers. Class 1 vessels are never eligible. A safety management system is still required.",
+   "interpretation": "Further conditions are in Schedule 1 of the exemption, which was not read for this summary. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "mo504_sms",
+   "document": "mo504",
+   "section": "Section 7 and Schedule 1 (operation requirements)",
+   "extracted_text": "[Summary, not the source's wording] An application for a certificate of operation includes a written statement that each vessel has a safety management system complying with the order. Schedule 1 sets what the SMS covers: vessel and contact details, risk assessment, owner's and master's statements, a designated person, crewing, induction and drills, first aid and radio, operating procedures and a drug and alcohol policy, emergency preparedness, incident follow-up, maintenance, logbooks and records, and review. Schedule 2 adds requirements for Class 4 hire and drive.",
+   "interpretation": "As-made text of the 2024 order (in force from 1 June 2025); later compilations were not checked. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "sms_all_vessels",
+   "document": "amsa_sms",
+   "section": "Safety management systems",
+   "extracted_text": "[Summary, not the source's wording] All domestic commercial vessels must have a safety management system documenting how the general safety duties are met, based on a risk assessment developed with the owner, operator, master and crew. New requirements apply from 1 June 2025.",
+   "interpretation": "An SMS is required for every domestic commercial vessel, including those exempt from a certificate of operation. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "simplified_sms",
+   "document": "amsa_simplified_sms",
+   "section": "Eligibility for a simplified SMS",
+   "extracted_text": "[Summary, not the source's wording] A simplified SMS may be used for Class 2 vessels under 7.5 m carrying 0 to 4 day passengers and Class 3 and 4 vessels under 7.5 m, unless the vessel carries dangerous goods, has lifting gear or deck loads that could affect stability, has an inboard engine using fuel with a flashpoint below 60 °C, has berthed accommodation, is set up for towage, or AMSA has found it unsuitable. Class 1 vessels are never eligible.",
+   "interpretation": "AMSA's Q&A page appears to say vessels carrying day passengers are not eligible; this page allows Class 2 with up to 4. Confirm with AMSA. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vessel_classes",
+   "document": "amsa_classes",
+   "section": "Vessel classes and operational areas",
+   "extracted_text": "[Summary, not the source's wording] Class 1 vessels carry 13 or more passengers, Class 2 vessels 12 or fewer, Class 3 are fishing vessels and Class 4 are hire and drive vessels used by the hirer for recreation. Operational area B is within 200 nautical miles of the baseline, C within 30 (50 off Queensland and the Great Barrier Reef), D is partially smooth waters and E is smooth waters, which each state defines.",
+   "interpretation": "Used to place a vessel in a class from its passengers and activity. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "coxswain_g1",
+   "document": "amsa_coxswain",
+   "section": "Coxswain Grade 1 near coastal",
+   "extracted_text": "[Summary, not the source's wording] A Coxswain Grade 1 near coastal certificate allows command of vessels under 12 m with inboard engines under 500 kW (or any outboard) in inshore waters. Requirements include sea service, a Certificate II in Maritime Operations with an AMSA practical assessment, first aid and a radio certificate. Valid for 5 years.",
+   "interpretation": "Lowest general command certificate for small commercial vessels inshore. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "master_24",
+   "document": "amsa_master24",
+   "section": "Master less than 24 metres near coastal",
+   "extracted_text": "[Summary, not the source's wording] A Master less than 24 metres near coastal certificate allows command of vessels under 24 m within the exclusive economic zone. Requirements include sea service on vessels of 7.5 m or more, a Certificate III with an AMSA practical assessment, first aid and a radio certificate. Valid for 5 years.",
+   "interpretation": "Needed for larger vessels or operations beyond inshore waters; bigger vessels need higher certificates. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "qld_rego",
+   "document": "qld_register",
+   "section": "Who must register",
+   "extracted_text": "[Summary, not the source's wording] Boats, including personal watercraft, with an engine of 3 kW or more must be registered to be used on Queensland waters. Boats not used solely for private recreation use commercial certification instead. Registration numbers must be readable from 30 metres; boats of 15 m or more need Maritime Safety Queensland endorsement.",
+   "interpretation": "The page does not say what applies to engines under 3 kW. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "qld_licence",
+   "document": "qld_licences",
+   "section": "Marine licences",
+   "extracted_text": "[Summary, not the source's wording] A recreational marine driver licence is needed to drive a boat with an engine over 4.5 kW, and a personal watercraft also needs a personal watercraft licence. The minimum age is 16. No licence is needed when a licensed person on board supervises and can take control.",
+   "interpretation": "Licences are for the person driving, not the vessel. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "msq_dcv",
+   "document": "msq_registration",
+   "section": "Commercial vessels",
+   "extracted_text": "[Summary, not the source's wording] Boats used for a commercial, government or research activity need certification under the National Law: domestic commercial vessels are administered by AMSA, not registered by Queensland.",
+   "interpretation": "A commercial vessel's Queensland obligations come mostly through AMSA. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "vessel.au.domestic_commercial",
+   "vertical": "VESSEL",
+   "jurisdiction": "CTH",
+   "title": "Australia: domestic commercial vessels",
+   "description": "The UVI, certificate of survey, certificate of operation, safety management system and master's certificate a vessel used for business needs, and the main exemptions, from AMSA's guidance and Marine Order 504.",
+   "applies_when": {
+    "fact": "vessel.commercial_use",
+    "op": "equals",
+    "value": true
+   },
+   "limitations": [
+    "Built from AMSA guidance pages and the as-made text of Marine Order 504 (2024), not from the National Law or the exemption instruments' schedules.",
+    "Doesn't check every condition of Exemptions 02 and 03 (for example dangerous goods, towage, lifting gear, tenders, heritage, training and emergency service vessels) or Exemption 40.",
+    "Doesn't decide the vessel's survey frequency category, crewing numbers or which certificate of competency each crew member needs.",
+    "Smooth and partially smooth water boundaries are set by each state; we rely on your answer.",
+    "Vessels operating beyond the exclusive economic zone are regulated Australian vessels under the Navigation Act 2012 and are not covered.",
+    "Not legal advice. Confirm with AMSA, an accredited marine surveyor or a marine safety professional before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "domestic_commercial_vessel",
+     "title": "Domestic commercial vessel",
+     "condition": {
+      "fact": "vessel.commercial_use",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your vessel is likely a domestic commercial vessel",
+       "detail": "Using a vessel for business inside Australia's exclusive economic zone generally makes it a domestic commercial vessel under the National Law, which AMSA administers. That brings the certificates below, unless an exemption applies.",
+       "payload": {
+        "referral_categories": [
+         "marine_safety_consultant"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "dcv_definition",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "dcv_obligations",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Business use",
+       "facts": {
+        "vessel.commercial_use": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Recreational",
+       "facts": {
+        "vessel.commercial_use": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "unique_vessel_identifier",
+     "title": "Unique vessel identifier",
+     "condition": {
+      "fact": "vessel.has_uvi",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Get a unique vessel identifier (UVI)",
+       "detail": "Domestic commercial vessels need a UVI, displayed within 21 days of issue. AMSA issues one automatically with your first certificate of survey or non-survey application; otherwise apply for one on its own.",
+       "payload": {
+        "approval": {
+         "kind": "UNIQUE_VESSEL_IDENTIFIER",
+         "authority": "Australian Maritime Safety Authority",
+         "pathway": "Issued with your first survey application, or apply separately"
+        },
+        "checklists": [
+         "vessel.uvi"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Keep your UVI displayed",
+       "detail": "Your vessel already has a UVI. Keep it displayed on both sides above the waterline, readable from 30 metres, and tell AMSA within 14 days if you sell the vessel."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You will probably need a UVI",
+       "detail": "Domestic commercial vessels need a unique vessel identifier. Tell us whether the vessel has one.",
+       "payload": {
+        "approval": {
+         "kind": "UNIQUE_VESSEL_IDENTIFIER",
+         "authority": "Australian Maritime Safety Authority",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "uvi_issue_display",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "dcv_obligations",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No UVI",
+       "facts": {
+        "vessel.has_uvi": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has UVI",
+       "facts": {
+        "vessel.has_uvi": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "certificate_of_survey",
+     "title": "Certificate of survey",
+     "condition": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "vessel.type",
+          "op": "not_equals",
+          "value": "paddle"
+         },
+         {
+          "any": [
+           {
+            "fact": "vessel.type",
+            "op": "not_equals",
+            "value": "sail"
+           },
+           {
+            "fact": "vessel.length_m",
+            "op": "greater_equal",
+            "value": 7.5
+           },
+           {
+            "all": [
+             {
+              "fact": "vessel.propulsion",
+              "op": "not_equals",
+              "value": "sail"
+             },
+             {
+              "fact": "vessel.engine_kw",
+              "op": "greater_than",
+              "value": 3.5
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "any": [
+           {
+            "fact": "vessel.type",
+            "op": "not_equals",
+            "value": "personal_watercraft"
+           },
+           {
+            "fact": "vessel.length_m",
+            "op": "greater_equal",
+            "value": 4
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "any": [
+         {
+          "fact": "vessel.length_m",
+          "op": "greater_equal",
+          "value": 12
+         },
+         {
+          "fact": "vessel.operating_area",
+          "op": "in",
+          "value": [
+           "within_30nm",
+           "within_200nm",
+           "beyond_200nm"
+          ]
+         },
+         {
+          "fact": "vessel.max_passengers",
+          "op": "greater_than",
+          "value": 4
+         },
+         {
+          "all": [
+           {
+            "fact": "vessel.commercial_activities",
+            "op": "contains",
+            "value": "hire_and_drive"
+           },
+           {
+            "fact": "vessel.overnight_hire",
+            "op": "equals",
+            "value": true
+           }
+          ]
+         },
+         {
+          "all": [
+           {
+            "fact": "vessel.propulsion",
+            "op": "in",
+            "value": [
+             "inboard",
+             "sterndrive"
+            ]
+           },
+           {
+            "fact": "vessel.petrol_inboard",
+            "op": "equals",
+            "value": true
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need a certificate of survey",
+       "detail": "From your answers the vessel doesn't fit AMSA's non-survey categories (for example it is 12 metres or longer, goes beyond sheltered waters, carries more than 4 passengers, is hired overnight or has a petrol inboard), so it needs a certificate of survey before it operates.",
+       "payload": {
+        "approval": {
+         "kind": "CERTIFICATE_OF_SURVEY",
+         "authority": "Australian Maritime Safety Authority",
+         "pathway": "Apply with Form 521; an accredited marine surveyor does the surveys"
+        },
+        "evidence": [
+         {
+          "kind": "VESSEL_PLANS",
+          "title": "Plans and stability information your surveyor asks for"
+         },
+         {
+          "kind": "SURVEY_REPORT",
+          "title": "Commissioning survey report from an accredited marine surveyor"
+         }
+        ],
+        "referral_categories": [
+         "marine_surveyor",
+         "naval_architect"
+        ],
+        "task": "Engage an accredited marine surveyor",
+        "checklists": [
+         "vessel.initial_survey"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "A certificate of survey may not be needed",
+       "detail": "From your answers the vessel may fit one of AMSA's non-survey categories under Exemption 02. Some apply automatically (small sailing and human-powered vessels, personal watercraft under 4 metres); others need AMSA's approval first. Check the conditions before relying on this.",
+       "payload": {
+        "approval": {
+         "kind": "CERTIFICATE_OF_SURVEY",
+         "authority": "Australian Maritime Safety Authority",
+         "pathway": "May be exempt under Exemption 02"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A certificate of survey may be needed",
+       "detail": "Most domestic commercial vessels need a certificate of survey. Answer the questions about length, operating area, passengers and engines so we can check the exemptions.",
+       "payload": {
+        "approval": {
+         "kind": "CERTIFICATE_OF_SURVEY",
+         "authority": "Australian Maritime Safety Authority",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "marine_surveyor"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "cos_required",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "non_survey_criteria",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "14 m charter",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 14,
+        "vessel.propulsion": "inboard",
+        "vessel.engine_kw": 400,
+        "vessel.petrol_inboard": false,
+        "vessel.commercial_activities": [
+         "passenger_tours"
+        ],
+        "vessel.max_passengers": 30,
+        "vessel.operating_area": "within_30nm"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Kayak tours",
+       "facts": {
+        "vessel.type": "paddle",
+        "vessel.length_m": 4,
+        "vessel.propulsion": "manual",
+        "vessel.commercial_activities": [
+         "passenger_tours"
+        ],
+        "vessel.max_passengers": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "5 m workboat in smooth water",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 5,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 40,
+        "vessel.commercial_activities": [
+         "workboat"
+        ],
+        "vessel.max_passengers": 0,
+        "vessel.operating_area": "smooth"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Overnight hire",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 10,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 30,
+        "vessel.commercial_activities": [
+         "hire_and_drive"
+        ],
+        "vessel.overnight_hire": true,
+        "vessel.max_passengers": 0,
+        "vessel.operating_area": "smooth"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Area not answered",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 5,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 40,
+        "vessel.commercial_activities": [
+         "workboat"
+        ],
+        "vessel.max_passengers": 0
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "non_survey_approval",
+     "title": "Non-survey vessel approval",
+     "condition": {
+      "all": [
+       {
+        "all": [
+         {
+          "fact": "vessel.type",
+          "op": "not_equals",
+          "value": "paddle"
+         },
+         {
+          "any": [
+           {
+            "fact": "vessel.type",
+            "op": "not_equals",
+            "value": "sail"
+           },
+           {
+            "fact": "vessel.length_m",
+            "op": "greater_equal",
+            "value": 7.5
+           },
+           {
+            "all": [
+             {
+              "fact": "vessel.propulsion",
+              "op": "not_equals",
+              "value": "sail"
+             },
+             {
+              "fact": "vessel.engine_kw",
+              "op": "greater_than",
+              "value": 3.5
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "any": [
+           {
+            "fact": "vessel.type",
+            "op": "not_equals",
+            "value": "personal_watercraft"
+           },
+           {
+            "fact": "vessel.length_m",
+            "op": "greater_equal",
+            "value": 4
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "all": [
+         {
+          "fact": "vessel.length_m",
+          "op": "less_than",
+          "value": 12
+         },
+         {
+          "fact": "vessel.operating_area",
+          "op": "in",
+          "value": [
+           "smooth",
+           "partially_smooth"
+          ]
+         },
+         {
+          "fact": "vessel.max_passengers",
+          "op": "less_equal",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "fact": "vessel.commercial_activities",
+            "op": "not_contains",
+            "value": "hire_and_drive"
+           },
+           {
+            "fact": "vessel.overnight_hire",
+            "op": "equals",
+            "value": false
+           }
+          ]
+         },
+         {
+          "any": [
+           {
+            "fact": "vessel.propulsion",
+            "op": "not_in",
+            "value": [
+             "inboard",
+             "sterndrive"
+            ]
+           },
+           {
+            "fact": "vessel.petrol_inboard",
+            "op": "equals",
+            "value": false
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Apply for non-survey approval instead of a certificate of survey",
+       "detail": "Class 2, 3 and 4 vessels under 12 metres that stay in smooth or partially smooth waters, carry no more than 4 passengers and meet the other conditions can operate without a certificate of survey once AMSA approves them under Exemption 02.",
+       "payload": {
+        "approval": {
+         "kind": "NON_SURVEY_APPROVAL",
+         "authority": "Australian Maritime Safety Authority",
+         "pathway": "Apply with Form 579"
+        },
+        "task": "Apply to AMSA for non-survey approval (Form 579)",
+        "checklists": [
+         "vessel.non_survey_approval"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "non_survey_criteria",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "5 m workboat in smooth water",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 5,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 40,
+        "vessel.commercial_activities": [
+         "workboat"
+        ],
+        "vessel.max_passengers": 0,
+        "vessel.operating_area": "smooth"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Day hire",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 6,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 30,
+        "vessel.commercial_activities": [
+         "hire_and_drive"
+        ],
+        "vessel.overnight_hire": false,
+        "vessel.max_passengers": 0,
+        "vessel.operating_area": "smooth"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "14 m charter",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 14,
+        "vessel.propulsion": "inboard",
+        "vessel.engine_kw": 400,
+        "vessel.petrol_inboard": false,
+        "vessel.commercial_activities": [
+         "passenger_tours"
+        ],
+        "vessel.max_passengers": 30,
+        "vessel.operating_area": "within_30nm"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Kayak tours",
+       "facts": {
+        "vessel.type": "paddle",
+        "vessel.length_m": 4,
+        "vessel.propulsion": "manual",
+        "vessel.commercial_activities": [
+         "passenger_tours"
+        ],
+        "vessel.max_passengers": 1
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "certificate_of_operation",
+     "title": "Certificate of operation",
+     "condition": {
+      "all": [
+       {
+        "fact": "vessel.type",
+        "op": "not_equals",
+        "value": "paddle"
+       },
+       {
+        "any": [
+         {
+          "fact": "vessel.type",
+          "op": "not_equals",
+          "value": "sail"
+         },
+         {
+          "fact": "vessel.length_m",
+          "op": "greater_equal",
+          "value": 7.5
+         }
+        ]
+       },
+       {
+        "any": [
+         {
+          "fact": "vessel.type",
+          "op": "not_equals",
+          "value": "personal_watercraft"
+         },
+         {
+          "fact": "vessel.commercial_activities",
+          "op": "contains",
+          "value": "hire_and_drive"
+         }
+        ]
+       },
+       {
+        "any": [
+         {
+          "fact": "vessel.length_m",
+          "op": "greater_equal",
+          "value": 7.5
+         },
+         {
+          "fact": "vessel.commercial_activities",
+          "op": "contains",
+          "value": "hire_and_drive"
+         },
+         {
+          "fact": "vessel.max_passengers",
+          "op": "greater_than",
+          "value": 0
+         },
+         {
+          "fact": "vessel.operating_area",
+          "op": "in",
+          "value": [
+           "within_30nm",
+           "within_200nm",
+           "beyond_200nm"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need a certificate of operation",
+       "detail": "From your answers the vessel isn't in one of the Exemption 03 groups (for example it carries passengers, is hired out, is 7.5 metres or longer or goes beyond sheltered waters), so it needs a certificate of operation from AMSA before it operates.",
+       "payload": {
+        "approval": {
+         "kind": "CERTIFICATE_OF_OPERATION",
+         "authority": "Australian Maritime Safety Authority",
+         "pathway": "Apply with Form 504"
+        },
+        "evidence": [
+         {
+          "kind": "SMS_STATEMENT",
+          "title": "Statement that the vessel has a safety management system that meets Marine Order 504"
+         }
+        ],
+        "checklists": [
+         "vessel.certificate_of_operation"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "A certificate of operation may not be needed",
+       "detail": "From your answers the vessel may be in one of the Exemption 03 groups (for example a small sailing or human-powered vessel, or a Class 2 or 3 vessel under 7.5 metres in sheltered waters carrying no passengers). You still need a safety management system. Check the exemption's conditions before relying on this.",
+       "payload": {
+        "approval": {
+         "kind": "CERTIFICATE_OF_OPERATION",
+         "authority": "Australian Maritime Safety Authority",
+         "pathway": "May be exempt under Exemption 03"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A certificate of operation may be needed",
+       "detail": "Most domestic commercial vessels need a certificate of operation. Answer the questions about length, operating area, passengers and activities so we can check the exemption.",
+       "payload": {
+        "approval": {
+         "kind": "CERTIFICATE_OF_OPERATION",
+         "authority": "Australian Maritime Safety Authority",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "coo_required",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "ex03_criteria",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vessel_classes",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "14 m charter",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 14,
+        "vessel.propulsion": "inboard",
+        "vessel.engine_kw": 400,
+        "vessel.petrol_inboard": false,
+        "vessel.commercial_activities": [
+         "passenger_tours"
+        ],
+        "vessel.max_passengers": 30,
+        "vessel.operating_area": "within_30nm"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Day hire",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 6,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 30,
+        "vessel.commercial_activities": [
+         "hire_and_drive"
+        ],
+        "vessel.overnight_hire": false,
+        "vessel.max_passengers": 0,
+        "vessel.operating_area": "smooth"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "5 m workboat, no passengers",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 5,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 40,
+        "vessel.commercial_activities": [
+         "workboat"
+        ],
+        "vessel.max_passengers": 0,
+        "vessel.operating_area": "smooth"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Kayak tours",
+       "facts": {
+        "vessel.type": "paddle",
+        "vessel.length_m": 4,
+        "vessel.propulsion": "manual",
+        "vessel.commercial_activities": [
+         "passenger_tours"
+        ],
+        "vessel.max_passengers": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Passengers not answered",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 5,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 40,
+        "vessel.commercial_activities": [
+         "workboat"
+        ],
+        "vessel.operating_area": "smooth"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "safety_management_system",
+     "title": "Safety management system",
+     "condition": {
+      "fact": "vessel.commercial_use",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need a safety management system",
+       "detail": "Every domestic commercial vessel needs a safety management system (SMS) that meets Marine Order 504, even if it is exempt from a certificate of operation. You write it yourself, with your master and crew; AMSA can ask to see it at any time. Use the SMS builder on this project.",
+       "payload": {
+        "approval": {
+         "kind": "SAFETY_MANAGEMENT_SYSTEM",
+         "authority": "You, the owner (Marine Order 504)",
+         "pathway": "Write it with the SMS builder and keep it current"
+        },
+        "referral_categories": [
+         "marine_safety_consultant"
+        ],
+        "task": "Write your safety management system"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "sms_all_vessels",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "mo504_sms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Business use",
+       "facts": {
+        "vessel.commercial_use": true
+       },
+       "expected_result": "MATCH"
+      }
+     ]
+    },
+    {
+     "key": "simplified_sms",
+     "title": "Simplified safety management system",
+     "condition": {
+      "all": [
+       {
+        "fact": "vessel.length_m",
+        "op": "less_than",
+        "value": 7.5
+       },
+       {
+        "fact": "vessel.max_passengers",
+        "op": "less_equal",
+        "value": 4
+       },
+       {
+        "any": [
+         {
+          "fact": "vessel.propulsion",
+          "op": "not_in",
+          "value": [
+           "inboard",
+           "sterndrive"
+          ]
+         },
+         {
+          "fact": "vessel.petrol_inboard",
+          "op": "equals",
+          "value": false
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You may be able to use AMSA's simplified SMS",
+       "detail": "Vessels under 7.5 metres (Class 2 with no more than 4 day passengers, Class 3 and Class 4) may use a simplified SMS with fewer parts, unless they carry dangerous goods, have lifting gear or berthed accommodation, are set up for towing or AMSA has found them unsuitable. AMSA's pages differ on whether day passengers are allowed, so check with AMSA."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "simplified_sms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "5 m workboat",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 5,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 40,
+        "vessel.commercial_activities": [
+         "workboat"
+        ],
+        "vessel.max_passengers": 0,
+        "vessel.operating_area": "smooth"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "14 m charter",
+       "facts": {
+        "vessel.type": "motor",
+        "vessel.length_m": 14,
+        "vessel.propulsion": "inboard",
+        "vessel.engine_kw": 400,
+        "vessel.petrol_inboard": false,
+        "vessel.commercial_activities": [
+         "passenger_tours"
+        ],
+        "vessel.max_passengers": 30,
+        "vessel.operating_area": "within_30nm"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "master_certificate",
+     "title": "Certificate of competency for the master",
+     "condition": {
+      "fact": "vessel.length_m",
+      "op": "less_than",
+      "value": 12
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "The master needs a certificate of competency",
+       "detail": "Whoever is in command needs a near coastal certificate of competency. For inshore work on a vessel under 12 metres (inboard engines under 500 kW) that can be Coxswain Grade 1 near coastal; going further out or bigger engines needs a higher certificate.",
+       "payload": {
+        "approval": {
+         "kind": "CERTIFICATE_OF_COMPETENCY",
+         "authority": "Australian Maritime Safety Authority",
+         "pathway": "Training, sea service and an AMSA practical assessment"
+        },
+        "referral_categories": [
+         "maritime_trainer"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "The master needs a certificate of competency",
+       "detail": "Whoever is in command needs a near coastal certificate of competency. For a vessel of 12 metres or more but under 24 metres that is at least Master less than 24 metres near coastal; larger vessels need higher certificates.",
+       "payload": {
+        "approval": {
+         "kind": "CERTIFICATE_OF_COMPETENCY",
+         "authority": "Australian Maritime Safety Authority",
+         "pathway": "Training, sea service and an AMSA practical assessment"
+        },
+        "referral_categories": [
+         "maritime_trainer"
+        ]
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "The master needs a certificate of competency",
+       "detail": "Whoever is in command of a domestic commercial vessel needs a near coastal certificate of competency; which one depends on the vessel's length, engines and where it goes.",
+       "payload": {
+        "approval": {
+         "kind": "CERTIFICATE_OF_COMPETENCY",
+         "authority": "Australian Maritime Safety Authority"
+        },
+        "referral_categories": [
+         "maritime_trainer"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "dcv_obligations",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "coxswain_g1",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "master_24",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "6 m",
+       "facts": {
+        "vessel.length_m": 6
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "14 m",
+       "facts": {
+        "vessel.length_m": 14
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "vessel.qld.registration",
+   "vertical": "VESSEL",
+   "jurisdiction": "QLD",
+   "title": "Queensland: boat registration and licences",
+   "description": "Recreational boat registration and marine licences in Queensland, and where commercial vessels fit, from Queensland Government and Maritime Safety Queensland pages.",
+   "applies_when": {
+    "fact": "vessel.home_state",
+    "op": "equals",
+    "value": "QLD"
+   },
+   "limitations": [
+    "Built from Queensland Government web pages, not from the Transport Operations (Marine Safety) Act or regulation.",
+    "Doesn't cover tenders, hire boats' licence arrangements, school and community vessels (Queensland regulated ships), or boats from other states visiting Queensland.",
+    "Doesn't cover engines under 3 kW.",
+    "Not legal advice. Check with Maritime Safety Queensland before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "recreational_registration",
+     "title": "Recreational boat registration",
+     "condition": {
+      "all": [
+       {
+        "fact": "vessel.commercial_use",
+        "op": "equals",
+        "value": false
+       },
+       {
+        "fact": "vessel.propulsion",
+        "op": "not_in",
+        "value": [
+         "sail",
+         "manual"
+        ]
+       },
+       {
+        "fact": "vessel.engine_kw",
+        "op": "greater_equal",
+        "value": 3
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Register the boat in Queensland",
+       "detail": "Recreational boats, including jet skis, with an engine of 3 kW or more must be registered before they are used on Queensland waters.",
+       "payload": {
+        "approval": {
+         "kind": "QLD_BOAT_REGISTRATION",
+         "authority": "Queensland Department of Transport and Main Roads",
+         "pathway": "Register before using it on Queensland waters"
+        },
+        "checklists": [
+         "vessel.qld_registration"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Queensland recreational registration not identified",
+       "detail": "From your answers this isn't a recreational boat with an engine of 3 kW or more. Commercial vessels are certified through AMSA instead of being registered by Queensland. The page we used doesn't cover engines under 3 kW.",
+       "payload": {
+        "approval": {
+         "kind": "QLD_BOAT_REGISTRATION",
+         "authority": "Queensland Department of Transport and Main Roads"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Queensland registration may be needed",
+       "detail": "Recreational boats with an engine of 3 kW or more must be registered in Queensland. Tell us the engine's power so we can check.",
+       "payload": {
+        "approval": {
+         "kind": "QLD_BOAT_REGISTRATION",
+         "authority": "Queensland Department of Transport and Main Roads",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "qld_rego",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "msq_dcv",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Recreational 40 kW",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 40
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Sail only",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.propulsion": "sail"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Commercial",
+       "facts": {
+        "vessel.commercial_use": true,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 40
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Power not answered",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.propulsion": "outboard"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "marine_driver_licence",
+     "title": "Recreational marine driver licence",
+     "condition": {
+      "all": [
+       {
+        "fact": "vessel.commercial_use",
+        "op": "equals",
+        "value": false
+       },
+       {
+        "fact": "vessel.propulsion",
+        "op": "not_in",
+        "value": [
+         "sail",
+         "manual"
+        ]
+       },
+       {
+        "fact": "vessel.engine_kw",
+        "op": "greater_than",
+        "value": 4.5
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "The driver needs a recreational marine driver licence",
+       "detail": "Driving a boat with an engine over 4.5 kW in Queensland needs a recreational marine driver licence (minimum age 16), unless a licensed person on board supervises and can take control.",
+       "payload": {
+        "approval": {
+         "kind": "QLD_MARINE_LICENCE",
+         "authority": "Queensland Department of Transport and Main Roads",
+         "pathway": "Complete an approved course and apply"
+        }
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "A recreational marine licence wasn't identified",
+       "detail": "From your answers the boat isn't a recreational boat with an engine over 4.5 kW. Commercial operators need AMSA certificates of competency instead.",
+       "payload": {
+        "approval": {
+         "kind": "QLD_MARINE_LICENCE",
+         "authority": "Queensland Department of Transport and Main Roads"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "qld_licence",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Recreational 40 kW",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 40
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Small electric",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.propulsion": "outboard",
+        "vessel.engine_kw": 2
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "pwc_licence",
+     "title": "Personal watercraft licence",
+     "condition": {
+      "all": [
+       {
+        "fact": "vessel.commercial_use",
+        "op": "equals",
+        "value": false
+       },
+       {
+        "fact": "vessel.type",
+        "op": "equals",
+        "value": "personal_watercraft"
+       }
+      ]
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "The rider needs a personal watercraft licence",
+       "detail": "In Queensland a jet ski rider needs a personal watercraft licence as well as a recreational marine driver licence.",
+       "payload": {
+        "approval": {
+         "kind": "QLD_PWC_LICENCE",
+         "authority": "Queensland Department of Transport and Main Roads",
+         "pathway": "Hold a marine licence, then complete the PWC course"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "qld_licence",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Recreational jet ski",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.type": "personal_watercraft"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Motor boat",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.type": "motor"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "commercial_through_amsa",
+     "title": "Commercial vessels in Queensland",
+     "condition": {
+      "fact": "vessel.commercial_use",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-09",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Queensland doesn't register commercial vessels",
+       "detail": "Maritime Safety Queensland says domestic commercial vessels are administered by AMSA rather than registered by Queensland. Follow the AMSA steps in this report."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "msq_dcv",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Commercial",
+       "facts": {
+        "vessel.commercial_use": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Recreational",
+       "facts": {
+        "vessel.commercial_use": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -27,6 +27,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.errors import ApiError, not_found
 from app.modules.audit import service as audit
+from app.modules.checklists import definition as checklist_definitions
 from app.modules.conditions import parse_condition, referenced_facts
 from app.modules.conditions.ast import FACT_PATTERN, dump_condition
 from app.modules.marketplace import service as marketplace
@@ -422,10 +423,14 @@ async def save_draft(
         except ValueError as exc:
             payload_errors[f"outcomes.{i}.payload"] = str(exc)
             continue
-        categories = parse_payload(o["payload"]).referral_categories
-        if unknown := await marketplace.unknown_keys(db, categories):
+        parsed = parse_payload(o["payload"])
+        if unknown := await marketplace.unknown_keys(db, parsed.referral_categories):
             payload_errors[f"outcomes.{i}.payload"] = (
                 f"referral_categories: not a marketplace category: {', '.join(unknown)}."
+            )
+        elif unknown := checklist_definitions.unknown_keys(parsed.checklists):
+            payload_errors[f"outcomes.{i}.payload"] = (
+                f"checklists: not a reviewed checklist: {', '.join(unknown)}."
             )
     if payload_errors:
         raise _invalid(
@@ -611,6 +616,15 @@ async def publish_checks(db: AsyncSession, view: VersionView) -> GateResult:
         not retired,
         "Every referral category is a current marketplace category.",
         f"No longer a marketplace category: {', '.join(retired)}.",
+    )
+
+    named = [key for o in view.outcomes for key in parse_payload(o.payload).checklists]
+    removed = checklist_definitions.unknown_keys(list(dict.fromkeys(named)))
+    check(
+        "checklists",
+        not removed,
+        "Every checklist named is a reviewed checklist.",
+        f"Not a reviewed checklist: {', '.join(removed)}.",
     )
 
     results: list[engine.TestCaseResult] = []

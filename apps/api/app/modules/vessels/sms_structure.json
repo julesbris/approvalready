@@ -1,0 +1,169 @@
+{
+  "title": "Safety management system",
+  "description": "Every domestic commercial vessel needs a safety management system (SMS) that documents how the owner meets their general safety duties, based on a risk assessment done with the master and crew. The parts below follow Schedule 1 of Marine Order 504 (2024). Write each part in your own words for your vessel and operation.",
+  "disclaimer": "This is your own document. ApprovalReady arranges what you write under the headings in Marine Order 504; it has not checked that your SMS is adequate, and no one at AMSA or ApprovalReady has approved it. The guidance under each heading is a summary of the source, not its wording. AMSA can ask to see your SMS at any time.",
+  "sources": [
+    {
+      "title": "Marine Order 504 (Certificates of operation – national law) 2024, Schedule 1",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.legislation.gov.au/F2024L01458/asmade/2024-11-15/text/original/pdf"
+    },
+    {
+      "title": "Safety management systems",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/safety-management-systems"
+    },
+    {
+      "title": "Templates for a safety management system",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/safety-management-systems/templates-safety-management"
+    }
+  ],
+  "sections": [
+    {
+      "key": "about",
+      "title": "About the vessel and who is responsible",
+      "elements": [
+        {
+          "key": "vessel_details",
+          "title": "Vessel details and contact information",
+          "guidance": "The owner's name, address, phone and email; the vessel's UVI; the kind of vessel and operation; where it operates; and a contact person who can be reached at all times.",
+          "required": true,
+          "prefill": "vessel_description"
+        },
+        {
+          "key": "owner_statement",
+          "title": "Owner's responsibility and authority",
+          "guidance": "Who the owner is and how to contact them, who they delegate duties to and what those duties are, and how the master, crew and people ashore communicate. Not required for Class 4 (hire and drive) vessels.",
+          "required": true
+        },
+        {
+          "key": "designated_person",
+          "title": "Designated person",
+          "guidance": "At least one person who monitors the safe operation of the vessel and provides resources and shore support. They need access to the owner or senior management and must be reachable by the master and crew. Give their name, contact details and role. The owner can be the designated person.",
+          "required": true
+        },
+        {
+          "key": "master_statement",
+          "title": "Master's responsibility and authority",
+          "guidance": "The master's duty to check the vessel complies with the SMS, their authority to make decisions about safety, and their authority to ask the owner for help. Not required for Class 4 vessels.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "risk",
+      "title": "Risk assessment",
+      "elements": [
+        {
+          "key": "risk_assessment",
+          "title": "Risk assessment",
+          "guidance": "Done with the master and crew, written down and kept current. Review it after a change in operations, after a marine incident, or when the master thinks the risks have changed. Identify the key daily tasks, the risks to the vessel, its stability, the environment and people, the controls for each and who is responsible for them, crewing and fatigue risks and how they are managed, and when lifejackets must be worn.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "crew",
+      "title": "Crew",
+      "elements": [
+        {
+          "key": "crewing_assessment",
+          "title": "Appropriate crewing",
+          "guidance": "Your assessment of the crew needed for each operation, considering fatigue, passenger numbers, the vessel's design, crew qualifications, the operating area, voyage length, emergencies and maintenance. Not required for Class 4 vessels, or for vessels with an AMSA crewing determination.",
+          "required": true
+        },
+        {
+          "key": "crewing_determination",
+          "title": "Crewing determination (large vessels)",
+          "guidance": "Only for vessels of 80 metres, 3000 GT or 3000 kW or more: how you operate in line with AMSA's crewing determination, which is renewed at least every 5 years.",
+          "required": false
+        },
+        {
+          "key": "minimum_crewing",
+          "title": "Minimum crewing and rest",
+          "guidance": "If you rely on the minimum crew numbers in Marine Order 504 (they depend on the vessel's length), show how the master and each crew member get at least 10 hours' rest in every 24 hours. Not required for Class 4 vessels.",
+          "required": true
+        },
+        {
+          "key": "induction_training",
+          "title": "Induction, familiarisation, drills and training",
+          "guidance": "How new crew are inducted before starting duties (safety, key operations, the emergency plan, life-saving equipment), how often you hold drills (set by your risk assessment) and how you keep training records (for 5 years). Not required for Class 4 vessels.",
+          "required": true
+        },
+        {
+          "key": "first_aid_radio",
+          "title": "First aid and radio",
+          "guidance": "Who holds a current first aid certificate (equivalent to HLTAID011), so one is available at all times, and who operates the radio (the master or the deck watchkeeper). Not required for Class 4 vessels.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "operations",
+      "title": "Operations",
+      "elements": [
+        {
+          "key": "operating_procedures",
+          "title": "Procedures for vessel operations",
+          "guidance": "Written procedures for the tasks that apply to you: pre-operation checks, start-up and shutdown, mooring and berthing, getting on and off the vessel, wearing lifejackets, passenger induction, monitoring and counts, radio watch, refuelling, passage planning, confined spaces and cargo (including dangerous goods). Say which competent crew member does each task.",
+          "required": true
+        },
+        {
+          "key": "drug_alcohol_policy",
+          "title": "Drug and alcohol policy",
+          "guidance": "Your policy on drugs and alcohol for the master and crew. Marine Order 504 requires one; AMSA doesn't set a minimum number of tests.",
+          "required": true
+        },
+        {
+          "key": "emergency_plan",
+          "title": "Emergency preparedness",
+          "guidance": "A written emergency plan kept on board covering at least fire, person overboard, medical emergencies, loss of steering or propulsion, collision, grounding, flooding, oil or fuel spills and severe weather. Include the assembly station, crew emergency stations, how you count heads and how passengers get emergency information.",
+          "required": true
+        },
+        {
+          "key": "incidents",
+          "title": "Hazardous occurrences and non-conformances",
+          "guidance": "How you report and investigate incidents, near misses and departures from the SMS, and record what you found and the corrective action.",
+          "required": true
+        },
+        {
+          "key": "maintenance",
+          "title": "Maintenance of the vessel and equipment",
+          "guidance": "Your planned inspection and maintenance program: what is inspected and how often, who does it (the owner or someone with suitable experience), servicing to the manufacturer's specifications, and how deficiencies are recorded and fixed.",
+          "required": true
+        },
+        {
+          "key": "logbooks_records",
+          "title": "Logbooks and documents",
+          "guidance": "Your logbook (with a backup if it is electronic) recording injuries, incidents, assistance given, emergency communications, passenger counts and recreational use, kept for 5 years; a passenger manifest for voyages of 12 hours or more; an up-to-date crew list; and a dated record of modifications that affect stability. Not required for Class 4 vessels.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "review",
+      "title": "Keeping it current",
+      "elements": [
+        {
+          "key": "review_revision",
+          "title": "Review and revision",
+          "guidance": "How you check the SMS is being followed and review each procedure at least every 12 months, and how you record revisions (reference number, the part changed, the date and who signed off).",
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "hire_drive",
+      "title": "Hire and drive (Class 4) extras",
+      "elements": [
+        {
+          "key": "hire_and_drive",
+          "title": "Additional requirements for hire and drive",
+          "guidance": "Only for Class 4 vessels: participant numbers, competency, age and health; competencies of tour leaders, guides and briefers; information and safety equipment for hirers and participants; documentation; and extra requirements for personal watercraft (Schedule 2 of Marine Order 504).",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

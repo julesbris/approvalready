@@ -173,8 +173,10 @@ publishing needs `rule.publish`); findings stay "likely" at best until the sourc
 captured and verified at `/admin/sources`. Running the command again changes nothing that
 already exists.
 
-Available packs: `planning_qld_cairns` (Milestone 5) and `business_qld_cairns` (Milestone 8,
-BusinessReady rules for Queensland and Cairns).
+Available packs: `planning_qld_cairns` (Milestone 5), `business_qld_cairns` (Milestone 8,
+BusinessReady rules for Queensland and Cairns) and `vessel_au_qld` (Milestone 9, VesselReady
+rules for domestic commercial vessels from AMSA, and Queensland recreational registration
+and licences).
 
 ## 8. Persistent volumes
 

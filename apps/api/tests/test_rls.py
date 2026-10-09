@@ -88,6 +88,11 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "finding_override": APPEND,
     "review_decision": APPEND,
     "marketplace_category": READ,
+    # Milestone 9
+    "vessel_certificate": WRITE,
+    "safety_management_system": WRITE,
+    "project_checklist": CRUD,
+    "checklist_item": CRUD,
 }
 
 TENANT_TABLES = sorted(

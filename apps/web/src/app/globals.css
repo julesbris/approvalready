@@ -830,3 +830,30 @@ fieldset.question {
 .lede {
   color: var(--ar-ink-muted);
 }
+
+/* --- VesselReady --- */
+
+.sms-field {
+  display: grid;
+  gap: 4px;
+}
+
+.sms-field textarea {
+  width: 100%;
+  min-height: 8em;
+}
+
+.checklist + .checklist,
+.report-template + .report-template {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ar-border);
+}
+
+.certificate-expired {
+  color: var(--ar-danger, #b42318);
+}
+
+.certificate-expiring {
+  color: var(--ar-warning, #b54708);
+}

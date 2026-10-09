@@ -1,0 +1,72 @@
+{
+  "key": "vessel.initial_survey",
+  "vertical": "VESSEL",
+  "title": "Certificate of survey: initial survey",
+  "description": "What to prepare to apply for a certificate of survey for a domestic commercial vessel and get it through its initial survey. Summarised from AMSA's guidance; AMSA's reply to your application lists the surveys your vessel actually needs.",
+  "sources": [
+    {
+      "title": "Certificates of survey (CoS)",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/certificates-survey"
+    },
+    {
+      "title": "Survey frequency for domestic commercial vessels",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/survey-frequency-domestic-commercial-vessels"
+    }
+  ],
+  "items": [
+    {
+      "key": "vessel_details",
+      "title": "Gather the vessel's details",
+      "detail": "Type, measured length, breadth, depth, maximum design speed, hull material and the power (kW) of the largest engine."
+    },
+    {
+      "key": "identity_documents",
+      "title": "Gather identity or organisation documents for the applicant"
+    },
+    {
+      "key": "choose_surveyor",
+      "title": "Engage an accredited marine surveyor",
+      "detail": "Most vessels of 35 metres or more, and novel vessels, need a recognised organisation instead."
+    },
+    {
+      "key": "apply_form_521",
+      "title": "Apply to AMSA with Form 521",
+      "detail": "The same form can cover a load line certificate if your vessel needs one."
+    },
+    {
+      "key": "amsa_survey_list",
+      "title": "Read AMSA's reply listing the surveys required",
+      "detail": "Usually plan approval, construction and commissioning surveys for a new vessel."
+    },
+    {
+      "key": "plan_approval",
+      "title": "Have the plans approved",
+      "detail": "Your surveyor (or a naval architect) can tell you which plans and stability information are needed."
+    },
+    {
+      "key": "construction_survey",
+      "title": "Complete the construction survey",
+      "required": false
+    },
+    {
+      "key": "commissioning_survey",
+      "title": "Complete the commissioning survey"
+    },
+    {
+      "key": "pay_fee",
+      "title": "Pay AMSA's fee and wait for the outcome letter"
+    },
+    {
+      "key": "record_certificate",
+      "title": "Record the certificate and its expiry in your vessel's certificates",
+      "detail": "A certificate of survey is normally valid for five years. AMSA sends a reminder 90 days before it expires."
+    },
+    {
+      "key": "periodic_surveys",
+      "title": "Note when periodic surveys are due",
+      "detail": "Depending on the vessel's survey frequency category (high, medium or low) there may be in-water or out-of-water surveys between the initial and renewal surveys."
+    }
+  ]
+}

@@ -18,6 +18,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.modules.assessments import approval_map
 from app.modules.assessments import service as assessments
 from app.modules.assessments.models import AssessmentFinding
+from app.modules.checklists import service as checklists
 from app.modules.documents import render
 from app.modules.documents.models import (
     DocumentTemplate,
@@ -27,11 +28,14 @@ from app.modules.documents.models import (
 )
 from app.modules.documents.service import list_evidence
 from app.modules.marketplace import service as marketplace
+from app.modules.projects.models import Project
 from app.modules.questionnaires import service as questionnaires
 from app.modules.review import professionals
 from app.modules.review import service as review
 from app.modules.rules.engine import decode_facts
 from app.modules.rules.payload import parse_payload
+from app.modules.vessels import service as vessels
+from app.modules.vessels import sms
 
 BRISBANE = ZoneInfo("Australia/Brisbane")
 
@@ -59,6 +63,7 @@ CERTAINTY = {
     "MAY_APPLY": "May apply",
     "NOT_IDENTIFIED": "Not identified",
 }
+ITEM_STATUS = {"OPEN": "To do", "DONE": "Done", "NOT_APPLICABLE": "Doesn't apply"}
 VERIFICATION = {
     "UNVERIFIED": "not yet verified",
     "VERIFIED": "verified",
@@ -237,6 +242,24 @@ async def build_context(
         if (o := overridden.get(f.id)) is not None
     ]
     generated_at = datetime.now(BRISBANE)
+    checklist_rows = [
+        {
+            "title": v.checklist.title,
+            "done": sum(1 for i in v.items if i.status != "OPEN"),
+            "total": len(v.items),
+            "entries": [
+                {
+                    "title": i.title,
+                    "detail": i.detail,
+                    "status_label": ITEM_STATUS.get(i.status, i.status),
+                    "note": i.note,
+                }
+                for i in v.items
+            ],
+            "sources": [f"{s['title']}, {s['organisation']}" for s in v.checklist.sources],
+        }
+        for v in await checklists.list_for_project(db, project)
+    ]
     return {
         "meta": {
             "title": template.title,
@@ -309,6 +332,36 @@ async def build_context(
         "missing": list(missing),
         "sources": list(sources.values()),
         "limitations": list(limitations),
+        "checklists": checklist_rows,
+        "sms": await _sms_context(db, project) if template.key == "SMS" else None,
+    }
+
+
+async def _sms_context(db: AsyncSession, project: Project) -> dict[str, Any]:
+    """The customer's SMS text in the structure's order. Parts not written yet are listed so
+    the document never looks more complete than it is."""
+    record = await vessels.get_sms(db, project)
+    content = record.content if record is not None else {}
+    structure = sms.structure()
+    written, required, missing = sms.completeness(content)
+    titles = structure.elements
+    return {
+        "title": structure.title,
+        "disclaimer": structure.disclaimer,
+        "written": written,
+        "required": required,
+        "missing": [titles[k].title for k in missing],
+        "sources": [f"{s.title}, {s.organisation} ({s.url})" for s in structure.sources],
+        "sections": [
+            {
+                "title": section.title,
+                "elements": [
+                    {"title": e.title, "required": e.required, "text": content.get(e.key)}
+                    for e in section.elements
+                ],
+            }
+            for section in structure.sections
+        ],
     }
 
 

@@ -28,6 +28,8 @@ from app.modules.audit.service import RequestMeta
 from app.modules.documents import filetypes
 from app.modules.documents.models import (
     Classification,
+    DocumentTemplate,
+    DocumentTemplateVersion,
     Evidence,
     EvidenceStatus,
     GeneratedDocument,
@@ -40,9 +42,16 @@ from app.modules.documents.scanner import MalwareScanner
 from app.modules.documents.storage import ObjectStorage
 from app.modules.documents.templates import published
 from app.modules.projects.models import Project, ProjectStatus
+from app.modules.vessels.models import SafetyManagementSystem
 
-# The report template used for each vertical's assessments.
-ASSESSMENT_TEMPLATES = {"PLANNING": "PLANNING_ASSESSMENT", "BUSINESS": "BUSINESS_APPROVAL_MAP"}
+# The report templates available for each vertical's assessments; the first is the default.
+ASSESSMENT_TEMPLATES = {
+    "PLANNING": ("PLANNING_ASSESSMENT",),
+    "BUSINESS": ("BUSINESS_APPROVAL_MAP",),
+    "VESSEL": ("VESSEL_PATHWAY", "SMS"),
+}
+# How each template's files are named (``<reference>-<slug>-<assessment date>``).
+FILENAME_SLUGS = {"SMS": "safety-management-system"}
 EXTENSIONS = {OutputFormat.PDF: "pdf", OutputFormat.DOCX: "docx", OutputFormat.HTML: "html"}
 MIME_TYPES = {
     OutputFormat.PDF: "application/pdf",
@@ -480,11 +489,19 @@ async def request_report(
     *,
     actor_id: uuid.UUID,
     meta: RequestMeta | None,
+    template: str | None = None,
 ) -> GeneratedDocument:
-    key = ASSESSMENT_TEMPLATES.get(project.vertical)
+    available = ASSESSMENT_TEMPLATES.get(project.vertical, ())
+    key = template or (available[0] if available else None)
+    if key is not None and key not in available:
+        raise _conflict("no_template", "That report isn't available for this kind of project.")
     version = await published(db, key) if key else None
-    if version is None:
+    if key is None or version is None:
         raise _conflict("no_template", "Reports aren't available for this kind of project yet.")
+    if key == "SMS" and not await _sms_written(db, project):
+        raise _conflict(
+            "sms_empty", "Write some of your safety management system before downloading it."
+        )
     if output not in version.output_formats:
         raise _conflict("format_unavailable", "That format isn't available for this report.")
     generated = GeneratedDocument(
@@ -494,8 +511,8 @@ async def request_report(
         template_version_id=version.id,
         format=output,
         status=GenerationStatus.PENDING,
-        filename=f"{project.reference_code}-assessment-{assessment.assessed_on.isoformat()}"
-        f".{EXTENSIONS[output]}",
+        filename=f"{project.reference_code}-{FILENAME_SLUGS.get(key, 'assessment')}-"
+        f"{assessment.assessed_on.isoformat()}.{EXTENSIONS[output]}",
         created_by=actor_id,
     )
     db.add(generated)
@@ -508,9 +525,33 @@ async def request_report(
         target_type="generated_document",
         target_id=generated.id,
         meta=meta,
-        details={"assessment_id": str(assessment.id), "format": str(output)},
+        details={"assessment_id": str(assessment.id), "format": str(output), "template": key},
     )
     return generated
+
+
+async def template_keys(db: AsyncSession, version_ids: Iterable[uuid.UUID]) -> dict[uuid.UUID, str]:
+    wanted = set(version_ids)
+    if not wanted:
+        return {}
+    rows = await db.execute(
+        select(DocumentTemplateVersion.id, DocumentTemplate.key)
+        .join(DocumentTemplate, DocumentTemplate.id == DocumentTemplateVersion.template_id)
+        .where(DocumentTemplateVersion.id.in_(wanted))
+    )
+    return {version_id: key for version_id, key in rows.all()}
+
+
+async def _sms_written(db: AsyncSession, project: Project) -> bool:
+    content = (
+        await db.execute(
+            select(SafetyManagementSystem.content).where(
+                SafetyManagementSystem.organisation_id == project.organisation_id,
+                SafetyManagementSystem.project_id == project.id,
+            )
+        )
+    ).scalar_one_or_none()
+    return bool(content)
 
 
 async def list_generated(db: AsyncSession, project: Project) -> list[GeneratedDocument]:

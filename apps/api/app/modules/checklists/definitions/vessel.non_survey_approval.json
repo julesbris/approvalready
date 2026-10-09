@@ -1,0 +1,42 @@
+{
+  "key": "vessel.non_survey_approval",
+  "vertical": "VESSEL",
+  "title": "Non-survey vessel approval (Exemption 02)",
+  "description": "Some smaller vessels in sheltered waters can operate without a certificate of survey if AMSA approves them under Exemption 02. Summarised from AMSA's guidance; the exemption's own conditions apply.",
+  "sources": [
+    {
+      "title": "Non-survey vessel approval or exemption",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/non-survey-vessel-approval-or-exemption"
+    },
+    {
+      "title": "Exemption 02 - Marine Safety (Certificates of survey)",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.amsa.gov.au/about/regulations-and-standards/exemption-2-marine-safety-certificates-survey"
+    }
+  ],
+  "items": [
+    {
+      "key": "check_criteria",
+      "title": "Check the vessel meets the conditions",
+      "detail": "For Class 2, 3 and 4 vessels: under 12 metres, sheltered (D or E) waters only, Class 2 with no more than 4 day passengers, no overnight hire and drive, no inboard petrol engine, no dangerous goods or towage."
+    },
+    {
+      "key": "surveyor_recommendation",
+      "title": "Get a surveyor's written recommendation if you carry net reels, cranes, lifting gear or deck loads",
+      "required": false
+    },
+    {
+      "key": "apply_form_579",
+      "title": "Apply to AMSA with Form 579 and pay the fee"
+    },
+    {
+      "key": "keep_evidence",
+      "title": "Keep the approval and evidence of eligibility with your safety management system"
+    },
+    {
+      "key": "other_obligations",
+      "title": "Remember the vessel still needs a UVI, a certificate of operation (unless exempt) and a safety management system"
+    }
+  ]
+}

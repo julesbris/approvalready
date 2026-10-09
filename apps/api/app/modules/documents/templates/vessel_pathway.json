@@ -1,0 +1,8 @@
+{
+  "key": "VESSEL_PATHWAY",
+  "title": "Vessel approvals pathway",
+  "vertical": "VESSEL",
+  "engine": "JINJA_HTML",
+  "body": "vessel_pathway.html.j2",
+  "output_formats": ["PDF", "DOCX", "HTML"]
+}

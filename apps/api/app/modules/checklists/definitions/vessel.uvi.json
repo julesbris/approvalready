@@ -1,0 +1,39 @@
+{
+  "key": "vessel.uvi",
+  "vertical": "VESSEL",
+  "title": "Unique Vessel Identifier (UVI)",
+  "description": "Getting and displaying a UVI. Summarised from AMSA's guidance.",
+  "sources": [
+    {
+      "title": "Obtain and display a unique vessel identifier",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/obtain-and-display-unique-vessel-identifier"
+    },
+    {
+      "title": "Unique vessel identifiers",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/unique-vessel-identifiers"
+    }
+  ],
+  "items": [
+    {
+      "key": "how_issued",
+      "title": "Check whether you need to apply separately",
+      "detail": "AMSA issues a UVI automatically when you first apply for a certificate of survey, a non-survey approval or a specific exemption, or notify an intention to build. Otherwise use AMSA's standalone UVI application."
+    },
+    {
+      "key": "display",
+      "title": "Display the UVI within 21 days of it being issued",
+      "detail": "Above the waterline on both sides, in a contrasting colour, readable from 30 metres (for example characters at least 10 cm high on a 10 metre vessel). Before launch for a vessel under construction."
+    },
+    {
+      "key": "record",
+      "title": "Record the UVI in your vessel's details"
+    },
+    {
+      "key": "notify_changes",
+      "title": "Tell AMSA within 14 days if you sell the vessel or it is sunk or scrapped",
+      "required": false
+    }
+  ]
+}

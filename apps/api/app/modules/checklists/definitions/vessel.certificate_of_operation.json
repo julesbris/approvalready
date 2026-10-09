@@ -1,0 +1,52 @@
+{
+  "key": "vessel.certificate_of_operation",
+  "vertical": "VESSEL",
+  "title": "Certificate of operation",
+  "description": "What to have ready before applying to AMSA for a certificate of operation. Summarised from AMSA's guidance and Marine Order 504.",
+  "sources": [
+    {
+      "title": "Certificates of operation (CoO)",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.amsa.gov.au/vessels-operators/domestic-commercial-vessels/certificates-operation-coo"
+    },
+    {
+      "title": "Marine Order 504 (Certificates of operation – national law) 2024",
+      "organisation": "Australian Maritime Safety Authority",
+      "url": "https://www.legislation.gov.au/F2024L01458/asmade/2024-11-15/text/original/pdf"
+    }
+  ],
+  "items": [
+    {
+      "key": "sms_ready",
+      "title": "Write your safety management system",
+      "detail": "The application includes a written statement that each vessel has an SMS that meets Marine Order 504. Use the SMS builder on this project."
+    },
+    {
+      "key": "crewing_assessment",
+      "title": "Do and record your crewing assessment",
+      "detail": "Recorded in the SMS. Vessels of 80 metres, 3000 GT or 3000 kW or more need a crewing determination from AMSA instead."
+    },
+    {
+      "key": "designated_person",
+      "title": "Name your designated person",
+      "detail": "Someone who monitors safety and can be reached by the master and crew. The owner can be the designated person."
+    },
+    {
+      "key": "drug_alcohol_policy",
+      "title": "Adopt a drug and alcohol policy"
+    },
+    {
+      "key": "crew_certificates",
+      "title": "Check the master and crew hold the certificates of competency they need"
+    },
+    {
+      "key": "apply_form_504",
+      "title": "Apply to AMSA with Form 504",
+      "detail": "A certificate of operation doesn't transfer with a vessel: a new owner applies again. Renewals use Form 553."
+    },
+    {
+      "key": "record_certificate",
+      "title": "Record the certificate and its expiry in your vessel's certificates"
+    }
+  ]
+}
