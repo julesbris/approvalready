@@ -20,7 +20,7 @@ jobs:
         working-directory: apps/api
     services:
       postgres:
-        image: postgres:18-alpine
+        image: mirror.gcr.io/library/postgres:18-alpine
         env:
           POSTGRES_USER: approvalready
           POSTGRES_PASSWORD: approvalready
@@ -30,7 +30,7 @@ jobs:
           --health-cmd "pg_isready -U approvalready -d approvalready_test"
           --health-interval 5s --health-timeout 3s --health-retries 20
       redis:
-        image: redis:8-alpine
+        image: mirror.gcr.io/library/redis:8-alpine
         ports: ["6379:6379"]
         options: >-
           --health-cmd "redis-cli ping" --health-interval 5s --health-timeout 3s --health-retries 20
