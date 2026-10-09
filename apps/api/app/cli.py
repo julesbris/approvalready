@@ -29,6 +29,7 @@ from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
 from app.modules.documents import templates as document_templates
 from app.modules.identity.service import get_user_by_email
+from app.modules.marketplace import service as marketplace
 from app.modules.questionnaires import service as questionnaires
 from app.modules.questionnaires.definition import load_bundled
 from app.modules.regulatory.service import Actor
@@ -217,6 +218,21 @@ async def sync_templates(settings: Settings) -> int:
     return 0
 
 
+async def sync_categories(settings: Settings) -> int:
+    """Apply the reviewed marketplace category file (owner only, like questionnaires)."""
+    definitions = marketplace.load_bundled()
+    engine = create_async_engine(settings.owner_database_url, poolclass=NullPool)
+    try:
+        async with async_sessionmaker(engine, expire_on_commit=False)() as db:
+            report = await marketplace.sync(db, definitions)
+            await db.commit()
+    finally:
+        await engine.dispose()
+    for line in report.lines():
+        print(line)
+    return 0
+
+
 async def load_pack(
     name: str, email: str, *, publish: bool, settings: Settings | None = None
 ) -> int:
@@ -274,6 +290,8 @@ def main(argv: list[str] | None = None) -> int:
     q.add_argument("action", choices=["sync"])
     d = sub.add_parser("documents", help="Report templates")
     d.add_argument("action", choices=["sync-templates"])
+    m = sub.add_parser("marketplace", help="Marketplace categories")
+    m.add_argument("action", choices=["sync-categories"])
     r = sub.add_parser("rules", help="Rule content packs")
     r_sub = r.add_subparsers(dest="rules_command", required=True)
     lp = r_sub.add_parser("load-pack", help="Create a pack's sources and rules (as drafts)")
@@ -289,6 +307,8 @@ def main(argv: list[str] | None = None) -> int:
         return asyncio.run(sync_questionnaires(get_settings()))
     if args.command == "documents":
         return asyncio.run(sync_templates(get_settings()))
+    if args.command == "marketplace":
+        return asyncio.run(sync_categories(get_settings()))
     if args.command == "rules":
         return asyncio.run(load_pack(args.name, args.email, publish=args.publish))
     return asyncio.run(verify_audit())

@@ -135,7 +135,10 @@ service given the database owner's credentials, and it:
    role (`APP_DB_USER`/`APP_DB_PASSWORD`) without superuser, BYPASSRLS or ownership, so
    row-level security applies to everything the API and worker do;
 3. runs `python -m app.cli questionnaires sync`, publishing any changed questionnaire
-   definitions as new versions (unchanged ones are left alone).
+   definitions as new versions (unchanged ones are left alone);
+4. runs `python -m app.cli marketplace sync-categories`, applying the reviewed marketplace
+   category list;
+5. runs `python -m app.cli documents sync-templates`, publishing changed report templates.
 
 `/health/ready` reports `database_role` as failing in production if the API's role is ever a
 superuser, can bypass RLS or owns tables. To rotate `APP_DB_PASSWORD`, change it in `.env` and
@@ -169,6 +172,9 @@ publishes every rule that passes the publish gate in the same step (needs an adm
 publishing needs `rule.publish`); findings stay "likely" at best until the sources are
 captured and verified at `/admin/sources`. Running the command again changes nothing that
 already exists.
+
+Available packs: `planning_qld_cairns` (Milestone 5) and `business_qld_cairns` (Milestone 8,
+BusinessReady rules for Queensland and Cairns).
 
 ## 8. Persistent volumes
 

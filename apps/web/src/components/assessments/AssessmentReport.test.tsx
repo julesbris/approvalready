@@ -1,4 +1,4 @@
-import type { AssessmentOut, FindingOut } from "@approvalready/shared-types";
+import type { AssessmentOut, FindingOut, OverrideOut } from "@approvalready/shared-types";
 import { render, screen, within } from "@testing-library/react";
 
 import { AssessmentReport } from "./AssessmentReport";
@@ -61,6 +61,7 @@ const ASSESSMENT: AssessmentOut = {
   findings: 2,
   rule_sets: [],
   approval_requirements: [],
+  approval_map: [],
   evidence_requirements: [],
   referral_categories: [],
   limitations: [],
@@ -134,8 +135,13 @@ describe("AssessmentReport", () => {
             },
           ],
           referral_categories: [
-            { key: "town_planner", finding_ids: ["f1"] },
-            { key: "drainage_engineer", finding_ids: ["f1"] },
+            { key: "town_planner", label: "Town planner", description: null, finding_ids: ["f1"] },
+            {
+              key: "drainage_engineer",
+              label: "Drainage engineer",
+              description: "Designs stormwater drainage.",
+              finding_ids: ["f1"],
+            },
           ],
           limitations: ["Does not check overlays."],
         }}
@@ -150,6 +156,7 @@ describe("AssessmentReport", () => {
     const help = screen.getByRole("region", { name: "Who can help" });
     expect(within(help).getByText("Town planner")).toBeInTheDocument();
     expect(within(help).getByText("Drainage engineer")).toBeInTheDocument();
+    expect(within(help).getByText("· Designs stormwater drainage.")).toBeInTheDocument();
 
     const sources = screen.getByRole("region", { name: "Sources" });
     expect(within(sources).getAllByRole("link")).toHaveLength(1);
@@ -157,6 +164,64 @@ describe("AssessmentReport", () => {
 
     const limits = screen.getByRole("region", { name: "What this assessment doesn't check" });
     expect(within(limits).getByText("Does not check overlays.")).toBeInTheDocument();
+  });
+
+  it("sorts a business's approvals into the four columns of the map", () => {
+    const entry = (kind: string, title: string, certainty: string, finding = "f1") => ({
+      kind,
+      title,
+      certainty,
+      confidence: "LIKELY",
+      authority: "Test Office",
+      pathway: null,
+      requirement_ids: [`r-${kind}`],
+      finding_ids: [finding],
+    });
+    render(
+      <AssessmentReport
+        approvalMap
+        assessment={{
+          ...ASSESSMENT,
+          approval_requirements: [
+            {
+              id: "r-LIQUOR",
+              finding_id: "f1",
+              kind: "LIQUOR",
+              title: "Liquor licence",
+              authority: "Test Office",
+              pathway: null,
+              certainty: "REQUIRED",
+              confidence: "LIKELY",
+            },
+          ],
+          approval_map: [
+            entry("LIQUOR", "Liquor licence", "REQUIRED"),
+            entry("FOOTPATH", "Footpath permit", "NOT_IDENTIFIED", "f2"),
+          ] as AssessmentOut["approval_map"],
+        }}
+        overrides={[
+          {
+            id: "o1",
+            finding_id: "f1",
+            new_outcome_type: "APPROVAL_LIKELY",
+            new_confidence: "LIKELY",
+            reason: "The licence depends on the venue.",
+            source: null,
+            current: true,
+            created_at: "2026-10-09T00:00:00Z",
+          } as unknown as OverrideOut,
+        ]}
+        projectId="p1"
+      />,
+    );
+    const map = screen.getByRole("region", { name: "Your approval map" });
+    const required = within(map).getByRole("heading", { name: "Required (1)" });
+    expect(required).toBeInTheDocument();
+    expect(within(map).getByRole("heading", { name: "Likely required (0)" })).toBeInTheDocument();
+    expect(within(map).getByRole("heading", { name: "May apply (0)" })).toBeInTheDocument();
+    expect(within(map).getByRole("heading", { name: "Not identified (1)" })).toBeInTheDocument();
+    expect(within(map).getByText("Footpath permit")).toBeInTheDocument();
+    expect(within(map).getAllByText(/changed a finding behind this/)).toHaveLength(1);
   });
 
   it("never implies no approval is needed when no rules apply", () => {

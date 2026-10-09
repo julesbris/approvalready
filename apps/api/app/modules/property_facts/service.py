@@ -4,8 +4,9 @@ Suggestions are offered, never saved: the customer chooses to use them, and they
 saved through the normal answers endpoint with the normal validation. Two places they come
 from:
 
-* the property linked to the project (address, lot and plan, land area), which the
-  customer entered themselves;
+* the property linked to the project (address, lot and plan, land area), or the business
+  profile linked to a business project (ABN, structure, size, address), which the customer
+  entered themselves;
 * the configured property facts provider (``provider.py``), with its source shown.
 
 Only questions that are part of the questionnaire, not answered yet, and for which the
@@ -20,13 +21,14 @@ from typing import Any
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.entities import service as entities
-from app.modules.entities.models import Property
+from app.modules.entities.models import BusinessProfile, Property
 from app.modules.projects.models import Project
 from app.modules.property_facts.provider import AddressQuery, PropertyFactsProvider
 from app.modules.questionnaires.engine import AnswerInvalid, normalise_answer
 from app.modules.questionnaires.service import SubmissionView
 
 PROPERTY_SOURCE = "Your property details"
+BUSINESS_SOURCE = "Your business details"
 
 
 @dataclass(frozen=True)
@@ -67,6 +69,39 @@ async def _property_answers(
     return answers, query
 
 
+async def _business_answers(db: AsyncSession, project: Project) -> dict[str, Any]:
+    if project.business_profile_id is None:
+        return {}
+    profile = await entities.get_entity(
+        db, BusinessProfile, project.organisation_id, project.business_profile_id
+    )
+    answers: dict[str, Any] = {
+        "business.has_abn": profile.abn is not None,
+        "business.entity_type": profile.entity_type,
+    }
+    if profile.abn:
+        answers["business.abn"] = profile.abn
+    if profile.employee_band:
+        answers["business.employee_band"] = profile.employee_band
+    if profile.turnover_band:
+        answers["business.turnover_band"] = profile.turnover_band
+    if profile.address_id is not None:
+        address = (await entities.addresses(db, [profile.address_id]))[profile.address_id]
+        answers["business.state"] = address.state
+        answers["business.premises_address"] = {
+            k: v
+            for k, v in {
+                "line1": address.line1,
+                "line2": address.line2,
+                "suburb": address.suburb,
+                "state": address.state,
+                "postcode": address.postcode,
+            }.items()
+            if v
+        }
+    return answers
+
+
 def _address_from_answer(value: Any) -> AddressQuery | None:
     if not isinstance(value, dict):
         return None
@@ -81,6 +116,10 @@ async def suggestions(
 ) -> list[Suggestion]:
     known, query = await _property_answers(db, project)
     candidates = [Suggestion(k, "", v, PROPERTY_SOURCE) for k, v in known.items()]
+    candidates += [
+        Suggestion(k, "", v, BUSINESS_SOURCE)
+        for k, v in (await _business_answers(db, project)).items()
+    ]
     query = query or _address_from_answer(view.answers.get("property.address"))
     if query is not None:
         candidates += [

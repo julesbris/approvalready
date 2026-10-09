@@ -209,7 +209,7 @@ Built in Milestone 7 with these differences: `professional.practice_id` names th
 
 | Table | Key columns | Notes |
 |---|---|---|
-| `marketplace_category` | `key` (e.g. `cadastral_surveyor`, `marine_surveyor`, `smoke_alarm_technician`), `vertical[]`, `requires_credential bool`, `restricted bool` | Shared taxonomy. `PartnerCategory` = membership of partner in a category. |
+| `marketplace_category` | `key` (e.g. `cadastral_surveyor`, `marine_surveyor`, `smoke_alarm_technician`), `vertical[]`, `requires_credential bool`, `restricted bool` | Shared taxonomy. `PartnerCategory` = membership of partner in a category. Built in Milestone 8 with `label`, `description`, `verticals`, `active` and `sort_order`, synced from `app/modules/marketplace/categories.json`; rule outcomes' `referral_categories` must name active keys. |
 | `partner_organisation` | `organisation_id unique`, `verification_status` (`APPLIED`,`UNDER_REVIEW`,`VERIFIED`,`ACTIVE`,`SUSPENDED`,`REJECTED`), `abn`, `website`, `description`, `max_open_leads`, `paused` | `PartnerAccount` ≡ organisation of kind `PARTNER`; `PartnerUser` ≡ member with partner role. No duplicate user table. |
 | `partner_application` | `partner_organisation_id`, `submitted_payload jsonb`, `status`, `reviewed_by`, `decision_notes` | |
 | `partner_category` | `partner_organisation_id`, `category_id`, `status`, `credential_id null` | |

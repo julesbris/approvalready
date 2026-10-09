@@ -128,6 +128,75 @@
         "title": "AnswersUpdate",
         "type": "object"
       },
+      "ApprovalMapEntryOut": {
+        "properties": {
+          "authority": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Authority"
+          },
+          "certainty": {
+            "$ref": "#/components/schemas/Certainty",
+            "description": "The strongest certainty any finding gave it."
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "finding_ids": {
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "title": "Finding Ids",
+            "type": "array"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "pathway": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pathway"
+          },
+          "requirement_ids": {
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "title": "Requirement Ids",
+            "type": "array"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "title",
+          "certainty",
+          "confidence",
+          "authority",
+          "pathway",
+          "requirement_ids",
+          "finding_ids"
+        ],
+        "title": "ApprovalMapEntryOut",
+        "type": "object"
+      },
       "ApprovalRequirementOut": {
         "properties": {
           "authority": {
@@ -192,6 +261,14 @@
       },
       "AssessmentOut": {
         "properties": {
+          "approval_map": {
+            "description": "Each kind of approval once, strongest certainty first (Required, Likely required, May apply, Not identified).",
+            "items": {
+              "$ref": "#/components/schemas/ApprovalMapEntryOut"
+            },
+            "title": "Approval Map",
+            "type": "array"
+          },
           "approval_requirements": {
             "items": {
               "$ref": "#/components/schemas/ApprovalRequirementOut"
@@ -311,6 +388,7 @@
           "finding_list",
           "approval_requirements",
           "evidence_requirements",
+          "approval_map",
           "referral_categories",
           "limitations"
         ],
@@ -2201,6 +2279,49 @@
         "title": "LoginRequest",
         "type": "object"
       },
+      "MarketplaceCategoryOut": {
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "requires_credential": {
+            "description": "Providers need a checked credential.",
+            "title": "Requires Credential",
+            "type": "boolean"
+          },
+          "restricted": {
+            "description": "Regulated advice; never released as a lead unchecked.",
+            "title": "Restricted",
+            "type": "boolean"
+          },
+          "verticals": {
+            "items": {
+              "$ref": "#/components/schemas/Vertical"
+            },
+            "title": "Verticals",
+            "type": "array"
+          }
+        },
+        "required": [
+          "key",
+          "label",
+          "description",
+          "verticals",
+          "requires_credential",
+          "restricted"
+        ],
+        "title": "MarketplaceCategoryOut",
+        "type": "object"
+      },
       "MemberOut": {
         "properties": {
           "display_name": {
@@ -4021,6 +4142,17 @@
       },
       "ReferralCategoryOut": {
         "properties": {
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
           "finding_ids": {
             "items": {
               "format": "uuid",
@@ -4032,10 +4164,17 @@
           "key": {
             "title": "Key",
             "type": "string"
+          },
+          "label": {
+            "description": "The marketplace category's name.",
+            "title": "Label",
+            "type": "string"
           }
         },
         "required": [
           "key",
+          "label",
+          "description",
           "finding_ids"
         ],
         "title": "ReferralCategoryOut",
@@ -10391,6 +10530,60 @@
         "summary": "Accept Invitation",
         "tags": [
           "organisations"
+        ]
+      }
+    },
+    "/v1/marketplace/categories": {
+      "get": {
+        "description": "Active categories, in the reviewed file's order (optionally for one vertical).",
+        "operationId": "list_categories_v1_marketplace_categories_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "vertical",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vertical"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Vertical"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/MarketplaceCategoryOut"
+                  },
+                  "title": "Response List Categories V1 Marketplace Categories Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Categories",
+        "tags": [
+          "marketplace"
         ]
       }
     },

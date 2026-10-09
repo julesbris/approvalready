@@ -1,4 +1,10 @@
-import type { AssessmentOut, FindingOut, OverrideOut } from "@approvalready/shared-types";
+import type {
+  ApprovalMapEntryOut,
+  AssessmentOut,
+  Certainty,
+  FindingOut,
+  OverrideOut,
+} from "@approvalready/shared-types";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -13,7 +19,6 @@ import {
   factLabel,
   groupFindings,
   leaves,
-  referralLabel,
   uniqueSources,
 } from "@/lib/assessment";
 import { formatDateTime } from "@/lib/labels";
@@ -116,16 +121,89 @@ function Finding({
   );
 }
 
-function Requirements({ assessment }: { assessment: AssessmentOut }) {
+const MAP_COLUMNS: { certainty: Certainty; help: string }[] = [
+  { certainty: "REQUIRED", help: "The rules we checked say you need these." },
+  { certainty: "LIKELY_REQUIRED", help: "You probably need these." },
+  {
+    certainty: "MAY_APPLY",
+    help: "These depend on details we couldn't check or you haven't told us.",
+  },
+  {
+    certainty: "NOT_IDENTIFIED",
+    help: "We checked these and, from your answers, didn't find that they apply.",
+  },
+];
+
+/** BusinessReady's approval map: every approval checked, once, by how sure we are. */
+function ApprovalMap({
+  entries,
+  changed,
+}: {
+  entries: ApprovalMapEntryOut[];
+  /** Findings a professional reviewer changed. */
+  changed: Set<string>;
+}) {
+  return (
+    <div className="approval-map">
+      {MAP_COLUMNS.map(({ certainty, help }) => {
+        const column = entries.filter((e) => e.certainty === certainty);
+        const id = `map-${certainty.toLowerCase()}`;
+        return (
+          <div key={certainty} className="approval-map-column" aria-labelledby={id}>
+            <h3 id={id} className="finding-title">
+              {CERTAINTY_LABELS[certainty]} <span className="muted">({column.length})</span>
+            </h3>
+            <p className="hint">{help}</p>
+            {column.length > 0 ? (
+              <ul className="finding-list">
+                {column.map((e) => (
+                  <li key={e.kind} className="finding">
+                    <p>
+                      <strong>{e.title}</strong>
+                    </p>
+                    <p className="muted">
+                      {e.authority ?? "Authority not stated"} · {CONFIDENCE_LABELS[e.confidence]}
+                    </p>
+                    {e.pathway ? <p>{e.pathway}</p> : null}
+                    {e.finding_ids.some((id) => changed.has(id)) ? (
+                      <p className="notice">
+                        A professional reviewer changed a finding behind this. See their change
+                        below.
+                      </p>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="muted">None.</p>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function Requirements({
+  assessment,
+  map,
+  changed,
+}: {
+  assessment: AssessmentOut;
+  map: boolean;
+  changed: Set<string>;
+}) {
   const approvals = assessment.approval_requirements;
   const evidence = assessment.evidence_requirements;
   if (approvals.length === 0 && evidence.length === 0) return null;
   return (
     <section className="panel" aria-labelledby="requirements-title">
       <h2 id="requirements-title" className="section-title">
-        Approvals and what you&apos;ll need
+        {map ? "Your approval map" : "Approvals and what you'll need"}
       </h2>
-      {approvals.length > 0 ? (
+      {map ? (
+        <ApprovalMap entries={assessment.approval_map} changed={changed} />
+      ) : approvals.length > 0 ? (
         <ul className="finding-list">
           {approvals.map((a) => (
             <li key={a.id} className="finding">
@@ -168,6 +246,7 @@ export function AssessmentReport({
   overrides,
   findingActions,
   intro,
+  approvalMap = false,
   children,
 }: {
   assessment: AssessmentOut;
@@ -179,6 +258,8 @@ export function AssessmentReport({
   findingActions?: (finding: FindingOut) => ReactNode;
   /** Shown under the heading (the review panel). */
   intro?: ReactNode;
+  /** Show approvals as BusinessReady's map (Required, Likely, May apply, Not identified). */
+  approvalMap?: boolean;
   /** Interactive panels (evidence, report downloads) shown after the requirements. */
   children?: ReactNode;
 }) {
@@ -223,7 +304,11 @@ export function AssessmentReport({
         </p>
       )}
 
-      <Requirements assessment={assessment} />
+      <Requirements
+        assessment={assessment}
+        map={approvalMap}
+        changed={new Set(reviewed.filter((f) => f.override).map((f) => f.id))}
+      />
 
       {children}
 
@@ -275,7 +360,10 @@ export function AssessmentReport({
           </h2>
           <ul>
             {assessment.referral_categories.map((c) => (
-              <li key={c.key}>{referralLabel(c.key)}</li>
+              <li key={c.key}>
+                {c.label}
+                {c.description ? <span className="muted"> · {c.description}</span> : null}
+              </li>
             ))}
           </ul>
           <p className="muted">

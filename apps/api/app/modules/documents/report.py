@@ -15,6 +15,7 @@ from zoneinfo import ZoneInfo
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.modules.assessments import approval_map
 from app.modules.assessments import service as assessments
 from app.modules.assessments.models import AssessmentFinding
 from app.modules.documents import render
@@ -25,6 +26,7 @@ from app.modules.documents.models import (
     OutputFormat,
 )
 from app.modules.documents.service import list_evidence
+from app.modules.marketplace import service as marketplace
 from app.modules.questionnaires import service as questionnaires
 from app.modules.review import professionals
 from app.modules.review import service as review
@@ -71,14 +73,6 @@ PROJECT_STATUS = {
     "COMPLETED": "Completed",
     "ARCHIVED": "Archived",
 }
-REFERRALS = {
-    "town_planner": "Town planner",
-    "building_certifier": "Building certifier",
-    "cadastral_surveyor": "Cadastral (land) surveyor",
-    "geotechnical_engineer": "Geotechnical engineer",
-    "architect": "Architect or building designer",
-    "lawyer": "Lawyer",
-}
 REVIEW_STATUS = {
     "NOT_REVIEWED": (
         "Not reviewed by a professional",
@@ -118,13 +112,6 @@ DISCIPLINES = {
     "GRANT_WRITER": "Grant writer",
     "OTHER": "Professional",
 }
-
-
-def _referral(key: str) -> str:
-    if key in REFERRALS:
-        return REFERRALS[key]
-    words = key.replace("_", " ")
-    return words[:1].upper() + words[1:]
 
 
 def _format_value(value: Any) -> str:
@@ -214,10 +201,11 @@ async def build_context(
         if rs.get("scope") != "OUT_OF_SCOPE":
             for text in rs.get("limitations", []):
                 limitations.setdefault(text, None)
-    referrals: dict[str, None] = {}
+    referral_keys: dict[str, None] = {}
     for f in findings:
         for key in parse_payload(f.payload).referral_categories:
-            referrals.setdefault(_referral(key), None)
+            referral_keys.setdefault(key, None)
+    referral_labels = await marketplace.labels(db, referral_keys)
 
     review_status, review_request, decision = await review.review_status_for(db, assessment)
     generated.review_status = review_status
@@ -295,7 +283,24 @@ async def build_context(
             {"title": e.title, "detail": e.detail, "documents": provided.get(e.id, [])}
             for e in evidence_requirements
         ],
-        "referrals": list(referrals),
+        "approval_map": [
+            {
+                "certainty_label": CERTAINTY[column],
+                "approvals": [
+                    {
+                        "title": e.title,
+                        "confidence_label": CONFIDENCE.get(e.confidence, e.confidence),
+                        "authority": e.authority,
+                        "pathway": e.pathway,
+                    }
+                    for e in entries
+                    if e.certainty == column
+                ],
+            }
+            for entries in [approval_map.build(approvals)]
+            for column in approval_map.COLUMNS
+        ],
+        "referrals": [referral_labels[k] for k in referral_keys],
         "assumptions": [
             {"label": labels[key], "value": _format_value(facts[key])}
             for key in labels

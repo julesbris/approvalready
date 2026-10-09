@@ -87,6 +87,7 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "review_comment": APPEND,
     "finding_override": APPEND,
     "review_decision": APPEND,
+    "marketplace_category": READ,
 }
 
 TENANT_TABLES = sorted(

@@ -692,6 +692,16 @@ fieldset.question {
   gap: 12px;
 }
 
+.approval-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.approval-map-column .finding-list {
+  margin-top: 8px;
+}
+
 .finding {
   padding: 14px 16px;
   border: 1px solid var(--ar-border);

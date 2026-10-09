@@ -1,0 +1,8 @@
+{
+  "key": "BUSINESS_APPROVAL_MAP",
+  "title": "Business approval map",
+  "vertical": "BUSINESS",
+  "engine": "JINJA_HTML",
+  "body": "business_approval_map.html.j2",
+  "output_formats": ["PDF", "DOCX", "HTML"]
+}

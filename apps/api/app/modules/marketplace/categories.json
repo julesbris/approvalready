@@ -1,0 +1,26 @@
+{
+  "notes": "Kinds of professional and service provider that rules can point customers to ('who can help'). Reviewed like code: a changed entry updates the database on the next migrate, and a removed entry is deactivated, never deleted. Keys are permanent: rules and, later, partners and leads refer to them.",
+  "categories": [
+    {"key": "town_planner", "label": "Town planner", "description": "Advises on planning schemes and prepares development applications.", "verticals": ["PLANNING", "BUSINESS", "SELL"], "requires_credential": false, "restricted": false},
+    {"key": "building_certifier", "label": "Building certifier", "description": "Assesses building work against the building rules and issues building approvals.", "verticals": ["PLANNING", "BUSINESS"], "requires_credential": true, "restricted": false},
+    {"key": "cadastral_surveyor", "label": "Cadastral (land) surveyor", "description": "Surveys boundaries and prepares plans of subdivision.", "verticals": ["PLANNING", "SELL"], "requires_credential": true, "restricted": false},
+    {"key": "geotechnical_engineer", "label": "Geotechnical engineer", "description": "Assesses soil, slope and site stability.", "verticals": ["PLANNING"], "requires_credential": true, "restricted": false},
+    {"key": "architect", "label": "Architect or building designer", "description": "Designs buildings and fit-outs and prepares drawings.", "verticals": ["PLANNING", "BUSINESS"], "requires_credential": true, "restricted": false},
+    {"key": "builder", "label": "Licensed builder", "description": "Carries out building and fit-out work under a builder's licence.", "verticals": ["PLANNING", "BUSINESS", "RENT"], "requires_credential": true, "restricted": false},
+    {"key": "electrician", "label": "Licensed electrician", "description": "Carries out electrical work under an electrical contractor licence.", "verticals": ["PLANNING", "BUSINESS", "RENT"], "requires_credential": true, "restricted": false},
+    {"key": "plumber", "label": "Licensed plumber", "description": "Carries out plumbing and drainage work under a plumbing licence.", "verticals": ["PLANNING", "BUSINESS", "RENT"], "requires_credential": true, "restricted": false},
+    {"key": "lawyer", "label": "Lawyer", "description": "Gives legal advice, for example on leases, licences and structures.", "verticals": ["PLANNING", "BUSINESS", "SELL", "RENT", "VESSEL", "GRANT"], "requires_credential": true, "restricted": true},
+    {"key": "accountant", "label": "Accountant or registered tax agent", "description": "Helps with registrations (ABN, GST, PAYG withholding), tax and business structure.", "verticals": ["BUSINESS", "GRANT"], "requires_credential": true, "restricted": false},
+    {"key": "bookkeeper", "label": "Bookkeeper or BAS agent", "description": "Keeps the books, payroll and activity statements.", "verticals": ["BUSINESS"], "requires_credential": true, "restricted": false},
+    {"key": "insurance_broker", "label": "Insurance broker", "description": "Arranges business insurance such as public liability and workers' compensation cover.", "verticals": ["BUSINESS", "VESSEL", "RENT"], "requires_credential": true, "restricted": true},
+    {"key": "food_safety_consultant", "label": "Food safety consultant", "description": "Helps a food business set up its food safety practices, training and records.", "verticals": ["BUSINESS"], "requires_credential": false, "restricted": false},
+    {"key": "food_safety_auditor", "label": "Food safety auditor", "description": "Audits food safety programs for businesses that must have one.", "verticals": ["BUSINESS"], "requires_credential": true, "restricted": false},
+    {"key": "liquor_licensing_consultant", "label": "Liquor licensing consultant", "description": "Prepares liquor licence and permit applications.", "verticals": ["BUSINESS"], "requires_credential": false, "restricted": false},
+    {"key": "whs_consultant", "label": "Work health and safety consultant", "description": "Helps an employer set up safe work practices and meet safety duties.", "verticals": ["BUSINESS", "VESSEL"], "requires_credential": false, "restricted": false},
+    {"key": "infection_control_trainer", "label": "Infection control trainer", "description": "Trains personal appearance service operators in infection control.", "verticals": ["BUSINESS"], "requires_credential": false, "restricted": false},
+    {"key": "education_care_consultant", "label": "Early childhood education and care consultant", "description": "Helps prepare provider and service approval applications for education and care services.", "verticals": ["BUSINESS"], "requires_credential": false, "restricted": false},
+    {"key": "marine_surveyor", "label": "Marine surveyor", "description": "Surveys domestic commercial vessels.", "verticals": ["VESSEL"], "requires_credential": true, "restricted": false},
+    {"key": "conveyancer", "label": "Conveyancer", "description": "Handles the legal transfer of property.", "verticals": ["SELL"], "requires_credential": true, "restricted": true},
+    {"key": "grant_writer", "label": "Grant writer", "description": "Prepares grant applications.", "verticals": ["GRANT"], "requires_credential": false, "restricted": false}
+  ]
+}

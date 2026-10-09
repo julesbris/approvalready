@@ -318,6 +318,7 @@ export function ReviewerWorkspace({ initial }: { initial: ReviewerWorkspaceOut }
       <AssessmentReport
         assessment={ws.assessment}
         overrides={review.overrides}
+        approvalMap={review.vertical === "BUSINESS"}
         findingActions={
           inReview
             ? (f) => <OverrideForm finding={f} sources={sources} base={base} act={act} />

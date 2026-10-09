@@ -1,4 +1,5 @@
 import type {
+  BusinessProfileOut,
   DocumentOut,
   MemberOut,
   ProjectDetailOut,
@@ -29,14 +30,16 @@ export default async function ProjectPage({ params }: Props) {
     );
   }
   const base = `/organisations/${orgId}`;
-  const [project, tasks, reminders, members, properties, documents] = await Promise.all([
-    serverGet<ProjectDetailOut>(`${base}/projects/${projectId}`),
-    serverGet<TaskOut[]>(`${base}/projects/${projectId}/tasks`),
-    serverGet<ReminderOut[]>(`${base}/projects/${projectId}/reminders`),
-    serverGet<MemberOut[]>(`${base}/members`),
-    serverGet<PropertyOut[]>(`${base}/properties`),
-    serverGet<DocumentOut[]>(`${base}/projects/${projectId}/documents`),
-  ]);
+  const [project, tasks, reminders, members, properties, documents, businesses] =
+    await Promise.all([
+      serverGet<ProjectDetailOut>(`${base}/projects/${projectId}`),
+      serverGet<TaskOut[]>(`${base}/projects/${projectId}/tasks`),
+      serverGet<ReminderOut[]>(`${base}/projects/${projectId}/reminders`),
+      serverGet<MemberOut[]>(`${base}/members`),
+      serverGet<PropertyOut[]>(`${base}/properties`),
+      serverGet<DocumentOut[]>(`${base}/projects/${projectId}/documents`),
+      serverGet<BusinessProfileOut[]>(`${base}/business-profiles`),
+    ]);
   return (
     <AppShell session={session}>
       <p className="breadcrumb">
@@ -49,6 +52,7 @@ export default async function ProjectPage({ params }: Props) {
         reminders={orNotFound(reminders)}
         members={members.ok ? members.data : []}
         properties={properties.ok ? properties.data : undefined}
+        businesses={businesses.ok ? businesses.data : undefined}
         documents={orNotFound(documents)}
         currentUserId={session.user.id}
         canWrite={session.permissions.includes("project.write")}

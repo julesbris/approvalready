@@ -2,6 +2,7 @@
 
 import type {
   AssessmentOut,
+  BusinessProfileOut,
   DocumentOut,
   MemberOut,
   ProjectDetailOut,
@@ -17,6 +18,7 @@ import { type FormEvent, useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
 import { DocumentsPanel } from "@/components/documents/DocumentsPanel";
+import { BusinessPanel } from "@/components/projects/BusinessPanel";
 import { SitePanel } from "@/components/projects/SitePanel";
 import { CONFIDENCE_LABELS } from "@/lib/assessment";
 import { apiRequest } from "@/lib/client-api";
@@ -36,6 +38,7 @@ type Props = {
   reminders: ReminderOut[];
   members: MemberOut[];
   properties?: PropertyOut[];
+  businesses?: BusinessProfileOut[];
   documents?: DocumentOut[];
   currentUserId: string;
   canWrite: boolean;
@@ -43,6 +46,7 @@ type Props = {
 
 /** Verticals whose projects are about a property (the API checks the same). */
 const PROPERTY_VERTICALS = new Set(["PLANNING", "SELL", "RENT"]);
+const BUSINESS_VERTICALS = new Set(["BUSINESS", "GRANT"]);
 
 const RECURRENCE_LABELS: Record<string, string> = {
   WEEKLY: "Every week",
@@ -202,6 +206,16 @@ export function ProjectWorkspace(props: Props) {
           organisationId={organisationId}
           project={project}
           properties={props.properties}
+          canWrite={canWrite}
+          onProjectChange={setProject}
+        />
+      ) : null}
+
+      {BUSINESS_VERTICALS.has(project.vertical) && props.businesses ? (
+        <BusinessPanel
+          organisationId={organisationId}
+          project={project}
+          businesses={props.businesses}
           canWrite={canWrite}
           onProjectChange={setProject}
         />

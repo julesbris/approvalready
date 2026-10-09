@@ -353,6 +353,8 @@ def test_pdf_rendering_never_fetches_resources(tmp_path: Path) -> None:
 
 
 def test_bundled_templates_load() -> None:
-    [planning] = load_bundled()
-    assert planning.key == "PLANNING_ASSESSMENT"
-    assert {str(f) for f in planning.output_formats} == {"PDF", "DOCX", "HTML"}
+    templates = {t.key: t for t in load_bundled()}
+    assert set(templates) == {"BUSINESS_APPROVAL_MAP", "PLANNING_ASSESSMENT"}
+    for template in templates.values():
+        assert {str(f) for f in template.output_formats} == {"PDF", "DOCX", "HTML"}
+    assert templates["BUSINESS_APPROVAL_MAP"].vertical == "BUSINESS"

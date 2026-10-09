@@ -29,6 +29,7 @@ from app.core.errors import ApiError, not_found
 from app.modules.audit import service as audit
 from app.modules.conditions import parse_condition, referenced_facts
 from app.modules.conditions.ast import FACT_PATTERN, dump_condition
+from app.modules.marketplace import service as marketplace
 from app.modules.questionnaires import service as questionnaires
 from app.modules.regulatory import service as regulatory
 from app.modules.regulatory.models import (
@@ -51,7 +52,7 @@ from app.modules.rules.models import (
     RuleVersionStatus,
     SourceRelationship,
 )
-from app.modules.rules.payload import validate_payload
+from app.modules.rules.payload import parse_payload, validate_payload
 
 S = RuleVersionStatus
 
@@ -420,6 +421,12 @@ async def save_draft(
             o["payload"] = validate_payload(o["outcome_type"], o.get("payload"))
         except ValueError as exc:
             payload_errors[f"outcomes.{i}.payload"] = str(exc)
+            continue
+        categories = parse_payload(o["payload"]).referral_categories
+        if unknown := await marketplace.unknown_keys(db, categories):
+            payload_errors[f"outcomes.{i}.payload"] = (
+                f"referral_categories: not a marketplace category: {', '.join(unknown)}."
+            )
     if payload_errors:
         raise _invalid(
             "invalid_payload", "Some outcome details need attention.", fields=payload_errors
@@ -593,6 +600,17 @@ async def publish_checks(db: AsyncSession, view: VersionView) -> GateResult:
         not unusable,
         "No cited source is disputed or superseded.",
         f"Disputed or superseded: {'; '.join(unusable)}.",
+    )
+
+    categories = [
+        key for o in view.outcomes for key in parse_payload(o.payload).referral_categories
+    ]
+    retired = await marketplace.unknown_keys(db, dict.fromkeys(categories))
+    check(
+        "referral_categories",
+        not retired,
+        "Every referral category is a current marketplace category.",
+        f"No longer a marketplace category: {', '.join(retired)}.",
     )
 
     results: list[engine.TestCaseResult] = []

@@ -70,7 +70,7 @@ tests and updated docs before the next starts.
 - [x] Findings, requirements, referral categories ("who can help"), sources and limitations views
 - [x] SEO: first sourced guide pages (`/guides`, Cairns secondary dwellings and subdivision)
 - [ ] Next for Cairns: verify the pack's references against snapshots; encode Part 5 tables of assessment and Part 9 lot sizes from the current CairnsPlan 2016 text; add flooding/bushfire overlays
-- [ ] Moved to backlog: vessel and business pickers (their verticals start in Milestones 8 and 9); `sitemap.xml` once the public site URL is configuration
+- [~] Moved to backlog: vessel and business pickers (business picker built in Milestone 8; vessel waits for Milestone 9); `sitemap.xml` once the public site URL is configuration
 - [ ] Moved to backlog: a real property facts provider (council or state planning mapping), only with a licensed, documented data source
 
 ## Milestone 6 — Documents ✅
@@ -88,9 +88,12 @@ tests and updated docs before the next starts.
 - [ ] Moved to Milestone 13: paid reviews (`payment_id`, service prices)
 - [ ] Backlog: credential evidence uploads, automatic assignment, review due-date reminders
 
-## Milestone 8 — BusinessReady
-- [ ] Business approval map (Required / Likely required / May apply / Not identified)
-- [ ] Business-type → marketplace category mapping (rules-driven)
+## Milestone 8 — BusinessReady ✅
+- [x] Business approval map (Required / Likely required / May apply / Not identified), on screen and as a `BUSINESS_APPROVAL_MAP` report
+- [x] Business-type → marketplace category mapping (rules-driven): `marketplace_category` table from a reviewed file; outcomes may only name active categories
+- [~] Sourced business rules for Queensland and Cairns: content pack `business_qld_cairns` (8 rule sets, 20 rules, 14 references), every reference an **unverified summary** to be captured and verified by staff
+- [x] Business profile picker on business and grant projects; questionnaire prefill from the profile (moved from backlog)
+- [ ] Next: verify the pack's references; other states and councils; signage, trade waste, noise and music licensing
 
 ## Milestone 9 — VesselReady
 - [ ] Vessel profile, commercial pathway, SMS builder, survey checklist, registration prep

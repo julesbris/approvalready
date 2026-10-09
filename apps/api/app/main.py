@@ -22,6 +22,7 @@ from app.modules.assessments.router import router as assessments_router
 from app.modules.documents.router import router as documents_router
 from app.modules.entities.router import router as entities_router
 from app.modules.identity.router import router as auth_router
+from app.modules.marketplace.router import router as marketplace_router
 from app.modules.projects.router import router as projects_router
 from app.modules.questionnaires.router import router as questionnaires_router
 from app.modules.regulatory.router import router as sources_router
@@ -82,6 +83,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(documents_router)
     app.include_router(sources_router)
     app.include_router(rules_router)
+    app.include_router(marketplace_router)
     app.include_router(review_customer_router)
     app.include_router(professional_router)
     app.include_router(review_admin_router)

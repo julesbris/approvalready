@@ -5,6 +5,7 @@ import type {
   DocumentOut,
   EvidenceOut,
   GeneratedDocumentOut,
+  ProjectDetailOut,
   ReviewSummary,
 } from "@approvalready/shared-types";
 import type { Metadata } from "next";
@@ -34,7 +35,7 @@ export default async function AssessmentPage({ params }: Props) {
     );
   }
   const base = `/organisations/${orgId}`;
-  const [found, evidence, documents, generated, reviewState, reviews, assessments] =
+  const [found, evidence, documents, generated, reviewState, reviews, assessments, project] =
     await Promise.all([
       serverGet<AssessmentOut>(`${base}/assessments/${assessmentId}`),
       serverGet<EvidenceOut[]>(`${base}/assessments/${assessmentId}/evidence`),
@@ -43,6 +44,7 @@ export default async function AssessmentPage({ params }: Props) {
       serverGet<AssessmentReviewOut>(`${base}/assessments/${assessmentId}/review`),
       serverGet<ReviewSummary[]>(`${base}/projects/${projectId}/reviews`),
       serverGet<AssessmentSummary[]>(`${base}/projects/${projectId}/assessments`),
+      serverGet<ProjectDetailOut>(`${base}/projects/${projectId}`),
     ]);
   const assessment = orNotFound(found);
   if (assessment.project_id !== projectId) {
@@ -62,6 +64,7 @@ export default async function AssessmentPage({ params }: Props) {
         assessment={assessment}
         projectId={projectId}
         overrides={review?.overrides}
+        approvalMap={project.ok && project.data.vertical === "BUSINESS"}
         intro={
           <ReviewPanel
             organisationId={orgId}

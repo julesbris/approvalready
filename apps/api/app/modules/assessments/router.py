@@ -8,9 +8,10 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, status
 
 from app.api.deps import DbDep, MetaDep, OrgContext, require_org_permission
-from app.modules.assessments import service
+from app.modules.assessments import approval_map, service
 from app.modules.assessments.models import Assessment, AssessmentFinding
 from app.modules.assessments.schemas import (
+    ApprovalMapEntryOut,
     ApprovalRequirementOut,
     AssessmentOut,
     AssessmentSummary,
@@ -20,6 +21,7 @@ from app.modules.assessments.schemas import (
     ReferralCategoryOut,
     RuleSetScopeOut,
 )
+from app.modules.marketplace import service as marketplace
 from app.modules.projects import service as projects
 from app.modules.projects.models import Project
 from app.modules.rules.payload import parse_payload
@@ -44,12 +46,24 @@ def summary_out(a: Assessment, findings: int) -> AssessmentSummary:
     )
 
 
-def _referral_categories(findings: list[AssessmentFinding]) -> list[ReferralCategoryOut]:
+async def _referral_categories(
+    db: DbDep, findings: list[AssessmentFinding]
+) -> list[ReferralCategoryOut]:
     by_key: dict[str, list[uuid.UUID]] = {}
     for f in findings:
         for key in parse_payload(f.payload).referral_categories:
             by_key.setdefault(key, []).append(f.id)
-    return [ReferralCategoryOut(key=k, finding_ids=ids) for k, ids in by_key.items()]
+    # A category retired since the assessment keeps its name; an unknown key gets a readable one.
+    known = await marketplace.by_keys(db, by_key)
+    return [
+        ReferralCategoryOut(
+            key=k,
+            label=known[k].label if k in known else marketplace.fallback_label(k),
+            description=known[k].description if k in known else None,
+            finding_ids=ids,
+        )
+        for k, ids in by_key.items()
+    ]
 
 
 def _limitations(a: Assessment) -> list[str]:
@@ -98,7 +112,11 @@ async def assessment_detail(
         evidence_requirements=[
             EvidenceRequirementOut.model_validate(r, from_attributes=True) for r in evidence
         ],
-        referral_categories=_referral_categories(findings),
+        approval_map=[
+            ApprovalMapEntryOut.model_validate(e, from_attributes=True)
+            for e in approval_map.build(approvals)
+        ],
+        referral_categories=await _referral_categories(db, findings),
         limitations=_limitations(a),
     )
 
