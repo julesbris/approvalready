@@ -77,13 +77,15 @@ jobs:
     needs: [api, web]
     steps:
       - uses: actions/checkout@v5
-      - uses: docker/setup-buildx-action@v3
-        with:
-          # Base images through Google's Docker Hub mirror: CI runners hit Docker Hub's
-          # anonymous pull rate limit.
-          buildkitd-config-inline: |
-            [registry."docker.io"]
-              mirrors = ["mirror.gcr.io"]
+      # Runners hit Docker Hub's anonymous pull rate limit: fetch the base images through
+      # Google's mirror and tag them with the names the Dockerfiles use, so the build (on the
+      # default docker driver, which uses local images) doesn't pull them again.
+      - name: Pull base images through the Docker Hub mirror
+        run: |
+          for image in library/python:3.14-slim library/node:22-alpine; do
+            docker pull "mirror.gcr.io/$image"
+            docker tag "mirror.gcr.io/$image" "${image#library/}"
+          done
       - run: docker build -t approvalready/api:ci apps/api
       - run: docker build -f apps/web/Dockerfile -t approvalready/web:ci .
       - name: Validate compose files
