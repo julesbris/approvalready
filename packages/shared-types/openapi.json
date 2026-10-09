@@ -59,6 +59,116 @@
         "title": "AddressIn",
         "type": "object"
       },
+      "AddressMatchOut": {
+        "properties": {
+          "address_pid": {
+            "description": "Queensland address identifier.",
+            "title": "Address Pid",
+            "type": "integer"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "latitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latitude"
+          },
+          "lga": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The planning questionnaire's council answer.",
+            "title": "Lga"
+          },
+          "line1": {
+            "title": "Line1",
+            "type": "string"
+          },
+          "local_authority": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Council, e.g. 'Cairns Regional'.",
+            "title": "Local Authority"
+          },
+          "longitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Longitude"
+          },
+          "lot_plan": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Lot and plan in the cadastre, e.g. 2RP53576.",
+            "title": "Lot Plan"
+          },
+          "lot_plan_label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "e.g. 'Lot 2 on RP53576'.",
+            "title": "Lot Plan Label"
+          },
+          "state": {
+            "title": "State",
+            "type": "string"
+          },
+          "suburb": {
+            "title": "Suburb",
+            "type": "string"
+          }
+        },
+        "required": [
+          "address_pid",
+          "label",
+          "line1",
+          "suburb",
+          "state",
+          "lot_plan",
+          "lot_plan_label",
+          "local_authority",
+          "lga",
+          "latitude",
+          "longitude"
+        ],
+        "title": "AddressMatchOut",
+        "type": "object"
+      },
       "AddressOut": {
         "properties": {
           "lga_code": {
@@ -109,6 +219,32 @@
           "lga_code"
         ],
         "title": "AddressOut",
+        "type": "object"
+      },
+      "AddressSearchOut": {
+        "properties": {
+          "matches": {
+            "items": {
+              "$ref": "#/components/schemas/AddressMatchOut"
+            },
+            "title": "Matches",
+            "type": "array"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          }
+        },
+        "required": [
+          "matches",
+          "source",
+          "note"
+        ],
+        "title": "AddressSearchOut",
         "type": "object"
       },
       "AdministratorOut": {
@@ -3824,6 +3960,36 @@
         "title": "MembershipOut",
         "type": "object"
       },
+      "NotCheckedOut": {
+        "properties": {
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "where_to_check": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Where To Check"
+          },
+          "why": {
+            "title": "Why",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "why",
+          "where_to_check"
+        ],
+        "title": "NotCheckedOut",
+        "type": "object"
+      },
       "OptionOut": {
         "properties": {
           "label": {
@@ -4089,6 +4255,47 @@
         "title": "OutputFormat",
         "type": "string"
       },
+      "OverlayOut": {
+        "properties": {
+          "constraint": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The planning.known_constraints option it supports, if any.",
+            "title": "Constraint"
+          },
+          "group": {
+            "title": "Group",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "source_url": {
+            "title": "Source Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "label",
+          "group",
+          "constraint",
+          "source_url"
+        ],
+        "title": "OverlayOut",
+        "type": "object"
+      },
       "OverrideIn": {
         "properties": {
           "finding_id": {
@@ -4267,6 +4474,159 @@
         ],
         "title": "OwnershipRole",
         "type": "string"
+      },
+      "ParcelOut": {
+        "properties": {
+          "land_area_m2": {
+            "anyOf": [
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Land Area M2"
+          },
+          "lga": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lga"
+          },
+          "local_authority": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Local Authority"
+          },
+          "locality": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Locality"
+          },
+          "lot": {
+            "title": "Lot",
+            "type": "string"
+          },
+          "lot_plan": {
+            "title": "Lot Plan",
+            "type": "string"
+          },
+          "lot_plan_label": {
+            "title": "Lot Plan Label",
+            "type": "string"
+          },
+          "not_checked": {
+            "description": "Things to check elsewhere.",
+            "items": {
+              "$ref": "#/components/schemas/NotCheckedOut"
+            },
+            "title": "Not Checked",
+            "type": "array"
+          },
+          "overlays": {
+            "description": "State-mapped overlays the parcel touches.",
+            "items": {
+              "$ref": "#/components/schemas/OverlayOut"
+            },
+            "title": "Overlays",
+            "type": "array"
+          },
+          "overlays_checked": {
+            "description": "Mapping groups that were checked.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Overlays Checked",
+            "type": "array"
+          },
+          "overlays_failed": {
+            "description": "Mapping groups whose service didn't answer.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Overlays Failed",
+            "type": "array"
+          },
+          "parcel_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parcel Type"
+          },
+          "plan": {
+            "title": "Plan",
+            "type": "string"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "source_url": {
+            "title": "Source Url",
+            "type": "string"
+          },
+          "tenure": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tenure"
+          }
+        },
+        "required": [
+          "lot",
+          "plan",
+          "lot_plan",
+          "lot_plan_label",
+          "tenure",
+          "land_area_m2",
+          "locality",
+          "local_authority",
+          "lga",
+          "parcel_type",
+          "overlays",
+          "overlays_checked",
+          "overlays_failed",
+          "not_checked",
+          "source",
+          "source_url",
+          "retrieved_at"
+        ],
+        "title": "ParcelOut",
+        "type": "object"
       },
       "PasswordChangeRequest": {
         "properties": {
@@ -9470,6 +9830,85 @@
         "title": "VesselCreate",
         "type": "object"
       },
+      "VesselLookupOut": {
+        "properties": {
+          "displayed_identifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Displayed Identifier"
+          },
+          "fields": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Every published column, by AMSA's header.",
+            "title": "Fields",
+            "type": "object"
+          },
+          "length_m": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Length M"
+          },
+          "list_retrieved_at": {
+            "format": "date-time",
+            "title": "List Retrieved At",
+            "type": "string"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "source_url": {
+            "title": "Source Url",
+            "type": "string"
+          },
+          "uvi": {
+            "title": "Uvi",
+            "type": "string"
+          }
+        },
+        "required": [
+          "uvi",
+          "name",
+          "displayed_identifier",
+          "length_m",
+          "fields",
+          "source",
+          "source_url",
+          "list_retrieved_at",
+          "note"
+        ],
+        "title": "VesselLookupOut",
+        "type": "object"
+      },
       "VesselOut": {
         "properties": {
           "activity": {
@@ -13950,6 +14389,167 @@
         "summary": "Revoke Invitation",
         "tags": [
           "organisations"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/lookups/addresses": {
+      "get": {
+        "description": "Queensland addresses matching what was typed, each with its lot and plan.",
+        "operationId": "search_addresses_v1_organisations__organisation_id__lookups_addresses_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "minLength": 3,
+              "title": "Q",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddressSearchOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Search Addresses",
+        "tags": [
+          "lookups"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/lookups/parcels/{lot_plan}": {
+      "get": {
+        "description": "A Queensland lot and plan: area, tenure, council and the state-mapped overlays it\ntouches, and what to check elsewhere (zone, bushfire, flooding, heritage).",
+        "operationId": "get_parcel_v1_organisations__organisation_id__lookups_parcels__lot_plan__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lot_plan",
+            "required": true,
+            "schema": {
+              "title": "Lot Plan",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParcelOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Parcel",
+        "tags": [
+          "lookups"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/lookups/vessels/{uvi}": {
+      "get": {
+        "description": "A domestic commercial vessel by its UVI, from AMSA's published list.",
+        "operationId": "get_vessel_v1_organisations__organisation_id__lookups_vessels__uvi__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uvi",
+            "required": true,
+            "schema": {
+              "title": "Uvi",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VesselLookupOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Vessel",
+        "tags": [
+          "lookups"
         ]
       }
     },

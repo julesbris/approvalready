@@ -33,6 +33,9 @@ class EmailProviderKind(StrEnum):
 class PropertyFactsProviderKind(StrEnum):
     NONE = "none"  # no lookups: every property fact comes from the customer
     MOCK = "mock"  # canned facts for made-up test addresses (development and tests only)
+    # Queensland Government open spatial services: lot and plan, land area, council area
+    # and state-mapped overlays for Queensland addresses (app/modules/lookups/qld.py).
+    QLD_SPATIAL = "qld_spatial"
 
 
 class StorageBackendKind(StrEnum):
@@ -138,9 +141,24 @@ class Settings(BaseSettings):
     smtp_starttls: bool = False
 
     # --- Property facts (Milestone 5) ---
-    # No real council or state data source is integrated yet; see
-    # app/modules/property_facts. "mock" is refused in production.
+    # Where questionnaire prefill gets facts about a site; see app/modules/property_facts.
+    # "qld_spatial" uses the free Queensland Government services; "mock" is refused in
+    # production.
     property_facts_provider: PropertyFactsProviderKind = PropertyFactsProviderKind.NONE
+
+    # --- Address, parcel and vessel lookups (app/modules/lookups) ---
+    # Free, keyless government sources. Turn off to stop every outbound lookup.
+    lookups_enabled: bool = True
+    lookup_timeout_seconds: float = Field(default=12.0, gt=0, le=60)
+    qld_spatial_base_url: str = "https://spatial-gis.information.qld.gov.au/arcgis/rest/services"
+    # The AMSA page that links the current list of domestic commercial vessels with a vessel
+    # permission (an Excel file, renamed each update). Set AMSA_VESSEL_LIST_URL to the file
+    # itself to skip finding it on the page.
+    amsa_vessel_list_page_url: str = (
+        "https://www.amsa.gov.au/list-commercial-vessels-vessel-permission"
+    )
+    amsa_vessel_list_url: str | None = None
+    amsa_vessel_list_max_age_hours: int = Field(default=168, ge=1)
 
     # --- Documents (Milestone 6) ---
     storage_backend: StorageBackendKind = StorageBackendKind.LOCAL
