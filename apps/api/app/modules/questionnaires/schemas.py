@@ -87,6 +87,20 @@ class SubmissionOut(BaseModel):
     progress: Progress
 
 
+class PrefillSuggestion(BaseModel):
+    key: str
+    label: str
+    value: Any = Field(description="A valid answer for the question, ready to save.")
+    source: str = Field(description="Where the value comes from.")
+    source_url: str | None
+    is_mock: bool = Field(description="Made-up data from the development mock provider.")
+
+
+class PrefillOut(BaseModel):
+    provider: str = Field(description="Property facts provider in use ('none' means no lookups).")
+    suggestions: list[PrefillSuggestion]
+
+
 def questionnaire_out(spec: QuestionnaireSpec) -> QuestionnaireOut:
     return QuestionnaireOut(
         key=spec.questionnaire_key,

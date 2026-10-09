@@ -103,6 +103,11 @@ class RuleSet(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, Base):
     # property is in this LGA). FALSE: out of scope. UNKNOWN: more information needed.
     # None: applies to every project of the vertical.
     applies_when: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    # What this rule set does not check, in plain words, shown with every assessment that
+    # uses it (copied into the assessment so the report reads the same later).
+    limitations: Mapped[list[str]] = mapped_column(
+        JSONB, nullable=False, default=list, server_default=text("'[]'::jsonb")
+    )
 
 
 class Rule(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, Base):
@@ -189,6 +194,9 @@ class RuleOutcome(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     outcome_type: Mapped[str] = mapped_column(Text, nullable=False)
     title: Mapped[str] = mapped_column(String(200), nullable=False)
     detail: Mapped[str | None] = mapped_column(String(2000))
+    # Structured consequences (``rules/payload.py``): the approval or evidence it implies,
+    # who can help, and a task for the customer. Validated before it is stored.
+    payload: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
 
 
 class RuleSource(UUIDPrimaryKeyMixin, TimestampMixin, Base):

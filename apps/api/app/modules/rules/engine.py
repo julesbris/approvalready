@@ -193,6 +193,7 @@ class OutcomeSpec:
     outcome_type: str
     title: str
     detail: str | None
+    payload: Mapping[str, Any] | None = None
 
 
 @dataclass(frozen=True)
@@ -256,6 +257,7 @@ class RuleSetSpec:
     applies_when: Condition | None
     applies_when_json: dict[str, Any] | None
     rules: tuple[RuleSpec, ...]
+    limitations: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -277,6 +279,7 @@ class RuleSetResult:
             "scope_trace": self.scope_trace,
             "missing_facts": self.missing_facts,
             "not_in_force": self.not_in_force,
+            "limitations": list(self.spec.limitations),
         }
 
 

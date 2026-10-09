@@ -40,6 +40,7 @@ const FINDING: FindingOut = {
     result: "TRUE",
   },
   sources: [SOURCE],
+  referral_categories: ["town_planner"],
 };
 
 const ASSESSMENT: AssessmentOut = {
@@ -59,6 +60,10 @@ const ASSESSMENT: AssessmentOut = {
   overall_confidence: "UNKNOWN",
   findings: 2,
   rule_sets: [],
+  approval_requirements: [],
+  evidence_requirements: [],
+  referral_categories: [],
+  limitations: [],
   finding_list: [
     FINDING,
     {
@@ -99,6 +104,59 @@ describe("AssessmentReport", () => {
       "href",
       "/projects/p1/questionnaire",
     );
+  });
+
+  it("lists approvals, evidence, who can help, sources and limitations", () => {
+    render(
+      <AssessmentReport
+        assessment={{
+          ...ASSESSMENT,
+          approval_requirements: [
+            {
+              id: "ar1",
+              finding_id: "f1",
+              kind: "PLANNING_MATERIAL_CHANGE_OF_USE",
+              title: "Development approval needed",
+              authority: "Test Council",
+              pathway: "Code assessment",
+              certainty: "LIKELY_REQUIRED",
+              confidence: "LIKELY",
+            },
+          ],
+          evidence_requirements: [
+            {
+              id: "er1",
+              finding_id: "f1",
+              kind: "SITE_PLAN",
+              title: "Site plan showing parking",
+              detail: null,
+              confidence: "LIKELY",
+            },
+          ],
+          referral_categories: [
+            { key: "town_planner", finding_ids: ["f1"] },
+            { key: "drainage_engineer", finding_ids: ["f1"] },
+          ],
+          limitations: ["Does not check overlays."],
+        }}
+        projectId="p1"
+      />,
+    );
+    const approvals = screen.getByRole("region", { name: "Approvals and what you'll need" });
+    expect(within(approvals).getByText("Likely required · Test Council")).toBeInTheDocument();
+    expect(within(approvals).getByText("Code assessment")).toBeInTheDocument();
+    expect(within(approvals).getByText("Site plan showing parking")).toBeInTheDocument();
+
+    const help = screen.getByRole("region", { name: "Who can help" });
+    expect(within(help).getByText("Town planner")).toBeInTheDocument();
+    expect(within(help).getByText("Drainage engineer")).toBeInTheDocument();
+
+    const sources = screen.getByRole("region", { name: "Sources" });
+    expect(within(sources).getAllByRole("link")).toHaveLength(1);
+    expect(within(sources).getByText("Test Council · Verified")).toBeInTheDocument();
+
+    const limits = screen.getByRole("region", { name: "What this assessment doesn't check" });
+    expect(within(limits).getByText("Does not check overlays.")).toBeInTheDocument();
   });
 
   it("never implies no approval is needed when no rules apply", () => {

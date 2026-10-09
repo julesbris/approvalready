@@ -17,17 +17,24 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.errors import ApiError, not_found
-from app.modules.assessments.models import Assessment, AssessmentFinding, AssessmentStatus
+from app.modules.assessments.models import (
+    ApprovalRequirement,
+    Assessment,
+    AssessmentFinding,
+    AssessmentStatus,
+    EvidenceRequirement,
+)
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
 from app.modules.conditions import parse_condition, trace
 from app.modules.projects import service as projects
-from app.modules.projects.models import Project, ProjectStatus
+from app.modules.projects.models import Project, ProjectStatus, Task
 from app.modules.questionnaires import service as questionnaires
 from app.modules.questionnaires.models import QuestionnaireSubmission, SubmissionStatus
 from app.modules.rules import engine
 from app.modules.rules import service as rules
 from app.modules.rules.models import RuleVersion
+from app.modules.rules.payload import certainty_for, parse_payload
 
 AEST = timezone(timedelta(hours=10), "AEST")
 
@@ -97,27 +104,31 @@ async def run(
     db.add(assessment)
     await db.flush()
     findings = [f for r in results for f in r.findings]
+    rows = []
     for ordinal, f in enumerate(findings, start=1):
-        db.add(
-            AssessmentFinding(
-                organisation_id=project.organisation_id,
-                assessment_id=assessment.id,
-                ordinal=ordinal,
-                rule_set_id=f.rule_set_id,
-                rule_version_id=f.rule_version_id,
-                rule_key=f.rule_key,
-                rule_title=f.rule_title,
-                result=f.result,
-                outcome_type=f.outcome.outcome_type if f.outcome else None,
-                title=f.outcome.title if f.outcome else None,
-                detail=f.outcome.detail if f.outcome else None,
-                confidence=f.confidence,
-                confidence_reasons=f.confidence_reasons,
-                trace=f.trace,
-                missing_facts=f.missing_facts,
-                sources=f.sources,
-            )
+        row = AssessmentFinding(
+            organisation_id=project.organisation_id,
+            assessment_id=assessment.id,
+            ordinal=ordinal,
+            rule_set_id=f.rule_set_id,
+            rule_version_id=f.rule_version_id,
+            rule_key=f.rule_key,
+            rule_title=f.rule_title,
+            result=f.result,
+            outcome_type=f.outcome.outcome_type if f.outcome else None,
+            title=f.outcome.title if f.outcome else None,
+            detail=f.outcome.detail if f.outcome else None,
+            payload=dict(f.outcome.payload) if f.outcome and f.outcome.payload else None,
+            confidence=f.confidence,
+            confidence_reasons=f.confidence_reasons,
+            trace=f.trace,
+            missing_facts=f.missing_facts,
+            sources=f.sources,
         )
+        db.add(row)
+        rows.append(row)
+    await db.flush()
+    tasks = await _derive_requirements(db, project, assessment, rows, actor_id=actor_id)
     await db.flush()
     await db.refresh(assessment)
     await audit.record(
@@ -133,11 +144,89 @@ async def run(
             "status": assessment.status,
             "overall_confidence": assessment.overall_confidence,
             "findings": len(findings),
+            "tasks_added": len(tasks),
             "facts_hash": assessment.facts_hash.hex(),
         },
     )
     await projects.mark_assessed(db, project, actor_id=actor_id, meta=meta)
     return assessment
+
+
+async def _derive_requirements(
+    db: AsyncSession,
+    project: Project,
+    assessment: Assessment,
+    findings: list[AssessmentFinding],
+    *,
+    actor_id: uuid.UUID,
+) -> list[Task]:
+    """Approval and evidence requirements and project tasks from the findings' outcome
+    payloads. Each carries its finding's confidence: a requirement is never more certain
+    than the finding behind it."""
+    approval_n = evidence_n = 0
+    suggestions: list[tuple[uuid.UUID, str, str | None]] = []
+    for f in findings:
+        if f.payload is None or f.outcome_type is None:
+            continue
+        payload = parse_payload(f.payload)
+        if payload.approval is not None:
+            approval_n += 1
+            db.add(
+                ApprovalRequirement(
+                    organisation_id=project.organisation_id,
+                    assessment_id=assessment.id,
+                    finding_id=f.id,
+                    ordinal=approval_n,
+                    kind=payload.approval.kind,
+                    title=f.title or f.rule_title,
+                    authority=payload.approval.authority,
+                    pathway=payload.approval.pathway,
+                    certainty=certainty_for(f.outcome_type, payload.approval),
+                    confidence=f.confidence,
+                )
+            )
+        for evidence in payload.evidence:
+            evidence_n += 1
+            db.add(
+                EvidenceRequirement(
+                    organisation_id=project.organisation_id,
+                    assessment_id=assessment.id,
+                    finding_id=f.id,
+                    ordinal=evidence_n,
+                    kind=evidence.kind,
+                    title=evidence.title,
+                    detail=evidence.detail,
+                    confidence=f.confidence,
+                )
+            )
+        if payload.task:
+            suggestions.append((f.id, payload.task, f.title))
+    await db.flush()
+    return await projects.add_rule_tasks(db, project, suggestions, actor_id=actor_id)
+
+
+async def requirements(
+    db: AsyncSession, assessment: Assessment
+) -> tuple[list[ApprovalRequirement], list[EvidenceRequirement]]:
+    approvals = list(
+        (
+            await db.execute(
+                select(ApprovalRequirement)
+                .where(ApprovalRequirement.assessment_id == assessment.id)
+                .order_by(ApprovalRequirement.ordinal)
+            )
+        ).scalars()
+    )
+    evidence = list(
+        (
+            await db.execute(
+                select(EvidenceRequirement)
+                .where(EvidenceRequirement.assessment_id == assessment.id)
+                .order_by(EvidenceRequirement.ordinal)
+            )
+        ).scalars()
+    )
+    return approvals, evidence
 
 
 async def list_for_project(db: AsyncSession, project: Project) -> list[tuple[Assessment, int]]:

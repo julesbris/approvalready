@@ -1,4 +1,4 @@
-import type { ProjectDetailOut, SubmissionOut } from "@approvalready/shared-types";
+import type { PrefillOut, ProjectDetailOut, SubmissionOut } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -30,6 +30,10 @@ export default async function QuestionnairePage({ params }: Props) {
   const submission = latest
     ? orNotFound(await serverGet<SubmissionOut>(`${base}/submissions/${latest.id}`))
     : null;
+  const prefill =
+    submission && canWrite && submission.status === "IN_PROGRESS"
+      ? await serverGet<PrefillOut>(`${base}/submissions/${submission.id}/prefill`)
+      : null;
   return (
     <AppShell session={session}>
       <p className="breadcrumb">
@@ -41,6 +45,7 @@ export default async function QuestionnairePage({ params }: Props) {
           projectId={projectId}
           submission={submission}
           canWrite={canWrite}
+          suggestions={prefill?.ok ? prefill.data.suggestions : []}
         />
       ) : canWrite ? (
         <StartQuestionnaire organisationId={orgId} projectId={projectId} />

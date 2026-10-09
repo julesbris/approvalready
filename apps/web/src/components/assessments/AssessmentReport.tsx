@@ -2,6 +2,7 @@ import type { AssessmentOut, FindingOut } from "@approvalready/shared-types";
 import Link from "next/link";
 
 import {
+  CERTAINTY_LABELS,
   CONFIDENCE_HELP,
   CONFIDENCE_LABELS,
   OUTCOME_LABELS,
@@ -11,6 +12,8 @@ import {
   factLabel,
   groupFindings,
   leaves,
+  referralLabel,
+  uniqueSources,
 } from "@/lib/assessment";
 import { formatDateTime } from "@/lib/labels";
 import { formatDate } from "@/lib/questionnaire";
@@ -84,6 +87,51 @@ function Finding({ finding, labels }: { finding: FindingOut; labels: Record<stri
   );
 }
 
+function Requirements({ assessment }: { assessment: AssessmentOut }) {
+  const approvals = assessment.approval_requirements;
+  const evidence = assessment.evidence_requirements;
+  if (approvals.length === 0 && evidence.length === 0) return null;
+  return (
+    <section className="panel" aria-labelledby="requirements-title">
+      <h2 id="requirements-title" className="section-title">
+        Approvals and what you&apos;ll need
+      </h2>
+      {approvals.length > 0 ? (
+        <ul className="finding-list">
+          {approvals.map((a) => (
+            <li key={a.id} className="finding">
+              <div className="finding-head">
+                <div>
+                  <h3 className="finding-title">{a.title}</h3>
+                  <p className="muted">
+                    {CERTAINTY_LABELS[a.certainty]}
+                    {a.authority ? ` · ${a.authority}` : ""}
+                  </p>
+                </div>
+                <ConfidenceBadge level={a.confidence} />
+              </div>
+              {a.pathway ? <p>{a.pathway}</p> : null}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {evidence.length > 0 ? (
+        <>
+          <p className="finding-label">Things you&apos;ll need to show</p>
+          <ul>
+            {evidence.map((e) => (
+              <li key={e.id}>
+                {e.title}
+                {e.detail ? <span className="muted"> · {e.detail}</span> : null}
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
+    </section>
+  );
+}
+
 /** A stored assessment: what applies, what is missing, how sure we are and why. */
 export function AssessmentReport({
   assessment,
@@ -95,6 +143,7 @@ export function AssessmentReport({
   const groups = groupFindings(assessment.finding_list);
   const labels = assessment.fact_labels;
   const needsInfo = assessment.rule_sets.filter((rs) => rs.scope === "NEEDS_INFORMATION");
+  const sources = uniqueSources(assessment.finding_list);
   return (
     <div className="assessment">
       <section className="page-head" aria-labelledby="assessment-title">
@@ -128,6 +177,8 @@ export function AssessmentReport({
           {CONFIDENCE_HELP[assessment.overall_confidence]}
         </p>
       )}
+
+      <Requirements assessment={assessment} />
 
       {needsInfo.length > 0 ? (
         <section className="panel" aria-labelledby="scope-title">
@@ -164,6 +215,55 @@ export function AssessmentReport({
           </section>
         ) : null,
       )}
+
+      {assessment.referral_categories.length > 0 ? (
+        <section className="panel" aria-labelledby="help-title">
+          <h2 id="help-title" className="section-title">
+            Who can help
+          </h2>
+          <ul>
+            {assessment.referral_categories.map((c) => (
+              <li key={c.key}>{referralLabel(c.key)}</li>
+            ))}
+          </ul>
+          <p className="muted">
+            These are kinds of professional, not recommendations of particular businesses.
+          </p>
+        </section>
+      ) : null}
+
+      {sources.length > 0 ? (
+        <section className="panel" aria-labelledby="sources-title">
+          <h2 id="sources-title" className="section-title">
+            Sources
+          </h2>
+          <ul className="sources">
+            {sources.map((s) => (
+              <li key={s.reference_id}>
+                <a href={s.url} rel="noopener noreferrer" target="_blank">
+                  {s.citation}
+                </a>{" "}
+                <span className="muted">
+                  {s.organisation_name} · {VERIFICATION_LABELS[s.verification_status]}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {assessment.limitations.length > 0 ? (
+        <section className="panel" aria-labelledby="limitations-title">
+          <h2 id="limitations-title" className="section-title">
+            What this assessment doesn&apos;t check
+          </h2>
+          <ul>
+            {assessment.limitations.map((text) => (
+              <li key={text}>{text}</li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       {groups.missing.length > 0 || needsInfo.length > 0 ? (
         <p>

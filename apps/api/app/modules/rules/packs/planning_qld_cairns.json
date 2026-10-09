@@ -1,0 +1,986 @@
+{
+  "key": "planning_qld_cairns",
+  "title": "PlanningReady: Cairns (secondary dwellings, subdivision, steep land)",
+  "notes": "First sourced rules for Cairns Regional Council. Built from council's CairnsPlan 2016 fact sheets (last updated October 2021) and the Planning Regulation 2017 dictionary change of 26 September 2022. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The full planning scheme (tables of assessment in Part 5, codes in Parts 6 to 9) is not encoded.",
+  "organisations": [
+    {
+      "ref": "crc",
+      "name": "Cairns Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "website": "https://www.cairns.qld.gov.au"
+    },
+    {
+      "ref": "qld_legislation",
+      "name": "Queensland Legislation (Office of the Queensland Parliamentary Counsel)",
+      "kind": "LEGISLATURE",
+      "jurisdiction": "QLD",
+      "website": "https://www.legislation.qld.gov.au"
+    },
+    {
+      "ref": "qld_planning",
+      "name": "Queensland Government planning (planning.qld.gov.au)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "QLD",
+      "website": "https://planning.qld.gov.au"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "fs_dwellings",
+      "organisation": "crc",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "CairnsPlan 2016 Fact Sheet: Dwelling houses, Secondary dwellings and Dual occupancy",
+      "url": "https://www.cairns.qld.gov.au/__data/assets/pdf_file/0005/489641/CairnsPlan-2016-Fact-Sheet-Dwelling-houses-Secondary-dwellings-and-Dual-Occupancy.pdf",
+      "source_type": "GUIDELINE",
+      "version_label": "#5030963 v8, last updated 25 October 2021",
+      "effective_from": "2021-10-25"
+    },
+    {
+      "ref": "fs_ral",
+      "organisation": "crc",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "CairnsPlan 2016 Fact Sheet: Reconfiguring a Lot",
+      "url": "https://www.cairns.qld.gov.au/__data/assets/pdf_file/0008/489644/CairnsPlan-2016-Fact-Sheet-Reconfiguring-a-Lot.pdf",
+      "source_type": "GUIDELINE",
+      "version_label": "#5031037 v3, last updated 22 October 2021",
+      "effective_from": "2021-10-22"
+    },
+    {
+      "ref": "fs_hillslopes",
+      "organisation": "crc",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "CairnsPlan 2016 Fact Sheet: Dwelling houses in the Hillslopes overlay",
+      "url": "https://www.cairns.qld.gov.au/__data/assets/pdf_file/0010/489646/CairnsPlan-2016-Fact-sheet-Dwelling-houses-in-the-Hillslopes-Overlay.pdf",
+      "source_type": "GUIDELINE",
+      "version_label": "#5031083 v8, last updated 22 October 2021",
+      "effective_from": "2021-10-22"
+    },
+    {
+      "ref": "planning_regulation",
+      "organisation": "qld_legislation",
+      "jurisdiction": "QLD",
+      "title": "Planning Regulation 2017 (Qld)",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/sl-2017-0078",
+      "source_type": "REGULATION",
+      "version_label": "As amended by the Planning (Secondary Dwellings) Amendment Regulation 2022",
+      "effective_from": "2022-09-26"
+    },
+    {
+      "ref": "state_secondary_page",
+      "organisation": "qld_planning",
+      "jurisdiction": "QLD",
+      "title": "Changes to secondary dwellings",
+      "url": "https://planning.qld.gov.au/planning-issues-and-interests/changes-to-secondary-dwellings",
+      "source_type": "WEBPAGE",
+      "effective_from": "2022-09-26"
+    }
+  ],
+  "references": [
+    {
+      "ref": "fs_dwellings_mcu",
+      "document": "fs_dwellings",
+      "section": "Secondary dwellings: approvals",
+      "extracted_text": "[Summary, not the source's wording] Where a Secondary dwelling is proposed on a lot containing an existing Dwelling house, the development is considered to be a Material Change of Use because it increases the intensity and scale of the use of the premises. A Dwelling house (which can include a Secondary dwelling) is generally accepted development subject to requirements in Residential zones. The level of assessment for each zone is in Part 5 of CairnsPlan 2016.",
+      "interpretation": "Adding a secondary dwelling to a lot with a house is a material change of use; whether it needs a development application depends on the zone's table of assessment (not encoded). Captured on 2026-10-09 from an automated summary of the published document; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "fs_dwellings_size",
+      "document": "fs_dwellings",
+      "section": "Secondary dwellings: maximum size",
+      "extracted_text": "[Summary, not the source's wording] Secondary dwelling size limits under CairnsPlan 2016: Rural zone, 250 m2 on lots over 10 ha or 70 m2 on lots under 10 ha. Low density residential, Low-medium density residential, Medium density residential, Rural residential and Tourist accommodation zones (excluding Tourist accommodation precinct 1, islands): 70 m2. All other zones on lots over 450 m2: 70 m2.",
+      "interpretation": "Floor area limits by zone and lot size. No limit is stated for other zones on lots of 450 m2 or less, or for rural lots of exactly 10 ha. Captured on 2026-10-09 from an automated summary of the published document; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "fs_dwellings_parking",
+      "document": "fs_dwellings",
+      "section": "Table 1: key differences",
+      "extracted_text": "[Summary, not the source's wording] Parking: a Dual occupancy needs 4 spaces in total; a Secondary dwelling (with its Dwelling house) needs 3. A Dual occupancy's dwellings can be leased and serviced separately and get separate addresses, letterboxes and bins; a Secondary dwelling shares these with the main dwelling.",
+      "interpretation": "Three car parking spaces in total for a house with a secondary dwelling. Captured on 2026-10-09 from an automated summary of the published document; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "fs_dwellings_building",
+      "document": "fs_dwellings",
+      "section": "Building works",
+      "extracted_text": "[Summary, not the source's wording] In addition to any planning approvals, you will need to obtain a Building works approval for any Building works.",
+      "interpretation": "Building work for a secondary dwelling needs a building works approval. Captured on 2026-10-09 from an automated summary of the published document; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "fs_ral_permit",
+      "document": "fs_ral",
+      "section": "When an application is needed",
+      "extracted_text": "[Summary, not the source's wording] Reconfiguring a lot includes creating lots by subdividing another lot. Reconfiguring a lot that is code or impact assessable under Part 5 of CairnsPlan 2016 requires an application for a development permit. Approvals may be conditioned (access, building envelopes, geotechnical matters, service connections, infrastructure works, staging, further studies). Application fees are in council's Fees and Charges Schedule, and infrastructure charges apply to reconfiguring a lot.",
+      "interpretation": "Subdivision needs a development permit where Part 5 makes it code or impact assessable (not encoded); infrastructure charges apply. Captured on 2026-10-09 from an automated summary of the published document; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "fs_ral_lot_sizes",
+      "document": "fs_ral",
+      "section": "Minimum lot sizes",
+      "extracted_text": "[Summary, not the source's wording] Low density residential zone: minimum lot size 600 m2, minimum width and dimension 15 m. Low-medium density residential zone: 450 m2, or 350 m2 where the small lot provisions are met. The full table for every zone is in Part 9 of CairnsPlan 2016.",
+      "interpretation": "Minimum lot sizes for the two residential zones the fact sheet covers. Captured on 2026-10-09 from an automated summary of the published document; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "fs_hillslopes_requirements",
+      "document": "fs_hillslopes",
+      "section": "Accepted development requirements",
+      "extracted_text": "[Summary, not the source's wording] Dwelling houses are generally accepted development subject to the zone and Hillslopes overlay requirements; a proposal that does not meet them needs a development application. Development does not occur on land with a gradient in excess of 1 in 6 (16.6%). Excavation and filling no more than 50 m3; batters and retaining walls no higher than 1.8 m each; earthworks at least 2 m from boundaries. Possible conditions include geotechnical certification.",
+      "interpretation": "Steep sites in the Hillslopes overlay have strict limits; failing them needs a development application. The overlay itself comes from council's mapping (not looked up). Captured on 2026-10-09 from an automated summary of the published document; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "planning_regulation_definitions",
+      "document": "planning_regulation",
+      "section": "Schedule 24 (Dictionary)",
+      "clause": "household; secondary dwelling",
+      "extracted_text": "[Summary, not the source's wording] From 26 September 2022 (Planning (Secondary Dwellings) Amendment Regulation 2022): 'household' means 1 or more individuals who live together in a dwelling; 'secondary dwelling' means a dwelling on a lot that is used in conjunction with, but subordinate to, another dwelling. The definitions no longer require a secondary dwelling to be occupied by members of the same household as the main dwelling.",
+      "interpretation": "A secondary dwelling can be occupied by anyone, including renters unrelated to the main household. Captured on 2026-10-09 from an automated summary of the published document; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "state_secondary_rental",
+      "document": "state_secondary_page",
+      "section": "What has changed",
+      "extracted_text": "[Summary, not the source's wording] The amendment that took effect on 26 September 2022 removed restrictions on who can live in a secondary dwelling, so it can be rented to anyone, in all local council areas in Queensland. It does not remove the need for any development or building approval. Existing approvals with occupancy conditions may need a change application.",
+      "interpretation": "Supports the regulation reference; also says approvals are still needed. Captured on 2026-10-09 from an automated summary of the published document; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "planning.qld.cairns.secondary_dwelling",
+      "vertical": "PLANNING",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "Cairns: secondary dwellings",
+      "description": "Secondary dwellings (granny flats) in the Cairns Regional Council area, from council's CairnsPlan 2016 fact sheet and the Planning Regulation 2017.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.lga",
+            "op": "equals",
+            "value": "cairns"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "secondary_dwelling"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Cairns Regional Council fact sheets last updated in October 2021, not from the full text of CairnsPlan 2016, which has been amended since.",
+        "Does not check the zone's table of assessment (CairnsPlan 2016 Part 5), overlays other than steep land, or the dwelling house code (setbacks, height, site cover).",
+        "Does not cover Tourist accommodation zone precinct 1 (islands), which the fact sheet excludes from the 70 m2 limit.",
+        "The council area and zone come from your answers. We do not look them up.",
+        "Not legal advice. Confirm with Cairns Regional Council or a town planner before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "material_change_of_use",
+          "title": "Adding a secondary dwelling to a lot with a house",
+          "condition": {
+            "fact": "property.has_existing_dwelling",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2021-10-25",
+          "max_confidence": "LIKELY",
+          "notes": "Capped at likely: the fact sheet is guidance and the zone's level of assessment is not encoded.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "This is a material change of use, so a development application may be needed",
+              "detail": "Cairns Regional Council's fact sheet says a secondary dwelling on a lot that already has a house is a material change of use. Whether that needs a development application depends on the zone's table of assessment in Part 5 of CairnsPlan 2016, which we have not checked. Ask council or a town planner to confirm.",
+              "payload": {
+                "approval": {
+                  "kind": "PLANNING_MATERIAL_CHANGE_OF_USE",
+                  "authority": "Cairns Regional Council",
+                  "pathway": "Level of assessment set by the zone (CairnsPlan 2016 Part 5)",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Ask Cairns Regional Council whether the secondary dwelling needs a development application"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Building the secondary dwelling with a new house",
+              "detail": "A dwelling house can include a secondary dwelling. Council's fact sheet says a dwelling house is generally accepted development subject to requirements in residential zones; if the design doesn't meet those requirements, an application is needed."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fs_dwellings_mcu",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Existing house",
+              "facts": {
+                "property.has_existing_dwelling": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Vacant lot",
+              "facts": {
+                "property.has_existing_dwelling": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "building_approval",
+          "title": "Building approval for a secondary dwelling",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "secondary_dwelling"
+          },
+          "effective_from": "2021-10-25",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Building approval is needed for the building work",
+              "detail": "Council's fact sheet says you need a building works approval for any building works, as well as any planning approval. A building certifier assesses and issues it.",
+              "payload": {
+                "approval": {
+                  "kind": "BUILDING_WORKS",
+                  "authority": "A building certifier",
+                  "pathway": "Building works approval"
+                },
+                "evidence": [
+                  {
+                    "kind": "BUILDING_PLANS",
+                    "title": "Building plans for the secondary dwelling"
+                  }
+                ],
+                "referral_categories": [
+                  "building_certifier"
+                ],
+                "task": "Engage a building certifier for the building approval"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fs_dwellings_building",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Secondary dwelling",
+              "facts": {
+                "planning.development_type": "secondary_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Something else",
+              "facts": {
+                "planning.development_type": "extension"
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "size_limit",
+          "title": "Secondary dwelling size",
+          "condition": {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "property.zone",
+                    "op": "in",
+                    "value": [
+                      "low_density_residential",
+                      "low_medium_density_residential",
+                      "medium_density_residential",
+                      "rural_residential",
+                      "tourist_accommodation"
+                    ]
+                  },
+                  {
+                    "fact": "planning.secondary_dwelling_floor_area_m2",
+                    "op": "less_equal",
+                    "value": 70
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "property.zone",
+                    "op": "equals",
+                    "value": "rural"
+                  },
+                  {
+                    "fact": "property.land_area_m2",
+                    "op": "greater_than",
+                    "value": 100000
+                  },
+                  {
+                    "fact": "planning.secondary_dwelling_floor_area_m2",
+                    "op": "less_equal",
+                    "value": 250
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "property.zone",
+                    "op": "equals",
+                    "value": "rural"
+                  },
+                  {
+                    "fact": "property.land_area_m2",
+                    "op": "less_than",
+                    "value": 100000
+                  },
+                  {
+                    "fact": "planning.secondary_dwelling_floor_area_m2",
+                    "op": "less_equal",
+                    "value": 70
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "property.zone",
+                    "op": "equals",
+                    "value": "another_zone"
+                  },
+                  {
+                    "fact": "property.land_area_m2",
+                    "op": "greater_than",
+                    "value": 450
+                  },
+                  {
+                    "fact": "planning.secondary_dwelling_floor_area_m2",
+                    "op": "less_equal",
+                    "value": 70
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2021-10-25",
+          "max_confidence": "LIKELY",
+          "notes": "MATCH means within a limit the fact sheet states. NO_MATCH covers both 'over the limit' and 'no limit stated' (other zones on lots of 450 m2 or less, rural lots of exactly 10 ha).",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Within the size council's fact sheet gives for a secondary dwelling",
+              "detail": "The fact sheet limits a secondary dwelling to 70 m2 in most zones, or 250 m2 on rural lots over 10 ha. Check how council measures floor area before you rely on this."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Larger than council's fact sheet allows, or no limit is stated for this zone and lot size",
+              "detail": "A second home that is too big to be a secondary dwelling may be treated differently, for example as a dual occupancy, which has its own rules (council's fact sheet gives minimum lot sizes of 600 m2 or 800 m2). Talk to council or a town planner.",
+              "payload": {
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Check the secondary dwelling's size with council or a town planner"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fs_dwellings_size",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Low density, 60 m2",
+              "facts": {
+                "property.zone": "low_density_residential",
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "60"
+                }
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Low density, 70 m2 exactly",
+              "facts": {
+                "property.zone": "low_density_residential",
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "70"
+                }
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Low density, 85 m2",
+              "facts": {
+                "property.zone": "low_density_residential",
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "85"
+                }
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Rural over 10 ha, 200 m2",
+              "facts": {
+                "property.zone": "rural",
+                "property.land_area_m2": {
+                  "$decimal": "150000"
+                },
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "200"
+                }
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Rural under 10 ha, 100 m2",
+              "facts": {
+                "property.zone": "rural",
+                "property.land_area_m2": {
+                  "$decimal": "50000"
+                },
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "100"
+                }
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Other zone, small lot",
+              "facts": {
+                "property.zone": "another_zone",
+                "property.land_area_m2": {
+                  "$decimal": "400"
+                },
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "50"
+                }
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Other zone, larger lot",
+              "facts": {
+                "property.zone": "another_zone",
+                "property.land_area_m2": {
+                  "$decimal": "600"
+                },
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "50"
+                }
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Zone not known",
+              "facts": {
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "50"
+                }
+              },
+              "expected_result": "UNKNOWN"
+            },
+            {
+              "name": "Floor area not known",
+              "facts": {
+                "property.zone": "low_density_residential"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "parking",
+          "title": "Car parking for a secondary dwelling",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "secondary_dwelling"
+          },
+          "effective_from": "2021-10-25",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "EVIDENCE_REQUIRED",
+              "title": "Show three car parks on your site plan",
+              "detail": "Council's fact sheet says a house with a secondary dwelling needs 3 car parking spaces in total (a dual occupancy needs 4).",
+              "payload": {
+                "evidence": [
+                  {
+                    "kind": "SITE_PLAN",
+                    "title": "Site plan showing three car parking spaces",
+                    "detail": "Show where each car parks, including the spaces for the main house."
+                  }
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fs_dwellings_parking",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Secondary dwelling",
+              "facts": {
+                "planning.development_type": "secondary_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Something else",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "who_can_live_there",
+          "title": "Who can live in a secondary dwelling",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "secondary_dwelling"
+          },
+          "effective_from": "2022-09-26",
+          "max_confidence": "VERIFIED",
+          "notes": "Council's 2021 fact sheet still describes the same-household rule that the state removed in 2022.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "A secondary dwelling can be rented to anyone",
+              "detail": "Since 26 September 2022 the Planning Regulation 2017 no longer requires a secondary dwelling to be lived in by the same household as the main house. Council's 2021 fact sheet still describes the older rule. Approvals with occupancy conditions may need a change application, and the change doesn't remove the need for any approval."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "planning_regulation_definitions",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "state_secondary_rental",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Secondary dwelling",
+              "facts": {
+                "planning.development_type": "secondary_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Something else",
+              "facts": {
+                "planning.development_type": "subdivision"
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.qld.cairns.subdivision",
+      "vertical": "PLANNING",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "Cairns: subdivision (reconfiguring a lot)",
+      "description": "Subdividing land in the Cairns Regional Council area, from council's CairnsPlan 2016 reconfiguring a lot fact sheet.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.lga",
+            "op": "equals",
+            "value": "cairns"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "subdivision"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Cairns Regional Council's reconfiguring a lot fact sheet (last updated October 2021), not from the full text of CairnsPlan 2016, which has been amended since.",
+        "Minimum lot sizes are only known for the Low density and Low-medium density residential zones. Part 9 of CairnsPlan 2016 has the rest.",
+        "Does not check state referrals, access, services, overlays or the survey plan process.",
+        "The council area and zone come from your answers. We do not look them up.",
+        "Not legal advice. Confirm with Cairns Regional Council or a town planner before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "development_permit",
+          "title": "Development permit for subdividing",
+          "condition": {
+            "fact": "planning.proposed_lots",
+            "op": "greater_equal",
+            "value": 2
+          },
+          "effective_from": "2021-10-22",
+          "max_confidence": "LIKELY",
+          "notes": "Capped at likely: the level of assessment (Part 5) is not encoded.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A development permit for reconfiguring a lot is likely to be needed",
+              "detail": "Council's fact sheet says subdividing is reconfiguring a lot, and that it needs a development permit application where Part 5 of CairnsPlan 2016 makes it code or impact assessable. We have not checked Part 5 for your zone, so confirm the level of assessment with council.",
+              "payload": {
+                "approval": {
+                  "kind": "PLANNING_RECONFIGURING_A_LOT",
+                  "authority": "Cairns Regional Council",
+                  "pathway": "Development permit (code or impact assessment under CairnsPlan 2016 Part 5)"
+                },
+                "evidence": [
+                  {
+                    "kind": "PROPOSAL_PLAN",
+                    "title": "Proposal plan showing the new lots, their areas and frontages"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner",
+                  "cadastral_surveyor"
+                ],
+                "task": "Confirm the level of assessment for the subdivision with Cairns Regional Council"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fs_ral_permit",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Two lots",
+              "facts": {
+                "planning.proposed_lots": 2
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "minimum_lot_size",
+          "title": "Minimum lot size",
+          "condition": {
+            "any": [
+              {
+                "all": [
+                  {
+                    "fact": "property.zone",
+                    "op": "equals",
+                    "value": "low_density_residential"
+                  },
+                  {
+                    "fact": "planning.smallest_lot_m2",
+                    "op": "greater_equal",
+                    "value": 600
+                  },
+                  {
+                    "fact": "planning.smallest_lot_frontage_m",
+                    "op": "greater_equal",
+                    "value": 15
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "property.zone",
+                    "op": "equals",
+                    "value": "low_medium_density_residential"
+                  },
+                  {
+                    "fact": "planning.smallest_lot_m2",
+                    "op": "greater_equal",
+                    "value": 450
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2021-10-22",
+          "max_confidence": "LIKELY",
+          "notes": "MATCH means every new lot meets the minimum the fact sheet states. NO_MATCH covers 'below it' and 'no minimum stated for this zone'. Small lot provisions (350 m2) are not encoded.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "The proposed lots meet the minimum size in council's fact sheet",
+              "detail": "Low density residential: 600 m2 and 15 m wide. Low-medium density residential: 450 m2. The other requirements in Part 9 of CairnsPlan 2016 still apply."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Below the minimum lot size in council's fact sheet, or no minimum is stated for this zone",
+              "detail": "In the Low-medium density residential zone, lots down to 350 m2 may be possible where the small lot provisions are met. Part 9 of CairnsPlan 2016 has the minimum for every zone.",
+              "payload": {
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Check the proposed lot sizes against Part 9 of CairnsPlan 2016"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fs_ral_lot_sizes",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Low density, 650 m2 and 16 m",
+              "facts": {
+                "property.zone": "low_density_residential",
+                "planning.smallest_lot_m2": {
+                  "$decimal": "650"
+                },
+                "planning.smallest_lot_frontage_m": {
+                  "$decimal": "16"
+                }
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Low density, 550 m2",
+              "facts": {
+                "property.zone": "low_density_residential",
+                "planning.smallest_lot_m2": {
+                  "$decimal": "550"
+                },
+                "planning.smallest_lot_frontage_m": {
+                  "$decimal": "16"
+                }
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Low density, narrow",
+              "facts": {
+                "property.zone": "low_density_residential",
+                "planning.smallest_lot_m2": {
+                  "$decimal": "700"
+                },
+                "planning.smallest_lot_frontage_m": {
+                  "$decimal": "12"
+                }
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Low-medium density, 450 m2",
+              "facts": {
+                "property.zone": "low_medium_density_residential",
+                "planning.smallest_lot_m2": {
+                  "$decimal": "450"
+                }
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Rural zone",
+              "facts": {
+                "property.zone": "rural",
+                "planning.smallest_lot_m2": {
+                  "$decimal": "50000"
+                },
+                "planning.smallest_lot_frontage_m": {
+                  "$decimal": "100"
+                }
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Frontage not known",
+              "facts": {
+                "property.zone": "low_density_residential",
+                "planning.smallest_lot_m2": {
+                  "$decimal": "650"
+                }
+              },
+              "expected_result": "UNKNOWN"
+            },
+            {
+              "name": "Zone not known",
+              "facts": {
+                "planning.smallest_lot_m2": {
+                  "$decimal": "650"
+                },
+                "planning.smallest_lot_frontage_m": {
+                  "$decimal": "20"
+                }
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "infrastructure_charges",
+          "title": "Fees and infrastructure charges",
+          "condition": {
+            "fact": "planning.proposed_lots",
+            "op": "greater_equal",
+            "value": 2
+          },
+          "effective_from": "2021-10-22",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Application fees and infrastructure charges apply",
+              "detail": "Council's fact sheet says infrastructure charges apply to reconfiguring a lot, on top of the application fee in council's fees and charges schedule. We don't calculate either.",
+              "payload": {
+                "task": "Ask Cairns Regional Council for the application fee and an infrastructure charges estimate"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fs_ral_permit",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Two lots",
+              "facts": {
+                "planning.proposed_lots": 2
+              },
+              "expected_result": "MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.qld.cairns.hillslopes",
+      "vertical": "PLANNING",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "Cairns: steep land (Hillslopes overlay)",
+      "description": "Houses, extensions and secondary dwellings on steep land in the Cairns Regional Council area.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.lga",
+            "op": "equals",
+            "value": "cairns"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension"
+            ]
+          }
+        ]
+      },
+      "limitations": [
+        "We only know about steep land if you tell us. Council's overlay mapping decides whether the Hillslopes overlay applies.",
+        "Built from council's Hillslopes overlay fact sheet for dwelling houses (last updated October 2021)."
+      ],
+      "rules": [
+        {
+          "key": "steep_land",
+          "title": "Steep land and the Hillslopes overlay",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "steep_slope"
+          },
+          "effective_from": "2021-10-22",
+          "max_confidence": "LIKELY",
+          "notes": "Only fires when the customer ticks steep slope. An empty answer stays unknown on purpose: we never assume a site is flat.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Steep land: the Hillslopes overlay may apply",
+              "detail": "Council's fact sheet for dwelling houses in the Hillslopes overlay says development does not occur on land steeper than 1 in 6 (16.6%), and limits earthworks (no more than 50 m3 of cut or fill, batters and retaining walls no higher than 1.8 m). Work that doesn't meet these needs a development application. Check council's overlay mapping for your site.",
+              "payload": {
+                "approval": {
+                  "kind": "PLANNING_OVERLAY_ASSESSMENT",
+                  "authority": "Cairns Regional Council",
+                  "pathway": "Development application if the Hillslopes overlay requirements are not met"
+                },
+                "referral_categories": [
+                  "geotechnical_engineer",
+                  "town_planner"
+                ],
+                "task": "Check council's Hillslopes overlay mapping for the site"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fs_hillslopes_requirements",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Steep slope ticked",
+              "facts": {
+                "planning.known_constraints": [
+                  "steep_slope",
+                  "easement"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Other constraints only",
+              "facts": {
+                "planning.known_constraints": [
+                  "flooding"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

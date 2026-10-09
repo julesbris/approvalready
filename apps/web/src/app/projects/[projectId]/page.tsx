@@ -1,4 +1,10 @@
-import type { MemberOut, ProjectDetailOut, ReminderOut, TaskOut } from "@approvalready/shared-types";
+import type {
+  MemberOut,
+  ProjectDetailOut,
+  PropertyOut,
+  ReminderOut,
+  TaskOut,
+} from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -22,11 +28,12 @@ export default async function ProjectPage({ params }: Props) {
     );
   }
   const base = `/organisations/${orgId}`;
-  const [project, tasks, reminders, members] = await Promise.all([
+  const [project, tasks, reminders, members, properties] = await Promise.all([
     serverGet<ProjectDetailOut>(`${base}/projects/${projectId}`),
     serverGet<TaskOut[]>(`${base}/projects/${projectId}/tasks`),
     serverGet<ReminderOut[]>(`${base}/projects/${projectId}/reminders`),
     serverGet<MemberOut[]>(`${base}/members`),
+    serverGet<PropertyOut[]>(`${base}/properties`),
   ]);
   return (
     <AppShell session={session}>
@@ -39,6 +46,7 @@ export default async function ProjectPage({ params }: Props) {
         tasks={orNotFound(tasks)}
         reminders={orNotFound(reminders)}
         members={members.ok ? members.data : []}
+        properties={properties.ok ? properties.data : undefined}
         currentUserId={session.user.id}
         canWrite={session.permissions.includes("project.write")}
       />

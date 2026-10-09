@@ -112,6 +112,10 @@ export function RuleSetScopeForm({ ruleSet }: { ruleSet: RuleSetOut }) {
         jurisdiction: text(form, "jurisdiction"),
         description: text(form, "description"),
         applies_when: scope.value,
+        limitations: String(form.get("limitations") ?? "")
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean),
       }),
     );
     if (saved) router.refresh();
@@ -143,6 +147,17 @@ export function RuleSetScopeForm({ ruleSet }: { ruleSet: RuleSetOut }) {
         <span className="hint">
           Projects outside this scope skip every rule in the set. A scope that can&apos;t be checked
           yet asks the customer for the missing answers.
+        </span>
+      </label>
+      <label>
+        Limitations (one per line)
+        <textarea
+          name="limitations"
+          rows={4}
+          defaultValue={ruleSet.limitations.join("\n")}
+        />
+        <span className="hint">
+          What this rule set does not check. Shown with every assessment that uses it.
         </span>
       </label>
       <button type="submit" className="button button-secondary" disabled={action.busy}>

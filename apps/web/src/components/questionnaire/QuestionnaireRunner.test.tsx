@@ -163,4 +163,40 @@ describe("QuestionnaireRunner", () => {
     await waitFor(() => expect(screen.getByLabelText("Extending")).toBeChecked());
     expect((fetchMock.mock.calls[0] as [string])[0]).toBe("/api/v1/organisations/o1/submissions/s1/reopen");
   });
+
+  it("offers answers from the site and saves the ones accepted", async () => {
+    const saved = submission({
+      answers: { kind: "sub" },
+      missing_required: ["lots"],
+      progress: { answered: 1, visible: 2, required_remaining: 1 },
+    });
+    const fetchMock = vi.fn().mockResolvedValue(Response.json(saved));
+    vi.stubGlobal("fetch", fetchMock);
+    render(
+      <QuestionnaireRunner
+        organisationId="o1"
+        projectId="p1"
+        submission={submission()}
+        canWrite
+        suggestions={[
+          {
+            key: "kind",
+            label: "What are you planning?",
+            value: "sub",
+            source: "Mock provider",
+            source_url: null,
+            is_mock: true,
+          },
+        ]}
+      />,
+    );
+    const panel = screen.getByRole("region", { name: "We can fill in an answer for you" });
+    expect(panel).toHaveTextContent("Subdividing");
+    expect(panel).toHaveTextContent("(test data, not real)");
+    fireEvent.click(screen.getByRole("button", { name: "Use these answers" }));
+    expect(await screen.findByText(/Filled in from your site details/)).toBeInTheDocument();
+    expect(screen.queryByRole("region", { name: /We can fill in/ })).not.toBeInTheDocument();
+    const [, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(JSON.parse(init.body as string)).toEqual({ answers: { kind: "sub" } });
+  });
 });

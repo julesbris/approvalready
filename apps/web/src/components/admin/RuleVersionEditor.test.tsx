@@ -126,6 +126,7 @@ describe("RuleVersionEditor", () => {
         outcome_type: "APPROVAL_REQUIRED",
         title: "Approval needed",
         detail: null,
+        payload: null,
       },
     ]);
   });

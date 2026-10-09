@@ -6,6 +6,7 @@ import type {
   ProjectDetailOut,
   ProjectOut,
   ProjectStatus,
+  PropertyOut,
   ReminderOut,
   TaskOut,
 } from "@approvalready/shared-types";
@@ -14,6 +15,7 @@ import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
+import { SitePanel } from "@/components/projects/SitePanel";
 import { CONFIDENCE_LABELS } from "@/lib/assessment";
 import { apiRequest } from "@/lib/client-api";
 import {
@@ -31,9 +33,13 @@ type Props = {
   tasks: TaskOut[];
   reminders: ReminderOut[];
   members: MemberOut[];
+  properties?: PropertyOut[];
   currentUserId: string;
   canWrite: boolean;
 };
+
+/** Verticals whose projects are about a property (the API checks the same). */
+const PROPERTY_VERTICALS = new Set(["PLANNING", "SELL", "RENT"]);
 
 const RECURRENCE_LABELS: Record<string, string> = {
   WEEKLY: "Every week",
@@ -188,6 +194,16 @@ export function ProjectWorkspace(props: Props) {
         </div>
       ) : null}
 
+      {PROPERTY_VERTICALS.has(project.vertical) && props.properties ? (
+        <SitePanel
+          organisationId={organisationId}
+          project={project}
+          properties={props.properties}
+          canWrite={canWrite}
+          onProjectChange={setProject}
+        />
+      ) : null}
+
       <section className="panel" aria-labelledby="questions-title">
         <h2 id="questions-title" className="section-title">
           Questionnaire
@@ -276,6 +292,8 @@ export function ProjectWorkspace(props: Props) {
                 <span>{task.title}</span>
               </label>
               <span className="muted">
+                {task.source === "RULE" ? "From your assessment" : null}
+                {task.source === "RULE" && (task.due_on || task.assignee_user_id) ? " · " : null}
                 {task.due_on ? `Due ${formatDate(task.due_on)}` : null}
                 {task.due_on && task.assignee_user_id ? " · " : null}
                 {task.assignee_user_id ? memberName(task.assignee_user_id) : null}

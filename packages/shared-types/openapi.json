@@ -128,8 +128,77 @@
         "title": "AnswersUpdate",
         "type": "object"
       },
+      "ApprovalRequirementOut": {
+        "properties": {
+          "authority": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Authority"
+          },
+          "certainty": {
+            "$ref": "#/components/schemas/Certainty"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "finding_id": {
+            "format": "uuid",
+            "title": "Finding Id",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "pathway": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pathway"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "finding_id",
+          "kind",
+          "title",
+          "authority",
+          "pathway",
+          "certainty",
+          "confidence"
+        ],
+        "title": "ApprovalRequirementOut",
+        "type": "object"
+      },
       "AssessmentOut": {
         "properties": {
+          "approval_requirements": {
+            "items": {
+              "$ref": "#/components/schemas/ApprovalRequirementOut"
+            },
+            "title": "Approval Requirements",
+            "type": "array"
+          },
           "assessed_on": {
             "format": "date",
             "title": "Assessed On",
@@ -143,6 +212,13 @@
           "engine_version": {
             "title": "Engine Version",
             "type": "string"
+          },
+          "evidence_requirements": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceRequirementOut"
+            },
+            "title": "Evidence Requirements",
+            "type": "array"
           },
           "fact_labels": {
             "additionalProperties": {
@@ -178,6 +254,14 @@
             "title": "Id",
             "type": "string"
           },
+          "limitations": {
+            "description": "What the applicable rule sets do not check, without repeats.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Limitations",
+            "type": "array"
+          },
           "overall_confidence": {
             "$ref": "#/components/schemas/Confidence"
           },
@@ -185,6 +269,14 @@
             "format": "uuid",
             "title": "Project Id",
             "type": "string"
+          },
+          "referral_categories": {
+            "description": "Who can help, from every finding that names a kind of professional.",
+            "items": {
+              "$ref": "#/components/schemas/ReferralCategoryOut"
+            },
+            "title": "Referral Categories",
+            "type": "array"
           },
           "rule_sets": {
             "items": {
@@ -216,7 +308,11 @@
           "facts",
           "fact_labels",
           "rule_sets",
-          "finding_list"
+          "finding_list",
+          "approval_requirements",
+          "evidence_requirements",
+          "referral_categories",
+          "limitations"
         ],
         "title": "AssessmentOut",
         "type": "object"
@@ -789,6 +885,17 @@
         "title": "BusinessUpdate",
         "type": "object"
       },
+      "Certainty": {
+        "description": "How sure we are that an approval applies, strongest first (BusinessReady's approval\nmap uses the same scale).",
+        "enum": [
+          "REQUIRED",
+          "LIKELY_REQUIRED",
+          "MAY_APPLY",
+          "NOT_IDENTIFIED"
+        ],
+        "title": "Certainty",
+        "type": "string"
+      },
       "Confidence": {
         "description": "How far a finding can be relied on, highest first (see ``rules/engine.py``).",
         "enum": [
@@ -937,6 +1044,52 @@
         "title": "EvaluateOut",
         "type": "object"
       },
+      "EvidenceRequirementOut": {
+        "properties": {
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "finding_id": {
+            "format": "uuid",
+            "title": "Finding Id",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "finding_id",
+          "kind",
+          "title",
+          "detail",
+          "confidence"
+        ],
+        "title": "EvidenceRequirementOut",
+        "type": "object"
+      },
       "FindingOut": {
         "properties": {
           "confidence": {
@@ -981,6 +1134,14 @@
                 "type": "null"
               }
             ]
+          },
+          "referral_categories": {
+            "description": "Kinds of professional who can help.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Referral Categories",
+            "type": "array"
           },
           "result": {
             "$ref": "#/components/schemas/RuleResult"
@@ -1042,7 +1203,8 @@
           "confidence_reasons",
           "missing_facts",
           "trace",
-          "sources"
+          "sources",
+          "referral_categories"
         ],
         "title": "FindingOut",
         "type": "object"
@@ -1517,6 +1679,19 @@
           "outcome_type": {
             "$ref": "#/components/schemas/OutcomeType"
           },
+          "payload": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Structured consequences: approval, evidence, referral_categories, task.",
+            "title": "Payload"
+          },
           "title": {
             "maxLength": 200,
             "minLength": 1,
@@ -1550,6 +1725,18 @@
           },
           "outcome_type": {
             "$ref": "#/components/schemas/OutcomeType"
+          },
+          "payload": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Payload"
           },
           "title": {
             "title": "Title",
@@ -1630,6 +1817,75 @@
           "password"
         ],
         "title": "PasswordResetConfirm",
+        "type": "object"
+      },
+      "PrefillOut": {
+        "properties": {
+          "provider": {
+            "description": "Property facts provider in use ('none' means no lookups).",
+            "title": "Provider",
+            "type": "string"
+          },
+          "suggestions": {
+            "items": {
+              "$ref": "#/components/schemas/PrefillSuggestion"
+            },
+            "title": "Suggestions",
+            "type": "array"
+          }
+        },
+        "required": [
+          "provider",
+          "suggestions"
+        ],
+        "title": "PrefillOut",
+        "type": "object"
+      },
+      "PrefillSuggestion": {
+        "properties": {
+          "is_mock": {
+            "description": "Made-up data from the development mock provider.",
+            "title": "Is Mock",
+            "type": "boolean"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "source": {
+            "description": "Where the value comes from.",
+            "title": "Source",
+            "type": "string"
+          },
+          "source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Url"
+          },
+          "value": {
+            "description": "A valid answer for the question, ready to save.",
+            "title": "Value"
+          }
+        },
+        "required": [
+          "key",
+          "label",
+          "value",
+          "source",
+          "source_url",
+          "is_mock"
+        ],
+        "title": "PrefillSuggestion",
         "type": "object"
       },
       "Progress": {
@@ -2534,6 +2790,28 @@
         "title": "Recurrence",
         "type": "string"
       },
+      "ReferralCategoryOut": {
+        "properties": {
+          "finding_ids": {
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "title": "Finding Ids",
+            "type": "array"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "finding_ids"
+        ],
+        "title": "ReferralCategoryOut",
+        "type": "object"
+      },
       "RegisterRequest": {
         "properties": {
           "display_name": {
@@ -2919,6 +3197,17 @@
             "title": "Key",
             "type": "string"
           },
+          "limitations": {
+            "description": "What this rule set does not check, shown with every assessment.",
+            "items": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Limitations",
+            "type": "array"
+          },
           "title": {
             "maxLength": 200,
             "minLength": 1,
@@ -2981,6 +3270,13 @@
             "title": "Key",
             "type": "string"
           },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Limitations",
+            "type": "array"
+          },
           "rules": {
             "items": {
               "$ref": "#/components/schemas/RuleSummary"
@@ -3009,6 +3305,7 @@
           "title",
           "description",
           "applies_when",
+          "limitations",
           "rules",
           "created_at",
           "updated_at"
@@ -3021,6 +3318,14 @@
           "key": {
             "title": "Key",
             "type": "string"
+          },
+          "limitations": {
+            "description": "What the rule set does not check.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Limitations",
+            "type": "array"
           },
           "missing_facts": {
             "items": {
@@ -3102,6 +3407,23 @@
               }
             ],
             "title": "Jurisdiction"
+          },
+          "limitations": {
+            "anyOf": [
+              {
+                "items": {
+                  "maxLength": 500,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "maxItems": 20,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Limitations"
           },
           "title": {
             "anyOf": [
@@ -5063,6 +5385,19 @@
             ],
             "title": "Due On"
           },
+          "finding_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The assessment finding that suggested this task (source RULE).",
+            "title": "Finding Id"
+          },
           "id": {
             "format": "uuid",
             "title": "Id",
@@ -5103,6 +5438,7 @@
           "notes",
           "status",
           "source",
+          "finding_id",
           "due_on",
           "assignee_user_id",
           "completed_at",
@@ -10075,6 +10411,60 @@
           }
         },
         "summary": "Save Answers",
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/submissions/{submission_id}/prefill": {
+      "get": {
+        "description": "Answers we can offer from the project's property and the property facts provider.\nNothing is saved: the customer saves the ones they want through ``/answers``.",
+        "operationId": "prefill_suggestions_v1_organisations__organisation_id__submissions__submission_id__prefill_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "submission_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Submission Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrefillOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Prefill Suggestions",
         "tags": [
           "projects"
         ]

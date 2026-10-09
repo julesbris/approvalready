@@ -54,6 +54,7 @@ async def _rule_set_out(db: DbDep, rule_set: RuleSet) -> RuleSetOut:
         title=rule_set.title,
         description=rule_set.description,
         applies_when=rule_set.applies_when,
+        limitations=rule_set.limitations,
         rules=[
             RuleSummary(
                 id=row.rule.id,
@@ -94,6 +95,7 @@ def _version_out(view: service.VersionView) -> RuleVersionOut:
                 outcome_type=o.outcome_type,
                 title=o.title,
                 detail=o.detail,
+                payload=o.payload,
             )
             for o in view.outcomes
         ],
@@ -275,6 +277,7 @@ async def evaluate_rule_version(
                 outcome_type=finding.outcome.outcome_type,
                 title=finding.outcome.title,
                 detail=finding.outcome.detail,
+                payload=finding.outcome.payload,
             )
             if finding.outcome
             else None

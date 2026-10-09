@@ -1,6 +1,6 @@
 "use client";
 
-import type { QuestionOut, SubmissionOut } from "@approvalready/shared-types";
+import type { PrefillSuggestion, QuestionOut, SubmissionOut } from "@approvalready/shared-types";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
@@ -22,6 +22,8 @@ type Props = {
   projectId: string;
   submission: SubmissionOut;
   canWrite: boolean;
+  /** Answers we can offer from the project's property (and the property facts provider). */
+  suggestions?: PrefillSuggestion[];
 };
 
 function without<T>(record: Record<string, T>, key: string): Record<string, T> {
@@ -42,7 +44,13 @@ function initialTexts(submission: SubmissionOut): Record<string, string | undefi
  * Guided questionnaire: one section at a time, with questions appearing and disappearing as
  * answers change, a save per section, then a review step before submitting.
  */
-export function QuestionnaireRunner({ organisationId, projectId, submission: initial, canWrite }: Props) {
+export function QuestionnaireRunner({
+  organisationId,
+  projectId,
+  submission: initial,
+  canWrite,
+  suggestions: initialSuggestions = [],
+}: Props) {
   const [submission, setSubmission] = useState(initial);
   const [draft, setDraft] = useState<Answers>(initial.answers);
   const [texts, setTexts] = useState(() => initialTexts(initial));
@@ -52,6 +60,7 @@ export function QuestionnaireRunner({ organisationId, projectId, submission: ini
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [suggestions, setSuggestions] = useState(initialSuggestions);
 
   const questionnaire = submission.questionnaire;
   const sections = questionnaire.sections;
@@ -125,6 +134,23 @@ export function QuestionnaireRunner({ organisationId, projectId, submission: ini
     }
     applySaved(result.data);
     return true;
+  }
+
+  async function applySuggestions() {
+    const answers: Answers = {};
+    for (const s of suggestions) answers[s.key] = s.value;
+    setBusy(true);
+    setError(null);
+    setNotice(null);
+    const result = await apiRequest<SubmissionOut>("PUT", `${url}/answers`, { answers });
+    setBusy(false);
+    if (!result.ok) {
+      setError(result.message);
+      return;
+    }
+    applySaved(result.data);
+    setSuggestions([]);
+    setNotice("Filled in from your site details. Check them as you go.");
   }
 
   function nextStep(after: number): number {
@@ -208,6 +234,45 @@ export function QuestionnaireRunner({ organisationId, projectId, submission: ini
           .
         </p>
       </nav>
+
+      {editable && suggestions.length > 0 ? (
+        <section className="panel" aria-labelledby="prefill-title">
+          <h2 id="prefill-title" className="section-title">
+            We can fill in {suggestions.length === 1 ? "an answer" : `${suggestions.length} answers`}{" "}
+            for you
+          </h2>
+          <dl className="review-list">
+            {suggestions.map((s) => {
+              const question = allQuestions(questionnaire).find((q) => q.key === s.key);
+              return (
+                <div key={s.key}>
+                  <dt>{s.label}</dt>
+                  <dd>
+                    {question ? displayAnswer(question, s.value) : String(s.value)}{" "}
+                    <span className="muted">
+                      · {s.source}
+                      {s.is_mock ? " (test data, not real)" : ""}
+                    </span>
+                  </dd>
+                </div>
+              );
+            })}
+          </dl>
+          <div className="button-row tight">
+            <button type="button" className="button" disabled={busy} onClick={applySuggestions}>
+              Use these answers
+            </button>
+            <button
+              type="button"
+              className="button button-secondary"
+              disabled={busy}
+              onClick={() => setSuggestions([])}
+            >
+              No thanks
+            </button>
+          </div>
+        </section>
+      ) : null}
 
       {notice ? (
         <p className="form-notice" role="status">

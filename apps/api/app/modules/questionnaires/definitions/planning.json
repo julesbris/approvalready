@@ -8,6 +8,28 @@
       "title": "The site",
       "questions": [
         {"key": "property.address", "type": "ADDRESS", "label": "Site address", "required": true},
+        {
+          "key": "property.lga", "type": "SELECT", "label": "Which council area is the site in?",
+          "help_text": "Shown on your rates notice. Leave this blank if you are not sure.",
+          "options": [
+            {"value": "cairns", "label": "Cairns Regional Council"},
+            {"value": "other", "label": "Another council"}
+          ]
+        },
+        {
+          "key": "property.zone", "type": "SELECT", "label": "Which zone is the site in under CairnsPlan 2016?",
+          "help_text": "Council's online planning scheme mapping shows the zone. Leave this blank if you are not sure.",
+          "visible_when": {"fact": "property.lga", "op": "equals", "value": "cairns"},
+          "options": [
+            {"value": "low_density_residential", "label": "Low density residential"},
+            {"value": "low_medium_density_residential", "label": "Low-medium density residential"},
+            {"value": "medium_density_residential", "label": "Medium density residential"},
+            {"value": "rural_residential", "label": "Rural residential"},
+            {"value": "rural", "label": "Rural"},
+            {"value": "tourist_accommodation", "label": "Tourist accommodation"},
+            {"value": "another_zone", "label": "Another zone"}
+          ]
+        },
         {"key": "property.lot_plan", "type": "TEXT", "label": "Lot and plan (if known)", "help_text": "Shown on your rates notice or title search, for example Lot 12 on RP123456.", "validation": {"max_length": 50}},
         {"key": "property.land_area_m2", "type": "DECIMAL", "label": "Land area (square metres, if known)", "validation": {"min": "1", "max": "100000000", "max_decimal_places": 2}},
         {"key": "property.has_existing_dwelling", "type": "BOOLEAN", "label": "Is there an existing house on the land?", "required": true}
@@ -31,6 +53,8 @@
         {"key": "planning.secondary_dwelling_floor_area_m2", "type": "DECIMAL", "label": "Approximate floor area of the secondary dwelling (square metres)", "validation": {"min": "1", "max": "1000", "max_decimal_places": 1}, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "secondary_dwelling"}},
         {"key": "planning.storeys", "type": "NUMBER", "label": "How many storeys will the building have?", "required": true, "validation": {"min": "1", "max": "20"}, "visible_when": {"fact": "planning.development_type", "op": "in", "value": ["new_dwelling", "extension", "secondary_dwelling"]}},
         {"key": "planning.proposed_lots", "type": "NUMBER", "label": "How many lots would there be in total after subdividing?", "required": true, "validation": {"min": "2", "max": "500"}, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "subdivision"}},
+        {"key": "planning.smallest_lot_m2", "type": "DECIMAL", "label": "Area of the smallest new lot (square metres, if known)", "validation": {"min": "1", "max": "100000000", "max_decimal_places": 2}, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "subdivision"}},
+        {"key": "planning.smallest_lot_frontage_m", "type": "DECIMAL", "label": "Narrowest street frontage of any new lot (metres, if known)", "validation": {"min": "0", "max": "10000", "max_decimal_places": 2}, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "subdivision"}},
         {"key": "planning.current_use", "type": "TEXT", "label": "How is the building used now?", "required": true, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "change_of_use"}},
         {"key": "planning.proposed_use", "type": "TEXT", "label": "How do you want to use it?", "required": true, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "change_of_use"}},
         {"key": "planning.other_description", "type": "TEXTAREA", "label": "Describe what you are planning", "required": true, "validation": {"max_length": 2000}, "visible_when": {"fact": "planning.development_type", "op": "equals", "value": "other"}}

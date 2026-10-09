@@ -61,11 +61,17 @@ tests and updated docs before the next starts.
 - [ ] Moved to Milestone 11 (with reminder delivery): scheduled review reminders for references nearing `next_review_due` (overdue ones already show in the review queue and lower confidence)
 - [ ] Moved to backlog: questionnaire authoring in the admin UI
 
-## Milestone 5 — PlanningReady proof of concept
-- [ ] One LGA (Cairns, QLD) × categories (secondary dwelling, subdivision first) with real sourced rules
-- [ ] Property facts provider interface (mock; no fabricated council/state APIs)
-- [ ] Findings, requirements, referral categories, sources and limitations views
-- [ ] SEO: first sourced guide pages
+## Milestone 5 — PlanningReady proof of concept ✅
+- [~] One LGA (Cairns, QLD) × categories (secondary dwelling, subdivision first) with real sourced rules: content pack `planning_qld_cairns` (3 rule sets, 9 rules, 9 references) built from council's CairnsPlan 2016 fact sheets (October 2021) and the Planning Regulation 2017 (2022 secondary dwelling change). Every reference is an **unverified summary**: staff must capture each source, replace the extract with the exact wording and verify it. The planning scheme's tables of assessment (Part 5) and codes are not encoded yet
+- [x] Outcome payloads (approval, evidence, referral categories, task) and rule set limitations
+- [x] `approval_requirement` / `evidence_requirement` tables and tasks created from findings (moved from Milestone 4)
+- [x] Property facts provider interface: `none` (default, production) and a development-only mock; no fabricated council/state APIs
+- [x] Entity UI: property picker on planning/sell/rent projects; questionnaire prefill from the linked property and the provider (moved from Milestone 3)
+- [x] Findings, requirements, referral categories ("who can help"), sources and limitations views
+- [x] SEO: first sourced guide pages (`/guides`, Cairns secondary dwellings and subdivision)
+- [ ] Next for Cairns: verify the pack's references against snapshots; encode Part 5 tables of assessment and Part 9 lot sizes from the current CairnsPlan 2016 text; add flooding/bushfire overlays
+- [ ] Moved to backlog: vessel and business pickers (their verticals start in Milestones 8 and 9); `sitemap.xml` once the public site URL is configuration
+- [ ] Moved to backlog: a real property facts provider (council or state planning mapping), only with a licensed, documented data source
 
 ## Milestone 6 — Documents
 - [ ] Object storage abstraction (local/S3), signed URLs

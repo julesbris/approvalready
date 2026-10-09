@@ -4,6 +4,7 @@
     python -m app.cli verify-audit
     python -m app.cli provision-db-role       # after migrations, as the owner
     python -m app.cli questionnaires sync     # publish changed bundled definitions
+    python -m app.cli rules load-pack planning_qld_cairns --email staff@example.com [--publish]
 
 Platform roles can only be granted in the PLATFORM_ADMIN organisation, which is created on
 first use. There is deliberately no HTTP endpoint that bootstraps the first super admin.
@@ -28,6 +29,8 @@ from app.modules.audit.service import RequestMeta
 from app.modules.identity.service import get_user_by_email
 from app.modules.questionnaires import service as questionnaires
 from app.modules.questionnaires.definition import load_bundled
+from app.modules.regulatory.service import Actor
+from app.modules.rules import packs
 from app.modules.tenancy import service as tenancy
 from app.modules.tenancy.models import (
     MemberRole,
@@ -35,7 +38,7 @@ from app.modules.tenancy.models import (
     OrganisationKind,
     OrganisationMember,
 )
-from app.modules.tenancy.rbac import RoleKey
+from app.modules.tenancy.rbac import Perm, RoleKey
 
 PLATFORM_ORG_NAME = "ApprovalReady"
 CLI_META = RequestMeta(ip=None, user_agent="app.cli")
@@ -196,6 +199,49 @@ async def sync_questionnaires(settings: Settings) -> int:
     return 0
 
 
+async def load_pack(
+    name: str, email: str, *, publish: bool, settings: Settings | None = None
+) -> int:
+    """Create a content pack's sources and rules as the given platform staff member (so the
+    audit log names them). Existing items are left alone; see ``app/modules/rules/packs.py``."""
+    try:
+        pack = packs.load_file(name)
+    except FileNotFoundError as exc:
+        print(str(exc), file=sys.stderr)
+        return 1
+    needed = {Perm.SOURCE_MANAGE, Perm.RULE_AUTHOR} | ({Perm.RULE_PUBLISH} if publish else set())
+    resources = create_resources(settings or get_settings())
+    try:
+        async with resources.session_factory() as db:
+            user = await get_user_by_email(db, email)
+            org = (
+                await db.execute(
+                    select(Organisation).where(
+                        Organisation.kind == OrganisationKind.PLATFORM_ADMIN,
+                        Organisation.deleted_at.is_(None),
+                    )
+                )
+            ).scalar_one_or_none()
+            found = await tenancy.membership(db, user.id, org.id) if user and org else None
+            if user is None or org is None or found is None:
+                print(f"{email} is not a member of the platform organisation", file=sys.stderr)
+                return 1
+            missing = sorted(needed - set(found.permissions))
+            if missing:
+                print(f"{email} lacks permissions: {', '.join(missing)}", file=sys.stderr)
+                return 1
+            report = await packs.load(db, pack, Actor(user.id, org.id, CLI_META), publish=publish)
+            await db.commit()
+    finally:
+        await resources.close()
+    print(f"{pack.title}\n")
+    for line in report.lines():
+        print(line)
+    if not publish:
+        print("\nRules were created as drafts. Publish them in /admin/rules after review.")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="python -m app.cli")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -208,6 +254,12 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("provision-db-role", help="Create/update the application's database role")
     q = sub.add_parser("questionnaires", help="Questionnaire definitions")
     q.add_argument("action", choices=["sync"])
+    r = sub.add_parser("rules", help="Rule content packs")
+    r_sub = r.add_subparsers(dest="rules_command", required=True)
+    lp = r_sub.add_parser("load-pack", help="Create a pack's sources and rules (as drafts)")
+    lp.add_argument("name", help=f"One of: {', '.join(packs.available())}")
+    lp.add_argument("--email", required=True, help="Platform staff member doing the load")
+    lp.add_argument("--publish", action="store_true", help="Publish rules that pass the gate")
     args = parser.parse_args(argv)
     if args.command == "grant-platform-role":
         return asyncio.run(grant_platform_role(args.email, RoleKey(args.role)))
@@ -215,6 +267,8 @@ def main(argv: list[str] | None = None) -> int:
         return asyncio.run(provision_db_role(get_settings()))
     if args.command == "questionnaires":
         return asyncio.run(sync_questionnaires(get_settings()))
+    if args.command == "rules":
+        return asyncio.run(load_pack(args.name, args.email, publish=args.publish))
     return asyncio.run(verify_audit())
 
 

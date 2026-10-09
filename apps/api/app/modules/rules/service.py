@@ -51,6 +51,7 @@ from app.modules.rules.models import (
     RuleVersionStatus,
     SourceRelationship,
 )
+from app.modules.rules.payload import validate_payload
 
 S = RuleVersionStatus
 
@@ -358,6 +359,7 @@ async def new_version(db: AsyncSession, rule: Rule, actor: Actor) -> RuleVersion
                 outcome_type=o.outcome_type,
                 title=o.title,
                 detail=o.detail,
+                payload=o.payload,
             )
         )
     for link, _ in latest.sources:
@@ -412,6 +414,16 @@ async def save_draft(
     results = [o["on_result"] for o in content["outcomes"]]
     if len(results) != len(set(results)):
         raise _invalid("duplicate_outcome", "Give each result at most one outcome.")
+    payload_errors: dict[str, str] = {}
+    for i, o in enumerate(content["outcomes"]):
+        try:
+            o["payload"] = validate_payload(o["outcome_type"], o.get("payload"))
+        except ValueError as exc:
+            payload_errors[f"outcomes.{i}.payload"] = str(exc)
+    if payload_errors:
+        raise _invalid(
+            "invalid_payload", "Some outcome details need attention.", fields=payload_errors
+        )
     ref_ids = [s["source_reference_id"] for s in content["sources"]]
     if len(ref_ids) != len(set(ref_ids)):
         raise _invalid("duplicate_source", "Cite each source reference once.")
@@ -507,7 +519,7 @@ def _spec(view: VersionView, sources: tuple[engine.SourceState, ...]) -> engine.
         rule_title=view.rule.title,
         condition=parse_condition(v.condition),
         outcomes={
-            o.on_result: engine.OutcomeSpec(o.outcome_type, o.title, o.detail)
+            o.on_result: engine.OutcomeSpec(o.outcome_type, o.title, o.detail, o.payload)
             for o in view.outcomes
         },
         sources=sources,
@@ -625,8 +637,12 @@ def content_hash(view: VersionView) -> bytes:
             "effective_from": v.effective_from.isoformat() if v.effective_from else None,
             "effective_to": v.effective_to.isoformat() if v.effective_to else None,
             "max_confidence": v.max_confidence,
+            # A payload is only hashed when present, so versions published before payloads
+            # existed keep the hash they were published with.
             "outcomes": sorted(
-                [o.on_result, o.outcome_type, o.title, o.detail] for o in view.outcomes
+                [o.on_result, o.outcome_type, o.title, o.detail]
+                + ([o.payload] if o.payload is not None else [])
+                for o in view.outcomes
             ),
             "sources": sorted(
                 [str(link.source_reference_id), link.relationship] for link, _ in view.sources
@@ -729,6 +745,7 @@ async def published_rule_sets(db: AsyncSession, vertical: str) -> list[engine.Ru
             applies_when=parse_condition(rs.applies_when) if rs.applies_when else None,
             applies_when_json=rs.applies_when,
             rules=tuple(specs),
+            limitations=tuple(rs.limitations),
         )
         for rs, specs in by_set.values()
     ]

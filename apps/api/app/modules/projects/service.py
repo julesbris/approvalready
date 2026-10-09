@@ -28,6 +28,7 @@ from app.modules.projects.models import (
     Reminder,
     ReminderStatus,
     Task,
+    TaskSource,
     TaskStatus,
     Vertical,
 )
@@ -389,6 +390,47 @@ async def create_task(
     db.add(task)
     await db.flush()
     return task
+
+
+async def add_rule_tasks(
+    db: AsyncSession,
+    project: Project,
+    suggestions: list[tuple[uuid.UUID, str, str | None]],
+    *,
+    actor_id: uuid.UUID,
+) -> list[Task]:
+    """Tasks suggested by assessment findings, as ``(finding_id, title, notes)``. A title
+    that already has an open task on the project is skipped, so re-running an assessment
+    doesn't pile up duplicates; tasks from earlier runs are left as the customer left them."""
+    open_titles = set(
+        (
+            await db.execute(
+                select(Task.title).where(
+                    Task.project_id == project.id,
+                    Task.status == TaskStatus.OPEN,
+                    Task.deleted_at.is_(None),
+                )
+            )
+        ).scalars()
+    )
+    created = []
+    for finding_id, title, notes in suggestions:
+        if title in open_titles:
+            continue
+        open_titles.add(title)
+        task = Task(
+            organisation_id=project.organisation_id,
+            project_id=project.id,
+            title=title,
+            notes=notes,
+            source=TaskSource.RULE,
+            finding_id=finding_id,
+            created_by=actor_id,
+        )
+        db.add(task)
+        created.append(task)
+    await db.flush()
+    return created
 
 
 async def update_task(db: AsyncSession, task: Task, changes: dict[str, Any]) -> Task:

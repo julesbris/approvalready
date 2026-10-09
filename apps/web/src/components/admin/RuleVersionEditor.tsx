@@ -15,7 +15,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 
-import { CONDITION_HELP, parseJson, prettyJson } from "@/components/admin/json";
+import { CONDITION_HELP, PAYLOAD_HELP, parseJson, prettyJson } from "@/components/admin/json";
 import { useAction } from "@/components/admin/useAction";
 import { FormError, FormNotice } from "@/components/auth/FormStatus";
 import {
@@ -46,19 +46,20 @@ const STATUS_LABELS: Record<string, string> = {
   RETIRED: "Retired",
 };
 
-type OutcomeRow = { outcome_type: string; title: string; detail: string };
+type OutcomeRow = { outcome_type: string; title: string; detail: string; payload: string };
 type SourceRow = { source_reference_id: string; relationship: Relationship };
 type TestRow = { name: string; expected_result: Result; facts: string };
 
 function outcomeRows(version: RuleVersionOut): Record<Result, OutcomeRow> {
   const rows = Object.fromEntries(
-    RESULTS.map((r) => [r, { outcome_type: "", title: "", detail: "" }]),
+    RESULTS.map((r) => [r, { outcome_type: "", title: "", detail: "", payload: "" }]),
   ) as Record<Result, OutcomeRow>;
   for (const o of version.outcomes) {
     rows[o.on_result as Result] = {
       outcome_type: o.outcome_type,
       title: o.title,
       detail: o.detail ?? "",
+      payload: prettyJson(o.payload),
     };
   }
   return rows;
@@ -129,18 +130,27 @@ export function RuleVersionEditor({
         facts: facts.value as Record<string, unknown>,
       });
     }
+    const outcomeList: RuleVersionContent["outcomes"] = [];
+    for (const r of RESULTS.filter((result) => outcomes[result].outcome_type)) {
+      const payload = parseJson(outcomes[r].payload, `details for "${RESULT_LABELS[r]}"`, {
+        optional: true,
+      });
+      if (!payload.ok) return payload.message;
+      outcomeList.push({
+        on_result: r,
+        outcome_type: outcomes[r].outcome_type as OutcomeType,
+        title: outcomes[r].title,
+        detail: outcomes[r].detail || null,
+        payload: payload.value as Record<string, unknown> | null,
+      });
+    }
     return {
       condition: parsedCondition.value as Record<string, unknown>,
       effective_from: effectiveFrom || null,
       effective_to: effectiveTo || null,
       max_confidence: maxConfidence,
       notes: notes.trim() || null,
-      outcomes: RESULTS.filter((r) => outcomes[r].outcome_type).map((r) => ({
-        on_result: r,
-        outcome_type: outcomes[r].outcome_type as OutcomeType,
-        title: outcomes[r].title,
-        detail: outcomes[r].detail || null,
-      })),
+      outcomes: outcomeList,
       sources,
       test_cases: testCases,
     };
@@ -411,6 +421,21 @@ export function RuleVersionEditor({
                       })
                     }
                   />
+                </label>
+                <label>
+                  Details for requirements and tasks (optional JSON)
+                  <textarea
+                    rows={3}
+                    className="code-input"
+                    value={outcomes[r].payload}
+                    onChange={(e) =>
+                      setOutcomes({
+                        ...outcomes,
+                        [r]: { ...outcomes[r], payload: e.target.value },
+                      })
+                    }
+                  />
+                  <span className="hint">{PAYLOAD_HELP}</span>
                 </label>
               </fieldset>
             ))}
