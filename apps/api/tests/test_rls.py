@@ -73,6 +73,8 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "rule_fact_dependency": CRUD,
     "assessment": APPEND,
     "assessment_finding": APPEND,
+    "approval_requirement": APPEND,
+    "evidence_requirement": APPEND,
 }
 
 TENANT_TABLES = sorted(

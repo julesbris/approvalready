@@ -1109,6 +1109,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/submissions/{submission_id}/prefill": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Prefill Suggestions
+         * @description Answers we can offer from the project's property and the property facts provider.
+         *     Nothing is saved: the customer saves the ones they want through ``/answers``.
+         */
+        get: operations["prefill_suggestions_v1_organisations__organisation_id__submissions__submission_id__prefill_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/submissions/{submission_id}/reopen": {
         parameters: {
             query?: never;
@@ -1284,8 +1305,33 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /** ApprovalRequirementOut */
+        ApprovalRequirementOut: {
+            /** Authority */
+            authority: string | null;
+            certainty: components["schemas"]["Certainty"];
+            confidence: components["schemas"]["Confidence"];
+            /**
+             * Finding Id
+             * Format: uuid
+             */
+            finding_id: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Kind */
+            kind: string;
+            /** Pathway */
+            pathway: string | null;
+            /** Title */
+            title: string;
+        };
         /** AssessmentOut */
         AssessmentOut: {
+            /** Approval Requirements */
+            approval_requirements: components["schemas"]["ApprovalRequirementOut"][];
             /**
              * Assessed On
              * Format: date
@@ -1298,6 +1344,8 @@ export interface components {
             created_at: string;
             /** Engine Version */
             engine_version: string;
+            /** Evidence Requirements */
+            evidence_requirements: components["schemas"]["EvidenceRequirementOut"][];
             /**
              * Fact Labels
              * @description Question labels for the facts that appear in this assessment.
@@ -1323,12 +1371,22 @@ export interface components {
              * Format: uuid
              */
             id: string;
+            /**
+             * Limitations
+             * @description What the applicable rule sets do not check, without repeats.
+             */
+            limitations: string[];
             overall_confidence: components["schemas"]["Confidence"];
             /**
              * Project Id
              * Format: uuid
              */
             project_id: string;
+            /**
+             * Referral Categories
+             * @description Who can help, from every finding that names a kind of professional.
+             */
+            referral_categories: components["schemas"]["ReferralCategoryOut"][];
             /** Rule Sets */
             rule_sets: components["schemas"]["RuleSetScopeOut"][];
             status: components["schemas"]["AssessmentStatus"];
@@ -1498,6 +1556,13 @@ export interface components {
             turnover_band?: components["schemas"]["TurnoverBand"] | null;
         };
         /**
+         * Certainty
+         * @description How sure we are that an approval applies, strongest first (BusinessReady's approval
+         *     map uses the same scale).
+         * @enum {string}
+         */
+        Certainty: "REQUIRED" | "LIKELY_REQUIRED" | "MAY_APPLY" | "NOT_IDENTIFIED";
+        /**
          * Confidence
          * @description How far a finding can be relied on, highest first (see ``rules/engine.py``).
          * @enum {string}
@@ -1557,6 +1622,26 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /** EvidenceRequirementOut */
+        EvidenceRequirementOut: {
+            confidence: components["schemas"]["Confidence"];
+            /** Detail */
+            detail: string | null;
+            /**
+             * Finding Id
+             * Format: uuid
+             */
+            finding_id: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Kind */
+            kind: string;
+            /** Title */
+            title: string;
+        };
         /** FindingOut */
         FindingOut: {
             confidence: components["schemas"]["Confidence"];
@@ -1572,6 +1657,11 @@ export interface components {
             /** Missing Facts */
             missing_facts: string[];
             outcome_type: components["schemas"]["OutcomeType"] | null;
+            /**
+             * Referral Categories
+             * @description Kinds of professional who can help.
+             */
+            referral_categories: string[];
             result: components["schemas"]["RuleResult"];
             /** Rule Key */
             rule_key: string;
@@ -1788,6 +1878,13 @@ export interface components {
             detail?: string | null;
             on_result: components["schemas"]["RuleResult"];
             outcome_type: components["schemas"]["OutcomeType"];
+            /**
+             * Payload
+             * @description Structured consequences: approval, evidence, referral_categories, task.
+             */
+            payload?: {
+                [key: string]: unknown;
+            } | null;
             /** Title */
             title: string;
         };
@@ -1797,6 +1894,10 @@ export interface components {
             detail: string | null;
             on_result: components["schemas"]["RuleResult"];
             outcome_type: components["schemas"]["OutcomeType"];
+            /** Payload */
+            payload?: {
+                [key: string]: unknown;
+            } | null;
             /** Title */
             title: string;
         };
@@ -1823,6 +1924,40 @@ export interface components {
             password: string;
             /** Token */
             token: string;
+        };
+        /** PrefillOut */
+        PrefillOut: {
+            /**
+             * Provider
+             * @description Property facts provider in use ('none' means no lookups).
+             */
+            provider: string;
+            /** Suggestions */
+            suggestions: components["schemas"]["PrefillSuggestion"][];
+        };
+        /** PrefillSuggestion */
+        PrefillSuggestion: {
+            /**
+             * Is Mock
+             * @description Made-up data from the development mock provider.
+             */
+            is_mock: boolean;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /**
+             * Source
+             * @description Where the value comes from.
+             */
+            source: string;
+            /** Source Url */
+            source_url: string | null;
+            /**
+             * Value
+             * @description A valid answer for the question, ready to save.
+             */
+            value: unknown;
         };
         /** Progress */
         Progress: {
@@ -2109,6 +2244,13 @@ export interface components {
          * @enum {string}
          */
         Recurrence: "WEEKLY" | "MONTHLY" | "YEARLY";
+        /** ReferralCategoryOut */
+        ReferralCategoryOut: {
+            /** Finding Ids */
+            finding_ids: string[];
+            /** Key */
+            key: string;
+        };
         /** RegisterRequest */
         RegisterRequest: {
             /** Display Name */
@@ -2267,6 +2409,11 @@ export interface components {
             jurisdiction: string;
             /** Key */
             key: string;
+            /**
+             * Limitations
+             * @description What this rule set does not check, shown with every assessment.
+             */
+            limitations?: string[];
             /** Title */
             title: string;
             vertical: components["schemas"]["Vertical"];
@@ -2293,6 +2440,8 @@ export interface components {
             jurisdiction: string;
             /** Key */
             key: string;
+            /** Limitations */
+            limitations: string[];
             /** Rules */
             rules: components["schemas"]["RuleSummary"][];
             /** Title */
@@ -2308,6 +2457,11 @@ export interface components {
         RuleSetScopeOut: {
             /** Key */
             key: string;
+            /**
+             * Limitations
+             * @description What the rule set does not check.
+             */
+            limitations?: string[];
             /** Missing Facts */
             missing_facts: string[];
             /**
@@ -2338,6 +2492,8 @@ export interface components {
             description?: string | null;
             /** Jurisdiction */
             jurisdiction?: string | null;
+            /** Limitations */
+            limitations?: string[] | null;
             /** Title */
             title?: string | null;
         };
@@ -3000,6 +3156,11 @@ export interface components {
             created_at: string;
             /** Due On */
             due_on: string | null;
+            /**
+             * Finding Id
+             * @description The assessment finding that suggested this task (source RULE).
+             */
+            finding_id: string | null;
             /**
              * Id
              * Format: uuid
@@ -5998,6 +6159,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    prefill_suggestions_v1_organisations__organisation_id__submissions__submission_id__prefill_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                submission_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrefillOut"];
                 };
             };
             /** @description Validation Error */

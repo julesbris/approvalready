@@ -105,6 +105,9 @@ class TaskOut(BaseModel):
     notes: str | None
     status: TaskStatus
     source: str
+    finding_id: uuid.UUID | None = Field(
+        description="The assessment finding that suggested this task (source RULE)."
+    )
     due_on: date | None
     assignee_user_id: uuid.UUID | None
     completed_at: datetime | None

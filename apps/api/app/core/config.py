@@ -30,6 +30,11 @@ class EmailProviderKind(StrEnum):
     MEMORY = "memory"  # tests
 
 
+class PropertyFactsProviderKind(StrEnum):
+    NONE = "none"  # no lookups: every property fact comes from the customer
+    MOCK = "mock"  # canned facts for made-up test addresses (development and tests only)
+
+
 def _split_csv(value: object) -> object:
     if isinstance(value, str):
         return [item.strip() for item in value.split(",") if item.strip()]
@@ -117,6 +122,11 @@ class Settings(BaseSettings):
     smtp_password: SecretStr | None = None
     smtp_starttls: bool = False
 
+    # --- Property facts (Milestone 5) ---
+    # No real council or state data source is integrated yet; see
+    # app/modules/property_facts. "mock" is refused in production.
+    property_facts_provider: PropertyFactsProviderKind = PropertyFactsProviderKind.NONE
+
     @field_validator("cors_origins", "allowed_hosts", "internal_hosts", mode="before")
     @classmethod
     def _parse_csv(cls, value: object) -> object:
@@ -183,6 +193,8 @@ class Settings(BaseSettings):
             )
         if self.email_provider == EmailProviderKind.MEMORY:
             problems.append("EMAIL_PROVIDER=memory is for tests only")
+        if self.property_facts_provider == PropertyFactsProviderKind.MOCK:
+            problems.append("PROPERTY_FACTS_PROVIDER=mock returns made-up data and is not allowed")
         if problems:
             raise ValueError("Unsafe production configuration: " + "; ".join(problems))
         return self

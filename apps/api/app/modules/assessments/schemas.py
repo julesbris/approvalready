@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 
 from app.modules.assessments.models import AssessmentStatus
 from app.modules.rules.models import Confidence, OutcomeType, RuleResult
+from app.modules.rules.payload import Certainty
 
 
 class AssessmentSummary(BaseModel):
@@ -28,6 +29,9 @@ class RuleSetScopeOut(BaseModel):
     scope: str = Field(description="IN_SCOPE, OUT_OF_SCOPE or NEEDS_INFORMATION.")
     missing_facts: list[str]
     not_in_force: list[str] = Field(description="Rules with no version in force that day.")
+    limitations: list[str] = Field(
+        default_factory=list, description="What the rule set does not check."
+    )
 
 
 class FindingSourceOut(BaseModel):
@@ -59,6 +63,32 @@ class FindingOut(BaseModel):
     missing_facts: list[str]
     trace: dict[str, Any] = Field(description="Leaf-by-leaf evaluation of the rule.")
     sources: list[FindingSourceOut]
+    referral_categories: list[str] = Field(description="Kinds of professional who can help.")
+
+
+class ApprovalRequirementOut(BaseModel):
+    id: uuid.UUID
+    finding_id: uuid.UUID
+    kind: str
+    title: str
+    authority: str | None
+    pathway: str | None
+    certainty: Certainty
+    confidence: Confidence
+
+
+class EvidenceRequirementOut(BaseModel):
+    id: uuid.UUID
+    finding_id: uuid.UUID
+    kind: str
+    title: str
+    detail: str | None
+    confidence: Confidence
+
+
+class ReferralCategoryOut(BaseModel):
+    key: str
+    finding_ids: list[uuid.UUID]
 
 
 class AssessmentOut(AssessmentSummary):
@@ -70,3 +100,11 @@ class AssessmentOut(AssessmentSummary):
     )
     rule_sets: list[RuleSetScopeOut]
     finding_list: list[FindingOut]
+    approval_requirements: list[ApprovalRequirementOut]
+    evidence_requirements: list[EvidenceRequirementOut]
+    referral_categories: list[ReferralCategoryOut] = Field(
+        description="Who can help, from every finding that names a kind of professional."
+    )
+    limitations: list[str] = Field(
+        description="What the applicable rule sets do not check, without repeats."
+    )

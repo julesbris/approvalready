@@ -9,7 +9,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, Query, status
 from sqlalchemy import select
 
-from app.api.deps import DbDep, MetaDep, OrgContext, require_org_permission
+from app.api.deps import DbDep, MetaDep, OrgContext, SettingsDep, require_org_permission
 from app.modules.assessments import service as assessments
 from app.modules.assessments.router import summary_out
 from app.modules.projects import service
@@ -28,6 +28,8 @@ from app.modules.projects.schemas import (
     TaskOut,
     TaskUpdate,
 )
+from app.modules.property_facts import service as property_facts
+from app.modules.property_facts.provider import get_provider
 from app.modules.questionnaires import service as questionnaires
 from app.modules.questionnaires.models import (
     Questionnaire,
@@ -36,6 +38,8 @@ from app.modules.questionnaires.models import (
 )
 from app.modules.questionnaires.schemas import (
     AnswersUpdate,
+    PrefillOut,
+    PrefillSuggestion,
     Progress,
     SubmissionOut,
     SubmissionStart,
@@ -302,6 +306,34 @@ async def start_submission(
 async def get_submission(submission_id: uuid.UUID, ctx: Read, db: DbDep) -> SubmissionOut:
     submission = await questionnaires.get_submission(db, ctx.organisation.id, submission_id)
     return _submission_out(await questionnaires.view(db, submission))
+
+
+@router.get("/submissions/{submission_id}/prefill", response_model=PrefillOut)
+async def prefill_suggestions(
+    submission_id: uuid.UUID, ctx: Read, db: DbDep, settings: SettingsDep
+) -> PrefillOut:
+    """Answers we can offer from the project's property and the property facts provider.
+    Nothing is saved: the customer saves the ones they want through ``/answers``."""
+    submission = await questionnaires.get_submission(db, ctx.organisation.id, submission_id)
+    project = await service.get_project(db, ctx.organisation.id, submission.project_id)
+    provider = get_provider(settings)
+    found = await property_facts.suggestions(
+        db, project, await questionnaires.view(db, submission), provider
+    )
+    return PrefillOut(
+        provider=provider.name,
+        suggestions=[
+            PrefillSuggestion(
+                key=s.key,
+                label=s.label,
+                value=s.value,
+                source=s.source,
+                source_url=s.source_url,
+                is_mock=s.is_mock,
+            )
+            for s in found
+        ],
+    )
 
 
 @router.put("/submissions/{submission_id}/answers", response_model=SubmissionOut)

@@ -11,14 +11,18 @@ from app.api.deps import DbDep, MetaDep, OrgContext, require_org_permission
 from app.modules.assessments import service
 from app.modules.assessments.models import Assessment, AssessmentFinding
 from app.modules.assessments.schemas import (
+    ApprovalRequirementOut,
     AssessmentOut,
     AssessmentSummary,
+    EvidenceRequirementOut,
     FindingOut,
     FindingSourceOut,
+    ReferralCategoryOut,
     RuleSetScopeOut,
 )
 from app.modules.projects import service as projects
 from app.modules.projects.models import Project
+from app.modules.rules.payload import parse_payload
 from app.modules.tenancy.rbac import Perm
 
 router = APIRouter(prefix="/v1/organisations/{organisation_id}", tags=["assessments"])
@@ -40,9 +44,27 @@ def summary_out(a: Assessment, findings: int) -> AssessmentSummary:
     )
 
 
+def _referral_categories(findings: list[AssessmentFinding]) -> list[ReferralCategoryOut]:
+    by_key: dict[str, list[uuid.UUID]] = {}
+    for f in findings:
+        for key in parse_payload(f.payload).referral_categories:
+            by_key.setdefault(key, []).append(f.id)
+    return [ReferralCategoryOut(key=k, finding_ids=ids) for k, ids in by_key.items()]
+
+
+def _limitations(a: Assessment) -> list[str]:
+    seen: dict[str, None] = {}
+    for rs in a.rule_sets:
+        if rs.get("scope") != "OUT_OF_SCOPE":
+            for text in rs.get("limitations", []):
+                seen.setdefault(text, None)
+    return list(seen)
+
+
 async def _detail(
     db: DbDep, a: Assessment, project: Project, findings: list[AssessmentFinding]
 ) -> AssessmentOut:
+    approvals, evidence = await service.requirements(db, a)
     return AssessmentOut(
         **summary_out(a, len(findings)).model_dump(),
         engine_version=a.engine_version,
@@ -66,9 +88,18 @@ async def _detail(
                 missing_facts=f.missing_facts,
                 trace=f.trace,
                 sources=[FindingSourceOut.model_validate(s) for s in f.sources],
+                referral_categories=parse_payload(f.payload).referral_categories,
             )
             for f in findings
         ],
+        approval_requirements=[
+            ApprovalRequirementOut.model_validate(r, from_attributes=True) for r in approvals
+        ],
+        evidence_requirements=[
+            EvidenceRequirementOut.model_validate(r, from_attributes=True) for r in evidence
+        ],
+        referral_categories=_referral_categories(findings),
+        limitations=_limitations(a),
     )
 
 

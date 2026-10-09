@@ -33,6 +33,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base, TenantMixin, UUIDPrimaryKeyMixin, enum_check, tenant_fk
 from app.modules.rules.models import Confidence, OutcomeType, RuleResult
+from app.modules.rules.payload import CODE_PATTERN, Certainty
 
 
 class AssessmentStatus(StrEnum):
@@ -75,6 +76,7 @@ class Assessment(UUIDPrimaryKeyMixin, TenantMixin, Base):
 class AssessmentFinding(UUIDPrimaryKeyMixin, TenantMixin, Base):
     __tablename__ = "assessment_finding"
     __table_args__ = (
+        UniqueConstraint("organisation_id", "id"),
         UniqueConstraint("assessment_id", "rule_version_id"),
         tenant_fk("assessment_id", "assessment", ondelete="CASCADE"),
         enum_check("result", RuleResult),
@@ -98,9 +100,65 @@ class AssessmentFinding(UUIDPrimaryKeyMixin, TenantMixin, Base):
     outcome_type: Mapped[str | None] = mapped_column(Text)
     title: Mapped[str | None] = mapped_column(String(200))
     detail: Mapped[str | None] = mapped_column(String(2000))
+    # The outcome's structured consequences (rules/payload.py), copied like the title.
+    payload: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
     confidence: Mapped[str] = mapped_column(Text, nullable=False)
     confidence_reasons: Mapped[list[str]] = mapped_column(JSONB, nullable=False)
     trace: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
     missing_facts: Mapped[list[str]] = mapped_column(ARRAY(Text), nullable=False)
     # Each cited source reference as it stood on the assessment date.
     sources: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)
+
+
+class ApprovalRequirement(UUIDPrimaryKeyMixin, TenantMixin, Base):
+    """An approval a finding says is required, likely required or may apply. Derived from
+    the finding's outcome payload when the assessment runs; append-only like findings."""
+
+    __tablename__ = "approval_requirement"
+    __table_args__ = (
+        tenant_fk("assessment_id", "assessment", ondelete="CASCADE"),
+        tenant_fk("finding_id", "assessment_finding", ondelete="CASCADE"),
+        enum_check("certainty", Certainty),
+        enum_check("confidence", Confidence),
+        CheckConstraint(f"kind ~ '{CODE_PATTERN}'", name="kind_format"),
+        UniqueConstraint("finding_id"),
+        Index("ix_approval_requirement_assessment_id", "assessment_id"),
+    )
+
+    assessment_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    finding_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    ordinal: Mapped[int] = mapped_column(Integer, nullable=False)
+    kind: Mapped[str] = mapped_column(String(60), nullable=False)
+    title: Mapped[str] = mapped_column(String(200), nullable=False)
+    authority: Mapped[str | None] = mapped_column(String(200))
+    pathway: Mapped[str | None] = mapped_column(String(200))
+    certainty: Mapped[str] = mapped_column(Text, nullable=False)
+    confidence: Mapped[str] = mapped_column(Text, nullable=False)  # the finding's
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
+class EvidenceRequirement(UUIDPrimaryKeyMixin, TenantMixin, Base):
+    """Something the customer will need to show (a plan, a report). Linking uploaded
+    evidence arrives with documents (Milestone 6)."""
+
+    __tablename__ = "evidence_requirement"
+    __table_args__ = (
+        tenant_fk("assessment_id", "assessment", ondelete="CASCADE"),
+        tenant_fk("finding_id", "assessment_finding", ondelete="CASCADE"),
+        enum_check("confidence", Confidence),
+        CheckConstraint(f"kind ~ '{CODE_PATTERN}'", name="kind_format"),
+        Index("ix_evidence_requirement_assessment_id", "assessment_id"),
+    )
+
+    assessment_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    finding_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    ordinal: Mapped[int] = mapped_column(Integer, nullable=False)
+    kind: Mapped[str] = mapped_column(String(60), nullable=False)
+    title: Mapped[str] = mapped_column(String(200), nullable=False)
+    detail: Mapped[str | None] = mapped_column(String(2000))
+    confidence: Mapped[str] = mapped_column(Text, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )

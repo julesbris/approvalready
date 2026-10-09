@@ -134,8 +134,10 @@ class Task(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, SoftDeleteMixin,
     __table_args__ = (
         UniqueConstraint("organisation_id", "id"),
         tenant_fk("project_id", "project", ondelete="CASCADE"),
+        tenant_fk("finding_id", "assessment_finding"),
         enum_check("status", TaskStatus),
         enum_check("source", TaskSource),
+        CheckConstraint("finding_id IS NULL OR source = 'RULE'", name="finding_only_for_rule"),
         CheckConstraint(
             "(status = 'DONE') = (completed_at IS NOT NULL)", name="completed_when_done"
         ),
@@ -151,6 +153,8 @@ class Task(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, SoftDeleteMixin,
     source: Mapped[str] = mapped_column(
         Text, nullable=False, default=TaskSource.USER, server_default=TaskSource.USER
     )
+    # The assessment finding that suggested this task (source RULE).
+    finding_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
     due_on: Mapped[date | None] = mapped_column(Date)
     assignee_user_id: Mapped[uuid.UUID | None] = mapped_column(
         UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="SET NULL")

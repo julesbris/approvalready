@@ -27,6 +27,9 @@ Jurisdiction = Annotated[
 MAX_OUTCOMES = 3
 MAX_SOURCES = 20
 MAX_TEST_CASES = 50
+MAX_LIMITATIONS = 20
+
+Limitation = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=500)]
 
 
 def _blank_to_none(value: object) -> object:
@@ -51,6 +54,11 @@ class RuleSetCreate(_In):
     applies_when: dict[str, Any] | None = Field(
         default=None, description="Condition AST; omit when the rule set applies everywhere."
     )
+    limitations: list[Limitation] = Field(
+        default_factory=list,
+        max_length=MAX_LIMITATIONS,
+        description="What this rule set does not check, shown with every assessment.",
+    )
 
     _blank = field_validator("description", mode="before")(_blank_to_none)
 
@@ -60,6 +68,7 @@ class RuleSetUpdate(_In):
     title: Title | None = None
     description: Notes | None = None
     applies_when: dict[str, Any] | None = None
+    limitations: list[Limitation] | None = Field(default=None, max_length=MAX_LIMITATIONS)
 
     _blank = field_validator("description", mode="before")(_blank_to_none)
 
@@ -82,6 +91,7 @@ class RuleSetOut(BaseModel):
     title: str
     description: str | None
     applies_when: dict[str, Any] | None
+    limitations: list[str]
     rules: list[RuleSummary]
     created_at: datetime
     updated_at: datetime
@@ -124,6 +134,10 @@ class OutcomeIn(_In):
     outcome_type: OutcomeType
     title: Title
     detail: Notes | None = None
+    payload: dict[str, Any] | None = Field(
+        default=None,
+        description="Structured consequences: approval, evidence, referral_categories, task.",
+    )
 
     _blank = field_validator("detail", mode="before")(_blank_to_none)
 
@@ -161,6 +175,7 @@ class OutcomeOut(BaseModel):
     outcome_type: OutcomeType
     title: str
     detail: str | None
+    payload: dict[str, Any] | None = None
 
 
 class RuleSourceOut(BaseModel):
