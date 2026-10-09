@@ -21,6 +21,8 @@ from app.modules.assessments.schemas import (
     ReferralCategoryOut,
     RuleSetScopeOut,
 )
+from app.modules.grants import router as grants_router
+from app.modules.grants import service as grants
 from app.modules.marketplace import service as marketplace
 from app.modules.projects import service as projects
 from app.modules.projects.models import Project
@@ -118,6 +120,9 @@ async def assessment_detail(
         ],
         referral_categories=await _referral_categories(db, findings),
         limitations=_limitations(a),
+        grant_matches=[
+            grants_router.match_out(m, v) for m, v in await grants.matches_for(db, a.id)
+        ],
     )
 
 

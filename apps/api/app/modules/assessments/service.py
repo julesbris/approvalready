@@ -28,6 +28,7 @@ from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
 from app.modules.checklists import service as checklists
 from app.modules.conditions import parse_condition, trace
+from app.modules.grants import service as grants
 from app.modules.projects import service as projects
 from app.modules.projects.models import Project, ProjectStatus, Task
 from app.modules.questionnaires import service as questionnaires
@@ -130,6 +131,9 @@ async def run(
         rows.append(row)
     await db.flush()
     tasks = await _derive_requirements(db, project, assessment, rows, actor_id=actor_id)
+    matches = await grants.record_matches(
+        db, project, assessment.id, assessment.rule_sets, rows, on
+    )
     await db.flush()
     await db.refresh(assessment)
     await audit.record(
@@ -146,6 +150,7 @@ async def run(
             "overall_confidence": assessment.overall_confidence,
             "findings": len(findings),
             "tasks_added": len(tasks),
+            **({"grant_matches": len(matches)} if matches else {}),
             "facts_hash": assessment.facts_hash.hex(),
         },
     )

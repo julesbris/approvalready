@@ -111,6 +111,25 @@
         "title": "AddressOut",
         "type": "object"
       },
+      "AdministratorOut": {
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "AdministratorOut",
+        "type": "object"
+      },
       "AnswersUpdate": {
         "additionalProperties": false,
         "properties": {
@@ -325,6 +344,14 @@
           "findings": {
             "title": "Findings",
             "type": "integer"
+          },
+          "grant_matches": {
+            "description": "Grant projects: each grant program's match, best first, with its rounds as they stand today.",
+            "items": {
+              "$ref": "#/components/schemas/GrantMatchOut"
+            },
+            "title": "Grant Matches",
+            "type": "array"
           },
           "id": {
             "format": "uuid",
@@ -2848,6 +2875,610 @@
         "title": "GenerationStatus",
         "type": "string"
       },
+      "GrantMatchOut": {
+        "properties": {
+          "confidence": {
+            "$ref": "#/components/schemas/Confidence"
+          },
+          "criteria": {
+            "items": {
+              "$ref": "#/components/schemas/MatchCriterionOut"
+            },
+            "title": "Criteria",
+            "type": "array"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "missing_facts": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Facts",
+            "type": "array"
+          },
+          "program": {
+            "$ref": "#/components/schemas/GrantProgramOut"
+          },
+          "round_id_at_assessment": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Round Id At Assessment"
+          },
+          "status": {
+            "$ref": "#/components/schemas/MatchStatus"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "confidence",
+          "criteria",
+          "missing_facts",
+          "round_id_at_assessment",
+          "program"
+        ],
+        "title": "GrantMatchOut",
+        "type": "object"
+      },
+      "GrantProgramCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "administrator_id": {
+            "format": "uuid",
+            "title": "Administrator Id",
+            "type": "string"
+          },
+          "funding_summary": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Funding Summary"
+          },
+          "jurisdiction": {
+            "pattern": "^(CTH|QLD|NSW|VIC|SA|WA|TAS|NT|ACT|LGA:[A-Z][A-Z0-9_]{1,59})$",
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "key": {
+            "maxLength": 100,
+            "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)*$",
+            "title": "Key",
+            "type": "string"
+          },
+          "max_amount_cents": {
+            "anyOf": [
+              {
+                "maximum": 100000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Amount Cents"
+          },
+          "min_amount_cents": {
+            "anyOf": [
+              {
+                "maximum": 100000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Amount Cents"
+          },
+          "rule_set_id": {
+            "format": "uuid",
+            "title": "Rule Set Id",
+            "type": "string"
+          },
+          "summary": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Summary",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "maxLength": 2000,
+            "pattern": "^https?://\\S+$",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "title",
+          "summary",
+          "administrator_id",
+          "jurisdiction",
+          "url",
+          "rule_set_id"
+        ],
+        "title": "GrantProgramCreate",
+        "type": "object"
+      },
+      "GrantProgramOut": {
+        "properties": {
+          "administrator": {
+            "$ref": "#/components/schemas/AdministratorOut"
+          },
+          "current_round_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current Round Id"
+          },
+          "funding_summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Funding Summary"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "jurisdiction": {
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "max_amount_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Amount Cents"
+          },
+          "min_amount_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Amount Cents"
+          },
+          "rounds": {
+            "items": {
+              "$ref": "#/components/schemas/GrantRoundOut"
+            },
+            "title": "Rounds",
+            "type": "array"
+          },
+          "rule_set_id": {
+            "format": "uuid",
+            "title": "Rule Set Id",
+            "type": "string"
+          },
+          "rule_set_key": {
+            "title": "Rule Set Key",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ProgramStatus"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "key",
+          "title",
+          "summary",
+          "administrator",
+          "jurisdiction",
+          "url",
+          "rule_set_id",
+          "rule_set_key",
+          "funding_summary",
+          "min_amount_cents",
+          "max_amount_cents",
+          "status",
+          "rounds",
+          "current_round_id"
+        ],
+        "title": "GrantProgramOut",
+        "type": "object"
+      },
+      "GrantProgramUpdate": {
+        "additionalProperties": false,
+        "properties": {
+          "funding_summary": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Funding Summary"
+          },
+          "max_amount_cents": {
+            "anyOf": [
+              {
+                "maximum": 100000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Amount Cents"
+          },
+          "min_amount_cents": {
+            "anyOf": [
+              {
+                "maximum": 100000000000.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Min Amount Cents"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ProgramStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://\\S+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          }
+        },
+        "title": "GrantProgramUpdate",
+        "type": "object"
+      },
+      "GrantRoundCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "closes_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Closes On"
+          },
+          "dates_note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dates Note"
+          },
+          "opens_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Opens On"
+          },
+          "source_reference_id": {
+            "format": "uuid",
+            "title": "Source Reference Id",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RoundStatus"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "status",
+          "source_reference_id"
+        ],
+        "title": "GrantRoundCreate",
+        "type": "object"
+      },
+      "GrantRoundOut": {
+        "properties": {
+          "check_source": {
+            "description": "The recorded status no longer fits the dates; staff should re-check.",
+            "title": "Check Source",
+            "type": "boolean"
+          },
+          "closes_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Closes On"
+          },
+          "closing_soon": {
+            "title": "Closing Soon",
+            "type": "boolean"
+          },
+          "dates_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dates Note"
+          },
+          "days_to_close": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Days To Close"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "opens_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Opens On"
+          },
+          "program_id": {
+            "format": "uuid",
+            "title": "Program Id",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/RoundSourceOut"
+          },
+          "state": {
+            "$ref": "#/components/schemas/RoundStatus",
+            "description": "The status as of today: an open round past its closing date is closed."
+          },
+          "status": {
+            "$ref": "#/components/schemas/RoundStatus",
+            "description": "What the source says."
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "program_id",
+          "title",
+          "status",
+          "state",
+          "opens_on",
+          "closes_on",
+          "dates_note",
+          "days_to_close",
+          "closing_soon",
+          "check_source",
+          "source",
+          "updated_at"
+        ],
+        "title": "GrantRoundOut",
+        "type": "object"
+      },
+      "GrantRoundUpdate": {
+        "additionalProperties": false,
+        "description": "Change a round when its source changes. A new status or date must cite the\nreference it now comes from (the same one is fine if it was re-read).",
+        "properties": {
+          "closes_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Closes On"
+          },
+          "dates_note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dates Note"
+          },
+          "opens_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Opens On"
+          },
+          "source_reference_id": {
+            "format": "uuid",
+            "title": "Source Reference Id",
+            "type": "string"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RoundStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          }
+        },
+        "required": [
+          "source_reference_id"
+        ],
+        "title": "GrantRoundUpdate",
+        "type": "object"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -3022,6 +3653,82 @@
         ],
         "title": "MarketplaceCategoryOut",
         "type": "object"
+      },
+      "MatchCriterionOut": {
+        "properties": {
+          "finding_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finding Id"
+          },
+          "kind": {
+            "description": "CRITERION, or WHO_CAN_APPLY for the program's scope.",
+            "title": "Kind",
+            "type": "string"
+          },
+          "missing_facts": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing Facts",
+            "type": "array"
+          },
+          "outcome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Outcome"
+          },
+          "result": {
+            "description": "MATCH: met. NO_MATCH: not met. UNKNOWN: unanswered.",
+            "title": "Result",
+            "type": "string"
+          },
+          "rule_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rule Key"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "title",
+          "result"
+        ],
+        "title": "MatchCriterionOut",
+        "type": "object"
+      },
+      "MatchStatus": {
+        "enum": [
+          "STRONG_MATCH",
+          "POSSIBLE_MATCH",
+          "NEEDS_INFORMATION",
+          "NOT_ELIGIBLE"
+        ],
+        "title": "MatchStatus",
+        "type": "string"
       },
       "MemberOut": {
         "properties": {
@@ -3874,6 +4581,14 @@
         },
         "title": "ProfileUpdateIn",
         "type": "object"
+      },
+      "ProgramStatus": {
+        "enum": [
+          "ACTIVE",
+          "RETIRED"
+        ],
+        "title": "ProgramStatus",
+        "type": "string"
       },
       "Progress": {
         "properties": {
@@ -5545,6 +6260,46 @@
         ],
         "title": "ReviewerWorkspaceOut",
         "type": "object"
+      },
+      "RoundSourceOut": {
+        "properties": {
+          "citation": {
+            "title": "Citation",
+            "type": "string"
+          },
+          "reference_id": {
+            "format": "uuid",
+            "title": "Reference Id",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "verification_status": {
+            "title": "Verification Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference_id",
+          "citation",
+          "url",
+          "verification_status"
+        ],
+        "title": "RoundSourceOut",
+        "type": "object"
+      },
+      "RoundStatus": {
+        "description": "What the source says about taking applications.",
+        "enum": [
+          "UPCOMING",
+          "OPEN",
+          "PAUSED",
+          "CLOSED"
+        ],
+        "title": "RoundStatus",
+        "type": "string"
       },
       "RuleCreate": {
         "additionalProperties": false,
@@ -9118,6 +9873,270 @@
         "tags": [
           "organisations",
           "admin"
+        ]
+      }
+    },
+    "/v1/admin/grant-programs": {
+      "get": {
+        "operationId": "list_programs_v1_admin_grant_programs_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/GrantProgramOut"
+                  },
+                  "title": "Response List Programs V1 Admin Grant Programs Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Programs",
+        "tags": [
+          "admin: grants"
+        ]
+      },
+      "post": {
+        "operationId": "create_program_v1_admin_grant_programs_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrantProgramCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantProgramOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Program",
+        "tags": [
+          "admin: grants"
+        ]
+      }
+    },
+    "/v1/admin/grant-programs/{program_id}": {
+      "get": {
+        "operationId": "get_program_v1_admin_grant_programs__program_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "program_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Program Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantProgramOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Program",
+        "tags": [
+          "admin: grants"
+        ]
+      },
+      "patch": {
+        "operationId": "update_program_v1_admin_grant_programs__program_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "program_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Program Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrantProgramUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantProgramOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Program",
+        "tags": [
+          "admin: grants"
+        ]
+      }
+    },
+    "/v1/admin/grant-programs/{program_id}/rounds": {
+      "post": {
+        "operationId": "create_round_v1_admin_grant_programs__program_id__rounds_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "program_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Program Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrantRoundCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantProgramOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Round",
+        "tags": [
+          "admin: grants"
+        ]
+      }
+    },
+    "/v1/admin/grant-rounds/{round_id}": {
+      "patch": {
+        "operationId": "update_round_v1_admin_grant_rounds__round_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "round_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Round Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrantRoundUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrantProgramOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Round",
+        "tags": [
+          "admin: grants"
         ]
       }
     },

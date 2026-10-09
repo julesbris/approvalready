@@ -4,12 +4,13 @@ import Link from "next/link";
 export function AdminNav({
   current,
 }: {
-  current: "home" | "sources" | "rules" | "reviews" | "professionals";
+  current: "home" | "sources" | "rules" | "grants" | "reviews" | "professionals";
 }) {
   const links = [
     ["home", "/admin", "Review queue"],
     ["sources", "/admin/sources", "Sources"],
     ["rules", "/admin/rules", "Rules"],
+    ["grants", "/admin/grants", "Grants"],
     ["reviews", "/admin/reviews", "Professional reviews"],
     ["professionals", "/admin/professionals", "Professionals"],
   ] as const;

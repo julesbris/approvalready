@@ -55,6 +55,76 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/grant-programs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Programs */
+        get: operations["list_programs_v1_admin_grant_programs_get"];
+        put?: never;
+        /** Create Program */
+        post: operations["create_program_v1_admin_grant_programs_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/grant-programs/{program_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Program */
+        get: operations["get_program_v1_admin_grant_programs__program_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Program */
+        patch: operations["update_program_v1_admin_grant_programs__program_id__patch"];
+        trace?: never;
+    };
+    "/v1/admin/grant-programs/{program_id}/rounds": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Create Round */
+        post: operations["create_round_v1_admin_grant_programs__program_id__rounds_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/grant-rounds/{round_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Round */
+        patch: operations["update_round_v1_admin_grant_rounds__round_id__patch"];
+        trace?: never;
+    };
     "/v1/admin/professionals": {
         parameters: {
             query?: never;
@@ -2184,6 +2254,16 @@ export interface components {
             /** Suburb */
             suburb: string;
         };
+        /** AdministratorOut */
+        AdministratorOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Name */
+            name: string;
+        };
         /** AnswersUpdate */
         AnswersUpdate: {
             /**
@@ -2278,6 +2358,11 @@ export interface components {
             finding_list: components["schemas"]["FindingOut"][];
             /** Findings */
             findings: number;
+            /**
+             * Grant Matches
+             * @description Grant projects: each grant program's match, best first, with its rounds as they stand today.
+             */
+            grant_matches?: components["schemas"]["GrantMatchOut"][];
             /**
              * Id
              * Format: uuid
@@ -3150,6 +3235,183 @@ export interface components {
          * @enum {string}
          */
         GenerationStatus: "PENDING" | "READY" | "FAILED";
+        /** GrantMatchOut */
+        GrantMatchOut: {
+            confidence: components["schemas"]["Confidence"];
+            /** Criteria */
+            criteria: components["schemas"]["MatchCriterionOut"][];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Missing Facts */
+            missing_facts: string[];
+            program: components["schemas"]["GrantProgramOut"];
+            /** Round Id At Assessment */
+            round_id_at_assessment: string | null;
+            status: components["schemas"]["MatchStatus"];
+        };
+        /** GrantProgramCreate */
+        GrantProgramCreate: {
+            /**
+             * Administrator Id
+             * Format: uuid
+             */
+            administrator_id: string;
+            /** Funding Summary */
+            funding_summary?: string | null;
+            /** Jurisdiction */
+            jurisdiction: string;
+            /** Key */
+            key: string;
+            /** Max Amount Cents */
+            max_amount_cents?: number | null;
+            /** Min Amount Cents */
+            min_amount_cents?: number | null;
+            /**
+             * Rule Set Id
+             * Format: uuid
+             */
+            rule_set_id: string;
+            /** Summary */
+            summary: string;
+            /** Title */
+            title: string;
+            /** Url */
+            url: string;
+        };
+        /** GrantProgramOut */
+        GrantProgramOut: {
+            administrator: components["schemas"]["AdministratorOut"];
+            /** Current Round Id */
+            current_round_id: string | null;
+            /** Funding Summary */
+            funding_summary: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Jurisdiction */
+            jurisdiction: string;
+            /** Key */
+            key: string;
+            /** Max Amount Cents */
+            max_amount_cents: number | null;
+            /** Min Amount Cents */
+            min_amount_cents: number | null;
+            /** Rounds */
+            rounds: components["schemas"]["GrantRoundOut"][];
+            /**
+             * Rule Set Id
+             * Format: uuid
+             */
+            rule_set_id: string;
+            /** Rule Set Key */
+            rule_set_key: string;
+            status: components["schemas"]["ProgramStatus"];
+            /** Summary */
+            summary: string;
+            /** Title */
+            title: string;
+            /** Url */
+            url: string;
+        };
+        /** GrantProgramUpdate */
+        GrantProgramUpdate: {
+            /** Funding Summary */
+            funding_summary?: string | null;
+            /** Max Amount Cents */
+            max_amount_cents?: number | null;
+            /** Min Amount Cents */
+            min_amount_cents?: number | null;
+            status?: components["schemas"]["ProgramStatus"] | null;
+            /** Summary */
+            summary?: string | null;
+            /** Title */
+            title?: string | null;
+            /** Url */
+            url?: string | null;
+        };
+        /** GrantRoundCreate */
+        GrantRoundCreate: {
+            /** Closes On */
+            closes_on?: string | null;
+            /** Dates Note */
+            dates_note?: string | null;
+            /** Opens On */
+            opens_on?: string | null;
+            /**
+             * Source Reference Id
+             * Format: uuid
+             */
+            source_reference_id: string;
+            status: components["schemas"]["RoundStatus"];
+            /** Title */
+            title: string;
+        };
+        /** GrantRoundOut */
+        GrantRoundOut: {
+            /**
+             * Check Source
+             * @description The recorded status no longer fits the dates; staff should re-check.
+             */
+            check_source: boolean;
+            /** Closes On */
+            closes_on: string | null;
+            /** Closing Soon */
+            closing_soon: boolean;
+            /** Dates Note */
+            dates_note: string | null;
+            /** Days To Close */
+            days_to_close: number | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Opens On */
+            opens_on: string | null;
+            /**
+             * Program Id
+             * Format: uuid
+             */
+            program_id: string;
+            source: components["schemas"]["RoundSourceOut"];
+            /** @description The status as of today: an open round past its closing date is closed. */
+            state: components["schemas"]["RoundStatus"];
+            /** @description What the source says. */
+            status: components["schemas"]["RoundStatus"];
+            /** Title */
+            title: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /**
+         * GrantRoundUpdate
+         * @description Change a round when its source changes. A new status or date must cite the
+         *     reference it now comes from (the same one is fine if it was re-read).
+         */
+        GrantRoundUpdate: {
+            /** Closes On */
+            closes_on?: string | null;
+            /** Dates Note */
+            dates_note?: string | null;
+            /** Opens On */
+            opens_on?: string | null;
+            /**
+             * Source Reference Id
+             * Format: uuid
+             */
+            source_reference_id: string;
+            status?: components["schemas"]["RoundStatus"] | null;
+            /** Title */
+            title?: string | null;
+        };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -3237,6 +3499,34 @@ export interface components {
             /** Verticals */
             verticals: components["schemas"]["Vertical"][];
         };
+        /** MatchCriterionOut */
+        MatchCriterionOut: {
+            /** Finding Id */
+            finding_id?: string | null;
+            /**
+             * Kind
+             * @description CRITERION, or WHO_CAN_APPLY for the program's scope.
+             */
+            kind: string;
+            /** Missing Facts */
+            missing_facts?: string[];
+            /** Outcome */
+            outcome?: string | null;
+            /**
+             * Result
+             * @description MATCH: met. NO_MATCH: not met. UNKNOWN: unanswered.
+             */
+            result: string;
+            /** Rule Key */
+            rule_key?: string | null;
+            /** Title */
+            title: string;
+        };
+        /**
+         * MatchStatus
+         * @enum {string}
+         */
+        MatchStatus: "STRONG_MATCH" | "POSSIBLE_MATCH" | "NEEDS_INFORMATION" | "NOT_ELIGIBLE";
         /** MemberOut */
         MemberOut: {
             /** Display Name */
@@ -3569,6 +3859,11 @@ export interface components {
             /** Display Name */
             display_name?: string | null;
         };
+        /**
+         * ProgramStatus
+         * @enum {string}
+         */
+        ProgramStatus: "ACTIVE" | "RETIRED";
         /** Progress */
         Progress: {
             /** Answered */
@@ -4128,6 +4423,26 @@ export interface components {
              */
             tasks: components["schemas"]["TaskOut"][];
         };
+        /** RoundSourceOut */
+        RoundSourceOut: {
+            /** Citation */
+            citation: string;
+            /**
+             * Reference Id
+             * Format: uuid
+             */
+            reference_id: string;
+            /** Url */
+            url: string;
+            /** Verification Status */
+            verification_status: string;
+        };
+        /**
+         * RoundStatus
+         * @description What the source says about taking applications.
+         * @enum {string}
+         */
+        RoundStatus: "UPCOMING" | "OPEN" | "PAUSED" | "CLOSED";
         /** RuleCreate */
         RuleCreate: {
             /**
@@ -5367,6 +5682,195 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuditChainOut"];
+                };
+            };
+        };
+    };
+    list_programs_v1_admin_grant_programs_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GrantProgramOut"][];
+                };
+            };
+        };
+    };
+    create_program_v1_admin_grant_programs_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GrantProgramCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GrantProgramOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_program_v1_admin_grant_programs__program_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                program_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GrantProgramOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_program_v1_admin_grant_programs__program_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                program_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GrantProgramUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GrantProgramOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_round_v1_admin_grant_programs__program_id__rounds_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                program_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GrantRoundCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GrantProgramOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_round_v1_admin_grant_rounds__round_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                round_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GrantRoundUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GrantProgramOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };

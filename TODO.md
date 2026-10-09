@@ -104,8 +104,16 @@ tests and updated docs before the next starts.
 - [ ] Next: verify the pack's references; read Exemption 02 and 03 schedules and Marine Orders 503 and 505 into rules (survey frequency, crewing, which certificate each crew member needs); Queensland smooth and partially smooth water boundaries; other states' registration
 - [ ] Moved to Milestone 11 (with reminder delivery): reminders before a vessel certificate expires (expiring ones are flagged now)
 
-## Milestone 10 — GrantReady
-- [ ] Grant profiles, programs, rounds (sourced dates), eligibility rules, match statuses
+## Milestone 10 — GrantReady ✅
+- [x] Grant programs and rounds (platform data kept by staff in `/admin/grants`); every round's status and dates cite a source reference, and the dates refine the status (an open round past its closing date reads as closed)
+- [x] Eligibility rules: each program's criteria are an ordinary `GRANT` rule set (one rule per criterion, matching when met; `applies_when` is who can apply)
+- [x] Match statuses per program on every grant assessment: strong match, possible match, needs information, not eligible (`grant_match`, append-only); no success percentages
+- [x] Grant profile: the `grant.general` questionnaire (v2 adds ABN age, GST, entity type, turnover, export stage, innovation and National Reconstruction Fund areas) with prefill from the linked business profile (moved from Milestone 8, which only prefilled `business.*` facts)
+- [x] `GRANT_ELIGIBILITY` report (PDF, DOCX, HTML)
+- [~] Content pack `grants_au_qld` (3 programs, 3 rule sets, 14 rules, 9 references): Export Market Development Grants (Austrade), the Industry Growth Program (business.gov.au) and Queensland's Business Growth Fund. Every reference is an **unverified summary**. None of the three was open to applications when read on 2026-10-09
+- [ ] Moved to Milestone 11 (with reminder delivery): alerts when a matched program's round opens or is about to close (closing within 14 days is flagged now)
+- [ ] Moved to Milestone 12: `GRANT_DRAFT` application drafting (needs the AI layer)
+- [ ] Next: verify the pack's references; read each program's guidelines (not just its web pages) into rules; more programs (state and council grants, Cairns); a program-creation form in the admin screens (the API and the pack create them today); reviewer overrides are not applied to matches yet
 
 ## Milestone 11 — PropertyReady
 - [ ] SellReady: sale project lifecycle, checklist, disclosure workflow, vault, offers, enquiries

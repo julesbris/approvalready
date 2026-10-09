@@ -21,6 +21,7 @@ import {
   leaves,
   uniqueSources,
 } from "@/lib/assessment";
+import { GrantMatches } from "@/components/assessments/GrantMatches";
 import { formatDateTime } from "@/lib/labels";
 import { formatDate } from "@/lib/questionnaire";
 import { type ReviewedFinding, applyOverrides } from "@/lib/review";
@@ -303,6 +304,10 @@ export function AssessmentReport({
           {CONFIDENCE_HELP[assessment.overall_confidence]}
         </p>
       )}
+
+      {assessment.grant_matches && assessment.grant_matches.length > 0 ? (
+        <GrantMatches matches={assessment.grant_matches} labels={labels} />
+      ) : null}
 
       <Requirements
         assessment={assessment}

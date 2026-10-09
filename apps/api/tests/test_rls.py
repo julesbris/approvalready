@@ -93,6 +93,10 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "safety_management_system": WRITE,
     "project_checklist": CRUD,
     "checklist_item": CRUD,
+    # Milestone 10
+    "grant_program": WRITE,
+    "grant_round": WRITE,
+    "grant_match": APPEND,
 }
 
 TENANT_TABLES = sorted(

@@ -1,0 +1,8 @@
+{
+  "key": "GRANT_ELIGIBILITY",
+  "title": "Grant eligibility check",
+  "vertical": "GRANT",
+  "engine": "JINJA_HTML",
+  "body": "grant_eligibility.html.j2",
+  "output_formats": ["PDF", "DOCX", "HTML"]
+}

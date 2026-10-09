@@ -254,6 +254,17 @@ Built in Milestone 7 with these differences: `professional.practice_id` names th
 | `grant_eligibility_rule` | `grant_round_id`, `rule_version_id` (eligibility is ordinary versioned rules) |
 | `grant_match` **T** | `grant_profile_id`, `grant_round_id`, `assessment_id`, `status` (`STRONG_MATCH`,`POSSIBLE_MATCH`,`NOT_ELIGIBLE`,`NEEDS_INFORMATION`), `missing_facts text[]` |
 
+Built in Milestone 10 with these differences: there is no `grant_profile` table (the grant
+questionnaire's answers, prefilled from the linked business profile, are the profile, so
+nothing is stored twice); `grant_program` has `key`, `summary`, `administrator_id` (a source
+organisation), `rule_set_id` (unique: eligibility is one `GRANT` rule set per program, so no
+`grant_eligibility_rule` table), `funding_summary`, `min_amount_cents`, `max_amount_cents`
+and `status` (`ACTIVE`, `RETIRED`); `grant_round` has `title`, `status` (`UPCOMING`, `OPEN`,
+`PAUSED`, `CLOSED`, as the source says), `opens_on`/`closes_on` dates, `dates_note` and a
+required `source_reference_id`; `grant_match` is append-only per assessment with
+`program_id`, `round_id` (the round shown at the time), `ordinal`, `confidence` and
+`criteria jsonb`.
+
 ## 15. PropertyReady (SellReady + RentReady)
 
 | Table | Key columns |

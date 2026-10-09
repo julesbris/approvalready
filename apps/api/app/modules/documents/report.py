@@ -27,6 +27,7 @@ from app.modules.documents.models import (
     OutputFormat,
 )
 from app.modules.documents.service import list_evidence
+from app.modules.grants import service as grants
 from app.modules.marketplace import service as marketplace
 from app.modules.projects.models import Project
 from app.modules.questionnaires import service as questionnaires
@@ -63,6 +64,19 @@ CERTAINTY = {
     "MAY_APPLY": "May apply",
     "NOT_IDENTIFIED": "Not identified",
 }
+MATCH_STATUS = {
+    "STRONG_MATCH": "Meets every criterion we check",
+    "POSSIBLE_MATCH": "Might be eligible",
+    "NEEDS_INFORMATION": "We need more information",
+    "NOT_ELIGIBLE": "Not eligible on your answers",
+}
+ROUND_STATE = {
+    "OPEN": "Open",
+    "UPCOMING": "Opening soon",
+    "PAUSED": "Paused",
+    "CLOSED": "Closed",
+}
+CRITERION_RESULT = {"MATCH": "Met", "NO_MATCH": "Not met", "UNKNOWN": "Not answered"}
 ITEM_STATUS = {"OPEN": "To do", "DONE": "Done", "NOT_APPLICABLE": "Doesn't apply"}
 VERIFICATION = {
     "UNVERIFIED": "not yet verified",
@@ -334,7 +348,59 @@ async def build_context(
         "limitations": list(limitations),
         "checklists": checklist_rows,
         "sms": await _sms_context(db, project) if template.key == "SMS" else None,
+        "grants": await _grants_context(db, assessment.id, labels)
+        if template.key == "GRANT_ELIGIBILITY"
+        else [],
     }
+
+
+def _date(value: date | None) -> str | None:
+    return value.strftime("%-d %B %Y") if value else None
+
+
+async def _grants_context(
+    db: AsyncSession, assessment_id: Any, labels: dict[str, str]
+) -> list[dict[str, Any]]:
+    out = []
+    for match, view in await grants.matches_for(db, assessment_id):
+        current = next((r for r in view.rounds if r.round.id == view.current_round_id), None)
+        rounds = []
+        for r in view.rounds:
+            rounds.append(
+                {
+                    "title": r.round.title,
+                    "state_label": ROUND_STATE[r.state.state],
+                    "opens_on": _date(r.round.opens_on),
+                    "closes_on": _date(r.round.closes_on),
+                    "note": r.round.dates_note,
+                    "source": f"{r.document.title} ({r.document.url}), "
+                    f"{VERIFICATION.get(r.reference.verification_status, 'unknown')}",
+                }
+            )
+        out.append(
+            {
+                "title": view.program.title,
+                "administrator": view.administrator.name,
+                "url": view.program.url,
+                "summary": view.program.summary,
+                "funding": view.program.funding_summary,
+                "status": match.status,
+                "status_label": MATCH_STATUS[match.status],
+                "confidence_label": CONFIDENCE.get(match.confidence, match.confidence),
+                "intake_label": ROUND_STATE[current.state.state] if current else "No round",
+                "rounds": rounds,
+                "criteria": [
+                    {
+                        "title": c["title"],
+                        "result_label": CRITERION_RESULT.get(c["result"], c["result"]),
+                        "outcome": c.get("outcome"),
+                    }
+                    for c in match.criteria
+                ],
+                "missing": [labels.get(m, m) for m in match.missing_facts],
+            }
+        )
+    return out
 
 
 async def _sms_context(db: AsyncSession, project: Project) -> dict[str, Any]:
