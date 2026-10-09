@@ -59,22 +59,6 @@ export const CERTAINTY_LABELS: Record<Certainty, string> = {
   NOT_IDENTIFIED: "Not identified",
 };
 
-/** Kinds of professional a finding can point to ("who can help"). */
-export const REFERRAL_LABELS: Record<string, string> = {
-  town_planner: "Town planner",
-  building_certifier: "Building certifier",
-  cadastral_surveyor: "Cadastral (land) surveyor",
-  geotechnical_engineer: "Geotechnical engineer",
-  architect: "Architect or building designer",
-  lawyer: "Lawyer",
-};
-
-export function referralLabel(key: string): string {
-  if (REFERRAL_LABELS[key]) return REFERRAL_LABELS[key];
-  const words = key.replaceAll("_", " ");
-  return words.charAt(0).toUpperCase() + words.slice(1);
-}
-
 /** Every source cited by any finding, once, in the order first cited. */
 export function uniqueSources(findings: FindingOut[]): FindingSourceOut[] {
   const seen = new Map<string, FindingSourceOut>();

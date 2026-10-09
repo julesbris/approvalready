@@ -86,8 +86,21 @@ class EvidenceRequirementOut(BaseModel):
     confidence: Confidence
 
 
+class ApprovalMapEntryOut(BaseModel):
+    kind: str
+    title: str
+    certainty: Certainty = Field(description="The strongest certainty any finding gave it.")
+    confidence: Confidence
+    authority: str | None
+    pathway: str | None
+    requirement_ids: list[uuid.UUID]
+    finding_ids: list[uuid.UUID]
+
+
 class ReferralCategoryOut(BaseModel):
     key: str
+    label: str = Field(description="The marketplace category's name.")
+    description: str | None
     finding_ids: list[uuid.UUID]
 
 
@@ -102,6 +115,10 @@ class AssessmentOut(AssessmentSummary):
     finding_list: list[FindingOut]
     approval_requirements: list[ApprovalRequirementOut]
     evidence_requirements: list[EvidenceRequirementOut]
+    approval_map: list[ApprovalMapEntryOut] = Field(
+        description="Each kind of approval once, strongest certainty first (Required, Likely "
+        "required, May apply, Not identified)."
+    )
     referral_categories: list[ReferralCategoryOut] = Field(
         description="Who can help, from every finding that names a kind of professional."
     )

@@ -1,0 +1,2109 @@
+{
+  "key": "business_qld_cairns",
+  "title": "BusinessReady: Queensland and Cairns (tax, food, liquor, workers' compensation, trades, health, childcare, personal appearance, footpath dining, home business)",
+  "notes": "First sourced rules for BusinessReady. Built from official ATO, Ahpra, FSANZ, Queensland Government, Business Queensland, QBCC, WorkSafe Queensland, WorkCover Queensland, Queensland Department of Education and Cairns Regional Council web pages read on 2026-10-09. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The Acts and local laws themselves are not encoded.",
+  "organisations": [
+    {
+      "ref": "ato",
+      "name": "Australian Taxation Office",
+      "kind": "CTH_AGENCY",
+      "jurisdiction": "CTH",
+      "website": "https://www.ato.gov.au"
+    },
+    {
+      "ref": "ahpra",
+      "name": "Australian Health Practitioner Regulation Agency (Ahpra)",
+      "kind": "REGULATOR",
+      "jurisdiction": "CTH",
+      "website": "https://www.ahpra.gov.au"
+    },
+    {
+      "ref": "fsanz",
+      "name": "Food Standards Australia New Zealand",
+      "kind": "REGULATOR",
+      "jurisdiction": "CTH",
+      "website": "https://www.foodstandards.gov.au"
+    },
+    {
+      "ref": "qld_gov",
+      "name": "Queensland Government (qld.gov.au)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "QLD",
+      "website": "https://www.qld.gov.au"
+    },
+    {
+      "ref": "business_qld",
+      "name": "Business Queensland",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "QLD",
+      "website": "https://www.business.qld.gov.au"
+    },
+    {
+      "ref": "qbcc",
+      "name": "Queensland Building and Construction Commission",
+      "kind": "REGULATOR",
+      "jurisdiction": "QLD",
+      "website": "https://www.qbcc.qld.gov.au"
+    },
+    {
+      "ref": "worksafe",
+      "name": "WorkSafe Queensland (Electrical Safety Office)",
+      "kind": "REGULATOR",
+      "jurisdiction": "QLD",
+      "website": "https://www.worksafe.qld.gov.au"
+    },
+    {
+      "ref": "workcover",
+      "name": "WorkCover Queensland",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "QLD",
+      "website": "https://www.workcoverqld.com.au"
+    },
+    {
+      "ref": "qld_early_childhood",
+      "name": "Queensland Department of Education (Early Childhood)",
+      "kind": "REGULATOR",
+      "jurisdiction": "QLD",
+      "website": "https://earlychildhood.qld.gov.au"
+    },
+    {
+      "ref": "crc",
+      "name": "Cairns Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "website": "https://www.cairns.qld.gov.au"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "ato_gst",
+      "organisation": "ato",
+      "jurisdiction": "CTH",
+      "title": "Registering for GST",
+      "url": "https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/registering-for-gst",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ato_first_worker",
+      "organisation": "ato",
+      "jurisdiction": "CTH",
+      "title": "Before you hire your first worker",
+      "url": "https://www.ato.gov.au/businesses-and-organisations/hiring-and-paying-your-workers/engaging-a-worker/before-you-hire-your-first-worker",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ahpra_professions",
+      "organisation": "ahpra",
+      "jurisdiction": "CTH",
+      "title": "Professions and divisions",
+      "url": "https://www.ahpra.gov.au/Registration/Registers-of-Practitioners/Professions-and-Divisions.aspx",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "fsanz_322a",
+      "organisation": "fsanz",
+      "jurisdiction": "CTH",
+      "title": "Standard 3.2.2A: Food safety management tools",
+      "url": "https://www.foodstandards.gov.au/business/food-safety/overview-food-safety-management-tools",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "qld_food_licence",
+      "organisation": "qld_gov",
+      "jurisdiction": "QLD",
+      "title": "Do I need a food business licence?",
+      "url": "https://www.qld.gov.au/health/staying-healthy/food-pantry/starting-a-food-business/food-business-licences/do-i-need-a-food-business-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "liquor_types",
+      "organisation": "business_qld",
+      "jurisdiction": "QLD",
+      "title": "Types of liquor and wine licences and permits",
+      "url": "https://www.business.qld.gov.au/industries/hospitality-tourism-sport/liquor-gaming/liquor/licensing/licences-permits/types",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "building_approvals",
+      "organisation": "business_qld",
+      "jurisdiction": "QLD",
+      "title": "Building approvals and inspections",
+      "url": "https://www.business.qld.gov.au/industries/building-property-development/building-construction/approvals-inspections",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "qbcc_when",
+      "organisation": "qbcc",
+      "jurisdiction": "QLD",
+      "title": "When you need a licence",
+      "url": "https://www.qbcc.qld.gov.au/licences/start-career/when-you-need-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "esq_classes",
+      "organisation": "worksafe",
+      "jurisdiction": "QLD",
+      "title": "Electrical licences: classes of licences",
+      "url": "https://www.worksafe.qld.gov.au/licensing-and-registrations/electrical-licences/classes-of-licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "workcover_accident",
+      "organisation": "workcover",
+      "jurisdiction": "QLD",
+      "title": "Accident insurance",
+      "url": "https://www.workcoverqld.com.au/insurance-and-premium/types-of-insurance/choosing-the-right-insurance/accident-insurance",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ecec_service_approval",
+      "organisation": "qld_early_childhood",
+      "jurisdiction": "QLD",
+      "title": "How to apply for a service approval in Queensland",
+      "url": "https://earlychildhood.qld.gov.au/regulation/approvals/approvals-for-national-quality-framework-services/how-to-apply-for-a-service-approval-in-queensland",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "crc_pas",
+      "organisation": "crc",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "Personal appearance services",
+      "url": "https://www.cairns.qld.gov.au/property-and-business/business/regulations-permits/personal-appearance-services",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "crc_footpath",
+      "organisation": "crc",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "Footpath dining",
+      "url": "https://cairns.qld.gov.au/property-and-business/business/regulations-permits/footpath-dining",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "crc_home_business",
+      "organisation": "crc",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "Home based business",
+      "url": "https://www.cairns.qld.gov.au/property-and-business/business/regulations-permits/home-based",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "ato_gst_threshold",
+      "document": "ato_gst",
+      "section": "When you must register",
+      "extracted_text": "[Summary, not the source's wording] You must register for GST within 21 days of your GST turnover reaching $75,000 or more ($150,000 for non-profit organisations), including when you expect to reach it, for example in your first year. Taxi, limousine and ride-sourcing drivers must register whatever their turnover.",
+      "interpretation": "Registration is required at or above the threshold; below it, registration is optional. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "ato_payg",
+      "document": "ato_first_worker",
+      "section": "Register for PAYG withholding",
+      "extracted_text": "[Summary, not the source's wording] Employers must register for PAYG withholding before the first payment from which they need to withhold, even if no amount is actually withheld.",
+      "interpretation": "A business that pays employees needs PAYG withholding registration before the first pay day. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "ahpra_protected_titles",
+      "document": "ahpra_professions",
+      "section": "Regulated professions",
+      "extracted_text": "[Summary, not the source's wording] There are 15 regulated health professions, each with a National Board. Anyone using a protected title of a regulated profession must be registered with the relevant National Board; using a protected title, or claiming to be registered, without registration is an offence.",
+      "interpretation": "The page frames registration around protected titles. Practitioners of a regulated profession need registration with their National Board through Ahpra. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "fsanz_categories",
+      "document": "fsanz_322a",
+      "section": "Category one and category two businesses",
+      "extracted_text": "[Summary, not the source's wording] Standard 3.2.2A applies to food service, catering and related retail businesses that handle unpackaged, potentially hazardous, ready-to-eat food. Category one businesses (which make such food into ready-to-eat meals) need a food safety supervisor, trained food handlers and records of key food safety controls. Category two businesses (which handle such food unpackaged but don't make it) need a food safety supervisor and trained food handlers.",
+      "interpretation": "Food service businesses need a food safety supervisor and trained food handlers; those that prepare meals also keep records. The page says December 2023 for the start date. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "qld_food_licensable",
+      "document": "qld_food_licence",
+      "section": "Who needs a licence",
+      "extracted_text": "[Summary, not the source's wording] Most food businesses need a food business licence from their local council, including businesses that make food by combining ingredients and businesses that sell unpackaged food by retail, such as cafes, restaurants and takeaways. A licence is not needed if the business only sells unpackaged snack food without cream or custard, whole fruit or vegetables, drinks other than juice made at the point of sale, ice, coffee beans, tea or spices, or primary produce made under a Safe Food Production Queensland accreditation. Every licensable food business must have a food safety supervisor and tell council within 30 days of the licence being issued.",
+      "interpretation": "Making food or selling unpackaged food needs a council licence unless every item is on the exemption list. Selling only pre-packaged food is not making food or selling unpackaged food, so no licence is identified for it. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "liquor_licence_types",
+      "document": "liquor_types",
+      "section": "Licences and permits",
+      "extracted_text": "[Summary, not the source's wording] Liquor licences and permits are issued under the Liquor Act 1992 (Queensland) by the Office of Liquor and Gaming Regulation. The licence or permit needed depends on the kind of business; some businesses and community groups are exempt.",
+      "interpretation": "Selling or supplying alcohol needs a liquor licence or permit unless an exemption applies. The page implies this rather than stating it in one sentence. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "building_approval_needed",
+      "document": "building_approvals",
+      "section": "Building approvals",
+      "extracted_text": "[Summary, not the source's wording] A building approval (building development permit) from a building certifier or the local council is needed before most building work starts. Work listed in Schedules 1 and 2 of the Building Regulation 2021 does not need a building approval, although some of it may still need planning approval.",
+      "interpretation": "Building work generally needs a building approval unless it is accepted work. The page does not say which commercial fit-outs need one, so a fit-out may or may not. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "qbcc_licence_threshold",
+      "document": "qbcc_when",
+      "section": "When you need a licence",
+      "extracted_text": "[Summary, not the source's wording] A QBCC licence is needed for building work valued over $3,300 (over $1,100 for hydraulic services design). Plumbing and drainage work needs a QBCC licence whatever its value, and the person doing or supervising it needs an occupational licence.",
+      "interpretation": "Building work over $3,300 a job, and any plumbing or drainage work, needs a QBCC licence. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "esq_licence_needed",
+      "document": "esq_classes",
+      "section": "Electrical work and contractor licences",
+      "extracted_text": "[Summary, not the source's wording] It is illegal to do electrical work in Queensland without an electrical work licence. A sole trader, partnership or company doing electrical work for others also needs an electrical contractor licence. The page cites the Electrical Safety Act 2002 and the Electrical Safety Regulation 2026.",
+      "interpretation": "Electrical work for customers needs an electrical work licence for the worker and an electrical contractor licence for the business. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "workcover_employers",
+      "document": "workcover_accident",
+      "section": "Who needs accident insurance",
+      "extracted_text": "[Summary, not the source's wording] If you employ workers in Queensland, you must hold an accident insurance (workers' compensation) policy with WorkCover Queensland.",
+      "interpretation": "A Queensland business with employees needs a WorkCover Queensland policy. The page does not name the Act. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "ecec_approvals",
+      "document": "ecec_service_approval",
+      "section": "Service approval",
+      "extracted_text": "[Summary, not the source's wording] A service approval application is lodged with a provider approval application, and the service approval cannot be granted until the provider approval is. Service approvals cover centre-based services (long day care, kindergarten, outside school hours care) and family day care, under sections 44 and 45 of the Education and Care Services National Law.",
+      "interpretation": "Running long day care, kindergarten, outside school hours care or family day care needs a provider approval and a service approval. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "crc_pas_higher_risk",
+      "document": "crc_pas",
+      "section": "Higher risk personal appearance services",
+      "extracted_text": "[Summary, not the source's wording] A licence from council is needed for higher risk personal appearance services, where skin penetration releasing blood or other body fluid is expected: tattooing (including cosmetic tattooing), body piercing other than closed ear or nose piercing, implants, scarring and tattoo removal. Operators must give council a copy of the infection control qualification (HLTINF005). Hairdressers and beauty therapists don't need a licence but must follow Queensland Health's infection control guidelines for personal appearance services.",
+      "interpretation": "Tattooing, body piercing (other than closed ear or nose), implants, scarring and tattoo removal need a council licence under the Public Health (Infection Control for Personal Appearance Services) Act 2003. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "crc_footpath_permit",
+      "document": "crc_footpath",
+      "section": "Footpath dining permit",
+      "extracted_text": "[Summary, not the source's wording] A permit is needed to use the council footpath next to your premises for dining, issued under council's local laws. Applicants need $20 million public liability insurance. A liquor licence from the Office of Liquor and Gaming Regulation is needed before alcohol is consumed in the dining area.",
+      "interpretation": "Tables and chairs on the council footpath need a footpath dining permit. The application form lists Local Law No. 11 (Local Government Controlled Areas and Roads) 2016 and Local Law No. 1 (Administration) 2016; which one governs is not stated on the page. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "crc_home_business_rules",
+      "document": "crc_home_business",
+      "section": "Home based business",
+      "extracted_text": "[Summary, not the source's wording] Some kinds of home based business are accepted development if they meet all the accepted development requirements; otherwise, or where Part 5.5 of CairnsPlan 2016 lists the business for code or impact assessment, a development application is needed. A home based business should be small in scale, generally with no more than one employee who doesn't live there.",
+      "interpretation": "A home based business in Cairns may need a development application, depending on the kind of business and whether it meets the accepted development requirements. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "business.cth.tax_registrations",
+      "vertical": "BUSINESS",
+      "jurisdiction": "CTH",
+      "title": "Australia: tax registrations",
+      "description": "GST and PAYG withholding registrations with the Australian Taxation Office, from the ATO's guidance.",
+      "limitations": [
+        "Built from ATO web pages, not from the tax laws themselves.",
+        "Does not cover ABN eligibility, fuel tax credits, fringe benefits tax, payroll tax (a state tax) or superannuation guarantee obligations.",
+        "Taxi, limousine and ride-sourcing drivers must register for GST whatever their turnover; we don't ask about that.",
+        "Not tax advice. Check with the ATO or a registered tax agent."
+      ],
+      "rules": [
+        {
+          "key": "gst_registration",
+          "title": "GST registration",
+          "condition": {
+            "fact": "business.turnover_band",
+            "op": "in",
+            "value": [
+              "75K_2M",
+              "2M_10M",
+              "10M_50M",
+              "OVER_50M"
+            ]
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need to register for GST",
+              "detail": "With turnover of $75,000 or more, the ATO says you must register for GST within 21 days of reaching the threshold, or when you expect to reach it.",
+              "payload": {
+                "approval": {
+                  "kind": "GST_REGISTRATION",
+                  "authority": "Australian Taxation Office",
+                  "pathway": "Register online, by phone or through a registered tax agent"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Register for GST with the ATO"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "GST registration is optional for you",
+              "detail": "Below $75,000 turnover ($150,000 for a non-profit) you don't have to register for GST, but you can. Register within 21 days if your turnover reaches the threshold.",
+              "payload": {
+                "approval": {
+                  "kind": "GST_REGISTRATION",
+                  "authority": "Australian Taxation Office",
+                  "pathway": "Optional below the threshold"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "GST registration may be needed",
+              "detail": "You need to register for GST if your turnover will be $75,000 or more. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "GST_REGISTRATION",
+                  "authority": "Australian Taxation Office",
+                  "pathway": "Required from $75,000 turnover",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ato_gst_threshold",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Turnover over $75,000",
+              "facts": {
+                "business.turnover_band": "75K_2M"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small turnover",
+              "facts": {
+                "business.turnover_band": "UNDER_75K"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "payg_withholding",
+          "title": "PAYG withholding registration",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "not_equals",
+            "value": "NONE"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need to register for PAYG withholding",
+              "detail": "The ATO says employers must register for PAYG withholding before the first payment they need to withhold from.",
+              "payload": {
+                "approval": {
+                  "kind": "PAYG_WITHHOLDING_REGISTRATION",
+                  "authority": "Australian Taxation Office",
+                  "pathway": "Register before your first pay day"
+                },
+                "referral_categories": [
+                  "accountant",
+                  "bookkeeper"
+                ],
+                "task": "Register for PAYG withholding before paying your first employee"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "PAYG withholding registration not identified",
+              "detail": "You said only you will work in the business. Register before you pay your first employee.",
+              "payload": {
+                "approval": {
+                  "kind": "PAYG_WITHHOLDING_REGISTRATION",
+                  "authority": "Australian Taxation Office",
+                  "pathway": "Needed once you employ someone"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "PAYG withholding may be needed",
+              "detail": "If you will have employees, you need to register for PAYG withholding. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "PAYG_WITHHOLDING_REGISTRATION",
+                  "authority": "Australian Taxation Office",
+                  "pathway": "Needed once you employ someone",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ato_payg",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Employees",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Just me",
+              "facts": {
+                "business.employee_band": "NONE"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        }
+      ]
+    },
+    {
+      "key": "business.qld.general",
+      "vertical": "BUSINESS",
+      "jurisdiction": "QLD",
+      "title": "Queensland: business licences and insurance",
+      "description": "Licences, permits and insurance most Queensland businesses check: food, liquor, workers' compensation and building work.",
+      "applies_when": {
+        "fact": "business.state",
+        "op": "equals",
+        "value": "QLD"
+      },
+      "limitations": [
+        "Built from Queensland Government, Business Queensland and WorkCover Queensland web pages, not from the Acts themselves.",
+        "Does not decide which kind of liquor licence or permit you need, or whether an exemption applies.",
+        "Does not check the food business licence exemptions item by item, or whether you need an accredited food safety program (caterers and some others do).",
+        "Does not check whether a particular fit-out is accepted building work.",
+        "Not legal advice. Confirm with the regulator or a qualified professional before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "food_business_licence",
+          "title": "Food business licence",
+          "condition": {
+            "all": [
+              {
+                "fact": "business.handles_food",
+                "op": "equals",
+                "value": true
+              },
+              {
+                "any": [
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "prepare_on_site"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "sell_unpackaged"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "serve_on_premises"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "mobile_food"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a food business licence from your council",
+              "detail": "Making food or selling unpackaged food, such as a cafe, restaurant, takeaway or food van, needs a food business licence from your local council, unless everything you sell is on the exemption list (for example whole fruit, ice, or drinks other than fresh juice). You also need a food safety supervisor.",
+              "payload": {
+                "approval": {
+                  "kind": "FOOD_BUSINESS_LICENCE",
+                  "authority": "Your local council",
+                  "pathway": "Apply to council before you start trading"
+                },
+                "evidence": [
+                  {
+                    "kind": "FOOD_SAFETY_SUPERVISOR",
+                    "title": "Food safety supervisor's certificate",
+                    "detail": "Tell council who your food safety supervisor is within 30 days of getting the licence."
+                  },
+                  {
+                    "kind": "FOOD_HANDLER_TRAINING",
+                    "title": "Food handler training records"
+                  }
+                ],
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Apply to your council for a food business licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food business licence not identified",
+              "detail": "From your answers you won't make food or sell unpackaged food, so no food business licence was identified. Selling only pre-packaged food doesn't need one.",
+              "payload": {
+                "approval": {
+                  "kind": "FOOD_BUSINESS_LICENCE",
+                  "authority": "Your local council",
+                  "pathway": "Needed if you make food or sell it unpackaged"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food business licence may be needed",
+              "detail": "Making food or selling unpackaged food needs a council licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "FOOD_BUSINESS_LICENCE",
+                  "authority": "Your local council",
+                  "pathway": "Needed if you make food or sell it unpackaged",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "qld_food_licensable",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "prepare_on_site",
+                  "serve_on_premises"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Packaged food only",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "sell_packaged"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "No food",
+              "facts": {
+                "business.handles_food": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "food_safety_tools",
+          "title": "Food safety supervisor and training (Standard 3.2.2A)",
+          "condition": {
+            "all": [
+              {
+                "fact": "business.handles_food",
+                "op": "equals",
+                "value": true
+              },
+              {
+                "any": [
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "prepare_on_site"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "serve_on_premises"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "mobile_food"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "EVIDENCE_REQUIRED",
+              "title": "Have a food safety supervisor, trained food handlers and records",
+              "detail": "Food service businesses that handle unpackaged, ready-to-eat food that needs temperature control must have a certified food safety supervisor and trained food handlers. If you make it into meals, you must also keep records showing you manage key food safety controls.",
+              "payload": {
+                "evidence": [
+                  {
+                    "kind": "FOOD_SAFETY_RECORDS",
+                    "title": "Records of key food safety controls",
+                    "detail": "For example receiving, cold storage, cooking and cooling temperatures."
+                  }
+                ],
+                "referral_categories": [
+                  "food_safety_consultant"
+                ]
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Standard 3.2.2A not identified",
+              "detail": "From your answers you won't prepare or serve food, so the food safety management tools in Standard 3.2.2A were not identified."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fsanz_categories",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Restaurant",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "prepare_on_site"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Packaged food only",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "sell_packaged"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "liquor_licence",
+          "title": "Liquor licence or permit",
+          "condition": {
+            "fact": "business.sells_alcohol",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a liquor licence or permit",
+              "detail": "Selling or serving alcohol in Queensland needs a liquor licence or permit from the Office of Liquor and Gaming Regulation. Which one depends on your business; some are exempt. Staff serving alcohol usually need responsible service of alcohol training.",
+              "payload": {
+                "approval": {
+                  "kind": "LIQUOR_LICENCE",
+                  "authority": "Office of Liquor and Gaming Regulation",
+                  "pathway": "Licence or permit type depends on the business"
+                },
+                "referral_categories": [
+                  "liquor_licensing_consultant",
+                  "lawyer"
+                ],
+                "task": "Work out which liquor licence or permit you need and apply to OLGR"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Liquor licence not identified",
+              "detail": "You said you won't sell or serve alcohol.",
+              "payload": {
+                "approval": {
+                  "kind": "LIQUOR_LICENCE",
+                  "authority": "Office of Liquor and Gaming Regulation",
+                  "pathway": "Needed if you sell or serve alcohol"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A liquor licence may be needed",
+              "detail": "Selling or serving alcohol needs a licence or permit. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "LIQUOR_LICENCE",
+                  "authority": "Office of Liquor and Gaming Regulation",
+                  "pathway": "Needed if you sell or serve alcohol",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "liquor_licence_types",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Sells alcohol",
+              "facts": {
+                "business.sells_alcohol": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No alcohol",
+              "facts": {
+                "business.sells_alcohol": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "workers_compensation",
+          "title": "Workers' compensation insurance",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "not_equals",
+            "value": "NONE"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a WorkCover Queensland policy",
+              "detail": "Queensland employers must hold an accident insurance (workers' compensation) policy with WorkCover Queensland for their workers.",
+              "payload": {
+                "approval": {
+                  "kind": "WORKERS_COMPENSATION_POLICY",
+                  "authority": "WorkCover Queensland",
+                  "pathway": "Take out a policy before your first employee starts"
+                },
+                "referral_categories": [
+                  "insurance_broker",
+                  "whs_consultant"
+                ],
+                "task": "Take out a WorkCover Queensland accident insurance policy"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Workers' compensation policy not identified",
+              "detail": "You said only you will work in the business. You need a policy once you employ workers.",
+              "payload": {
+                "approval": {
+                  "kind": "WORKERS_COMPENSATION_POLICY",
+                  "authority": "WorkCover Queensland",
+                  "pathway": "Needed once you employ workers"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A workers' compensation policy may be needed",
+              "detail": "Queensland employers need a WorkCover policy. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "WORKERS_COMPENSATION_POLICY",
+                  "authority": "WorkCover Queensland",
+                  "pathway": "Needed once you employ workers",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "workcover_employers",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Employees",
+              "facts": {
+                "business.employee_band": "5_19"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Just me",
+              "facts": {
+                "business.employee_band": "NONE"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "fit_out_building_approval",
+          "title": "Building approval for a fit-out",
+          "condition": {
+            "all": [
+              {
+                "fact": "business.premises_type",
+                "op": "in",
+                "value": [
+                  "leased_commercial",
+                  "owned_commercial"
+                ]
+              },
+              {
+                "fact": "business.fit_out_planned",
+                "op": "equals",
+                "value": true
+              }
+            ]
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Your fit-out may need a building approval",
+              "detail": "Most building work in Queensland needs a building approval from a building certifier before it starts, unless it is accepted work under the Building Regulation 2021. Whether your fit-out is depends on what it involves. Ask a building certifier before work starts.",
+              "payload": {
+                "approval": {
+                  "kind": "BUILDING_APPROVAL",
+                  "authority": "A building certifier or your council",
+                  "pathway": "Building development permit before work starts",
+                  "certainty": "MAY_APPLY"
+                },
+                "evidence": [
+                  {
+                    "kind": "FIT_OUT_PLANS",
+                    "title": "Fit-out plans or a description of the work"
+                  }
+                ],
+                "referral_categories": [
+                  "building_certifier",
+                  "architect",
+                  "builder"
+                ],
+                "task": "Ask a building certifier whether the fit-out needs a building approval"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Building approval not identified",
+              "detail": "From your answers you aren't planning building or fit-out work at commercial premises.",
+              "payload": {
+                "approval": {
+                  "kind": "BUILDING_APPROVAL",
+                  "authority": "A building certifier or your council",
+                  "pathway": "Needed for most building work"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us about any fit-out",
+              "detail": "If you plan building or fit-out work at commercial premises, a building approval may be needed. Answer the question in the questionnaire so we can check this."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "building_approval_needed",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Fit-out",
+              "facts": {
+                "business.premises_type": "leased_commercial",
+                "business.fit_out_planned": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No fit-out",
+              "facts": {
+                "business.premises_type": "leased_commercial",
+                "business.fit_out_planned": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "From home",
+              "facts": {
+                "business.premises_type": "home"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        }
+      ]
+    },
+    {
+      "key": "business.qld.personal_appearance",
+      "vertical": "BUSINESS",
+      "jurisdiction": "QLD",
+      "title": "Queensland: personal appearance services",
+      "description": "Licences for higher risk personal appearance services (tattooing, piercing and similar), from Cairns Regional Council's guidance on the Queensland Act.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "QLD"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "personal_services"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Cairns Regional Council's page about the Public Health (Infection Control for Personal Appearance Services) Act 2003; other councils administer the same Act but their forms and fees differ.",
+        "Does not cover mobile operators' notice to each council they work in.",
+        "Not legal advice. Confirm with your council."
+      ],
+      "rules": [
+        {
+          "key": "higher_risk_licence",
+          "title": "Higher risk personal appearance service licence",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattooing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "body_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "implants_or_scarring"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattoo_removal"
+              }
+            ]
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a higher risk personal appearance service licence",
+              "detail": "Tattooing (including cosmetic tattooing), body piercing other than closed ear or nose piercing, implants, scarring and tattoo removal need a licence from your council. Operators need an infection control qualification.",
+              "payload": {
+                "approval": {
+                  "kind": "HIGHER_RISK_PAS_LICENCE",
+                  "authority": "Your local council",
+                  "pathway": "Apply to council before you start"
+                },
+                "evidence": [
+                  {
+                    "kind": "INFECTION_CONTROL_QUALIFICATION",
+                    "title": "Infection control qualification (HLTINF005) for each operator"
+                  }
+                ],
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Apply to your council for a higher risk personal appearance service licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Higher risk licence not identified",
+              "detail": "Hairdressing, beauty therapy and closed ear or nose piercing don't need this licence, but you must follow Queensland Health's infection control guidelines for personal appearance services.",
+              "payload": {
+                "approval": {
+                  "kind": "HIGHER_RISK_PAS_LICENCE",
+                  "authority": "Your local council",
+                  "pathway": "Needed for tattooing, piercing and similar services"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A higher risk licence may be needed",
+              "detail": "Tattooing, body piercing and similar services need a council licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "HIGHER_RISK_PAS_LICENCE",
+                  "authority": "Your local council",
+                  "pathway": "Needed for tattooing, piercing and similar services",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "crc_pas_higher_risk",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tattoo studio",
+              "facts": {
+                "business.personal_services": [
+                  "tattooing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair salon",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing",
+                  "beauty"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        }
+      ]
+    },
+    {
+      "key": "business.qld.trades",
+      "vertical": "BUSINESS",
+      "jurisdiction": "QLD",
+      "title": "Queensland: trade licences",
+      "description": "QBCC licences for building, plumbing and drainage work, and electrical licences, from the regulators' guidance.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "QLD"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "trades"
+          }
+        ]
+      },
+      "limitations": [
+        "Does not decide which licence class you need, or check your qualifications and finances for it.",
+        "Does not cover gas work, pest management, refrigeration and air conditioning, or asbestos removal licences.",
+        "Not legal advice. Confirm with the QBCC or the Electrical Safety Office."
+      ],
+      "rules": [
+        {
+          "key": "qbcc_building_licence",
+          "title": "QBCC licence for building work",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "building_over_3300"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a QBCC licence for building work",
+              "detail": "Building work valued over $3,300 needs a licence from the Queensland Building and Construction Commission.",
+              "payload": {
+                "approval": {
+                  "kind": "QBCC_CONTRACTOR_LICENCE",
+                  "authority": "Queensland Building and Construction Commission",
+                  "pathway": "Licence class depends on the work"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Apply for the QBCC licence class that covers your work"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "QBCC building licence not identified",
+              "detail": "You said you won't do building work worth more than $3,300 a job.",
+              "payload": {
+                "approval": {
+                  "kind": "QBCC_CONTRACTOR_LICENCE",
+                  "authority": "Queensland Building and Construction Commission",
+                  "pathway": "Needed for building work over $3,300"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A QBCC licence may be needed",
+              "detail": "Building work over $3,300 needs a QBCC licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "QBCC_CONTRACTOR_LICENCE",
+                  "authority": "Queensland Building and Construction Commission",
+                  "pathway": "Needed for building work over $3,300",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "qbcc_licence_threshold",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small jobs",
+              "facts": {
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "qbcc_plumbing_licence",
+          "title": "QBCC licence for plumbing and drainage",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "plumbing_drainage"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a QBCC plumbing and drainage licence",
+              "detail": "Plumbing and drainage work needs a QBCC licence whatever its value, and the person doing or supervising it needs an occupational licence.",
+              "payload": {
+                "approval": {
+                  "kind": "QBCC_PLUMBING_LICENCE",
+                  "authority": "Queensland Building and Construction Commission",
+                  "pathway": "Contractor and occupational licences"
+                },
+                "task": "Apply for a QBCC plumbing and drainage licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Plumbing licence not identified",
+              "detail": "You said you won't do plumbing or drainage work.",
+              "payload": {
+                "approval": {
+                  "kind": "QBCC_PLUMBING_LICENCE",
+                  "authority": "Queensland Building and Construction Commission",
+                  "pathway": "Needed for any plumbing or drainage work"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "qbcc_licence_threshold",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "electrical_licences",
+          "title": "Electrical work and contractor licences",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "electrical"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need electrical work and contractor licences",
+              "detail": "Electrical work in Queensland needs an electrical work licence, and a business doing electrical work for others also needs an electrical contractor licence from the Electrical Safety Office.",
+              "payload": {
+                "approval": {
+                  "kind": "ELECTRICAL_CONTRACTOR_LICENCE",
+                  "authority": "Electrical Safety Office",
+                  "pathway": "Work licence for the worker, contractor licence for the business"
+                },
+                "referral_categories": [
+                  "insurance_broker"
+                ],
+                "task": "Apply for an electrical contractor licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Electrical licence not identified",
+              "detail": "You said you won't do electrical work.",
+              "payload": {
+                "approval": {
+                  "kind": "ELECTRICAL_CONTRACTOR_LICENCE",
+                  "authority": "Electrical Safety Office",
+                  "pathway": "Needed for any electrical work for others"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "esq_licence_needed",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        }
+      ]
+    },
+    {
+      "key": "business.au.health_practitioners",
+      "vertical": "BUSINESS",
+      "jurisdiction": "CTH",
+      "title": "Australia: registered health practitioners",
+      "description": "Registration of practitioners in the regulated health professions, from Ahpra's guidance.",
+      "applies_when": {
+        "fact": "business.activity",
+        "op": "equals",
+        "value": "health_services"
+      },
+      "limitations": [
+        "Does not check which profession, registration type or endorsements apply, or Medicare and PBS arrangements.",
+        "Does not cover state licensing of private health facilities, radiation or medicines (poisons) licences.",
+        "Not legal advice. Confirm with Ahpra or the relevant National Board."
+      ],
+      "rules": [
+        {
+          "key": "ahpra_registration",
+          "title": "Registration with a National Board",
+          "condition": {
+            "fact": "business.regulated_health_profession",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Practitioners need registration with their National Board",
+              "detail": "Practitioners of the 15 regulated health professions must be registered with their National Board through Ahpra to use the profession's protected title. Using a protected title without registration is an offence.",
+              "payload": {
+                "approval": {
+                  "kind": "HEALTH_PRACTITIONER_REGISTRATION",
+                  "authority": "Ahpra and the National Board",
+                  "pathway": "Each practitioner registers individually"
+                },
+                "evidence": [
+                  {
+                    "kind": "PRACTITIONER_REGISTRATION",
+                    "title": "Each practitioner's registration on the public register"
+                  }
+                ],
+                "task": "Check every practitioner's registration on the Ahpra public register"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "National Board registration not identified",
+              "detail": "You said nobody will practise a registered health profession. Don't use a protected title, such as nurse, physiotherapist or psychologist, without registration.",
+              "payload": {
+                "approval": {
+                  "kind": "HEALTH_PRACTITIONER_REGISTRATION",
+                  "authority": "Ahpra and the National Board",
+                  "pathway": "Needed to use a protected title"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "National Board registration may be needed",
+              "detail": "Regulated health practitioners must be registered. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "HEALTH_PRACTITIONER_REGISTRATION",
+                  "authority": "Ahpra and the National Board",
+                  "pathway": "Needed to use a protected title",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ahpra_protected_titles",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Physiotherapy clinic",
+              "facts": {
+                "business.regulated_health_profession": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Massage",
+              "facts": {
+                "business.regulated_health_profession": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        }
+      ]
+    },
+    {
+      "key": "business.qld.education_care",
+      "vertical": "BUSINESS",
+      "jurisdiction": "QLD",
+      "title": "Queensland: education and care services",
+      "description": "Provider and service approvals for long day care, kindergarten, outside school hours care and family day care, from the Queensland Department of Education's guidance.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "QLD"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "childcare_education"
+          }
+        ]
+      },
+      "limitations": [
+        "Does not cover services approved under Queensland's own Education and Care Services Act 2013, schools, tutoring, or working with children checks (blue cards).",
+        "Not legal advice. Confirm with the regulatory authority."
+      ],
+      "rules": [
+        {
+          "key": "provider_and_service_approval",
+          "title": "Provider and service approval",
+          "condition": {
+            "fact": "business.education_care_service",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a provider approval and a service approval",
+              "detail": "Running long day care, kindergarten, outside school hours care or family day care needs a provider approval and a service approval under the Education and Care Services National Law. They are applied for together, and the service can't be approved before the provider is.",
+              "payload": {
+                "approval": {
+                  "kind": "EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Queensland Department of Education (Early Childhood)",
+                  "pathway": "Provider approval and service approval, lodged together"
+                },
+                "referral_categories": [
+                  "education_care_consultant",
+                  "lawyer"
+                ],
+                "task": "Prepare the provider and service approval applications"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Service approval not identified",
+              "detail": "You said you won't run long day care, family day care, kindergarten or outside school hours care.",
+              "payload": {
+                "approval": {
+                  "kind": "EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Queensland Department of Education (Early Childhood)",
+                  "pathway": "Needed to run an education and care service"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A service approval may be needed",
+              "detail": "Education and care services need provider and service approvals. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Queensland Department of Education (Early Childhood)",
+                  "pathway": "Needed to run an education and care service",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ecec_approvals",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Long day care",
+              "facts": {
+                "business.education_care_service": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Tutoring",
+              "facts": {
+                "business.education_care_service": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        }
+      ]
+    },
+    {
+      "key": "business.qld.cairns",
+      "vertical": "BUSINESS",
+      "jurisdiction": "LGA:QLD_CAIRNS",
+      "title": "Cairns: footpath dining and home based business",
+      "description": "Cairns Regional Council permits and planning checks for businesses, from council's web pages.",
+      "applies_when": {
+        "fact": "business.lga",
+        "op": "equals",
+        "value": "cairns"
+      },
+      "limitations": [
+        "Built from Cairns Regional Council web pages, not from the local laws or the full text of CairnsPlan 2016.",
+        "Does not check signs (advertising devices), trade waste, or use of other council land or roads.",
+        "Does not check the zone or level of assessment for a business in commercial premises.",
+        "The council area comes from your answers. We do not look it up.",
+        "Not legal advice. Confirm with Cairns Regional Council or a town planner."
+      ],
+      "rules": [
+        {
+          "key": "footpath_dining_permit",
+          "title": "Footpath dining permit",
+          "condition": {
+            "all": [
+              {
+                "fact": "business.premises_type",
+                "op": "in",
+                "value": [
+                  "leased_commercial",
+                  "owned_commercial"
+                ]
+              },
+              {
+                "fact": "business.footpath_use",
+                "op": "equals",
+                "value": true
+              }
+            ]
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a footpath dining permit",
+              "detail": "Using the council footpath next to your premises needs a permit from Cairns Regional Council. Council asks for $20 million public liability insurance. If customers will drink alcohol there, your liquor licence must cover it.",
+              "payload": {
+                "approval": {
+                  "kind": "FOOTPATH_DINING_PERMIT",
+                  "authority": "Cairns Regional Council",
+                  "pathway": "Commercial use permit under council's local laws"
+                },
+                "evidence": [
+                  {
+                    "kind": "PUBLIC_LIABILITY_INSURANCE",
+                    "title": "Public liability insurance certificate ($20 million)"
+                  }
+                ],
+                "referral_categories": [
+                  "insurance_broker"
+                ],
+                "task": "Apply to Cairns Regional Council for a footpath dining permit"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Footpath dining permit not identified",
+              "detail": "From your answers you won't use the council footpath.",
+              "payload": {
+                "approval": {
+                  "kind": "FOOTPATH_DINING_PERMIT",
+                  "authority": "Cairns Regional Council",
+                  "pathway": "Needed to use the council footpath"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us about footpath use",
+              "detail": "Using the footpath for tables, chairs or signs needs a council permit. Answer the question in the questionnaire so we can check this."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "crc_footpath_permit",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Outdoor tables",
+              "facts": {
+                "business.premises_type": "leased_commercial",
+                "business.footpath_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Inside only",
+              "facts": {
+                "business.premises_type": "leased_commercial",
+                "business.footpath_use": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Online",
+              "facts": {
+                "business.premises_type": "online"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "home_based_business",
+          "title": "Home based business planning check",
+          "condition": {
+            "fact": "business.premises_type",
+            "op": "equals",
+            "value": "home"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Your home based business may need a development application",
+              "detail": "Some home based businesses in Cairns are accepted development if they meet all of council's requirements, for example small scale and generally no more than one employee who doesn't live there. Otherwise, or for kinds of business that CairnsPlan 2016 Part 5.5 lists for assessment, a development application is needed.",
+              "payload": {
+                "approval": {
+                  "kind": "PLANNING_MATERIAL_CHANGE_OF_USE",
+                  "authority": "Cairns Regional Council",
+                  "pathway": "Accepted development, or a development application (CairnsPlan 2016 Part 5.5)",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Check council's home based business requirements, or ask a town planner"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Not a home based business",
+              "detail": "You said the business won't operate from home."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "crc_home_business_rules",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "From home",
+              "facts": {
+                "business.premises_type": "home"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Shop",
+              "facts": {
+                "business.premises_type": "leased_commercial"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        }
+      ]
+    },
+    {
+      "key": "business.au.who_can_help",
+      "vertical": "BUSINESS",
+      "jurisdiction": "CTH",
+      "title": "Who can help, by kind of business",
+      "description": "Maps the kind of business to marketplace categories of professional who commonly help with its approvals. Each mapping cites the source behind the approvals it helps with.",
+      "limitations": [
+        "Categories are kinds of professional, not recommendations of particular businesses.",
+        "Not every business needs professional help; many approvals can be applied for directly."
+      ],
+      "rules": [
+        {
+          "key": "food_business",
+          "title": "Food businesses",
+          "condition": {
+            "fact": "business.activity",
+            "op": "in",
+            "value": [
+              "food_service",
+              "food_manufacturing"
+            ]
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "REFERRAL_CATEGORY",
+              "title": "A food safety consultant can help",
+              "detail": "They can help set up food safety practices, food handler training and the records councils and Standard 3.2.2A expect.",
+              "payload": {
+                "referral_categories": [
+                  "food_safety_consultant"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "qld_food_licensable",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "fsanz_categories",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.activity": "food_service"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Shop",
+              "facts": {
+                "business.activity": "retail"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "personal_services",
+          "title": "Personal appearance businesses",
+          "condition": {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "personal_services"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "REFERRAL_CATEGORY",
+              "title": "An infection control trainer can help",
+              "detail": "Infection control training is needed for higher risk services and helps every salon follow the infection control guidelines.",
+              "payload": {
+                "referral_categories": [
+                  "infection_control_trainer"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "crc_pas_higher_risk",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Salon",
+              "facts": {
+                "business.activity": "personal_services"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.activity": "food_service"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "education_care",
+          "title": "Childcare and education businesses",
+          "condition": {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "childcare_education"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "REFERRAL_CATEGORY",
+              "title": "An education and care consultant can help",
+              "detail": "Provider and service approval applications are detailed; consultants who prepare them can help.",
+              "payload": {
+                "referral_categories": [
+                  "education_care_consultant"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ecec_approvals",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Childcare",
+              "facts": {
+                "business.activity": "childcare_education"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Retail",
+              "facts": {
+                "business.activity": "retail"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "trades",
+          "title": "Trade businesses",
+          "condition": {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "trades"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "REFERRAL_CATEGORY",
+              "title": "An insurance broker can help",
+              "detail": "Licensed trades generally need insurance, and employers need workers' compensation cover; a broker can arrange it.",
+              "payload": {
+                "referral_categories": [
+                  "insurance_broker"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "qbcc_licence_threshold",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "workcover_employers",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.activity": "trades"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Retail",
+              "facts": {
+                "business.activity": "retail"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "every_business",
+          "title": "Every business",
+          "condition": {
+            "fact": "business.activity",
+            "op": "exists"
+          },
+          "effective_from": "2026-10-09",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "REFERRAL_CATEGORY",
+              "title": "An accountant or registered tax agent can help",
+              "detail": "They can help with your registrations (ABN, GST and PAYG withholding), structure and tax.",
+              "payload": {
+                "referral_categories": [
+                  "accountant"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ato_gst_threshold",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Any business",
+              "facts": {
+                "business.activity": "retail"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "NO_MATCH"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-09), not the date the law began: capped at likely until the reference is verified."
+        }
+      ]
+    }
+  ]
+}

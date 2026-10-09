@@ -42,7 +42,7 @@ from app.modules.documents.templates import published
 from app.modules.projects.models import Project, ProjectStatus
 
 # The report template used for each vertical's assessments.
-ASSESSMENT_TEMPLATES = {"PLANNING": "PLANNING_ASSESSMENT"}
+ASSESSMENT_TEMPLATES = {"PLANNING": "PLANNING_ASSESSMENT", "BUSINESS": "BUSINESS_APPROVAL_MAP"}
 EXTENSIONS = {OutputFormat.PDF: "pdf", OutputFormat.DOCX: "docx", OutputFormat.HTML: "html"}
 MIME_TYPES = {
     OutputFormat.PDF: "application/pdf",

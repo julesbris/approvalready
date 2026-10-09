@@ -22,6 +22,32 @@
             {"value": "other", "label": "Something else"}
           ]
         },
+        {
+          "key": "business.personal_services", "type": "MULTISELECT", "label": "Which services will you offer?", "required": true,
+          "visible_when": {"fact": "business.activity", "op": "equals", "value": "personal_services"},
+          "options": [
+            {"value": "hairdressing", "label": "Hairdressing or barbering"},
+            {"value": "beauty", "label": "Beauty therapy, nails or waxing"},
+            {"value": "ear_nose_piercing", "label": "Closed ear or nose piercing"},
+            {"value": "tattooing", "label": "Tattooing, including cosmetic tattooing"},
+            {"value": "body_piercing", "label": "Other body piercing"},
+            {"value": "implants_or_scarring", "label": "Implants or scarring"},
+            {"value": "tattoo_removal", "label": "Tattoo removal"}
+          ]
+        },
+        {
+          "key": "business.trade_work", "type": "MULTISELECT", "label": "Which kinds of work will you do for customers?", "required": true,
+          "visible_when": {"fact": "business.activity", "op": "equals", "value": "trades"},
+          "options": [
+            {"value": "building_over_3300", "label": "Building work worth more than $3,300 a job (including labour and materials)"},
+            {"value": "building_small", "label": "Only building work worth $3,300 or less a job"},
+            {"value": "plumbing_drainage", "label": "Plumbing or drainage work"},
+            {"value": "electrical", "label": "Electrical work"},
+            {"value": "other_trade", "label": "Other trade work"}
+          ]
+        },
+        {"key": "business.regulated_health_profession", "type": "BOOLEAN", "label": "Will you or your staff practise a registered health profession?", "help_text": "For example medicine, nursing, dentistry, physiotherapy, psychology, pharmacy, chiropractic, optometry or podiatry. Massage and naturopathy are not registered professions.", "required": true, "visible_when": {"fact": "business.activity", "op": "equals", "value": "health_services"}},
+        {"key": "business.education_care_service", "type": "BOOLEAN", "label": "Will you run long day care, family day care, kindergarten or outside school hours care?", "required": true, "visible_when": {"fact": "business.activity", "op": "equals", "value": "childcare_education"}},
         {"key": "business.description", "type": "TEXTAREA", "label": "Describe what the business does", "required": true, "validation": {"min_length": 10, "max_length": 2000}},
         {"key": "business.has_abn", "type": "BOOLEAN", "label": "Does the business have an ABN?", "required": true},
         {"key": "business.abn", "type": "TEXT", "label": "ABN", "required": true, "validation": {"pattern": "[0-9]{2} ?[0-9]{3} ?[0-9]{3} ?[0-9]{3}", "pattern_message": "Enter the 11-digit ABN."}, "visible_when": {"fact": "business.has_abn", "op": "equals", "value": true}},
@@ -46,12 +72,45 @@
             {"value": "20_199", "label": "20 to 199 employees"},
             {"value": "200_PLUS", "label": "200 or more employees"}
           ]
+        },
+        {
+          "key": "business.turnover_band", "type": "SELECT", "label": "What turnover do you expect in a year?",
+          "help_text": "Your total sales before costs, not counting GST. A guess is fine.",
+          "options": [
+            {"value": "UNDER_75K", "label": "Under $75,000"},
+            {"value": "75K_2M", "label": "$75,000 to $2 million"},
+            {"value": "2M_10M", "label": "$2 million to $10 million"},
+            {"value": "10M_50M", "label": "$10 million to $50 million"},
+            {"value": "OVER_50M", "label": "Over $50 million"}
+          ]
         }
       ]
     },
     {
       "title": "Premises",
       "questions": [
+        {
+          "key": "business.state", "type": "SELECT", "label": "Which state or territory is the business based in?", "required": true,
+          "options": [
+            {"value": "QLD", "label": "Queensland"},
+            {"value": "NSW", "label": "New South Wales"},
+            {"value": "VIC", "label": "Victoria"},
+            {"value": "SA", "label": "South Australia"},
+            {"value": "WA", "label": "Western Australia"},
+            {"value": "TAS", "label": "Tasmania"},
+            {"value": "NT", "label": "Northern Territory"},
+            {"value": "ACT", "label": "Australian Capital Territory"}
+          ]
+        },
+        {
+          "key": "business.lga", "type": "SELECT", "label": "Which council area will the business operate in?",
+          "help_text": "Where the premises are, or where you mostly trade if you are mobile. Leave this blank if you are not sure.",
+          "visible_when": {"fact": "business.state", "op": "equals", "value": "QLD"},
+          "options": [
+            {"value": "cairns", "label": "Cairns Regional Council"},
+            {"value": "other", "label": "Another council"}
+          ]
+        },
         {
           "key": "business.premises_type", "type": "SELECT", "label": "Where will the business operate?", "required": true,
           "options": [
@@ -74,7 +133,8 @@
           "key": "business.food_activities", "type": "MULTISELECT", "label": "Which of these will you do?", "required": true,
           "visible_when": {"fact": "business.handles_food", "op": "equals", "value": true},
           "options": [
-            {"value": "prepare_on_site", "label": "Prepare food on site"},
+            {"value": "prepare_on_site", "label": "Make or prepare food (combining ingredients)"},
+            {"value": "sell_unpackaged", "label": "Sell unpackaged food, such as bakery or deli food"},
             {"value": "serve_on_premises", "label": "Serve food to eat on the premises"},
             {"value": "sell_packaged", "label": "Sell pre-packaged food"},
             {"value": "deliver", "label": "Deliver food"},

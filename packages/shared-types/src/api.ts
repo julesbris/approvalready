@@ -805,6 +805,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/marketplace/categories": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Categories
+         * @description Active categories, in the reviewed file's order (optionally for one vertical).
+         */
+        get: operations["list_categories_v1_marketplace_categories_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations": {
         parameters: {
             query?: never;
@@ -2032,6 +2052,24 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /** ApprovalMapEntryOut */
+        ApprovalMapEntryOut: {
+            /** Authority */
+            authority: string | null;
+            /** @description The strongest certainty any finding gave it. */
+            certainty: components["schemas"]["Certainty"];
+            confidence: components["schemas"]["Confidence"];
+            /** Finding Ids */
+            finding_ids: string[];
+            /** Kind */
+            kind: string;
+            /** Pathway */
+            pathway: string | null;
+            /** Requirement Ids */
+            requirement_ids: string[];
+            /** Title */
+            title: string;
+        };
         /** ApprovalRequirementOut */
         ApprovalRequirementOut: {
             /** Authority */
@@ -2057,6 +2095,11 @@ export interface components {
         };
         /** AssessmentOut */
         AssessmentOut: {
+            /**
+             * Approval Map
+             * @description Each kind of approval once, strongest certainty first (Required, Likely required, May apply, Not identified).
+             */
+            approval_map: components["schemas"]["ApprovalMapEntryOut"][];
             /** Approval Requirements */
             approval_requirements: components["schemas"]["ApprovalRequirementOut"][];
             /**
@@ -2807,6 +2850,27 @@ export interface components {
             /** Password */
             password: string;
         };
+        /** MarketplaceCategoryOut */
+        MarketplaceCategoryOut: {
+            /** Description */
+            description: string;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /**
+             * Requires Credential
+             * @description Providers need a checked credential.
+             */
+            requires_credential: boolean;
+            /**
+             * Restricted
+             * @description Regulated advice; never released as a lead unchecked.
+             */
+            restricted: boolean;
+            /** Verticals */
+            verticals: components["schemas"]["Vertical"][];
+        };
         /** MemberOut */
         MemberOut: {
             /** Display Name */
@@ -3449,10 +3513,17 @@ export interface components {
         Recurrence: "WEEKLY" | "MONTHLY" | "YEARLY";
         /** ReferralCategoryOut */
         ReferralCategoryOut: {
+            /** Description */
+            description: string | null;
             /** Finding Ids */
             finding_ids: string[];
             /** Key */
             key: string;
+            /**
+             * Label
+             * @description The marketplace category's name.
+             */
+            label: string;
         };
         /** RegisterRequest */
         RegisterRequest: {
@@ -6459,6 +6530,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["OrganisationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_categories_v1_marketplace_categories_get: {
+        parameters: {
+            query?: {
+                vertical?: components["schemas"]["Vertical"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarketplaceCategoryOut"][];
                 };
             };
             /** @description Validation Error */

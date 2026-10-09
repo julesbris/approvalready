@@ -1,0 +1,80 @@
+{#- Business approval map body. The surrounding frame (render.py) always adds the required
+    metadata, assumptions, missing information, sources and limitations sections, so this
+    template lays out the map and the findings. Only the tags documented in render.py
+    (headings, paragraphs, lists, tables, strong, em) survive conversion to Word. -#}
+<h2>Summary</h2>
+<p>
+  {%- if assessment.status == "NO_APPLICABLE_RULES" %}
+  No reviewed rules cover this business yet. This is not a finding that nothing is required.
+  {%- else %}
+  We checked your answers against {{ rule_sets_in_scope | length }} reviewed rule
+  set{{ "" if rule_sets_in_scope | length == 1 else "s" }} and recorded
+  {{ findings | length }} finding{{ "" if findings | length == 1 else "s" }}.
+  Overall confidence: <strong>{{ assessment.overall_confidence_label }}</strong>.
+  {%- endif %}
+</p>
+
+<h2>Your approval map</h2>
+<p>
+  Each licence, permit or registration we checked appears once, under how sure we are that
+  it applies to your business. "Not identified" means the rules we checked did not find it
+  applies from your answers. It does not mean nothing else is needed.
+</p>
+{% for column in approval_map %}
+<h3>{{ column.certainty_label }}</h3>
+{% if column.approvals %}
+<table>
+  <tr><th>Approval</th><th>Who decides</th><th>How</th><th>Confidence</th></tr>
+  {% for a in column.approvals %}
+  <tr>
+    <td>{{ a.title }}</td>
+    <td>{{ a.authority or "Not stated" }}</td>
+    <td>{{ a.pathway or "Not stated" }}</td>
+    <td>{{ a.confidence_label }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>None.</p>
+{% endif %}
+{% endfor %}
+
+{% if evidence %}
+<h2>What you will need to show</h2>
+<ul>
+  {% for e in evidence %}
+  <li>
+    <strong>{{ e.title }}</strong>{% if e.detail %}: {{ e.detail }}{% endif %}
+    {%- if e.documents %} (provided: {{ e.documents | join(", ") }}){% else %} (not provided yet){% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if referrals %}
+<h2>Who can help</h2>
+<ul>
+  {% for r in referrals %}<li>{{ r }}</li>{% endfor %}
+</ul>
+<p>These are kinds of professional, not recommendations of particular businesses.</p>
+{% endif %}
+
+{% if findings %}
+<h2>Findings</h2>
+{% for f in findings %}
+<h3>{{ f.title or f.rule_title }}</h3>
+<p>
+  <strong>{{ f.outcome_label }}</strong> · {{ f.result_label }} · Confidence:
+  {{ f.confidence_label }}
+</p>
+{% if f.detail %}<p>{{ f.detail }}</p>{% endif %}
+{% if f.confidence_reasons %}
+<ul>
+  {% for reason in f.confidence_reasons %}<li>{{ reason }}</li>{% endfor %}
+</ul>
+{% endif %}
+{% if f.citations %}
+<p><em>Based on: {{ f.citations | join("; ") }}</em></p>
+{% endif %}
+{% endfor %}
+{% endif %}

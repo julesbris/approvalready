@@ -20,7 +20,7 @@ jobs:
         working-directory: apps/api
     services:
       postgres:
-        image: postgres:18-alpine
+        image: mirror.gcr.io/library/postgres:18-alpine
         env:
           POSTGRES_USER: approvalready
           POSTGRES_PASSWORD: approvalready
@@ -30,7 +30,7 @@ jobs:
           --health-cmd "pg_isready -U approvalready -d approvalready_test"
           --health-interval 5s --health-timeout 3s --health-retries 20
       redis:
-        image: redis:8-alpine
+        image: mirror.gcr.io/library/redis:8-alpine
         ports: ["6379:6379"]
         options: >-
           --health-cmd "redis-cli ping" --health-interval 5s --health-timeout 3s --health-retries 20
@@ -77,9 +77,22 @@ jobs:
     needs: [api, web]
     steps:
       - uses: actions/checkout@v5
-      - uses: docker/setup-buildx-action@v3
-      - run: docker build -t approvalready/api:ci apps/api
-      - run: docker build -f apps/web/Dockerfile -t approvalready/web:ci .
+      # Runners hit Docker Hub's anonymous pull rate limit: fetch the base images through
+      # Google's mirror and tag them with the names the Dockerfiles use, so the build (on the
+      # default docker driver, which uses local images) doesn't pull them again.
+      - name: Pull base images through the Docker Hub mirror
+        run: |
+          for image in library/python:3.14-slim library/node:22-alpine; do
+            docker pull "mirror.gcr.io/$image"
+            docker tag "mirror.gcr.io/$image" "${image#library/}"
+          done
+      # BUILDKIT_SYNTAX fetches the Dockerfile frontend from the mirror too.
+      - run: >-
+          docker build --build-arg BUILDKIT_SYNTAX=mirror.gcr.io/docker/dockerfile:1.7
+          -t approvalready/api:ci apps/api
+      - run: >-
+          docker build --build-arg BUILDKIT_SYNTAX=mirror.gcr.io/docker/dockerfile:1.7
+          -f apps/web/Dockerfile -t approvalready/web:ci .
       - name: Validate compose files
         run: |
           docker compose config -q
