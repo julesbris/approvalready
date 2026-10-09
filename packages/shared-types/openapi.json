@@ -1,6 +1,254 @@
 {
   "components": {
     "schemas": {
+      "AIJobOut": {
+        "properties": {
+          "assessment_id": {
+            "format": "uuid",
+            "title": "Assessment Id",
+            "type": "string"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AssessmentExplanationV1"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "grant_draft": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GrantDraftV1"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "output_schema": {
+            "title": "Output Schema",
+            "type": "string"
+          },
+          "prompt_version": {
+            "title": "Prompt Version",
+            "type": "integer"
+          },
+          "status": {
+            "$ref": "#/components/schemas/JobStatus"
+          },
+          "subject_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Grant drafts: the program.",
+            "title": "Subject Id"
+          },
+          "task": {
+            "$ref": "#/components/schemas/AITask"
+          },
+          "validation_errors": {
+            "description": "Why a REJECTED draft failed our checks.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Validation Errors",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "task",
+          "status",
+          "assessment_id",
+          "subject_id",
+          "prompt_version",
+          "output_schema",
+          "error",
+          "created_at",
+          "completed_at"
+        ],
+        "title": "AIJobOut",
+        "type": "object"
+      },
+      "AIStatusOut": {
+        "properties": {
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "mock": {
+            "description": "Drafts are canned test text, not written by a model.",
+            "title": "Mock",
+            "type": "boolean"
+          },
+          "model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model"
+          },
+          "provider": {
+            "title": "Provider",
+            "type": "string"
+          }
+        },
+        "required": [
+          "enabled",
+          "provider",
+          "model",
+          "mock"
+        ],
+        "title": "AIStatusOut",
+        "type": "object"
+      },
+      "AITask": {
+        "enum": [
+          "ASSESSMENT_EXPLANATION",
+          "GRANT_DRAFT"
+        ],
+        "title": "AITask",
+        "type": "string"
+      },
+      "AIUsageOut": {
+        "properties": {
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model"
+          },
+          "provider": {
+            "title": "Provider",
+            "type": "string"
+          },
+          "rows": {
+            "items": {
+              "$ref": "#/components/schemas/AIUsageRowOut"
+            },
+            "title": "Rows",
+            "type": "array"
+          },
+          "since": {
+            "format": "date-time",
+            "title": "Since",
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider",
+          "model",
+          "enabled",
+          "since",
+          "rows"
+        ],
+        "title": "AIUsageOut",
+        "type": "object"
+      },
+      "AIUsageRowOut": {
+        "properties": {
+          "calls": {
+            "title": "Calls",
+            "type": "integer"
+          },
+          "cost_micros": {
+            "description": "Millionths of a US dollar, from configured prices.",
+            "title": "Cost Micros",
+            "type": "integer"
+          },
+          "model": {
+            "title": "Model",
+            "type": "string"
+          },
+          "provider": {
+            "title": "Provider",
+            "type": "string"
+          },
+          "request_tokens": {
+            "title": "Request Tokens",
+            "type": "integer"
+          },
+          "response_tokens": {
+            "title": "Response Tokens",
+            "type": "integer"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "task": {
+            "title": "Task",
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider",
+          "model",
+          "task",
+          "status",
+          "calls",
+          "request_tokens",
+          "response_tokens",
+          "cost_micros"
+        ],
+        "title": "AIUsageRowOut",
+        "type": "object"
+      },
       "Accepted": {
         "description": "Same response whether or not the address is registered (no account enumeration).",
         "properties": {
@@ -412,6 +660,54 @@
           "confidence"
         ],
         "title": "ApprovalRequirementOut",
+        "type": "object"
+      },
+      "AssessmentExplanationV1": {
+        "additionalProperties": false,
+        "properties": {
+          "next_steps": {
+            "description": "What the findings say to do next, if anything.",
+            "items": {
+              "$ref": "#/components/schemas/CitedPoint"
+            },
+            "maxItems": 15,
+            "title": "Next Steps",
+            "type": "array"
+          },
+          "open_questions": {
+            "description": "Facts the findings are missing that the customer could answer.",
+            "items": {
+              "$ref": "#/components/schemas/CitedPoint"
+            },
+            "maxItems": 15,
+            "title": "Open Questions",
+            "type": "array"
+          },
+          "points": {
+            "description": "What each finding means for the customer.",
+            "items": {
+              "$ref": "#/components/schemas/CitedPoint"
+            },
+            "maxItems": 30,
+            "minItems": 1,
+            "title": "Points",
+            "type": "array"
+          },
+          "summary": {
+            "description": "Two or three sentences on what the assessment found overall.",
+            "maxLength": 2500,
+            "minLength": 1,
+            "title": "Summary",
+            "type": "string"
+          }
+        },
+        "required": [
+          "summary",
+          "points",
+          "next_steps",
+          "open_questions"
+        ],
+        "title": "AssessmentExplanationV1",
         "type": "object"
       },
       "AssessmentOut": {
@@ -1893,6 +2189,35 @@
         "title": "ChecklistSourceOut",
         "type": "object"
       },
+      "CitedPoint": {
+        "additionalProperties": false,
+        "properties": {
+          "finding_ids": {
+            "description": "The findings this point explains, by id, copied exactly from the input.",
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Finding Ids",
+            "type": "array"
+          },
+          "text": {
+            "description": "One plain-language point.",
+            "maxLength": 1000,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "finding_ids"
+        ],
+        "title": "CitedPoint",
+        "type": "object"
+      },
       "Classification": {
         "enum": [
           "PRIVATE",
@@ -2363,6 +2688,50 @@
         "title": "DocumentUpdateIn",
         "type": "object"
       },
+      "DraftSection": {
+        "additionalProperties": false,
+        "properties": {
+          "fact_keys": {
+            "description": "Applicant facts this section uses, by key.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 30,
+            "title": "Fact Keys",
+            "type": "array"
+          },
+          "finding_ids": {
+            "description": "Criteria this section addresses, by finding id.",
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Finding Ids",
+            "type": "array"
+          },
+          "heading": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Heading",
+            "type": "string"
+          },
+          "text": {
+            "maxLength": 2500,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "heading",
+          "text",
+          "finding_ids",
+          "fact_keys"
+        ],
+        "title": "DraftSection",
+        "type": "object"
+      },
       "EmailRequest": {
         "properties": {
           "email": {
@@ -2661,6 +3030,19 @@
         ],
         "title": "EvidenceStatus",
         "type": "string"
+      },
+      "ExplanationIn": {
+        "additionalProperties": false,
+        "properties": {
+          "regenerate": {
+            "default": false,
+            "description": "Write a new draft even if one exists for the same findings.",
+            "title": "Regenerate",
+            "type": "boolean"
+          }
+        },
+        "title": "ExplanationIn",
+        "type": "object"
       },
       "FindingOut": {
         "properties": {
@@ -3010,6 +3392,57 @@
         ],
         "title": "GenerationStatus",
         "type": "string"
+      },
+      "GrantDraftIn": {
+        "additionalProperties": false,
+        "properties": {
+          "program_id": {
+            "format": "uuid",
+            "title": "Program Id",
+            "type": "string"
+          },
+          "regenerate": {
+            "default": false,
+            "title": "Regenerate",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "program_id"
+        ],
+        "title": "GrantDraftIn",
+        "type": "object"
+      },
+      "GrantDraftV1": {
+        "additionalProperties": false,
+        "properties": {
+          "missing_information": {
+            "description": "What the applicant still needs to provide.",
+            "items": {
+              "maxLength": 1000,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Missing Information",
+            "type": "array"
+          },
+          "sections": {
+            "items": {
+              "$ref": "#/components/schemas/DraftSection"
+            },
+            "maxItems": 12,
+            "minItems": 1,
+            "title": "Sections",
+            "type": "array"
+          }
+        },
+        "required": [
+          "sections",
+          "missing_information"
+        ],
+        "title": "GrantDraftV1",
+        "type": "object"
       },
       "GrantMatchOut": {
         "properties": {
@@ -3713,6 +4146,16 @@
           "NOT_APPLICABLE"
         ],
         "title": "ItemStatus",
+        "type": "string"
+      },
+      "JobStatus": {
+        "enum": [
+          "PENDING",
+          "SUCCEEDED",
+          "REJECTED",
+          "FAILED"
+        ],
+        "title": "JobStatus",
         "type": "string"
       },
       "LiveResponse": {
@@ -5380,6 +5823,67 @@
           }
         },
         "title": "ProjectUpdate",
+        "type": "object"
+      },
+      "PromptStatus": {
+        "enum": [
+          "PUBLISHED",
+          "RETIRED"
+        ],
+        "title": "PromptStatus",
+        "type": "string"
+      },
+      "PromptVersionOut": {
+        "properties": {
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "output_schema_name": {
+            "title": "Output Schema Name",
+            "type": "string"
+          },
+          "output_schema_version": {
+            "title": "Output Schema Version",
+            "type": "integer"
+          },
+          "published_at": {
+            "format": "date-time",
+            "title": "Published At",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PromptStatus"
+          },
+          "system_prompt": {
+            "title": "System Prompt",
+            "type": "string"
+          },
+          "task": {
+            "$ref": "#/components/schemas/AITask"
+          },
+          "user_template": {
+            "title": "User Template",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "task",
+          "version",
+          "status",
+          "output_schema_name",
+          "output_schema_version",
+          "system_prompt",
+          "user_template",
+          "published_at"
+        ],
+        "title": "PromptVersionOut",
         "type": "object"
       },
       "PropertyCreate": {
@@ -10293,6 +10797,78 @@
         ]
       }
     },
+    "/v1/admin/ai/prompts": {
+      "get": {
+        "description": "Every prompt version, newest first per task. Prompts change only through reviewed\nfiles in the repository.",
+        "operationId": "list_prompts_v1_admin_ai_prompts_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PromptVersionOut"
+                  },
+                  "title": "Response List Prompts V1 Admin Ai Prompts Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Prompts",
+        "tags": [
+          "admin: ai"
+        ]
+      }
+    },
+    "/v1/admin/ai/usage": {
+      "get": {
+        "description": "Calls, tokens and cost by provider, model, task and outcome, across all\norganisations. Totals only: no prompts, outputs or customer data.",
+        "operationId": "usage_v1_admin_ai_usage_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "days",
+            "required": false,
+            "schema": {
+              "default": 30,
+              "maximum": 366,
+              "minimum": 1,
+              "title": "Days",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AIUsageOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Usage",
+        "tags": [
+          "admin: ai"
+        ]
+      }
+    },
     "/v1/admin/audit/verify": {
       "get": {
         "operationId": "verify_audit_chain_v1_admin_audit_verify_get",
@@ -12473,6 +13049,28 @@
         ]
       }
     },
+    "/v1/ai/status": {
+      "get": {
+        "description": "Whether AI drafting is switched on (the screens hide it when it is not).",
+        "operationId": "ai_status_v1_ai_status_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AIStatusOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Ai Status",
+        "tags": [
+          "ai"
+        ]
+      }
+    },
     "/v1/auth/login": {
       "post": {
         "operationId": "login_v1_auth_login_post",
@@ -13161,6 +13759,59 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/ai-jobs/{job_id}": {
+      "get": {
+        "operationId": "get_job_v1_organisations__organisation_id__ai_jobs__job_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Job Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AIJobOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Job",
+        "tags": [
+          "ai"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/assessments/{assessment_id}": {
       "get": {
         "operationId": "get_assessment_v1_organisations__organisation_id__assessments__assessment_id__get",
@@ -13211,6 +13862,199 @@
         "summary": "Get Assessment",
         "tags": [
           "assessments"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/ai-jobs": {
+      "get": {
+        "description": "Every AI draft for the assessment, newest first.",
+        "operationId": "list_jobs_v1_organisations__organisation_id__assessments__assessment_id__ai_jobs_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "assessment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Assessment Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/AIJobOut"
+                  },
+                  "title": "Response List Jobs V1 Organisations  Organisation Id  Assessments  Assessment Id  Ai Jobs Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Jobs",
+        "tags": [
+          "ai"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/ai/explanation": {
+      "post": {
+        "description": "Ask for a plain-language explanation of the findings. Poll the job until it is no\nlonger PENDING. The same findings give back the same job unless ``regenerate``.",
+        "operationId": "request_explanation_v1_organisations__organisation_id__assessments__assessment_id__ai_explanation_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "assessment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Assessment Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/ExplanationIn"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AIJobOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Request Explanation",
+        "tags": [
+          "ai"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/ai/grant-drafts": {
+      "post": {
+        "description": "Ask for grant application notes for one matched program, from the applicant's own\nanswers. Not offered for programs whose criteria are not met.",
+        "operationId": "request_grant_draft_v1_organisations__organisation_id__assessments__assessment_id__ai_grant_drafts_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "assessment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Assessment Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrantDraftIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AIJobOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Request Grant Draft",
+        "tags": [
+          "ai"
         ]
       }
     },

@@ -179,6 +179,22 @@ rules for domestic commercial vessels from AMSA, and Queensland recreational reg
 and licences) and `grants_au_qld` (Milestone 10, GrantReady: three grant programs with their
 eligibility rules and first rounds; keep rounds current at `/admin/grants`).
 
+### AI drafting (Milestone 12)
+
+Off by default: customers see no AI buttons. To switch it on, add an Anthropic API key to
+`.env` and redeploy:
+
+```bash
+AI_PROVIDER=anthropic
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+Customers then get "Explain these findings in plain language" on assessments and "Draft
+application notes" on grant matches. Every call is logged; staff with `platform.audit.read`
+(admins) see calls, tokens and cost at `/admin/ai`. Prompts are reviewed files published by
+the migrate step, like report templates. Set `AI_PROVIDER=none` (or remove the key) to switch
+it off again; existing drafts stay visible to their owners only while it is on.
+
 ## 8. Persistent volumes
 
 | Volume | Contents | Backed up |

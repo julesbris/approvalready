@@ -498,15 +498,44 @@ unless aggregated across ≥ k partners (k-anonymity threshold, default 5).
   exception sources can lower a finding but never raise it above `LIKELY`. Overall confidence is
   the lowest finding's.
 
-## 9. AI layer (design; built in Milestone 12)
+## 9. AI layer (built in Milestone 12)
 
-`AIProvider` protocol: `generate_structured(schema, prompt)`, `generate_text`,
-`extract_document`, `summarise`, `classify`. Providers selected per task from
-configuration (env + admin settings). Every call logged to `ai_provider_log`
-(provider, model, task, project, prompt version, schema version, tokens, cost, status,
-error). Uploaded content is passed inside delimited, labelled data blocks; the model has
-no tools that change permissions, rules or settings; outputs are Pydantic-validated and
-post-checked against the findings they are meant to explain.
+Code: `apps/api/app/modules/ai`. AI explains and drafts; it never decides. Nothing it writes
+changes a finding, requirement, match or report.
+
+* **Providers** (`provider.py`): the `AIProvider` protocol has `generate_structured(request)`
+  (system prompt, user message, JSON schema; returns the JSON plus model, tokens and latency)
+  and `generate_text`. Implementations: `none` (default: AI is off and the screens hide it),
+  `mock` (deterministic text built from the input, labelled `[MOCK]`, refused in production)
+  and `anthropic` (Claude through the official SDK with JSON structured output, adaptive
+  effort from `AI_EFFORT`, a cached system prompt, and server-side refusal fallback). The
+  provider has no tools: it can only answer. Summarising, classifying and document
+  extraction are future tasks on the same two calls.
+* **Prompt registry** (`prompts.py`, `prompts/`): one reviewed prompt file per task (system
+  prompt, user template, output schema name and version), published by the migrate step into
+  `prompt_version` like report templates. Versions are immutable (trigger) and read-only for
+  the application role; there is no screen or endpoint that edits a prompt.
+* **Input** (`inputs.py`): built only from the project's stored records, as JSON inside one
+  `<data>` block whose `<`, `>` and `&` are escaped, so text in it cannot close the block. The
+  system prompt says everything in the block is data. Customer free text that the task does
+  not need (project titles) is left out. The job stores the input's ids and a hash only.
+* **Output checks** (`outputs.py`, `validation.py`): the answer must validate against the
+  versioned Pydantic schema, then pass post-checks: every point cites at least one finding
+  and only findings in the input; grant-draft sections cite criteria or applicant fact keys
+  from the input; every number in the text (fees, dates, clause and section numbers, areas,
+  amounts) and every link must appear in the input. Failing output is stored as `REJECTED`
+  with its reasons and never shown.
+* **Jobs**: `ai_job` (tenant) runs in the worker (`ai.run`, retried on rate limits and
+  overloads, swept by `documents.requeue_stalled`); identical input reuses the existing draft
+  unless the customer asks to regenerate. New drafts are limited per user per hour.
+* **Log**: `ai_provider_log` (tenant, append-only) records every call: provider, model, task,
+  project, prompt version, schema version, tokens, cost (from configured prices), latency,
+  status (`OK`, `ERROR`, `REFUSED`) and error, never prompt or output text. Staff see totals
+  across organisations at `/admin/ai` through the `ai_usage_summary()` definer function.
+* **Tasks**: `ASSESSMENT_EXPLANATION` (plain-language explanation of an assessment's findings,
+  with next steps and questions for missing facts) and `GRANT_DRAFT` (application notes for one
+  matched program, from the applicant's own answers; not offered when the criteria are not
+  met). Both are shown in a dashed, "AI draft" panel next to the findings they cite.
 
 ## 10. Deployment topology
 

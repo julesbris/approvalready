@@ -13,8 +13,8 @@ import hashlib
 import logging
 import uuid
 from collections.abc import Awaitable, Callable
-from dataclasses import dataclass
-from typing import Protocol
+from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Protocol
 
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
@@ -32,10 +32,27 @@ from app.modules.documents.scanner import MalwareScanner, ScannerUnavailable, cr
 from app.modules.documents.service import MIME_TYPES, utcnow
 from app.modules.documents.storage import ObjectStorage, StorageError, create_storage
 
+if TYPE_CHECKING:
+    from app.modules.ai.provider import AIProvider
+    from app.modules.ai.service import Prices
+
 log = logging.getLogger(__name__)
 
 SCAN_TASK = "documents.scan"
 GENERATE_TASK = "documents.generate"
+AI_TASK = "ai.run"
+
+
+def _disabled_ai() -> AIProvider:
+    from app.modules.ai.provider import DisabledProvider
+
+    return DisabledProvider()
+
+
+def _no_prices() -> Prices:
+    from app.modules.ai.service import Prices
+
+    return Prices()
 
 
 @dataclass
@@ -43,6 +60,8 @@ class JobContext:
     session_factory: async_sessionmaker[AsyncSession]
     storage: ObjectStorage
     scanner: MalwareScanner
+    ai: AIProvider = field(default_factory=_disabled_ai)
+    ai_prices: Prices = field(default_factory=_no_prices)
 
 
 class RetryLater(Exception):
@@ -120,6 +139,22 @@ async def generate_job(
         return generated.status
 
 
+async def ai_job(
+    ctx: JobContext, organisation_id: uuid.UUID, job_id: uuid.UUID, *, final_attempt: bool
+) -> str | None:
+    from app.modules.ai import service as ai
+    from app.modules.ai.provider import TransientProviderError
+
+    async with ctx.session_factory() as db:
+        await bind_tenant(db, organisation_id)
+        try:
+            return await ai.run_job(
+                db, ctx.ai, ctx.ai_prices, organisation_id, job_id, final_attempt=final_attempt
+            )
+        except TransientProviderError as exc:
+            raise RetryLater(str(exc)) from exc
+
+
 JobFn = Callable[..., Awaitable[str | None]]
 
 
@@ -129,10 +164,10 @@ async def run_with_own_resources(
     """Run one job with a fresh engine (each Celery task gets its own event loop)."""
     engine = create_async_engine(settings.database_url, poolclass=NullPool)
     try:
-        ctx = JobContext(
-            session_factory=async_sessionmaker(engine, expire_on_commit=False),
-            storage=create_storage(settings),
-            scanner=create_scanner(settings),
+        ctx = create_job_context(
+            settings,
+            async_sessionmaker(engine, expire_on_commit=False),
+            create_storage(settings),
         )
         return await job(
             ctx, uuid.UUID(organisation_id), uuid.UUID(target_id), final_attempt=final_attempt
@@ -141,14 +176,40 @@ async def run_with_own_resources(
         await engine.dispose()
 
 
+def create_job_context(
+    settings: Settings,
+    session_factory: async_sessionmaker[AsyncSession],
+    storage: ObjectStorage,
+) -> JobContext:
+    from app.modules.ai.provider import create_provider
+    from app.modules.ai.service import Prices
+
+    return JobContext(
+        session_factory=session_factory,
+        storage=storage,
+        scanner=create_scanner(settings),
+        ai=create_provider(settings),
+        ai_prices=Prices(
+            settings.ai_input_price_per_mtok_usd, settings.ai_output_price_per_mtok_usd
+        ),
+    )
+
+
 async def stalled_jobs(settings: Settings, older_than_minutes: int) -> list[tuple[str, str, str]]:
     """(kind, id, organisation id) of scans and generations still pending after a while."""
     engine = create_async_engine(settings.database_url, poolclass=NullPool)
     try:
         async with engine.connect() as conn:
-            rows = await conn.execute(
-                text("SELECT kind, id, organisation_id FROM pending_document_jobs(:age)"),
-                {"age": f"{older_than_minutes} minutes"},
+            age = {"age": f"{older_than_minutes} minutes"}
+            rows = list(
+                await conn.execute(
+                    text("SELECT kind, id, organisation_id FROM pending_document_jobs(:age)"), age
+                )
+            )
+            rows += list(
+                await conn.execute(
+                    text("SELECT 'ai', id, organisation_id FROM pending_ai_jobs(:age)"), age
+                )
             )
             return [(r[0], str(r[1]), str(r[2])) for r in rows]
     finally:
@@ -163,6 +224,8 @@ class JobRunner(Protocol):
 
     async def generate(self, organisation_id: uuid.UUID, generated_id: uuid.UUID) -> None: ...
 
+    async def ai(self, organisation_id: uuid.UUID, job_id: uuid.UUID) -> None: ...
+
 
 class CeleryJobs:
     async def _send(self, name: str, *args: str) -> None:
@@ -176,6 +239,9 @@ class CeleryJobs:
     async def generate(self, organisation_id: uuid.UUID, generated_id: uuid.UUID) -> None:
         await self._send(GENERATE_TASK, str(organisation_id), str(generated_id))
 
+    async def ai(self, organisation_id: uuid.UUID, job_id: uuid.UUID) -> None:
+        await self._send(AI_TASK, str(organisation_id), str(job_id))
+
 
 class InlineJobs:
     def __init__(self, ctx: JobContext) -> None:
@@ -186,6 +252,9 @@ class InlineJobs:
 
     async def generate(self, organisation_id: uuid.UUID, generated_id: uuid.UUID) -> None:
         await generate_job(self.ctx, organisation_id, generated_id, final_attempt=True)
+
+    async def ai(self, organisation_id: uuid.UUID, job_id: uuid.UUID) -> None:
+        await ai_job(self.ctx, organisation_id, job_id, final_attempt=True)
 
 
 def create_job_runner(settings: Settings, ctx: JobContext) -> JobRunner:

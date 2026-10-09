@@ -21,6 +21,7 @@ dependencies = [
     "weasyprint>=66",
     "python-docx>=1.2",
     "httpx>=0.28",
+    "anthropic>=1.0",
 ]
 
 [dependency-groups]

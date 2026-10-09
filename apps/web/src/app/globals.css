@@ -901,3 +901,43 @@ fieldset.question {
 .record-fields dd {
   margin: 0;
 }
+
+/* AI drafts (Milestone 12): always visibly different from the deterministic findings. */
+.ai-panel {
+  border-style: dashed;
+  background: var(--ar-surface-subtle);
+}
+
+.ai-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border: 1px solid var(--ar-ink-muted);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.ai-points li {
+  margin-bottom: 6px;
+}
+
+.usage-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.usage-table th,
+.usage-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--ar-border);
+  text-align: left;
+}
+
+.prompt-text {
+  white-space: pre-wrap;
+  font-size: 0.875rem;
+}

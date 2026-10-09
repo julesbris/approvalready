@@ -38,6 +38,48 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/ai/prompts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Prompts
+         * @description Every prompt version, newest first per task. Prompts change only through reviewed
+         *     files in the repository.
+         */
+        get: operations["list_prompts_v1_admin_ai_prompts_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/ai/usage": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Usage
+         * @description Calls, tokens and cost by provider, model, task and outcome, across all
+         *     organisations. Totals only: no prompts, outputs or customer data.
+         */
+        get: operations["usage_v1_admin_ai_usage_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/audit/verify": {
         parameters: {
             query?: never;
@@ -657,6 +699,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/ai/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Ai Status
+         * @description Whether AI drafting is switched on (the screens hide it when it is not).
+         */
+        get: operations["ai_status_v1_ai_status_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/auth/login": {
         parameters: {
             query?: never;
@@ -951,6 +1013,23 @@ export interface paths {
         patch: operations["update_organisation_v1_organisations__organisation_id__patch"];
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/ai-jobs/{job_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Job */
+        get: operations["get_job_v1_organisations__organisation_id__ai_jobs__job_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/assessments/{assessment_id}": {
         parameters: {
             query?: never;
@@ -962,6 +1041,68 @@ export interface paths {
         get: operations["get_assessment_v1_organisations__organisation_id__assessments__assessment_id__get"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/ai-jobs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Jobs
+         * @description Every AI draft for the assessment, newest first.
+         */
+        get: operations["list_jobs_v1_organisations__organisation_id__assessments__assessment_id__ai_jobs_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/ai/explanation": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Request Explanation
+         * @description Ask for a plain-language explanation of the findings. Poll the job until it is no
+         *     longer PENDING. The same findings give back the same job unless ``regenerate``.
+         */
+        post: operations["request_explanation_v1_organisations__organisation_id__assessments__assessment_id__ai_explanation_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/ai/grant-drafts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Request Grant Draft
+         * @description Ask for grant application notes for one matched program, from the applicant's own
+         *     answers. Not offered for programs whose criteria are not met.
+         */
+        post: operations["request_grant_draft_v1_organisations__organisation_id__assessments__assessment_id__ai_grant_drafts_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -2276,6 +2417,103 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** AIJobOut */
+        AIJobOut: {
+            /**
+             * Assessment Id
+             * Format: uuid
+             */
+            assessment_id: string;
+            /** Completed At */
+            completed_at: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Error */
+            error: string | null;
+            explanation?: components["schemas"]["AssessmentExplanationV1"] | null;
+            grant_draft?: components["schemas"]["GrantDraftV1"] | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Output Schema */
+            output_schema: string;
+            /** Prompt Version */
+            prompt_version: number;
+            status: components["schemas"]["JobStatus"];
+            /**
+             * Subject Id
+             * @description Grant drafts: the program.
+             */
+            subject_id: string | null;
+            task: components["schemas"]["AITask"];
+            /**
+             * Validation Errors
+             * @description Why a REJECTED draft failed our checks.
+             */
+            validation_errors?: string[];
+        };
+        /** AIStatusOut */
+        AIStatusOut: {
+            /** Enabled */
+            enabled: boolean;
+            /**
+             * Mock
+             * @description Drafts are canned test text, not written by a model.
+             */
+            mock: boolean;
+            /** Model */
+            model: string | null;
+            /** Provider */
+            provider: string;
+        };
+        /**
+         * AITask
+         * @enum {string}
+         */
+        AITask: "ASSESSMENT_EXPLANATION" | "GRANT_DRAFT";
+        /** AIUsageOut */
+        AIUsageOut: {
+            /** Enabled */
+            enabled: boolean;
+            /** Model */
+            model: string | null;
+            /** Provider */
+            provider: string;
+            /** Rows */
+            rows: components["schemas"]["AIUsageRowOut"][];
+            /**
+             * Since
+             * Format: date-time
+             */
+            since: string;
+        };
+        /** AIUsageRowOut */
+        AIUsageRowOut: {
+            /** Calls */
+            calls: number;
+            /**
+             * Cost Micros
+             * @description Millionths of a US dollar, from configured prices.
+             */
+            cost_micros: number;
+            /** Model */
+            model: string;
+            /** Provider */
+            provider: string;
+            /** Request Tokens */
+            request_tokens: number;
+            /** Response Tokens */
+            response_tokens: number;
+            /** Status */
+            status: string;
+            /** Task */
+            task: string;
+        };
         /**
          * Accepted
          * @description Same response whether or not the address is registered (no account enumeration).
@@ -2424,6 +2662,29 @@ export interface components {
             pathway: string | null;
             /** Title */
             title: string;
+        };
+        /** AssessmentExplanationV1 */
+        AssessmentExplanationV1: {
+            /**
+             * Next Steps
+             * @description What the findings say to do next, if anything.
+             */
+            next_steps: components["schemas"]["CitedPoint"][];
+            /**
+             * Open Questions
+             * @description Facts the findings are missing that the customer could answer.
+             */
+            open_questions: components["schemas"]["CitedPoint"][];
+            /**
+             * Points
+             * @description What each finding means for the customer.
+             */
+            points: components["schemas"]["CitedPoint"][];
+            /**
+             * Summary
+             * @description Two or three sentences on what the assessment found overall.
+             */
+            summary: string;
         };
         /** AssessmentOut */
         AssessmentOut: {
@@ -2915,6 +3176,19 @@ export interface components {
             /** Url */
             url: string;
         };
+        /** CitedPoint */
+        CitedPoint: {
+            /**
+             * Finding Ids
+             * @description The findings this point explains, by id, copied exactly from the input.
+             */
+            finding_ids: string[];
+            /**
+             * Text
+             * @description One plain-language point.
+             */
+            text: string;
+        };
         /**
          * Classification
          * @enum {string}
@@ -3099,6 +3373,23 @@ export interface components {
         DocumentUpdateIn: {
             classification: components["schemas"]["Classification"];
         };
+        /** DraftSection */
+        DraftSection: {
+            /**
+             * Fact Keys
+             * @description Applicant facts this section uses, by key.
+             */
+            fact_keys: string[];
+            /**
+             * Finding Ids
+             * @description Criteria this section addresses, by finding id.
+             */
+            finding_ids: string[];
+            /** Heading */
+            heading: string;
+            /** Text */
+            text: string;
+        };
         /** EmailRequest */
         EmailRequest: {
             /**
@@ -3218,6 +3509,15 @@ export interface components {
          * @enum {string}
          */
         EvidenceStatus: "SUBMITTED" | "ACCEPTED" | "REJECTED";
+        /** ExplanationIn */
+        ExplanationIn: {
+            /**
+             * Regenerate
+             * @description Write a new draft even if one exists for the same findings.
+             * @default false
+             */
+            regenerate: boolean;
+        };
         /** FindingOut */
         FindingOut: {
             confidence: components["schemas"]["Confidence"];
@@ -3345,6 +3645,29 @@ export interface components {
          * @enum {string}
          */
         GenerationStatus: "PENDING" | "READY" | "FAILED";
+        /** GrantDraftIn */
+        GrantDraftIn: {
+            /**
+             * Program Id
+             * Format: uuid
+             */
+            program_id: string;
+            /**
+             * Regenerate
+             * @default false
+             */
+            regenerate: boolean;
+        };
+        /** GrantDraftV1 */
+        GrantDraftV1: {
+            /**
+             * Missing Information
+             * @description What the applicant still needs to provide.
+             */
+            missing_information: string[];
+            /** Sections */
+            sections: components["schemas"]["DraftSection"][];
+        };
         /** GrantMatchOut */
         GrantMatchOut: {
             confidence: components["schemas"]["Confidence"];
@@ -3569,6 +3892,11 @@ export interface components {
          * @enum {string}
          */
         ItemStatus: "OPEN" | "DONE" | "NOT_APPLICABLE";
+        /**
+         * JobStatus
+         * @enum {string}
+         */
+        JobStatus: "PENDING" | "SUCCEEDED" | "REJECTED" | "FAILED";
         /** LiveResponse */
         LiveResponse: {
             /**
@@ -4182,6 +4510,36 @@ export interface components {
             title?: string | null;
             /** Vessel Id */
             vessel_id?: string | null;
+        };
+        /**
+         * PromptStatus
+         * @enum {string}
+         */
+        PromptStatus: "PUBLISHED" | "RETIRED";
+        /** PromptVersionOut */
+        PromptVersionOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Output Schema Name */
+            output_schema_name: string;
+            /** Output Schema Version */
+            output_schema_version: number;
+            /**
+             * Published At
+             * Format: date-time
+             */
+            published_at: string;
+            status: components["schemas"]["PromptStatus"];
+            /** System Prompt */
+            system_prompt: string;
+            task: components["schemas"]["AITask"];
+            /** User Template */
+            user_template: string;
+            /** Version */
+            version: number;
         };
         /** PropertyCreate */
         PropertyCreate: {
@@ -5882,6 +6240,57 @@ export interface operations {
             };
         };
     };
+    list_prompts_v1_admin_ai_prompts_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PromptVersionOut"][];
+                };
+            };
+        };
+    };
+    usage_v1_admin_ai_usage_get: {
+        parameters: {
+            query?: {
+                days?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AIUsageOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     verify_audit_chain_v1_admin_audit_verify_get: {
         parameters: {
             query?: never;
@@ -7357,6 +7766,26 @@ export interface operations {
             };
         };
     };
+    ai_status_v1_ai_status_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AIStatusOut"];
+                };
+            };
+        };
+    };
     login_v1_auth_login_post: {
         parameters: {
             query?: never;
@@ -7891,6 +8320,38 @@ export interface operations {
             };
         };
     };
+    get_job_v1_organisations__organisation_id__ai_jobs__job_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                job_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AIJobOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     get_assessment_v1_organisations__organisation_id__assessments__assessment_id__get: {
         parameters: {
             query?: never;
@@ -7910,6 +8371,110 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AssessmentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_jobs_v1_organisations__organisation_id__assessments__assessment_id__ai_jobs_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                assessment_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AIJobOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    request_explanation_v1_organisations__organisation_id__assessments__assessment_id__ai_explanation_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                assessment_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ExplanationIn"] | null;
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AIJobOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    request_grant_draft_v1_organisations__organisation_id__assessments__assessment_id__ai_grant_drafts_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                assessment_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GrantDraftIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AIJobOut"];
                 };
             };
             /** @description Validation Error */

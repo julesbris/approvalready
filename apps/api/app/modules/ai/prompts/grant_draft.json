@@ -1,0 +1,6 @@
+{
+  "task": "GRANT_DRAFT",
+  "output_schema": {"name": "grant_draft", "version": 1},
+  "system": "grant_draft.system.md",
+  "template": "grant_draft.user.j2"
+}

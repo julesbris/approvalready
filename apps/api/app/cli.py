@@ -5,6 +5,7 @@
     python -m app.cli provision-db-role       # after migrations, as the owner
     python -m app.cli questionnaires sync     # publish changed bundled definitions
     python -m app.cli documents sync-templates  # publish changed report templates
+    python -m app.cli ai sync-prompts         # publish changed AI prompts
     python -m app.cli rules load-pack planning_qld_cairns --email staff@example.com [--publish]
 
 Platform roles can only be granted in the PLATFORM_ADMIN organisation, which is created on
@@ -25,6 +26,7 @@ from sqlalchemy.pool import NullPool
 
 from app.core.config import Settings, get_settings
 from app.core.resources import create_resources
+from app.modules.ai import prompts as ai_prompts
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
 from app.modules.documents import templates as document_templates
@@ -218,6 +220,21 @@ async def sync_templates(settings: Settings) -> int:
     return 0
 
 
+async def sync_prompts(settings: Settings) -> int:
+    """Publish bundled AI prompts whose content changed (owner only, like templates)."""
+    definitions = ai_prompts.load_bundled()
+    engine = create_async_engine(settings.owner_database_url, poolclass=NullPool)
+    try:
+        async with async_sessionmaker(engine, expire_on_commit=False)() as db:
+            results = await ai_prompts.sync_prompts(db, definitions)
+            await db.commit()
+    finally:
+        await engine.dispose()
+    for r in results:
+        print(f"{r.task}: version {r.version} {'published' if r.changed else 'unchanged'}")
+    return 0
+
+
 async def sync_categories(settings: Settings) -> int:
     """Apply the reviewed marketplace category file (owner only, like questionnaires)."""
     definitions = marketplace.load_bundled()
@@ -290,6 +307,8 @@ def main(argv: list[str] | None = None) -> int:
     q.add_argument("action", choices=["sync"])
     d = sub.add_parser("documents", help="Report templates")
     d.add_argument("action", choices=["sync-templates"])
+    a = sub.add_parser("ai", help="AI prompts")
+    a.add_argument("action", choices=["sync-prompts"])
     m = sub.add_parser("marketplace", help="Marketplace categories")
     m.add_argument("action", choices=["sync-categories"])
     r = sub.add_parser("rules", help="Rule content packs")
@@ -307,6 +326,8 @@ def main(argv: list[str] | None = None) -> int:
         return asyncio.run(sync_questionnaires(get_settings()))
     if args.command == "documents":
         return asyncio.run(sync_templates(get_settings()))
+    if args.command == "ai":
+        return asyncio.run(sync_prompts(get_settings()))
     if args.command == "marketplace":
         return asyncio.run(sync_categories(get_settings()))
     if args.command == "rules":

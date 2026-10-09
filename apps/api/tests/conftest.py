@@ -103,7 +103,7 @@ def client_factory():  # type: ignore[no-untyped-def]
 
 def prepare_database() -> None:
     """What a deploy's ``migrate`` step does: migrate, provision the app role, publish the
-    bundled questionnaires, marketplace categories and report templates."""
+    bundled questionnaires, marketplace categories, report templates and AI prompts."""
     import asyncio
 
     from alembic import command
@@ -119,6 +119,7 @@ def prepare_database() -> None:
     assert asyncio.run(cli.sync_questionnaires(settings)) == 0
     assert asyncio.run(cli.sync_categories(settings)) == 0
     assert asyncio.run(cli.sync_templates(settings)) == 0
+    assert asyncio.run(cli.sync_prompts(settings)) == 0
 
 
 @pytest.fixture(scope="session")

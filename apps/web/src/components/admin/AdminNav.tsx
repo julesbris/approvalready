@@ -4,7 +4,7 @@ import Link from "next/link";
 export function AdminNav({
   current,
 }: {
-  current: "home" | "sources" | "rules" | "grants" | "reviews" | "professionals";
+  current: "home" | "sources" | "rules" | "grants" | "reviews" | "professionals" | "ai";
 }) {
   const links = [
     ["home", "/admin", "Review queue"],
@@ -13,6 +13,7 @@ export function AdminNav({
     ["grants", "/admin/grants", "Grants"],
     ["reviews", "/admin/reviews", "Professional reviews"],
     ["professionals", "/admin/professionals", "Professionals"],
+    ["ai", "/admin/ai", "AI"],
   ] as const;
   return (
     <nav aria-label="Admin" className="admin-nav">

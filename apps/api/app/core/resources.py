@@ -49,15 +49,12 @@ def create_resources(settings: Settings) -> Resources:
         socket_timeout=settings.health_check_timeout_seconds,
         decode_responses=True,
     )
-    from app.modules.documents.jobs import JobContext, create_job_runner
-    from app.modules.documents.scanner import create_scanner
+    from app.modules.documents.jobs import create_job_context, create_job_runner
     from app.modules.documents.storage import create_storage
 
     session_factory = async_sessionmaker(engine, expire_on_commit=False)
     storage = create_storage(settings)
-    jobs = create_job_runner(
-        settings, JobContext(session_factory, storage, create_scanner(settings))
-    )
+    jobs = create_job_runner(settings, create_job_context(settings, session_factory, storage))
     return Resources(
         engine=engine,
         session_factory=session_factory,
