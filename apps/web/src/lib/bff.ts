@@ -14,7 +14,15 @@ const FORWARDED_HEADERS = [
   "x-request-id",
 ] as const;
 
-export const RESPONSE_HEADERS = ["content-type", "retry-after", "x-request-id"] as const;
+export const RESPONSE_HEADERS = [
+  "content-type",
+  "retry-after",
+  "x-request-id",
+  // File downloads: always an attachment, sandboxed, or a redirect to a signed storage URL.
+  "content-disposition",
+  "content-security-policy",
+  "location",
+] as const;
 
 export function isProxiedPath(path: readonly string[]): boolean {
   const [root] = path;

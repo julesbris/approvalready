@@ -1,0 +1,69 @@
+{#- Planning assessment report body. The surrounding frame (render.py) always adds the
+    required metadata, assumptions, missing information, sources and limitations sections,
+    so this template only lays out the findings. Only the tags documented in render.py
+    (headings, paragraphs, lists, tables, strong, em) survive conversion to Word. -#}
+<h2>Summary</h2>
+<p>
+  {%- if assessment.status == "NO_APPLICABLE_RULES" %}
+  No reviewed rules cover this project yet. This is not a finding that nothing is required.
+  {%- else %}
+  We checked your answers against {{ rule_sets_in_scope | length }} reviewed rule
+  set{{ "" if rule_sets_in_scope | length == 1 else "s" }} and recorded
+  {{ findings | length }} finding{{ "" if findings | length == 1 else "s" }}.
+  Overall confidence: <strong>{{ assessment.overall_confidence_label }}</strong>.
+  {%- endif %}
+</p>
+
+{% if approvals %}
+<h2>Approvals</h2>
+<table>
+  <tr><th>Approval</th><th>How sure</th><th>Who decides</th><th>Pathway</th></tr>
+  {% for a in approvals %}
+  <tr>
+    <td>{{ a.title }}</td>
+    <td>{{ a.certainty_label }} ({{ a.confidence_label }})</td>
+    <td>{{ a.authority or "Not stated" }}</td>
+    <td>{{ a.pathway or "Not stated" }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% if evidence %}
+<h2>Evidence you will need</h2>
+<ul>
+  {% for e in evidence %}
+  <li>
+    <strong>{{ e.title }}</strong>{% if e.detail %}: {{ e.detail }}{% endif %}
+    {%- if e.documents %} (provided: {{ e.documents | join(", ") }}){% else %} (not provided yet){% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if findings %}
+<h2>Findings</h2>
+{% for f in findings %}
+<h3>{{ f.title or f.rule_title }}</h3>
+<p>
+  <strong>{{ f.outcome_label }}</strong> · {{ f.result_label }} · Confidence:
+  {{ f.confidence_label }}
+</p>
+{% if f.detail %}<p>{{ f.detail }}</p>{% endif %}
+{% if f.confidence_reasons %}
+<ul>
+  {% for reason in f.confidence_reasons %}<li>{{ reason }}</li>{% endfor %}
+</ul>
+{% endif %}
+{% if f.citations %}
+<p><em>Based on: {{ f.citations | join("; ") }}</em></p>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if referrals %}
+<h2>Who can help</h2>
+<ul>
+  {% for r in referrals %}<li>{{ r }}</li>{% endfor %}
+</ul>
+{% endif %}

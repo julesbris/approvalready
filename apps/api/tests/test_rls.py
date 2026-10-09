@@ -75,6 +75,11 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "assessment_finding": APPEND,
     "approval_requirement": APPEND,
     "evidence_requirement": APPEND,
+    "uploaded_document": WRITE,
+    "evidence": CRUD,
+    "document_template": READ,
+    "document_template_version": READ,
+    "generated_document": WRITE,
 }
 
 TENANT_TABLES = sorted(

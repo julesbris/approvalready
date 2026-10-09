@@ -23,8 +23,15 @@ FROM python:${PYTHON_VERSION}-slim AS runtime
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PATH="/opt/venv/bin:${PATH}"
-RUN groupadd --system --gid 10001 app \
-    && useradd --system --uid 10001 --gid app --home-dir /app --shell /usr/sbin/nologin app
+# Pango and fonts for PDF reports (WeasyPrint). /data/uploads is the local document store
+# (a volume in Compose); creating it here gives the volume the app user's ownership.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0 fonts-dejavu-core \
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd --system --gid 10001 app \
+    && useradd --system --uid 10001 --gid app --home-dir /app --shell /usr/sbin/nologin app \
+    && mkdir -p /data/uploads && chown app:app /data/uploads && chmod 700 /data/uploads
 WORKDIR /app
 COPY --from=builder /opt/venv /opt/venv
 COPY --chown=app:app app ./app

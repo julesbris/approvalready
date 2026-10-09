@@ -19,10 +19,11 @@ case "${1:-api}" in
     ;;
   migrate)
     # As the owner (MIGRATION_DATABASE_URL): schema, then the application's login role,
-    # then publish changed questionnaire definitions.
+    # then publish changed questionnaire definitions and report templates.
     alembic upgrade head
     python -m app.cli provision-db-role
-    exec python -m app.cli questionnaires sync
+    python -m app.cli questionnaires sync
+    exec python -m app.cli documents sync-templates
     ;;
   *)
     exec "$@"

@@ -6,11 +6,14 @@ Run the scheduler: celery -A app.worker beat --loglevel=INFO   (exactly one inst
 
 from __future__ import annotations
 
+import asyncio
 from datetime import UTC, datetime
+from typing import Any
 
 from celery import Celery
 
 from app.core.config import get_settings
+from app.modules.documents import jobs
 
 settings = get_settings()
 
@@ -35,6 +38,7 @@ celery_app.conf.update(
     # due dates) are registered here as their milestones land.
     beat_schedule={
         "system-heartbeat": {"task": "system.heartbeat", "schedule": 300.0},
+        "documents-requeue-stalled": {"task": "documents.requeue_stalled", "schedule": 600.0},
     },
 )
 
@@ -47,3 +51,47 @@ def ping() -> str:
 @celery_app.task(name="system.heartbeat")
 def heartbeat() -> str:
     return datetime.now(UTC).isoformat()
+
+
+# --- Documents (Milestone 6) -----------------------------------------------------------
+
+# Retries back off from 30 s to 10 min, about 90 minutes in all: long enough to ride out a
+# ClamAV restart or signature download. After that a scan is marked ERROR.
+DOCUMENT_JOB_RETRIES = 12
+
+
+def _countdown(retries: int) -> int:
+    return int(min(30 * 2**retries, 600))
+
+
+def _run(task: Any, job: jobs.JobFn, organisation_id: str, target_id: str) -> str | None:
+    final = task.request.retries >= DOCUMENT_JOB_RETRIES
+    try:
+        return asyncio.run(
+            jobs.run_with_own_resources(
+                settings, job, organisation_id, target_id, final_attempt=final
+            )
+        )
+    except jobs.RetryLater as exc:
+        raise task.retry(exc=exc, countdown=_countdown(task.request.retries)) from exc
+
+
+@celery_app.task(name=jobs.SCAN_TASK, bind=True, max_retries=DOCUMENT_JOB_RETRIES)
+def scan_document(self: Any, organisation_id: str, document_id: str) -> str | None:
+    return _run(self, jobs.scan_job, organisation_id, document_id)
+
+
+@celery_app.task(name=jobs.GENERATE_TASK, bind=True, max_retries=DOCUMENT_JOB_RETRIES)
+def generate_document(self: Any, organisation_id: str, generated_id: str) -> str | None:
+    return _run(self, jobs.generate_job, organisation_id, generated_id)
+
+
+@celery_app.task(name="documents.requeue_stalled")
+def requeue_stalled() -> int:
+    """Re-queue scans and reports still pending well after their retries would have run
+    (for example when the queue was down at upload time). Jobs ignore finished work."""
+    stalled = asyncio.run(jobs.stalled_jobs(settings, older_than_minutes=120))
+    for kind, target_id, organisation_id in stalled:
+        name = jobs.SCAN_TASK if kind == "scan" else jobs.GENERATE_TASK
+        celery_app.send_task(name, args=[organisation_id, target_id])
+    return len(stalled)

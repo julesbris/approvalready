@@ -70,3 +70,37 @@ export async function apiRequest<T>(
   if (!response.ok) return { ok: false, status: response.status, ...errorFrom(response.status, data) };
   return { ok: true, status: response.status, data: data as T };
 }
+
+/** Upload a file as multipart form data (the browser sets the boundary). */
+export async function apiUpload<T>(path: string, file: File): Promise<ApiResult<T>> {
+  const form = new FormData();
+  form.append("file", file, file.name);
+  const headers: Record<string, string> = { accept: "application/json" };
+  const csrf = readCsrfToken(document.cookie);
+  if (csrf) headers["x-csrf-token"] = csrf;
+  let response: Response;
+  try {
+    response = await fetch(`/api/v1${path}`, {
+      method: "POST",
+      headers,
+      body: form,
+      credentials: "same-origin",
+    });
+  } catch {
+    return { ok: false, status: 0, code: "network", message: "Can't reach the server." };
+  }
+  const data: unknown = await response.json().catch(() => null);
+  if (!response.ok) {
+    // Too large for the proxy in front of the API (no JSON body).
+    if (response.status === 413 && !data) {
+      return {
+        ok: false,
+        status: 413,
+        code: "file_too_large",
+        message: "This file is too large.",
+      };
+    }
+    return { ok: false, status: response.status, ...errorFrom(response.status, data) };
+  }
+  return { ok: true, status: response.status, data: data as T };
+}

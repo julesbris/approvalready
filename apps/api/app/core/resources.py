@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
 from redis.asyncio import Redis
 from sqlalchemy.ext.asyncio import (
@@ -15,6 +16,10 @@ from sqlalchemy.ext.asyncio import (
 from app.core.config import Settings
 from app.core.email import EmailProvider, create_email_provider
 
+if TYPE_CHECKING:
+    from app.modules.documents.jobs import JobRunner
+    from app.modules.documents.storage import ObjectStorage
+
 
 @dataclass
 class Resources:
@@ -22,6 +27,8 @@ class Resources:
     session_factory: async_sessionmaker[AsyncSession]
     redis: Redis
     email: EmailProvider
+    storage: ObjectStorage
+    jobs: JobRunner
 
     async def close(self) -> None:
         await self.redis.aclose()
@@ -42,9 +49,20 @@ def create_resources(settings: Settings) -> Resources:
         socket_timeout=settings.health_check_timeout_seconds,
         decode_responses=True,
     )
+    from app.modules.documents.jobs import JobContext, create_job_runner
+    from app.modules.documents.scanner import create_scanner
+    from app.modules.documents.storage import create_storage
+
+    session_factory = async_sessionmaker(engine, expire_on_commit=False)
+    storage = create_storage(settings)
+    jobs = create_job_runner(
+        settings, JobContext(session_factory, storage, create_scanner(settings))
+    )
     return Resources(
         engine=engine,
-        session_factory=async_sessionmaker(engine, expire_on_commit=False),
+        session_factory=session_factory,
         redis=redis,
         email=create_email_provider(settings),
+        storage=storage,
+        jobs=jobs,
     )

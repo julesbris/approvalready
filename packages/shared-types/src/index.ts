@@ -86,3 +86,11 @@ export type RuleVersionSummary = Schemas["RuleVersionSummary"];
 export type RuleVersionContent = Schemas["RuleVersionContent"];
 export type PublishChecksOut = Schemas["PublishChecksOut"];
 export type EvaluateOut = Schemas["EvaluateOut"];
+
+export type DocumentOut = Schemas["DocumentOut"];
+export type ScanStatus = Schemas["ScanStatus"];
+export type UploadLimitsOut = Schemas["UploadLimitsOut"];
+export type EvidenceOut = Schemas["EvidenceOut"];
+export type GeneratedDocumentOut = Schemas["GeneratedDocumentOut"];
+export type OutputFormat = Schemas["OutputFormat"];
+export type GenerationStatus = Schemas["GenerationStatus"];

@@ -134,6 +134,10 @@ export function displayAnswer(question: QuestionOut, value: unknown): string {
         .filter(Boolean)
         .join(", ");
     }
+    case "FILE":
+      return Array.isArray(value)
+        ? `${value.length} file${value.length === 1 ? "" : "s"} attached`
+        : String(value);
     case "OBJECT":
       return questionFields(question)
         .filter((f) => isAnswered((value as Record<string, unknown>)[f.key]))

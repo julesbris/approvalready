@@ -712,6 +712,43 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Generate Report
+         * @description Produce the assessment report as PDF, Word or HTML. Poll until it is READY.
+         */
+        post: operations["generate_report_v1_organisations__organisation_id__assessments__assessment_id__documents_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/evidence": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Evidence */
+        get: operations["list_evidence_v1_organisations__organisation_id__assessments__assessment_id__evidence_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/audit-events": {
         parameters: {
             query?: never;
@@ -764,6 +801,115 @@ export interface paths {
         head?: never;
         /** Update Business Profile */
         patch: operations["update_business_profile_v1_organisations__organisation_id__business_profiles__profile_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/documents/{document_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Document */
+        get: operations["get_document_v1_organisations__organisation_id__documents__document_id__get"];
+        put?: never;
+        post?: never;
+        /** Delete Document */
+        delete: operations["delete_document_v1_organisations__organisation_id__documents__document_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/documents/{document_id}/content": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Download Document
+         * @description The file, as a download. Only files that passed the virus check.
+         */
+        get: operations["download_document_v1_organisations__organisation_id__documents__document_id__content_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/evidence": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Add Evidence
+         * @description Offer an uploaded (and virus-checked) file for an evidence requirement.
+         */
+        post: operations["add_evidence_v1_organisations__organisation_id__evidence_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/evidence/{evidence_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Withdraw Evidence */
+        delete: operations["withdraw_evidence_v1_organisations__organisation_id__evidence__evidence_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/generated-documents/{generated_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Generated */
+        get: operations["get_generated_v1_organisations__organisation_id__generated_documents__generated_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/generated-documents/{generated_id}/content": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Download Generated */
+        get: operations["download_generated_v1_organisations__organisation_id__generated_documents__generated_id__content_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/v1/organisations/{organisation_id}/invitations": {
@@ -907,6 +1053,44 @@ export interface paths {
          * @description Assess the project's latest submitted answers against the published rules.
          */
         post: operations["run_assessment_v1_organisations__organisation_id__projects__project_id__assessments_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Documents */
+        get: operations["list_documents_v1_organisations__organisation_id__projects__project_id__documents_get"];
+        put?: never;
+        /**
+         * Upload Document
+         * @description Upload a file to a project. It is checked for viruses before it can be used.
+         */
+        post: operations["upload_document_v1_organisations__organisation_id__projects__project_id__documents_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/generated-documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Generated */
+        get: operations["list_generated_v1_organisations__organisation_id__projects__project_id__generated_documents_get"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -1158,6 +1342,23 @@ export interface paths {
         put?: never;
         /** Submit Answers */
         post: operations["submit_answers_v1_organisations__organisation_id__submissions__submission_id__submit_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/upload-limits": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Upload Limits */
+        get: operations["upload_limits_v1_organisations__organisation_id__upload_limits_get"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -1474,6 +1675,14 @@ export interface components {
          * @enum {string}
          */
         AustralianState: "NSW" | "VIC" | "QLD" | "SA" | "WA" | "TAS" | "NT" | "ACT";
+        /** Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post */
+        Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post: {
+            /**
+             * File
+             * @description The file to upload.
+             */
+            file: string;
+        };
         /** BusinessCreate */
         BusinessCreate: {
             /** Abn */
@@ -1578,6 +1787,37 @@ export interface components {
              */
             status: "ok" | "error";
         };
+        /** DocumentOut */
+        DocumentOut: {
+            /**
+             * Content Type
+             * @description Detected from the file's contents.
+             */
+            content_type: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Created By */
+            created_by: string | null;
+            /** Filename */
+            filename: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** @description Only CLEAN documents can be downloaded or used. */
+            scan_status: components["schemas"]["ScanStatus"];
+            /** Size Bytes */
+            size_bytes: number;
+        };
         /** EmailRequest */
         EmailRequest: {
             /**
@@ -1622,6 +1862,43 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /** EvidenceIn */
+        EvidenceIn: {
+            /**
+             * Evidence Requirement Id
+             * Format: uuid
+             */
+            evidence_requirement_id: string;
+            /** Note */
+            note?: string | null;
+            /**
+             * Uploaded Document Id
+             * Format: uuid
+             */
+            uploaded_document_id: string;
+        };
+        /** EvidenceOut */
+        EvidenceOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            document: components["schemas"]["DocumentOut"];
+            /**
+             * Evidence Requirement Id
+             * Format: uuid
+             */
+            evidence_requirement_id: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Note */
+            note: string | null;
+            status: components["schemas"]["EvidenceStatus"];
+        };
         /** EvidenceRequirementOut */
         EvidenceRequirementOut: {
             confidence: components["schemas"]["Confidence"];
@@ -1642,6 +1919,11 @@ export interface components {
             /** Title */
             title: string;
         };
+        /**
+         * EvidenceStatus
+         * @enum {string}
+         */
+        EvidenceStatus: "SUBMITTED" | "ACCEPTED" | "REJECTED";
         /** FindingOut */
         FindingOut: {
             confidence: components["schemas"]["Confidence"];
@@ -1717,6 +1999,48 @@ export interface components {
             /** Verification Status */
             verification_status: string;
         };
+        /** GenerateIn */
+        GenerateIn: {
+            format: components["schemas"]["OutputFormat"];
+        };
+        /** GeneratedDocumentOut */
+        GeneratedDocumentOut: {
+            /** Assessment Id */
+            assessment_id: string | null;
+            /** Completed At */
+            completed_at: string | null;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Error */
+            error: string | null;
+            /** Filename */
+            filename: string;
+            format: components["schemas"]["OutputFormat"];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            review_status: components["schemas"]["ReviewStatus"];
+            /** Sha256 */
+            sha256: string | null;
+            /** Size Bytes */
+            size_bytes: number | null;
+            status: components["schemas"]["GenerationStatus"];
+        };
+        /**
+         * GenerationStatus
+         * @enum {string}
+         */
+        GenerationStatus: "PENDING" | "READY" | "FAILED";
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -1906,6 +2230,11 @@ export interface components {
          * @enum {string}
          */
         OutcomeType: "APPROVAL_REQUIRED" | "APPROVAL_LIKELY" | "NOT_REQUIRED" | "EVIDENCE_REQUIRED" | "PROFESSIONAL_REQUIRED" | "REFERRAL_CATEGORY" | "CROSS_SELL" | "WARNING" | "INFO";
+        /**
+         * OutputFormat
+         * @enum {string}
+         */
+        OutputFormat: "PDF" | "DOCX" | "HTML";
         /**
          * OwnershipRole
          * @enum {string}
@@ -2353,6 +2682,11 @@ export interface components {
             reviewer_name: string | null;
             to_status: components["schemas"]["VerificationStatus"];
         };
+        /**
+         * ReviewStatus
+         * @enum {string}
+         */
+        ReviewStatus: "NOT_REVIEWED";
         /** RuleCreate */
         RuleCreate: {
             /**
@@ -2663,6 +2997,11 @@ export interface components {
             /** Version */
             version: number;
         };
+        /**
+         * ScanStatus
+         * @enum {string}
+         */
+        ScanStatus: "PENDING" | "CLEAN" | "INFECTED" | "ERROR";
         /** SectionOut */
         SectionOut: {
             /** Questions */
@@ -3242,6 +3581,18 @@ export interface components {
          * @enum {string}
          */
         TurnoverBand: "UNDER_75K" | "75K_2M" | "2M_10M" | "10M_50M" | "OVER_50M";
+        /** UploadLimitsOut */
+        UploadLimitsOut: {
+            /**
+             * Accept
+             * @description Value for an <input type=file accept=...> attribute.
+             */
+            accept: string;
+            /** Extensions */
+            extensions: string[];
+            /** Max Bytes */
+            max_bytes: number;
+        };
         /** UserOut */
         UserOut: {
             /** Display Name */
@@ -4970,6 +5321,74 @@ export interface operations {
             };
         };
     };
+    generate_report_v1_organisations__organisation_id__assessments__assessment_id__documents_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                assessment_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["GenerateIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GeneratedDocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_evidence_v1_organisations__organisation_id__assessments__assessment_id__evidence_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                assessment_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EvidenceOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_audit_events_v1_organisations__organisation_id__audit_events_get: {
         parameters: {
             query?: {
@@ -5156,6 +5575,243 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["BusinessOut"];
                 };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_document_v1_organisations__organisation_id__documents__document_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_document_v1_organisations__organisation_id__documents__document_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    download_document_v1_organisations__organisation_id__documents__document_id__content_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": unknown;
+                };
+            };
+            /** @description See Other */
+            303: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_evidence_v1_organisations__organisation_id__evidence_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EvidenceIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EvidenceOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    withdraw_evidence_v1_organisations__organisation_id__evidence__evidence_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                evidence_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_generated_v1_organisations__organisation_id__generated_documents__generated_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                generated_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GeneratedDocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    download_generated_v1_organisations__organisation_id__generated_documents__generated_id__content_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                generated_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": unknown;
+                };
+            };
+            /** @description See Other */
+            303: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {
@@ -5579,6 +6235,106 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AssessmentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_documents_v1_organisations__organisation_id__projects__project_id__documents_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    upload_document_v1_organisations__organisation_id__projects__project_id__documents_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": components["schemas"]["Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_generated_v1_organisations__organisation_id__projects__project_id__generated_documents_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GeneratedDocumentOut"][];
                 };
             };
             /** @description Validation Error */
@@ -6255,6 +7011,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    upload_limits_v1_organisations__organisation_id__upload_limits_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UploadLimitsOut"];
                 };
             };
             /** @description Validation Error */

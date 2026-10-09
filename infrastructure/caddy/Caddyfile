@@ -41,7 +41,8 @@ api.{$PRIMARY_DOMAIN} {
 {$PRIMARY_DOMAIN}, app.{$PRIMARY_DOMAIN}, partners.{$PRIMARY_DOMAIN}, review.{$PRIMARY_DOMAIN} {
 	import common
 	request_body {
-		max_size 10MB
+		# Uploads (20 MB files) reach the API through the web app's /api/v1 proxy.
+		max_size 25MB
 	}
 	reverse_proxy web:3000 {
 		health_uri /api/health

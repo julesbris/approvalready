@@ -75,7 +75,8 @@
             {"value": "steep_slope", "label": "Steep slope"}
           ]
         },
-        {"key": "planning.constraints_details", "type": "TEXTAREA", "label": "Tell us what you know about these", "validation": {"max_length": 2000}, "visible_when": {"fact": "planning.known_constraints", "op": "exists"}}
+        {"key": "planning.constraints_details", "type": "TEXTAREA", "label": "Tell us what you know about these", "validation": {"max_length": 2000}, "visible_when": {"fact": "planning.known_constraints", "op": "exists"}},
+        {"key": "planning.site_documents", "type": "FILE", "label": "Do you have plans, a survey or photos of the site?", "help_text": "Optional. Up to 5 files: PDF, Word, Excel, CSV, text or photos. Each file is checked for viruses and stays private to your organisation.", "validation": {"max_files": 5}}
       ]
     },
     {

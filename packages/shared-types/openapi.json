@@ -493,6 +493,21 @@
         "title": "AustralianState",
         "type": "string"
       },
+      "Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post": {
+        "properties": {
+          "file": {
+            "contentMediaType": "application/octet-stream",
+            "description": "The file to upload.",
+            "title": "File",
+            "type": "string"
+          }
+        },
+        "required": [
+          "file"
+        ],
+        "title": "Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post",
+        "type": "object"
+      },
       "BusinessCreate": {
         "additionalProperties": false,
         "properties": {
@@ -929,6 +944,66 @@
         "title": "DependencyCheck",
         "type": "object"
       },
+      "DocumentOut": {
+        "properties": {
+          "content_type": {
+            "description": "Detected from the file's contents.",
+            "title": "Content Type",
+            "type": "string"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "created_by": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created By"
+          },
+          "filename": {
+            "title": "Filename",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "scan_status": {
+            "$ref": "#/components/schemas/ScanStatus",
+            "description": "Only CLEAN documents can be downloaded or used."
+          },
+          "size_bytes": {
+            "title": "Size Bytes",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "filename",
+          "content_type",
+          "size_bytes",
+          "scan_status",
+          "created_at",
+          "created_by"
+        ],
+        "title": "DocumentOut",
+        "type": "object"
+      },
       "EmailRequest": {
         "properties": {
           "email": {
@@ -1044,6 +1119,84 @@
         "title": "EvaluateOut",
         "type": "object"
       },
+      "EvidenceIn": {
+        "properties": {
+          "evidence_requirement_id": {
+            "format": "uuid",
+            "title": "Evidence Requirement Id",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "uploaded_document_id": {
+            "format": "uuid",
+            "title": "Uploaded Document Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_requirement_id",
+          "uploaded_document_id"
+        ],
+        "title": "EvidenceIn",
+        "type": "object"
+      },
+      "EvidenceOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "document": {
+            "$ref": "#/components/schemas/DocumentOut"
+          },
+          "evidence_requirement_id": {
+            "format": "uuid",
+            "title": "Evidence Requirement Id",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "status": {
+            "$ref": "#/components/schemas/EvidenceStatus"
+          }
+        },
+        "required": [
+          "id",
+          "evidence_requirement_id",
+          "status",
+          "note",
+          "document",
+          "created_at"
+        ],
+        "title": "EvidenceOut",
+        "type": "object"
+      },
       "EvidenceRequirementOut": {
         "properties": {
           "confidence": {
@@ -1089,6 +1242,15 @@
         ],
         "title": "EvidenceRequirementOut",
         "type": "object"
+      },
+      "EvidenceStatus": {
+        "enum": [
+          "SUBMITTED",
+          "ACCEPTED",
+          "REJECTED"
+        ],
+        "title": "EvidenceStatus",
+        "type": "string"
       },
       "FindingOut": {
         "properties": {
@@ -1293,6 +1455,132 @@
         ],
         "title": "FindingSourceOut",
         "type": "object"
+      },
+      "GenerateIn": {
+        "properties": {
+          "format": {
+            "$ref": "#/components/schemas/OutputFormat"
+          }
+        },
+        "required": [
+          "format"
+        ],
+        "title": "GenerateIn",
+        "type": "object"
+      },
+      "GeneratedDocumentOut": {
+        "properties": {
+          "assessment_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assessment Id"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "filename": {
+            "title": "Filename",
+            "type": "string"
+          },
+          "format": {
+            "$ref": "#/components/schemas/OutputFormat"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "review_status": {
+            "$ref": "#/components/schemas/ReviewStatus"
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sha256"
+          },
+          "size_bytes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size Bytes"
+          },
+          "status": {
+            "$ref": "#/components/schemas/GenerationStatus"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "assessment_id",
+          "format",
+          "status",
+          "review_status",
+          "filename",
+          "size_bytes",
+          "sha256",
+          "error",
+          "created_at",
+          "completed_at"
+        ],
+        "title": "GeneratedDocumentOut",
+        "type": "object"
+      },
+      "GenerationStatus": {
+        "enum": [
+          "PENDING",
+          "READY",
+          "FAILED"
+        ],
+        "title": "GenerationStatus",
+        "type": "string"
       },
       "HTTPValidationError": {
         "properties": {
@@ -1765,6 +2053,15 @@
           "INFO"
         ],
         "title": "OutcomeType",
+        "type": "string"
+      },
+      "OutputFormat": {
+        "enum": [
+          "PDF",
+          "DOCX",
+          "HTML"
+        ],
+        "title": "OutputFormat",
         "type": "string"
       },
       "OwnershipRole": {
@@ -3074,6 +3371,13 @@
         "title": "ReviewEventOut",
         "type": "object"
       },
+      "ReviewStatus": {
+        "enum": [
+          "NOT_REVIEWED"
+        ],
+        "title": "ReviewStatus",
+        "type": "string"
+      },
       "RuleCreate": {
         "additionalProperties": false,
         "properties": {
@@ -3931,6 +4235,16 @@
         ],
         "title": "RuleVersionSummary",
         "type": "object"
+      },
+      "ScanStatus": {
+        "enum": [
+          "PENDING",
+          "CLEAN",
+          "INFECTED",
+          "ERROR"
+        ],
+        "title": "ScanStatus",
+        "type": "string"
       },
       "SectionOut": {
         "properties": {
@@ -5629,6 +5943,33 @@
         ],
         "title": "TurnoverBand",
         "type": "string"
+      },
+      "UploadLimitsOut": {
+        "properties": {
+          "accept": {
+            "description": "Value for an <input type=file accept=...> attribute.",
+            "title": "Accept",
+            "type": "string"
+          },
+          "extensions": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Extensions",
+            "type": "array"
+          },
+          "max_bytes": {
+            "title": "Max Bytes",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "max_bytes",
+          "extensions",
+          "accept"
+        ],
+        "title": "UploadLimitsOut",
+        "type": "object"
       },
       "UserOut": {
         "properties": {
@@ -8407,6 +8748,127 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/documents": {
+      "post": {
+        "description": "Produce the assessment report as PDF, Word or HTML. Poll until it is READY.",
+        "operationId": "generate_report_v1_organisations__organisation_id__assessments__assessment_id__documents_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "assessment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Assessment Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeneratedDocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Generate Report",
+        "tags": [
+          "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/assessments/{assessment_id}/evidence": {
+      "get": {
+        "operationId": "list_evidence_v1_organisations__organisation_id__assessments__assessment_id__evidence_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "assessment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Assessment Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/EvidenceOut"
+                  },
+                  "title": "Response List Evidence V1 Organisations  Organisation Id  Assessments  Assessment Id  Evidence Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Evidence",
+        "tags": [
+          "documents"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/audit-events": {
       "get": {
         "operationId": "list_audit_events_v1_organisations__organisation_id__audit_events_get",
@@ -8736,6 +9198,361 @@
         "summary": "Update Business Profile",
         "tags": [
           "entities"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/documents/{document_id}": {
+      "delete": {
+        "operationId": "delete_document_v1_organisations__organisation_id__documents__document_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Document",
+        "tags": [
+          "documents"
+        ]
+      },
+      "get": {
+        "operationId": "get_document_v1_organisations__organisation_id__documents__document_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Document",
+        "tags": [
+          "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/documents/{document_id}/content": {
+      "get": {
+        "description": "The file, as a download. Only files that passed the virus check.",
+        "operationId": "download_document_v1_organisations__organisation_id__documents__document_id__content_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/octet-stream": {}
+            },
+            "description": "Successful Response"
+          },
+          "303": {
+            "description": "See Other"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Download Document",
+        "tags": [
+          "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/evidence": {
+      "post": {
+        "description": "Offer an uploaded (and virus-checked) file for an evidence requirement.",
+        "operationId": "add_evidence_v1_organisations__organisation_id__evidence_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvidenceIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvidenceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Evidence",
+        "tags": [
+          "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/evidence/{evidence_id}": {
+      "delete": {
+        "operationId": "withdraw_evidence_v1_organisations__organisation_id__evidence__evidence_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "evidence_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Evidence Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Withdraw Evidence",
+        "tags": [
+          "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/generated-documents/{generated_id}": {
+      "get": {
+        "operationId": "get_generated_v1_organisations__organisation_id__generated_documents__generated_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "generated_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Generated Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeneratedDocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Generated",
+        "tags": [
+          "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/generated-documents/{generated_id}/content": {
+      "get": {
+        "operationId": "download_generated_v1_organisations__organisation_id__generated_documents__generated_id__content_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "generated_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Generated Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/octet-stream": {}
+            },
+            "description": "Successful Response"
+          },
+          "303": {
+            "description": "See Other"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Download Generated",
+        "tags": [
+          "documents"
         ]
       }
     },
@@ -9428,6 +10245,182 @@
         "summary": "Run Assessment",
         "tags": [
           "assessments"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/documents": {
+      "get": {
+        "operationId": "list_documents_v1_organisations__organisation_id__projects__project_id__documents_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentOut"
+                  },
+                  "title": "Response List Documents V1 Organisations  Organisation Id  Projects  Project Id  Documents Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Documents",
+        "tags": [
+          "documents"
+        ]
+      },
+      "post": {
+        "description": "Upload a file to a project. It is checked for viruses before it can be used.",
+        "operationId": "upload_document_v1_organisations__organisation_id__projects__project_id__documents_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Upload Document",
+        "tags": [
+          "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/generated-documents": {
+      "get": {
+        "operationId": "list_generated_v1_organisations__organisation_id__projects__project_id__generated_documents_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/GeneratedDocumentOut"
+                  },
+                  "title": "Response List Generated V1 Organisations  Organisation Id  Projects  Project Id  Generated Documents Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Generated",
+        "tags": [
+          "documents"
         ]
       }
     },
@@ -10573,6 +11566,49 @@
         "summary": "Submit Answers",
         "tags": [
           "projects"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/upload-limits": {
+      "get": {
+        "operationId": "upload_limits_v1_organisations__organisation_id__upload_limits_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadLimitsOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Upload Limits",
+        "tags": [
+          "documents"
         ]
       }
     },

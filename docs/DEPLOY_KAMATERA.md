@@ -177,9 +177,17 @@ already exists.
 | `pgdata` | PostgreSQL cluster (PG18 layout under `/var/lib/postgresql`) | Yes (dumps + later WAL) |
 | `redisdata` | Redis AOF (queues, rate counters) | No (rebuildable) |
 | `caddy_data` | TLS certificates and ACME account | Optional |
+| `uploads` | Customer files and generated reports (`STORAGE_BACKEND=local`, the default) | **Yes** (nightly tar, below) |
+| `clamav_db` | ClamAV virus signatures | No (re-downloaded) |
 | `./backups` (bind) | Local dump staging | Shipped off-host |
 
-Uploaded documents go to S3-compatible object storage from Milestone 6, never to these volumes.
+From Milestone 6 customer files live in the `uploads` volume by default. To keep them off the
+server instead, set `STORAGE_BACKEND=s3` with `STORAGE_S3_BUCKET`, `STORAGE_S3_REGION`,
+`STORAGE_S3_ENDPOINT_URL` (for non-AWS providers) and the access keys in `.env`; existing files
+are not copied across automatically.
+
+The `clamav` service needs about 1.5 GB of memory and takes a few minutes after its first start
+to download signatures. Until it is ready uploads wait as "Checking for viruses" and are retried.
 
 ## 9. Migrations (Alembic)
 
@@ -203,6 +211,11 @@ docker compose -f docker-compose.prod.yml exec -T db \
 # ship off-host (S3-compatible, Australian region), then prune local copies
 aws s3 cp "backups/db-$ts.dump" "s3://<backup-bucket>/postgres/" --endpoint-url "<endpoint>"
 find backups -name 'db-*.dump' -mtime +7 -delete
+# customer files (STORAGE_BACKEND=local)
+docker run --rm -v approvalready_uploads:/data:ro -v "$PWD/backups":/out alpine \
+  tar czf "/out/uploads-$ts.tgz" -C /data .
+aws s3 cp "backups/uploads-$ts.tgz" "s3://<backup-bucket>/uploads/" --endpoint-url "<endpoint>"
+find backups -name 'uploads-*.tgz' -mtime +7 -delete
 ```
 
 Encrypt the bucket, enable object lock/versioning, keep 35 daily + 12 monthly. Milestone 17

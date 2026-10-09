@@ -3,6 +3,7 @@
 import type { QuestionOut } from "@approvalready/shared-types";
 import type { ReactNode } from "react";
 
+import { type FileContext, FileAnswer } from "@/components/questionnaire/FileAnswer";
 import { questionFields } from "@/lib/questionnaire";
 
 export const AU_STATES = [
@@ -25,10 +26,13 @@ type Props = {
   disabled: boolean;
   onValue: (value: unknown) => void;
   onText: (text: string) => void;
+  /** Where FILE answers upload to. Without it a FILE question is shown read-only. */
+  files?: FileContext;
 };
 
 /** One question, rendered for its type, with its label, help text and error. */
-export function QuestionField({ question, value, text, error, disabled, onValue, onText }: Props) {
+export function QuestionField(props: Props) {
+  const { question, value, text, error, disabled, onValue, onText, files } = props;
   const id = `q-${question.key.replace(/[^a-z0-9_-]/gi, "-")}`;
   const helpId = question.help_text ? `${id}-help` : undefined;
   const errorId = error ? `${id}-error` : undefined;
@@ -292,12 +296,24 @@ export function QuestionField({ question, value, text, error, disabled, onValue,
         </div>,
       );
     }
-    case "FILE":
+    case "FILE": {
+      const maxFiles = Number((question.validation as { max_files?: number }).max_files ?? 5);
+      if (!files) {
+        const count = Array.isArray(value) ? value.length : 0;
+        return group(<p className="muted">{count ? `${count} file(s) attached` : "No files"}</p>);
+      }
       return group(
-        <p className="muted">
-          Uploading documents arrives in a later update. You can carry on without it.
-        </p>,
+        <FileAnswer
+          {...files}
+          id={id}
+          value={value}
+          maxFiles={maxFiles}
+          disabled={disabled}
+          describedBy={describedBy}
+          onValue={onValue}
+        />,
       );
+    }
     default:
       return group(<p className="muted">This question can&apos;t be shown yet.</p>);
   }

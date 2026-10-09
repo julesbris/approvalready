@@ -21,6 +21,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.errors import ApiError, not_found
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
+from app.modules.documents import service as documents
+from app.modules.documents.models import ScanStatus
 from app.modules.projects.models import Project
 from app.modules.questionnaires.definition import ADDRESS_FIELDS, QuestionnaireDef
 from app.modules.questionnaires.engine import (
@@ -407,6 +409,31 @@ async def start_submission(
     return submission
 
 
+async def _file_problems(
+    db: AsyncSession,
+    submission: QuestionnaireSubmission,
+    file_answers: Mapping[str, list[str]],
+    *,
+    submitting: bool,
+) -> dict[str, str]:
+    """FILE answers must name the project's own uploads that are not blocked; to submit,
+    every file must also have passed its virus check."""
+    wanted = {uuid.UUID(i) for ids in file_answers.values() for i in ids}
+    found = await documents.documents_by_id(db, submission.project_id, wanted)
+    problems: dict[str, str] = {}
+    for key, ids in file_answers.items():
+        statuses = [found[uuid.UUID(i)].scan_status if uuid.UUID(i) in found else None for i in ids]
+        if None in statuses:
+            problems[key] = "A file was removed. Remove it from this answer and upload it again."
+        elif ScanStatus.INFECTED in statuses:
+            problems[key] = "A file was blocked by the virus check. Remove it."
+        elif ScanStatus.ERROR in statuses:
+            problems[key] = "A file couldn't be checked for viruses. Remove it and upload it again."
+        elif submitting and ScanStatus.PENDING in statuses:
+            problems[key] = "Wait until the files have been checked for viruses, then submit."
+    return problems
+
+
 def _require_open(submission: QuestionnaireSubmission) -> None:
     if submission.status != SubmissionStatus.IN_PROGRESS:
         raise ApiError(
@@ -447,6 +474,12 @@ async def save_answers(
             answers.pop(key, None)
         else:
             answers[key] = value
+    file_changes = {
+        k: answers[k]
+        for k in changes
+        if k not in errors and k in answers and spec.by_key[k].type == QuestionType.FILE
+    }
+    errors.update(await _file_problems(db, submission, file_changes, submitting=False))
     if errors:
         raise ApiError(
             status.HTTP_422_UNPROCESSABLE_CONTENT,
@@ -495,6 +528,19 @@ async def submit(
             "answers_incomplete",
             "Answer the remaining required questions before submitting.",
             fields={k: "This question needs an answer." for k in current.state.missing_required},
+        )
+    file_answers = {
+        k: current.answers[k]
+        for k in current.state.answered
+        if current.spec.by_key[k].type == QuestionType.FILE
+    }
+    problems = await _file_problems(db, submission, file_answers, submitting=True)
+    if problems:
+        raise ApiError(
+            status.HTTP_422_UNPROCESSABLE_CONTENT,
+            "answers_incomplete",
+            "Some files aren't ready yet.",
+            fields=problems,
         )
     submission.status = SubmissionStatus.SUBMITTED
     submission.submitted_at = utcnow()

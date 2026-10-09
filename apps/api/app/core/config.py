@@ -35,6 +35,21 @@ class PropertyFactsProviderKind(StrEnum):
     MOCK = "mock"  # canned facts for made-up test addresses (development and tests only)
 
 
+class StorageBackendKind(StrEnum):
+    LOCAL = "local"  # a directory (a Docker volume in production)
+    S3 = "s3"  # any S3-compatible object store
+
+
+class MalwareScannerKind(StrEnum):
+    CLAMAV = "clamav"  # clamd over TCP (the clamav service)
+    EICAR = "eicar"  # flags only the EICAR test file (development and tests only)
+
+
+class JobsMode(StrEnum):
+    CELERY = "celery"  # background work goes to the worker
+    INLINE = "inline"  # run straight after the request commits (tests, workerless development)
+
+
 def _split_csv(value: object) -> object:
     if isinstance(value, str):
         return [item.strip() for item in value.split(",") if item.strip()]
@@ -127,6 +142,38 @@ class Settings(BaseSettings):
     # app/modules/property_facts. "mock" is refused in production.
     property_facts_provider: PropertyFactsProviderKind = PropertyFactsProviderKind.NONE
 
+    # --- Documents (Milestone 6) ---
+    storage_backend: StorageBackendKind = StorageBackendKind.LOCAL
+    storage_local_root: str = "/data/uploads"
+    storage_s3_bucket: str | None = None
+    storage_s3_region: str | None = None
+    storage_s3_endpoint_url: str | None = None  # non-AWS providers (Wasabi, B2, MinIO)
+    storage_s3_access_key_id: str | None = None
+    storage_s3_secret_access_key: SecretStr | None = None
+    # How long a download link to the object store stays valid.
+    storage_signed_url_seconds: int = Field(default=60, ge=10, le=3600)
+    upload_max_mb: int = Field(default=20, ge=1, le=100)
+    upload_max_files_per_project: int = Field(default=200, ge=1, le=10_000)
+    uploads_per_user_per_hour: int = Field(default=60, ge=1)
+    malware_scanner: MalwareScannerKind = MalwareScannerKind.EICAR
+    clamav_host: str = "clamav"
+    clamav_port: int = 3310
+    clamav_timeout_seconds: float = Field(default=60.0, gt=0)
+    jobs_mode: JobsMode = JobsMode.CELERY
+
+    @field_validator(
+        "storage_s3_bucket",
+        "storage_s3_region",
+        "storage_s3_endpoint_url",
+        "storage_s3_access_key_id",
+        "storage_s3_secret_access_key",
+        mode="before",
+    )
+    @classmethod
+    def _blank_is_unset(cls, value: object) -> object:
+        # Compose passes unset optional variables as empty strings.
+        return None if value == "" else value
+
     @field_validator("cors_origins", "allowed_hosts", "internal_hosts", mode="before")
     @classmethod
     def _parse_csv(cls, value: object) -> object:
@@ -147,6 +194,10 @@ class Settings(BaseSettings):
     @property
     def trusted_hosts(self) -> list[str]:
         return list(dict.fromkeys([*self.allowed_hosts, *self.internal_hosts]))
+
+    @property
+    def upload_max_bytes(self) -> int:
+        return self.upload_max_mb * 1024 * 1024
 
     @property
     def broker_url(self) -> str:
@@ -195,6 +246,10 @@ class Settings(BaseSettings):
             problems.append("EMAIL_PROVIDER=memory is for tests only")
         if self.property_facts_provider == PropertyFactsProviderKind.MOCK:
             problems.append("PROPERTY_FACTS_PROVIDER=mock returns made-up data and is not allowed")
+        if self.malware_scanner == MalwareScannerKind.EICAR:
+            problems.append("MALWARE_SCANNER must be clamav (eicar only detects a test file)")
+        if self.storage_backend == StorageBackendKind.S3 and not self.storage_s3_bucket:
+            problems.append("STORAGE_S3_BUCKET is required when STORAGE_BACKEND=s3")
         if problems:
             raise ValueError("Unsafe production configuration: " + "; ".join(problems))
         return self
