@@ -857,3 +857,47 @@ fieldset.question {
 .certificate-expiring {
   color: var(--ar-warning, #b54708);
 }
+
+/* Address, parcel and vessel lookups */
+.address-search,
+.vessel-lookup {
+  display: grid;
+  gap: 6px;
+}
+
+.address-matches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.parcel-details,
+.vessel-record {
+  border-left: 3px solid var(--ar-border);
+  padding: 4px 0 4px 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.parcel-details ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.record-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 6px 16px;
+  margin: 0;
+}
+
+.record-fields dt {
+  font-size: 0.85em;
+  color: var(--ar-ink-muted);
+}
+
+.record-fields dd {
+  margin: 0;
+}

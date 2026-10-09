@@ -1266,6 +1266,67 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/lookups/addresses": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Search Addresses
+         * @description Queensland addresses matching what was typed, each with its lot and plan.
+         */
+        get: operations["search_addresses_v1_organisations__organisation_id__lookups_addresses_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/lookups/parcels/{lot_plan}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Parcel
+         * @description A Queensland lot and plan: area, tenure, council and the state-mapped overlays it
+         *     touches, and what to check elsewhere (zone, bushfire, flooding, heritage).
+         */
+        get: operations["get_parcel_v1_organisations__organisation_id__lookups_parcels__lot_plan__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/lookups/vessels/{uvi}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Vessel
+         * @description A domestic commercial vessel by its UVI, from AMSA's published list.
+         */
+        get: operations["get_vessel_v1_organisations__organisation_id__lookups_vessels__uvi__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/members": {
         parameters: {
             query?: never;
@@ -2239,6 +2300,46 @@ export interface components {
             /** Suburb */
             suburb: string;
         };
+        /** AddressMatchOut */
+        AddressMatchOut: {
+            /**
+             * Address Pid
+             * @description Queensland address identifier.
+             */
+            address_pid: number;
+            /** Label */
+            label: string;
+            /** Latitude */
+            latitude: number | null;
+            /**
+             * Lga
+             * @description The planning questionnaire's council answer.
+             */
+            lga: string | null;
+            /** Line1 */
+            line1: string;
+            /**
+             * Local Authority
+             * @description Council, e.g. 'Cairns Regional'.
+             */
+            local_authority: string | null;
+            /** Longitude */
+            longitude: number | null;
+            /**
+             * Lot Plan
+             * @description Lot and plan in the cadastre, e.g. 2RP53576.
+             */
+            lot_plan: string | null;
+            /**
+             * Lot Plan Label
+             * @description e.g. 'Lot 2 on RP53576'.
+             */
+            lot_plan_label: string | null;
+            /** State */
+            state: string;
+            /** Suburb */
+            suburb: string;
+        };
         /** AddressOut */
         AddressOut: {
             /** Lga Code */
@@ -2253,6 +2354,15 @@ export interface components {
             state: string;
             /** Suburb */
             suburb: string;
+        };
+        /** AddressSearchOut */
+        AddressSearchOut: {
+            /** Matches */
+            matches: components["schemas"]["AddressMatchOut"][];
+            /** Note */
+            note: string;
+            /** Source */
+            source: string;
         };
         /** AdministratorOut */
         AdministratorOut: {
@@ -3570,6 +3680,15 @@ export interface components {
             /** Roles */
             roles: string[];
         };
+        /** NotCheckedOut */
+        NotCheckedOut: {
+            /** Label */
+            label: string;
+            /** Where To Check */
+            where_to_check: string | null;
+            /** Why */
+            why: string;
+        };
         /** OptionOut */
         OptionOut: {
             /** Label */
@@ -3660,6 +3779,22 @@ export interface components {
          * @enum {string}
          */
         OutputFormat: "PDF" | "DOCX" | "HTML";
+        /** OverlayOut */
+        OverlayOut: {
+            /**
+             * Constraint
+             * @description The planning.known_constraints option it supports, if any.
+             */
+            constraint: string | null;
+            /** Group */
+            group: string;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /** Source Url */
+            source_url: string;
+        };
         /** OverrideIn */
         OverrideIn: {
             /**
@@ -3729,6 +3864,58 @@ export interface components {
          * @enum {string}
          */
         OwnershipRole: "OWNER" | "AUTHORISED_AGENT" | "LANDLORD" | "PROSPECTIVE_BUYER" | "LESSEE";
+        /** ParcelOut */
+        ParcelOut: {
+            /** Land Area M2 */
+            land_area_m2: string | null;
+            /** Lga */
+            lga: string | null;
+            /** Local Authority */
+            local_authority: string | null;
+            /** Locality */
+            locality: string | null;
+            /** Lot */
+            lot: string;
+            /** Lot Plan */
+            lot_plan: string;
+            /** Lot Plan Label */
+            lot_plan_label: string;
+            /**
+             * Not Checked
+             * @description Things to check elsewhere.
+             */
+            not_checked: components["schemas"]["NotCheckedOut"][];
+            /**
+             * Overlays
+             * @description State-mapped overlays the parcel touches.
+             */
+            overlays: components["schemas"]["OverlayOut"][];
+            /**
+             * Overlays Checked
+             * @description Mapping groups that were checked.
+             */
+            overlays_checked: string[];
+            /**
+             * Overlays Failed
+             * @description Mapping groups whose service didn't answer.
+             */
+            overlays_failed: string[];
+            /** Parcel Type */
+            parcel_type: string | null;
+            /** Plan */
+            plan: string;
+            /**
+             * Retrieved At
+             * Format: date-time
+             */
+            retrieved_at: string;
+            /** Source */
+            source: string;
+            /** Source Url */
+            source_url: string;
+            /** Tenure */
+            tenure: string | null;
+        };
         /** PasswordChangeRequest */
         PasswordChangeRequest: {
             /** Current Password */
@@ -5535,6 +5722,35 @@ export interface components {
             /** Uvi */
             uvi?: string | null;
             vessel_type: components["schemas"]["VesselType"];
+        };
+        /** VesselLookupOut */
+        VesselLookupOut: {
+            /** Displayed Identifier */
+            displayed_identifier: string | null;
+            /**
+             * Fields
+             * @description Every published column, by AMSA's header.
+             */
+            fields: {
+                [key: string]: string;
+            };
+            /** Length M */
+            length_m: string | null;
+            /**
+             * List Retrieved At
+             * Format: date-time
+             */
+            list_retrieved_at: string;
+            /** Name */
+            name: string | null;
+            /** Note */
+            note: string;
+            /** Source */
+            source: string;
+            /** Source Url */
+            source_url: string;
+            /** Uvi */
+            uvi: string;
         };
         /** VesselOut */
         VesselOut: {
@@ -8428,6 +8644,103 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    search_addresses_v1_organisations__organisation_id__lookups_addresses_get: {
+        parameters: {
+            query: {
+                q: string;
+            };
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AddressSearchOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_parcel_v1_organisations__organisation_id__lookups_parcels__lot_plan__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                lot_plan: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ParcelOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_vessel_v1_organisations__organisation_id__lookups_vessels__uvi__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                uvi: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["VesselLookupOut"];
+                };
             };
             /** @description Validation Error */
             422: {
