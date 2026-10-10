@@ -9,7 +9,7 @@ import {
   Stats,
   marketStats,
 } from "@/components/analytics/Analytics";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { PERIOD_LABELS, monthLabel, parsePeriod } from "@/lib/analytics";
 import { firstParam } from "@/lib/redirect";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
@@ -30,7 +30,7 @@ export default async function MarketplaceAnalyticsPage({ searchParams }: Props) 
     return (
       <AppShell session={session}>
         <AdminNav current="analytics" />
-        <NoAccess what="marketplace figures" />
+        <AdminNoAccess what="marketplace figures" session={session} />
       </AppShell>
     );
   }

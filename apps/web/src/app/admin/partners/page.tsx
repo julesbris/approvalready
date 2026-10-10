@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AdminNav } from "@/components/admin/AdminNav";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { PARTNER_STATUS_LABELS } from "@/lib/partners";
 import { formatDate } from "@/lib/questionnaire";
 import { firstParam } from "@/lib/redirect";
@@ -29,7 +29,7 @@ export default async function PartnersAdminPage({ searchParams }: Props) {
   if (!session.permissions.includes("partner.verify")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="partner checks" />
+        <AdminNoAccess what="partner checks" session={session} />
       </AppShell>
     );
   }

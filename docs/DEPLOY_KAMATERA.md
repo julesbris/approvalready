@@ -153,7 +153,16 @@ docker compose -f docker-compose.prod.yml --env-file .env exec api \
 ```
 
 This creates the `PLATFORM_ADMIN` organisation on first use. There is no HTTP endpoint for
-this step by design. Check the audit log's hash chain at any time with
+this step by design. Every sign-in starts in the personal organisation: the admin pages offer a
+"Switch to ApprovalReady" button, or pick it in the organisation menu at the top. If an admin
+page still says "No access", see what the account has (changes nothing):
+
+```bash
+docker compose -f docker-compose.prod.yml --env-file .env exec api \
+  python -m app.cli platform-access --email you@example.com
+```
+
+Without `--email` it lists everyone in the platform organisation and their roles. Check the audit log's hash chain at any time with
 `... exec api python -m app.cli verify-audit`.
 
 ### Loading rule content packs (Milestone 5)

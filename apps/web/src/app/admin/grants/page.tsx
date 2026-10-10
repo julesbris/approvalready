@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 import { AdminNav } from "@/components/admin/AdminNav";
 import { GrantsAdmin } from "@/components/admin/GrantsAdmin";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default async function GrantsAdminPage() {
   if (!session.permissions.includes("source.manage")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="grant programs" />
+        <AdminNoAccess what="grant programs" session={session} />
       </AppShell>
     );
   }

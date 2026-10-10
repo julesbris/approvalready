@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { OrgSwitcher } from "@/components/app/OrgSwitcher";
+import { SwitchOrganisationButton } from "@/components/app/SwitchOrganisationButton";
 import { PolicyNotice } from "@/components/legal/PolicyNotice";
 import { NotificationBell } from "@/components/notifications/NotificationBell";
 import { SiteFooter } from "@/components/public/SiteFooter";
@@ -82,4 +83,55 @@ export function NoAccess({ what }: { what: string }) {
       </p>
     </section>
   );
+}
+
+/**
+ * Shown on admin pages the active organisation doesn't open. Admin pages need a platform role
+ * and only work while the platform organisation is active (a new sign-in starts in the personal
+ * organisation), so say which of those it is and offer the switch in one click.
+ */
+export function AdminNoAccess({ what, session }: { what: string; session: SessionOut }) {
+  const platform = session.organisations.find((o) => o.kind === "PLATFORM_ADMIN");
+  if (platform && platform.organisation_id !== session.active_organisation_id) {
+    const active = session.organisations.find(
+      (o) => o.organisation_id === session.active_organisation_id,
+    );
+    return (
+      <section className="panel">
+        <h1 className="page-title">Switch to {platform.name} to open {what}</h1>
+        <p className="muted">
+          You&apos;re working in {active ? active.name : "another organisation"}. The admin pages
+          only open while {platform.name} is the active organisation.
+        </p>
+        <SwitchOrganisationButton
+          organisationId={platform.organisation_id}
+          label={`Switch to ${platform.name}`}
+        />
+      </section>
+    );
+  }
+  if (session.staff_mfa_required) {
+    return (
+      <section className="panel">
+        <h1 className="page-title">Turn on two-step sign-in to open {what}</h1>
+        <p className="muted">
+          Staff pages need two-step sign-in.{" "}
+          <Link href="/account#security">Turn it on in your account</Link>, then come back to
+          this page.
+        </p>
+      </section>
+    );
+  }
+  if (!platform) {
+    return (
+      <section className="panel">
+        <h1 className="page-title">No access to {what}</h1>
+        <p className="muted">
+          Your account isn&apos;t on the {defaultBrand.productName} team, so it can&apos;t open
+          the admin pages.
+        </p>
+      </section>
+    );
+  }
+  return <NoAccess what={what} />;
 }

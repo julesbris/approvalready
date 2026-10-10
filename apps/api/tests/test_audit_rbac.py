@@ -121,7 +121,7 @@ async def test_hash_chain_verifies_and_detects_tampering(
 
 
 async def test_platform_admin_bootstrap_and_audit_verification(
-    api: ApiHarness, monkeypatch: pytest.MonkeyPatch
+    api: ApiHarness, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
 ) -> None:
     ops = await api.user(name="Ops")
     customer = await api.user()
@@ -136,6 +136,14 @@ async def test_platform_admin_bootstrap_and_audit_verification(
         assert await cli.grant_platform_role(ops.email, cli.RoleKey.SUPERADMIN) == 0
     else:
         assert await cli.grant_platform_role(ops.email, cli.RoleKey.ADMIN) == 0
+
+    assert await cli.platform_access(ops.email) == 0
+    assert await cli.platform_access(customer.email) == 1  # no platform role
+    assert await cli.platform_access("nobody@example.com") == 1
+    assert await cli.platform_access(None) == 0
+    out = capsys.readouterr().out
+    assert "/admin/ops: yes" in out
+    assert f"grant-platform-role --email {customer.email}" in out
 
     async with api.app.state.resources.session_factory() as db:
         platform_id = (

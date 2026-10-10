@@ -2,7 +2,7 @@ import type { ProfessionalOut } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 
 import { AdminNav } from "@/components/admin/AdminNav";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { ProfessionalsAdmin } from "@/components/review/ProfessionalsAdmin";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
@@ -13,7 +13,7 @@ export default async function ProfessionalsPage() {
   if (!session.permissions.includes("professional.verify")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="professional checks" />
+        <AdminNoAccess what="professional checks" session={session} />
       </AppShell>
     );
   }
