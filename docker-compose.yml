@@ -23,6 +23,9 @@ x-api-env: &api-env
   # the clamav service from docker-compose.prod.yml to test real scanning).
   STORAGE_LOCAL_ROOT: /data/uploads
   MALWARE_SCANNER: eicar
+  # Canned AI drafts so the AI panels can be tried without a key (AI_PROVIDER=anthropic for real).
+  AI_PROVIDER: ${AI_PROVIDER:-mock}
+  ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
 
 services:
   db:

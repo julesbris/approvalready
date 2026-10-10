@@ -19,6 +19,9 @@ from app.core.middleware import (
     SecurityHeadersMiddleware,
 )
 from app.core.resources import create_resources
+from app.modules.ai.router import admin_router as ai_admin_router
+from app.modules.ai.router import router as ai_router
+from app.modules.ai.router import status_router as ai_status_router
 from app.modules.assessments.router import router as assessments_router
 from app.modules.checklists.router import definitions_router as checklist_definitions_router
 from app.modules.checklists.router import router as checklists_router
@@ -109,6 +112,9 @@ def create_app(
     app.include_router(review_customer_router)
     app.include_router(professional_router)
     app.include_router(review_admin_router)
+    app.include_router(ai_status_router)
+    app.include_router(ai_router)
+    app.include_router(ai_admin_router)
     return app
 
 

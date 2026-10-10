@@ -48,6 +48,12 @@ class MalwareScannerKind(StrEnum):
     EICAR = "eicar"  # flags only the EICAR test file (development and tests only)
 
 
+class AIProviderKind(StrEnum):
+    NONE = "none"  # AI features are switched off (the default)
+    MOCK = "mock"  # canned, deterministic drafts built from the input (development and tests)
+    ANTHROPIC = "anthropic"  # Claude through the Anthropic API (needs ANTHROPIC_API_KEY)
+
+
 class JobsMode(StrEnum):
     CELERY = "celery"  # background work goes to the worker
     INLINE = "inline"  # run straight after the request commits (tests, workerless development)
@@ -179,12 +185,29 @@ class Settings(BaseSettings):
     clamav_timeout_seconds: float = Field(default=60.0, gt=0)
     jobs_mode: JobsMode = JobsMode.CELERY
 
+    # --- AI drafting (Milestone 12, app/modules/ai) ---
+    # AI only explains findings and drafts text from data already in the project; it never
+    # decides anything. "none" hides the AI buttons; "mock" is refused in production.
+    ai_provider: AIProviderKind = AIProviderKind.NONE
+    ai_model: str = "claude-opus-5-5"
+    ai_effort: str = Field(default="medium", pattern="^(low|medium|high|xhigh|max)$")
+    ai_max_output_tokens: int = Field(default=16_000, ge=1024, le=20_000)
+    ai_timeout_seconds: float = Field(default=300.0, gt=0, le=600)
+    # Ask the API to retry on a fallback model when the first one declines a request.
+    ai_refusal_fallback: bool = True
+    anthropic_api_key: SecretStr | None = None
+    # Prices per million tokens, in US dollars, for the cost column of the provider log.
+    ai_input_price_per_mtok_usd: float = Field(default=4.0, ge=0)
+    ai_output_price_per_mtok_usd: float = Field(default=20.0, ge=0)
+    ai_jobs_per_user_per_hour: int = Field(default=20, ge=1)
+
     @field_validator(
         "storage_s3_bucket",
         "storage_s3_region",
         "storage_s3_endpoint_url",
         "storage_s3_access_key_id",
         "storage_s3_secret_access_key",
+        "anthropic_api_key",
         mode="before",
     )
     @classmethod
@@ -268,6 +291,10 @@ class Settings(BaseSettings):
             problems.append("MALWARE_SCANNER must be clamav (eicar only detects a test file)")
         if self.storage_backend == StorageBackendKind.S3 and not self.storage_s3_bucket:
             problems.append("STORAGE_S3_BUCKET is required when STORAGE_BACKEND=s3")
+        if self.ai_provider == AIProviderKind.MOCK:
+            problems.append("AI_PROVIDER=mock writes canned text and is not allowed")
+        if self.ai_provider == AIProviderKind.ANTHROPIC and not self.anthropic_api_key:
+            problems.append("ANTHROPIC_API_KEY is required when AI_PROVIDER=anthropic")
         if problems:
             raise ValueError("Unsafe production configuration: " + "; ".join(problems))
         return self

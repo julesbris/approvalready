@@ -1,5 +1,6 @@
 """Import every module that defines mapped tables so Alembic autogenerate sees them."""
 
+from app.modules.ai import models as ai_models  # noqa: F401
 from app.modules.assessments import models as assessments_models  # noqa: F401
 from app.modules.audit import models as audit_models  # noqa: F401
 from app.modules.checklists import models as checklists_models  # noqa: F401

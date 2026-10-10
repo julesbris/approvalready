@@ -1,4 +1,6 @@
 import type {
+  AIJobOut,
+  AIStatusOut,
   AssessmentOut,
   AssessmentReviewOut,
   AssessmentSummary,
@@ -11,6 +13,8 @@ import type {
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { AIExplanation } from "@/components/ai/AIExplanation";
+import { GrantDrafts } from "@/components/ai/GrantDrafts";
 import { AppShell, NoAccess } from "@/components/app/AppShell";
 import { AssessmentReport } from "@/components/assessments/AssessmentReport";
 import { EvidencePanel } from "@/components/documents/EvidencePanel";
@@ -36,8 +40,18 @@ export default async function AssessmentPage({ params }: Props) {
     );
   }
   const base = `/organisations/${orgId}`;
-  const [found, evidence, documents, generated, reviewState, reviews, assessments, project] =
-    await Promise.all([
+  const [
+    found,
+    evidence,
+    documents,
+    generated,
+    reviewState,
+    reviews,
+    assessments,
+    project,
+    aiStatus,
+    aiJobs,
+  ] = await Promise.all([
       serverGet<AssessmentOut>(`${base}/assessments/${assessmentId}`),
       serverGet<EvidenceOut[]>(`${base}/assessments/${assessmentId}/evidence`),
       serverGet<DocumentOut[]>(`${base}/projects/${projectId}/documents`),
@@ -46,6 +60,8 @@ export default async function AssessmentPage({ params }: Props) {
       serverGet<ReviewSummary[]>(`${base}/projects/${projectId}/reviews`),
       serverGet<AssessmentSummary[]>(`${base}/projects/${projectId}/assessments`),
       serverGet<ProjectDetailOut>(`${base}/projects/${projectId}`),
+      serverGet<AIStatusOut>("/ai/status"),
+      serverGet<AIJobOut[]>(`${base}/assessments/${assessmentId}/ai-jobs`),
     ]);
   const assessment = orNotFound(found);
   if (assessment.project_id !== projectId) {
@@ -55,6 +71,8 @@ export default async function AssessmentPage({ params }: Props) {
   const review = reviewState.ok ? reviewState.data : null;
   const openReview = (reviews.ok ? reviews.data : []).find((r) => isOpen(r.status)) ?? null;
   const latestId = assessments.ok ? assessments.data[0]?.id : undefined;
+  const ai = aiStatus.ok && aiStatus.data.enabled ? aiStatus.data : null;
+  const jobs = aiJobs.ok ? aiJobs.data : [];
   return (
     <AppShell session={session}>
       <p className="breadcrumb">
@@ -80,6 +98,29 @@ export default async function AssessmentPage({ params }: Props) {
           />
         }
       >
+        {ai && assessment.finding_list.length > 0 ? (
+          <AIExplanation
+            organisationId={orgId}
+            assessmentId={assessment.id}
+            jobs={jobs}
+            findingTitles={Object.fromEntries(
+              assessment.finding_list.map((f) => [f.id, f.title ?? f.rule_title]),
+            )}
+            canWrite={canWrite}
+            mock={ai.mock}
+          />
+        ) : null}
+        {ai && assessment.grant_matches && assessment.grant_matches.length > 0 ? (
+          <GrantDrafts
+            organisationId={orgId}
+            assessmentId={assessment.id}
+            matches={assessment.grant_matches}
+            jobs={jobs}
+            labels={assessment.fact_labels}
+            canWrite={canWrite}
+            mock={ai.mock}
+          />
+        ) : null}
         <EvidencePanel
           organisationId={orgId}
           projectId={projectId}

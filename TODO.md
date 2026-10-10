@@ -123,9 +123,13 @@ tests and updated docs before the next starts.
 - [~] Content pack `property_qld` (2 rule sets, 20 rules, 21 references, 6 checklists). Every reference is an **unverified summary**
 - [ ] Next: verify the pack's references (open points: entry notice period for showing buyers, disclosure timing rules); other states; Form 1 entry condition report and disclosure statement generation; notification preferences
 
-## Milestone 12 — AI abstraction and drafting
-- [ ] `AIProvider` protocol, configurable providers, mock provider
-- [ ] Prompt registry, Pydantic output validation, finding-reference post-check, provider log
+## Milestone 12 — AI abstraction and drafting ✅
+- [x] `AIProvider` protocol (`generate_structured`, `generate_text`); providers `none` (default), `mock` (refused in production) and `anthropic` (official SDK, JSON structured output, refusal fallback), chosen by `AI_PROVIDER`
+- [x] Prompt registry: reviewed prompt files synced on migrate into immutable `prompt_version` rows
+- [x] Pydantic output validation (versioned schemas), finding-reference post-check, and a grounding check that rejects numbers and links not in the input
+- [x] `ai_job` and append-only `ai_provider_log` (tokens, cost, latency, outcome); worker job with retries and the stalled-job sweep; per-user hourly limit; identical input reuses the draft
+- [x] Plain-language explanation of an assessment's findings and grant application notes, shown as "AI draft" panels; staff usage and prompts at `/admin/ai`
+- [ ] Next: AI text in generated reports (`generated_document.ai_job_id`), document extraction from uploads (with the S3 safeguards), per-task model choice, an evaluation set for the prompts
 
 ## Milestone 13 — Customer payments
 - [ ] Products/prices/features tables, Stripe checkout + portal, webhooks (idempotent), entitlements

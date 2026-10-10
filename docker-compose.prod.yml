@@ -54,6 +54,11 @@ x-api-env: &api-env
   PROPERTY_FACTS_PROVIDER: ${PROPERTY_FACTS_PROVIDER:-qld_spatial}
   LOOKUPS_ENABLED: ${LOOKUPS_ENABLED:-true}
   AMSA_VESSEL_LIST_URL: ${AMSA_VESSEL_LIST_URL:-}
+  # AI drafting (Milestone 12). Off unless AI_PROVIDER=anthropic and a key are set.
+  AI_PROVIDER: ${AI_PROVIDER:-none}
+  AI_MODEL: ${AI_MODEL:-claude-opus-5-5}
+  AI_EFFORT: ${AI_EFFORT:-medium}
+  ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
 
 x-api-image: &api-image
   image: ${IMAGE_PREFIX:-approvalready}/api:${IMAGE_TAG:-latest}

@@ -180,11 +180,13 @@ finding that suggested it, and `rule_set.limitations` lists what a rule set does
 
 ## 9. AI
 
+Built in Milestone 12 (migration 0012).
+
 | Table | Key columns |
 |---|---|
-| `prompt_version` | `task`, `version`, `template`, `output_schema_name`, `output_schema_version` |
-| `ai_job` **T** | `project_id`, `task`, `prompt_version_id`, `input_refs jsonb` (IDs only), `status`, `output jsonb`, `validation_errors jsonb` |
-| `ai_provider_log` **AO** | `ai_job_id`, `provider`, `model`, `request_tokens`, `response_tokens`, `cost_micros`, `latency_ms`, `status`, `error` |
+| `prompt_version` | `task` (`ASSESSMENT_EXPLANATION`, `GRANT_DRAFT`), `version`, `status` (`PUBLISHED`, `RETIRED`; one published per task), `system_prompt`, `user_template`, `output_schema_name`, `output_schema_version`, `content_hash`. Platform data, read-only for the app role, immutable (trigger). |
+| `ai_job` **T** | `project_id`, `assessment_id`, `task`, `subject_id null` (grant program), `prompt_version_id`, `input_refs jsonb` (IDs and fact keys only), `input_hash`, `status` (`PENDING`, `SUCCEEDED`, `REJECTED`, `FAILED`), `output jsonb`, `validation_errors jsonb`, `error`, `attempts` |
+| `ai_provider_log` **T AO** | `ai_job_id`, `project_id`, `task`, `prompt_version_id`, `schema_name`, `schema_version`, `provider`, `model`, `request_tokens`, `response_tokens`, `cost_micros`, `latency_ms`, `status` (`OK`, `ERROR`, `REFUSED`), `error` |
 
 ## 10. Professional review
 

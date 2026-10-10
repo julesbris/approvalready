@@ -141,6 +141,16 @@ export type AddressSearchOut = Schemas["AddressSearchOut"];
 export type ParcelOut = Schemas["ParcelOut"];
 export type VesselLookupOut = Schemas["VesselLookupOut"];
 
+// AI drafting (Milestone 12)
+export type AIJobOut = Schemas["AIJobOut"];
+export type AIStatusOut = Schemas["AIStatusOut"];
+export type AIUsageOut = Schemas["AIUsageOut"];
+export type AIUsageRowOut = Schemas["AIUsageRowOut"];
+export type PromptVersionOut = Schemas["PromptVersionOut"];
+export type AssessmentExplanation = Schemas["AssessmentExplanationV1"];
+export type GrantDraft = Schemas["GrantDraftV1"];
+export type CitedPoint = Schemas["CitedPoint"];
+export type DraftSection = Schemas["DraftSection"];
 // PropertyReady (Milestone 11)
 export type SaleOut = Schemas["SaleOut"];
 export type SaleStatus = Schemas["SaleStatus"];
