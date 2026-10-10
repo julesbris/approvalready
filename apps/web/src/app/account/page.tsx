@@ -1,7 +1,8 @@
-import type { MfaStatusOut, PreferencesOut } from "@approvalready/shared-types";
+import type { EmailChangeOut, MfaStatusOut, PreferencesOut } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { ChangeEmailForm } from "@/components/account/ChangeEmailForm";
 import { ChangePasswordForm } from "@/components/account/ChangePasswordForm";
 import { NotificationPreferences } from "@/components/account/NotificationPreferences";
 import { TwoStepSignIn } from "@/components/account/TwoStepSignIn";
@@ -18,6 +19,7 @@ export const metadata: Metadata = { title: "Your account", robots: { index: fals
 export default async function AccountPage() {
   const session = await requireSession("/account");
   const mfa = orNotFound(await serverGet<MfaStatusOut>("/auth/mfa"));
+  const emailChange = orNotFound(await serverGet<EmailChangeOut>("/auth/email-change"));
   const preferences = orNotFound(
     await serverGet<PreferencesOut>("/auth/notification-preferences"),
   );
@@ -73,6 +75,12 @@ export default async function AccountPage() {
         <TwoStepSignIn status={mfa} />
         <h3 className="subsection-title">Password</h3>
         <ChangePasswordForm />
+        <h3 className="subsection-title">Email address</h3>
+        <ChangeEmailForm
+          currentEmail={session.user.email}
+          initial={emailChange}
+          mfaEnabled={mfa.enabled}
+        />
       </section>
 
       <section className="panel" id="notifications" aria-labelledby="notifications-title">

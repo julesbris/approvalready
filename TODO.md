@@ -182,7 +182,7 @@ tests and updated docs before the next starts.
 - [x] Download my data (account and personal workspace as JSON) and close my account from Account
 - [x] Privacy requests from the contact page, worked by staff at `/admin/privacy` within 30 days; operations check and alerts
 - [x] `sitemap.xml` and `robots.txt` (moved from Milestone 5's backlog note)
-- [ ] Next: have a lawyer review the Terms and Privacy Policy and add the operating entity's legal name and ABN (`apps/web/src/lib/legal.ts`); automatic deletion of a closed account's workspace after the 30 days; closing business organisations; change of email address
+- [ ] Next: have a lawyer review the Terms and Privacy Policy and add the operating entity's legal name and ABN (`apps/web/src/lib/legal.ts`); automatic deletion of a closed account's workspace after the 30 days; closing business organisations; ~~change of email address~~ (Milestone 28)
 
 ## Milestone 20 — Reliable email delivery ✅
 - [x] Email outbox: every email is queued (sealed, erased once sent) and sent by the worker, so a slow or failing mail server no longer slows or loses sign-up, reset, invitation, review and referral emails
@@ -244,6 +244,13 @@ tests and updated docs before the next starts.
 - [x] Marketplace categories for import and logistics companies: customs brokers, freight forwarders, logistics and warehousing providers, import and export compliance consultants; `review.trade` product
 - [x] Import and export approval map report; guides for importing and exporting
 - [ ] Next: tariff classification help; BICON look-up links per commodity; MICoR for exports; freight quote requests through the existing quotes feature
+
+## Milestone 28 — Change of email address ✅
+- [x] Account, Security: ask for a new address with the password (and a two-step code when on); a link goes to the new address, a notice to the old one, and nothing changes until the link is opened
+- [x] Confirming moves the account, marks the address confirmed, cancels links still waiting in the old inbox and tells the old address; a waiting change can be cancelled
+- [x] No account enumeration: an address another account uses gets the same answer, and that inbox is told instead of sent a link
+- [x] Migration 0028: `one_time_token.new_email`, purpose `EMAIL_CHANGE`
+- [ ] Next: update the Stripe customer's email for receipts; staff changing a customer's address from Admin > Accounts
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)

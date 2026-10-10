@@ -8,6 +8,7 @@ from enum import StrEnum
 
 from sqlalchemy import (
     BigInteger,
+    CheckConstraint,
     DateTime,
     ForeignKey,
     Index,
@@ -45,6 +46,7 @@ class AuthProvider(StrEnum):
 class TokenPurpose(StrEnum):
     EMAIL_VERIFY = "EMAIL_VERIFY"
     PASSWORD_RESET = "PASSWORD_RESET"  # noqa: S105 - enum label, not a secret
+    EMAIL_CHANGE = "EMAIL_CHANGE"  # Milestone 28: carries ``new_email``
 
 
 class Surface(StrEnum):
@@ -152,7 +154,13 @@ class AuthSession(UUIDPrimaryKeyMixin, TimestampMixin, Base):
 
 class OneTimeToken(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     __tablename__ = "one_time_token"
-    __table_args__ = (enum_check("purpose", TokenPurpose),)
+    __table_args__ = (
+        enum_check("purpose", TokenPurpose),
+        CheckConstraint(
+            "(purpose = 'EMAIL_CHANGE') = (new_email IS NOT NULL)",
+            name="new_email_only_for_change",
+        ),
+    )
 
     user_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),
@@ -164,6 +172,8 @@ class OneTimeToken(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     token_hash: Mapped[bytes] = mapped_column(LargeBinary, nullable=False, unique=True)
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     used_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    # The address an EMAIL_CHANGE link moves the account to (the link goes there).
+    new_email: Mapped[str | None] = mapped_column(CITEXT)
 
 
 class MfaTotp(UUIDPrimaryKeyMixin, TimestampMixin, Base):
