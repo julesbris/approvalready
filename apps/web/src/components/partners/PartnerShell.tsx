@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { OrgSwitcher } from "@/components/app/OrgSwitcher";
-import { defaultBrand } from "@/lib/brand";
+import { Wordmark } from "@/components/brand/Wordmark";
 import { activePartnerOrganisation } from "@/lib/partners";
 
 type Section = "dashboard" | "leads" | "analytics" | "profile" | "billing" | "team" | "apply" | "none";
@@ -33,9 +33,7 @@ export function PartnerShell({
     <>
       <header className="site-header">
         <div className="container app-header">
-          <Link className="wordmark" href="/partner">
-            {defaultBrand.productName} Partners
-          </Link>
+          <Wordmark href="/partner" suffix="Partners" />
           <nav aria-label="Partner" className="app-nav">
             {links.map(([key, href, label]) => (
               <Link key={key} href={href} aria-current={key === current ? "page" : undefined}>
@@ -52,7 +50,9 @@ export function PartnerShell({
           ) : null}
         </div>
       </header>
-      <main className="container app-main">{children}</main>
+      <div className="app-canvas">
+        <main className="container app-main">{children}</main>
+      </div>
     </>
   );
 }
