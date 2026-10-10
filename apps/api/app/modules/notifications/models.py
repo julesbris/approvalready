@@ -37,6 +37,7 @@ class NotificationKind(StrEnum):
     OPS_ALERT = "OPS_ALERT"  # platform admins: backups, background jobs or disk need attention
     QUOTE_RECEIVED = "QUOTE_RECEIVED"  # customer: a partner sent them a quote
     QUOTE_ANSWERED = "QUOTE_ANSWERED"  # partner: the customer accepted or declined a quote
+    MESSAGE_RECEIVED = "MESSAGE_RECEIVED"  # customer or partner: a message about a referral
 
 
 class NotificationCategory(StrEnum):
@@ -57,6 +58,7 @@ CATEGORY_OF: dict[NotificationKind, NotificationCategory] = {
     NotificationKind.LEAD_CLAIMED: NotificationCategory.REFERRALS,
     NotificationKind.QUOTE_RECEIVED: NotificationCategory.REFERRALS,
     NotificationKind.QUOTE_ANSWERED: NotificationCategory.REFERRALS,
+    NotificationKind.MESSAGE_RECEIVED: NotificationCategory.REFERRALS,
     NotificationKind.SOURCES_DUE: NotificationCategory.SOURCE_REVIEWS,
 }
 

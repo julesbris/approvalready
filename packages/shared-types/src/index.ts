@@ -256,6 +256,9 @@ export type CustomerQuoteOut = Schemas["CustomerQuoteOut"];
 export type QuotedPartnerOut = Schemas["QuotedPartnerOut"];
 export type QuoteStatus = Schemas["QuoteStatus"];
 export type GstTreatment = Schemas["GstTreatment"];
+export type MessageIn = Schemas["MessageIn"];
+export type MessageOut = Schemas["MessageOut"];
+export type ConversationOut = Schemas["ConversationOut"];
 
 export type FunnelOut = Schemas["FunnelOut"];
 export type PartnerAnalyticsOut = Schemas["PartnerAnalyticsOut"];

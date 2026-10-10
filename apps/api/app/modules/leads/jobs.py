@@ -4,6 +4,8 @@
   find and rank eligible partners, offer the first wave, notify them.
 * ``notify_quote_received`` / ``notify_quote_answered`` (Milestone 23): in-app notices and
   emails when a partner sends a quote and when the customer answers it.
+* ``notify_message`` (Milestone 26): tell the other side of a conversation about a message
+  waiting for them.
 * ``sweep`` (Celery beat, every 15 minutes): expire leads past their date, match partners
   who became eligible since, release the next wave where it is due, and notify.
 
@@ -25,7 +27,15 @@ from app.core.email import EmailProvider
 from app.db.tenant import bind_tenant
 from app.modules.assessments.service import assessment_date
 from app.modules.leads import matching
-from app.modules.leads.models import Lead, LeadMatch, LeadQuote, LeadStatus, ReferralConsent
+from app.modules.leads.models import (
+    Lead,
+    LeadMatch,
+    LeadMessage,
+    LeadQuote,
+    LeadStatus,
+    MessageSender,
+    ReferralConsent,
+)
 from app.modules.leads.quotes import gst_amounts
 from app.modules.leads.service import close_lead, utcnow
 from app.modules.marketplace.models import MarketplaceCategory
@@ -178,6 +188,63 @@ async def notify_quote_answered(
             )
             if nid is not None:
                 pending.setdefault(partner.organisation_id, []).append(nid)
+    return pending
+
+
+def _excerpt(text: str, limit: int = 280) -> str:
+    flat = " ".join(text.split())
+    return flat if len(flat) <= limit else flat[: limit - 1].rstrip() + "…"
+
+
+async def notify_message(
+    db: AsyncSession,
+    lead: Lead,
+    message: LeadMessage,
+    *,
+    partner_name: str,
+    category_label: str,
+) -> Pending:
+    """Tell the other side of the conversation that a message is waiting for them: the
+    customer who asked for the introduction, or the partner's members who see referrals."""
+    if message.sender == MessageSender.PARTNER:
+        await bind_tenant(db, lead.organisation_id)
+        record = (
+            await db.execute(
+                select(ReferralConsent).where(ReferralConsent.id == lead.referral_consent_id)
+            )
+        ).scalar_one_or_none()
+        if record is None:
+            return {}
+        nid = await notifications.create(
+            db,
+            organisation_id=lead.organisation_id,
+            recipient_user_id=record.user_id,
+            kind=NotificationKind.MESSAGE_RECEIVED,
+            title=f"New message from {partner_name}"[:200],
+            body=f"About your {category_label.lower()} request: {_excerpt(message.body)}",
+            link_path=f"/projects/{lead.project_id}/referrals#messages-{message.lead_match_id}",
+            project_id=lead.project_id,
+            dedupe_key=f"message:{message.id}",
+        )
+        return {lead.organisation_id: [nid]} if nid else {}
+    partner = await db.get(PartnerOrganisation, message.partner_organisation_id)
+    if partner is None:
+        return {}
+    await bind_tenant(db, partner.organisation_id)
+    pending: Pending = {}
+    for user_id in await _lead_readers(db, partner):
+        nid = await notifications.create(
+            db,
+            organisation_id=partner.organisation_id,
+            recipient_user_id=user_id,
+            kind=NotificationKind.MESSAGE_RECEIVED,
+            title=f"New message from a customer: {category_label} in {_where(lead)}"[:200],
+            body=_excerpt(message.body),
+            link_path=f"/partner/leads/{message.lead_match_id}#messages",
+            dedupe_key=f"message:{message.id}",
+        )
+        if nid is not None:
+            pending.setdefault(partner.organisation_id, []).append(nid)
     return pending
 
 

@@ -3593,6 +3593,57 @@
         "title": "ContactIn",
         "type": "object"
       },
+      "ConversationOut": {
+        "description": "The messages between the customer and one partner about one referral, oldest first.",
+        "properties": {
+          "can_send": {
+            "description": "Open while the partner is working on the job or won it; read-only once it is lost.",
+            "title": "Can Send",
+            "type": "boolean"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "lead_id": {
+            "format": "uuid",
+            "title": "Lead Id",
+            "type": "string"
+          },
+          "match_id": {
+            "format": "uuid",
+            "title": "Match Id",
+            "type": "string"
+          },
+          "messages": {
+            "items": {
+              "$ref": "#/components/schemas/MessageOut"
+            },
+            "title": "Messages",
+            "type": "array"
+          },
+          "partner_name": {
+            "title": "Partner Name",
+            "type": "string"
+          },
+          "unread": {
+            "description": "Messages from the other side you haven't opened yet.",
+            "title": "Unread",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "match_id",
+          "lead_id",
+          "category_label",
+          "partner_name",
+          "can_send",
+          "unread",
+          "messages"
+        ],
+        "title": "ConversationOut",
+        "type": "object"
+      },
       "CredentialCheckIn": {
         "properties": {
           "notes": {
@@ -7017,6 +7068,12 @@
             },
             "title": "Quotes",
             "type": "array"
+          },
+          "unread_messages": {
+            "default": 0,
+            "description": "Messages from the customer this partner hasn't opened yet.",
+            "title": "Unread Messages",
+            "type": "integer"
           }
         },
         "required": [
@@ -8611,6 +8668,79 @@
         "title": "MembershipOut",
         "type": "object"
       },
+      "MessageIn": {
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Body",
+            "type": "string"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "title": "MessageIn",
+        "type": "object"
+      },
+      "MessageOut": {
+        "properties": {
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "from_you": {
+            "description": "Sent by your side of the conversation.",
+            "title": "From You",
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "read_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When the other side first opened it.",
+            "title": "Read At"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/MessageSender"
+          },
+          "sent_at": {
+            "format": "date-time",
+            "title": "Sent At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "sender",
+          "from_you",
+          "body",
+          "sent_at",
+          "read_at"
+        ],
+        "title": "MessageOut",
+        "type": "object"
+      },
+      "MessageSender": {
+        "enum": [
+          "CUSTOMER",
+          "PARTNER"
+        ],
+        "title": "MessageSender",
+        "type": "string"
+      },
       "MfaChallengeOut": {
         "description": "The password was right; a code from the authenticator app (or a recovery code) is\nneeded next, at ``POST /v1/auth/login/mfa``.",
         "properties": {
@@ -8913,7 +9043,8 @@
           "LEAD_CLAIMED",
           "OPS_ALERT",
           "QUOTE_RECEIVED",
-          "QUOTE_ANSWERED"
+          "QUOTE_ANSWERED",
+          "MESSAGE_RECEIVED"
         ],
         "title": "NotificationKind",
         "type": "string"
@@ -28844,6 +28975,176 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/messages": {
+      "get": {
+        "description": "Messages with the customer about this referral (once accepted), oldest first.",
+        "operationId": "get_partner_conversation_v1_organisations__organisation_id__partner_leads__match_id__messages_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Partner Conversation",
+        "tags": [
+          "leads"
+        ]
+      },
+      "post": {
+        "description": "Write to the customer. They are told about the first message waiting for them.",
+        "operationId": "send_partner_message_v1_organisations__organisation_id__partner_leads__match_id__messages_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Send Partner Message",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/messages/read": {
+      "post": {
+        "description": "Mark the customer's messages as read (opening the conversation).",
+        "operationId": "read_partner_conversation_v1_organisations__organisation_id__partner_leads__match_id__messages_read_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Read Partner Conversation",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/partner/leads/{match_id}/outcome": {
       "post": {
         "description": "Record what happened after accepting: contacted, quoted, won or lost.",
@@ -29693,6 +29994,202 @@
         "summary": "Add Checklist",
         "tags": [
           "checklists"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations": {
+      "get": {
+        "description": "Messages with each partner who accepted one of this project's introductions.",
+        "operationId": "list_conversations_v1_organisations__organisation_id__projects__project_id__conversations_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ConversationOut"
+                  },
+                  "title": "Response List Conversations V1 Organisations  Organisation Id  Projects  Project Id  Conversations Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Conversations",
+        "tags": [
+          "messages"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/messages": {
+      "post": {
+        "description": "Write to the partner. They are told about the first message waiting for them.",
+        "operationId": "send_customer_message_v1_organisations__organisation_id__projects__project_id__conversations__match_id__messages_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Send Customer Message",
+        "tags": [
+          "messages"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/read": {
+      "post": {
+        "description": "Mark the partner's messages as read (opening the conversation).",
+        "operationId": "read_customer_conversation_v1_organisations__organisation_id__projects__project_id__conversations__match_id__read_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Read Customer Conversation",
+        "tags": [
+          "messages"
         ]
       }
     },
