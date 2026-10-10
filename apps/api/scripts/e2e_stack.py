@@ -4,7 +4,9 @@
     uv run python scripts/e2e_stack.py seed --out FILE   # accounts, rules, an assessed project
 
 ``seed`` sets up what the partner journey needs but is not part of it: verified accounts,
-platform staff (through ``python -m app.cli grant-platform-role``), a published rule whose
+platform staff (through ``python -m app.cli grant-platform-role``) with two-step sign-in on
+(their authenticator secret goes in the seed file, so the browser can make codes), a
+published rule whose
 finding names the referral categories, and a customer's submitted planning project with its
 assessment. Everything goes through the running API over HTTP except two things a test
 cannot do through it: confirming email addresses (a fresh verification token is issued in
@@ -159,6 +161,17 @@ class Seeder:
             "POST", "/v1/auth/login", {"email": email, "password": PASSWORD}
         )
         return client, session
+
+    async def enable_mfa(self, client: Client) -> str:
+        """Turn on two-step sign-in for a signed-in client; returns the authenticator secret.
+        Staff routes need it (Milestone 18)."""
+        from app.core import totp
+
+        setup = await client.call("POST", "/v1/auth/mfa/totp/setup", {"password": PASSWORD})
+        secret = str(setup["secret"])
+        code = totp.code_at(secret, totp.current_step())
+        await client.call("POST", "/v1/auth/mfa/totp/confirm", {"code": code})
+        return secret
 
     def grant(self, email: str, role: str) -> None:
         subprocess.run(  # noqa: S603 - fixed argv, our own CLI
@@ -316,6 +329,9 @@ class Seeder:
         staff = await self.verified_user("staff", "Sam Staff")
         self.grant(staff, "STAFF")
         rules_admin, session = await self.login(founder)
+        await self.enable_mfa(rules_admin)
+        staff_client, _ = await self.login(staff)
+        staff_totp_secret = await self.enable_mfa(staff_client)
         platform = next(o for o in session["organisations"] if o["kind"] == "PLATFORM_ADMIN")
         await rules_admin.call(
             "PUT", "/v1/auth/session/organisation", {"organisation_id": platform["organisation_id"]}
@@ -331,12 +347,15 @@ class Seeder:
         )
 
         partner_email = await self.verified_user("partner", "Pat Partner")
+        # Turns on two-step sign-in in the browser (account-security.spec.ts).
+        security_email = await self.verified_user("security", "Sky Secure")
         return {
             "runId": self.run_id,
             "password": PASSWORD,
             "platformOrganisation": platform["name"],
-            "staff": {"email": staff},
+            "staff": {"email": staff, "totpSecret": staff_totp_secret},
             "partner": {"email": partner_email, "business": f"Reef Certifiers {self.run_id}"},
+            "security": {"email": security_email},
             "customer": {"email": customer_email, "name": CUSTOMER_NAME, "phone": CUSTOMER_PHONE},
             "projectId": project["id"],
             "assessmentId": assessment["id"],

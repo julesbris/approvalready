@@ -152,6 +152,26 @@ class Settings(BaseSettings):
     # Emails of a given kind sent to one address per hour (stops mail bombing a victim).
     auth_emails_per_address_per_hour: int = Field(default=3, ge=1)
 
+    # --- Account security (Milestone 18) ---
+    # Platform staff must use two-step sign-in (an authenticator app code after the
+    # password) before staff pages and staff API routes work.
+    staff_mfa_required: bool = True
+    # Name shown in authenticator apps next to the account.
+    mfa_issuer: str = Field(default="ApprovalReady", min_length=1, max_length=60)
+    # How long the code step of a sign-in stays open after the password was accepted.
+    mfa_challenge_seconds: int = Field(default=300, ge=60, le=1800)
+    # Wrong codes per account per LOGIN_WINDOW_SECONDS before further tries are refused.
+    mfa_max_failures_per_account: int = Field(default=10, ge=3)
+    # New passwords are checked against Have I Been Pwned's Pwned Passwords list
+    # (k-anonymity: only 5 characters of the password's SHA-1 are sent).
+    password_breach_check: bool = True
+    pwned_passwords_url: str = "https://api.pwnedpasswords.com/range"
+    password_breach_timeout_seconds: float = Field(default=3.0, gt=0, le=15)
+    # Every API request (all methods) and every change (POST, PUT, PATCH, DELETE) per
+    # client IP address per minute. 0 switches a limit off. Generous: offices share one IP.
+    api_requests_per_ip_per_minute: int = Field(default=600, ge=0)
+    api_writes_per_ip_per_minute: int = Field(default=120, ge=0)
+
     # --- Email ---
     email_provider: EmailProviderKind = EmailProviderKind.CONSOLE
     email_from: str = "ApprovalReady <no-reply@approvalready.com.au>"
@@ -293,6 +313,10 @@ class Settings(BaseSettings):
     @property
     def csrf_cookie_name(self) -> str:
         return "__Host-ar_csrf" if self.cookie_secure else "ar_csrf"
+
+    @property
+    def mfa_cookie_name(self) -> str:
+        return "__Host-ar_mfa" if self.cookie_secure else "ar_mfa"
 
     @property
     def partners_url(self) -> str:

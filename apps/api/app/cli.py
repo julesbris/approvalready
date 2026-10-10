@@ -2,6 +2,7 @@
 
     python -m app.cli grant-platform-role --email ops@example.com --role SUPERADMIN
     python -m app.cli verify-audit
+    python -m app.cli auth reset-mfa --email someone@example.com  # lost phone and codes
     python -m app.cli provision-db-role       # after migrations, as the owner
     python -m app.cli questionnaires sync     # publish changed bundled definitions
     python -m app.cli documents sync-templates  # publish changed report templates
@@ -31,6 +32,7 @@ from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
 from app.modules.billing import catalogue as billing_catalogue
 from app.modules.documents import templates as document_templates
+from app.modules.identity import mfa
 from app.modules.identity.service import get_user_by_email
 from app.modules.marketplace import service as marketplace
 from app.modules.questionnaires import service as questionnaires
@@ -106,6 +108,27 @@ async def grant_platform_role(email: str, role: RoleKey, settings: Settings | No
             )
             await db.commit()
             print(f"{email} now has {role} in the platform organisation ({org.id})")
+            return 0
+    finally:
+        await resources.close()
+
+
+async def reset_mfa(email: str, settings: Settings | None = None) -> int:
+    """Turn off two-step sign-in for someone who lost both their phone and their recovery
+    codes (check who they are first). Signs them out everywhere."""
+    resources = create_resources(settings or get_settings())
+    try:
+        async with resources.session_factory() as db:
+            user = await get_user_by_email(db, email)
+            if user is None:
+                print(f"No user with email {email}", file=sys.stderr)
+                return 1
+            had = await mfa.reset_for_user(db, user, CLI_META)
+            await db.commit()
+            if had:
+                print(f"Two-step sign-in removed for {email}; they are signed out everywhere")
+            else:
+                print(f"{email} had no two-step sign-in; they are signed out everywhere")
             return 0
     finally:
         await resources.close()
@@ -335,6 +358,10 @@ def main(argv: list[str] | None = None) -> int:
         "--role", required=True, choices=[RoleKey.STAFF, RoleKey.ADMIN, RoleKey.SUPERADMIN]
     )
     sub.add_parser("verify-audit", help="Verify the audit log hash chain")
+    au = sub.add_parser("auth", help="Account security")
+    au_sub = au.add_subparsers(dest="auth_command", required=True)
+    rm = au_sub.add_parser("reset-mfa", help="Turn off two-step sign-in for one user")
+    rm.add_argument("--email", required=True)
     sub.add_parser("provision-db-role", help="Create/update the application's database role")
     q = sub.add_parser("questionnaires", help="Questionnaire definitions")
     q.add_argument("action", choices=["sync"])
@@ -357,6 +384,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.command == "grant-platform-role":
         return asyncio.run(grant_platform_role(args.email, RoleKey(args.role)))
+    if args.command == "auth":
+        return asyncio.run(reset_mfa(args.email))
     if args.command == "provision-db-role":
         return asyncio.run(provision_db_role(get_settings()))
     if args.command == "questionnaires":

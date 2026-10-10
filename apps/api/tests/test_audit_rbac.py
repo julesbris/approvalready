@@ -13,7 +13,7 @@ from app.modules.audit.models import AuditEvent
 from app.modules.tenancy import service as tenancy
 from app.modules.tenancy.models import Organisation, OrganisationMember, Role
 from app.modules.tenancy.rbac import PERMISSION_DESCRIPTIONS, ROLES
-from tests.harness import ApiHarness
+from tests.harness import ApiHarness, enable_mfa
 
 pytestmark = pytest.mark.integration
 
@@ -146,6 +146,15 @@ async def test_platform_admin_bootstrap_and_audit_verification(
     assert (await ops.get("/v1/admin/audit/verify")).status_code == 403
     r = await ops.put("/v1/auth/session/organisation", json={"organisation_id": str(platform_id)})
     assert r.status_code == 200
+    # ...and only for a session that passed two-step sign-in (Milestone 18).
+    assert r.json()["staff_mfa_required"] is True
+    assert r.json()["permissions"] == []
+    r = await ops.get("/v1/admin/audit/verify")
+    assert r.status_code == 403
+    assert r.json()["detail"]["code"] == "mfa_required"
+    await enable_mfa(ops)
+    assert ops.session["staff_mfa_required"] is False
+    assert "platform.audit.read" in ops.session["permissions"]
     r = await ops.get("/v1/admin/audit/verify")
     assert r.status_code == 200
     assert r.json()["ok"] is True

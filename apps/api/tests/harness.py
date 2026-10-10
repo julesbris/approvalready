@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import uuid
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
 from urllib.parse import parse_qs, urlparse
 
 from fastapi import FastAPI
 from httpx import ASGITransport, AsyncClient, Response
 
+from app.core import totp
 from app.core.email import MemoryEmailProvider, OutgoingEmail
 
 PASSWORD = "correct horse battery staple"
@@ -25,6 +26,9 @@ class User:
     password: str
     client: AsyncClient
     session: dict[str, Any]
+    # Set by ``enable_mfa``.
+    mfa_secret: str | None = None
+    recovery_codes: list[str] = field(default_factory=list)
 
     @property
     def id(self) -> str:
@@ -130,6 +134,25 @@ class ApiHarness:
             await c.aclose()
 
 
+def totp_code(secret: str, offset: int = 0) -> str:
+    """The authenticator code for now (``offset`` steps ahead, within the drift window, for
+    a second code in the same 30 seconds: a used step is never accepted again)."""
+    return totp.code_at(secret, totp.current_step() + offset)
+
+
+async def enable_mfa(user: User) -> str:
+    """Turn on two-step sign-in for a signed-in user through the API; returns the secret."""
+    r = await user.post("/v1/auth/mfa/totp/setup", json={"password": user.password})
+    assert r.status_code == 200, r.text
+    secret = str(r.json()["secret"])
+    r = await user.post("/v1/auth/mfa/totp/confirm", json={"code": totp_code(secret)})
+    assert r.status_code == 200, r.text
+    user.mfa_secret = secret
+    user.recovery_codes = list(r.json()["recovery_codes"])
+    user.session = (await user.get("/v1/auth/session")).json()
+    return secret
+
+
 async def platform_user(api: ApiHarness, role: str = "ADMIN", name: str = "Staff") -> User:
     """A user holding a platform role, signed in with the platform organisation active."""
     from sqlalchemy import select
@@ -150,9 +173,12 @@ async def platform_user(api: ApiHarness, role: str = "ADMIN", name: str = "Staff
         founder = await api.user(name="Founder")
         assert await cli.grant_platform_role(founder.email, cli.RoleKey.SUPERADMIN, settings) == 0
     user = await api.user(name=name)
+    # Staff routes need a session that passed two-step sign-in (Milestone 18).
+    await enable_mfa(user)
     assert await cli.grant_platform_role(user.email, cli.RoleKey(role), settings) == 0
     org = await platform_org()
     assert org is not None
     r = await user.put("/v1/auth/session/organisation", json={"organisation_id": str(org.id)})
     assert r.status_code == 200, r.text
+    user.session = r.json()
     return user

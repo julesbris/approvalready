@@ -23,6 +23,9 @@ export type OrganisationOut = Schemas["OrganisationOut"];
 export type MemberOut = Schemas["MemberOut"];
 export type InvitationOut = Schemas["InvitationOut"];
 export type AuditEventOut = Schemas["AuditEventOut"];
+export type MfaStatusOut = Schemas["MfaStatusOut"];
+export type MfaSetupOut = Schemas["MfaSetupOut"];
+export type RecoveryCodesOut = Schemas["RecoveryCodesOut"];
 
 export type ProjectOut = Schemas["ProjectOut"];
 export type ProjectDetailOut = Schemas["ProjectDetailOut"];

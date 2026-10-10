@@ -78,6 +78,12 @@ x-api-env: &api-env
   BACKUP_S3_SECRET_ACCESS_KEY: ${BACKUP_S3_SECRET_ACCESS_KEY:-}
   BACKUP_S3_PREFIX: ${BACKUP_S3_PREFIX:-approvalready/}
   OPS_ALERT_EMAILS: ${OPS_ALERT_EMAILS:-}
+  # Account security (Milestone 18): staff need two-step sign-in; new passwords are checked
+  # against Have I Been Pwned; per-IP request limits on the API.
+  STAFF_MFA_REQUIRED: ${STAFF_MFA_REQUIRED:-true}
+  PASSWORD_BREACH_CHECK: ${PASSWORD_BREACH_CHECK:-true}
+  API_REQUESTS_PER_IP_PER_MINUTE: ${API_REQUESTS_PER_IP_PER_MINUTE:-600}
+  API_WRITES_PER_IP_PER_MINUTE: ${API_WRITES_PER_IP_PER_MINUTE:-120}
   SENTRY_DSN: ${SENTRY_DSN:-}
 
 x-api-image: &api-image
