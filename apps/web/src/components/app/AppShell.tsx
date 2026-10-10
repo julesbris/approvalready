@@ -51,7 +51,16 @@ export function AppShell({
           />
         </div>
       </header>
-      <main className="container app-main">{children}</main>
+      <main className="container app-main">
+        {session.staff_mfa_required ? (
+          <p className="notice notice-warning" role="status">
+            Staff pages need two-step sign-in.{" "}
+            <Link href="/account#security">Turn it on in your account</Link> to use the admin
+            area.
+          </p>
+        ) : null}
+        {children}
+      </main>
     </>
   );
 }

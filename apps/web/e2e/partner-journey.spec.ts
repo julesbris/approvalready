@@ -76,7 +76,13 @@ test("partner journey: apply, approve, introduce, accept, outcome", async ({ bro
   });
 
   await test.step("platform staff check the credentials and approve the partner", async () => {
-    const page = await signIn(browser, seed.staff.email, seed.password, "/projects");
+    const page = await signIn(
+      browser,
+      seed.staff.email,
+      seed.password,
+      "/projects",
+      seed.staff.totpSecret,
+    );
     // Staff sign in to their personal organisation; switch to the platform organisation.
     const switched = page.waitForResponse(
       (r) => r.url().endsWith("/api/v1/auth/session/organisation") && r.ok(),

@@ -1072,3 +1072,38 @@ fieldset.question {
 .ops-failing {
   border-left-color: var(--ar-danger, #b42318);
 }
+
+/* --- Account security (Milestone 18) --- */
+
+.button-danger {
+  border-color: var(--ar-danger, #b42318);
+  background: var(--ar-danger, #b42318);
+}
+
+.qr-code {
+  display: block;
+  width: 228px;
+  height: 228px;
+  max-width: 100%;
+  background: #fff;
+}
+
+.secret-key {
+  word-break: break-all;
+}
+
+.recovery-codes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 4px 16px;
+  margin: 0;
+  padding: 12px;
+  list-style: none;
+  border: 1px solid var(--ar-border);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.notice-warning {
+  border-left-color: var(--ar-warning, #b54708);
+}

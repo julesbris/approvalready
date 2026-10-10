@@ -16,6 +16,7 @@ from fastapi import status
 from sqlalchemy import or_, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.breach import BreachChecker
 from app.core.config import Settings
 from app.core.email import EmailProvider, OutgoingEmail
 from app.core.errors import ApiError, rate_limited
@@ -62,6 +63,20 @@ def validate_password(settings: Settings, password: str, email: str) -> None:
         problem = "Don't use your email address as your password."
     if problem:
         raise ApiError(status.HTTP_422_UNPROCESSABLE_CONTENT, "weak_password", problem)
+
+
+async def ensure_not_breached(breach: BreachChecker | None, password: str) -> None:
+    """Refuse passwords that appear in known data breaches (Have I Been Pwned)."""
+    if breach is None:
+        return
+    seen = await breach.times_seen(password)
+    if seen:
+        raise ApiError(
+            status.HTTP_422_UNPROCESSABLE_CONTENT,
+            "breached_password",
+            "This password has appeared in a data breach, so attackers try it first. "
+            "Choose a different one.",
+        )
 
 
 async def send_email(provider: EmailProvider, message: OutgoingEmail) -> None:
@@ -177,10 +192,12 @@ async def register(
     password: str,
     display_name: str,
     meta: RequestMeta,
+    breach: BreachChecker | None = None,
 ) -> OutgoingEmail:
     """Create the user and their PERSONAL organisation. Returns the email to send."""
     email = normalise_email(email)
     validate_password(settings, password, email)
+    await ensure_not_breached(breach, password)
     existing = await get_user_by_email(db, email)
     if existing is not None:
         await audit.record(
@@ -322,7 +339,12 @@ class IssuedSession:
 
 
 async def create_session(
-    db: AsyncSession, settings: Settings, user: AppUser, meta: RequestMeta
+    db: AsyncSession,
+    settings: Settings,
+    user: AppUser,
+    meta: RequestMeta,
+    *,
+    mfa_method: str | None = None,
 ) -> IssuedSession:
     now = utcnow()
     token = new_token()
@@ -336,6 +358,7 @@ async def create_session(
         rotated_at=now,
         idle_expires_at=now + timedelta(minutes=settings.session_idle_minutes),
         expires_at=now + timedelta(days=settings.session_absolute_days),
+        mfa_verified_at=now if mfa_method else None,
     )
     db.add(session)
     await db.flush()
@@ -346,6 +369,7 @@ async def create_session(
         meta=meta,
         target_type="auth_session",
         target_id=session.id,
+        details={"mfa": mfa_method} if mfa_method else None,
     )
     return IssuedSession(session, token)
 
@@ -506,10 +530,16 @@ async def _set_password(db: AsyncSession, user: AppUser, password: str) -> None:
 
 
 async def confirm_password_reset(
-    db: AsyncSession, settings: Settings, token: str, password: str, meta: RequestMeta
+    db: AsyncSession,
+    settings: Settings,
+    token: str,
+    password: str,
+    meta: RequestMeta,
+    breach: BreachChecker | None = None,
 ) -> OutgoingEmail:
     user = await consume_token(db, token, TokenPurpose.PASSWORD_RESET)
     validate_password(settings, password, user.email)
+    await ensure_not_breached(breach, password)
     await _set_password(db, user, password)
     if user.email_verified_at is None:  # the link reached this inbox
         user.email_verified_at = utcnow()
@@ -535,6 +565,7 @@ async def change_password(
     current_password: str,
     new_password: str,
     meta: RequestMeta,
+    breach: BreachChecker | None = None,
 ) -> tuple[str, OutgoingEmail]:
     credential = (
         await db.execute(select(PasswordCredential).where(PasswordCredential.user_id == user.id))
@@ -544,6 +575,7 @@ async def change_password(
             status.HTTP_400_BAD_REQUEST, "invalid_credentials", "Current password is incorrect."
         )
     validate_password(settings, new_password, user.email)
+    await ensure_not_breached(breach, new_password)
     await _set_password(db, user, new_password)
     revoked = await revoke_all_sessions(db, user.id, "password_changed", except_id=session.id)
     token = rotate_session_strict(session)

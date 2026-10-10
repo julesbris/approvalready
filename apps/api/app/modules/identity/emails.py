@@ -95,3 +95,46 @@ def invitation(
         ),
         links={"accept": link},
     )
+
+
+def _security_footer(settings: Settings) -> str:
+    reset = f"{settings.web_base_url.rstrip('/')}/forgot-password"
+    return f"If this wasn't you, reset your password now ({reset}) and contact support.\n"
+
+
+def mfa_enabled(settings: Settings, to: str, name: str) -> OutgoingEmail:
+    return OutgoingEmail(
+        to=to,
+        kind="auth.mfa_enabled",
+        subject="Two-step sign-in is on for your ApprovalReady account",
+        text=(
+            f"Hi {name},\n\nTwo-step sign-in was just turned on. From now on you'll enter a "
+            "code from your authenticator app after your password, and other sessions were "
+            "signed out. Keep your recovery codes somewhere safe.\n\n" + _security_footer(settings)
+        ),
+    )
+
+
+def mfa_disabled(settings: Settings, to: str, name: str) -> OutgoingEmail:
+    return OutgoingEmail(
+        to=to,
+        kind="auth.mfa_disabled",
+        subject="Two-step sign-in was turned off for your ApprovalReady account",
+        text=(
+            f"Hi {name},\n\nTwo-step sign-in was just turned off. Your account is now protected "
+            "by your password only.\n\n" + _security_footer(settings)
+        ),
+    )
+
+
+def mfa_recovery_code_used(settings: Settings, to: str, name: str, left: int) -> OutgoingEmail:
+    return OutgoingEmail(
+        to=to,
+        kind="auth.mfa_recovery_code_used",
+        subject="A recovery code was used to sign in to ApprovalReady",
+        text=(
+            f"Hi {name},\n\nSomeone signed in to your account with one of your recovery codes. "
+            f"You have {left} left. If you've lost your authenticator app, make new codes or set "
+            "up the app again under Account, Security.\n\n" + _security_footer(settings)
+        ),
+    )

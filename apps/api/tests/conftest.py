@@ -48,6 +48,8 @@ def make_settings(**overrides: object) -> Settings:
         "storage_local_root": TEST_STORAGE_ROOT,
         # Scans and document generation run right after the request instead of on a worker.
         "jobs_mode": JobsMode.INLINE,
+        # No calls to Have I Been Pwned from tests (test_account_security.py stubs it).
+        "password_breach_check": False,
         "_env_file": None,
     }
     if overrides.get("app_env") in (Environment.PRODUCTION, Environment.STAGING):

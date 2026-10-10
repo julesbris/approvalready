@@ -11,10 +11,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from app.api import health
+from app.core.breach import BreachChecker
 from app.core.config import Settings, get_settings
 from app.core.errors_tracking import init_error_tracking
 from app.core.logging import configure_logging
 from app.core.middleware import (
+    ApiRateLimitMiddleware,
     OriginCheckMiddleware,
     RequestContextMiddleware,
     SecurityHeadersMiddleware,
@@ -64,6 +66,7 @@ def create_app(
     settings: Settings | None = None,
     lookup_transport: httpx.AsyncBaseTransport | None = None,
     stripe_transport: httpx.AsyncBaseTransport | None = None,
+    breach_transport: httpx.AsyncBaseTransport | None = None,
 ) -> FastAPI:
     settings = settings or get_settings()
     configure_logging(settings.log_level)
@@ -73,6 +76,7 @@ def create_app(
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         app.state.resources = create_resources(settings)
         app.state.lookups = Lookups(settings, lookup_transport)
+        app.state.breach = BreachChecker(settings, breach_transport)
         app.state.stripe = (
             StripeClient(settings, stripe_transport) if settings.payments_enabled else None
         )
@@ -82,6 +86,7 @@ def create_app(
             if app.state.stripe is not None:
                 await app.state.stripe.aclose()
             await app.state.lookups.aclose()
+            await app.state.breach.aclose()
             await app.state.resources.close()
 
     show_docs = not settings.is_production
@@ -98,6 +103,11 @@ def create_app(
     # Starlette applies middleware in reverse order of registration: the last added runs
     # first. Request context is outermost so every response (including rejections from the
     # host and CORS checks) carries a request ID and security headers.
+    app.add_middleware(
+        ApiRateLimitMiddleware,
+        requests_per_minute=settings.api_requests_per_ip_per_minute,
+        writes_per_minute=settings.api_writes_per_ip_per_minute,
+    )
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.allowed_origins,

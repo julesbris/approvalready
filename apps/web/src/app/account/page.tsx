@@ -1,17 +1,21 @@
+import type { MfaStatusOut } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { ChangePasswordForm } from "@/components/account/ChangePasswordForm";
+import { TwoStepSignIn } from "@/components/account/TwoStepSignIn";
 import { AppShell } from "@/components/app/AppShell";
 import { SignOutButtons } from "@/components/auth/SignOutButtons";
 import { CreateOrganisationForm } from "@/components/organisations/CreateOrganisationForm";
 import { SwitchButton } from "@/components/organisations/SwitchButton";
 import { KIND_LABELS, roleList } from "@/lib/labels";
-import { requireSession } from "@/lib/session";
+import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = { title: "Your account", robots: { index: false } };
 
 export default async function AccountPage() {
   const session = await requireSession("/account");
+  const mfa = orNotFound(await serverGet<MfaStatusOut>("/auth/mfa"));
   return (
     <AppShell session={session}>
       <h1 className="page-title">Hello, {session.user.display_name}</h1>
@@ -53,6 +57,16 @@ export default async function AccountPage() {
           Add a business
         </h2>
         <CreateOrganisationForm />
+      </section>
+
+      <section className="panel" id="security" aria-labelledby="security-title">
+        <h2 id="security-title" className="section-title">
+          Security
+        </h2>
+        <h3 className="subsection-title">Two-step sign-in</h3>
+        <TwoStepSignIn status={mfa} />
+        <h3 className="subsection-title">Password</h3>
+        <ChangePasswordForm />
       </section>
 
       <SignOutButtons />
