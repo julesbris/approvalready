@@ -12,6 +12,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from app.api import health
 from app.core.config import Settings, get_settings
+from app.core.errors_tracking import init_error_tracking
 from app.core.logging import configure_logging
 from app.core.middleware import (
     OriginCheckMiddleware,
@@ -42,6 +43,7 @@ from app.modules.lookups.router import router as lookups_router
 from app.modules.lookups.service import Lookups
 from app.modules.marketplace.router import router as marketplace_router
 from app.modules.notifications.router import router as notifications_router
+from app.modules.ops.router import admin_router as ops_admin_router
 from app.modules.partners.router import admin_router as partners_admin_router
 from app.modules.partners.router import apply_router as partners_apply_router
 from app.modules.partners.router import router as partners_router
@@ -65,6 +67,7 @@ def create_app(
 ) -> FastAPI:
     settings = settings or get_settings()
     configure_logging(settings.log_level)
+    init_error_tracking(settings, "api")
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
@@ -145,6 +148,7 @@ def create_app(
     app.include_router(leads_admin_router)
     app.include_router(analytics_partner_router)
     app.include_router(analytics_admin_router)
+    app.include_router(ops_admin_router)
     return app
 
 

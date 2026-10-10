@@ -240,3 +240,8 @@ export type BenchmarksOut = Schemas["BenchmarksOut"];
 export type MarketTotalsOut = Schemas["MarketTotalsOut"];
 export type MarketPartnerOut = Schemas["MarketPartnerOut"];
 export type MarketplaceAnalyticsOut = Schemas["MarketplaceAnalyticsOut"];
+
+export type CheckState = Schemas["CheckState"];
+export type CheckOut = Schemas["CheckOut"];
+export type BackupRunOut = Schemas["BackupRunOut"];
+export type OpsStatusOut = Schemas["OpsStatusOut"];

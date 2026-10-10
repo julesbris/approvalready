@@ -4,6 +4,23 @@
  */
 
 export interface paths {
+    "/health/jobs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Jobs */
+        get: operations["jobs_health_jobs_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/health/live": {
         parameters: {
             query?: never;
@@ -395,6 +412,26 @@ export interface paths {
         post?: never;
         /** Remove Price */
         delete: operations["remove_price_v1_admin_leads_prices__category_key__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/ops": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Ops Status
+         * @description Is the platform looking after itself: background jobs, backups, disk.
+         */
+        get: operations["ops_status_v1_admin_ops_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
         options?: never;
         head?: never;
         patch?: never;
@@ -4349,6 +4386,44 @@ export interface components {
          * @enum {string}
          */
         AuthorRole: "CUSTOMER" | "REVIEWER";
+        /** BackupRunOut */
+        BackupRunOut: {
+            /** Database Bytes */
+            database_bytes: number | null;
+            /** Database File */
+            database_file: string | null;
+            /** Detail */
+            detail: string | null;
+            /**
+             * Finished At
+             * Format: date-time
+             */
+            finished_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Kind */
+            kind: string;
+            /** Offsite At */
+            offsite_at: string | null;
+            /** Offsite Error */
+            offsite_error: string | null;
+            /** Offsite Status */
+            offsite_status: string | null;
+            /**
+             * Started At
+             * Format: date-time
+             */
+            started_at: string;
+            /** Status */
+            status: string;
+            /** Uploads Bytes */
+            uploads_bytes: number | null;
+            /** Uploads File */
+            uploads_file: string | null;
+        };
         /**
          * BenchmarkOut
          * @description Other partners' medians. Each figure is None unless enough partners contribute.
@@ -4653,6 +4728,21 @@ export interface components {
              */
             uploaded_document_id?: string | null;
         };
+        /** CheckOut */
+        CheckOut: {
+            /** Detail */
+            detail: string;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            state: components["schemas"]["CheckState"];
+        };
+        /**
+         * CheckState
+         * @enum {string}
+         */
+        CheckState: "OK" | "WARNING" | "FAILING";
         /** ChecklistAddIn */
         ChecklistAddIn: {
             /** Key */
@@ -6056,6 +6146,14 @@ export interface components {
          * @enum {string}
          */
         JobStatus: "PENDING" | "SUCCEEDED" | "REJECTED" | "FAILED";
+        /** JobsResponse */
+        JobsResponse: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "ok" | "error";
+        };
         /** LeadDeclineIn */
         LeadDeclineIn: {
             /** Reason */
@@ -6660,7 +6758,7 @@ export interface components {
          * NotificationKind
          * @enum {string}
          */
-        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE" | "LEAD_OFFERED" | "LEAD_CLAIMED";
+        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE" | "LEAD_OFFERED" | "LEAD_CLAIMED" | "OPS_ALERT";
         /** NotificationListOut */
         NotificationListOut: {
             /** Items */
@@ -6789,6 +6887,28 @@ export interface components {
             subject_to_finance?: boolean | null;
             /** Subject To Inspection */
             subject_to_inspection?: boolean | null;
+        };
+        /** OpsStatusOut */
+        OpsStatusOut: {
+            /** Alert Email Count */
+            alert_email_count: number;
+            /**
+             * Checked At
+             * Format: date-time
+             */
+            checked_at: string;
+            /** Checks */
+            checks: components["schemas"]["CheckOut"][];
+            /** Error Tracking Enabled */
+            error_tracking_enabled: boolean;
+            /** Git Sha */
+            git_sha: string;
+            /** Offsite Enabled */
+            offsite_enabled: boolean;
+            /** Runs */
+            runs: components["schemas"]["BackupRunOut"][];
+            /** Version */
+            version: string;
         };
         /** OptionOut */
         OptionOut: {
@@ -10213,6 +10333,35 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    jobs_health_jobs_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JobsResponse"];
+                };
+            };
+            /** @description Service Unavailable */
+            503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JobsResponse"];
+                };
+            };
+        };
+    };
     live_health_live_get: {
         parameters: {
             query?: never;
@@ -10936,6 +11085,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    ops_status_v1_admin_ops_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OpsStatusOut"];
                 };
             };
         };

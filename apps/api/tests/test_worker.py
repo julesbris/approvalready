@@ -7,8 +7,20 @@ def test_ping_task_runs() -> None:
     assert ping.apply().get() == "pong"
 
 
-def test_heartbeat_returns_utc_timestamp() -> None:
-    assert heartbeat.apply().get().endswith("+00:00")
+@pytest.mark.integration
+def test_heartbeat_is_recorded_for_the_ops_checks() -> None:
+    import redis
+
+    from app.modules.ops.checks import HEARTBEAT_KEY
+    from app.worker import settings
+
+    beat = heartbeat.apply().get()
+    assert beat.endswith("+00:00")
+    client = redis.Redis.from_url(settings.redis_url, decode_responses=True)
+    try:
+        assert client.get(HEARTBEAT_KEY) == beat
+    finally:
+        client.close()
 
 
 def test_worker_refuses_pickle() -> None:

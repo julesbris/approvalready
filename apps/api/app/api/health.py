@@ -5,6 +5,9 @@
 * ``/health/ready`` - PostgreSQL and Redis are reachable (and, in production, the database
   role is one row-level security applies to). Returns 503 otherwise, which takes the
   instance out of rotation without killing it.
+* ``/health/jobs``  - background jobs are running: the scheduler's heartbeat (written by the
+  worker every 5 minutes) is recent. For an external uptime monitor, which still alerts when
+  the worker, the scheduler or the watchdog that runs on them has stopped. 503 otherwise.
 """
 
 from __future__ import annotations
@@ -13,6 +16,7 @@ import asyncio
 import logging
 import time
 from collections.abc import Awaitable
+from datetime import UTC, datetime, timedelta
 from typing import Literal
 
 from fastapi import APIRouter, Request, Response, status
@@ -21,6 +25,7 @@ from sqlalchemy import text
 
 from app.core.config import Settings
 from app.core.resources import Resources
+from app.modules.ops.checks import heartbeat
 
 logger = logging.getLogger(__name__)
 
@@ -41,6 +46,10 @@ class DependencyCheck(BaseModel):
 class ReadyResponse(BaseModel):
     status: CheckStatus
     checks: dict[str, DependencyCheck]
+
+
+class JobsResponse(BaseModel):
+    status: CheckStatus
 
 
 class VersionResponse(BaseModel):
@@ -123,6 +132,27 @@ async def ready(request: Request, response: Response) -> ReadyResponse:
     if not healthy:
         response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
     return ReadyResponse(status="ok" if healthy else "error", checks=checks)
+
+
+@router.get(
+    "/health/jobs",
+    response_model=JobsResponse,
+    responses={503: {"model": JobsResponse}},
+)
+async def jobs(request: Request, response: Response) -> JobsResponse:
+    resources: Resources = request.app.state.resources
+    settings: Settings = request.app.state.settings
+    try:
+        async with asyncio.timeout(settings.health_check_timeout_seconds):
+            beat = await heartbeat(resources.redis)
+    except Exception:
+        logger.warning("jobs heartbeat check failed", exc_info=True)
+        beat = None
+    limit = timedelta(minutes=settings.heartbeat_max_age_minutes)
+    if beat is None or datetime.now(UTC) - beat > limit:
+        response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
+        return JobsResponse(status="error")
+    return JobsResponse(status="ok")
 
 
 @router.get("/version", response_model=VersionResponse)

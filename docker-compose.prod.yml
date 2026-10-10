@@ -3,7 +3,7 @@
 #
 # Network design:
 #   edge  - proxy, web, api, worker, scheduler, clamav. Normal bridge (outbound internet allowed).
-#   data  - internal-only bridge (no route to the internet) for db and redis.
+#   data  - internal-only bridge (no route to the internet) for db, redis and backup.
 # Only the proxy publishes ports. PostgreSQL and Redis publish nothing.
 name: approvalready
 
@@ -67,6 +67,18 @@ x-api-env: &api-env
   # Marketplace analytics (Milestone 16): partners see other partners' figures only as a
   # median over at least this many partners.
   ANALYTICS_MIN_PARTNERS: ${ANALYTICS_MIN_PARTNERS:-5}
+  # Operations (Milestone 17). The worker copies the backup service's files to S3-compatible
+  # storage when BACKUP_S3_BUCKET is set; alerts go to platform admins and OPS_ALERT_EMAILS;
+  # errors go to Sentry (or GlitchTip) when SENTRY_DSN is set.
+  BACKUP_DIR: /backups
+  BACKUP_S3_BUCKET: ${BACKUP_S3_BUCKET:-}
+  BACKUP_S3_REGION: ${BACKUP_S3_REGION:-}
+  BACKUP_S3_ENDPOINT_URL: ${BACKUP_S3_ENDPOINT_URL:-}
+  BACKUP_S3_ACCESS_KEY_ID: ${BACKUP_S3_ACCESS_KEY_ID:-}
+  BACKUP_S3_SECRET_ACCESS_KEY: ${BACKUP_S3_SECRET_ACCESS_KEY:-}
+  BACKUP_S3_PREFIX: ${BACKUP_S3_PREFIX:-approvalready/}
+  OPS_ALERT_EMAILS: ${OPS_ALERT_EMAILS:-}
+  SENTRY_DSN: ${SENTRY_DSN:-}
 
 x-api-image: &api-image
   image: ${IMAGE_PREFIX:-approvalready}/api:${IMAGE_TAG:-latest}
@@ -144,6 +156,7 @@ services:
     tmpfs: [/tmp]
     volumes:
       - uploads:/data/uploads
+      - backups:/backups:ro # read to copy backups off the server
     cap_drop: [ALL]
     healthcheck:
       test: ["CMD-SHELL", "celery -A app.worker inspect ping -d celery@$$HOSTNAME --timeout 5"]
@@ -187,7 +200,6 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:?}
     volumes:
       - pgdata:/var/lib/postgresql
-      - ./backups:/backups
     shm_size: 256mb
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
@@ -195,6 +207,37 @@ services:
       timeout: 5s
       retries: 10
     networks: [data]
+
+  # Nightly backups (database dump + uploaded files) into the "backups" volume, a weekly
+  # restore check into a scratch database, and the restore command. The postgres image keeps
+  # pg_dump in step with the server. It holds the database owner's password, so it sits on
+  # the internal network only: the worker copies its files off the server. See
+  # infrastructure/backup/backup.sh and docs/DEPLOY_KAMATERA.md section 10.
+  backup:
+    <<: *defaults
+    image: postgres:18-alpine
+    entrypoint: ["sh", "/usr/local/bin/backup.sh"]
+    command: ["loop"]
+    environment:
+      TZ: Australia/Brisbane
+      PGHOST: db
+      PGUSER: ${POSTGRES_USER:?}
+      PGPASSWORD: ${POSTGRES_PASSWORD:?}
+      PGDATABASE: ${POSTGRES_DB:?}
+      BACKUP_TIMES: ${BACKUP_TIMES:-02:30}
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+      BACKUP_RESTORE_CHECK_DAY: ${BACKUP_RESTORE_CHECK_DAY:-7}
+    volumes:
+      - ./infrastructure/backup/backup.sh:/usr/local/bin/backup.sh:ro
+      - backups:/backups
+      - uploads:/uploads:ro
+    # Root only to hand the backups volume to the app user (uid 10001), then it drops to it.
+    cap_drop: [ALL]
+    cap_add: [CHOWN, SETUID, SETGID]
+    networks: [data]
+    depends_on:
+      db: { condition: service_healthy }
+      migrate: { condition: service_completed_successfully }
 
   redis:
     <<: *defaults
@@ -228,5 +271,6 @@ volumes:
   redisdata:
   caddy_data:
   caddy_config:
-  uploads: # uploaded and generated documents: include it in backups
+  uploads: # uploaded and generated documents: archived nightly by the backup service
+  backups: # nightly database dumps and uploads archives (backup service)
   clamav_db:

@@ -15,7 +15,8 @@ export function AdminNav({
     | "leads"
     | "analytics"
     | "ai"
-    | "billing";
+    | "billing"
+    | "ops";
 }) {
   const links = [
     ["home", "/admin", "Review queue"],
@@ -29,6 +30,7 @@ export function AdminNav({
     ["analytics", "/admin/analytics", "Marketplace"],
     ["ai", "/admin/ai", "AI"],
     ["billing", "/admin/billing", "Billing"],
+    ["ops", "/admin/ops", "Operations"],
   ] as const;
   return (
     <nav aria-label="Admin" className="admin-nav">
