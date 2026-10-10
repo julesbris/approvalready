@@ -165,7 +165,7 @@ export function BusinessPanel({
         </div>
       ) : null}
       {canWrite && adding ? (
-        <form className="form" onSubmit={addBusiness} aria-label="Add a business">
+        <form method="post" className="form" onSubmit={addBusiness} aria-label="Add a business">
           <label>
             Legal name
             <input name="legal_name" required maxLength={200} autoComplete="organization" />

@@ -1,0 +1,7 @@
+# ZAP baseline scan rules (Milestone 17): accepted findings, one per line: id<TAB>IGNORE<TAB>why.
+# Every other warning fails the CI job (zap-baseline.py without -I).
+10055	IGNORE	(CSP: style-src unsafe-inline) React style attributes need it; scripts stay strict. See apps/web/src/lib/csp.ts
+10109	IGNORE	(Modern Web Application) informational
+10111	IGNORE	(Authentication Request Identified) informational: the sign-in form
+10024	IGNORE	(Sensitive Information in URL) informational: ?next= return paths on sign-in links
+10202	IGNORE	(Absence of Anti-CSRF Tokens) forms are sent by fetch with the X-CSRF-Token header and an Origin check (ARCHITECTURE.md section 5); a form posted without scripts changes nothing

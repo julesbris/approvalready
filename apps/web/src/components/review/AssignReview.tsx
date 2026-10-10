@@ -57,7 +57,7 @@ export function AssignReview({ initial }: { initial: StaffReviewOut }) {
             yet.
           </p>
         ) : (
-          <form className="form" onSubmit={assign}>
+          <form method="post" className="form" onSubmit={assign}>
             <label>
               Professional
               <select value={professionalId} onChange={(e) => setProfessionalId(e.target.value)}>

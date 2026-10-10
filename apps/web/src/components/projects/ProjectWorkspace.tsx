@@ -413,7 +413,12 @@ export function ProjectWorkspace(props: Props) {
           ))}
         </ul>
         {canWrite ? (
-          <form className="form inline-form" onSubmit={addTask} aria-label="Add a task">
+          <form
+            method="post"
+            className="form inline-form"
+            onSubmit={addTask}
+            aria-label="Add a task"
+          >
             <label>
               Task
               <input name="title" required maxLength={200} />
@@ -478,7 +483,12 @@ export function ProjectWorkspace(props: Props) {
           ))}
         </ul>
         {canWrite ? (
-          <form className="form inline-form" onSubmit={addReminder} aria-label="Add a reminder">
+          <form
+            method="post"
+            className="form inline-form"
+            onSubmit={addReminder}
+            aria-label="Add a reminder"
+          >
             <label>
               Remind me to
               <input name="title" required maxLength={200} />

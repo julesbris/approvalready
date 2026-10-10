@@ -278,7 +278,7 @@ export function ApplyForm({ categories }: { categories: MarketplaceCategoryOut[]
   }
 
   return (
-    <form className="form form-wide" onSubmit={submit}>
+    <form method="post" className="form form-wide" onSubmit={submit}>
       <section className="panel" aria-labelledby="business-title">
         <h2 id="business-title" className="section-title">
           Your business

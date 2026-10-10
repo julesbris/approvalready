@@ -200,7 +200,7 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
         </div>
       ) : null}
       {canWrite && adding ? (
-        <form className="form" onSubmit={addProperty} aria-label="Add a property">
+        <form method="post" className="form" onSubmit={addProperty} aria-label="Add a property">
           <AddressSearch organisationId={organisationId} onPick={pick} disabled={busy} />
           <ParcelLookupResult state={picked} />
           <label>

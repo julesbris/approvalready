@@ -30,7 +30,7 @@ export function ForgotPasswordForm() {
     );
   }
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form method="post" className="form" onSubmit={onSubmit}>
       <label>
         Email
         <input name="email" type="email" autoComplete="email" required />

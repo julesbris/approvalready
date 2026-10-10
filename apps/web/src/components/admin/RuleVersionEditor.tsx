@@ -310,7 +310,7 @@ export function RuleVersionEditor({
         </ul>
       </section>
 
-      <form className="form form-wide" onSubmit={submit} aria-label="Rule version">
+      <form method="post" className="form form-wide" onSubmit={submit} aria-label="Rule version">
         <fieldset disabled={!editable} className="plain-fieldset">
           <section className="panel" aria-labelledby="condition-title">
             <h2 id="condition-title" className="section-title">
@@ -618,7 +618,12 @@ export function RuleVersionEditor({
           Try it
         </h2>
         <p className="muted">Runs the saved version against facts you enter. Nothing is stored.</p>
-        <form className="form form-wide" onSubmit={evaluate} aria-label="Try the rule">
+        <form
+          method="post"
+          className="form form-wide"
+          onSubmit={evaluate}
+          aria-label="Try the rule"
+        >
           <FormError message={tryIt.error} />
           <label>
             Facts (JSON)

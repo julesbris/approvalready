@@ -44,7 +44,7 @@ function CreateProfile({ onCreated }: { onCreated: (p: ProfessionalOut) => void 
     if (created) onCreated(created);
   }
   return (
-    <form className="form panel" onSubmit={submit}>
+    <form method="post" className="form panel" onSubmit={submit}>
       <h2 className="section-title">Set up your reviewer profile</h2>
       <p className="muted">
         Customers see your name, profession and practice. Our team checks your credentials before
@@ -182,7 +182,7 @@ export function ProfileEditor({ initial }: { initial: ProfessionalOut | null }) 
             </li>
           ))}
         </ul>
-        <form className="form inline-form" onSubmit={addCredential}>
+        <form method="post" className="form inline-form" onSubmit={addCredential}>
           <label>
             Kind
             <select value={kind} onChange={(e) => setKind(e.target.value as CredentialKind)}>

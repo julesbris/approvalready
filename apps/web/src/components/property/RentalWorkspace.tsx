@@ -259,7 +259,12 @@ export function RentalWorkspace({ organisationId, projectId, canWrite, ...props 
           Property and listing
         </h2>
         {canWrite ? (
-          <form className="form" onSubmit={saveListing} aria-label="Property and listing">
+          <form
+            method="post"
+            className="form"
+            onSubmit={saveListing}
+            aria-label="Property and listing"
+          >
             <div className="field-row">
               <label>
                 Bedrooms
@@ -417,7 +422,12 @@ export function RentalWorkspace({ organisationId, projectId, canWrite, ...props 
         {canWrite ? (
           <details>
             <summary>Record an application</summary>
-            <form className="form" onSubmit={addApplication} aria-label="Record an application">
+            <form
+              method="post"
+              className="form"
+              onSubmit={addApplication}
+              aria-label="Record an application"
+            >
               <div className="field-row">
                 <label>
                   Applicant
@@ -486,7 +496,12 @@ export function RentalWorkspace({ organisationId, projectId, canWrite, ...props 
           </button>
         ) : null}
         {canWrite && leasing !== null ? (
-          <form className="form" onSubmit={recordTenancy} aria-label="Record a tenancy">
+          <form
+            method="post"
+            className="form"
+            onSubmit={recordTenancy}
+            aria-label="Record a tenancy"
+          >
             <h3 className="subsection-title">
               {leasingFrom ? `Tenancy for ${leasingFrom.applicant_name}` : "New tenancy"}
             </h3>
@@ -599,7 +614,12 @@ export function RentalWorkspace({ organisationId, projectId, canWrite, ...props 
           ))}
         </ul>
         {canWrite ? (
-          <form className="form inline-form" onSubmit={scheduleInspection} aria-label="Schedule an inspection">
+          <form
+            method="post"
+            className="form inline-form"
+            onSubmit={scheduleInspection}
+            aria-label="Schedule an inspection"
+          >
             <label>
               Kind
               <select name="kind" defaultValue="ROUTINE">
@@ -670,7 +690,12 @@ export function RentalWorkspace({ organisationId, projectId, canWrite, ...props 
         {canWrite ? (
           <details>
             <summary>Report a repair</summary>
-            <form className="form" onSubmit={addMaintenance} aria-label="Report a repair">
+            <form
+              method="post"
+              className="form"
+              onSubmit={addMaintenance}
+              aria-label="Report a repair"
+            >
               <div className="field-row">
                 <label>
                   What needs fixing
@@ -728,7 +753,12 @@ function TenancyActions({
   return (
     <details>
       <summary>Update this tenancy</summary>
-      <form className="form" onSubmit={submit} aria-label={`Update the tenancy for ${tenancy.tenant_names}`}>
+      <form
+        method="post"
+        className="form"
+        onSubmit={submit}
+        aria-label={`Update the tenancy for ${tenancy.tenant_names}`}
+      >
         {tenancy.bond_to_lodge ? (
           <div className="field-row">
             <label>

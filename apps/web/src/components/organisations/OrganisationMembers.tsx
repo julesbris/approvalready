@@ -210,7 +210,7 @@ export function OrganisationMembers(props: Props) {
           <h2 id="invite-title" className="section-title">
             Invite someone
           </h2>
-          <form className="form" onSubmit={invite}>
+          <form method="post" className="form" onSubmit={invite}>
             <label>
               Email
               <input name="email" type="email" required autoComplete="off" />

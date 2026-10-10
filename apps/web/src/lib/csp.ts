@@ -3,9 +3,10 @@
  *
  * Signed-in and auth pages are rendered per request, so they get a strict nonce-based policy
  * (set in `src/proxy.ts`): no 'unsafe-inline' for scripts. Public marketing and guide pages
- * are statically generated for SEO, where no per-request nonce can exist, so they keep the
- * baseline policy from next.config.ts. They carry no session-dependent content and make no
- * authenticated calls; moving them to hash-based CSP is tracked for Milestone 17.
+ * are statically generated for SEO, where no per-request nonce can exist, so they get a
+ * hash-based policy instead (Milestone 17): `scripts/csp-hashes.mjs` hashes the inline
+ * scripts Next.js wrote into the prerendered HTML at build time, and only those may run.
+ * Both policies are set by `src/proxy.ts`, which runs for every page.
  */
 
 /** Path prefixes rendered dynamically with the nonce policy. */
@@ -49,10 +50,26 @@ export function nonceCsp(nonce: string, isDev: boolean): string {
   ].join("; ");
 }
 
-export function staticCsp(isDev: boolean): string {
+/**
+ * Policy for statically generated pages. In production only the build's inline scripts (their
+ * hashes) may run; development pages aren't prerendered, so they keep 'unsafe-inline'.
+ */
+export function staticCsp(isDev: boolean, scriptHashes: readonly string[]): string {
+  const inline = isDev ? "'unsafe-inline' 'unsafe-eval'" : scriptHashes.join(" ");
   return [
     ...COMMON,
-    `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+    `script-src 'self'${inline ? ` ${inline}` : ""}`,
     "style-src 'self' 'unsafe-inline'",
   ].join("; ");
+}
+
+const HASH = /^'sha256-[A-Za-z0-9+/]+={0,2}'$/;
+
+/** The script hashes from the build's manifest (`.next/csp-hashes.json`); bad entries dropped. */
+export function parseHashManifest(raw: string): string[] {
+  const data: unknown = JSON.parse(raw);
+  const list =
+    data && typeof data === "object" && "scriptHashes" in data ? data.scriptHashes : undefined;
+  if (!Array.isArray(list)) return [];
+  return list.filter((h): h is string => typeof h === "string" && HASH.test(h));
 }

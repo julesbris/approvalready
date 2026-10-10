@@ -35,7 +35,7 @@ export function CreateOrganisationForm() {
   }
 
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form method="post" className="form" onSubmit={onSubmit}>
       <label>
         Business name
         <input name="name" required maxLength={200} autoComplete="organization" />

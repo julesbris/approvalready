@@ -150,7 +150,7 @@ function Reference({
         <p className="notice">{reference.attention.join(" ")}</p>
       ) : null}
       {editing ? (
-        <form className="form" onSubmit={save} aria-label="Edit reference">
+        <form method="post" className="form" onSubmit={save} aria-label="Edit reference">
           <ReferenceFields reference={reference} />
           <p className="hint">Saving a change sets the reference back to not verified.</p>
           <div className="button-row">
@@ -201,7 +201,7 @@ function Reference({
       {canVerify && !editing && reference.allowed_actions.length > 0 ? (
         <details>
           <summary>Review</summary>
-          <form className="form" onSubmit={review} aria-label="Review reference">
+          <form method="post" className="form" onSubmit={review} aria-label="Review reference">
             <label>
               Notes (needed to dispute or supersede)
               <textarea name="notes" rows={2} maxLength={2000} />
@@ -354,7 +354,12 @@ export function DocumentWorkspace({
           <p>No snapshot yet.</p>
         )}
         {captured ? <FormNotice>{captured}</FormNotice> : null}
-        <form className="form" onSubmit={captureSnapshot} aria-label="Capture a snapshot">
+        <form
+          method="post"
+          className="form"
+          onSubmit={captureSnapshot}
+          aria-label="Capture a snapshot"
+        >
           <FormError message={capture.error} />
           <label>
             Document text
@@ -384,7 +389,7 @@ export function DocumentWorkspace({
           <p>No references yet.</p>
         )}
         <h3 className="section-title">Add a reference</h3>
-        <form className="form" onSubmit={addReference} aria-label="Add a reference">
+        <form method="post" className="form" onSubmit={addReference} aria-label="Add a reference">
           <FormError message={add.error} />
           <ReferenceFields />
           <button type="submit" className="button" disabled={add.busy}>

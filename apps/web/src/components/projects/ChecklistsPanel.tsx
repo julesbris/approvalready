@@ -152,6 +152,7 @@ export function ChecklistsPanel({ organisationId, projectId, canWrite, ...props 
                 ) : null}
                 {skipping === item.id ? (
                   <form
+                    method="post"
                     className="form"
                     aria-label="Why this doesn't apply"
                     onSubmit={(e) => {

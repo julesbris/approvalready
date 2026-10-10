@@ -99,7 +99,7 @@ export function ReferralForm({
   }
 
   return (
-    <form className="form" onSubmit={(e) => void submit(e)}>
+    <form method="post" className="form" onSubmit={(e) => void submit(e)}>
       <section className="panel" aria-labelledby="work-title">
         <h2 id="work-title" className="section-title">
           Who you&apos;d like to hear from
