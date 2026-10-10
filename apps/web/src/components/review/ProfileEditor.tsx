@@ -19,7 +19,15 @@ import {
   PROFESSIONAL_STATUS_LABELS,
 } from "@/lib/review";
 
-const VERTICALS: Vertical[] = ["PLANNING", "VESSEL", "BUSINESS", "GRANT", "SELL", "RENT"];
+const VERTICALS: Vertical[] = [
+  "PLANNING",
+  "VESSEL",
+  "BUSINESS",
+  "GRANT",
+  "SELL",
+  "RENT",
+  "TRADE",
+];
 
 const CREDENTIAL_STATUS: Record<string, string> = {
   UNVERIFIED: "Waiting for our check",

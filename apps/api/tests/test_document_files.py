@@ -359,6 +359,7 @@ def test_bundled_templates_load() -> None:
         "GRANT_ELIGIBILITY",
         "PLANNING_ASSESSMENT",
         "SMS",
+        "TRADE_APPROVAL_MAP",
         "VESSEL_PATHWAY",
     }
     for template in templates.values():
@@ -366,3 +367,4 @@ def test_bundled_templates_load() -> None:
     assert templates["BUSINESS_APPROVAL_MAP"].vertical == "BUSINESS"
     assert templates["VESSEL_PATHWAY"].vertical == templates["SMS"].vertical == "VESSEL"
     assert templates["GRANT_ELIGIBILITY"].vertical == "GRANT"
+    assert templates["TRADE_APPROVAL_MAP"].vertical == "TRADE"

@@ -4,7 +4,7 @@ This is the source the 0002 migration seeded from (0004 added ``source.manage`` 
 ``rule.author``, 0007 ``professional.verify`` and ``review.assign``, 0013
 ``billing.manage`` and ``billing.configure``, 0014 ``partner.manage`` and
 ``partner.verify``, 0015 ``lead.manage``, 0018 ``privacy.manage``, 0021
-``billing.refund``);
+``billing.refund``, 0026 ``platform.users.manage``);
 ``tests/test_audit_rbac.py`` asserts the database still matches it. Authorisation
 decisions read the database, so changing a mapping means a new migration, never just an
 edit here.
@@ -54,6 +54,7 @@ class Perm(StrEnum):
     PRIVACY_MANAGE = "privacy.manage"
     BILLING_REFUND = "billing.refund"
     PLATFORM_USERS_READ = "platform.users.read"
+    PLATFORM_USERS_MANAGE = "platform.users.manage"
     PLATFORM_ORGANISATIONS_READ = "platform.organisations.read"
     PLATFORM_AUDIT_READ = "platform.audit.read"
     PLATFORM_ROLES_MANAGE = "platform.roles.manage"
@@ -85,6 +86,10 @@ PERMISSION_DESCRIPTIONS: dict[Perm, str] = {
     Perm.PRIVACY_MANAGE: "Read and answer privacy requests (staff)",
     Perm.BILLING_REFUND: "Refund paid reviews (staff)",
     Perm.PLATFORM_USERS_READ: "View any user (staff)",
+    Perm.PLATFORM_USERS_MANAGE: (
+        "Resend sign-up emails, send password resets, sign out, reset two-step sign-in, "
+        "suspend and restore accounts (staff)"
+    ),
     Perm.PLATFORM_ORGANISATIONS_READ: "View any organisation (staff)",
     Perm.PLATFORM_AUDIT_READ: "View and verify the platform audit log",
     Perm.PLATFORM_ROLES_MANAGE: "Grant platform roles",
@@ -122,6 +127,7 @@ _ADMIN = (
         Perm.LEAD_MANAGE,
         Perm.PRIVACY_MANAGE,
         Perm.BILLING_REFUND,
+        Perm.PLATFORM_USERS_MANAGE,
     }
 )
 

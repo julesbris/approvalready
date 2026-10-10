@@ -50,6 +50,7 @@ ASSESSMENT_TEMPLATES = {
     "BUSINESS": ("BUSINESS_APPROVAL_MAP",),
     "VESSEL": ("VESSEL_PATHWAY", "SMS"),
     "GRANT": ("GRANT_ELIGIBILITY",),
+    "TRADE": ("TRADE_APPROVAL_MAP",),
 }
 # How each template's files are named (``<reference>-<slug>-<assessment date>``).
 FILENAME_SLUGS = {"SMS": "safety-management-system"}

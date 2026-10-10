@@ -231,11 +231,25 @@ tests and updated docs before the next starts.
 - [x] `lead_message` (migration 0025): never edited or deleted (trigger); the text stays out of the audit log
 - [ ] Next: attachments (reusing the scanned upload pipeline); include messages in "Download my data"; reminders before a quote expires; PDF quotes
 
+## Milestone 27 — Staff accounts page ✅
+- [x] `/admin/accounts`: find any account by email, name, business name, ABN or id (posted, so emails stay out of logs), with filters for active, unconfirmed, suspended, staff and closed accounts
+- [x] Account page: organisations and roles, two-step sign-in and recovery codes, password age, signed-in devices, and recent history including what staff did to it
+- [x] Support actions for platform administrators (`platform.users.manage`, migration 0026): resend the verification email, send a password reset link, sign out everywhere, reset two-step sign-in (no server command needed), suspend and restore; reasons kept in the audit log
+- [x] Safeguards: no actions on your own account, only a super administrator can change a staff member's account, closed accounts are read-only, every view and action audited
+- [ ] Next: change staff roles from the page; suspend a business organisation; staff notes on an account
+
+## Milestone 25 — TradeReady: importing and exporting goods ✅
+- [x] `TRADE` vertical (migration 0027), `trade.general` questionnaire, business profile prefill
+- [~] Content pack `trade_au` (4 rule sets, 21 rules, 16 references): import declarations, ICS registration, GST and deferred GST, biosecurity permits, imported food inspection, stink bug season, vehicles, AICIS, ARTG, refrigerant equipment, EESS, firearms, tobacco, wildlife, export declarations, prescribed goods, Defence export permits. Every reference is an **unverified summary**: capture and verify in `/admin/sources`
+- [x] Marketplace categories for import and logistics companies: customs brokers, freight forwarders, logistics and warehousing providers, import and export compliance consultants; `review.trade` product
+- [x] Import and export approval map report; guides for importing and exporting
+- [ ] Next: tariff classification help; BICON look-up links per commodity; MICoR for exports; freight quote requests through the existing quotes feature
+
 ## Milestone 29 — Deleting closed accounts' workspaces ✅
 - [x] A closed account's personal workspace (projects, answers, files, reports) is deleted automatically 7 days after closing (`PRIVACY_PURGE_AFTER_DAYS`), well inside the Privacy Policy's 30 days; payment records and the security log are kept
 - [x] Staff see when each will be deleted at `/admin/privacy`, can delete one now, or keep it by declining the request with a reason
 - [x] Closing withdraws referrals still offered to partners; partners keep the referrals they accepted (detached from the deleted project) but can't message or quote a closed account
-- [x] Database function `purge_closed_workspace` (migration 0027) only empties closed personal workspaces and never payment tables; a test makes every new workspace table a deliberate delete-or-keep choice
+- [x] Database function `purge_closed_workspace` (migration 0028) only empties closed personal workspaces and never payment tables; a test makes every new workspace table a deliberate delete-or-keep choice
 - [ ] Next: closing business organisations; a lawyer's check that the kept records match what the law requires
 
 ## Backlog / decisions to revisit

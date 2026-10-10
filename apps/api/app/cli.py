@@ -123,6 +123,7 @@ async def grant_platform_role(email: str, role: RoleKey, settings: Settings | No
 ADMIN_PAGES = {
     "/admin/sources": Perm.SOURCE_MANAGE,
     "/admin/rules": Perm.RULE_AUTHOR,
+    "/admin/accounts": Perm.PLATFORM_USERS_READ,
     "/admin/ops": Perm.PLATFORM_AUDIT_READ,
 }
 

@@ -1,0 +1,1955 @@
+{
+ "key": "trade_au",
+ "title": "TradeReady: importing into and exporting from Australia (customs, biosecurity, regulated goods, export controls)",
+ "notes": "First sourced rules for TradeReady. Built from Australian Border Force, Department of Agriculture, Fisheries and Forestry, ATO, TGA, Department of Defence, business.gov.au and ABLIS pages read on 2026-10-10. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The Customs Act 1901, the Customs (Prohibited Imports) and (Prohibited Exports) Regulations, the Biosecurity Act 2015 and the Export Control Act 2020 are not encoded.",
+ "organisations": [
+  {
+   "ref": "abf",
+   "name": "Australian Border Force",
+   "kind": "CTH_AGENCY",
+   "jurisdiction": "CTH",
+   "website": "https://www.abf.gov.au"
+  },
+  {
+   "ref": "daff",
+   "name": "Department of Agriculture, Fisheries and Forestry",
+   "kind": "CTH_AGENCY",
+   "jurisdiction": "CTH",
+   "website": "https://www.agriculture.gov.au"
+  },
+  {
+   "ref": "business_gov",
+   "name": "business.gov.au (including ABLIS)",
+   "kind": "CTH_AGENCY",
+   "jurisdiction": "CTH",
+   "website": "https://business.gov.au"
+  },
+  {
+   "ref": "ato",
+   "name": "Australian Taxation Office",
+   "kind": "CTH_AGENCY",
+   "jurisdiction": "CTH",
+   "website": "https://www.ato.gov.au"
+  },
+  {
+   "ref": "tga",
+   "name": "Therapeutic Goods Administration",
+   "kind": "REGULATOR",
+   "jurisdiction": "CTH",
+   "website": "https://www.tga.gov.au"
+  },
+  {
+   "ref": "defence",
+   "name": "Department of Defence (Defence Export Controls)",
+   "kind": "CTH_AGENCY",
+   "jurisdiction": "CTH",
+   "website": "https://www.defence.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "abf_import_declarations",
+   "organisation": "abf",
+   "jurisdiction": "CTH",
+   "title": "Import declarations (fact sheet)",
+   "url": "https://www.abf.gov.au/help-and-support-subsite/FactSheets/import-declarations.pdf",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "abf_brokers",
+   "organisation": "abf",
+   "jurisdiction": "CTH",
+   "title": "Licensed customs brokers (fact sheet)",
+   "url": "https://www.abf.gov.au/help-and-support-subsite/FactSheets/licensed-customs-brokers.pdf",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "abf_prohibited",
+   "organisation": "abf",
+   "jurisdiction": "CTH",
+   "title": "Prohibited goods",
+   "url": "https://www.abf.gov.au/importing-exporting-and-manufacturing/prohibited-goods",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bga_importing",
+   "organisation": "business_gov",
+   "jurisdiction": "CTH",
+   "title": "Importing and your business",
+   "url": "https://business.gov.au/products-and-services/importing/importing-and-your-business",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bga_exporting",
+   "organisation": "business_gov",
+   "jurisdiction": "CTH",
+   "title": "Exporting and your business",
+   "url": "https://business.gov.au/products-and-services/exporting/exporting-and-your-business",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "daff_bicon",
+   "organisation": "daff",
+   "jurisdiction": "CTH",
+   "title": "Biosecurity Import Conditions system (BICON)",
+   "url": "https://www.agriculture.gov.au/biosecurity-trade/import/online-services/bicon",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "daff_ifis",
+   "organisation": "daff",
+   "jurisdiction": "CTH",
+   "title": "Imported Food Inspection Scheme",
+   "url": "https://www.agriculture.gov.au/biosecurity-trade/import/goods/food/inspection-testing/ifis",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "daff_bmsb_goods",
+   "organisation": "daff",
+   "jurisdiction": "CTH",
+   "title": "Target high risk and risk goods for the Brown Marmorated Stink Bug (fact sheet)",
+   "url": "https://www.agriculture.gov.au/sites/default/files/documents/factsheet3-goods-subject-to-bmsb-measures.pdf",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "daff_exporting",
+   "organisation": "daff",
+   "jurisdiction": "CTH",
+   "title": "Exporting from Australia",
+   "url": "https://www.agriculture.gov.au/biosecurity-trade/export/from-australia",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ablis_vehicle",
+   "organisation": "business_gov",
+   "jurisdiction": "CTH",
+   "title": "Approval to Import and Supply a Vehicle (ABLIS)",
+   "url": "https://ablis.business.gov.au/service/ag/approval-to-import-and-supply-a-vehicle/76",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ablis_eess",
+   "organisation": "business_gov",
+   "jurisdiction": "QLD",
+   "title": "Electrical equipment safety system (EESS) responsible supplier registration - Queensland (ABLIS)",
+   "url": "https://ablis.business.gov.au/service/qld/electrical-equipment-safety-system-eess-responsible-supplier-registration/4140",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ablis_precharged",
+   "organisation": "business_gov",
+   "jurisdiction": "CTH",
+   "title": "Pre-Charged Equipment Licence (ABLIS)",
+   "url": "https://ablis.business.gov.au/service/ag/pre-charged-equipment-licence/251",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ablis_wildlife",
+   "organisation": "business_gov",
+   "jurisdiction": "CTH",
+   "title": "Wildlife Trade Permit - Single Use (ABLIS)",
+   "url": "https://ablis.business.gov.au/service/ag/wildlife-trade-permit-single-use/93",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ato_deferred_gst",
+   "organisation": "ato",
+   "jurisdiction": "CTH",
+   "title": "What is the deferred GST scheme?",
+   "url": "https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/in-detail/rules-for-specific-transactions/international-transactions/deferred-gst",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "tga_devices",
+   "organisation": "tga",
+   "jurisdiction": "CTH",
+   "title": "Importing and supplying medical devices",
+   "url": "https://www.tga.gov.au/importing-supplying-medical-devices",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "defence_permits",
+   "organisation": "defence",
+   "jurisdiction": "CTH",
+   "title": "Permits (Defence export controls)",
+   "url": "https://www.defence.gov.au/business-industry/exporting/applications-and-pre-notification/permits",
+   "source_type": "WEBPAGE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "import_declaration_threshold",
+   "document": "abf_import_declarations",
+   "section": "Import declarations",
+   "extracted_text": "[Summary, not the source's wording] Goods valued above A$1,000 that arrive by mail, air cargo or sea cargo generally need an import declaration to clear them from customs control. The importer can lodge it electronically in the Integrated Cargo System (ICS), which needs a digital certificate and client registration in the ICS, or a licensed customs broker can lodge it. The declaration is used to assess duty, GST and other taxes and charges. Records must be kept for five years.",
+   "interpretation": "Above A$1,000 a full import declaration is generally required; it can be lodged by the importer (after ICS client registration) or by a licensed customs broker. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "broker_role",
+   "document": "abf_brokers",
+   "section": "What brokers do",
+   "extracted_text": "[Summary, not the source's wording] Licensed customs brokers clear imported goods for importers: they lodge import declarations in the ICS, classify goods under the Customs Tariff to work out duty and tax, and make sure regulated goods such as motor vehicles and firearms meet government requirements before release. Import declarations may be lodged by the importer or by a licensed broker.",
+   "interpretation": "Using a broker is optional but common; brokers also check regulated goods such as vehicles and firearms. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "prohibited_goods",
+   "document": "abf_prohibited",
+   "section": "Prohibited goods",
+   "extracted_text": "[Summary, not the source's wording] The Australian Government restricts some goods from being brought into or sent out of Australia. Most prohibited goods can be imported or exported with written permission if conditions are met; some are absolutely prohibited. Tobacco needs permission to import and all duties and taxes must be paid when it arrives. Importing or exporting without permission can lead to seizure, penalties of up to 2,500 penalty units, up to 10 years' imprisonment, or both. The importer or exporter must confirm the goods can be brought in or taken out.",
+   "interpretation": "Restricted goods (including tobacco) need written permission before import. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "importing_overview",
+   "document": "bga_importing",
+   "section": "Importing and your business",
+   "extracted_text": "[Summary, not the source's wording] Most goods valued up to A$1,000 can be imported without a formal import declaration. Goods over A$1,000, prohibited or restricted goods, biosecurity risks and goods that attract duty involve more reporting. You must declare all goods arriving in Australia unless an exception applies. A licensed customs broker can handle the importation. Most imports attract 10% GST, and some also attract customs duty, processing charges, dumping duties, and brokerage, permit and biosecurity fees. Commercial imports of industrial chemicals, or of products containing them such as soap, paint or glue, need registration with the Australian Industrial Chemicals Introduction Scheme (AICIS), which has an annual fee. A logistics provider handles transport, storage and handling.",
+   "interpretation": "General importing obligations, AICIS registration for chemicals and the role of brokers and logistics providers. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "exporting_overview",
+   "document": "bga_exporting",
+   "section": "Exporting and your business",
+   "extracted_text": "[Summary, not the source's wording] Goods worth more than A$2,000 generally need an export declaration before they leave Australia. Some goods can't be exported without a permit. The Department of Agriculture, Fisheries and Forestry controls the export of some agricultural products. Austrade's Export Market Development Grants help businesses grow their exports.",
+   "interpretation": "Above A$2,000 an export declaration is generally required; permits for some goods apply at any value. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bicon",
+   "document": "daff_bicon",
+   "section": "About BICON",
+   "extracted_text": "[Summary, not the source's wording] BICON shows whether a commodity can be imported into Australia, the conditions, documents, treatments and whether a biosecurity import permit is needed. Goods that need a permit but arrive without one are not cleared: they are exported or destroyed. Standard permits are usually issued within 20 business days and non-standard ones within 40 business days. Imported food must also meet Australian food standards and may be referred to the Imported Food Inspection Scheme.",
+   "interpretation": "Food, plant and animal goods must be checked in BICON; some need a permit before they arrive. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "ifis",
+   "document": "daff_ifis",
+   "section": "Imported Food Inspection Scheme",
+   "extracted_text": "[Summary, not the source's wording] Imported food for sale is inspected and tested under the Imported Food Inspection Scheme. Risk food (listed in the Imported Food Control Order 2019) is referred at 100% until a record of passes reduces the rate; surveillance food is referred at random (5%). Food that fails cannot be released and must be relabelled, destroyed or re-exported.",
+   "interpretation": "Food imported for sale can be referred for inspection; risk food always is at first. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bmsb_measures",
+   "document": "daff_bmsb_goods",
+   "section": "BMSB seasonal measures",
+   "extracted_text": "[Summary, not the source's wording] From 1 September to 30 April, target high risk goods (tariff chapters 44, 45, 57, 68-70, 72-76, 78-89, which include timber, stone, ceramics, glass, metals, machinery, electrical equipment and vehicles) made in or shipped from target risk countries (much of Europe, Russia, Türkiye, parts of Central Asia, the United States and Canada) need mandatory treatment. Break bulk, open top and flat rack cargo must be treated offshore; untreated break bulk is directed for export. Containers can be treated onshore, which may delay clearance.",
+   "interpretation": "Seasonal stink bug treatment applies to some goods by sea from listed countries. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "prescribed_goods",
+   "document": "daff_exporting",
+   "section": "Exporting from Australia",
+   "extracted_text": "[Summary, not the source's wording] The department controls exports of prescribed goods: dairy, eggs, fish, live animals, meat, poultry, rabbit and ratite meat, wild game, organic products, plants and wood. Premises that prepare or store prescribed goods for export must be registered establishments under the Export Control Act 2020, applied for through the Export Service. Importing-country requirements are in the Manual of Importing Country Requirements (MICoR), and registered exporters get certificates through EXDOC.",
+   "interpretation": "Exporting prescribed agricultural goods needs a registered establishment and government export documents. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vehicle_import_approval",
+   "document": "ablis_vehicle",
+   "section": "Approval to import and supply a vehicle",
+   "extracted_text": "[Summary, not the source's wording] Anyone bringing a new or second-hand road vehicle into Australia needs an approval, which must be obtained before the vehicle is imported. Approval is also needed to supply the vehicle in the Australian market. Some exemptions exist, such as for vehicles made before 1 January 1989. The Department of Infrastructure administers it.",
+   "interpretation": "A vehicle import approval must be in place before the vehicle is shipped. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "eess_registration",
+   "document": "ablis_eess",
+   "section": "Responsible supplier registration",
+   "extracted_text": "[Summary, not the source's wording] To import, manufacture or sell in-scope electrical equipment you must be registered as a responsible supplier. Equipment is in scope if it is rated above 50 V AC (or 120 V ripple-free DC), below 1000 V AC (or 1500 V DC), and designed or marketed for household, personal or similar use. Equipment falls into three risk levels with different registration and certification requirements.",
+   "interpretation": "Importers of household mains-powered electrical equipment must register as a responsible supplier. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "precharged_licence",
+   "document": "ablis_precharged",
+   "section": "Pre-charged equipment licence",
+   "extracted_text": "[Summary, not the source's wording] A licence is needed to import equipment containing ozone depleting substances or synthetic greenhouse gases, such as refrigeration or air-conditioning units using HFC or HCFC refrigerants, including where the system is built into a vehicle, boat, caravan, machine, refrigerator or water cooler. It is not needed for a consignment of no more than five pieces of equipment totalling less than 10 kg.",
+   "interpretation": "Importing refrigerant-charged equipment above the small-consignment exemption needs a licence. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "wildlife_permit",
+   "document": "ablis_wildlife",
+   "section": "Wildlife trade permit",
+   "extracted_text": "[Summary, not the source's wording] A permit is needed to import CITES-listed species, and products from them, and to export Australian native plants and animals or products from threatened native species. The National Environmental Protection Agency administers it.",
+   "interpretation": "Trade in CITES species and native wildlife needs a wildlife trade permit. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "deferred_gst",
+   "document": "ato_deferred_gst",
+   "section": "Deferred GST scheme",
+   "extracted_text": "[Summary, not the source's wording] Eligible importers can defer GST on taxable imports and pay it in their monthly business activity statement instead of at the border. They need an ABN, GST registration, monthly BAS lodged online and paid electronically, and up-to-date tax affairs.",
+   "interpretation": "GST-registered importers who lodge monthly may defer import GST. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "artg",
+   "document": "tga_devices",
+   "section": "Importing and supplying medical devices",
+   "extracted_text": "[Summary, not the source's wording] Medical devices generally must be included in the Australian Register of Therapeutic Goods (ARTG) before they can be supplied in Australia, unless an exemption applies. Each ARTG entry is specific to the sponsor, so an importer must apply even if another sponsor has an entry for the same device. Sponsors keep records, report adverse events and run recalls.",
+   "interpretation": "Therapeutic goods imported for supply generally need their own ARTG entry. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "dsgl_permits",
+   "document": "defence_permits",
+   "section": "Permits",
+   "extracted_text": "[Summary, not the source's wording] A permit is needed to export or supply goods, software or technology on the Defence and Strategic Goods List, including dual-use items, and to supply listed technology to a foreign person in Australia. Firearms, parts, accessories and ammunition always need a permit before export. Applications go through the My Australian Defence Export (MADE) portal.",
+   "interpretation": "Military and dual-use goods and firearms need a Defence export permit. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "trade.au.import_clearance",
+   "vertical": "TRADE",
+   "jurisdiction": "CTH",
+   "title": "Australia: clearing imports through customs",
+   "description": "Import declarations, ICS registration, GST and duty, and help with freight, from Australian Border Force, ATO and business.gov.au guidance.",
+   "applies_when": {
+    "fact": "trade.direction",
+    "op": "in",
+    "value": [
+     "import",
+     "both"
+    ]
+   },
+   "limitations": [
+    "Built from Australian Border Force, ATO and business.gov.au guidance, not from the Customs Act 1901 or its regulations.",
+    "Doesn't classify your goods or work out duty rates, free trade agreement rates, tariff concessions or anti-dumping duty.",
+    "Uses the value of a typical shipment; each consignment is assessed on its own value.",
+    "Not customs or tax advice. Check with a licensed customs broker or the Australian Border Force."
+   ],
+   "rules": [
+    {
+     "key": "import_declaration",
+     "title": "Import declaration",
+     "condition": {
+      "fact": "trade.import_value_band",
+      "op": "equals",
+      "value": "OVER_1000"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Each shipment needs a full import declaration",
+       "detail": "Goods worth more than A$1,000 generally need a full import declaration to be cleared by the Australian Border Force. You can lodge it yourself in the Integrated Cargo System or have a licensed customs broker lodge it for you. Keep your import records for five years.",
+       "payload": {
+        "approval": {
+         "kind": "IMPORT_DECLARATION",
+         "authority": "Australian Border Force",
+         "pathway": "Lodge in the ICS yourself or through a licensed customs broker"
+        },
+        "referral_categories": [
+         "customs_broker",
+         "freight_forwarder"
+        ],
+        "task": "Arrange customs clearance for each shipment over A$1,000"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "A full import declaration is generally not needed",
+       "detail": "Most goods worth A$1,000 or less can come in without a full import declaration. Prohibited or restricted goods and biosecurity rules still apply whatever the value.",
+       "payload": {
+        "approval": {
+         "kind": "IMPORT_DECLARATION",
+         "authority": "Australian Border Force",
+         "pathway": "Generally not needed at A$1,000 or less"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "An import declaration may be needed",
+       "detail": "Shipments worth more than A$1,000 need a full import declaration. Tell us the value of a typical shipment so we can check.",
+       "payload": {
+        "approval": {
+         "kind": "IMPORT_DECLARATION",
+         "authority": "Australian Border Force",
+         "pathway": "Needed above A$1,000",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "import_declaration_threshold",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "importing_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Over A$1,000",
+       "facts": {
+        "trade.import_value_band": "OVER_1000"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "A$1,000 or less",
+       "facts": {
+        "trade.import_value_band": "UP_TO_1000"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "ics_client_registration",
+     "title": "ICS client registration",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.import_value_band",
+        "op": "equals",
+        "value": "OVER_1000"
+       },
+       {
+        "fact": "trade.lodge_self",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Register as a client in the Integrated Cargo System",
+       "detail": "To lodge your own import declarations electronically you need client registration in the Integrated Cargo System and a digital certificate. A licensed customs broker can lodge for you instead.",
+       "payload": {
+        "approval": {
+         "kind": "ICS_CLIENT_REGISTRATION",
+         "authority": "Australian Border Force",
+         "pathway": "Register in the ICS and get a digital certificate"
+        },
+        "referral_categories": [
+         "customs_broker"
+        ],
+        "task": "Register as an ICS client and get a digital certificate"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "ICS registration may be needed",
+       "detail": "If you will lodge import declarations yourself, you need to register in the Integrated Cargo System. Answer the questions about value and who lodges so we can check.",
+       "payload": {
+        "approval": {
+         "kind": "ICS_CLIENT_REGISTRATION",
+         "authority": "Australian Border Force",
+         "pathway": "Needed to lodge your own declarations",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "import_declaration_threshold",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "broker_role",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Lodging own declarations",
+       "facts": {
+        "trade.import_value_band": "OVER_1000",
+        "trade.lodge_self": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Using a broker",
+       "facts": {
+        "trade.import_value_band": "OVER_1000",
+        "trade.lodge_self": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Low value",
+       "facts": {
+        "trade.import_value_band": "UP_TO_1000"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "trade.import_value_band": "OVER_1000"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "gst_and_duty",
+     "title": "GST and duty at the border",
+     "condition": {
+      "fact": "trade.import_value_band",
+      "op": "equals",
+      "value": "OVER_1000"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Expect to pay GST and possibly duty when goods arrive",
+       "detail": "Most imports attract 10% GST, and some goods also attract customs duty, processing charges and biosecurity or permit fees. A customs broker can classify the goods and check for concessions or free trade agreement rates.",
+       "payload": {
+        "referral_categories": [
+         "customs_broker",
+         "accountant"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "importing_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "import_declaration_threshold",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Over A$1,000",
+       "facts": {
+        "trade.import_value_band": "OVER_1000"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "A$1,000 or less",
+       "facts": {
+        "trade.import_value_band": "UP_TO_1000"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "deferred_gst",
+     "title": "Deferred GST scheme",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.import_value_band",
+        "op": "equals",
+        "value": "OVER_1000"
+       },
+       {
+        "fact": "trade.gst_registered",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You may be able to defer import GST",
+       "detail": "GST-registered importers who lodge their business activity statement monthly, online, can apply to the ATO to pay import GST in that statement instead of at the border.",
+       "payload": {
+        "referral_categories": [
+         "accountant"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "deferred_gst",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "GST registered",
+       "facts": {
+        "trade.import_value_band": "OVER_1000",
+        "trade.gst_registered": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not registered",
+       "facts": {
+        "trade.import_value_band": "OVER_1000",
+        "trade.gst_registered": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "freight_help",
+     "title": "Freight and logistics",
+     "condition": {
+      "fact": "trade.import_transport",
+      "op": "in",
+      "value": [
+       "sea_container",
+       "sea_break_bulk",
+       "air"
+      ]
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "REFERRAL_CATEGORY",
+       "title": "Get help moving the goods",
+       "detail": "Sea and air freight is usually booked through a freight forwarder, and a logistics provider can collect containers, store the goods and deliver them.",
+       "payload": {
+        "referral_categories": [
+         "freight_forwarder",
+         "logistics_provider",
+         "insurance_broker"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "importing_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Sea container",
+       "facts": {
+        "trade.import_transport": "sea_container"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Post",
+       "facts": {
+        "trade.import_transport": "post"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    }
+   ]
+  },
+  {
+   "key": "trade.au.import_biosecurity",
+   "vertical": "TRADE",
+   "jurisdiction": "CTH",
+   "title": "Australia: biosecurity and imported food",
+   "description": "BICON import conditions and permits, the Imported Food Inspection Scheme and seasonal brown marmorated stink bug measures, from Department of Agriculture, Fisheries and Forestry guidance.",
+   "applies_when": {
+    "fact": "trade.direction",
+    "op": "in",
+    "value": [
+     "import",
+     "both"
+    ]
+   },
+   "limitations": [
+    "Doesn't look your goods up in BICON: the conditions, treatments and permits depend on the exact commodity and where it comes from.",
+    "Doesn't check packaging such as timber pallets and dunnage, or the cleanliness of containers.",
+    "The stink bug countries and goods change each season; we use the list read on 2026-10-10.",
+    "Not biosecurity advice. Check BICON or ask the department, a customs broker or a compliance consultant."
+   ],
+   "rules": [
+    {
+     "key": "biosecurity_permit",
+     "title": "Biosecurity import conditions and permit",
+     "condition": {
+      "any": [
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "food_drink"
+       },
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "plants_seeds"
+       },
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "animal_products"
+       },
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "timber_wood"
+       }
+      ]
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check BICON: a biosecurity import permit may be needed",
+       "detail": "Food, plant, animal and timber goods have biosecurity import conditions. BICON says for your exact goods whether you need a permit, treatment or documents. Goods that need a permit but arrive without one are exported or destroyed, and permits take 20 to 40 business days.",
+       "payload": {
+        "approval": {
+         "kind": "BIOSECURITY_IMPORT_PERMIT",
+         "authority": "Department of Agriculture, Fisheries and Forestry",
+         "pathway": "Check BICON and apply for a permit if it says so",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant",
+         "customs_broker"
+        ],
+        "task": "Look up the goods in BICON before ordering"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "No biosecurity permit identified",
+       "detail": "From the kinds of goods you chose, we didn't identify a biosecurity import permit. Packaging and containers still have to be free of biosecurity risks.",
+       "payload": {
+        "approval": {
+         "kind": "BIOSECURITY_IMPORT_PERMIT",
+         "authority": "Department of Agriculture, Fisheries and Forestry",
+         "pathway": "Not identified for these goods"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A biosecurity permit may be needed",
+       "detail": "Tell us what kind of goods you are importing so we can check the biosecurity rules.",
+       "payload": {
+        "approval": {
+         "kind": "BIOSECURITY_IMPORT_PERMIT",
+         "authority": "Department of Agriculture, Fisheries and Forestry",
+         "pathway": "Depends on the goods",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bicon",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "importing_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Food",
+       "facts": {
+        "trade.goods_categories": [
+         "food_drink"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Clothing",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "imported_food_inspection",
+     "title": "Imported Food Inspection Scheme",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "food_drink"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Your food may be inspected and tested at the border",
+       "detail": "Food imported for sale can be referred to the Imported Food Inspection Scheme. Risk food is inspected every time at first, and other food is checked at random. Food that fails can't be released until it is relabelled, or it must be destroyed or re-exported.",
+       "payload": {
+        "approval": {
+         "kind": "IMPORTED_FOOD_INSPECTION",
+         "authority": "Department of Agriculture, Fisheries and Forestry",
+         "pathway": "Check whether your food is risk food; meet the Food Standards Code"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant",
+         "food_safety_consultant"
+        ],
+        "task": "Check whether your food is risk food under the Imported Food Control Order"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ifis",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bicon",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Food",
+       "facts": {
+        "trade.goods_categories": [
+         "food_drink",
+         "general"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No food",
+       "facts": {
+        "trade.goods_categories": [
+         "electrical"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "bmsb_treatment",
+     "title": "Brown marmorated stink bug season",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.import_transport",
+        "op": "in",
+        "value": [
+         "sea_container",
+         "sea_break_bulk"
+        ]
+       },
+       {
+        "fact": "trade.bmsb_risk_country",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "trade.bmsb_season",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "any": [
+         {
+          "fact": "trade.goods_categories",
+          "op": "contains",
+          "value": "timber_wood"
+         },
+         {
+          "fact": "trade.goods_categories",
+          "op": "contains",
+          "value": "machinery_metal"
+         },
+         {
+          "fact": "trade.goods_categories",
+          "op": "contains",
+          "value": "electrical"
+         },
+         {
+          "fact": "trade.goods_categories",
+          "op": "contains",
+          "value": "vehicles"
+         },
+         {
+          "fact": "trade.goods_categories",
+          "op": "contains",
+          "value": "refrigeration_aircon"
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Shipments in stink bug season will likely need treatment",
+       "detail": "Between 1 September and 30 April, goods such as timber, metal, machinery, electrical equipment and vehicles from the listed countries need treatment for brown marmorated stink bug. Break bulk, flat rack and open-top cargo must be treated before it leaves; containers can be treated on arrival, which can delay clearance.",
+       "payload": {
+        "approval": {
+         "kind": "BMSB_TREATMENT",
+         "authority": "Department of Agriculture, Fisheries and Forestry",
+         "pathway": "Treat offshore by an approved provider before loading"
+        },
+        "referral_categories": [
+         "freight_forwarder",
+         "customs_broker"
+        ],
+        "task": "Book stink bug treatment for shipments leaving 1 September to 30 April"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Stink bug treatment not identified",
+       "detail": "From your answers, your shipments don't fall within the seasonal brown marmorated stink bug measures.",
+       "payload": {
+        "approval": {
+         "kind": "BMSB_TREATMENT",
+         "authority": "Department of Agriculture, Fisheries and Forestry",
+         "pathway": "Not identified from your answers"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Stink bug treatment may be needed",
+       "detail": "Some goods shipped by sea from listed countries between 1 September and 30 April need treatment. Answer the shipping questions so we can check.",
+       "payload": {
+        "approval": {
+         "kind": "BMSB_TREATMENT",
+         "authority": "Department of Agriculture, Fisheries and Forestry",
+         "pathway": "Depends on goods, origin and season",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bmsb_measures",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Machinery from Italy in October",
+       "facts": {
+        "trade.import_transport": "sea_container",
+        "trade.bmsb_risk_country": true,
+        "trade.bmsb_season": true,
+        "trade.goods_categories": [
+         "machinery_metal"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Air freight",
+       "facts": {
+        "trade.import_transport": "air",
+        "trade.goods_categories": [
+         "machinery_metal"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Clothing by sea",
+       "facts": {
+        "trade.import_transport": "sea_container",
+        "trade.bmsb_risk_country": true,
+        "trade.bmsb_season": true,
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Country not answered",
+       "facts": {
+        "trade.import_transport": "sea_container",
+        "trade.bmsb_season": true,
+        "trade.goods_categories": [
+         "timber_wood"
+        ]
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    }
+   ]
+  },
+  {
+   "key": "trade.au.import_restricted",
+   "vertical": "TRADE",
+   "jurisdiction": "CTH",
+   "title": "Australia: restricted and regulated imports",
+   "description": "Approvals for vehicles, industrial chemicals, therapeutic goods, refrigerant equipment, household electrical equipment, firearms, tobacco and wildlife, from Commonwealth guidance and business.gov.au (ABLIS).",
+   "applies_when": {
+    "fact": "trade.direction",
+    "op": "in",
+    "value": [
+     "import",
+     "both"
+    ]
+   },
+   "limitations": [
+    "Covers the regulated kinds of goods in the questionnaire only. The full prohibited goods list is longer; check it for your goods.",
+    "Vaping products have their own import controls, which we don't check.",
+    "Doesn't check product safety bans, mandatory standards, labelling or trade description rules.",
+    "Electrical equipment registration is from the Queensland listing; other states take part in the same national system, but check with your state's electrical safety regulator.",
+    "Not legal advice. Check with the regulator named, a licensed customs broker or a compliance consultant."
+   ],
+   "rules": [
+    {
+     "key": "vehicle_import_approval",
+     "title": "Vehicle import approval",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "vehicles"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Get a vehicle import approval before shipping",
+       "detail": "Every new or second-hand road vehicle needs an import approval from the Department of Infrastructure before it is imported, and approval to supply it in Australia. Some older vehicles, such as those made before 1989, have other options.",
+       "payload": {
+        "approval": {
+         "kind": "VEHICLE_IMPORT_APPROVAL",
+         "authority": "Department of Infrastructure, Transport, Regional Development, Communications, Sport and the Arts",
+         "pathway": "Apply before the vehicle is shipped"
+        },
+        "referral_categories": [
+         "customs_broker",
+         "trade_compliance_consultant"
+        ],
+        "task": "Apply for a vehicle import approval before shipping"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vehicle_import_approval",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "broker_role",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vehicles",
+       "facts": {
+        "trade.goods_categories": [
+         "vehicles"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No vehicles",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "industrial_chemicals",
+     "title": "Industrial chemicals registration (AICIS)",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "chemicals_cosmetics"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Register with AICIS before importing chemicals or cosmetics",
+       "detail": "Importing industrial chemicals for business, including in products such as cosmetics, soap, paint or glue, needs registration with the Australian Industrial Chemicals Introduction Scheme. There is an annual fee.",
+       "payload": {
+        "approval": {
+         "kind": "AICIS_REGISTRATION",
+         "authority": "Australian Industrial Chemicals Introduction Scheme",
+         "pathway": "Register before you import, then each year"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant"
+        ],
+        "task": "Register the business with AICIS"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "importing_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Cosmetics",
+       "facts": {
+        "trade.goods_categories": [
+         "chemicals_cosmetics"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No chemicals",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "therapeutic_goods",
+     "title": "Therapeutic goods (ARTG)",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "medicines_devices"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "The goods likely need to be in the ARTG before you supply them",
+       "detail": "Medicines and medical devices generally must be included in the Australian Register of Therapeutic Goods before they are supplied in Australia, unless an exemption applies. The entry is specific to the sponsor, so you may need your own even if someone else imports the same product.",
+       "payload": {
+        "approval": {
+         "kind": "ARTG_INCLUSION",
+         "authority": "Therapeutic Goods Administration",
+         "pathway": "Apply for ARTG inclusion as the sponsor"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant",
+         "lawyer"
+        ],
+        "task": "Check whether the goods need an ARTG entry"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "artg",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Medical devices",
+       "facts": {
+        "trade.goods_categories": [
+         "medicines_devices"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No medicines",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "refrigerant_equipment",
+     "title": "Pre-charged equipment licence",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "refrigeration_aircon"
+       },
+       {
+        "fact": "trade.refrigerant_over_exemption",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need a pre-charged equipment licence",
+       "detail": "Importing air conditioners, fridges or other equipment charged with HFC or HCFC refrigerant needs a licence, unless a shipment has no more than five pieces totalling less than 10 kg.",
+       "payload": {
+        "approval": {
+         "kind": "PRE_CHARGED_EQUIPMENT_LICENCE",
+         "authority": "National Environmental Protection Agency",
+         "pathway": "Apply for a licence before importing"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant"
+        ],
+        "task": "Apply for a pre-charged equipment licence"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A refrigerant equipment licence may be needed",
+       "detail": "Equipment with refrigerant gas needs a licence unless shipments are very small. Tell us how much will be in each shipment so we can check.",
+       "payload": {
+        "approval": {
+         "kind": "PRE_CHARGED_EQUIPMENT_LICENCE",
+         "authority": "National Environmental Protection Agency",
+         "pathway": "Needed above the small-shipment exemption",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "precharged_licence",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Container of air conditioners",
+       "facts": {
+        "trade.goods_categories": [
+         "refrigeration_aircon"
+        ],
+        "trade.refrigerant_over_exemption": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Two units",
+       "facts": {
+        "trade.goods_categories": [
+         "refrigeration_aircon"
+        ],
+        "trade.refrigerant_over_exemption": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No refrigerant goods",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Size not answered",
+       "facts": {
+        "trade.goods_categories": [
+         "refrigeration_aircon"
+        ]
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "electrical_responsible_supplier",
+     "title": "Electrical equipment responsible supplier",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "electrical"
+       },
+       {
+        "fact": "trade.household_electrical",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Register as a responsible supplier of electrical equipment",
+       "detail": "Importers of mains-powered electrical equipment made or sold for household or personal use must register as a responsible supplier in the Electrical Equipment Safety System. Higher-risk equipment also needs to be registered and certified.",
+       "payload": {
+        "approval": {
+         "kind": "EESS_RESPONSIBLE_SUPPLIER",
+         "authority": "State electrical safety regulator (Electrical Equipment Safety System)",
+         "pathway": "Register on the national EESS database"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant"
+        ],
+        "task": "Register as a responsible supplier and check each product's risk level"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Electrical supplier registration may be needed",
+       "detail": "Household mains-powered electrical equipment needs a registered responsible supplier. Tell us what kind of equipment it is so we can check.",
+       "payload": {
+        "approval": {
+         "kind": "EESS_RESPONSIBLE_SUPPLIER",
+         "authority": "State electrical safety regulator (Electrical Equipment Safety System)",
+         "pathway": "Needed for household mains-powered equipment",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "eess_registration",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Kettles",
+       "facts": {
+        "trade.goods_categories": [
+         "electrical"
+        ],
+        "trade.household_electrical": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Industrial",
+       "facts": {
+        "trade.goods_categories": [
+         "electrical"
+        ],
+        "trade.household_electrical": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "trade.goods_categories": [
+         "electrical"
+        ]
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "firearms_weapons",
+     "title": "Firearms and weapons",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "firearms_weapons"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need written permission to import these goods",
+       "detail": "Firearms, weapons and ammunition are restricted imports: they need written permission and must meet government requirements before the Australian Border Force releases them. Importing without permission can lead to seizure and heavy penalties.",
+       "payload": {
+        "approval": {
+         "kind": "RESTRICTED_GOODS_PERMISSION",
+         "authority": "Australian Border Force",
+         "pathway": "Get permission before the goods arrive"
+        },
+        "referral_categories": [
+         "customs_broker",
+         "lawyer"
+        ],
+        "task": "Get import permission for the firearms or weapons"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "prohibited_goods",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "broker_role",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Firearms",
+       "facts": {
+        "trade.goods_categories": [
+         "firearms_weapons"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "tobacco",
+     "title": "Tobacco",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "tobacco_vapes"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need permission to import tobacco",
+       "detail": "Tobacco can only be imported with permission, and all duties and taxes must be paid when it arrives. Vaping products have separate controls that this check doesn't cover.",
+       "payload": {
+        "approval": {
+         "kind": "TOBACCO_IMPORT_PERMISSION",
+         "authority": "Australian Border Force",
+         "pathway": "Get permission before importing; pay duty on arrival"
+        },
+        "referral_categories": [
+         "customs_broker",
+         "lawyer"
+        ],
+        "task": "Get permission to import tobacco"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "prohibited_goods",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tobacco",
+       "facts": {
+        "trade.goods_categories": [
+         "tobacco_vapes"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "wildlife_import",
+     "title": "Wildlife import permit",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "wildlife"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A wildlife trade permit is likely needed",
+       "detail": "Importing CITES-listed plants and animals, or products made from them, needs a wildlife trade permit.",
+       "payload": {
+        "approval": {
+         "kind": "WILDLIFE_TRADE_PERMIT",
+         "authority": "National Environmental Protection Agency",
+         "pathway": "Apply for a permit for each consignment or a multiple authority"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant"
+        ],
+        "task": "Check whether the species is CITES-listed"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "wildlife_permit",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Wildlife products",
+       "facts": {
+        "trade.goods_categories": [
+         "wildlife"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    }
+   ]
+  },
+  {
+   "key": "trade.au.export",
+   "vertical": "TRADE",
+   "jurisdiction": "CTH",
+   "title": "Australia: exporting goods",
+   "description": "Export declarations, prescribed agricultural goods, Defence export permits, wildlife permits and export grants, from Australian Border Force, Department of Agriculture, Defence and business.gov.au guidance.",
+   "applies_when": {
+    "fact": "trade.direction",
+    "op": "in",
+    "value": [
+     "export",
+     "both"
+    ]
+   },
+   "limitations": [
+    "Doesn't check the importing country's own requirements; for agricultural goods see MICoR.",
+    "Doesn't decide whether your goods are on the Defence and Strategic Goods List; the department can assess them.",
+    "Doesn't cover cultural heritage objects, some minerals or goods under trade sanctions.",
+    "Not legal advice. Check with the regulator named, a licensed customs broker or a compliance consultant."
+   ],
+   "rules": [
+    {
+     "key": "export_declaration",
+     "title": "Export declaration",
+     "condition": {
+      "fact": "trade.export_value_band",
+      "op": "equals",
+      "value": "OVER_2000"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Each shipment needs an export declaration",
+       "detail": "Goods worth more than A$2,000 generally need an export declaration to the Australian Border Force before they leave. A customs broker or freight forwarder usually lodges it.",
+       "payload": {
+        "approval": {
+         "kind": "EXPORT_DECLARATION",
+         "authority": "Australian Border Force",
+         "pathway": "Lodge before the goods leave, yourself or through a broker"
+        },
+        "referral_categories": [
+         "customs_broker",
+         "freight_forwarder"
+        ],
+        "task": "Arrange an export declaration for each shipment over A$2,000"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "An export declaration is generally not needed",
+       "detail": "Goods worth A$2,000 or less generally don't need an export declaration, unless they need an export permit.",
+       "payload": {
+        "approval": {
+         "kind": "EXPORT_DECLARATION",
+         "authority": "Australian Border Force",
+         "pathway": "Generally not needed at A$2,000 or less"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "An export declaration may be needed",
+       "detail": "Shipments worth more than A$2,000 need an export declaration. Tell us the value of a typical shipment so we can check.",
+       "payload": {
+        "approval": {
+         "kind": "EXPORT_DECLARATION",
+         "authority": "Australian Border Force",
+         "pathway": "Needed above A$2,000",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exporting_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Over A$2,000",
+       "facts": {
+        "trade.export_value_band": "OVER_2000"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "A$2,000 or less",
+       "facts": {
+        "trade.export_value_band": "UP_TO_2000"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "prescribed_goods",
+     "title": "Prescribed agricultural goods",
+     "condition": {
+      "any": [
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "food_drink"
+       },
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "plants_seeds"
+       },
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "animal_products"
+       },
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "timber_wood"
+       }
+      ]
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Your goods may be prescribed goods with export controls",
+       "detail": "Dairy, eggs, fish, live animals, meat, poultry, wild game, organic products, plants and wood are prescribed goods. Premises that prepare or store them for export must be registered establishments, and each shipment needs government export documents. Check the importing country's requirements in MICoR.",
+       "payload": {
+        "approval": {
+         "kind": "EXPORT_REGISTERED_ESTABLISHMENT",
+         "authority": "Department of Agriculture, Fisheries and Forestry",
+         "pathway": "Register through the Export Service; certify shipments in EXDOC"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant",
+         "freight_forwarder"
+        ],
+        "task": "Check whether the goods are prescribed and what the importing country needs"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "prescribed_goods",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "exporting_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Seafood",
+       "facts": {
+        "trade.goods_categories": [
+         "animal_products"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Machinery",
+       "facts": {
+        "trade.goods_categories": [
+         "machinery_metal"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "defence_export_permit",
+     "title": "Defence export permit",
+     "condition": {
+      "any": [
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "defence_dual_use"
+       },
+       {
+        "fact": "trade.goods_categories",
+        "op": "contains",
+        "value": "firearms_weapons"
+       }
+      ]
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You likely need a Defence export permit",
+       "detail": "Military goods, dual-use goods and technology on the Defence and Strategic Goods List, and all firearms, parts and ammunition, need a permit before export. Supplying listed technology to a foreign person, even in Australia, can need one too.",
+       "payload": {
+        "approval": {
+         "kind": "DEFENCE_EXPORT_PERMIT",
+         "authority": "Department of Defence (Defence Export Controls)",
+         "pathway": "Apply through the MADE portal"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant",
+         "lawyer"
+        ],
+        "task": "Ask Defence Export Controls whether the goods are on the DSGL"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "dsgl_permits",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Drones",
+       "facts": {
+        "trade.goods_categories": [
+         "defence_dual_use"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "wildlife_export",
+     "title": "Wildlife export permit",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "wildlife"
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A wildlife trade permit is likely needed",
+       "detail": "Exporting Australian native plants and animals, or products from threatened native species or CITES-listed species, needs a wildlife trade permit.",
+       "payload": {
+        "approval": {
+         "kind": "WILDLIFE_TRADE_PERMIT",
+         "authority": "National Environmental Protection Agency",
+         "pathway": "Apply for a permit before exporting"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant"
+        ],
+        "task": "Apply for a wildlife trade permit"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "wildlife_permit",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Native seeds",
+       "facts": {
+        "trade.goods_categories": [
+         "wildlife"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "export_grants",
+     "title": "Export grants",
+     "condition": {
+      "fact": "trade.has_abn",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-10",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "CROSS_SELL",
+       "title": "Export grants may help with costs",
+       "detail": "Austrade's Export Market Development Grants help businesses grow their exports. GrantReady can check which grants you may be eligible for.",
+       "payload": {
+        "cross_sell": [
+         "GRANT"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exporting_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Has ABN",
+       "facts": {
+        "trade.has_abn": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No ABN",
+       "facts": {
+        "trade.has_abn": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    }
+   ]
+  }
+ ]
+}
