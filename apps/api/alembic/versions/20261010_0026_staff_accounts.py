@@ -7,7 +7,7 @@
   done to it, not just what it did) is a quick lookup.
 
 Revision ID: 0026
-Revises: 0023
+Revises: 0025
 Create Date: 2026-10-10
 """
 
@@ -17,7 +17,7 @@ import sqlalchemy as sa
 from alembic import op
 
 revision: str = "0026"
-down_revision: str | None = "0023"
+down_revision: str | None = "0025"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

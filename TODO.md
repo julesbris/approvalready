@@ -207,7 +207,7 @@ tests and updated docs before the next starts.
 - [x] Partners who accepted a referral send the customer a written quote: line items, GST, valid until, start estimate, terms; revisions supersede the waiting quote (migration 0022, `lead_quote`, fixed once sent by a trigger)
 - [x] Customers compare quotes per job on `/projects/[id]/referrals`, accept one (optionally declining the others) or decline with a note; referrals move to won or lost
 - [x] In-app and email notifications both ways; audit events; analytics unchanged (status events)
-- [ ] Next: PDF quotes; reminders before a quote expires; quote templates per partner; messages between customer and partner
+- [ ] Next: PDF quotes; reminders before a quote expires; quote templates per partner; ~~messages between customer and partner~~ (Milestone 26)
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
@@ -223,6 +223,13 @@ tests and updated docs before the next starts.
 - [x] Page text keeps the wording only (main content, no scripts, menus, headers or footers) so banners and scripts don't count as changes; PDFs are compared by their bytes and flagged for pasting by hand
 - [x] `source_check` history (append-only), `python -m app.cli sources check` to run it at once
 - [ ] Next: read PDF text (needs a PDF library); show a word-level diff between snapshots; per-document check frequency; a public "last checked" date on guide pages
+
+## Milestone 26 — Messages between customers and partners ✅
+- [x] One conversation per referral a partner accepted: the customer writes from `/projects/[id]/referrals`, the partner from `/partner/leads/[match]`
+- [x] Open while the job is in progress or won, read-only once lost; up to 30 messages an hour from each side
+- [x] Unread counts, "Seen", and a notice (in the app and by email, per the Referrals setting) for the first message waiting
+- [x] `lead_message` (migration 0025): never edited or deleted (trigger); the text stays out of the audit log
+- [ ] Next: attachments (reusing the scanned upload pipeline); include messages in "Download my data"; reminders before a quote expires; PDF quotes
 
 ## Milestone 27 — Staff accounts page ✅
 - [x] `/admin/accounts`: find any account by email, name, business name, ABN or id (posted, so emails stay out of logs), with filters for active, unconfirmed, suspended, staff and closed accounts

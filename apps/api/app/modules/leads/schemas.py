@@ -20,6 +20,7 @@ from app.modules.leads.models import (
     GstTreatment,
     LeadMatchStatus,
     LeadStatus,
+    MessageSender,
     QuoteStatus,
     ReleasableField,
     Timing,
@@ -316,6 +317,44 @@ class LeadOfferOut(BaseModel):
     quotes: list[QuoteOut] = Field(
         default_factory=list, description="Quotes this partner sent for it, newest first."
     )
+    unread_messages: int = Field(
+        default=0, description="Messages from the customer this partner hasn't opened yet."
+    )
+
+
+# --- Messages (Milestone 26) -------------------------------------------------------------
+
+MessageBody = Annotated[
+    str, StringConstraints(strip_whitespace=True, min_length=1, max_length=4000)
+]
+
+
+class MessageIn(_In):
+    body: MessageBody
+
+
+class MessageOut(BaseModel):
+    id: uuid.UUID
+    sender: MessageSender
+    from_you: bool = Field(description="Sent by your side of the conversation.")
+    body: str
+    sent_at: datetime
+    read_at: datetime | None = Field(description="When the other side first opened it.")
+
+
+class ConversationOut(BaseModel):
+    """The messages between the customer and one partner about one referral, oldest first."""
+
+    match_id: uuid.UUID
+    lead_id: uuid.UUID
+    category_label: str
+    partner_name: str
+    can_send: bool = Field(
+        description="Open while the partner is working on the job or won it; read-only once "
+        "it is lost."
+    )
+    unread: int = Field(description="Messages from the other side you haven't opened yet.")
+    messages: list[MessageOut]
 
 
 class LeadDeclineIn(_In):
