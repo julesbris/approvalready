@@ -224,6 +224,13 @@ tests and updated docs before the next starts.
 - [x] `source_check` history (append-only), `python -m app.cli sources check` to run it at once
 - [ ] Next: read PDF text (needs a PDF library); show a word-level diff between snapshots; per-document check frequency; a public "last checked" date on guide pages
 
+## Milestone 27 — Staff accounts page ✅
+- [x] `/admin/accounts`: find any account by email, name, business name, ABN or id (posted, so emails stay out of logs), with filters for active, unconfirmed, suspended, staff and closed accounts
+- [x] Account page: organisations and roles, two-step sign-in and recovery codes, password age, signed-in devices, and recent history including what staff did to it
+- [x] Support actions for platform administrators (`platform.users.manage`, migration 0026): resend the verification email, send a password reset link, sign out everywhere, reset two-step sign-in (no server command needed), suspend and restore; reasons kept in the audit log
+- [x] Safeguards: no actions on your own account, only a super administrator can change a staff member's account, closed accounts are read-only, every view and action audited
+- [ ] Next: change staff roles from the page; suspend a business organisation; staff notes on an account
+
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
 - [x] Fetch source documents automatically for snapshots (built in Milestone 24; PDFs still pasted by hand)
