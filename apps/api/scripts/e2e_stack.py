@@ -140,7 +140,7 @@ class Seeder:
         await self.anon.call(
             "POST",
             "/v1/auth/register",
-            {"email": email, "password": PASSWORD, "display_name": name},
+            {"email": email, "password": PASSWORD, "display_name": name, "accept_terms": True},
             ok=202,
         )
         async with async_sessionmaker(self.owner, expire_on_commit=False)() as db:

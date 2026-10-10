@@ -107,6 +107,16 @@ a {
   font-size: 0.875rem;
 }
 
+.site-footer p {
+  margin: 0 0 8px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
 /* --- Auth and account --- */
 
 .auth-card {
@@ -1106,4 +1116,51 @@ fieldset.question {
 
 .notice-warning {
   border-left-color: var(--ar-warning, #b54708);
+}
+
+/* --- Privacy and legal (Milestone 19) --- */
+
+.legal h2 {
+  margin-top: 32px;
+}
+
+.legal table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9375rem;
+}
+
+.legal th,
+.legal td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px;
+  border-bottom: 1px solid var(--ar-border);
+}
+
+.form .checkbox-label {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-weight: 400;
+}
+
+.form .checkbox-label input {
+  margin-top: 4px;
+}
+
+.privacy-request {
+  padding: 12px;
+  border: 1px solid var(--ar-border);
+  border-radius: 6px;
+  margin-bottom: 12px;
+  list-style: none;
+}
+
+.privacy-request-details {
+  white-space: pre-wrap;
+}
+
+.privacy-overdue {
+  border-color: var(--ar-danger, #b42318);
 }

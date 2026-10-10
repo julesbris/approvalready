@@ -37,6 +37,8 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "one_time_token": CRUD,
     "mfa_totp": CRUD,
     "mfa_recovery_code": CRUD,
+    "policy_acceptance": APPEND,
+    "privacy_request": {"SELECT", "INSERT", "UPDATE"},
     "organisation": CRUD,
     "organisation_member": CRUD,
     "organisation_invitation": CRUD,

@@ -4,7 +4,9 @@ import type { ReactNode } from "react";
 
 import { OrgSwitcher } from "@/components/app/OrgSwitcher";
 import { SwitchOrganisationButton } from "@/components/app/SwitchOrganisationButton";
+import { PolicyNotice } from "@/components/legal/PolicyNotice";
 import { NotificationBell } from "@/components/notifications/NotificationBell";
+import { SiteFooter } from "@/components/public/SiteFooter";
 import { defaultBrand } from "@/lib/brand";
 
 /** Platform staff working in the platform organisation (display only; the API decides). */
@@ -60,8 +62,12 @@ export function AppShell({
             area.
           </p>
         ) : null}
+        {session.policies_to_accept?.length ? (
+          <PolicyNotice policies={session.policies_to_accept} />
+        ) : null}
         {children}
       </main>
+      <SiteFooter />
     </>
   );
 }

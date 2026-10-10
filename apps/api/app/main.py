@@ -49,6 +49,9 @@ from app.modules.ops.router import admin_router as ops_admin_router
 from app.modules.partners.router import admin_router as partners_admin_router
 from app.modules.partners.router import apply_router as partners_apply_router
 from app.modules.partners.router import router as partners_router
+from app.modules.privacy.router import account_router as privacy_account_router
+from app.modules.privacy.router import admin_router as privacy_admin_router
+from app.modules.privacy.router import public_router as privacy_public_router
 from app.modules.projects.router import router as projects_router
 from app.modules.questionnaires.router import router as questionnaires_router
 from app.modules.regulatory.router import router as sources_router
@@ -124,6 +127,9 @@ def create_app(
 
     app.include_router(health.router)
     app.include_router(auth_router)
+    app.include_router(privacy_account_router)
+    app.include_router(privacy_public_router)
+    app.include_router(privacy_admin_router)
     app.include_router(tenancy_router)
     app.include_router(projects_router)
     app.include_router(entities_router)

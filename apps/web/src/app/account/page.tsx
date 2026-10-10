@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { ChangePasswordForm } from "@/components/account/ChangePasswordForm";
 import { TwoStepSignIn } from "@/components/account/TwoStepSignIn";
+import { YourData } from "@/components/account/YourData";
 import { AppShell } from "@/components/app/AppShell";
 import { SignOutButtons } from "@/components/auth/SignOutButtons";
 import { CreateOrganisationForm } from "@/components/organisations/CreateOrganisationForm";
@@ -67,6 +68,13 @@ export default async function AccountPage() {
         <TwoStepSignIn status={mfa} />
         <h3 className="subsection-title">Password</h3>
         <ChangePasswordForm />
+      </section>
+
+      <section className="panel" id="your-data" aria-labelledby="your-data-title">
+        <h2 id="your-data-title" className="section-title">
+          Your data
+        </h2>
+        <YourData mfaEnabled={mfa.enabled} />
       </section>
 
       <SignOutButtons />

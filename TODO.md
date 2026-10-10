@@ -175,6 +175,14 @@ tests and updated docs before the next starts.
 - [x] Change password on the account page
 - [ ] Next: passkeys and Google/Microsoft sign-in; optional "require two-step sign-in" for business and partner organisations; per-user API limits
 
+## Milestone 19 — Legal and privacy basics ✅
+- [x] Terms of Use, Privacy Policy and contact pages; footer links on every page
+- [x] Agreement recorded at registration (versioned); signed-in users asked to agree to new versions
+- [x] Download my data (account and personal workspace as JSON) and close my account from Account
+- [x] Privacy requests from the contact page, worked by staff at `/admin/privacy` within 30 days; operations check and alerts
+- [x] `sitemap.xml` and `robots.txt` (moved from Milestone 5's backlog note)
+- [ ] Next: have a lawyer review the Terms and Privacy Policy and add the operating entity's legal name and ABN (`apps/web/src/lib/legal.ts`); automatic deletion of a closed account's workspace after the 30 days; closing business organisations; change of email address
+
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
 - [ ] Fetch source documents automatically for snapshots (manual capture only for now; no claims of live integration)
