@@ -334,9 +334,7 @@ async def test_weekly_run(api: ApiHarness, site: FakeSite, owner_sessions: objec
     # Other tests' documents stay out of this run.
     async with owner_sessions() as db:  # type: ignore[operator]
         await db.execute(
-            update(SourceDocument)
-            .where(SourceDocument.id.not_in(ours))
-            .values(auto_check=False)
+            update(SourceDocument).where(SourceDocument.id.not_in(ours)).values(auto_check=False)
         )
         await db.commit()
 
