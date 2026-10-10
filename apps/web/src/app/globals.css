@@ -1196,3 +1196,37 @@ fieldset.question {
 .status-superseded {
   color: var(--ar-ink-muted);
 }
+
+/* --- Messages between customers and partners (Milestone 26) --- */
+
+.message-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.message {
+  max-width: 85%;
+  padding: 8px 12px;
+  border: 1px solid var(--ar-border);
+  border-radius: 8px;
+  background: var(--ar-surface-subtle);
+}
+
+.message-mine {
+  justify-self: end;
+  background: transparent;
+}
+
+.message-meta {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.message-body {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

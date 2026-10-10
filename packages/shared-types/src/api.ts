@@ -2696,6 +2696,50 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/messages": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Partner Conversation
+         * @description Messages with the customer about this referral (once accepted), oldest first.
+         */
+        get: operations["get_partner_conversation_v1_organisations__organisation_id__partner_leads__match_id__messages_get"];
+        put?: never;
+        /**
+         * Send Partner Message
+         * @description Write to the customer. They are told about the first message waiting for them.
+         */
+        post: operations["send_partner_message_v1_organisations__organisation_id__partner_leads__match_id__messages_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/messages/read": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Read Partner Conversation
+         * @description Mark the customer's messages as read (opening the conversation).
+         */
+        post: operations["read_partner_conversation_v1_organisations__organisation_id__partner_leads__match_id__messages_read_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/partner/leads/{match_id}/outcome": {
         parameters: {
             query?: never;
@@ -2883,6 +2927,66 @@ export interface paths {
          * @description Add a checklist to the project. Adding one that is already there returns it.
          */
         post: operations["add_checklist_v1_organisations__organisation_id__projects__project_id__checklists_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Conversations
+         * @description Messages with each partner who accepted one of this project's introductions.
+         */
+        get: operations["list_conversations_v1_organisations__organisation_id__projects__project_id__conversations_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/messages": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Send Customer Message
+         * @description Write to the partner. They are told about the first message waiting for them.
+         */
+        post: operations["send_customer_message_v1_organisations__organisation_id__projects__project_id__conversations__match_id__messages_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/read": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Read Customer Conversation
+         * @description Mark the partner's messages as read (opening the conversation).
+         */
+        post: operations["read_customer_conversation_v1_organisations__organisation_id__projects__project_id__conversations__match_id__read_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -5479,6 +5583,38 @@ export interface components {
             /** Site Address */
             site_address?: string | null;
         };
+        /**
+         * ConversationOut
+         * @description The messages between the customer and one partner about one referral, oldest first.
+         */
+        ConversationOut: {
+            /**
+             * Can Send
+             * @description Open while the partner is working on the job or won it; read-only once it is lost.
+             */
+            can_send: boolean;
+            /** Category Label */
+            category_label: string;
+            /**
+             * Lead Id
+             * Format: uuid
+             */
+            lead_id: string;
+            /**
+             * Match Id
+             * Format: uuid
+             */
+            match_id: string;
+            /** Messages */
+            messages: components["schemas"]["MessageOut"][];
+            /** Partner Name */
+            partner_name: string;
+            /**
+             * Unread
+             * @description Messages from the other side you haven't opened yet.
+             */
+            unread: number;
+        };
         /** CredentialCheckIn */
         CredentialCheckIn: {
             /** Notes */
@@ -6724,6 +6860,12 @@ export interface components {
              * @description Quotes this partner sent for it, newest first.
              */
             quotes?: components["schemas"]["QuoteOut"][];
+            /**
+             * Unread Messages
+             * @description Messages from the customer this partner hasn't opened yet.
+             * @default 0
+             */
+            unread_messages: number;
         };
         /** LeadOutcomeIn */
         LeadOutcomeIn: {
@@ -7262,6 +7404,42 @@ export interface components {
             /** Roles */
             roles: string[];
         };
+        /** MessageIn */
+        MessageIn: {
+            /** Body */
+            body: string;
+        };
+        /** MessageOut */
+        MessageOut: {
+            /** Body */
+            body: string;
+            /**
+             * From You
+             * @description Sent by your side of the conversation.
+             */
+            from_you: boolean;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Read At
+             * @description When the other side first opened it.
+             */
+            read_at: string | null;
+            sender: components["schemas"]["MessageSender"];
+            /**
+             * Sent At
+             * Format: date-time
+             */
+            sent_at: string;
+        };
+        /**
+         * MessageSender
+         * @enum {string}
+         */
+        MessageSender: "CUSTOMER" | "PARTNER";
         /**
          * MfaChallengeOut
          * @description The password was right; a code from the authenticator app (or a recovery code) is
@@ -7373,7 +7551,7 @@ export interface components {
          * NotificationKind
          * @enum {string}
          */
-        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE" | "LEAD_OFFERED" | "LEAD_CLAIMED" | "OPS_ALERT" | "QUOTE_RECEIVED" | "QUOTE_ANSWERED";
+        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE" | "LEAD_OFFERED" | "LEAD_CLAIMED" | "OPS_ALERT" | "QUOTE_RECEIVED" | "QUOTE_ANSWERED" | "MESSAGE_RECEIVED";
         /** NotificationListOut */
         NotificationListOut: {
             /** Items */
@@ -16813,6 +16991,106 @@ export interface operations {
             };
         };
     };
+    get_partner_conversation_v1_organisations__organisation_id__partner_leads__match_id__messages_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConversationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    send_partner_message_v1_organisations__organisation_id__partner_leads__match_id__messages_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MessageIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConversationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    read_partner_conversation_v1_organisations__organisation_id__partner_leads__match_id__messages_read_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConversationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     record_outcome_v1_organisations__organisation_id__partner_leads__match_id__outcome_post: {
         parameters: {
             query?: never;
@@ -17302,6 +17580,108 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ChecklistOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_conversations_v1_organisations__organisation_id__projects__project_id__conversations_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConversationOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    send_customer_message_v1_organisations__organisation_id__projects__project_id__conversations__match_id__messages_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MessageIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConversationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    read_customer_conversation_v1_organisations__organisation_id__projects__project_id__conversations__match_id__read_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConversationOut"];
                 };
             };
             /** @description Validation Error */

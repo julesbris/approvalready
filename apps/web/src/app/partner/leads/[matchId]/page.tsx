@@ -1,10 +1,11 @@
-import type { LeadOfferOut } from "@approvalready/shared-types";
+import type { ConversationOut, LeadOfferOut } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import { NoAccess } from "@/components/app/AppShell";
 import { OfferActions, OutcomeActions } from "@/components/leads/LeadActions";
+import { Conversation } from "@/components/leads/Messages";
 import { PartnerQuotes, QuoteForm } from "@/components/leads/QuoteActions";
 import { PartnerShell } from "@/components/partners/PartnerShell";
 import { formatDateTime } from "@/lib/labels";
@@ -43,6 +44,8 @@ export default async function PartnerLeadPage({ params }: Props) {
     ),
   );
   const { lead, fee, claim } = offer;
+  const leadPath = `/organisations/${active.organisation_id}/partner/leads/${matchId}`;
+  const conversation = claim ? await serverGet<ConversationOut>(`${leadPath}/messages`) : null;
   const quotes = offer.quotes ?? [];
   const canClaim = session.permissions.includes("lead.claim");
   const isOpen = OPEN_MATCH.includes(lead.status) && lead.lead_status === "OPEN";
@@ -145,6 +148,25 @@ export default async function PartnerLeadPage({ params }: Props) {
               revising={quotes[0]?.status === "SENT" ? quotes[0] : null}
             />
           ) : null}
+        </section>
+      ) : null}
+      {conversation?.ok ? (
+        <section className="panel" id="messages" aria-labelledby="messages-title">
+          <h2 id="messages-title" className="section-title">
+            Messages with the customer
+            {offer.unread_messages > 0 ? (
+              <span className="badge">{offer.unread_messages} new</span>
+            ) : null}
+          </h2>
+          <Conversation
+            conversation={conversation.data}
+            path={leadPath}
+            otherName="Customer"
+            canWrite={canClaim}
+          />
+          <p className="muted">
+            Keep the conversation about this job. Don&apos;t ask for passwords or card details.
+          </p>
         </section>
       ) : null}
       {claim ? (

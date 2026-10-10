@@ -1,4 +1,5 @@
 import type {
+  ConversationOut,
   CustomerQuoteOut,
   ProjectDetailOut,
   ReferralOptionsOut,
@@ -10,6 +11,7 @@ import Link from "next/link";
 import { AppShell, NoAccess } from "@/components/app/AppShell";
 import { FormNotice } from "@/components/auth/FormStatus";
 import { CustomerQuotes } from "@/components/leads/CustomerQuotes";
+import { CustomerMessages } from "@/components/leads/Messages";
 import { ReferralForm } from "@/components/leads/ReferralForm";
 import { ReferralList } from "@/components/leads/ReferralList";
 import { firstParam } from "@/lib/redirect";
@@ -40,10 +42,11 @@ export default async function ReferralsPage({ params, searchParams }: Props) {
   }
   const canWrite = session.permissions.includes("project.write");
   const base = `/organisations/${orgId}/projects/${projectId}`;
-  const [project, referrals, quotes, options] = await Promise.all([
+  const [project, referrals, quotes, conversations, options] = await Promise.all([
     serverGet<ProjectDetailOut>(base),
     serverGet<ReferralOut[]>(`${base}/referrals`),
     serverGet<CustomerQuoteOut[]>(`${base}/quotes`),
+    serverGet<ConversationOut[]>(`${base}/conversations`),
     assessmentId && canWrite
       ? serverGet<ReferralOptionsOut>(
           `${base}/referrals/options?assessment_id=${encodeURIComponent(assessmentId)}`,
@@ -78,6 +81,19 @@ export default async function ReferralsPage({ params, searchParams }: Props) {
             organisationId={orgId}
             projectId={projectId}
             quotes={quotes.ok ? quotes.data : []}
+            canWrite={canWrite}
+          />
+        </section>
+      ) : null}
+      {referrals.ok && referrals.data.length > 0 ? (
+        <section className="panel" id="messages" aria-labelledby="messages-title">
+          <h2 id="messages-title" className="section-title">
+            Messages
+          </h2>
+          <CustomerMessages
+            organisationId={orgId}
+            projectId={projectId}
+            conversations={conversations.ok ? conversations.data : []}
             canWrite={canWrite}
           />
         </section>

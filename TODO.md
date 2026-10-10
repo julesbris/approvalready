@@ -207,7 +207,7 @@ tests and updated docs before the next starts.
 - [x] Partners who accepted a referral send the customer a written quote: line items, GST, valid until, start estimate, terms; revisions supersede the waiting quote (migration 0022, `lead_quote`, fixed once sent by a trigger)
 - [x] Customers compare quotes per job on `/projects/[id]/referrals`, accept one (optionally declining the others) or decline with a note; referrals move to won or lost
 - [x] In-app and email notifications both ways; audit events; analytics unchanged (status events)
-- [ ] Next: PDF quotes; reminders before a quote expires; quote templates per partner; messages between customer and partner
+- [ ] Next: PDF quotes; reminders before a quote expires; quote templates per partner; ~~messages between customer and partner~~ (Milestone 26)
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
@@ -224,8 +224,15 @@ tests and updated docs before the next starts.
 - [x] `source_check` history (append-only), `python -m app.cli sources check` to run it at once
 - [ ] Next: read PDF text (needs a PDF library); show a word-level diff between snapshots; per-document check frequency; a public "last checked" date on guide pages
 
+## Milestone 26 — Messages between customers and partners ✅
+- [x] One conversation per referral a partner accepted: the customer writes from `/projects/[id]/referrals`, the partner from `/partner/leads/[match]`
+- [x] Open while the job is in progress or won, read-only once lost; up to 30 messages an hour from each side
+- [x] Unread counts, "Seen", and a notice (in the app and by email, per the Referrals setting) for the first message waiting
+- [x] `lead_message` (migration 0025): never edited or deleted (trigger); the text stays out of the audit log
+- [ ] Next: attachments (reusing the scanned upload pipeline); include messages in "Download my data"; reminders before a quote expires; PDF quotes
+
 ## Milestone 25 — TradeReady: importing and exporting goods ✅
-- [x] `TRADE` vertical (migration 0024), `trade.general` questionnaire, business profile prefill
+- [x] `TRADE` vertical (migration 0026), `trade.general` questionnaire, business profile prefill
 - [~] Content pack `trade_au` (4 rule sets, 21 rules, 16 references): import declarations, ICS registration, GST and deferred GST, biosecurity permits, imported food inspection, stink bug season, vehicles, AICIS, ARTG, refrigerant equipment, EESS, firearms, tobacco, wildlife, export declarations, prescribed goods, Defence export permits. Every reference is an **unverified summary**: capture and verify in `/admin/sources`
 - [x] Marketplace categories for import and logistics companies: customs brokers, freight forwarders, logistics and warehousing providers, import and export compliance consultants; `review.trade` product
 - [x] Import and export approval map report; guides for importing and exporting

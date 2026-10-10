@@ -139,6 +139,7 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "credit_ledger_entry": APPEND,
     # Milestone 23: a sent quote only gains its answer (trigger), never deleted.
     "lead_quote": WRITE,
+    "lead_message": WRITE,
     # Milestone 17: the backup service writes backup runs as the owner; the worker may only
     # record the off-site copy (a column grant, which this table-level map doesn't list).
     "backup_run": READ,

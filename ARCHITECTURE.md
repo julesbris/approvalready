@@ -894,12 +894,26 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Web | `/admin/sources/[id]`: "Check the official page now", a "Check every week" switch, snapshots marked "read by the app" or "pasted", and recent checks. `/admin/sources` shows "Changed" and "Couldn't be read". |
 | Not built | Reading PDF text; a word-level diff between snapshots; per-document check frequency; checking sources not yet recorded as documents; showing "last checked" on public guide pages. |
 
-## 34. Milestone 25 as built (TradeReady: importing and exporting)
+## 34. Milestone 26 as built (messages between customers and partners)
+
+| Concern | Implementation |
+|---|---|
+| Migration | `0025` (revises `0023` when written; repointed on rebase after Milestone 25's `0024`): platform table `lead_message` guarded by the API like the other lead tables (match, lead, partner, `sender` `CUSTOMER` or `PARTNER`, the user who wrote it, the text up to 4,000 characters, `read_at`). A trigger refuses edits and deletes; only `read_at` is set, once, and `sender_user_id` may only become NULL. Notification kind `MESSAGE_RECEIVED` (both sides), in the Referrals setting of Milestone 21. |
+| Rules | One conversation per referral a partner accepted (a claim). Either side writes while the referral is accepted, contacted, quoted or won; once it is lost the conversation is read-only. At most 30 messages an hour from each side of a conversation (429 `too_many_messages`). Locks follow the lead engine's order (lead, then match). |
+| Partner | `GET`/`POST .../partner/leads/{match}/messages` (`lead.read` to read, `lead.claim` to write) and `.../messages/read`. `LeadOfferOut.unread_messages` counts the customer's messages not yet opened. |
+| Customer | `GET /v1/organisations/{id}/projects/{pid}/conversations` (`project.read`): one conversation per partner who accepted one of the project's referrals, with partner name, category, `can_send` and `unread`. `POST .../{match}/messages` (`project.write`) and `.../{match}/read` (`project.read`). Another organisation's or project's conversation is a 404. |
+| Notices | The other side is told about the first message waiting for them (customer: the person who asked for the introduction; partner: members who see referrals), with the first 280 characters, in the app and by email. Further messages don't notify again until the conversation has been opened. |
+| Audit | `message.sent` with the match and side; the text stays out of the audit log. |
+| Web | Customer: a "Messages" panel on `/projects/[id]/referrals` (one conversation per partner, unread count, write box). Partner: "Messages with the customer" on `/partner/leads/[match]`, and "N new messages" on the referral list. Opening a conversation marks the other side's messages read; your own show "Seen" once read. |
+| Tests | `tests/test_messages.py`: the journey (both sides write, one notice per batch, unread and read, separate conversations per partner, the trigger, nothing of the text in the audit log) and the rules (claim first, privacy between partners and customers, blank and long text, the hourly limit, read-only once lost). Web: `Messages.test.tsx`. |
+| Not built | Attachments; messages in "Download my data"; a staff view for disputes; live updates without reloading; customer-to-partner messages before a partner accepts. |
+
+## 35. Milestone 25 as built (TradeReady: importing and exporting)
 
 | Concern | Implementation |
 |---|---|
 | Vertical | `TRADE` (reference prefix `TRD`), for businesses importing goods into or exporting goods out of Australia. "Shipping" means moving goods across the border (customs, biosecurity, permits, freight); vessels stay in VesselReady. A trade project is about a business profile, like BusinessReady and GrantReady, so the business picker, prefill and lead location work unchanged. |
-| Migration | `0024` (revises `0023`): only the check constraints that list verticals (`project`, `questionnaire`, `rule_set`, `professional_service`, `product`, `marketplace_category`). The downgrade restores the old lists as `NOT VALID` so existing `TRADE` rows don't block it. |
+| Migration | `0026` (revises `0025`): only the check constraints that list verticals (`project`, `questionnaire`, `rule_set`, `professional_service`, `product`, `marketplace_category`). The downgrade restores the old lists as `NOT VALID` so existing `TRADE` rows don't block it. |
 | Questionnaire | `trade.general` (`definitions/trade.json`): direction, goods description and kinds of goods; for imports the typical shipment value, how it arrives, the stink bug country and season questions, who lodges, refrigerant equipment size and household electrical equipment; for exports the shipment value; ABN, GST and state (prefilled from the business profile). |
 | Rules | Content pack `trade_au`: 4 rule sets (import clearance, biosecurity and imported food, restricted and regulated imports, exporting), 21 rules, 16 unverified source summaries from the ABF, DAFF, ATO, TGA, Defence, business.gov.au and ABLIS. The approval map and the `TRADE_APPROVAL_MAP` report are the BusinessReady ones with trade wording. An export-grants `CROSS_SELL` outcome suggests GrantReady. |
 | Marketplace | New categories `customs_broker` (credential required), `freight_forwarder`, `logistics_provider` and `trade_compliance_consultant`; `lawyer`, `accountant`, `insurance_broker` and `food_safety_consultant` also list `TRADE`. Rules name them, so referrals and quotes reach import and logistics companies through the existing lead engine. `review.trade` is the professional review product. |
