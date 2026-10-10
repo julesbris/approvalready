@@ -5,9 +5,8 @@
 * Download my data: everything held about a user's account and their personal workspace,
   as JSON (Australian Privacy Principle 12, access).
 * Close my account: the sign-in, name and email are removed straight away; the personal
-  workspace's records are queued for staff to delete (a ``privacy_request``), because some
-  of them may have to be kept (payments, for tax law) and several record tables are
-  append-only by design.
+  workspace is deleted a few days later by the nightly job (``purge.py``, Milestone 29),
+  tracked by a DELETION ``privacy_request`` so staff can keep it instead.
 * Privacy requests from the contact page, worked by staff at ``/admin/privacy`` within the
   30 days the Australian Privacy Principles expect.
 """
@@ -47,6 +46,8 @@ from app.modules.identity.models import (
     PasswordCredential,
     UserStatus,
 )
+from app.modules.leads import service as leads
+from app.modules.leads.models import ReferralConsent
 from app.modules.notifications import preferences as notification_preferences
 from app.modules.notifications.models import NotificationPreference
 from app.modules.privacy import emails
@@ -271,7 +272,7 @@ async def close_account(
     meta: RequestMeta,
 ) -> OutgoingEmail:
     """Close the account: sign-in, name and email are removed now; the personal
-    workspace is queued for deletion by staff. Returns the confirmation email (to the
+    workspace is deleted later (``purge.py``). Returns the confirmation email (to the
     address the account had)."""
     credential = (
         await db.execute(select(PasswordCredential).where(PasswordCredential.user_id == user.id))
@@ -331,14 +332,26 @@ async def close_account(
             kind=PrivacyRequestKind.DELETION,
             source=PrivacyRequestSource.ACCOUNT_CLOSED,
             details=(
-                "The account was closed by its owner. Delete the personal workspace's "
-                "records (projects, answers, uploaded files and reports) except what the law "
-                "requires us to keep, then mark this request done."
+                "The account was closed by its owner. Its personal workspace (projects, "
+                "answers, uploaded files and reports) is deleted automatically, keeping "
+                "payment records. To keep it instead, decline this request with the reason."
             ),
             due_at=now + timedelta(days=RESPONSE_DAYS),
+            organisation_id=personal.id if personal is not None else None,
         )
     )
     if personal is not None:
+        # Referrals still offered to partners stop now (Milestone 29).
+        consents = (
+            await db.execute(
+                select(ReferralConsent).where(
+                    ReferralConsent.organisation_id == personal.id,
+                    ReferralConsent.withdrawn_at.is_(None),
+                )
+            )
+        ).scalars()
+        for consent in list(consents):
+            await leads.withdraw(db, consent, actor_id=user.id, meta=meta, now=now)
         await db.execute(
             update(Reminder)
             .where(

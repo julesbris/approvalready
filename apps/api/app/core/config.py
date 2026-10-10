@@ -290,6 +290,12 @@ class Settings(BaseSettings):
     # Pause between documents in the weekly check, to be polite to government websites.
     source_fetch_delay_seconds: float = Field(default=2.0, ge=0, le=60)
 
+    # --- Closed accounts (Milestone 29, app/modules/privacy/purge.py) ---
+    # A closed account's personal workspace is deleted this many days after closing (the
+    # Privacy Policy promises within 30). Staff can delete it sooner, or keep it by
+    # declining the deletion request with a reason.
+    privacy_purge_after_days: int = Field(default=7, ge=0, le=25)
+
     @field_validator(
         "storage_s3_bucket",
         "storage_s3_region",

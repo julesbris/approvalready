@@ -85,6 +85,9 @@ x-api-env: &api-env
   API_REQUESTS_PER_IP_PER_MINUTE: ${API_REQUESTS_PER_IP_PER_MINUTE:-600}
   API_WRITES_PER_IP_PER_MINUTE: ${API_WRITES_PER_IP_PER_MINUTE:-120}
   SENTRY_DSN: ${SENTRY_DSN:-}
+  # Closed accounts (Milestone 29): the personal workspace is deleted this many days after
+  # the account closes (the Privacy Policy promises within 30).
+  PRIVACY_PURGE_AFTER_DAYS: ${PRIVACY_PURGE_AFTER_DAYS:-7}
 
 x-api-image: &api-image
   image: ${IMAGE_PREFIX:-approvalready}/api:${IMAGE_TAG:-latest}

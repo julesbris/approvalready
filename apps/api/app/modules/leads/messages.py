@@ -38,7 +38,7 @@ from app.modules.leads.models import (
     MessageSender,
 )
 from app.modules.leads.schemas import ConversationOut, MessageOut
-from app.modules.leads.service import Offer, get_offer
+from app.modules.leads.service import Offer, ensure_customer_open, get_offer
 from app.modules.marketplace.models import MarketplaceCategory
 from app.modules.partners.models import PartnerOrganisation
 from app.modules.projects.models import Project
@@ -235,6 +235,7 @@ async def partner_send(
     now: datetime,
 ) -> tuple[Offer, Sent]:
     offer = await partner_offer(db, partner, match_id, lock=True)
+    await ensure_customer_open(db, offer.lead)
     sent = await _post(
         db,
         offer.match,

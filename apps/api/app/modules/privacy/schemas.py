@@ -55,6 +55,10 @@ class PrivacyRequestOut(BaseModel):
     due_at: datetime
     resolved_at: datetime | None
     resolution_note: str | None
+    # Closed accounts (Milestone 29): when the workspace was deleted, or when the nightly
+    # job will delete it (set by the router; None when it won't).
+    purged_at: datetime | None = None
+    deletes_on: datetime | None = None
 
     model_config = {"from_attributes": True}
 

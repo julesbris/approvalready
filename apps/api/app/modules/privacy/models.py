@@ -99,3 +99,8 @@ class PrivacyRequest(UUIDPrimaryKeyMixin, TimestampMixin, Base):
         UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="SET NULL")
     )
     resolution_note: Mapped[str | None] = mapped_column(Text)
+    # Closing an account (Milestone 29): the personal workspace to delete, and when it was.
+    organisation_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("organisation.id", ondelete="SET NULL")
+    )
+    purged_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
