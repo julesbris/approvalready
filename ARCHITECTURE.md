@@ -80,6 +80,7 @@ apps/api/app/
     billing/       products, prices, Stripe, subscriptions, entitlements, credits
     partners/      partner orgs, plans, applications, service areas, preferences
     leads/         lead creation, matching, release, claiming, outcomes
+    analytics/     partner analytics, k-anonymous benchmarks, staff marketplace figures
     consent/       consent text versions, referral consents
     notifications/
     branding/      domain → brand → surface configuration
@@ -478,7 +479,8 @@ only), `MATCHED`, `VIEWED`, `CLAIMED`, `CONTACTED`, `QUOTED`, `WON`, `LOST`, `EX
 
 Partner analytics are computed per partner only (own leads, spend, conversion, response
 time, category and geography performance). No competitor data, no market-wide figures
-unless aggregated across ≥ k partners (k-anonymity threshold, default 5).
+unless aggregated across ≥ k partners (k-anonymity threshold, default 5). Built in
+Milestone 16; see §25.
 
 ## 8. Rules engine (condition AST and evaluator built in Milestone 3; rules in Milestone 4)
 
@@ -755,3 +757,16 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Web | Customer: "Introduce me to checked partners" on the latest assessment, the consent form and `/projects/[id]/referrals` (who accepted, withdraw). Partner: `/partner/leads` (offers, accepted, credit and ledger, buy credit, pause and cap) and `/partner/leads/[match]` (the job, why matched, fee, accept or decline, contact after accepting, outcomes). Staff: `/admin/leads` (fees per category, recent leads with scores and refunds) and credit on `/admin/partners/[id]`. |
 | Tests | `tests/test_leads.py`: the 16-step partner journey through the API (apply, approve, consent, match, offer, view, claim, contact, outcome, notifications, audit) and negative cases (stale consent, immutability, no PII in the public view, ineligible partners, waves and expiry, a 4-way claim race on 2 places, fees, credit and refunds, withdrawal, roles and isolation). The planned Playwright browser test moves to Milestone 17. |
 | Not built | Per-category lead preferences (value bands, project types); `RADIUS` areas; quotes; sponsored placement; automatic credit clawback when a credit-pack payment is refunded in Stripe (staff correct it by hand); analytics (Milestone 16). |
+
+## 25. Milestone 16 as built
+
+| Concern | Implementation |
+|---|---|
+| Storage | None: no migration and no new tables. Every figure is computed on request from `lead`, `lead_match`, `lead_claim` and `lead_status_event`, so analytics can't drift from the referrals or keep anything the lead engine has deleted. |
+| Periods | 1, 3, 6 or 12 Brisbane calendar months counting the current one (`?months=`, default 6; anything else is 422 `bad_period`). Partner figures are anchored on when a referral was offered; staff figures on when the lead was made. |
+| Partner analytics | `GET /v1/organisations/{id}/partner/analytics` (`lead.read`, partner organisations only): the partner's own referrals as a funnel (offered, accepted, declined, missed, waiting, in progress, quoted, won, lost), accept rate, win rate (won of decided), share answered within 48 hours (the matching factor's window), median reply time, included referrals, fees paid and refunded; overall and by category, by area (council area, else postcode) and by month. Only rows of `lead_match.partner_organisation_id` = this partner are read. The figures hold counts only, no lead ids or customer details. |
+| Benchmarks | `GET /v1/organisations/{id}/partner/benchmarks` (`lead.read`): for all categories and for each category the partner was offered in the period, other partners' median accept rate, win rate and reply time, each taken as the median of per-partner figures (every partner counts once, however many referrals it had). A figure is released only when at least `ANALYTICS_MIN_PARTNERS` other partners (default 5, 3 to 50) contribute to it; otherwise it is null and a row with no figures is `withheld`. The partner itself is never part of the group; nothing names, identifies or counts the other partners. |
+| Staff | `GET /v1/admin/analytics/marketplace` (`lead.manage`): leads made, no partner available (matching ran and found nobody eligible, so where supply is missing), found a partner, filled, ended with none, withdrawn, open, offers, claims, won and lost, median time to the first acceptance, fees charged and refunded; overall and by category, area and month, and the 50 partners offered the most referrals with their accept, reply and outcome figures. Counts only, never contact details. |
+| Web | Partner: `/partner/analytics` ("Insights" in the partner menu): headline figures, "Compared with other partners" (your figure next to others' median, or "not enough partners yet"), and tables by category, area and month. Staff: `/admin/analytics` ("Marketplace" in the admin menu). Both have a period picker. |
+| Tests | `tests/test_analytics.py`: the period arithmetic in Brisbane, the k threshold per figure, a partner's own funnel and breakdowns (no PII, no other partner's data, no access for other organisations), benchmarks withheld with two other partners and released with three (the test sets k = 3), and the staff view and its permission. Earlier tests' referrals are moved out of every period first, because the test database is shared. Web: helpers and the benchmark table. |
+| Not built | Stored snapshots or exports (CSV); charts; benchmarks by area (a small region would rarely reach k partners); per-user analytics within a partner; customer-side analytics. |

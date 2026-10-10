@@ -1002,6 +1002,132 @@
         "title": "ApprovalRequirementOut",
         "type": "object"
       },
+      "AreaFunnelOut": {
+        "properties": {
+          "accept_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accept Rate"
+          },
+          "accepted": {
+            "title": "Accepted",
+            "type": "integer"
+          },
+          "answered_within_48h_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answered Within 48H Rate"
+          },
+          "area": {
+            "title": "Area",
+            "type": "string"
+          },
+          "declined": {
+            "title": "Declined",
+            "type": "integer"
+          },
+          "fees_cents": {
+            "title": "Fees Cents",
+            "type": "integer"
+          },
+          "in_progress": {
+            "title": "In Progress",
+            "type": "integer"
+          },
+          "included": {
+            "title": "Included",
+            "type": "integer"
+          },
+          "lost": {
+            "title": "Lost",
+            "type": "integer"
+          },
+          "median_response_hours": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Response Hours"
+          },
+          "missed": {
+            "title": "Missed",
+            "type": "integer"
+          },
+          "offered": {
+            "title": "Offered",
+            "type": "integer"
+          },
+          "quoted": {
+            "title": "Quoted",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "state": {
+            "title": "State",
+            "type": "string"
+          },
+          "waiting": {
+            "title": "Waiting",
+            "type": "integer"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "won": {
+            "title": "Won",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offered",
+          "accepted",
+          "declined",
+          "missed",
+          "waiting",
+          "in_progress",
+          "quoted",
+          "won",
+          "lost",
+          "accept_rate",
+          "win_rate",
+          "answered_within_48h_rate",
+          "median_response_hours",
+          "included",
+          "fees_cents",
+          "refunded_cents",
+          "area",
+          "state"
+        ],
+        "title": "AreaFunnelOut",
+        "type": "object"
+      },
       "AssessmentExplanationV1": {
         "additionalProperties": false,
         "properties": {
@@ -1445,6 +1571,94 @@
         ],
         "title": "AuthorRole",
         "type": "string"
+      },
+      "BenchmarkOut": {
+        "description": "Other partners' medians. Each figure is None unless enough partners contribute.",
+        "properties": {
+          "accept_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accept Rate"
+          },
+          "category_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Category Key"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "median_response_hours": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Response Hours"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "withheld": {
+            "title": "Withheld",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "category_key",
+          "category_label",
+          "accept_rate",
+          "win_rate",
+          "median_response_hours",
+          "withheld"
+        ],
+        "title": "BenchmarkOut",
+        "type": "object"
+      },
+      "BenchmarksOut": {
+        "properties": {
+          "min_partners": {
+            "title": "Min Partners",
+            "type": "integer"
+          },
+          "rows": {
+            "items": {
+              "$ref": "#/components/schemas/BenchmarkOut"
+            },
+            "title": "Rows",
+            "type": "array"
+          }
+        },
+        "required": [
+          "min_partners",
+          "rows"
+        ],
+        "title": "BenchmarksOut",
+        "type": "object"
       },
       "BillingOut": {
         "properties": {
@@ -1971,6 +2185,132 @@
           "products"
         ],
         "title": "CatalogueOut",
+        "type": "object"
+      },
+      "CategoryFunnelOut": {
+        "properties": {
+          "accept_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accept Rate"
+          },
+          "accepted": {
+            "title": "Accepted",
+            "type": "integer"
+          },
+          "answered_within_48h_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answered Within 48H Rate"
+          },
+          "category_key": {
+            "title": "Category Key",
+            "type": "string"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "declined": {
+            "title": "Declined",
+            "type": "integer"
+          },
+          "fees_cents": {
+            "title": "Fees Cents",
+            "type": "integer"
+          },
+          "in_progress": {
+            "title": "In Progress",
+            "type": "integer"
+          },
+          "included": {
+            "title": "Included",
+            "type": "integer"
+          },
+          "lost": {
+            "title": "Lost",
+            "type": "integer"
+          },
+          "median_response_hours": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Response Hours"
+          },
+          "missed": {
+            "title": "Missed",
+            "type": "integer"
+          },
+          "offered": {
+            "title": "Offered",
+            "type": "integer"
+          },
+          "quoted": {
+            "title": "Quoted",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "waiting": {
+            "title": "Waiting",
+            "type": "integer"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "won": {
+            "title": "Won",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offered",
+          "accepted",
+          "declined",
+          "missed",
+          "waiting",
+          "in_progress",
+          "quoted",
+          "won",
+          "lost",
+          "accept_rate",
+          "win_rate",
+          "answered_within_48h_rate",
+          "median_response_hours",
+          "included",
+          "fees_cents",
+          "refunded_cents",
+          "category_key",
+          "category_label"
+        ],
+        "title": "CategoryFunnelOut",
         "type": "object"
       },
       "Certainty": {
@@ -4640,6 +4980,122 @@
         "title": "FindingSourceOut",
         "type": "object"
       },
+      "FunnelOut": {
+        "properties": {
+          "accept_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accept Rate"
+          },
+          "accepted": {
+            "title": "Accepted",
+            "type": "integer"
+          },
+          "answered_within_48h_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answered Within 48H Rate"
+          },
+          "declined": {
+            "title": "Declined",
+            "type": "integer"
+          },
+          "fees_cents": {
+            "title": "Fees Cents",
+            "type": "integer"
+          },
+          "in_progress": {
+            "title": "In Progress",
+            "type": "integer"
+          },
+          "included": {
+            "title": "Included",
+            "type": "integer"
+          },
+          "lost": {
+            "title": "Lost",
+            "type": "integer"
+          },
+          "median_response_hours": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Response Hours"
+          },
+          "missed": {
+            "title": "Missed",
+            "type": "integer"
+          },
+          "offered": {
+            "title": "Offered",
+            "type": "integer"
+          },
+          "quoted": {
+            "title": "Quoted",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "waiting": {
+            "title": "Waiting",
+            "type": "integer"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "won": {
+            "title": "Won",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offered",
+          "accepted",
+          "declined",
+          "missed",
+          "waiting",
+          "in_progress",
+          "quoted",
+          "won",
+          "lost",
+          "accept_rate",
+          "win_rate",
+          "answered_within_48h_rate",
+          "median_response_hours",
+          "included",
+          "fees_cents",
+          "refunded_cents"
+        ],
+        "title": "FunnelOut",
+        "type": "object"
+      },
       "GenerateIn": {
         "properties": {
           "format": {
@@ -6887,6 +7343,635 @@
         "title": "MarkedReadOut",
         "type": "object"
       },
+      "MarketAreaOut": {
+        "properties": {
+          "area": {
+            "title": "Area",
+            "type": "string"
+          },
+          "claims": {
+            "title": "Claims",
+            "type": "integer"
+          },
+          "expired_unclaimed": {
+            "title": "Expired Unclaimed",
+            "type": "integer"
+          },
+          "fees_cents": {
+            "title": "Fees Cents",
+            "type": "integer"
+          },
+          "filled": {
+            "title": "Filled",
+            "type": "integer"
+          },
+          "found_partner": {
+            "title": "Found Partner",
+            "type": "integer"
+          },
+          "found_partner_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Found Partner Rate"
+          },
+          "leads": {
+            "title": "Leads",
+            "type": "integer"
+          },
+          "lost": {
+            "title": "Lost",
+            "type": "integer"
+          },
+          "median_hours_to_first_accept": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Hours To First Accept"
+          },
+          "no_partner_available": {
+            "title": "No Partner Available",
+            "type": "integer"
+          },
+          "offers": {
+            "title": "Offers",
+            "type": "integer"
+          },
+          "open": {
+            "title": "Open",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "state": {
+            "title": "State",
+            "type": "string"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "withdrawn": {
+            "title": "Withdrawn",
+            "type": "integer"
+          },
+          "won": {
+            "title": "Won",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "leads",
+          "no_partner_available",
+          "found_partner",
+          "found_partner_rate",
+          "filled",
+          "expired_unclaimed",
+          "withdrawn",
+          "open",
+          "offers",
+          "claims",
+          "won",
+          "lost",
+          "win_rate",
+          "median_hours_to_first_accept",
+          "fees_cents",
+          "refunded_cents",
+          "area",
+          "state"
+        ],
+        "title": "MarketAreaOut",
+        "type": "object"
+      },
+      "MarketCategoryOut": {
+        "properties": {
+          "category_key": {
+            "title": "Category Key",
+            "type": "string"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "claims": {
+            "title": "Claims",
+            "type": "integer"
+          },
+          "expired_unclaimed": {
+            "title": "Expired Unclaimed",
+            "type": "integer"
+          },
+          "fees_cents": {
+            "title": "Fees Cents",
+            "type": "integer"
+          },
+          "filled": {
+            "title": "Filled",
+            "type": "integer"
+          },
+          "found_partner": {
+            "title": "Found Partner",
+            "type": "integer"
+          },
+          "found_partner_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Found Partner Rate"
+          },
+          "leads": {
+            "title": "Leads",
+            "type": "integer"
+          },
+          "lost": {
+            "title": "Lost",
+            "type": "integer"
+          },
+          "median_hours_to_first_accept": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Hours To First Accept"
+          },
+          "no_partner_available": {
+            "title": "No Partner Available",
+            "type": "integer"
+          },
+          "offers": {
+            "title": "Offers",
+            "type": "integer"
+          },
+          "open": {
+            "title": "Open",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "withdrawn": {
+            "title": "Withdrawn",
+            "type": "integer"
+          },
+          "won": {
+            "title": "Won",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "leads",
+          "no_partner_available",
+          "found_partner",
+          "found_partner_rate",
+          "filled",
+          "expired_unclaimed",
+          "withdrawn",
+          "open",
+          "offers",
+          "claims",
+          "won",
+          "lost",
+          "win_rate",
+          "median_hours_to_first_accept",
+          "fees_cents",
+          "refunded_cents",
+          "category_key",
+          "category_label"
+        ],
+        "title": "MarketCategoryOut",
+        "type": "object"
+      },
+      "MarketMonthOut": {
+        "properties": {
+          "claims": {
+            "title": "Claims",
+            "type": "integer"
+          },
+          "expired_unclaimed": {
+            "title": "Expired Unclaimed",
+            "type": "integer"
+          },
+          "fees_cents": {
+            "title": "Fees Cents",
+            "type": "integer"
+          },
+          "filled": {
+            "title": "Filled",
+            "type": "integer"
+          },
+          "found_partner": {
+            "title": "Found Partner",
+            "type": "integer"
+          },
+          "found_partner_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Found Partner Rate"
+          },
+          "leads": {
+            "title": "Leads",
+            "type": "integer"
+          },
+          "lost": {
+            "title": "Lost",
+            "type": "integer"
+          },
+          "median_hours_to_first_accept": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Hours To First Accept"
+          },
+          "month": {
+            "title": "Month",
+            "type": "string"
+          },
+          "no_partner_available": {
+            "title": "No Partner Available",
+            "type": "integer"
+          },
+          "offers": {
+            "title": "Offers",
+            "type": "integer"
+          },
+          "open": {
+            "title": "Open",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "withdrawn": {
+            "title": "Withdrawn",
+            "type": "integer"
+          },
+          "won": {
+            "title": "Won",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "leads",
+          "no_partner_available",
+          "found_partner",
+          "found_partner_rate",
+          "filled",
+          "expired_unclaimed",
+          "withdrawn",
+          "open",
+          "offers",
+          "claims",
+          "won",
+          "lost",
+          "win_rate",
+          "median_hours_to_first_accept",
+          "fees_cents",
+          "refunded_cents",
+          "month"
+        ],
+        "title": "MarketMonthOut",
+        "type": "object"
+      },
+      "MarketPartnerOut": {
+        "properties": {
+          "accept_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accept Rate"
+          },
+          "accepted": {
+            "title": "Accepted",
+            "type": "integer"
+          },
+          "answered_within_48h_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answered Within 48H Rate"
+          },
+          "declined": {
+            "title": "Declined",
+            "type": "integer"
+          },
+          "fees_cents": {
+            "title": "Fees Cents",
+            "type": "integer"
+          },
+          "lost": {
+            "title": "Lost",
+            "type": "integer"
+          },
+          "median_response_hours": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Response Hours"
+          },
+          "missed": {
+            "title": "Missed",
+            "type": "integer"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "offered": {
+            "title": "Offered",
+            "type": "integer"
+          },
+          "partner_id": {
+            "format": "uuid",
+            "title": "Partner Id",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "won": {
+            "title": "Won",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "partner_id",
+          "name",
+          "status",
+          "offered",
+          "accepted",
+          "declined",
+          "missed",
+          "won",
+          "lost",
+          "accept_rate",
+          "win_rate",
+          "answered_within_48h_rate",
+          "median_response_hours",
+          "fees_cents"
+        ],
+        "title": "MarketPartnerOut",
+        "type": "object"
+      },
+      "MarketTotalsOut": {
+        "properties": {
+          "claims": {
+            "title": "Claims",
+            "type": "integer"
+          },
+          "expired_unclaimed": {
+            "title": "Expired Unclaimed",
+            "type": "integer"
+          },
+          "fees_cents": {
+            "title": "Fees Cents",
+            "type": "integer"
+          },
+          "filled": {
+            "title": "Filled",
+            "type": "integer"
+          },
+          "found_partner": {
+            "title": "Found Partner",
+            "type": "integer"
+          },
+          "found_partner_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Found Partner Rate"
+          },
+          "leads": {
+            "title": "Leads",
+            "type": "integer"
+          },
+          "lost": {
+            "title": "Lost",
+            "type": "integer"
+          },
+          "median_hours_to_first_accept": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Hours To First Accept"
+          },
+          "no_partner_available": {
+            "title": "No Partner Available",
+            "type": "integer"
+          },
+          "offers": {
+            "title": "Offers",
+            "type": "integer"
+          },
+          "open": {
+            "title": "Open",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "withdrawn": {
+            "title": "Withdrawn",
+            "type": "integer"
+          },
+          "won": {
+            "title": "Won",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "leads",
+          "no_partner_available",
+          "found_partner",
+          "found_partner_rate",
+          "filled",
+          "expired_unclaimed",
+          "withdrawn",
+          "open",
+          "offers",
+          "claims",
+          "won",
+          "lost",
+          "win_rate",
+          "median_hours_to_first_accept",
+          "fees_cents",
+          "refunded_cents"
+        ],
+        "title": "MarketTotalsOut",
+        "type": "object"
+      },
+      "MarketplaceAnalyticsOut": {
+        "properties": {
+          "by_area": {
+            "items": {
+              "$ref": "#/components/schemas/MarketAreaOut"
+            },
+            "title": "By Area",
+            "type": "array"
+          },
+          "by_category": {
+            "items": {
+              "$ref": "#/components/schemas/MarketCategoryOut"
+            },
+            "title": "By Category",
+            "type": "array"
+          },
+          "by_month": {
+            "items": {
+              "$ref": "#/components/schemas/MarketMonthOut"
+            },
+            "title": "By Month",
+            "type": "array"
+          },
+          "months": {
+            "title": "Months",
+            "type": "integer"
+          },
+          "partners": {
+            "items": {
+              "$ref": "#/components/schemas/MarketPartnerOut"
+            },
+            "title": "Partners",
+            "type": "array"
+          },
+          "period_end": {
+            "format": "date-time",
+            "title": "Period End",
+            "type": "string"
+          },
+          "period_start": {
+            "format": "date-time",
+            "title": "Period Start",
+            "type": "string"
+          },
+          "totals": {
+            "$ref": "#/components/schemas/MarketTotalsOut"
+          }
+        },
+        "required": [
+          "months",
+          "period_start",
+          "period_end",
+          "totals",
+          "by_category",
+          "by_area",
+          "by_month",
+          "partners"
+        ],
+        "title": "MarketplaceAnalyticsOut",
+        "type": "object"
+      },
       "MarketplaceCategoryOut": {
         "properties": {
           "description": {
@@ -7098,6 +8183,127 @@
           "roles"
         ],
         "title": "MembershipOut",
+        "type": "object"
+      },
+      "MonthFunnelOut": {
+        "properties": {
+          "accept_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accept Rate"
+          },
+          "accepted": {
+            "title": "Accepted",
+            "type": "integer"
+          },
+          "answered_within_48h_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answered Within 48H Rate"
+          },
+          "declined": {
+            "title": "Declined",
+            "type": "integer"
+          },
+          "fees_cents": {
+            "title": "Fees Cents",
+            "type": "integer"
+          },
+          "in_progress": {
+            "title": "In Progress",
+            "type": "integer"
+          },
+          "included": {
+            "title": "Included",
+            "type": "integer"
+          },
+          "lost": {
+            "title": "Lost",
+            "type": "integer"
+          },
+          "median_response_hours": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Response Hours"
+          },
+          "missed": {
+            "title": "Missed",
+            "type": "integer"
+          },
+          "month": {
+            "title": "Month",
+            "type": "string"
+          },
+          "offered": {
+            "title": "Offered",
+            "type": "integer"
+          },
+          "quoted": {
+            "title": "Quoted",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "waiting": {
+            "title": "Waiting",
+            "type": "integer"
+          },
+          "win_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Win Rate"
+          },
+          "won": {
+            "title": "Won",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "offered",
+          "accepted",
+          "declined",
+          "missed",
+          "waiting",
+          "in_progress",
+          "quoted",
+          "won",
+          "lost",
+          "accept_rate",
+          "win_rate",
+          "answered_within_48h_rate",
+          "median_response_hours",
+          "included",
+          "fees_cents",
+          "refunded_cents",
+          "month"
+        ],
+        "title": "MonthFunnelOut",
         "type": "object"
       },
       "NotCheckedOut": {
@@ -8220,6 +9426,59 @@
           "retrieved_at"
         ],
         "title": "ParcelOut",
+        "type": "object"
+      },
+      "PartnerAnalyticsOut": {
+        "properties": {
+          "by_area": {
+            "items": {
+              "$ref": "#/components/schemas/AreaFunnelOut"
+            },
+            "title": "By Area",
+            "type": "array"
+          },
+          "by_category": {
+            "items": {
+              "$ref": "#/components/schemas/CategoryFunnelOut"
+            },
+            "title": "By Category",
+            "type": "array"
+          },
+          "by_month": {
+            "items": {
+              "$ref": "#/components/schemas/MonthFunnelOut"
+            },
+            "title": "By Month",
+            "type": "array"
+          },
+          "months": {
+            "title": "Months",
+            "type": "integer"
+          },
+          "period_end": {
+            "format": "date-time",
+            "title": "Period End",
+            "type": "string"
+          },
+          "period_start": {
+            "format": "date-time",
+            "title": "Period Start",
+            "type": "string"
+          },
+          "totals": {
+            "$ref": "#/components/schemas/FunnelOut"
+          }
+        },
+        "required": [
+          "months",
+          "period_start",
+          "period_end",
+          "totals",
+          "by_category",
+          "by_area",
+          "by_month"
+        ],
+        "title": "PartnerAnalyticsOut",
         "type": "object"
       },
       "PartnerApplicationIn": {
@@ -17810,6 +19069,52 @@
         ]
       }
     },
+    "/v1/admin/analytics/marketplace": {
+      "get": {
+        "description": "Leads, supply gaps, speed and fees across the marketplace (no customer details).",
+        "operationId": "marketplace_analytics_v1_admin_analytics_marketplace_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "months",
+            "required": false,
+            "schema": {
+              "default": 6,
+              "maximum": 12,
+              "minimum": 1,
+              "title": "Months",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketplaceAnalyticsOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Marketplace Analytics",
+        "tags": [
+          "admin: analytics"
+        ]
+      }
+    },
     "/v1/admin/audit/verify": {
       "get": {
         "operationId": "verify_audit_chain_v1_admin_audit_verify_get",
@@ -24144,6 +25449,118 @@
         "summary": "Update Partner",
         "tags": [
           "partners"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/analytics": {
+      "get": {
+        "description": "This partner's referrals over the period: funnel, response, spend, by category,\narea and month.",
+        "operationId": "partner_analytics_v1_organisations__organisation_id__partner_analytics_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "months",
+            "required": false,
+            "schema": {
+              "default": 6,
+              "maximum": 12,
+              "minimum": 1,
+              "title": "Months",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerAnalyticsOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Partner Analytics",
+        "tags": [
+          "analytics"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/benchmarks": {
+      "get": {
+        "description": "Other partners' medians, overall and in this partner's categories; a figure is\nwithheld unless enough partners contribute.",
+        "operationId": "partner_benchmarks_v1_organisations__organisation_id__partner_benchmarks_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "months",
+            "required": false,
+            "schema": {
+              "default": 6,
+              "maximum": 12,
+              "minimum": 1,
+              "title": "Months",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BenchmarksOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Partner Benchmarks",
+        "tags": [
+          "analytics"
         ]
       }
     },

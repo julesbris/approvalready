@@ -80,6 +80,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/analytics/marketplace": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Marketplace Analytics
+         * @description Leads, supply gaps, speed and fees across the marketplace (no customer details).
+         */
+        get: operations["marketplace_analytics_v1_admin_analytics_marketplace_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/audit/verify": {
         parameters: {
             query?: never;
@@ -2056,6 +2076,48 @@ export interface paths {
         head?: never;
         /** Update Partner */
         patch: operations["update_partner_v1_organisations__organisation_id__partner_patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/analytics": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Partner Analytics
+         * @description This partner's referrals over the period: funnel, response, spend, by category,
+         *     area and month.
+         */
+        get: operations["partner_analytics_v1_organisations__organisation_id__partner_analytics_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/benchmarks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Partner Benchmarks
+         * @description Other partners' medians, overall and in this partner's categories; a figure is
+         *     withheld unless enough partners contribute.
+         */
+        get: operations["partner_benchmarks_v1_organisations__organisation_id__partner_benchmarks_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/v1/organisations/{organisation_id}/partner/categories": {
@@ -4035,6 +4097,45 @@ export interface components {
             /** Title */
             title: string;
         };
+        /** AreaFunnelOut */
+        AreaFunnelOut: {
+            /** Accept Rate */
+            accept_rate: number | null;
+            /** Accepted */
+            accepted: number;
+            /** Answered Within 48H Rate */
+            answered_within_48h_rate: number | null;
+            /** Area */
+            area: string;
+            /** Declined */
+            declined: number;
+            /** Fees Cents */
+            fees_cents: number;
+            /** In Progress */
+            in_progress: number;
+            /** Included */
+            included: number;
+            /** Lost */
+            lost: number;
+            /** Median Response Hours */
+            median_response_hours: number | null;
+            /** Missed */
+            missed: number;
+            /** Offered */
+            offered: number;
+            /** Quoted */
+            quoted: number;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** State */
+            state: string;
+            /** Waiting */
+            waiting: number;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Won */
+            won: number;
+        };
         /** AssessmentExplanationV1 */
         AssessmentExplanationV1: {
             /**
@@ -4248,6 +4349,31 @@ export interface components {
          * @enum {string}
          */
         AuthorRole: "CUSTOMER" | "REVIEWER";
+        /**
+         * BenchmarkOut
+         * @description Other partners' medians. Each figure is None unless enough partners contribute.
+         */
+        BenchmarkOut: {
+            /** Accept Rate */
+            accept_rate: number | null;
+            /** Category Key */
+            category_key: string | null;
+            /** Category Label */
+            category_label: string;
+            /** Median Response Hours */
+            median_response_hours: number | null;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Withheld */
+            withheld: boolean;
+        };
+        /** BenchmarksOut */
+        BenchmarksOut: {
+            /** Min Partners */
+            min_partners: number;
+            /** Rows */
+            rows: components["schemas"]["BenchmarkOut"][];
+        };
         /** BillingOut */
         BillingOut: {
             /** Allowances */
@@ -4388,6 +4514,45 @@ export interface components {
              * @description Products with a price on sale.
              */
             products: components["schemas"]["ProductOut"][];
+        };
+        /** CategoryFunnelOut */
+        CategoryFunnelOut: {
+            /** Accept Rate */
+            accept_rate: number | null;
+            /** Accepted */
+            accepted: number;
+            /** Answered Within 48H Rate */
+            answered_within_48h_rate: number | null;
+            /** Category Key */
+            category_key: string;
+            /** Category Label */
+            category_label: string;
+            /** Declined */
+            declined: number;
+            /** Fees Cents */
+            fees_cents: number;
+            /** In Progress */
+            in_progress: number;
+            /** Included */
+            included: number;
+            /** Lost */
+            lost: number;
+            /** Median Response Hours */
+            median_response_hours: number | null;
+            /** Missed */
+            missed: number;
+            /** Offered */
+            offered: number;
+            /** Quoted */
+            quoted: number;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** Waiting */
+            waiting: number;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Won */
+            won: number;
         };
         /**
          * Certainty
@@ -5379,6 +5544,41 @@ export interface components {
             /** Verification Status */
             verification_status: string;
         };
+        /** FunnelOut */
+        FunnelOut: {
+            /** Accept Rate */
+            accept_rate: number | null;
+            /** Accepted */
+            accepted: number;
+            /** Answered Within 48H Rate */
+            answered_within_48h_rate: number | null;
+            /** Declined */
+            declined: number;
+            /** Fees Cents */
+            fees_cents: number;
+            /** In Progress */
+            in_progress: number;
+            /** Included */
+            included: number;
+            /** Lost */
+            lost: number;
+            /** Median Response Hours */
+            median_response_hours: number | null;
+            /** Missed */
+            missed: number;
+            /** Offered */
+            offered: number;
+            /** Quoted */
+            quoted: number;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** Waiting */
+            waiting: number;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Won */
+            won: number;
+        };
         /** GenerateIn */
         GenerateIn: {
             format: components["schemas"]["OutputFormat"];
@@ -6110,6 +6310,214 @@ export interface components {
             /** Marked */
             marked: number;
         };
+        /** MarketAreaOut */
+        MarketAreaOut: {
+            /** Area */
+            area: string;
+            /** Claims */
+            claims: number;
+            /** Expired Unclaimed */
+            expired_unclaimed: number;
+            /** Fees Cents */
+            fees_cents: number;
+            /** Filled */
+            filled: number;
+            /** Found Partner */
+            found_partner: number;
+            /** Found Partner Rate */
+            found_partner_rate: number | null;
+            /** Leads */
+            leads: number;
+            /** Lost */
+            lost: number;
+            /** Median Hours To First Accept */
+            median_hours_to_first_accept: number | null;
+            /** No Partner Available */
+            no_partner_available: number;
+            /** Offers */
+            offers: number;
+            /** Open */
+            open: number;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** State */
+            state: string;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Withdrawn */
+            withdrawn: number;
+            /** Won */
+            won: number;
+        };
+        /** MarketCategoryOut */
+        MarketCategoryOut: {
+            /** Category Key */
+            category_key: string;
+            /** Category Label */
+            category_label: string;
+            /** Claims */
+            claims: number;
+            /** Expired Unclaimed */
+            expired_unclaimed: number;
+            /** Fees Cents */
+            fees_cents: number;
+            /** Filled */
+            filled: number;
+            /** Found Partner */
+            found_partner: number;
+            /** Found Partner Rate */
+            found_partner_rate: number | null;
+            /** Leads */
+            leads: number;
+            /** Lost */
+            lost: number;
+            /** Median Hours To First Accept */
+            median_hours_to_first_accept: number | null;
+            /** No Partner Available */
+            no_partner_available: number;
+            /** Offers */
+            offers: number;
+            /** Open */
+            open: number;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Withdrawn */
+            withdrawn: number;
+            /** Won */
+            won: number;
+        };
+        /** MarketMonthOut */
+        MarketMonthOut: {
+            /** Claims */
+            claims: number;
+            /** Expired Unclaimed */
+            expired_unclaimed: number;
+            /** Fees Cents */
+            fees_cents: number;
+            /** Filled */
+            filled: number;
+            /** Found Partner */
+            found_partner: number;
+            /** Found Partner Rate */
+            found_partner_rate: number | null;
+            /** Leads */
+            leads: number;
+            /** Lost */
+            lost: number;
+            /** Median Hours To First Accept */
+            median_hours_to_first_accept: number | null;
+            /** Month */
+            month: string;
+            /** No Partner Available */
+            no_partner_available: number;
+            /** Offers */
+            offers: number;
+            /** Open */
+            open: number;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Withdrawn */
+            withdrawn: number;
+            /** Won */
+            won: number;
+        };
+        /** MarketPartnerOut */
+        MarketPartnerOut: {
+            /** Accept Rate */
+            accept_rate: number | null;
+            /** Accepted */
+            accepted: number;
+            /** Answered Within 48H Rate */
+            answered_within_48h_rate: number | null;
+            /** Declined */
+            declined: number;
+            /** Fees Cents */
+            fees_cents: number;
+            /** Lost */
+            lost: number;
+            /** Median Response Hours */
+            median_response_hours: number | null;
+            /** Missed */
+            missed: number;
+            /** Name */
+            name: string;
+            /** Offered */
+            offered: number;
+            /**
+             * Partner Id
+             * Format: uuid
+             */
+            partner_id: string;
+            /** Status */
+            status: string;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Won */
+            won: number;
+        };
+        /** MarketTotalsOut */
+        MarketTotalsOut: {
+            /** Claims */
+            claims: number;
+            /** Expired Unclaimed */
+            expired_unclaimed: number;
+            /** Fees Cents */
+            fees_cents: number;
+            /** Filled */
+            filled: number;
+            /** Found Partner */
+            found_partner: number;
+            /** Found Partner Rate */
+            found_partner_rate: number | null;
+            /** Leads */
+            leads: number;
+            /** Lost */
+            lost: number;
+            /** Median Hours To First Accept */
+            median_hours_to_first_accept: number | null;
+            /** No Partner Available */
+            no_partner_available: number;
+            /** Offers */
+            offers: number;
+            /** Open */
+            open: number;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Withdrawn */
+            withdrawn: number;
+            /** Won */
+            won: number;
+        };
+        /** MarketplaceAnalyticsOut */
+        MarketplaceAnalyticsOut: {
+            /** By Area */
+            by_area: components["schemas"]["MarketAreaOut"][];
+            /** By Category */
+            by_category: components["schemas"]["MarketCategoryOut"][];
+            /** By Month */
+            by_month: components["schemas"]["MarketMonthOut"][];
+            /** Months */
+            months: number;
+            /** Partners */
+            partners: components["schemas"]["MarketPartnerOut"][];
+            /**
+             * Period End
+             * Format: date-time
+             */
+            period_end: string;
+            /**
+             * Period Start
+             * Format: date-time
+             */
+            period_start: string;
+            totals: components["schemas"]["MarketTotalsOut"];
+        };
         /** MarketplaceCategoryOut */
         MarketplaceCategoryOut: {
             /** Description */
@@ -6201,6 +6609,43 @@ export interface components {
             organisation_id: string;
             /** Roles */
             roles: string[];
+        };
+        /** MonthFunnelOut */
+        MonthFunnelOut: {
+            /** Accept Rate */
+            accept_rate: number | null;
+            /** Accepted */
+            accepted: number;
+            /** Answered Within 48H Rate */
+            answered_within_48h_rate: number | null;
+            /** Declined */
+            declined: number;
+            /** Fees Cents */
+            fees_cents: number;
+            /** In Progress */
+            in_progress: number;
+            /** Included */
+            included: number;
+            /** Lost */
+            lost: number;
+            /** Median Response Hours */
+            median_response_hours: number | null;
+            /** Missed */
+            missed: number;
+            /** Month */
+            month: string;
+            /** Offered */
+            offered: number;
+            /** Quoted */
+            quoted: number;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** Waiting */
+            waiting: number;
+            /** Win Rate */
+            win_rate: number | null;
+            /** Won */
+            won: number;
         };
         /** NotCheckedOut */
         NotCheckedOut: {
@@ -6571,6 +7016,28 @@ export interface components {
             source_url: string;
             /** Tenure */
             tenure: string | null;
+        };
+        /** PartnerAnalyticsOut */
+        PartnerAnalyticsOut: {
+            /** By Area */
+            by_area: components["schemas"]["AreaFunnelOut"][];
+            /** By Category */
+            by_category: components["schemas"]["CategoryFunnelOut"][];
+            /** By Month */
+            by_month: components["schemas"]["MonthFunnelOut"][];
+            /** Months */
+            months: number;
+            /**
+             * Period End
+             * Format: date-time
+             */
+            period_end: string;
+            /**
+             * Period Start
+             * Format: date-time
+             */
+            period_start: string;
+            totals: components["schemas"]["FunnelOut"];
         };
         /** PartnerApplicationIn */
         PartnerApplicationIn: {
@@ -9833,6 +10300,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AIUsageOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    marketplace_analytics_v1_admin_analytics_marketplace_get: {
+        parameters: {
+            query?: {
+                months?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarketplaceAnalyticsOut"];
                 };
             };
             /** @description Validation Error */
@@ -14010,6 +14508,72 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    partner_analytics_v1_organisations__organisation_id__partner_analytics_get: {
+        parameters: {
+            query?: {
+                months?: number;
+            };
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerAnalyticsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    partner_benchmarks_v1_organisations__organisation_id__partner_benchmarks_get: {
+        parameters: {
+            query?: {
+                months?: number;
+            };
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BenchmarksOut"];
                 };
             };
             /** @description Validation Error */

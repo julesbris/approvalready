@@ -13,6 +13,7 @@ export function AdminNav({
     | "professionals"
     | "partners"
     | "leads"
+    | "analytics"
     | "ai"
     | "billing";
 }) {
@@ -25,6 +26,7 @@ export function AdminNav({
     ["professionals", "/admin/professionals", "Professionals"],
     ["partners", "/admin/partners", "Partners"],
     ["leads", "/admin/leads", "Referrals"],
+    ["analytics", "/admin/analytics", "Marketplace"],
     ["ai", "/admin/ai", "AI"],
     ["billing", "/admin/billing", "Billing"],
   ] as const;
