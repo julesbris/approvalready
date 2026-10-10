@@ -5,8 +5,8 @@ Only the check constraints that list the verticals change. A downgrade puts the 
 back as ``NOT VALID`` constraints, so rows already using ``TRADE`` (synced categories, the
 review product, the trade questionnaire) don't block it; new rows are still checked.
 
-Revision ID: 0026
-Revises: 0025
+Revision ID: 0027
+Revises: 0026
 Create Date: 2026-10-10
 """
 
@@ -14,8 +14,8 @@ from collections.abc import Sequence
 
 from alembic import op
 
-revision: str = "0026"
-down_revision: str | None = "0025"
+revision: str = "0027"
+down_revision: str | None = "0026"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

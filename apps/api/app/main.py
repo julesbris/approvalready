@@ -22,6 +22,7 @@ from app.core.middleware import (
     SecurityHeadersMiddleware,
 )
 from app.core.resources import create_resources
+from app.modules.accounts.router import admin_router as accounts_admin_router
 from app.modules.ai.router import admin_router as ai_admin_router
 from app.modules.ai.router import router as ai_router
 from app.modules.ai.router import status_router as ai_status_router
@@ -139,6 +140,7 @@ def create_app(
     app.include_router(privacy_account_router)
     app.include_router(privacy_public_router)
     app.include_router(privacy_admin_router)
+    app.include_router(accounts_admin_router)
     app.include_router(tenancy_router)
     app.include_router(projects_router)
     app.include_router(entities_router)

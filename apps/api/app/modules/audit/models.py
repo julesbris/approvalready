@@ -24,6 +24,7 @@ class AuditEvent(UUIDPrimaryKeyMixin, Base):
     __table_args__ = (
         Index("ix_audit_event_organisation_id_seq", "organisation_id", "seq"),
         Index("ix_audit_event_actor_user_id_seq", "actor_user_id", "seq"),
+        Index("ix_audit_event_target_seq", "target_type", "target_id", "seq"),
     )
 
     # Chain order. Inserts are serialised by an advisory lock, so seq order == chain order.
