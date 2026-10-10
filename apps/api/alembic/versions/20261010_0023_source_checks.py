@@ -7,7 +7,7 @@ official addresses and keeps a snapshot when the text changes.
 * ``source_check``: one row per attempt to read a document (append-only for the app role).
 
 Revision ID: 0023
-Revises: 0016
+Revises: 0022
 Create Date: 2026-10-10
 """
 
@@ -17,8 +17,7 @@ import sqlalchemy as sa
 from alembic import op
 
 revision: str = "0023"
-# Built alongside Milestones 18-23; point this at the newest of 0017-0022 on rebase.
-down_revision: str | None = "0016"
+down_revision: str | None = "0022"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

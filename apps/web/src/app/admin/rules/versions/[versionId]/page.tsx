@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 import { AdminNav } from "@/components/admin/AdminNav";
 import { RuleVersionEditor } from "@/components/admin/RuleVersionEditor";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default async function RuleVersionPage({
   if (!session.permissions.includes("rule.author")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="rule authoring" />
+        <AdminNoAccess what="rule authoring" session={session} />
       </AppShell>
     );
   }

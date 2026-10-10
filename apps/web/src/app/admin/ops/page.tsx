@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import { AdminNav } from "@/components/admin/AdminNav";
 import { OpsStatus } from "@/components/admin/OpsStatus";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = { title: "Operations", robots: { index: false } };
@@ -13,7 +13,7 @@ export default async function OpsAdminPage() {
   if (!session.permissions.includes("platform.audit.read")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="operations" />
+        <AdminNoAccess what="operations" session={session} />
       </AppShell>
     );
   }

@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 import { AdminNav } from "@/components/admin/AdminNav";
 import { DocumentWorkspace } from "@/components/admin/DocumentWorkspace";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default async function SourceDocumentPage({
   if (!session.permissions.includes("source.manage")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="the admin area" />
+        <AdminNoAccess what="the admin area" session={session} />
       </AppShell>
     );
   }

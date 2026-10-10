@@ -7,7 +7,8 @@ import { loadSeed, signIn } from "./support";
  * apps/api/tests/test_leads.py::test_partner_journey, through the UI. A partner business
  * applies, platform staff check and approve it, a customer whose assessment names the
  * partner's categories asks to be introduced, and the partner sees the offer, accepts it,
- * gets the contact details and records the outcome; the customer sees who accepted.
+ * gets the contact details, records contacting the customer and sends a quote (Milestone 23);
+ * the customer sees who accepted and accepts the quote, and the partner sees the work won.
  *
  * The accounts, staff roles, the rule and the customer's assessed project are seeded by
  * scripts/e2e.sh (apps/api/scripts/e2e_stack.py); everything below happens in the browser.
@@ -17,7 +18,7 @@ const seed = loadSeed();
 const business = seed.partner.business;
 const BUSINESS_PHONE = "(07) 4000 0000";
 
-test("partner journey: apply, approve, introduce, accept, outcome", async ({ browser }) => {
+test("partner journey: apply, approve, introduce, accept, quote, win", async ({ browser }) => {
   const partner = await signIn(browser, seed.partner.email, seed.password, "/partner/apply");
 
   await test.step("a partner business applies through the partner portal", async () => {
@@ -76,7 +77,13 @@ test("partner journey: apply, approve, introduce, accept, outcome", async ({ bro
   });
 
   await test.step("platform staff check the credentials and approve the partner", async () => {
-    const page = await signIn(browser, seed.staff.email, seed.password, "/projects");
+    const page = await signIn(
+      browser,
+      seed.staff.email,
+      seed.password,
+      "/projects",
+      seed.staff.totpSecret,
+    );
     // Staff sign in to their personal organisation; switch to the platform organisation.
     const switched = page.waitForResponse(
       (r) => r.url().endsWith("/api/v1/auth/session/organisation") && r.ok(),
@@ -148,7 +155,7 @@ test("partner journey: apply, approve, introduce, accept, outcome", async ({ bro
 
     await expect(page).toHaveURL(/\/referrals\?sent=1$/);
     await expect(page.getByText("We're offering your request")).toBeVisible();
-    const request = page.getByRole("region", { name: "Town planner" });
+    const request = page.getByRole("region", { name: "Town planner", exact: true });
     await expect(request).toContainText("Finding partners");
     await expect(request).toContainText("0 of 2 accepted");
   });
@@ -190,26 +197,55 @@ test("partner journey: apply, approve, introduce, accept, outcome", async ({ bro
     await expect(contact).not.toContainText(seed.customer.email);
   });
 
-  await test.step("the partner records contacting, quoting and winning the work", async () => {
+  await test.step("the partner records contacting and sends a quote", async () => {
     const page = partner;
     const outcome = page.getByRole("region", { name: "What happened?" });
-    for (const step of ["Contacted", "Quoted", "Won"]) {
-      await outcome.getByRole("button", { name: step, exact: true }).click();
-      await expect(page.getByRole("heading", { level: 1 })).toHaveText(`Town planner ${step}`);
-    }
-    await expect(outcome).toHaveCount(0);
-    await page.goto("/partner/leads");
-    await expect(page.getByRole("region", { name: "Waiting for you" })).toContainText(
-      "No new referrals right now.",
-    );
+    await outcome.getByRole("button", { name: "Contacted", exact: true }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Town planner Contacted");
+
+    const quote = page.getByRole("region", { name: "Your quote" });
+    await quote.getByRole("button", { name: "Send a quote" }).click();
+    await quote.getByLabel("Title").fill("Development application for a granny flat");
+    await quote
+      .getByLabel("What the work includes (and doesn't)")
+      .fill("Prepare and lodge the development application. Council fees are extra.");
+    await quote.getByLabel("Item", { exact: true }).fill("Planning report and lodgement");
+    await quote.getByLabel("Amount ($)").fill("1800");
+    await expect(quote).toContainText("Total $1,800.00");
+    await quote.getByRole("button", { name: "Send quote" }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Town planner Quoted");
+    await expect(quote).toContainText("Waiting for an answer");
   });
 
   await test.step("the customer sees who accepted", async () => {
     const page = customer;
     await page.goto(`/projects/${seed.projectId}/referrals`);
-    const request = page.getByRole("region", { name: "Town planner" });
+    const request = page.getByRole("region", { name: "Town planner", exact: true });
     await expect(request).toContainText(`${business} accepted`);
     await expect(request).toContainText(BUSINESS_PHONE);
     await expect(request).toContainText("1 of 2 accepted");
+  });
+
+  await test.step("the customer accepts the quote", async () => {
+    const page = customer;
+    const quotes = page.getByRole("region", { name: "Quotes", exact: true });
+    await expect(quotes).toContainText(business);
+    await expect(quotes).toContainText("$1,800.00");
+    page.once("dialog", (dialog) => void dialog.accept());
+    await quotes.getByRole("button", { name: "Accept quote" }).click();
+    await expect(quotes.getByRole("button", { name: "Accept quote" })).toHaveCount(0);
+    await expect(quotes).toContainText("Accepted");
+  });
+
+  await test.step("the partner sees the work won", async () => {
+    const page = partner;
+    await page.reload();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Town planner Won");
+    await expect(page.getByRole("region", { name: "What happened?" })).toHaveCount(0);
+    await expect(page.getByRole("region", { name: "Your quote" })).toContainText("Accepted");
+    await page.goto("/partner/leads");
+    await expect(page.getByRole("region", { name: "Waiting for you" })).toContainText(
+      "No new referrals right now.",
+    );
   });
 });

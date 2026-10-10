@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { AdminNav } from "@/components/admin/AdminNav";
 import { SOURCE_TYPES, SourceForms } from "@/components/admin/SourceForms";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { VERIFICATION_LABELS } from "@/lib/assessment";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
@@ -25,7 +25,7 @@ export default async function SourcesPage() {
   if (!session.permissions.includes("source.manage")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="the admin area" />
+        <AdminNoAccess what="the admin area" session={session} />
       </AppShell>
     );
   }

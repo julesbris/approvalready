@@ -7,7 +7,7 @@ from typing import Annotated
 from pydantic import BaseModel, Field, StringConstraints
 
 from app.modules.assessments.schemas import AssessmentOut
-from app.modules.billing.models import PaymentStatus
+from app.modules.billing.models import PaymentStatus, RefundReason, RefundStatus
 from app.modules.documents.models import EvidenceStatus, ReviewStatus
 from app.modules.documents.schemas import DocumentOut, EvidenceOut
 from app.modules.projects.models import ProjectStatus, Vertical
@@ -198,6 +198,26 @@ class AssignIn(BaseModel):
     due_on: date | None = None
 
 
+class RefundOut(BaseModel):
+    """Money given back on the review's payment (Milestone 22)."""
+
+    id: uuid.UUID
+    amount_cents: int
+    currency: str
+    reason: RefundReason
+    status: RefundStatus = Field(
+        description="PENDING: being sent to Stripe. SUBMITTED or SUCCEEDED: on its way to the "
+        "card. FAILED: Stripe refused it and staff are following it up."
+    )
+    created_at: datetime
+    sent_at: datetime | None
+
+
+class StaffRefundOut(RefundOut):
+    note: str | None
+    error: str | None
+
+
 class ReviewPaymentOut(BaseModel):
     """The payment for a priced review (Milestone 13), as Stripe last confirmed it."""
 
@@ -206,6 +226,26 @@ class ReviewPaymentOut(BaseModel):
     amount_cents: int
     currency: str
     paid_at: datetime | None
+    refunded_cents: int
+    refunds: list[RefundOut]
+
+
+class StaffPaymentOut(BaseModel):
+    id: uuid.UUID
+    status: PaymentStatus
+    amount_cents: int
+    currency: str
+    paid_at: datetime | None
+    refunded_cents: int
+    refundable_cents: int = Field(description="What staff can still refund.")
+    refunds: list[StaffRefundOut]
+
+
+class RefundIn(BaseModel):
+    amount_cents: int | None = Field(
+        default=None, gt=0, description="Leave out to refund everything that is left."
+    )
+    note: str = Field(min_length=3, max_length=500, description="Why (staff only).")
 
 
 class ReviewSummary(BaseModel):
@@ -221,6 +261,9 @@ class ReviewSummary(BaseModel):
     started_at: datetime | None
     closed_at: datetime | None
     payment: ReviewPaymentOut | None = None
+    cancel_refund_cents: int = Field(
+        default=0, description="What cancelling now would refund (0: nothing)."
+    )
 
 
 class ReviewOut(ReviewSummary):
@@ -277,3 +320,4 @@ class StaffReviewOut(BaseModel):
     candidates: list[ProfessionalOut] = Field(
         description="Active professionals who can be assigned this review today."
     )
+    payment: StaffPaymentOut | None = None

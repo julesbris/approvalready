@@ -36,6 +36,7 @@ from app.modules.documents.storage import ObjectStorage, StorageError, create_st
 if TYPE_CHECKING:
     from app.modules.ai.provider import AIProvider
     from app.modules.ai.service import Prices
+    from app.modules.billing.stripe import StripeClient
 
 log = logging.getLogger(__name__)
 
@@ -43,6 +44,7 @@ SCAN_TASK = "documents.scan"
 GENERATE_TASK = "documents.generate"
 AI_TASK = "ai.run"
 BILLING_EVENT_TASK = "billing.process_event"
+REFUND_TASK = "billing.send_refund"
 LEAD_MATCH_TASK = "leads.match"
 
 
@@ -68,6 +70,8 @@ class JobContext:
     # For jobs that notify people (lead matching).
     email: EmailProvider | None = None
     settings: Settings | None = None
+    # For refunds (Milestone 22); None while payments are switched off.
+    stripe: StripeClient | None = None
 
 
 class RetryLater(Exception):
@@ -164,13 +168,81 @@ async def ai_job(
 async def billing_event_job(ctx: JobContext, event_id: uuid.UUID) -> str | None:
     """Apply one stored Stripe webhook event. Not tenant-bound up front: the event names
     its organisation only through its Stripe customer (``billing/webhooks.py``)."""
-    from app.modules.billing import webhooks
+    from app.modules.billing import refunds, webhooks
 
     async with ctx.session_factory() as db:
         try:
-            return await webhooks.process_event(db, event_id)
+            result = await webhooks.process_event(db, event_id)
         except webhooks.EventFailed as exc:
             raise RetryLater(str(exc)) from exc
+        new = refunds.take_new(db)
+    # A payment that arrived for a cancelled review is refunded straight away; the sweep
+    # tries again if this fails.
+    for organisation_id, refund_id in new:
+        try:
+            await refund_job(ctx, organisation_id, refund_id, final_attempt=False)
+        except RetryLater:
+            log.warning("refund not sent yet", extra={"refund_id": str(refund_id)})
+    return result
+
+
+async def refund_job(
+    ctx: JobContext, organisation_id: uuid.UUID, refund_id: uuid.UUID, *, final_attempt: bool
+) -> str | None:
+    """Send one refund to Stripe, then tell the customer (or staff, when it failed)."""
+    from app.modules.billing import emails, refunds
+    from app.modules.billing.models import RefundStatus
+    from app.modules.identity.models import AppUser
+    from app.modules.ops import service as ops
+
+    if ctx.stripe is None:
+        log.warning("payments are off: refund left pending", extra={"refund_id": str(refund_id)})
+        return None
+    async with ctx.session_factory() as db:
+        sent = await refunds.send(
+            db, ctx.stripe, organisation_id, refund_id, final_attempt=final_attempt
+        )
+        if sent is None:
+            return None
+        user = await db.get(AppUser, sent.payment.created_by) if sent.payment.created_by else None
+        await db.commit()
+    if sent.status == RefundStatus.PENDING:
+        raise RetryLater(sent.refund.error or "Stripe could not be reached")
+    if ctx.email is None or ctx.settings is None:
+        return sent.status
+    if sent.status == RefundStatus.FAILED:
+        await ops.send_alerts(
+            ctx.session_factory,
+            ctx.email,
+            ctx.settings,
+            [
+                ops.Alert(
+                    title="A refund could not be made",
+                    body=(
+                        f"Stripe did not accept a refund of "
+                        f"{emails.money(sent.refund.amount_cents, sent.refund.currency)} "
+                        f"(payment {sent.payment.id}): {sent.refund.error or 'no reason given'}. "
+                        "Refund it in the Stripe dashboard, or check the payment there."
+                    ),
+                    dedupe_key=f"refund:{sent.refund.id}:failed",
+                )
+            ],
+        )
+    elif user is not None:
+        from app.modules.identity import service as identity
+
+        await identity.send_email(
+            ctx.email,
+            emails.refund_sent(
+                ctx.settings,
+                user.email,
+                user.display_name,
+                organisation_id,
+                sent.refund.amount_cents,
+                sent.refund.currency,
+            ),
+        )
+    return sent.status
 
 
 JobFn = Callable[..., Awaitable[str | None]]
@@ -199,6 +271,7 @@ def create_job_context(
     session_factory: async_sessionmaker[AsyncSession],
     storage: ObjectStorage,
     email: EmailProvider | None = None,
+    stripe: StripeClient | None = None,
 ) -> JobContext:
     from app.modules.ai.provider import create_provider
     from app.modules.ai.service import Prices
@@ -213,18 +286,60 @@ def create_job_context(
         ),
         email=email,
         settings=settings,
+        stripe=stripe,
     )
 
 
-async def run_billing_event(settings: Settings, event_id: str) -> str | None:
+async def _with_billing_context(
+    settings: Settings, job: Callable[[JobContext], Awaitable[str | None]]
+) -> str | None:
+    """Run a billing job with a fresh engine, a Stripe client and email."""
+    from app.core.email import create_email_provider
+    from app.modules.billing.stripe import StripeClient
+    from app.modules.outbox.service import create_sender
+
     engine = create_async_engine(settings.database_url, poolclass=NullPool)
+    stripe = StripeClient(settings) if settings.payments_enabled else None
     try:
+        factory = async_sessionmaker(engine, expire_on_commit=False)
         ctx = create_job_context(
             settings,
-            async_sessionmaker(engine, expire_on_commit=False),
+            factory,
             create_storage(settings),
+            create_sender(settings, factory, create_email_provider(settings)),
+            stripe,
         )
-        return await billing_event_job(ctx, uuid.UUID(event_id))
+        return await job(ctx)
+    finally:
+        if stripe is not None:
+            await stripe.aclose()
+        await engine.dispose()
+
+
+async def run_billing_event(settings: Settings, event_id: str) -> str | None:
+    return await _with_billing_context(
+        settings, lambda ctx: billing_event_job(ctx, uuid.UUID(event_id))
+    )
+
+
+async def run_refund(
+    settings: Settings, organisation_id: str, refund_id: str, *, final_attempt: bool
+) -> str | None:
+    return await _with_billing_context(
+        settings,
+        lambda ctx: refund_job(
+            ctx, uuid.UUID(organisation_id), uuid.UUID(refund_id), final_attempt=final_attempt
+        ),
+    )
+
+
+async def pending_refunds(settings: Settings, older_than_minutes: int) -> list[tuple[str, str]]:
+    from app.modules.billing import refunds
+
+    engine = create_async_engine(settings.database_url, poolclass=NullPool)
+    try:
+        async with async_sessionmaker(engine)() as db:
+            return await refunds.pending(db, older_than_minutes)
     finally:
         await engine.dispose()
 
@@ -273,6 +388,8 @@ class JobRunner(Protocol):
 
     async def billing_event(self, event_id: uuid.UUID) -> None: ...
 
+    async def refund(self, organisation_id: uuid.UUID, refund_id: uuid.UUID) -> None: ...
+
     async def lead_match(self, lead_id: uuid.UUID) -> None: ...
 
 
@@ -293,6 +410,9 @@ class CeleryJobs:
 
     async def billing_event(self, event_id: uuid.UUID) -> None:
         await self._send(BILLING_EVENT_TASK, str(event_id))
+
+    async def refund(self, organisation_id: uuid.UUID, refund_id: uuid.UUID) -> None:
+        await self._send(REFUND_TASK, str(organisation_id), str(refund_id))
 
     async def lead_match(self, lead_id: uuid.UUID) -> None:
         await self._send(LEAD_MATCH_TASK, str(lead_id))
@@ -316,6 +436,12 @@ class InlineJobs:
             await billing_event_job(self.ctx, event_id)
         except RetryLater:
             log.warning("stripe event failed", extra={"event_id": str(event_id)})
+
+    async def refund(self, organisation_id: uuid.UUID, refund_id: uuid.UUID) -> None:
+        try:
+            await refund_job(self.ctx, organisation_id, refund_id, final_attempt=False)
+        except RetryLater:
+            log.warning("refund not sent yet", extra={"refund_id": str(refund_id)})
 
     async def lead_match(self, lead_id: uuid.UUID) -> None:
         from app.modules.leads import jobs as leads

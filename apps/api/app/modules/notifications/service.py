@@ -18,8 +18,14 @@ from app.core.config import Settings
 from app.core.email import EmailProvider
 from app.core.errors import not_found
 from app.modules.identity.models import AppUser
-from app.modules.notifications import emails
-from app.modules.notifications.models import EmailStatus, Notification, NotificationKind
+from app.modules.notifications import emails, preferences
+from app.modules.notifications.models import (
+    CATEGORY_OF,
+    EmailStatus,
+    Notification,
+    NotificationChannel,
+    NotificationKind,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -44,7 +50,12 @@ async def create(
     dedupe_key: str | None = None,
     email: bool = True,
 ) -> uuid.UUID | None:
-    """The new notification's id, or ``None`` when one with this ``dedupe_key`` exists."""
+    """The new notification's id, or ``None`` when one with this ``dedupe_key`` exists or
+    the recipient turned this category off. "In the app only" drops the email."""
+    channel = await preferences.channel_for(db, recipient_user_id, kind)
+    if channel == NotificationChannel.OFF:
+        return None
+    email = email and channel == NotificationChannel.ALL
     values = {
         "organisation_id": organisation_id,
         "recipient_user_id": recipient_user_id,
@@ -73,8 +84,9 @@ async def send_emails(
     organisation_id: uuid.UUID,
     ids: list[uuid.UUID],
 ) -> int:
-    """Email the pending notifications in ``ids`` (call after they are committed). A failure
-    is recorded on the notification and never retried by email; the in-app copy stays."""
+    """Email the pending notifications in ``ids`` (call after they are committed). With the
+    outbox (Milestone 20) ``SENT`` means queued, and the outbox retries delivery; a failure
+    to queue is recorded on the notification, and the in-app copy stays."""
     sent = 0
     for nid in ids:
         n = (
@@ -93,8 +105,17 @@ async def send_emails(
             n.email_status = EmailStatus.FAILED
             await db.commit()
             continue
+        category = CATEGORY_OF.get(NotificationKind(n.kind))
         message = emails.notification(
-            settings, user.email, user.display_name, n.title, n.body, n.link_path
+            settings,
+            user.email,
+            user.display_name,
+            n.title,
+            n.body,
+            n.link_path,
+            unsubscribe=(
+                preferences.unsubscribe_links(settings, user.id, category) if category else None
+            ),
         )
         try:
             await provider.send(message)

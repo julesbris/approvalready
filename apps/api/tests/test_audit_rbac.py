@@ -13,7 +13,7 @@ from app.modules.audit.models import AuditEvent
 from app.modules.tenancy import service as tenancy
 from app.modules.tenancy.models import Organisation, OrganisationMember, Role
 from app.modules.tenancy.rbac import PERMISSION_DESCRIPTIONS, ROLES
-from tests.harness import ApiHarness
+from tests.harness import ApiHarness, enable_mfa
 
 pytestmark = pytest.mark.integration
 
@@ -121,7 +121,7 @@ async def test_hash_chain_verifies_and_detects_tampering(
 
 
 async def test_platform_admin_bootstrap_and_audit_verification(
-    api: ApiHarness, monkeypatch: pytest.MonkeyPatch
+    api: ApiHarness, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
 ) -> None:
     ops = await api.user(name="Ops")
     customer = await api.user()
@@ -137,6 +137,14 @@ async def test_platform_admin_bootstrap_and_audit_verification(
     else:
         assert await cli.grant_platform_role(ops.email, cli.RoleKey.ADMIN) == 0
 
+    assert await cli.platform_access(ops.email) == 0
+    assert await cli.platform_access(customer.email) == 1  # no platform role
+    assert await cli.platform_access("nobody@example.com") == 1
+    assert await cli.platform_access(None) == 0
+    out = capsys.readouterr().out
+    assert "/admin/ops: yes" in out
+    assert f"grant-platform-role --email {customer.email}" in out
+
     async with api.app.state.resources.session_factory() as db:
         platform_id = (
             await db.execute(select(Organisation.id).where(Organisation.kind == "PLATFORM_ADMIN"))
@@ -146,6 +154,15 @@ async def test_platform_admin_bootstrap_and_audit_verification(
     assert (await ops.get("/v1/admin/audit/verify")).status_code == 403
     r = await ops.put("/v1/auth/session/organisation", json={"organisation_id": str(platform_id)})
     assert r.status_code == 200
+    # ...and only for a session that passed two-step sign-in (Milestone 18).
+    assert r.json()["staff_mfa_required"] is True
+    assert r.json()["permissions"] == []
+    r = await ops.get("/v1/admin/audit/verify")
+    assert r.status_code == 403
+    assert r.json()["detail"]["code"] == "mfa_required"
+    await enable_mfa(ops)
+    assert ops.session["staff_mfa_required"] is False
+    assert "platform.audit.read" in ops.session["permissions"]
     r = await ops.get("/v1/admin/audit/verify")
     assert r.status_code == 200
     assert r.json()["ok"] is True

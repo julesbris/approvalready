@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { SiteFooter } from "@/components/public/SiteFooter";
 import { defaultBrand } from "@/lib/brand";
 
 export function AuthShell({
@@ -31,6 +32,7 @@ export function AuthShell({
           {footer ? <div className="auth-footer">{footer}</div> : null}
         </section>
       </main>
+      <SiteFooter />
     </>
   );
 }

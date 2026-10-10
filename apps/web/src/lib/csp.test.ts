@@ -48,6 +48,7 @@ describe("CSP", () => {
     ["/reviews-of-us", false],
     ["/partner", true],
     ["/partner/profile", true],
+    ["/unsubscribe", true],
     ["/projectsx", false],
     ["/", false],
     ["/planning", false],

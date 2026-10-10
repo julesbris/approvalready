@@ -153,7 +153,16 @@ docker compose -f docker-compose.prod.yml --env-file .env exec api \
 ```
 
 This creates the `PLATFORM_ADMIN` organisation on first use. There is no HTTP endpoint for
-this step by design. Check the audit log's hash chain at any time with
+this step by design. Every sign-in starts in the personal organisation: the admin pages offer a
+"Switch to ApprovalReady" button, or pick it in the organisation menu at the top. If an admin
+page still says "No access", see what the account has (changes nothing):
+
+```bash
+docker compose -f docker-compose.prod.yml --env-file .env exec api \
+  python -m app.cli platform-access --email you@example.com
+```
+
+Without `--email` it lists everyone in the platform organisation and their roles. Check the audit log's hash chain at any time with
 `... exec api python -m app.cli verify-audit`.
 
 ### Loading rule content packs (Milestone 5)
@@ -245,6 +254,46 @@ after a partner's included referrals, set a fee per category at `/admin/leads`. 
 buy credit, give the `Lead credits` product a price at `/admin/billing` (one purchase adds that
 much credit). The consent wording lives in `apps/api/app/modules/leads/consent.json` and is
 loaded by the migrate step on every deploy.
+
+### Two-step sign-in for staff (Milestone 18)
+
+From Milestone 18 the admin area needs two-step sign-in: a code from an authenticator app on
+your phone after your password. After deploying, sign in, open **Account**, and under
+**Security** choose **Turn on two-step sign-in**, scan the QR code with an authenticator app
+(Google Authenticator, Microsoft Authenticator, 1Password), type the code it shows and save the
+ten recovery codes somewhere safe (a password manager, or printed). Until then admin pages show
+"Staff pages need two-step sign-in". Every staff member does the same.
+
+Lost phone and recovery codes: on the server, check who is asking, then
+
+```bash
+docker compose -f docker-compose.prod.yml --env-file .env exec api \
+  python -m app.cli auth reset-mfa --email person@example.com
+```
+
+turns it off for that person and signs them out everywhere. The authenticator secrets are
+encrypted with a key derived from `SECRET_KEY`: changing `SECRET_KEY` means everyone has to set
+two-step sign-in up again (reset each person as above). In an emergency
+`STAFF_MFA_REQUIRED=false` in `.env` lifts the requirement (then rebuild); turn it back on
+after.
+
+New and changed passwords are checked against Have I Been Pwned's list of breached passwords
+(`PASSWORD_BREACH_CHECK`, only five characters of a hash leave the server; if the service is
+down the check is skipped). Every API route is limited per IP address
+(`API_REQUESTS_PER_IP_PER_MINUTE`, 600, and `API_WRITES_PER_IP_PER_MINUTE`, 120); a 429 in
+the logs from one address is that limit.
+
+### Privacy requests and closed accounts (Milestone 19)
+
+The site now has Terms of Use, a Privacy Policy and a contact page (links in every page's
+footer). People can download their data and close their account from **Account**. Requests
+from the contact page, and every closed account, appear at **Admin > Privacy**; each must be
+answered within 30 days. Set `OPS_ALERT_EMAILS` in `.env` to get an email when one arrives;
+**Admin > Operations** warns while any are open and alerts once one is overdue.
+
+For a closed account, delete the personal workspace's projects and files (keep payment
+records), email the person at the address shown, and mark the request done. Existing users are
+asked once to agree to the Terms and Privacy Policy when they next use the app.
 
 ## 8. Persistent volumes
 
@@ -377,7 +426,9 @@ missing; `migrate` then recreates the application's login role. Run `verify-audi
 
 **Inside the app (Milestone 17).** Every 10 minutes the worker checks background jobs (the
 heartbeat), the job queue, the latest backup (failed, or older than 26 hours), the weekly
-restore check, the off-site copy (when set up) and free disk space. Platform admins see all of
+restore check, the off-site copy (when set up), free disk space and, since Milestone 20, email
+delivery (an email waiting more than 30 minutes means the mail server or its SMTP settings are
+failing; queued emails go out by themselves once it works again). Platform admins see all of
 it at `/admin/ops` ("Operations" in the admin menu). When a check starts failing, platform
 admins get a notification and an email, as do the addresses in `OPS_ALERT_EMAILS`
 (comma-separated, e.g. your own email); a check still failing is repeated every 12 hours, and

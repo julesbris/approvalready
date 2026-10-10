@@ -2,7 +2,7 @@ import type { StaffReviewOut } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 
 import { AdminNav } from "@/components/admin/AdminNav";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { AssignReview } from "@/components/review/AssignReview";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
@@ -16,7 +16,7 @@ export default async function AdminReviewPage({ params }: Props) {
   if (!session.permissions.includes("review.assign")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="professional reviews" />
+        <AdminNoAccess what="professional reviews" session={session} />
       </AppShell>
     );
   }
@@ -24,7 +24,7 @@ export default async function AdminReviewPage({ params }: Props) {
   return (
     <AppShell session={session}>
       <AdminNav current="reviews" />
-      <AssignReview initial={view} />
+      <AssignReview initial={view} canRefund={session.permissions.includes("billing.refund")} />
     </AppShell>
   );
 }

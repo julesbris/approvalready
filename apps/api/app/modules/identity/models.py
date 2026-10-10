@@ -7,6 +7,7 @@ from datetime import datetime
 from enum import StrEnum
 
 from sqlalchemy import (
+    BigInteger,
     DateTime,
     ForeignKey,
     Index,
@@ -144,6 +145,9 @@ class AuthSession(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     revoked_reason: Mapped[str | None] = mapped_column(Text)
+    # When this session passed two-step sign-in (an authenticator or recovery code), at
+    # sign-in or later by turning two-step sign-in on. Staff routes need it (Milestone 18).
+    mfa_verified_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
 
 
 class OneTimeToken(UUIDPrimaryKeyMixin, TimestampMixin, Base):
@@ -159,4 +163,44 @@ class OneTimeToken(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     purpose: Mapped[str] = mapped_column(Text, nullable=False)
     token_hash: Mapped[bytes] = mapped_column(LargeBinary, nullable=False, unique=True)
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    used_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class MfaTotp(UUIDPrimaryKeyMixin, TimestampMixin, Base):
+    """A user's authenticator app (two-step sign-in, Milestone 18).
+
+    The shared secret is sealed with a key derived from SECRET_KEY (app/core/crypto.py): the
+    application has to read it back to check codes, so it can't be hashed. Until
+    ``confirmed_at`` is set (the user typed a correct code) it does nothing at sign-in.
+    ``last_used_step`` is the time step of the last accepted code, so a code can't be used
+    twice.
+    """
+
+    __tablename__ = "mfa_totp"
+
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("app_user.id", ondelete="CASCADE"),
+        unique=True,
+        nullable=False,
+    )
+    secret_sealed: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+    confirmed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    last_used_step: Mapped[int | None] = mapped_column(BigInteger)
+
+
+class MfaRecoveryCode(UUIDPrimaryKeyMixin, TimestampMixin, Base):
+    """Single-use codes for signing in without the authenticator app. 80-bit random values,
+    so a SHA-256 digest is enough (as for session tokens); shown to the user once."""
+
+    __tablename__ = "mfa_recovery_code"
+    __table_args__ = (UniqueConstraint("user_id", "code_hash"),)
+
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("app_user.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    code_hash: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
     used_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))

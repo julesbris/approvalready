@@ -11,10 +11,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from app.api import health
+from app.core.breach import BreachChecker
 from app.core.config import Settings, get_settings
 from app.core.errors_tracking import init_error_tracking
 from app.core.logging import configure_logging
 from app.core.middleware import (
+    ApiRateLimitMiddleware,
     OriginCheckMiddleware,
     RequestContextMiddleware,
     SecurityHeadersMiddleware,
@@ -39,14 +41,19 @@ from app.modules.identity.router import router as auth_router
 from app.modules.leads.router import admin_router as leads_admin_router
 from app.modules.leads.router import customer_router as leads_customer_router
 from app.modules.leads.router import partner_router as leads_partner_router
+from app.modules.leads.router import quotes_router as leads_quotes_router
 from app.modules.lookups.router import router as lookups_router
 from app.modules.lookups.service import Lookups
 from app.modules.marketplace.router import router as marketplace_router
+from app.modules.notifications.router import preferences_router as notification_prefs_router
 from app.modules.notifications.router import router as notifications_router
 from app.modules.ops.router import admin_router as ops_admin_router
 from app.modules.partners.router import admin_router as partners_admin_router
 from app.modules.partners.router import apply_router as partners_apply_router
 from app.modules.partners.router import router as partners_router
+from app.modules.privacy.router import account_router as privacy_account_router
+from app.modules.privacy.router import admin_router as privacy_admin_router
+from app.modules.privacy.router import public_router as privacy_public_router
 from app.modules.projects.router import router as projects_router
 from app.modules.questionnaires.router import router as questionnaires_router
 from app.modules.regulatory.fetch import Resolver, SourceFetcher
@@ -67,6 +74,7 @@ def create_app(
     stripe_transport: httpx.AsyncBaseTransport | None = None,
     source_fetch_transport: httpx.AsyncBaseTransport | None = None,
     source_fetch_resolver: Resolver | None = None,
+    breach_transport: httpx.AsyncBaseTransport | None = None,
 ) -> FastAPI:
     settings = settings or get_settings()
     configure_logging(settings.log_level)
@@ -74,13 +82,14 @@ def create_app(
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
-        app.state.resources = create_resources(settings)
-        app.state.lookups = Lookups(settings, lookup_transport)
-        app.state.source_fetcher = SourceFetcher(
-            settings, source_fetch_transport, source_fetch_resolver
-        )
         app.state.stripe = (
             StripeClient(settings, stripe_transport) if settings.payments_enabled else None
+        )
+        app.state.resources = create_resources(settings, app.state.stripe)
+        app.state.lookups = Lookups(settings, lookup_transport)
+        app.state.breach = BreachChecker(settings, breach_transport)
+        app.state.source_fetcher = SourceFetcher(
+            settings, source_fetch_transport, source_fetch_resolver
         )
         try:
             yield
@@ -88,6 +97,7 @@ def create_app(
             if app.state.stripe is not None:
                 await app.state.stripe.aclose()
             await app.state.lookups.aclose()
+            await app.state.breach.aclose()
             await app.state.resources.close()
 
     show_docs = not settings.is_production
@@ -105,6 +115,11 @@ def create_app(
     # first. Request context is outermost so every response (including rejections from the
     # host and CORS checks) carries a request ID and security headers.
     app.add_middleware(
+        ApiRateLimitMiddleware,
+        requests_per_minute=settings.api_requests_per_ip_per_minute,
+        writes_per_minute=settings.api_writes_per_ip_per_minute,
+    )
+    app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.allowed_origins,
         allow_credentials=True,
@@ -120,6 +135,9 @@ def create_app(
 
     app.include_router(health.router)
     app.include_router(auth_router)
+    app.include_router(privacy_account_router)
+    app.include_router(privacy_public_router)
+    app.include_router(privacy_admin_router)
     app.include_router(tenancy_router)
     app.include_router(projects_router)
     app.include_router(entities_router)
@@ -137,6 +155,7 @@ def create_app(
     app.include_router(sales_router)
     app.include_router(rentals_router)
     app.include_router(notifications_router)
+    app.include_router(notification_prefs_router)
     app.include_router(review_customer_router)
     app.include_router(professional_router)
     app.include_router(review_admin_router)
@@ -150,6 +169,7 @@ def create_app(
     app.include_router(partners_router)
     app.include_router(partners_admin_router)
     app.include_router(leads_customer_router)
+    app.include_router(leads_quotes_router)
     app.include_router(leads_partner_router)
     app.include_router(leads_admin_router)
     app.include_router(analytics_partner_router)

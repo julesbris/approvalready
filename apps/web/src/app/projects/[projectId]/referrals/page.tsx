@@ -1,4 +1,5 @@
 import type {
+  CustomerQuoteOut,
   ProjectDetailOut,
   ReferralOptionsOut,
   ReferralOut,
@@ -8,6 +9,7 @@ import Link from "next/link";
 
 import { AppShell, NoAccess } from "@/components/app/AppShell";
 import { FormNotice } from "@/components/auth/FormStatus";
+import { CustomerQuotes } from "@/components/leads/CustomerQuotes";
 import { ReferralForm } from "@/components/leads/ReferralForm";
 import { ReferralList } from "@/components/leads/ReferralList";
 import { firstParam } from "@/lib/redirect";
@@ -38,9 +40,10 @@ export default async function ReferralsPage({ params, searchParams }: Props) {
   }
   const canWrite = session.permissions.includes("project.write");
   const base = `/organisations/${orgId}/projects/${projectId}`;
-  const [project, referrals, options] = await Promise.all([
+  const [project, referrals, quotes, options] = await Promise.all([
     serverGet<ProjectDetailOut>(base),
     serverGet<ReferralOut[]>(`${base}/referrals`),
+    serverGet<CustomerQuoteOut[]>(`${base}/quotes`),
     assessmentId && canWrite
       ? serverGet<ReferralOptionsOut>(
           `${base}/referrals/options?assessment_id=${encodeURIComponent(assessmentId)}`,
@@ -65,6 +68,19 @@ export default async function ReferralsPage({ params, searchParams }: Props) {
         <ReferralForm organisationId={orgId} projectId={projectId} options={options.data} />
       ) : options ? (
         <p className="muted">We couldn&apos;t load that assessment.</p>
+      ) : null}
+      {referrals.ok && referrals.data.length > 0 ? (
+        <section className="panel" id="quotes" aria-labelledby="quotes-title">
+          <h2 id="quotes-title" className="section-title">
+            Quotes
+          </h2>
+          <CustomerQuotes
+            organisationId={orgId}
+            projectId={projectId}
+            quotes={quotes.ok ? quotes.data : []}
+            canWrite={canWrite}
+          />
+        </section>
       ) : null}
       <section className="panel" aria-labelledby="requests-title">
         <h2 id="requests-title" className="section-title">

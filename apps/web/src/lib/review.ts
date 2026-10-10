@@ -10,9 +10,14 @@ import type {
   FindingOut,
   OverrideOut,
   ProfessionalStatus,
+  RefundOut,
+  RefundReason,
+  ReviewOut,
   ReviewRequestStatus,
   ReviewStatus,
 } from "@approvalready/shared-types";
+
+import { formatMoney } from "./billing";
 
 export const REVIEW_STATUS_LABELS: Record<ReviewRequestStatus, string> = {
   PAYMENT_PENDING: "Waiting for payment",
@@ -123,3 +128,38 @@ export function reviewerName(p: {
 export function reviewDocumentUrl(reviewId: string, documentId: string): string {
   return `/api/v1/professional/reviews/${reviewId}/documents/${documentId}/content`;
 }
+
+/** What the customer is asked before cancelling, saying whether they get their money back. */
+export function cancelQuestion(review: ReviewOut): string {
+  const payment = review.payment;
+  if (payment && review.cancel_refund_cents > 0) {
+    const amount = formatMoney(review.cancel_refund_cents, payment.currency);
+    return (
+      `Cancel this review? No reviewer has started, so we'll refund ${amount} to the card ` +
+      "or account you paid with."
+    );
+  }
+  if (payment?.paid_at && review.status !== "PAYMENT_PENDING") {
+    return (
+      "Cancel this review? Your reviewer has already started, so it isn't refunded " +
+      "automatically. Contact us if you think a refund is fair."
+    );
+  }
+  return "Cancel this review?";
+}
+
+/** A refund on the review's payment, as the customer should read it. */
+export function refundLine(r: RefundOut): string {
+  const amount = formatMoney(r.amount_cents, r.currency);
+  if (r.status === "FAILED") {
+    return `Your refund of ${amount} is delayed. We're sorting it out and will email you.`;
+  }
+  if (r.status === "PENDING") return `Refund of ${amount}: being sent.`;
+  return `Refunded ${amount}. Most banks show it within 5 to 10 business days.`;
+}
+
+export const REFUND_REASON_LABELS: Record<RefundReason, string> = {
+  REVIEW_CANCELLED: "Cancelled before work started",
+  PAID_AFTER_CANCEL: "Paid after the review was cancelled",
+  STAFF: "Refunded by staff",
+};

@@ -249,6 +249,24 @@
         "title": "AIUsageRowOut",
         "type": "object"
       },
+      "AcceptPoliciesRequest": {
+        "properties": {
+          "documents": {
+            "items": {
+              "$ref": "#/components/schemas/PolicyDocument"
+            },
+            "maxItems": 2,
+            "minItems": 1,
+            "title": "Documents",
+            "type": "array"
+          }
+        },
+        "required": [
+          "documents"
+        ],
+        "title": "AcceptPoliciesRequest",
+        "type": "object"
+      },
       "Accepted": {
         "description": "Same response whether or not the address is registered (no account enumeration).",
         "properties": {
@@ -3371,6 +3389,32 @@
         "title": "Classification",
         "type": "string"
       },
+      "CloseAccountRequest": {
+        "properties": {
+          "code": {
+            "anyOf": [
+              {
+                "maxLength": 64,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code"
+          },
+          "password": {
+            "maxLength": 256,
+            "title": "Password",
+            "type": "string"
+          }
+        },
+        "required": [
+          "password"
+        ],
+        "title": "CloseAccountRequest",
+        "type": "object"
+      },
       "CommentIn": {
         "properties": {
           "body": {
@@ -3999,6 +4043,156 @@
           "claims"
         ],
         "title": "CustomerLeadOut",
+        "type": "object"
+      },
+      "CustomerQuoteOut": {
+        "description": "A quote as the customer sees it, with the partner's public business details.",
+        "properties": {
+          "category_key": {
+            "title": "Category Key",
+            "type": "string"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "expired": {
+            "description": "Still waiting, but its valid-until date has passed.",
+            "title": "Expired",
+            "type": "boolean"
+          },
+          "gst": {
+            "$ref": "#/components/schemas/GstTreatment"
+          },
+          "gst_cents": {
+            "title": "Gst Cents",
+            "type": "integer"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "lead_id": {
+            "format": "uuid",
+            "title": "Lead Id",
+            "type": "string"
+          },
+          "line_items": {
+            "items": {
+              "$ref": "#/components/schemas/QuoteLineOut"
+            },
+            "title": "Line Items",
+            "type": "array"
+          },
+          "partner": {
+            "$ref": "#/components/schemas/QuotedPartnerOut"
+          },
+          "responded_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Responded At"
+          },
+          "response_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Note"
+          },
+          "scope": {
+            "title": "Scope",
+            "type": "string"
+          },
+          "sent_at": {
+            "format": "date-time",
+            "title": "Sent At",
+            "type": "string"
+          },
+          "start_estimate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Estimate"
+          },
+          "status": {
+            "$ref": "#/components/schemas/QuoteStatus"
+          },
+          "terms": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terms"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "total_cents": {
+            "description": "The sum of the line items, as entered.",
+            "title": "Total Cents",
+            "type": "integer"
+          },
+          "total_inc_gst_cents": {
+            "description": "What the customer would pay, with any GST.",
+            "title": "Total Inc Gst Cents",
+            "type": "integer"
+          },
+          "valid_until": {
+            "format": "date",
+            "title": "Valid Until",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "lead_id",
+          "version",
+          "status",
+          "expired",
+          "title",
+          "scope",
+          "line_items",
+          "total_cents",
+          "gst",
+          "gst_cents",
+          "total_inc_gst_cents",
+          "valid_until",
+          "start_estimate",
+          "terms",
+          "sent_at",
+          "responded_at",
+          "response_note",
+          "category_key",
+          "category_label",
+          "partner"
+        ],
+        "title": "CustomerQuoteOut",
         "type": "object"
       },
       "Decision": {
@@ -6094,6 +6288,15 @@
         "title": "GrantRoundUpdate",
         "type": "object"
       },
+      "GstTreatment": {
+        "enum": [
+          "INCLUDED",
+          "EXCLUDED",
+          "NOT_REGISTERED"
+        ],
+        "title": "GstTreatment",
+        "type": "string"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -6806,6 +7009,14 @@
           },
           "lead": {
             "$ref": "#/components/schemas/LeadPublicView"
+          },
+          "quotes": {
+            "description": "Quotes this partner sent for it, newest first.",
+            "items": {
+              "$ref": "#/components/schemas/QuoteOut"
+            },
+            "title": "Quotes",
+            "type": "array"
           }
         },
         "required": [
@@ -8400,6 +8611,128 @@
         "title": "MembershipOut",
         "type": "object"
       },
+      "MfaChallengeOut": {
+        "description": "The password was right; a code from the authenticator app (or a recovery code) is\nneeded next, at ``POST /v1/auth/login/mfa``.",
+        "properties": {
+          "mfa_required": {
+            "const": true,
+            "default": true,
+            "title": "Mfa Required",
+            "type": "boolean"
+          }
+        },
+        "title": "MfaChallengeOut",
+        "type": "object"
+      },
+      "MfaCodeRequest": {
+        "properties": {
+          "code": {
+            "maxLength": 40,
+            "minLength": 6,
+            "title": "Code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "title": "MfaCodeRequest",
+        "type": "object"
+      },
+      "MfaDisableRequest": {
+        "properties": {
+          "code": {
+            "maxLength": 40,
+            "minLength": 6,
+            "title": "Code",
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 256,
+            "title": "Password",
+            "type": "string"
+          }
+        },
+        "required": [
+          "password",
+          "code"
+        ],
+        "title": "MfaDisableRequest",
+        "type": "object"
+      },
+      "MfaSetupOut": {
+        "properties": {
+          "otpauth_uri": {
+            "title": "Otpauth Uri",
+            "type": "string"
+          },
+          "qr_svg": {
+            "title": "Qr Svg",
+            "type": "string"
+          },
+          "secret": {
+            "title": "Secret",
+            "type": "string"
+          }
+        },
+        "required": [
+          "secret",
+          "otpauth_uri",
+          "qr_svg"
+        ],
+        "title": "MfaSetupOut",
+        "type": "object"
+      },
+      "MfaSetupRequest": {
+        "properties": {
+          "password": {
+            "maxLength": 256,
+            "title": "Password",
+            "type": "string"
+          }
+        },
+        "required": [
+          "password"
+        ],
+        "title": "MfaSetupRequest",
+        "type": "object"
+      },
+      "MfaStatusOut": {
+        "properties": {
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "enabled_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Enabled At"
+          },
+          "recovery_codes_left": {
+            "title": "Recovery Codes Left",
+            "type": "integer"
+          },
+          "required_for_staff": {
+            "title": "Required For Staff",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled",
+          "enabled_at",
+          "recovery_codes_left",
+          "required_for_staff"
+        ],
+        "title": "MfaStatusOut",
+        "type": "object"
+      },
       "MonthFunnelOut": {
         "properties": {
           "accept_rate": {
@@ -8551,6 +8884,26 @@
         "title": "NotCheckedOut",
         "type": "object"
       },
+      "NotificationCategory": {
+        "description": "What a member chooses about (Milestone 21): one or more notification kinds.",
+        "enum": [
+          "REMINDERS",
+          "GRANT_ROUNDS",
+          "REFERRALS",
+          "SOURCE_REVIEWS"
+        ],
+        "title": "NotificationCategory",
+        "type": "string"
+      },
+      "NotificationChannel": {
+        "enum": [
+          "ALL",
+          "IN_APP",
+          "OFF"
+        ],
+        "title": "NotificationChannel",
+        "type": "string"
+      },
       "NotificationKind": {
         "enum": [
           "REMINDER",
@@ -8558,7 +8911,9 @@
           "SOURCES_DUE",
           "LEAD_OFFERED",
           "LEAD_CLAIMED",
-          "OPS_ALERT"
+          "OPS_ALERT",
+          "QUOTE_RECEIVED",
+          "QUOTE_ANSWERED"
         ],
         "title": "NotificationKind",
         "type": "string"
@@ -11030,6 +11385,92 @@
         "title": "PlanCheckoutIn",
         "type": "object"
       },
+      "PolicyDocument": {
+        "enum": [
+          "terms",
+          "privacy"
+        ],
+        "title": "PolicyDocument",
+        "type": "string"
+      },
+      "PolicyOut": {
+        "properties": {
+          "document": {
+            "$ref": "#/components/schemas/PolicyDocument"
+          },
+          "path": {
+            "title": "Path",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "document",
+          "title",
+          "path",
+          "version"
+        ],
+        "title": "PolicyOut",
+        "type": "object"
+      },
+      "PreferenceOut": {
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/NotificationCategory"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/NotificationChannel"
+          }
+        },
+        "required": [
+          "category",
+          "channel"
+        ],
+        "title": "PreferenceOut",
+        "type": "object"
+      },
+      "PreferencesIn": {
+        "description": "Only the categories listed change.",
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PreferenceOut"
+            },
+            "maxItems": 4,
+            "minItems": 1,
+            "title": "Items",
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "title": "PreferencesIn",
+        "type": "object"
+      },
+      "PreferencesOut": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PreferenceOut"
+            },
+            "title": "Items",
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "title": "PreferencesOut",
+        "type": "object"
+      },
       "PrefillOut": {
         "properties": {
           "provider": {
@@ -11208,6 +11649,201 @@
           "created_at"
         ],
         "title": "PriceOut",
+        "type": "object"
+      },
+      "PrivacyRequestCreated": {
+        "properties": {
+          "due_at": {
+            "format": "date-time",
+            "title": "Due At",
+            "type": "string"
+          },
+          "reference": {
+            "title": "Reference",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference",
+          "due_at"
+        ],
+        "title": "PrivacyRequestCreated",
+        "type": "object"
+      },
+      "PrivacyRequestIn": {
+        "properties": {
+          "details": {
+            "maxLength": 4000,
+            "minLength": 10,
+            "title": "Details",
+            "type": "string"
+          },
+          "email": {
+            "format": "email",
+            "title": "Email",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/PrivacyRequestKind"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "kind",
+          "details"
+        ],
+        "title": "PrivacyRequestIn",
+        "type": "object"
+      },
+      "PrivacyRequestKind": {
+        "enum": [
+          "ACCESS",
+          "CORRECTION",
+          "DELETION",
+          "COMPLAINT",
+          "OTHER"
+        ],
+        "title": "PrivacyRequestKind",
+        "type": "string"
+      },
+      "PrivacyRequestOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "details": {
+            "title": "Details",
+            "type": "string"
+          },
+          "due_at": {
+            "format": "date-time",
+            "title": "Due At",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/PrivacyRequestKind"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "overdue": {
+            "description": "Still open past the 30-day answer date.",
+            "readOnly": true,
+            "title": "Overdue",
+            "type": "boolean"
+          },
+          "resolution_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolution Note"
+          },
+          "resolved_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolved At"
+          },
+          "source": {
+            "$ref": "#/components/schemas/PrivacyRequestSource"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PrivacyRequestStatus"
+          },
+          "user_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Id"
+          }
+        },
+        "required": [
+          "id",
+          "user_id",
+          "name",
+          "email",
+          "kind",
+          "source",
+          "details",
+          "status",
+          "created_at",
+          "due_at",
+          "resolved_at",
+          "resolution_note",
+          "overdue"
+        ],
+        "title": "PrivacyRequestOut",
+        "type": "object"
+      },
+      "PrivacyRequestSource": {
+        "enum": [
+          "CONTACT_FORM",
+          "ACCOUNT_CLOSED"
+        ],
+        "title": "PrivacyRequestSource",
+        "type": "string"
+      },
+      "PrivacyRequestStatus": {
+        "enum": [
+          "OPEN",
+          "DONE",
+          "DECLINED"
+        ],
+        "title": "PrivacyRequestStatus",
+        "type": "string"
+      },
+      "PrivacyRequestUpdate": {
+        "properties": {
+          "note": {
+            "default": "",
+            "maxLength": 4000,
+            "title": "Note",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PrivacyRequestStatus"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "PrivacyRequestUpdate",
         "type": "object"
       },
       "ProductKind": {
@@ -12493,6 +13129,363 @@
         "title": "QueueItemOut",
         "type": "object"
       },
+      "QuoteAcceptIn": {
+        "additionalProperties": false,
+        "properties": {
+          "decline_others": {
+            "default": false,
+            "description": "Also decline the other quotes waiting for this job and tell those partners.",
+            "title": "Decline Others",
+            "type": "boolean"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "title": "QuoteAcceptIn",
+        "type": "object"
+      },
+      "QuoteDeclineIn": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Shown to the partner.",
+            "title": "Note"
+          }
+        },
+        "title": "QuoteDeclineIn",
+        "type": "object"
+      },
+      "QuoteIn": {
+        "additionalProperties": false,
+        "description": "A written quote for the job. Sending a new one replaces the one waiting.",
+        "properties": {
+          "gst": {
+            "$ref": "#/components/schemas/GstTreatment",
+            "description": "INCLUDED: the amounts include GST. EXCLUDED: GST is added on top. NOT_REGISTERED: no GST applies."
+          },
+          "line_items": {
+            "items": {
+              "$ref": "#/components/schemas/QuoteLineIn"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Line Items",
+            "type": "array"
+          },
+          "scope": {
+            "description": "What the work includes (and what it doesn't).",
+            "maxLength": 4000,
+            "minLength": 10,
+            "title": "Scope",
+            "type": "string"
+          },
+          "start_estimate": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When work could start.",
+            "title": "Start Estimate"
+          },
+          "terms": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Deposit, payment and other terms.",
+            "title": "Terms"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 3,
+            "title": "Title",
+            "type": "string"
+          },
+          "valid_until": {
+            "format": "date",
+            "title": "Valid Until",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "scope",
+          "line_items",
+          "gst",
+          "valid_until"
+        ],
+        "title": "QuoteIn",
+        "type": "object"
+      },
+      "QuoteLineIn": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_cents": {
+            "maximum": 100000000.0,
+            "minimum": 0.0,
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "description": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Description",
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "amount_cents"
+        ],
+        "title": "QuoteLineIn",
+        "type": "object"
+      },
+      "QuoteLineOut": {
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "amount_cents"
+        ],
+        "title": "QuoteLineOut",
+        "type": "object"
+      },
+      "QuoteOut": {
+        "properties": {
+          "expired": {
+            "description": "Still waiting, but its valid-until date has passed.",
+            "title": "Expired",
+            "type": "boolean"
+          },
+          "gst": {
+            "$ref": "#/components/schemas/GstTreatment"
+          },
+          "gst_cents": {
+            "title": "Gst Cents",
+            "type": "integer"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "lead_id": {
+            "format": "uuid",
+            "title": "Lead Id",
+            "type": "string"
+          },
+          "line_items": {
+            "items": {
+              "$ref": "#/components/schemas/QuoteLineOut"
+            },
+            "title": "Line Items",
+            "type": "array"
+          },
+          "responded_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Responded At"
+          },
+          "response_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Note"
+          },
+          "scope": {
+            "title": "Scope",
+            "type": "string"
+          },
+          "sent_at": {
+            "format": "date-time",
+            "title": "Sent At",
+            "type": "string"
+          },
+          "start_estimate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Estimate"
+          },
+          "status": {
+            "$ref": "#/components/schemas/QuoteStatus"
+          },
+          "terms": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terms"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "total_cents": {
+            "description": "The sum of the line items, as entered.",
+            "title": "Total Cents",
+            "type": "integer"
+          },
+          "total_inc_gst_cents": {
+            "description": "What the customer would pay, with any GST.",
+            "title": "Total Inc Gst Cents",
+            "type": "integer"
+          },
+          "valid_until": {
+            "format": "date",
+            "title": "Valid Until",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "lead_id",
+          "version",
+          "status",
+          "expired",
+          "title",
+          "scope",
+          "line_items",
+          "total_cents",
+          "gst",
+          "gst_cents",
+          "total_inc_gst_cents",
+          "valid_until",
+          "start_estimate",
+          "terms",
+          "sent_at",
+          "responded_at",
+          "response_note"
+        ],
+        "title": "QuoteOut",
+        "type": "object"
+      },
+      "QuoteStatus": {
+        "enum": [
+          "SENT",
+          "SUPERSEDED",
+          "WITHDRAWN",
+          "ACCEPTED",
+          "DECLINED"
+        ],
+        "title": "QuoteStatus",
+        "type": "string"
+      },
+      "QuotedPartnerOut": {
+        "properties": {
+          "contact_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Email"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "required": [
+          "name",
+          "phone",
+          "contact_email",
+          "website"
+        ],
+        "title": "QuotedPartnerOut",
+        "type": "object"
+      },
       "ReadyResponse": {
         "properties": {
           "checks": {
@@ -12516,6 +13509,23 @@
           "checks"
         ],
         "title": "ReadyResponse",
+        "type": "object"
+      },
+      "RecoveryCodesOut": {
+        "description": "Shown once. Each code signs in once in place of an authenticator code.",
+        "properties": {
+          "recovery_codes": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Recovery Codes",
+            "type": "array"
+          }
+        },
+        "required": [
+          "recovery_codes"
+        ],
+        "title": "RecoveryCodesOut",
         "type": "object"
       },
       "Recurrence": {
@@ -12906,24 +13916,85 @@
         "title": "ReferralOut",
         "type": "object"
       },
-      "RefundIn": {
-        "additionalProperties": false,
+      "RefundOut": {
+        "description": "Money given back on the review's payment (Milestone 22).",
         "properties": {
-          "note": {
-            "maxLength": 300,
-            "minLength": 5,
-            "title": "Note",
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
             "type": "string"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/RefundReason"
+          },
+          "sent_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sent At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RefundStatus",
+            "description": "PENDING: being sent to Stripe. SUBMITTED or SUCCEEDED: on its way to the card. FAILED: Stripe refused it and staff are following it up."
           }
         },
         "required": [
-          "note"
+          "id",
+          "amount_cents",
+          "currency",
+          "reason",
+          "status",
+          "created_at",
+          "sent_at"
         ],
-        "title": "RefundIn",
+        "title": "RefundOut",
         "type": "object"
+      },
+      "RefundReason": {
+        "enum": [
+          "REVIEW_CANCELLED",
+          "PAID_AFTER_CANCEL",
+          "STAFF"
+        ],
+        "title": "RefundReason",
+        "type": "string"
+      },
+      "RefundStatus": {
+        "enum": [
+          "PENDING",
+          "SUBMITTED",
+          "SUCCEEDED",
+          "FAILED"
+        ],
+        "title": "RefundStatus",
+        "type": "string"
       },
       "RegisterRequest": {
         "properties": {
+          "accept_terms": {
+            "default": false,
+            "title": "Accept Terms",
+            "type": "boolean"
+          },
           "display_name": {
             "maxLength": 120,
             "minLength": 1,
@@ -13607,6 +14678,12 @@
             ],
             "title": "Assigned At"
           },
+          "cancel_refund_cents": {
+            "default": 0,
+            "description": "What cancelling now would refund (0: nothing).",
+            "title": "Cancel Refund Cents",
+            "type": "integer"
+          },
           "closed_at": {
             "anyOf": [
               {
@@ -13775,6 +14852,17 @@
             ],
             "title": "Paid At"
           },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "refunds": {
+            "items": {
+              "$ref": "#/components/schemas/RefundOut"
+            },
+            "title": "Refunds",
+            "type": "array"
+          },
           "status": {
             "$ref": "#/components/schemas/PaymentStatus"
           }
@@ -13784,7 +14872,9 @@
           "status",
           "amount_cents",
           "currency",
-          "paid_at"
+          "paid_at",
+          "refunded_cents",
+          "refunds"
         ],
         "title": "ReviewPaymentOut",
         "type": "object"
@@ -13859,6 +14949,12 @@
               }
             ],
             "title": "Assigned At"
+          },
+          "cancel_refund_cents": {
+            "default": 0,
+            "description": "What cancelling now would refund (0: nothing).",
+            "title": "Cancel Refund Cents",
+            "type": "integer"
           },
           "closed_at": {
             "anyOf": [
@@ -15491,6 +16587,18 @@
             },
             "title": "Permissions",
             "type": "array"
+          },
+          "policies_to_accept": {
+            "items": {
+              "$ref": "#/components/schemas/PolicyOut"
+            },
+            "title": "Policies To Accept",
+            "type": "array"
+          },
+          "staff_mfa_required": {
+            "default": false,
+            "title": "Staff Mfa Required",
+            "type": "boolean"
           },
           "user": {
             "$ref": "#/components/schemas/UserOut"
@@ -17348,6 +18456,142 @@
         "title": "StaffPartnerOut",
         "type": "object"
       },
+      "StaffPaymentOut": {
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "paid_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paid At"
+          },
+          "refundable_cents": {
+            "description": "What staff can still refund.",
+            "title": "Refundable Cents",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "refunds": {
+            "items": {
+              "$ref": "#/components/schemas/StaffRefundOut"
+            },
+            "title": "Refunds",
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PaymentStatus"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "amount_cents",
+          "currency",
+          "paid_at",
+          "refunded_cents",
+          "refundable_cents",
+          "refunds"
+        ],
+        "title": "StaffPaymentOut",
+        "type": "object"
+      },
+      "StaffRefundOut": {
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/RefundReason"
+          },
+          "sent_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sent At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RefundStatus",
+            "description": "PENDING: being sent to Stripe. SUBMITTED or SUCCEEDED: on its way to the card. FAILED: Stripe refused it and staff are following it up."
+          }
+        },
+        "required": [
+          "id",
+          "amount_cents",
+          "currency",
+          "reason",
+          "status",
+          "created_at",
+          "sent_at",
+          "note",
+          "error"
+        ],
+        "title": "StaffRefundOut",
+        "type": "object"
+      },
       "StaffReviewOut": {
         "properties": {
           "candidates": {
@@ -17357,6 +18601,16 @@
             },
             "title": "Candidates",
             "type": "array"
+          },
+          "payment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StaffPaymentOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "project_reference": {
             "title": "Project Reference",
@@ -18655,6 +19909,48 @@
         "title": "TurnoverBand",
         "type": "string"
       },
+      "UnsubscribeOut": {
+        "description": "What an unsubscribe link is for, and the person's channel for it now.",
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/NotificationCategory"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/NotificationChannel"
+          }
+        },
+        "required": [
+          "category",
+          "channel"
+        ],
+        "title": "UnsubscribeOut",
+        "type": "object"
+      },
+      "UnsubscribedOut": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PreferenceOut"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "scope": {
+            "enum": [
+              "category",
+              "all"
+            ],
+            "title": "Scope",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scope",
+          "items"
+        ],
+        "title": "UnsubscribedOut",
+        "type": "object"
+      },
       "UploadLimitsOut": {
         "properties": {
           "accept": {
@@ -18700,6 +19996,11 @@
             "format": "uuid",
             "title": "Id",
             "type": "string"
+          },
+          "mfa_enabled": {
+            "default": false,
+            "title": "Mfa Enabled",
+            "type": "boolean"
           }
         },
         "required": [
@@ -19365,6 +20666,51 @@
           }
         },
         "title": "VesselUpdate",
+        "type": "object"
+      },
+      "app__modules__leads__schemas__RefundIn": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "maxLength": 300,
+            "minLength": 5,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "note"
+        ],
+        "title": "RefundIn",
+        "type": "object"
+      },
+      "app__modules__review__schemas__RefundIn": {
+        "properties": {
+          "amount_cents": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Leave out to refund everything that is left.",
+            "title": "Amount Cents"
+          },
+          "note": {
+            "description": "Why (staff only).",
+            "maxLength": 500,
+            "minLength": 3,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "note"
+        ],
+        "title": "RefundIn",
         "type": "object"
       }
     }
@@ -20190,7 +21536,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RefundIn"
+                "$ref": "#/components/schemas/app__modules__leads__schemas__RefundIn"
               }
             }
           },
@@ -20746,6 +22092,112 @@
         ]
       }
     },
+    "/v1/admin/privacy/requests": {
+      "get": {
+        "operationId": "list_privacy_requests_v1_admin_privacy_requests_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/PrivacyRequestStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PrivacyRequestOut"
+                  },
+                  "title": "Response List Privacy Requests V1 Admin Privacy Requests Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Privacy Requests",
+        "tags": [
+          "admin: privacy"
+        ]
+      }
+    },
+    "/v1/admin/privacy/requests/{request_id}": {
+      "patch": {
+        "operationId": "update_privacy_request_v1_admin_privacy_requests__request_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "request_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Request Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrivacyRequestUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrivacyRequestOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Privacy Request",
+        "tags": [
+          "admin: privacy"
+        ]
+      }
+    },
     "/v1/admin/professionals": {
       "get": {
         "operationId": "list_professionals_v1_admin_professionals_get",
@@ -21107,6 +22559,60 @@
           }
         },
         "summary": "Assign Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/admin/reviews/{review_id}/refund": {
+      "post": {
+        "description": "Give back part or all of what the customer paid for a review (``billing.refund``).\nSent to Stripe straight after; the customer is emailed once Stripe accepts it.",
+        "operationId": "refund_review_v1_admin_reviews__review_id__refund_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/app__modules__review__schemas__RefundIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Refund Review",
         "tags": [
           "review"
         ]
@@ -22754,14 +24260,120 @@
         ]
       }
     },
+    "/v1/auth/account/close": {
+      "post": {
+        "description": "Close the account. Signs out everywhere; can't be undone.",
+        "operationId": "close_my_account_v1_auth_account_close_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloseAccountRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Close My Account",
+        "tags": [
+          "account"
+        ]
+      }
+    },
+    "/v1/auth/account/export": {
+      "get": {
+        "description": "Everything held about this account and its personal workspace, as a JSON file.",
+        "operationId": "export_my_data_v1_auth_account_export_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Export My Data",
+        "tags": [
+          "account"
+        ]
+      }
+    },
     "/v1/auth/login": {
       "post": {
+        "description": "Check the password. With two-step sign-in on, the answer is ``mfa_required`` and a\nshort-lived challenge cookie instead of a session: send a code to ``/login/mfa``.",
         "operationId": "login_v1_auth_login_post",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/SessionOut"
+                    },
+                    {
+                      "$ref": "#/components/schemas/MfaChallengeOut"
+                    }
+                  ],
+                  "title": "Response Login V1 Auth Login Post"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Login",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/v1/auth/login/mfa": {
+      "post": {
+        "description": "The second step of signing in: a code from the authenticator app or a recovery\ncode. A challenge allows a few tries, then the password is needed again.",
+        "operationId": "login_mfa_v1_auth_login_mfa_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfaCodeRequest"
               }
             }
           },
@@ -22789,7 +24401,7 @@
             "description": "Validation Error"
           }
         },
-        "summary": "Login",
+        "summary": "Login Mfa",
         "tags": [
           "auth"
         ]
@@ -22820,6 +24432,256 @@
         "summary": "Logout Everywhere",
         "tags": [
           "auth"
+        ]
+      }
+    },
+    "/v1/auth/mfa": {
+      "get": {
+        "operationId": "mfa_status_v1_auth_mfa_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MfaStatusOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Mfa Status",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/v1/auth/mfa/disable": {
+      "post": {
+        "description": "Turn two-step sign-in off (needs the password and a current or recovery code).",
+        "operationId": "mfa_disable_v1_auth_mfa_disable_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfaDisableRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MfaStatusOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Mfa Disable",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/v1/auth/mfa/recovery-codes": {
+      "post": {
+        "description": "Replace the recovery codes (the old ones stop working); needs a current code.",
+        "operationId": "mfa_recovery_codes_v1_auth_mfa_recovery_codes_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfaCodeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecoveryCodesOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Mfa Recovery Codes",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/v1/auth/mfa/totp/confirm": {
+      "post": {
+        "description": "Turn two-step sign-in on with the first code from the app. Returns recovery codes\n(shown once), signs out other sessions and rotates this one.",
+        "operationId": "mfa_confirm_v1_auth_mfa_totp_confirm_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfaCodeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecoveryCodesOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Mfa Confirm",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/v1/auth/mfa/totp/setup": {
+      "post": {
+        "description": "Start setting up an authenticator app (needs the password): the secret as text, an\n``otpauth://`` link and a QR code. Nothing changes at sign-in until it is confirmed.",
+        "operationId": "mfa_setup_v1_auth_mfa_totp_setup_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfaSetupRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MfaSetupOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Mfa Setup",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/v1/auth/notification-preferences": {
+      "get": {
+        "description": "Every category with the signed-in person's choice (``ALL`` until they choose).",
+        "operationId": "get_preferences_v1_auth_notification_preferences_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferencesOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get Preferences",
+        "tags": [
+          "notifications"
+        ]
+      },
+      "put": {
+        "operationId": "put_preferences_v1_auth_notification_preferences_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PreferencesIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferencesOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Preferences",
+        "tags": [
+          "notifications"
         ]
       }
     },
@@ -22948,6 +24810,52 @@
         ]
       }
     },
+    "/v1/auth/policies/accept": {
+      "post": {
+        "description": "Agree to the current versions of the named documents. Returns what is still\noutstanding.",
+        "operationId": "accept_policies_v1_auth_policies_accept_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptPoliciesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PolicyOut"
+                  },
+                  "title": "Response Accept Policies V1 Auth Policies Accept Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Accept Policies",
+        "tags": [
+          "account"
+        ]
+      }
+    },
     "/v1/auth/register": {
       "post": {
         "description": "Create an account. Always 202: a verification email (or, if the address is already\nregistered, a \"you already have an account\" email) is sent.",
@@ -23050,6 +24958,108 @@
         "summary": "Switch Organisation",
         "tags": [
           "auth"
+        ]
+      }
+    },
+    "/v1/auth/unsubscribe": {
+      "get": {
+        "description": "What an emailed unsubscribe link is for. Changes nothing (link scanners open it).",
+        "operationId": "unsubscribe_info_v1_auth_unsubscribe_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "title": "Token",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnsubscribeOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Unsubscribe Info",
+        "tags": [
+          "notifications"
+        ]
+      },
+      "post": {
+        "description": "Stop emails for the link's category, or every optional email with ``scope=all``.\nNeeds no sign-in: the link is the proof. Also the target of one-click unsubscribe\n(RFC 8058), whose form body is ignored.",
+        "operationId": "unsubscribe_v1_auth_unsubscribe_post",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "title": "Token",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": false,
+            "schema": {
+              "default": "category",
+              "enum": [
+                "category",
+                "all"
+              ],
+              "title": "Scope",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnsubscribedOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Unsubscribe",
+        "tags": [
+          "notifications"
         ]
       }
     },
@@ -26898,6 +28908,134 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/quotes": {
+      "post": {
+        "description": "Send the customer a written quote. A quote already waiting is replaced by this one.",
+        "operationId": "send_quote_v1_organisations__organisation_id__partner_leads__match_id__quotes_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadOfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Send Quote",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/quotes/{quote_id}/withdraw": {
+      "post": {
+        "description": "Take back a quote the customer hasn't answered.",
+        "operationId": "withdraw_quote_v1_organisations__organisation_id__partner_leads__match_id__quotes__quote_id__withdraw_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "quote_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Quote Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadOfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Withdraw Quote",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/partner/resubmit": {
       "post": {
         "description": "Send an application that wasn't approved back to our team, after fixing it.",
@@ -27731,6 +29869,219 @@
         "summary": "List Generated",
         "tags": [
           "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/quotes": {
+      "get": {
+        "description": "Quotes partners sent for this project's introductions, newest first (earlier\nversions of a revised quote are left out).",
+        "operationId": "list_quotes_v1_organisations__organisation_id__projects__project_id__quotes_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerQuoteOut"
+                  },
+                  "title": "Response List Quotes V1 Organisations  Organisation Id  Projects  Project Id  Quotes Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Quotes",
+        "tags": [
+          "quotes"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/quotes/{quote_id}/accept": {
+      "post": {
+        "description": "Tell the partner you want to go ahead. The agreement for the work is between you and\nthem.",
+        "operationId": "accept_quote_v1_organisations__organisation_id__projects__project_id__quotes__quote_id__accept_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "quote_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Quote Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteAcceptIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerQuoteOut"
+                  },
+                  "title": "Response Accept Quote V1 Organisations  Organisation Id  Projects  Project Id  Quotes  Quote Id  Accept Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Accept Quote",
+        "tags": [
+          "quotes"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/quotes/{quote_id}/decline": {
+      "post": {
+        "operationId": "decline_quote_v1_organisations__organisation_id__projects__project_id__quotes__quote_id__decline_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "quote_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Quote Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteDeclineIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerQuoteOut"
+                  },
+                  "title": "Response Decline Quote V1 Organisations  Organisation Id  Projects  Project Id  Quotes  Quote Id  Decline Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Decline Quote",
+        "tags": [
+          "quotes"
         ]
       }
     },
@@ -30388,6 +32739,7 @@
     },
     "/v1/organisations/{organisation_id}/reviews/{review_id}/cancel": {
       "post": {
+        "description": "Cancel the review. Paid for and no reviewer has started yet: refunded in full\n(``cancel_refund_cents`` on the review says how much, before cancelling).",
         "operationId": "cancel_review_v1_organisations__organisation_id__reviews__review_id__cancel_post",
         "parameters": [
           {
@@ -31885,6 +34237,48 @@
         "summary": "Apply",
         "tags": [
           "partners"
+        ]
+      }
+    },
+    "/v1/privacy/requests": {
+      "post": {
+        "description": "Ask about, correct or delete personal information, or make a privacy complaint.",
+        "operationId": "create_privacy_request_v1_privacy_requests_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrivacyRequestIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrivacyRequestCreated"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Privacy Request",
+        "tags": [
+          "privacy"
         ]
       }
     },

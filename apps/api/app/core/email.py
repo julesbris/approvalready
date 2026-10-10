@@ -29,6 +29,8 @@ class OutgoingEmail:
     kind: str
     # Links carried by the message, so tests and the console provider can surface them.
     links: dict[str, str] = field(default_factory=dict)
+    # Extra message headers (``List-Unsubscribe`` on notification emails).
+    headers: dict[str, str] = field(default_factory=dict)
 
 
 class EmailProvider(Protocol):
@@ -68,6 +70,8 @@ class SmtpEmailProvider:
         msg["From"] = s.email_from
         msg["To"] = message.to
         msg["Subject"] = message.subject
+        for name, value in message.headers.items():
+            msg[name] = value
         msg.set_content(message.text)
         with smtplib.SMTP(s.smtp_host, s.smtp_port, timeout=10) as smtp:
             if s.smtp_starttls:

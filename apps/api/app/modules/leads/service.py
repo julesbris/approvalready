@@ -931,6 +931,12 @@ async def record_outcome(
         )
     previous = offer.match.status
     await _transition(db, offer.match, to, actor_id=actor_id, note=note)
+    if to == LeadMatchStatus.LOST:
+        from app.modules.leads import quotes
+
+        await quotes.withdraw_waiting(
+            db, offer.match, actor_id=actor_id, now=utcnow(), note="The job was recorded as lost."
+        )
     await db.flush()
     await audit.record(
         db,

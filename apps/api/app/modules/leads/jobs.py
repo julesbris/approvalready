@@ -2,6 +2,8 @@
 
 * ``match_lead``: right after a customer consents (a Celery task, or inline in tests):
   find and rank eligible partners, offer the first wave, notify them.
+* ``notify_quote_received`` / ``notify_quote_answered`` (Milestone 23): in-app notices and
+  emails when a partner sends a quote and when the customer answers it.
 * ``sweep`` (Celery beat, every 15 minutes): expire leads past their date, match partners
   who became eligible since, release the next wave where it is due, and notify.
 
@@ -23,7 +25,8 @@ from app.core.email import EmailProvider
 from app.db.tenant import bind_tenant
 from app.modules.assessments.service import assessment_date
 from app.modules.leads import matching
-from app.modules.leads.models import Lead, LeadMatch, LeadStatus, ReferralConsent
+from app.modules.leads.models import Lead, LeadMatch, LeadQuote, LeadStatus, ReferralConsent
+from app.modules.leads.quotes import gst_amounts
 from app.modules.leads.service import close_lead, utcnow
 from app.modules.marketplace.models import MarketplaceCategory
 from app.modules.notifications import service as notifications
@@ -58,14 +61,11 @@ async def notify_offered(db: AsyncSession, matches: list[LeadMatch]) -> Pending:
         category = await db.get(MarketplaceCategory, lead.category_id)
         label = category.label if category else "Referral"
         await bind_tenant(db, partner.organisation_id)
-        for member in await tenancy.list_members(db, partner.organisation_id):
-            perms = await tenancy.permissions_of_roles(db, member.role_keys)
-            if Perm.LEAD_READ not in perms:
-                continue
+        for user_id in await _lead_readers(db, partner):
             nid = await notifications.create(
                 db,
                 organisation_id=partner.organisation_id,
-                recipient_user_id=member.user.id,
+                recipient_user_id=user_id,
                 kind=NotificationKind.LEAD_OFFERED,
                 title=f"New referral: {label} in {_where(lead)}",
                 body=(
@@ -104,6 +104,81 @@ async def notify_claimed(
         dedupe_key=f"lead-claim:{lead.id}:{partner_name}"[:200],
     )
     return {lead.organisation_id: [nid]} if nid else {}
+
+
+async def _lead_readers(db: AsyncSession, partner: PartnerOrganisation) -> list[uuid.UUID]:
+    """The partner's members who can see referrals (bind the partner first)."""
+    out = []
+    for member in await tenancy.list_members(db, partner.organisation_id):
+        if Perm.LEAD_READ in await tenancy.permissions_of_roles(db, member.role_keys):
+            out.append(member.user.id)
+    return out
+
+
+def _money(cents: int) -> str:
+    return f"${cents / 100:,.2f}"
+
+
+async def notify_quote_received(
+    db: AsyncSession, lead: Lead, partner_name: str, quote: LeadQuote
+) -> Pending:
+    """Tell the customer who asked that a partner sent (or revised) a quote."""
+    await bind_tenant(db, lead.organisation_id)
+    record = (
+        await db.execute(
+            select(ReferralConsent).where(ReferralConsent.id == lead.referral_consent_id)
+        )
+    ).scalar_one_or_none()
+    if record is None:
+        return {}
+    _, total = gst_amounts(quote.total_cents, quote.gst)
+    revised = " a revised" if quote.version > 1 else " a"
+    nid = await notifications.create(
+        db,
+        organisation_id=lead.organisation_id,
+        recipient_user_id=record.user_id,
+        kind=NotificationKind.QUOTE_RECEIVED,
+        title=f"{partner_name} sent you{revised} quote: {_money(total)}"[:200],
+        body=(
+            f"{quote.title}. Valid until {quote.valid_until:%d %b %Y}. Compare quotes and "
+            "accept or decline them on your project."
+        ),
+        link_path=f"/projects/{lead.project_id}/referrals#quotes",
+        project_id=lead.project_id,
+        dedupe_key=f"quote:{quote.id}",
+    )
+    return {lead.organisation_id: [nid]} if nid else {}
+
+
+async def notify_quote_answered(
+    db: AsyncSession, answered: list[tuple[LeadQuote, bool]]
+) -> Pending:
+    """Tell each partner that the customer accepted or declined their quote."""
+    pending: Pending = {}
+    for quote, accepted in answered:
+        partner = await db.get(PartnerOrganisation, quote.partner_organisation_id)
+        if partner is None:
+            continue
+        await bind_tenant(db, partner.organisation_id)
+        verdict = "accepted" if accepted else "declined"
+        if accepted:
+            body = "Get in touch to confirm the details. Your agreement is with the customer."
+        else:
+            body = quote.response_note or "You can send a revised quote while the job is open."
+        for user_id in await _lead_readers(db, partner):
+            nid = await notifications.create(
+                db,
+                organisation_id=partner.organisation_id,
+                recipient_user_id=user_id,
+                kind=NotificationKind.QUOTE_ANSWERED,
+                title=f"Quote {verdict}: {quote.title}"[:200],
+                body=body,
+                link_path=f"/partner/leads/{quote.lead_match_id}",
+                dedupe_key=f"quote-answer:{quote.id}",
+            )
+            if nid is not None:
+                pending.setdefault(partner.organisation_id, []).append(nid)
+    return pending
 
 
 async def send_pending(

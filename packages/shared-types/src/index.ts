@@ -23,6 +23,9 @@ export type OrganisationOut = Schemas["OrganisationOut"];
 export type MemberOut = Schemas["MemberOut"];
 export type InvitationOut = Schemas["InvitationOut"];
 export type AuditEventOut = Schemas["AuditEventOut"];
+export type MfaStatusOut = Schemas["MfaStatusOut"];
+export type MfaSetupOut = Schemas["MfaSetupOut"];
+export type RecoveryCodesOut = Schemas["RecoveryCodesOut"];
 
 export type ProjectOut = Schemas["ProjectOut"];
 export type ProjectDetailOut = Schemas["ProjectDetailOut"];
@@ -171,6 +174,12 @@ export type ItemCondition = Schemas["ItemCondition"];
 export type MaintenanceOut = Schemas["MaintenanceOut"];
 export type NotificationOut = Schemas["NotificationOut"];
 export type NotificationListOut = Schemas["NotificationListOut"];
+export type NotificationCategory = Schemas["NotificationCategory"];
+export type NotificationChannel = Schemas["NotificationChannel"];
+export type PreferenceOut = Schemas["PreferenceOut"];
+export type PreferencesOut = Schemas["PreferencesOut"];
+export type UnsubscribeOut = Schemas["UnsubscribeOut"];
+export type UnsubscribedOut = Schemas["UnsubscribedOut"];
 export type CrossSellOut = Schemas["CrossSellOut"];
 
 // Customer payments (Milestone 13)
@@ -189,6 +198,13 @@ export type RedirectOut = Schemas["RedirectOut"];
 export type CheckoutOut = Schemas["CheckoutOut"];
 export type StripeEventOut = Schemas["StripeEventOut"];
 export type ReviewPaymentOut = Schemas["ReviewPaymentOut"];
+
+// Refunds (Milestone 22)
+export type RefundOut = Schemas["RefundOut"];
+export type StaffRefundOut = Schemas["StaffRefundOut"];
+export type StaffPaymentOut = Schemas["StaffPaymentOut"];
+export type RefundReason = RefundOut["reason"];
+export type RefundStatus = RefundOut["status"];
 
 // Partner accounts (Milestone 14)
 export type PartnerOut = Schemas["PartnerOut"];
@@ -233,6 +249,13 @@ export type CreditStaffOut = Schemas["CreditStaffOut"];
 export type LeadPriceOut = Schemas["LeadPriceOut"];
 export type StaffLeadOut = Schemas["StaffLeadOut"];
 export type StaffMatchOut = Schemas["StaffMatchOut"];
+export type QuoteIn = Schemas["QuoteIn"];
+export type QuoteLineIn = Schemas["QuoteLineIn"];
+export type QuoteOut = Schemas["QuoteOut"];
+export type CustomerQuoteOut = Schemas["CustomerQuoteOut"];
+export type QuotedPartnerOut = Schemas["QuotedPartnerOut"];
+export type QuoteStatus = Schemas["QuoteStatus"];
+export type GstTreatment = Schemas["GstTreatment"];
 
 export type FunnelOut = Schemas["FunnelOut"];
 export type PartnerAnalyticsOut = Schemas["PartnerAnalyticsOut"];
@@ -246,3 +269,9 @@ export type CheckState = Schemas["CheckState"];
 export type CheckOut = Schemas["CheckOut"];
 export type BackupRunOut = Schemas["BackupRunOut"];
 export type OpsStatusOut = Schemas["OpsStatusOut"];
+
+export type PolicyOut = Schemas["PolicyOut"];
+export type PrivacyRequestOut = Schemas["PrivacyRequestOut"];
+export type PrivacyRequestCreated = Schemas["PrivacyRequestCreated"];
+export type PrivacyRequestKind = Schemas["PrivacyRequestKind"];
+export type PrivacyRequestStatus = Schemas["PrivacyRequestStatus"];
