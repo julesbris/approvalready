@@ -426,7 +426,9 @@ missing; `migrate` then recreates the application's login role. Run `verify-audi
 
 **Inside the app (Milestone 17).** Every 10 minutes the worker checks background jobs (the
 heartbeat), the job queue, the latest backup (failed, or older than 26 hours), the weekly
-restore check, the off-site copy (when set up) and free disk space. Platform admins see all of
+restore check, the off-site copy (when set up), free disk space and, since Milestone 20, email
+delivery (an email waiting more than 30 minutes means the mail server or its SMTP settings are
+failing; queued emails go out by themselves once it works again). Platform admins see all of
 it at `/admin/ops` ("Operations" in the admin menu). When a check starts failing, platform
 admins get a notification and an email, as do the addresses in `OPS_ALERT_EMAILS`
 (comma-separated, e.g. your own email); a check still failing is repeated every 12 hours, and

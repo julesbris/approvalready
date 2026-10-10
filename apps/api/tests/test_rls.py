@@ -139,6 +139,8 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     # Milestone 17: the backup service writes backup runs as the owner; the worker may only
     # record the off-site copy (a column grant, which this table-level map doesn't list).
     "backup_run": READ,
+    # Milestone 20: the API queues emails, the worker sends them and removes old rows.
+    "email_outbox": CRUD,
     # Milestone 11
     "sale_project": WRITE,
     "sale_document": CRUD,

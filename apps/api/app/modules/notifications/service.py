@@ -73,8 +73,9 @@ async def send_emails(
     organisation_id: uuid.UUID,
     ids: list[uuid.UUID],
 ) -> int:
-    """Email the pending notifications in ``ids`` (call after they are committed). A failure
-    is recorded on the notification and never retried by email; the in-app copy stays."""
+    """Email the pending notifications in ``ids`` (call after they are committed). With the
+    outbox (Milestone 20) ``SENT`` means queued, and the outbox retries delivery; a failure
+    to queue is recorded on the notification, and the in-app copy stays."""
     sent = 0
     for nid in ids:
         n = (

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import asyncio
 import uuid
+from collections.abc import Awaitable, Callable
 from datetime import UTC, datetime
 from typing import Any
 
@@ -23,6 +24,8 @@ from app.core.email import create_email_provider
 from app.core.errors_tracking import init_error_tracking
 from app.modules.documents import jobs
 from app.modules.notifications import delivery
+from app.modules.outbox import service as outbox
+from app.modules.outbox.models import OutboxStatus
 
 settings = get_settings()
 init_error_tracking(settings, "worker")
@@ -60,6 +63,7 @@ celery_app.conf.update(
         "leads-sweep": {"task": "leads.sweep", "schedule": 900.0},
         "ops-watchdog": {"task": "ops.watchdog", "schedule": 600.0},
         "ops-ship-backups": {"task": "ops.ship_backups", "schedule": 1800.0},
+        "email-sweep": {"task": "email.sweep", "schedule": 60.0},
     },
 )
 
@@ -175,7 +179,8 @@ async def _with_own_engine(job: delivery.Job) -> int:
     engine = create_async_engine(settings.database_url, poolclass=NullPool)
     try:
         factory = async_sessionmaker[AsyncSession](engine, expire_on_commit=False)
-        return await job(factory, create_email_provider(settings), settings)
+        email = outbox.create_sender(settings, factory, create_email_provider(settings))
+        return await job(factory, email, settings)
     finally:
         await engine.dispose()
 
@@ -190,6 +195,42 @@ def deliver_reminders() -> int:
 def daily_alerts() -> int:
     """Sources due for review (staff) and grant rounds opening or closing (customers)."""
     return asyncio.run(_with_own_engine(delivery.daily_alerts))
+
+
+# --- Email outbox (Milestone 20) ---------------------------------------------------------
+
+
+async def _with_transport(job: Callable[..., Awaitable[int]]) -> int:
+    """Run ``job(factory, transport)`` with the real email provider (never the outbox)."""
+    engine = create_async_engine(settings.database_url, poolclass=NullPool)
+    try:
+        factory = async_sessionmaker[AsyncSession](engine, expire_on_commit=False)
+        return await job(factory, create_email_provider(settings))
+    finally:
+        await engine.dispose()
+
+
+@celery_app.task(name=outbox.DELIVER_TASK)
+def deliver_email(email_id: str) -> int:
+    """Send one queued email (retries are scheduled in the row and picked up by the sweep)."""
+
+    async def job(factory: Any, transport: Any) -> int:
+        status = await outbox.deliver(factory, transport, settings, uuid.UUID(email_id))
+        return int(status == OutboxStatus.SENT)
+
+    return asyncio.run(_with_transport(job))
+
+
+@celery_app.task(name="email.sweep")
+def sweep_emails() -> int:
+    """Send queued emails that are due (retries, missed dispatches) and remove old rows."""
+
+    async def job(factory: Any, transport: Any) -> int:
+        sent = await outbox.deliver_due(factory, transport, settings)
+        await outbox.purge(factory, settings, datetime.now(UTC))
+        return sent
+
+    return asyncio.run(_with_transport(job))
 
 
 # --- Leads (Milestone 15) ---------------------------------------------------------------

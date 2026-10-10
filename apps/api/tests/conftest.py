@@ -59,7 +59,10 @@ def make_settings(**overrides: object) -> Settings:
         )
     else:
         # Plain-HTTP test client: no Secure cookies; capture emails in memory.
-        values.update(cookie_secure=False, email_provider=EmailProviderKind.MEMORY)
+        # Emails skip the outbox (test_outbox.py covers it) so tests read them at once.
+        values.update(
+            cookie_secure=False, email_provider=EmailProviderKind.MEMORY, email_outbox=False
+        )
     values.update(overrides)
     return Settings(**values)  # type: ignore[arg-type]
 
