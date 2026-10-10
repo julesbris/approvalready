@@ -93,6 +93,21 @@ export default async function AssessmentPage({ params, searchParams }: Props) {
         projectId={projectId}
         overrides={review?.overrides}
         approvalMap={project.ok && MAP_VERTICALS.has(project.data.vertical)}
+        helpAction={
+          <div className="button-row">
+            {canWrite && latestId === assessment.id ? (
+              <Link
+                className="button"
+                href={`/projects/${projectId}/referrals?assessment=${assessment.id}`}
+              >
+                Introduce me to checked partners
+              </Link>
+            ) : null}
+            <Link className="button-secondary" href={`/projects/${projectId}/referrals`}>
+              Your introductions
+            </Link>
+          </div>
+        }
         intro={
           <ReviewPanel
             organisationId={orgId}

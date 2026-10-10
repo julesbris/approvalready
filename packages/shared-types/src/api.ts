@@ -281,6 +281,105 @@ export interface paths {
         patch: operations["update_round_v1_admin_grant_rounds__round_id__patch"];
         trace?: never;
     };
+    "/v1/admin/leads": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Staff List
+         * @description Recent leads with every match, its score and outcome (never contact details).
+         */
+        get: operations["staff_list_v1_admin_leads_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/leads/claims/{claim_id}/refund": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Refund Claim
+         * @description Give a claimed referral's fee back as credit.
+         */
+        post: operations["refund_claim_v1_admin_leads_claims__claim_id__refund_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/leads/partners/{partner_id}/credits": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Staff Credits */
+        get: operations["staff_credits_v1_admin_leads_partners__partner_id__credits_get"];
+        put?: never;
+        /**
+         * Adjust Credits
+         * @description Give promotional credit or correct a partner's balance.
+         */
+        post: operations["adjust_credits_v1_admin_leads_partners__partner_id__credits_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/leads/prices": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Prices
+         * @description Lead fee per category (charged beyond a partner's included referrals).
+         */
+        get: operations["list_prices_v1_admin_leads_prices_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/leads/prices/{category_key}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Set Price */
+        put: operations["set_price_v1_admin_leads_prices__category_key__put"];
+        post?: never;
+        /** Remove Price */
+        delete: operations["remove_price_v1_admin_leads_prices__category_key__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/partners": {
         parameters: {
             query?: never;
@@ -2031,6 +2130,165 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/partner/credits": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Credits
+         * @description The partner's credit balance, this month's included referrals and the ledger.
+         */
+        get: operations["get_credits_v1_organisations__organisation_id__partner_credits_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/credits/checkout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Buy Credits
+         * @description A Stripe Checkout page for a credit pack. Credit is added when Stripe confirms.
+         */
+        post: operations["buy_credits_v1_organisations__organisation_id__partner_credits_checkout_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/lead-preferences": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Preferences */
+        get: operations["get_preferences_v1_organisations__organisation_id__partner_lead_preferences_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * Set Preferences
+         * @description Pause new referrals, or cap how many accepted referrals can be in progress.
+         */
+        patch: operations["set_preferences_v1_organisations__organisation_id__partner_lead_preferences_patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/leads": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Leads
+         * @description Referrals offered to this partner, newest first.
+         */
+        get: operations["list_leads_v1_organisations__organisation_id__partner_leads_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Lead
+         * @description One referral (opening it marks it viewed).
+         */
+        get: operations["get_lead_v1_organisations__organisation_id__partner_leads__match_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/claim": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Claim Lead
+         * @description Accept a referral: any fee is charged and the customer's chosen contact details are
+         *     released to you.
+         */
+        post: operations["claim_lead_v1_organisations__organisation_id__partner_leads__match_id__claim_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/decline": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Decline Lead */
+        post: operations["decline_lead_v1_organisations__organisation_id__partner_leads__match_id__decline_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/outcome": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Record Outcome
+         * @description Record what happened after accepting: contacted, quoted, won or lost.
+         */
+        post: operations["record_outcome_v1_organisations__organisation_id__partner_leads__match_id__outcome_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/partner/resubmit": {
         parameters: {
             query?: never;
@@ -2196,6 +2454,68 @@ export interface paths {
         get: operations["list_generated_v1_organisations__organisation_id__projects__project_id__generated_documents_get"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/referrals": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Referrals */
+        get: operations["list_referrals_v1_organisations__organisation_id__projects__project_id__referrals_get"];
+        put?: never;
+        /**
+         * Create Referral
+         * @description Agree to be introduced. Partners are matched straight after.
+         */
+        post: operations["create_referral_v1_organisations__organisation_id__projects__project_id__referrals_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/referrals/options": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Referral Options
+         * @description What the introduction form offers: the assessment's "who can help" categories, the
+         *     consent text to agree to, and suggested contact details and location.
+         */
+        get: operations["referral_options_v1_organisations__organisation_id__projects__project_id__referrals_options_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/referrals/{consent_id}/withdraw": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Withdraw Referral
+         * @description Stop the introduction: partners who haven't accepted no longer see it.
+         */
+        post: operations["withdraw_referral_v1_organisations__organisation_id__projects__project_id__referrals__consent_id__withdraw_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4307,6 +4627,60 @@ export interface components {
             text: string;
         };
         /**
+         * ClaimOut
+         * @description A referral the partner accepted: what they were given and what it cost.
+         */
+        ClaimOut: {
+            /**
+             * Claimed At
+             * Format: date-time
+             */
+            claimed_at: string;
+            /** Contact */
+            contact: {
+                [key: string]: unknown;
+            };
+            /** Fee Cents */
+            fee_cents: number;
+            /** Included */
+            included: boolean;
+            lead: components["schemas"]["LeadPublicView"];
+            /**
+             * Match Id
+             * Format: uuid
+             */
+            match_id: string;
+            /** Refunded At */
+            refunded_at: string | null;
+            /** Released Fields */
+            released_fields: string[];
+        };
+        /**
+         * ClaimedPartnerOut
+         * @description What the customer sees of a partner that accepted their request (the partner's own
+         *     public business details).
+         */
+        ClaimedPartnerOut: {
+            /**
+             * Claimed At
+             * Format: date-time
+             */
+            claimed_at: string;
+            /** Contact Email */
+            contact_email: string | null;
+            /**
+             * Is Promoted
+             * @description Paid placement: shown as Sponsored.
+             */
+            is_promoted: boolean;
+            /** Name */
+            name: string;
+            /** Phone */
+            phone: string | null;
+            /** Website */
+            website: string | null;
+        };
+        /**
          * Classification
          * @enum {string}
          */
@@ -4344,6 +4718,34 @@ export interface components {
          * @enum {string}
          */
         Confidence: "VERIFIED" | "LIKELY" | "REVIEW_REQUIRED" | "UNKNOWN";
+        /** ConsentTextOut */
+        ConsentTextOut: {
+            /** Body */
+            body: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Title */
+            title: string;
+            /** Version */
+            version: number;
+        };
+        /**
+         * ContactIn
+         * @description The details the customer is willing to share. Only the released ones are kept.
+         */
+        ContactIn: {
+            /** Email */
+            email?: string | null;
+            /** Name */
+            name?: string | null;
+            /** Phone */
+            phone?: string | null;
+            /** Site Address */
+            site_address?: string | null;
+        };
         /** CredentialCheckIn */
         CredentialCheckIn: {
             /** Notes */
@@ -4401,6 +4803,77 @@ export interface components {
          * @enum {string}
          */
         CredentialStatus: "UNVERIFIED" | "VERIFIED" | "REJECTED";
+        /** CreditAdjustIn */
+        CreditAdjustIn: {
+            /** Delta Cents */
+            delta_cents: number;
+            /** @description PROMO or ADJUSTMENT. */
+            kind: components["schemas"]["CreditKind"];
+            /** Note */
+            note: string;
+        };
+        /** CreditEntryOut */
+        CreditEntryOut: {
+            /** Balance After Cents */
+            balance_after_cents: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Delta Cents */
+            delta_cents: number;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            kind: components["schemas"]["CreditKind"];
+            /** Note */
+            note: string | null;
+            /** Reference Id */
+            reference_id: string | null;
+            /** Reference Type */
+            reference_type: string | null;
+        };
+        /**
+         * CreditKind
+         * @enum {string}
+         */
+        CreditKind: "PURCHASE" | "PROMO" | "LEAD_CHARGE" | "REFUND" | "ADJUSTMENT";
+        /** CreditStaffOut */
+        CreditStaffOut: {
+            /** Balance Cents */
+            balance_cents: number;
+            /** Entries */
+            entries: components["schemas"]["CreditEntryOut"][];
+            /**
+             * Partner Id
+             * Format: uuid
+             */
+            partner_id: string;
+        };
+        /** CreditsOut */
+        CreditsOut: {
+            /** Balance Cents */
+            balance_cents: number;
+            /**
+             * Currency
+             * @default AUD
+             */
+            currency: string;
+            /** Entries */
+            entries: components["schemas"]["CreditEntryOut"][];
+            /** Included Limit */
+            included_limit: number | null;
+            /** Included Used */
+            included_used: number;
+            /**
+             * Pack Price Cents
+             * @description Price of a credit pack, if on sale.
+             */
+            pack_price_cents: number | null;
+        };
         /** CrossSellOut */
         CrossSellOut: {
             confidence: components["schemas"]["Confidence"];
@@ -4418,6 +4891,32 @@ export interface components {
              * @description The product suggested, e.g. RENT.
              */
             vertical: string;
+        };
+        /** CustomerLeadOut */
+        CustomerLeadOut: {
+            /** Category Key */
+            category_key: string;
+            /** Category Label */
+            category_label: string;
+            /** Claimed Count */
+            claimed_count: number;
+            /** Claims */
+            claims: components["schemas"]["ClaimedPartnerOut"][];
+            /**
+             * Expires At
+             * Format: date-time
+             */
+            expires_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Max Claims */
+            max_claims: number;
+            /** Offered Count */
+            offered_count: number;
+            status: components["schemas"]["LeadStatus"];
         };
         /**
          * Decision
@@ -4776,6 +5275,34 @@ export interface components {
              * @description Null: unlimited.
              */
             limit: number | null;
+        };
+        /** FeeOut */
+        FeeOut: {
+            /** Balance Cents */
+            balance_cents: number;
+            /** Can Afford */
+            can_afford: boolean;
+            /**
+             * Currency
+             * @default AUD
+             */
+            currency: string;
+            /** Explanation */
+            explanation: string;
+            /** Fee Cents */
+            fee_cents: number;
+            /**
+             * Included
+             * @description One of the plan's referrals this month (no fee).
+             */
+            included: boolean;
+            /**
+             * Included Limit
+             * @description None: unlimited.
+             */
+            included_limit: number | null;
+            /** Included Used */
+            included_used: number;
         };
         /** FindingOut */
         FindingOut: {
@@ -5329,6 +5856,132 @@ export interface components {
          * @enum {string}
          */
         JobStatus: "PENDING" | "SUCCEEDED" | "REJECTED" | "FAILED";
+        /** LeadDeclineIn */
+        LeadDeclineIn: {
+            /** Reason */
+            reason?: string | null;
+        };
+        /**
+         * LeadMatchStatus
+         * @enum {string}
+         */
+        LeadMatchStatus: "MATCHED" | "VIEWED" | "CLAIMED" | "CONTACTED" | "QUOTED" | "WON" | "LOST" | "EXPIRED" | "DECLINED";
+        /** LeadOfferOut */
+        LeadOfferOut: {
+            claim: components["schemas"]["ClaimOut"] | null;
+            /** @description What accepting would cost (open offers only). */
+            fee: components["schemas"]["FeeOut"] | null;
+            lead: components["schemas"]["LeadPublicView"];
+        };
+        /** LeadOutcomeIn */
+        LeadOutcomeIn: {
+            /** Note */
+            note?: string | null;
+            /** @description CONTACTED, QUOTED, WON or LOST. */
+            status: components["schemas"]["LeadMatchStatus"];
+        };
+        /** LeadPreferencesIn */
+        LeadPreferencesIn: {
+            /**
+             * Clear Max Open Leads
+             * @description Remove the limit on referrals in progress.
+             * @default false
+             */
+            clear_max_open_leads: boolean;
+            /** Max Open Leads */
+            max_open_leads?: number | null;
+            /** Paused */
+            paused?: boolean | null;
+        };
+        /** LeadPreferencesOut */
+        LeadPreferencesOut: {
+            /** In Progress */
+            in_progress: number;
+            /** Max Open Leads */
+            max_open_leads: number | null;
+            /** Paused */
+            paused: boolean;
+        };
+        /** LeadPriceIn */
+        LeadPriceIn: {
+            /** Amount Cents */
+            amount_cents: number;
+        };
+        /** LeadPriceOut */
+        LeadPriceOut: {
+            /** Amount Cents */
+            amount_cents: number | null;
+            /** Category Key */
+            category_key: string;
+            /** Category Label */
+            category_label: string;
+            /** Price Id */
+            price_id: string | null;
+            /** Restricted */
+            restricted: boolean;
+            /** Set At */
+            set_at: string | null;
+        };
+        /**
+         * LeadPublicView
+         * @description A referral as a partner sees it before accepting. No names or contact details.
+         */
+        LeadPublicView: {
+            /** Category Key */
+            category_key: string;
+            /** Category Label */
+            category_label: string;
+            /** Claims Left */
+            claims_left: number;
+            /**
+             * Expires At
+             * Format: date-time
+             */
+            expires_at: string;
+            /**
+             * Lead Id
+             * Format: uuid
+             */
+            lead_id: string;
+            lead_status: components["schemas"]["LeadStatus"];
+            /** Lga */
+            lga: string | null;
+            /**
+             * Match Id
+             * Format: uuid
+             */
+            match_id: string;
+            /** Max Claims */
+            max_claims: number;
+            /**
+             * Offered At
+             * Format: date-time
+             */
+            offered_at: string;
+            /** Postcode */
+            postcode: string;
+            /** Requirements */
+            requirements: string[];
+            /** Score */
+            score: number;
+            /** Score Breakdown */
+            score_breakdown: components["schemas"]["ScoreFactorOut"][];
+            /** State */
+            state: string;
+            status: components["schemas"]["LeadMatchStatus"];
+            /** Suburb */
+            suburb: string | null;
+            /** Summary */
+            summary: string | null;
+            timing: components["schemas"]["Timing"];
+            /** Vertical */
+            vertical: string;
+        };
+        /**
+         * LeadStatus
+         * @enum {string}
+         */
+        LeadStatus: "OPEN" | "FILLED" | "EXPIRED" | "WITHDRAWN";
         /**
          * ListingStatus
          * @enum {string}
@@ -5342,6 +5995,19 @@ export interface components {
              * @constant
              */
             status: "ok";
+        };
+        /** LocationIn */
+        LocationIn: {
+            /**
+             * Lga
+             * @description Council (local government) area.
+             */
+            lga?: string | null;
+            /** Postcode */
+            postcode: string;
+            state: components["schemas"]["AustralianState"];
+            /** Suburb */
+            suburb?: string | null;
         };
         /** LoginRequest */
         LoginRequest: {
@@ -5549,7 +6215,7 @@ export interface components {
          * NotificationKind
          * @enum {string}
          */
-        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE";
+        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE" | "LEAD_OFFERED" | "LEAD_CLAIMED";
         /** NotificationListOut */
         NotificationListOut: {
             /** Items */
@@ -6901,6 +7567,20 @@ export interface components {
              */
             url: string;
         };
+        /** ReferralCategoryOptionOut */
+        ReferralCategoryOptionOut: {
+            /** Description */
+            description: string | null;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /**
+             * Open Request
+             * @description An introduction for this is already in progress.
+             */
+            open_request: boolean;
+        };
         /** ReferralCategoryOut */
         ReferralCategoryOut: {
             /** Description */
@@ -6915,6 +7595,125 @@ export interface components {
              */
             label: string;
         };
+        /**
+         * ReferralIn
+         * @description The customer's consent to be introduced, with exactly what they agreed to.
+         */
+        ReferralIn: {
+            /**
+             * Agreed
+             * @description The customer ticked the consent box.
+             */
+            agreed: boolean;
+            /**
+             * Assessment Id
+             * Format: uuid
+             */
+            assessment_id: string;
+            /** Categories */
+            categories: string[];
+            /**
+             * Consent Text Version Id
+             * Format: uuid
+             * @description The consent text shown (must be the current version).
+             */
+            consent_text_version_id: string;
+            contact: components["schemas"]["ContactIn"];
+            /** Fields Released */
+            fields_released: components["schemas"]["ReleasableField"][];
+            location: components["schemas"]["LocationIn"];
+            /** Max Providers */
+            max_providers: number;
+            /**
+             * Summary
+             * @description Shown to matched partners before they accept: no names or contact details.
+             */
+            summary?: string | null;
+            timing: components["schemas"]["Timing"];
+        };
+        /** ReferralOptionsOut */
+        ReferralOptionsOut: {
+            /**
+             * Assessment Id
+             * Format: uuid
+             */
+            assessment_id: string;
+            /** Categories */
+            categories: components["schemas"]["ReferralCategoryOptionOut"][];
+            /** @description None until introductions are set up. */
+            consent: components["schemas"]["ConsentTextOut"] | null;
+            /**
+             * Contact
+             * @description Suggested contact details (prefill).
+             */
+            contact: {
+                [key: string]: string | null;
+            };
+            /**
+             * Location
+             * @description Suggested location (prefill).
+             */
+            location: {
+                [key: string]: string | null;
+            };
+            /** Max Providers */
+            max_providers: number;
+        };
+        /** ReferralOut */
+        ReferralOut: {
+            /**
+             * Assessment Id
+             * Format: uuid
+             */
+            assessment_id: string;
+            /** Categories */
+            categories: string[];
+            /** Consent Version */
+            consent_version: number;
+            /** Contact */
+            contact: {
+                [key: string]: unknown;
+            };
+            /** Fields Released */
+            fields_released: string[];
+            /**
+             * Granted At
+             * Format: date-time
+             */
+            granted_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Leads */
+            leads: components["schemas"]["CustomerLeadOut"][];
+            /** Lga */
+            lga: string | null;
+            /** Max Providers */
+            max_providers: number;
+            /** Postcode */
+            postcode: string;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** State */
+            state: string;
+            /** Suburb */
+            suburb: string | null;
+            /** Summary */
+            summary: string | null;
+            timing: components["schemas"]["Timing"];
+            /** Withdrawn At */
+            withdrawn_at: string | null;
+        };
+        /** RefundIn */
+        RefundIn: {
+            /** Note */
+            note: string;
+        };
         /** RegisterRequest */
         RegisterRequest: {
             /** Display Name */
@@ -6927,6 +7726,11 @@ export interface components {
             /** Password */
             password: string;
         };
+        /**
+         * ReleasableField
+         * @enum {string}
+         */
+        ReleasableField: "name" | "email" | "phone" | "site_address";
         /**
          * ReminderChannel
          * @enum {string}
@@ -7696,6 +8500,17 @@ export interface components {
          * @enum {string}
          */
         ScanStatus: "PENDING" | "CLEAN" | "INFECTED" | "ERROR";
+        /** ScoreFactorOut */
+        ScoreFactorOut: {
+            /** Factor */
+            factor: string;
+            /** Max */
+            max: number;
+            /** Points */
+            points: number;
+            /** Why */
+            why: string;
+        };
         /** SectionOut */
         SectionOut: {
             /** Questions */
@@ -8178,6 +8993,79 @@ export interface components {
          * @enum {string}
          */
         SourceType: "LEGISLATION" | "REGULATION" | "PLANNING_SCHEME" | "POLICY" | "GUIDELINE" | "FORM" | "FEE_SCHEDULE" | "WEBPAGE" | "GRANT_GUIDELINES";
+        /** StaffLeadOut */
+        StaffLeadOut: {
+            /** Category Key */
+            category_key: string;
+            /** Category Label */
+            category_label: string;
+            /** Claimed Count */
+            claimed_count: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Expires At
+             * Format: date-time
+             */
+            expires_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Lga */
+            lga: string | null;
+            /** Matches */
+            matches: components["schemas"]["StaffMatchOut"][];
+            /** Max Claims */
+            max_claims: number;
+            /** Postcode */
+            postcode: string;
+            /** State */
+            state: string;
+            status: components["schemas"]["LeadStatus"];
+            /** Suburb */
+            suburb: string | null;
+            /** Vertical */
+            vertical: string;
+        };
+        /** StaffMatchOut */
+        StaffMatchOut: {
+            /** Claim Id */
+            claim_id: string | null;
+            /** Claim Refunded At */
+            claim_refunded_at: string | null;
+            /** Fee Cents */
+            fee_cents: number | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Included */
+            included: boolean | null;
+            /** Offered At */
+            offered_at: string | null;
+            /**
+             * Partner Id
+             * Format: uuid
+             */
+            partner_id: string;
+            /** Partner Name */
+            partner_name: string;
+            /** Rank */
+            rank: number;
+            /** Responded At */
+            responded_at: string | null;
+            /** Score */
+            score: number;
+            /** Score Breakdown */
+            score_breakdown: components["schemas"]["ScoreFactorOut"][];
+            status: components["schemas"]["LeadMatchStatus"];
+        };
         /** StaffPartnerOut */
         StaffPartnerOut: {
             /** Abn */
@@ -8643,6 +9531,11 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /**
+         * Timing
+         * @enum {string}
+         */
+        Timing: "ASAP" | "WITHIN_3_MONTHS" | "LATER" | "RESEARCHING";
         /** TokenRequest */
         TokenRequest: {
             /** Token */
@@ -9318,6 +10211,224 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["GrantProgramOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    staff_list_v1_admin_leads_get: {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["LeadStatus"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StaffLeadOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    refund_claim_v1_admin_leads_claims__claim_id__refund_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                claim_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RefundIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreditStaffOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    staff_credits_v1_admin_leads_partners__partner_id__credits_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partner_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreditStaffOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    adjust_credits_v1_admin_leads_partners__partner_id__credits_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partner_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreditAdjustIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreditStaffOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_prices_v1_admin_leads_prices_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadPriceOut"][];
+                };
+            };
+        };
+    };
+    set_price_v1_admin_leads_prices__category_key__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                category_key: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LeadPriceIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadPriceOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    remove_price_v1_admin_leads_prices__category_key__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                category_key: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadPriceOut"][];
                 };
             };
             /** @description Validation Error */
@@ -13082,6 +14193,303 @@ export interface operations {
             };
         };
     };
+    get_credits_v1_organisations__organisation_id__partner_credits_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreditsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    buy_credits_v1_organisations__organisation_id__partner_credits_checkout_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RedirectOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_preferences_v1_organisations__organisation_id__partner_lead_preferences_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadPreferencesOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    set_preferences_v1_organisations__organisation_id__partner_lead_preferences_patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LeadPreferencesIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadPreferencesOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_leads_v1_organisations__organisation_id__partner_leads_get: {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["LeadMatchStatus"][] | null;
+            };
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadOfferOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_lead_v1_organisations__organisation_id__partner_leads__match_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadOfferOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    claim_lead_v1_organisations__organisation_id__partner_leads__match_id__claim_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadOfferOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    decline_lead_v1_organisations__organisation_id__partner_leads__match_id__decline_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LeadDeclineIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadOfferOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    record_outcome_v1_organisations__organisation_id__partner_leads__match_id__outcome_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["LeadOutcomeIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadOfferOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     resubmit_v1_organisations__organisation_id__partner_resubmit_post: {
         parameters: {
             query?: never;
@@ -13566,6 +14974,141 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["GeneratedDocumentOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_referrals_v1_organisations__organisation_id__projects__project_id__referrals_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReferralOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_referral_v1_organisations__organisation_id__projects__project_id__referrals_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReferralIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReferralOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    referral_options_v1_organisations__organisation_id__projects__project_id__referrals_options_get: {
+        parameters: {
+            query: {
+                assessment_id: string;
+            };
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReferralOptionsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    withdraw_referral_v1_organisations__organisation_id__projects__project_id__referrals__consent_id__withdraw_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                consent_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReferralOut"][];
                 };
             };
             /** @description Validation Error */

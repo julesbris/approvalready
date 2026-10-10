@@ -247,6 +247,7 @@ export function AssessmentReport({
   overrides,
   findingActions,
   intro,
+  helpAction,
   approvalMap = false,
   children,
 }: {
@@ -259,6 +260,8 @@ export function AssessmentReport({
   findingActions?: (finding: FindingOut) => ReactNode;
   /** Shown under the heading (the review panel). */
   intro?: ReactNode;
+  /** Under "Who can help": asking to be introduced to partners. */
+  helpAction?: ReactNode;
   /** Show approvals as BusinessReady's map (Required, Likely, May apply, Not identified). */
   approvalMap?: boolean;
   /** Interactive panels (evidence, report downloads) shown after the requirements. */
@@ -374,6 +377,7 @@ export function AssessmentReport({
           <p className="muted">
             These are kinds of professional, not recommendations of particular businesses.
           </p>
+          {helpAction}
         </section>
       ) : null}
 

@@ -33,6 +33,9 @@ from app.modules.documents.router import router as documents_router
 from app.modules.entities.router import router as entities_router
 from app.modules.grants.router import router as grants_router
 from app.modules.identity.router import router as auth_router
+from app.modules.leads.router import admin_router as leads_admin_router
+from app.modules.leads.router import customer_router as leads_customer_router
+from app.modules.leads.router import partner_router as leads_partner_router
 from app.modules.lookups.router import router as lookups_router
 from app.modules.lookups.service import Lookups
 from app.modules.marketplace.router import router as marketplace_router
@@ -135,6 +138,9 @@ def create_app(
     app.include_router(partners_apply_router)
     app.include_router(partners_router)
     app.include_router(partners_admin_router)
+    app.include_router(leads_customer_router)
+    app.include_router(leads_partner_router)
+    app.include_router(leads_admin_router)
     return app
 
 

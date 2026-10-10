@@ -152,6 +152,13 @@ async def mark_paid(
         from app.modules.review import service as reviews
 
         await reviews.payment_received(db, payment)
+    from app.modules.leads import service as leads
+
+    if (
+        payment.purpose == PaymentPurpose.PRODUCT
+        and payment.subject_type == leads.CREDIT_PACK_SUBJECT
+    ):
+        await leads.credits_purchased(db, payment)
 
 
 async def _checkout_paid(

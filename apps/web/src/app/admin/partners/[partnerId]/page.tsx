@@ -1,9 +1,10 @@
-import type { StaffPartnerOut } from "@approvalready/shared-types";
+import type { CreditStaffOut, StaffPartnerOut } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AdminNav } from "@/components/admin/AdminNav";
 import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { PartnerCredits } from "@/components/leads/LeadsAdmin";
 import { PartnerReview } from "@/components/partners/PartnerReview";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
@@ -22,6 +23,9 @@ export default async function PartnerAdminPage({ params }: Props) {
     );
   }
   const partner = orNotFound(await serverGet<StaffPartnerOut>(`/admin/partners/${partnerId}`));
+  const credits = session.permissions.includes("lead.manage")
+    ? await serverGet<CreditStaffOut>(`/admin/leads/partners/${partnerId}/credits`)
+    : null;
   return (
     <AppShell session={session}>
       <AdminNav current="partners" />
@@ -29,6 +33,7 @@ export default async function PartnerAdminPage({ params }: Props) {
         <Link href="/admin/partners">Partners</Link>
       </p>
       <PartnerReview initial={partner} />
+      {credits && credits.ok ? <PartnerCredits initial={credits.data} /> : null}
     </AppShell>
   );
 }

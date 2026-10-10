@@ -455,6 +455,8 @@ async def test_partner_plans_lift_limits_with_a_grace_period(
         "partner.categories.max": None,
         "partner.service_areas.max": None,
         "partner.members.max": None,
+        # Included referrals apply with or without a plan on sale (Milestone 15).
+        "partner.leads.included": 3,
     }
 
     admin = await platform_user(api, "ADMIN")
@@ -476,6 +478,7 @@ async def test_partner_plans_lift_limits_with_a_grace_period(
         "partner.categories.max",
         "partner.service_areas.max",
         "partner.members.max",
+        "partner.leads.included",
     }
     r = await user.post(f"{org}/billing/checkout", json={"price_id": rent["id"]})
     assert r.status_code == 409 and r.json()["detail"]["code"] == "price_unavailable"

@@ -54,12 +54,15 @@ def create_resources(settings: Settings) -> Resources:
 
     session_factory = async_sessionmaker(engine, expire_on_commit=False)
     storage = create_storage(settings)
-    jobs = create_job_runner(settings, create_job_context(settings, session_factory, storage))
+    email = create_email_provider(settings)
+    jobs = create_job_runner(
+        settings, create_job_context(settings, session_factory, storage, email)
+    )
     return Resources(
         engine=engine,
         session_factory=session_factory,
         redis=redis,
-        email=create_email_provider(settings),
+        email=email,
         storage=storage,
         jobs=jobs,
     )

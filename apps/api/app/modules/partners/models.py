@@ -29,14 +29,17 @@ from typing import Any
 
 from sqlalchemy import (
     BigInteger,
+    Boolean,
     CheckConstraint,
     Date,
     DateTime,
     ForeignKey,
     Index,
+    Integer,
     String,
     Text,
     UniqueConstraint,
+    text,
 )
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column
@@ -94,6 +97,10 @@ class PartnerOrganisation(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, B
             name="stopped_has_reason",
         ),
         Index("ix_partner_organisation_status", "verification_status", "submitted_at"),
+        CheckConstraint(
+            "max_open_leads IS NULL OR max_open_leads BETWEEN 1 AND 500",
+            name="max_open_leads_range",
+        ),
     )
 
     organisation_id: Mapped[uuid.UUID] = mapped_column(
@@ -114,6 +121,10 @@ class PartnerOrganisation(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, B
     status_changed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     # The latest submission (first application or resubmission).
     submitted_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    # Lead preferences (Milestone 15): stop new referrals for a while, and cap how many
+    # claimed referrals can be in progress at once.
+    paused: Mapped[bool] = mapped_column(Boolean, nullable=False, server_default=text("false"))
+    max_open_leads: Mapped[int | None] = mapped_column(Integer)
 
 
 class PartnerApplication(UUIDPrimaryKeyMixin, TimestampMixin, Base):

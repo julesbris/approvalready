@@ -119,6 +119,19 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "partner_credential": CRUD,
     "partner_category": CRUD,
     "partner_service_area": {"SELECT", "INSERT", "DELETE"},
+    # Milestone 15: consent texts are synced by the owner; a consent only gains its
+    # withdrawal (trigger); leads are platform rows; the released contact is deleted when a
+    # lead closes; lead prices are replaced, never edited (trigger); events and the credit
+    # ledger are append-only.
+    "consent_text_version": READ,
+    "referral_consent": WRITE,
+    "lead": WRITE,
+    "lead_contact": {"SELECT", "INSERT", "DELETE"},
+    "lead_match": WRITE,
+    "lead_claim": WRITE,
+    "lead_status_event": APPEND,
+    "lead_price": WRITE,
+    "credit_ledger_entry": APPEND,
     # Milestone 11
     "sale_project": WRITE,
     "sale_document": CRUD,

@@ -7,6 +7,7 @@ Run the scheduler: celery -A app.worker beat --loglevel=INFO   (exactly one inst
 from __future__ import annotations
 
 import asyncio
+import uuid
 from datetime import UTC, datetime
 from typing import Any
 
@@ -52,6 +53,7 @@ celery_app.conf.update(
             "task": "notifications.daily_alerts",
             "schedule": crontab(hour=7, minute=30),
         },
+        "leads-sweep": {"task": "leads.sweep", "schedule": 900.0},
     },
 )
 
@@ -173,3 +175,25 @@ def deliver_reminders() -> int:
 def daily_alerts() -> int:
     """Sources due for review (staff) and grant rounds opening or closing (customers)."""
     return asyncio.run(_with_own_engine(delivery.daily_alerts))
+
+
+# --- Leads (Milestone 15) ---------------------------------------------------------------
+
+
+@celery_app.task(name="leads.match")
+def match_lead(lead_id: str) -> int:
+    """Match a new lead to partners and offer the first wave."""
+    from app.modules.leads import jobs as leads
+
+    async def job(factory: Any, email: Any, s: Any) -> int:
+        return await leads.match_lead(factory, email, s, uuid.UUID(lead_id))
+
+    return asyncio.run(_with_own_engine(job))
+
+
+@celery_app.task(name="leads.sweep")
+def sweep_leads() -> int:
+    """Expire, re-match and release open leads (every 15 minutes)."""
+    from app.modules.leads import jobs as leads
+
+    return asyncio.run(_with_own_engine(leads.sweep))

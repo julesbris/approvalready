@@ -12,6 +12,7 @@ export function AdminNav({
     | "reviews"
     | "professionals"
     | "partners"
+    | "leads"
     | "ai"
     | "billing";
 }) {
@@ -23,6 +24,7 @@ export function AdminNav({
     ["reviews", "/admin/reviews", "Professional reviews"],
     ["professionals", "/admin/professionals", "Professionals"],
     ["partners", "/admin/partners", "Partners"],
+    ["leads", "/admin/leads", "Referrals"],
     ["ai", "/admin/ai", "AI"],
     ["billing", "/admin/billing", "Billing"],
   ] as const;
