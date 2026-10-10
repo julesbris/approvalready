@@ -155,6 +155,22 @@ def process_billing_event(self: Any, event_id: str) -> str | None:
         raise self.retry(exc=exc, countdown=_countdown(self.request.retries)) from exc
 
 
+# Refunds (Milestone 22): Stripe outages are retried for about an hour; then the refund is
+# marked failed and staff are alerted. The sweep below re-sends any the queue lost.
+REFUND_RETRIES = 8
+
+
+@celery_app.task(name=jobs.REFUND_TASK, bind=True, max_retries=REFUND_RETRIES)
+def send_refund(self: Any, organisation_id: str, refund_id: str) -> str | None:
+    final = self.request.retries >= REFUND_RETRIES
+    try:
+        return asyncio.run(
+            jobs.run_refund(settings, organisation_id, refund_id, final_attempt=final)
+        )
+    except jobs.RetryLater as exc:
+        raise self.retry(exc=exc, countdown=_countdown(self.request.retries)) from exc
+
+
 @celery_app.task(name="documents.requeue_stalled")
 def requeue_stalled() -> int:
     """Re-queue scans, reports, AI drafts and Stripe events still pending well after their
@@ -169,7 +185,11 @@ def requeue_stalled() -> int:
     events = asyncio.run(jobs.stalled_billing_events(settings, older_than_minutes=10))
     for event_id in events:
         celery_app.send_task(jobs.BILLING_EVENT_TASK, args=[event_id])
-    return len(stalled) + len(events)
+    # Refunds still waiting to be sent (the queue was down, or the request's send failed).
+    refunds = asyncio.run(jobs.pending_refunds(settings, older_than_minutes=10))
+    for organisation_id, refund_id in refunds:
+        celery_app.send_task(jobs.REFUND_TASK, args=[organisation_id, refund_id])
+    return len(stalled) + len(events) + len(refunds)
 
 
 # --- Notifications (Milestone 11) ------------------------------------------------------

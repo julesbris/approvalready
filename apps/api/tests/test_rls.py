@@ -142,6 +142,8 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     # Milestone 20: the API queues emails, the worker sends them and removes old rows.
     "email_outbox": CRUD,
     "notification_preference": CRUD,
+    # Milestone 22: what a refund is never changes (trigger); only its sending progress does.
+    "refund": WRITE,
     # Milestone 11
     "sale_project": WRITE,
     "sale_document": CRUD,

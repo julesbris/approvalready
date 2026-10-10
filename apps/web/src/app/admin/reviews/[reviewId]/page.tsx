@@ -24,7 +24,7 @@ export default async function AdminReviewPage({ params }: Props) {
   return (
     <AppShell session={session}>
       <AdminNav current="reviews" />
-      <AssignReview initial={view} />
+      <AssignReview initial={view} canRefund={session.permissions.includes("billing.refund")} />
     </AppShell>
   );
 }

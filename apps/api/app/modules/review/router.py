@@ -33,8 +33,9 @@ from app.core.errors import ApiError, forbidden, not_found
 from app.core.resources import Resources
 from app.modules.assessments import service as assessments
 from app.modules.assessments.router import assessment_detail
+from app.modules.billing import refunds
 from app.modules.billing import service as billing
-from app.modules.billing.models import Payment
+from app.modules.billing.models import Payment, Refund
 from app.modules.billing.router import StripeDep
 from app.modules.documents import service as documents
 from app.modules.documents.router import _download, document_out, evidence_out
@@ -74,6 +75,8 @@ from app.modules.review.schemas import (
     ProfileIn,
     ProfileUpdateIn,
     QueueItemOut,
+    RefundIn,
+    RefundOut,
     ResubmitIn,
     ReviewerWorkspaceOut,
     ReviewOut,
@@ -83,6 +86,8 @@ from app.modules.review.schemas import (
     ReviewTaskIn,
     ServiceOut,
     ServicesIn,
+    StaffPaymentOut,
+    StaffRefundOut,
     StaffReviewOut,
 )
 from app.modules.tenancy import service as tenancy
@@ -97,6 +102,7 @@ Read = Annotated[OrgContext, Depends(require_org_permission(Perm.PROJECT_READ))]
 Write = Annotated[OrgContext, Depends(require_org_permission(Perm.PROJECT_WRITE))]
 Verify = Annotated[OrgContext, Depends(require_platform_permission(Perm.PROFESSIONAL_VERIFY))]
 Assign = Annotated[OrgContext, Depends(require_platform_permission(Perm.REVIEW_ASSIGN))]
+Refunder = Annotated[OrgContext, Depends(require_platform_permission(Perm.BILLING_REFUND))]
 
 
 # --- Output ----------------------------------------------------------------------------
@@ -183,7 +189,19 @@ def overrides_out(rows: list[service.OverrideRow]) -> list[OverrideOut]:
     ]
 
 
-def payment_out(payment: Payment | None) -> ReviewPaymentOut | None:
+def refund_out(r: Refund) -> RefundOut:
+    return RefundOut(
+        id=r.id,
+        amount_cents=r.amount_cents,
+        currency=r.currency,
+        reason=r.reason,
+        status=r.status,
+        created_at=r.created_at,
+        sent_at=r.sent_at,
+    )
+
+
+def payment_out(payment: Payment | None, refunds: list[Refund]) -> ReviewPaymentOut | None:
     if payment is None:
         return None
     return ReviewPaymentOut(
@@ -192,13 +210,18 @@ def payment_out(payment: Payment | None) -> ReviewPaymentOut | None:
         amount_cents=payment.amount_cents,
         currency=payment.currency,
         paid_at=payment.paid_at,
+        refunded_cents=payment.refunded_cents,
+        refunds=[refund_out(r) for r in refunds],
     )
 
 
 def review_out(v: service.ReviewView) -> ReviewOut:
     return ReviewOut(
-        **summary_out(v.review, v.professional).model_dump(exclude={"payment"}),
-        payment=payment_out(v.payment),
+        **summary_out(v.review, v.professional).model_dump(
+            exclude={"payment", "cancel_refund_cents"}
+        ),
+        payment=payment_out(v.payment, v.refunds),
+        cancel_refund_cents=v.cancel_refund_cents,
         project_title=v.project.title,
         project_reference=v.project.reference_code,
         vertical=v.project.vertical,
@@ -364,14 +387,29 @@ async def customer_comment(
 
 @customer_router.post("/reviews/{review_id}/cancel", response_model=ReviewOut)
 async def cancel_review(
-    review_id: uuid.UUID, ctx: Write, db: DbDep, meta: MetaDep, stripe: StripeDep
+    review_id: uuid.UUID,
+    ctx: Write,
+    db: DbDep,
+    meta: MetaDep,
+    stripe: StripeDep,
+    resources: ResourcesDep,
 ) -> ReviewOut:
+    """Cancel the review. Paid for and no reviewer has started yet: refunded in full
+    (``cancel_refund_cents`` on the review says how much, before cancelling)."""
     review = await service.get_review(db, ctx.organisation.id, review_id, lock=True)
-    unpaid = await service.cancel(db, review, actor_id=ctx.auth.user.id, meta=meta)
+    cancelled = await service.cancel(db, review, actor_id=ctx.auth.user.id, meta=meta)
     await db.commit()
+    unpaid = cancelled.unpaid
     if unpaid is not None and unpaid.stripe_checkout_session_id and stripe is not None:
         await billing.close_checkout(stripe, unpaid.stripe_checkout_session_id)
+    await _send_refunds(db, resources)
     return await _reload(db, review)
+
+
+async def _send_refunds(db: DbDep, resources: Resources) -> None:
+    """Send the refunds this request recorded, now that they are committed."""
+    for organisation_id, refund_id in refunds.take_new(db):
+        await resources.jobs.refund(organisation_id, refund_id)
 
 
 @customer_router.post("/reviews/{review_id}/resubmit", response_model=ReviewOut)
@@ -576,7 +614,9 @@ async def _workspace(db: DbDep, review: ReviewRequest) -> ReviewerWorkspaceOut:
     db.expire_all()
     review = await service.get_review(db, organisation_id, review_id)
     # What the customer paid is between them and us.
-    view = replace(await service.build_view(db, review), payment=None)
+    view = replace(
+        await service.build_view(db, review), payment=None, refunds=[], cancel_refund_cents=0
+    )
     a, p, findings = await assessments.get(db, review.organisation_id, review.assessment_id)
     shared, evidence = await service.reviewable_documents(db, review)
     tasks = (
@@ -892,13 +932,35 @@ async def _staff_view(db: DbDep, review: ReviewRequest) -> StaffReviewOut:
         for c in candidates
         if await tenancy.membership(db, c.professional.user_id, review.organisation_id) is None
     ]
+    payment = (
+        await billing.get_payment(db, review.organisation_id, review.payment_id)
+        if review.payment_id
+        else None
+    )
     return StaffReviewOut(
+        payment=await _staff_payment(db, payment) if payment else None,
         review=summary_out(review, professional),
         project_title=project.title,
         project_reference=project.reference_code,
         vertical=project.vertical,
         rule_sets_in_scope=[rs["title"] for rs in a.rule_sets if rs.get("scope") == "IN_SCOPE"],
         candidates=[professional_out(c) for c in candidates],
+    )
+
+
+async def _staff_payment(db: DbDep, payment: Payment) -> StaffPaymentOut:
+    return StaffPaymentOut(
+        id=payment.id,
+        status=payment.status,
+        amount_cents=payment.amount_cents,
+        currency=payment.currency,
+        paid_at=payment.paid_at,
+        refunded_cents=payment.refunded_cents,
+        refundable_cents=await refunds.refundable_cents(db, payment),
+        refunds=[
+            StaffRefundOut(**refund_out(r).model_dump(), note=r.note, error=r.error)
+            for r in await refunds.for_payment(db, payment.id)
+        ],
     )
 
 
@@ -945,6 +1007,31 @@ async def assign_review(
         ),
     )
     return out
+
+
+@admin_router.post("/reviews/{review_id}/refund", response_model=StaffReviewOut)
+async def refund_review(
+    review_id: uuid.UUID,
+    body: RefundIn,
+    ctx: Refunder,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+) -> StaffReviewOut:
+    """Give back part or all of what the customer paid for a review (``billing.refund``).
+    Sent to Stripe straight after; the customer is emailed once Stripe accepts it."""
+    review = await _staff_review(db, review_id, lock=True)
+    await service.staff_refund(
+        db,
+        review,
+        amount_cents=body.amount_cents,
+        note=body.note,
+        actor_id=ctx.auth.user.id,
+        meta=meta,
+    )
+    await db.commit()
+    await _send_refunds(db, resources)
+    return await _staff_view(db, review)
 
 
 @admin_router.post("/reviews/{review_id}/unassign", response_model=StaffReviewOut)

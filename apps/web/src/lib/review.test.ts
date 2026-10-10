@@ -1,6 +1,6 @@
-import type { FindingOut, OverrideOut } from "@approvalready/shared-types";
+import type { FindingOut, OverrideOut, RefundOut, ReviewOut } from "@approvalready/shared-types";
 
-import { applyOverrides, isOpen, reviewerName } from "./review";
+import { applyOverrides, cancelQuestion, isOpen, refundLine, reviewerName } from "./review";
 
 const finding = (id: string) =>
   ({ id, outcome_type: "PERMITTED", confidence: "LIKELY" }) as unknown as FindingOut;
@@ -52,5 +52,38 @@ describe("review helpers", () => {
         practice_name: "Coastal Planning",
       }),
     ).toBe("Pat Planner, Town planner (Coastal Planning)");
+  });
+});
+
+describe("refunds", () => {
+  const paid = {
+    id: "p",
+    status: "PAID",
+    amount_cents: 24900,
+    currency: "AUD",
+    paid_at: "2026-10-10T00:00:00Z",
+    refunded_cents: 0,
+    refunds: [],
+  };
+  const review = (status: string, cancel_refund_cents: number, payment: unknown = paid) =>
+    ({ status, cancel_refund_cents, payment }) as unknown as ReviewOut;
+
+  it("tells the customer whether cancelling refunds them", () => {
+    expect(cancelQuestion(review("ASSIGNED", 24900))).toContain("we'll refund $249.00");
+    expect(cancelQuestion(review("IN_REVIEW", 0))).toContain("isn't refunded automatically");
+    expect(cancelQuestion(review("REVIEW_REQUESTED", 0, null))).toBe("Cancel this review?");
+    expect(
+      cancelQuestion(review("PAYMENT_PENDING", 0, { ...paid, paid_at: null, status: "PENDING" })),
+    ).toBe("Cancel this review?");
+  });
+
+  it("describes each refund in plain words", () => {
+    const refund = (status: string) =>
+      ({ amount_cents: 15000, currency: "AUD", status }) as unknown as RefundOut;
+    const done = "Refunded $150.00. Most banks show it within 5 to 10 business days.";
+    expect(refundLine(refund("SUCCEEDED"))).toBe(done);
+    expect(refundLine(refund("SUBMITTED"))).toBe(done);
+    expect(refundLine(refund("PENDING"))).toBe("Refund of $150.00: being sent.");
+    expect(refundLine(refund("FAILED"))).toContain("delayed");
   });
 });

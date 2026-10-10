@@ -12,6 +12,8 @@ subscriptions, invoices and the webhook event store.
   from verified Stripe webhooks, never from the browser. No card data is stored, ever.
 * ``stripe_event`` (platform): every verified webhook, once (unique event id), with how it
   was processed. Replays and duplicates are recognised by the event id.
+* ``refund`` (tenant, Milestone 22): money given back on a payment, recorded before it is
+  sent to Stripe (the row id is Stripe's idempotency key, so a retry never refunds twice).
 """
 
 from __future__ import annotations
@@ -44,6 +46,7 @@ from app.db.base import (
     TimestampMixin,
     UUIDPrimaryKeyMixin,
     enum_check,
+    tenant_fk,
 )
 from app.modules.projects.models import Vertical
 
@@ -75,6 +78,23 @@ class PaymentStatus(StrEnum):
     CANCELLED = "CANCELLED"  # what it paid for was cancelled before payment
     REFUNDED = "REFUNDED"
     PARTIALLY_REFUNDED = "PARTIALLY_REFUNDED"
+
+
+class RefundReason(StrEnum):
+    REVIEW_CANCELLED = "REVIEW_CANCELLED"  # cancelled by the customer before work started
+    PAID_AFTER_CANCEL = "PAID_AFTER_CANCEL"  # paid on a page left open after cancelling
+    STAFF = "STAFF"  # staff decided; the note says why
+
+
+class RefundStatus(StrEnum):
+    PENDING = "PENDING"  # recorded, not yet accepted by Stripe (the worker keeps trying)
+    SUBMITTED = "SUBMITTED"  # Stripe accepted it and is still processing it
+    SUCCEEDED = "SUCCEEDED"
+    FAILED = "FAILED"  # Stripe refused it, or every try failed: staff follow it up
+
+
+# Refunds that count against what is left to refund on a payment.
+OPEN_REFUND_STATUSES = (RefundStatus.PENDING, RefundStatus.SUBMITTED, RefundStatus.SUCCEEDED)
 
 
 class SubscriptionStatus(StrEnum):
@@ -229,6 +249,36 @@ class Payment(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantMixin, 
     stripe_payment_intent_id: Mapped[str | None] = mapped_column(String(255))
     refunded_cents: Mapped[int] = mapped_column(BigInteger, nullable=False, server_default="0")
     paid_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class Refund(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantMixin, Base):
+    """Money given back on a payment. Created by the server only (a cancelled review, a
+    payment that arrived too late, or staff), then sent to Stripe by the worker."""
+
+    __tablename__ = "refund"
+    __table_args__ = (
+        UniqueConstraint("organisation_id", "id"),
+        UniqueConstraint("stripe_refund_id"),
+        tenant_fk("payment_id", "payment"),
+        enum_check("reason", RefundReason),
+        enum_check("status", RefundStatus),
+        CheckConstraint("amount_cents > 0", name="amount_positive"),
+        CheckConstraint("reason <> 'STAFF' OR note IS NOT NULL", name="staff_gives_reason"),
+        Index("ix_refund_payment_id", "payment_id"),
+        Index("ix_refund_status", "status", "updated_at"),
+    )
+
+    payment_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    amount_cents: Mapped[int] = mapped_column(BigInteger, nullable=False)
+    currency: Mapped[str] = mapped_column(String(3), nullable=False)
+    reason: Mapped[str] = mapped_column(Text, nullable=False)
+    # Why staff refunded (shown to staff only).
+    note: Mapped[str | None] = mapped_column(String(500))
+    status: Mapped[str] = mapped_column(Text, nullable=False, server_default=RefundStatus.PENDING)
+    stripe_refund_id: Mapped[str | None] = mapped_column(String(255))
+    attempts: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+    error: Mapped[str | None] = mapped_column(String(500))
+    sent_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
 
 
 class Subscription(UUIDPrimaryKeyMixin, TimestampMixin, TenantMixin, Base):

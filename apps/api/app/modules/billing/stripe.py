@@ -65,6 +65,12 @@ class CheckoutSession:
     url: str
 
 
+@dataclass(frozen=True)
+class StripeRefund:
+    id: str
+    status: str  # succeeded, pending, requires_action, failed or canceled
+
+
 class StripeClient:
     def __init__(self, settings: Settings, transport: httpx.AsyncBaseTransport | None = None):
         key = settings.stripe_secret_key
@@ -120,6 +126,26 @@ class StripeClient:
 
     async def expire_checkout_session(self, session_id: str) -> None:
         await self._post(f"/v1/checkout/sessions/{session_id}/expire", {})
+
+    async def create_refund(
+        self,
+        *,
+        payment_intent: str,
+        amount_cents: int,
+        metadata: dict[str, str],
+        idempotency_key: str,
+    ) -> StripeRefund:
+        body = await self._post(
+            "/v1/refunds",
+            {
+                "payment_intent": payment_intent,
+                "amount": amount_cents,
+                "reason": "requested_by_customer",
+                "metadata": metadata,
+            },
+            idempotency_key,
+        )
+        return StripeRefund(id=str(body["id"]), status=str(body.get("status") or "pending"))
 
     async def create_portal_session(self, *, customer: str, return_url: str) -> str:
         body = await self._post(
