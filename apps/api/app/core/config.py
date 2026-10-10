@@ -227,6 +227,11 @@ class Settings(BaseSettings):
     # Webhooks signed longer ago than this are refused (replay protection).
     stripe_webhook_tolerance_seconds: int = Field(default=300, ge=30, le=3600)
 
+    # --- Marketplace analytics (Milestone 16, app/modules/analytics) ---
+    # Partners see other partners' figures only as a median over at least this many partners
+    # (k-anonymity); below it the figure is withheld.
+    analytics_min_partners: int = Field(default=5, ge=3, le=50)
+
     @field_validator(
         "storage_s3_bucket",
         "storage_s3_region",

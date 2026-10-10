@@ -64,6 +64,9 @@ x-api-env: &api-env
   PAYMENTS_PROVIDER: ${PAYMENTS_PROVIDER:-none}
   STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
   STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
+  # Marketplace analytics (Milestone 16): partners see other partners' figures only as a
+  # median over at least this many partners.
+  ANALYTICS_MIN_PARTNERS: ${ANALYTICS_MIN_PARTNERS:-5}
 
 x-api-image: &api-image
   image: ${IMAGE_PREFIX:-approvalready}/api:${IMAGE_TAG:-latest}

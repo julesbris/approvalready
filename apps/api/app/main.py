@@ -22,6 +22,8 @@ from app.core.resources import create_resources
 from app.modules.ai.router import admin_router as ai_admin_router
 from app.modules.ai.router import router as ai_router
 from app.modules.ai.router import status_router as ai_status_router
+from app.modules.analytics.router import admin_router as analytics_admin_router
+from app.modules.analytics.router import partner_router as analytics_partner_router
 from app.modules.assessments.router import router as assessments_router
 from app.modules.billing.router import admin_router as billing_admin_router
 from app.modules.billing.router import router as billing_router
@@ -141,6 +143,8 @@ def create_app(
     app.include_router(leads_customer_router)
     app.include_router(leads_partner_router)
     app.include_router(leads_admin_router)
+    app.include_router(analytics_partner_router)
+    app.include_router(analytics_admin_router)
     return app
 
 

@@ -1008,3 +1008,34 @@ fieldset.question {
   margin: 0 0 4px;
   font-weight: 600;
 }
+
+/* --- Marketplace analytics (Milestone 16) --- */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.stat-grid div {
+  padding: 10px 12px;
+  border: 1px solid var(--ar-border);
+  border-radius: 8px;
+  background: var(--ar-surface-subtle);
+}
+
+.stat-grid dt {
+  font-size: 0.875rem;
+  color: var(--ar-ink-muted);
+}
+
+.stat-grid dd {
+  margin: 4px 0 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}

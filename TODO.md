@@ -146,15 +146,18 @@ tests and updated docs before the next starts.
 - [x] Partner portal surface on `partners.` host (`/partner`, any host; `partners.` redirects `/` there)
 - [ ] Next: `RADIUS` service areas; credential evidence uploads; public provider profile; automated ABN and licence register checks; credential expiry reminders
 
-## Milestone 15 — Lead engine
+## Milestone 15 — Lead engine ✅
 - [x] Referral consent (versioned text, fields released)
 - [x] Matching (hard filters + explainable ranking), release policy, claiming with row locks
 - [x] Contact locking/release, lead fees + credits ledger, outcomes
 - [x] Partner E2E test (16 steps, API level) + negative cases
 - [ ] Next: confirm the placeholder numbers (included referrals 3/15/50 a month, 14-day expiry, waves of 5 then 3 a day), set lead fees and a credit pack price; per-category lead preferences; quotes; sponsored placement; claw back credit when a credit-pack payment is refunded
 
-## Milestone 16 — Marketplace analytics
-- [ ] Per-partner analytics; k-anonymous aggregates only
+## Milestone 16 — Marketplace analytics ✅
+- [x] Per-partner analytics: own referrals as a funnel (offered, accepted, declined, missed, quoted, won, lost), reply times, fees, by category, area and month (`/partner/analytics`)
+- [x] k-anonymous benchmarks: other partners' medians (accept rate, win rate, reply time) only when at least `ANALYTICS_MIN_PARTNERS` (default 5) other partners contribute; nothing names or counts them
+- [x] Staff marketplace figures (`/admin/analytics`): requests, supply gaps (no partner available), time to first acceptance, outcomes and fees by category, area, month and partner
+- [ ] Next: CSV export; charts; area benchmarks once there are enough partners per region
 
 ## Milestone 17 — Production hardening
 - [ ] Backups (pg_dump + WAL to off-site S3), restore drills

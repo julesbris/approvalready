@@ -232,3 +232,11 @@ export type CreditStaffOut = Schemas["CreditStaffOut"];
 export type LeadPriceOut = Schemas["LeadPriceOut"];
 export type StaffLeadOut = Schemas["StaffLeadOut"];
 export type StaffMatchOut = Schemas["StaffMatchOut"];
+
+export type FunnelOut = Schemas["FunnelOut"];
+export type PartnerAnalyticsOut = Schemas["PartnerAnalyticsOut"];
+export type BenchmarkOut = Schemas["BenchmarkOut"];
+export type BenchmarksOut = Schemas["BenchmarksOut"];
+export type MarketTotalsOut = Schemas["MarketTotalsOut"];
+export type MarketPartnerOut = Schemas["MarketPartnerOut"];
+export type MarketplaceAnalyticsOut = Schemas["MarketplaceAnalyticsOut"];
