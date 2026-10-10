@@ -182,7 +182,7 @@ tests and updated docs before the next starts.
 - [x] Download my data (account and personal workspace as JSON) and close my account from Account
 - [x] Privacy requests from the contact page, worked by staff at `/admin/privacy` within 30 days; operations check and alerts
 - [x] `sitemap.xml` and `robots.txt` (moved from Milestone 5's backlog note)
-- [ ] Next: have a lawyer review the Terms and Privacy Policy and add the operating entity's legal name and ABN (`apps/web/src/lib/legal.ts`); ~~automatic deletion of a closed account's workspace after the 30 days~~ (Milestone 29); closing business organisations; change of email address
+- [ ] Next: have a lawyer review the Terms and Privacy Policy and add the operating entity's legal name and ABN (`apps/web/src/lib/legal.ts`); ~~automatic deletion of a closed account's workspace after the 30 days~~ (Milestone 29); closing business organisations; ~~change of email address~~ (Milestone 28)
 
 ## Milestone 20 — Reliable email delivery ✅
 - [x] Email outbox: every email is queued (sealed, erased once sent) and sent by the worker, so a slow or failing mail server no longer slows or loses sign-up, reset, invitation, review and referral emails
@@ -245,11 +245,18 @@ tests and updated docs before the next starts.
 - [x] Import and export approval map report; guides for importing and exporting
 - [ ] Next: tariff classification help; BICON look-up links per commodity; MICoR for exports; freight quote requests through the existing quotes feature
 
+## Milestone 28 — Change of email address ✅
+- [x] Account, Security: ask for a new address with the password (and a two-step code when on); a link goes to the new address, a notice to the old one, and nothing changes until the link is opened
+- [x] Confirming moves the account, marks the address confirmed, cancels links still waiting in the old inbox and tells the old address; a waiting change can be cancelled
+- [x] No account enumeration: an address another account uses gets the same answer, and that inbox is told instead of sent a link
+- [x] Migration 0028: `one_time_token.new_email`, purpose `EMAIL_CHANGE`
+- [ ] Next: update the Stripe customer's email for receipts; staff changing a customer's address from Admin > Accounts
+
 ## Milestone 29 — Deleting closed accounts' workspaces ✅
 - [x] A closed account's personal workspace (projects, answers, files, reports) is deleted automatically 7 days after closing (`PRIVACY_PURGE_AFTER_DAYS`), well inside the Privacy Policy's 30 days; payment records and the security log are kept
 - [x] Staff see when each will be deleted at `/admin/privacy`, can delete one now, or keep it by declining the request with a reason
 - [x] Closing withdraws referrals still offered to partners; partners keep the referrals they accepted (detached from the deleted project) but can't message or quote a closed account
-- [x] Database function `purge_closed_workspace` (migration 0028) only empties closed personal workspaces and never payment tables; a test makes every new workspace table a deliberate delete-or-keep choice
+- [x] Database function `purge_closed_workspace` (migration 0029) only empties closed personal workspaces and never payment tables; a test makes every new workspace table a deliberate delete-or-keep choice
 - [ ] Next: closing business organisations; a lawyer's check that the kept records match what the law requires
 
 ## Backlog / decisions to revisit

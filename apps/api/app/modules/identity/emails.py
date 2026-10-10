@@ -138,3 +138,77 @@ def mfa_recovery_code_used(settings: Settings, to: str, name: str, left: int) ->
             "up the app again under Account, Security.\n\n" + _security_footer(settings)
         ),
     )
+
+
+# --- Change of email address (Milestone 28) ---------------------------------------------
+
+
+def mask_email(email: str) -> str:
+    """``jane@example.com`` -> ``j***@example.com``: enough to recognise, not to copy."""
+    local, _, domain = email.partition("@")
+    return f"{local[:1]}***@{domain}"
+
+
+def email_change_confirm(
+    settings: Settings, to: str, name: str, token: str, old_email: str
+) -> OutgoingEmail:
+    link = _link(settings, "/verify-email/change", token)
+    hours = settings.email_verification_ttl_hours
+    return OutgoingEmail(
+        to=to,
+        kind="auth.email_change_confirm",
+        subject="Confirm your new email address for ApprovalReady",
+        text=(
+            f"Hi {name},\n\n"
+            f"You asked to change the email address of your ApprovalReady account from "
+            f"{mask_email(old_email)} to this one. Confirm the change:\n\n{link}\n\n"
+            f"This link expires in {hours} hours. Until then you still sign in with your old "
+            "address. If you did not ask for this, ignore this email.\n"
+        ),
+        links={"confirm": link},
+    )
+
+
+def email_change_address_taken(settings: Settings, to: str) -> OutgoingEmail:
+    login = f"{settings.web_base_url.rstrip('/')}/login"
+    return OutgoingEmail(
+        to=to,
+        kind="auth.email_change_confirm",
+        subject="This address already has an ApprovalReady account",
+        text=(
+            "Someone asked to move an ApprovalReady account to this email address, but an "
+            "account already uses it, so nothing was changed.\n\n"
+            f"If that account is yours, sign in to it: {login}\n"
+            "If you meant to combine two accounts, contact us. If this wasn't you, no action "
+            "is needed.\n"
+        ),
+        links={"login": login},
+    )
+
+
+def email_change_requested(settings: Settings, to: str, name: str, new_email: str) -> OutgoingEmail:
+    return OutgoingEmail(
+        to=to,
+        kind="auth.email_change_requested",
+        subject="A change of email address was asked for on your ApprovalReady account",
+        text=(
+            f"Hi {name},\n\nSomeone signed in to your account asked to change its email address "
+            f"to {mask_email(new_email)}. Nothing changes until the link sent to that address "
+            "is opened. You can cancel it under Account, Security.\n\n" + _security_footer(settings)
+        ),
+    )
+
+
+def email_changed(settings: Settings, to: str, name: str, new_email: str) -> OutgoingEmail:
+    contact = f"{settings.web_base_url.rstrip('/')}/contact"
+    return OutgoingEmail(
+        to=to,
+        kind="auth.email_changed",
+        subject="The email address of your ApprovalReady account was changed",
+        text=(
+            f"Hi {name},\n\nYour ApprovalReady account now uses {mask_email(new_email)}. "
+            "This address no longer signs in or receives emails from the account.\n\n"
+            f"If this wasn't you, contact us at once: {contact}\n"
+        ),
+        links={"contact": contact},
+    )

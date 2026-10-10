@@ -16,7 +16,7 @@ credit (tax law), the security log, the policy agreements, the privacy request i
 referrals partners received, detached from the project and without the customer's contact
 snapshot or summary (records of a business stay with that business).
 
-The rows are removed by the ``purge_closed_workspace`` database function (migration 0028):
+The rows are removed by the ``purge_closed_workspace`` database function (migration 0029):
 the application role can't delete most of these tables itself, and the function refuses
 anything but a closed personal workspace.
 """
@@ -52,7 +52,7 @@ from app.modules.privacy.models import (
 
 logger = logging.getLogger(__name__)
 
-# Kept for tax law. The database function refuses these too (migration 0028).
+# Kept for tax law. The database function refuses these too (migration 0029).
 KEPT_TABLES = frozenset(
     {
         "billing_customer",

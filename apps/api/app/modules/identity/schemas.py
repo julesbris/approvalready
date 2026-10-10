@@ -123,3 +123,19 @@ class RecoveryCodesOut(BaseModel):
     """Shown once. Each code signs in once in place of an authenticator code."""
 
     recovery_codes: list[str]
+
+
+class EmailChangeRequest(BaseModel):
+    """Change of email address (Milestone 28): a link goes to ``new_email``."""
+
+    new_email: EmailStr
+    password: str = Field(max_length=256)
+    # Needed when two-step sign-in is on: an authenticator or recovery code.
+    code: str | None = Field(default=None, max_length=40)
+
+
+class EmailChangeOut(BaseModel):
+    """The change waiting for its link to be opened (``pending_email`` is None if none)."""
+
+    pending_email: str | None = None
+    expires_at: datetime | None = None

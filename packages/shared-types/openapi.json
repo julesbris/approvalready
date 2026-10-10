@@ -5088,6 +5088,69 @@
         "title": "DraftSection",
         "type": "object"
       },
+      "EmailChangeOut": {
+        "description": "The change waiting for its link to be opened (``pending_email`` is None if none).",
+        "properties": {
+          "expires_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          },
+          "pending_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pending Email"
+          }
+        },
+        "title": "EmailChangeOut",
+        "type": "object"
+      },
+      "EmailChangeRequest": {
+        "description": "Change of email address (Milestone 28): a link goes to ``new_email``.",
+        "properties": {
+          "code": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code"
+          },
+          "new_email": {
+            "format": "email",
+            "title": "New Email",
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 256,
+            "title": "Password",
+            "type": "string"
+          }
+        },
+        "required": [
+          "new_email",
+          "password"
+        ],
+        "title": "EmailChangeRequest",
+        "type": "object"
+      },
       "EmailRequest": {
         "properties": {
           "email": {
@@ -25153,6 +25216,129 @@
         "summary": "Export My Data",
         "tags": [
           "account"
+        ]
+      }
+    },
+    "/v1/auth/email-change": {
+      "delete": {
+        "description": "Cancel the waiting change: the link sent to the new address stops working.",
+        "operationId": "cancel_email_change_v1_auth_email_change_delete",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailChangeOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Cancel Email Change",
+        "tags": [
+          "auth"
+        ]
+      },
+      "get": {
+        "operationId": "email_change_status_v1_auth_email_change_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailChangeOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Email Change Status",
+        "tags": [
+          "auth"
+        ]
+      },
+      "post": {
+        "description": "Ask to change the account's email address (needs the password, and a code when\ntwo-step sign-in is on). A link goes to the new address and a notice to the current\none; the address changes only when the link is opened.",
+        "operationId": "request_email_change_v1_auth_email_change_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailChangeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailChangeOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Request Email Change",
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/v1/auth/email-change/confirm": {
+      "post": {
+        "description": "Open the emailed link: the account moves to the new address (no sign-in needed; the\nlink proves the new inbox, the request proved the password).",
+        "operationId": "confirm_email_change_v1_auth_email_change_confirm_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Accepted"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Confirm Email Change",
+        "tags": [
+          "auth"
         ]
       }
     },
