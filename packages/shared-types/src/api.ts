@@ -2675,6 +2675,46 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/quotes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Send Quote
+         * @description Send the customer a written quote. A quote already waiting is replaced by this one.
+         */
+        post: operations["send_quote_v1_organisations__organisation_id__partner_leads__match_id__quotes_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/quotes/{quote_id}/withdraw": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Withdraw Quote
+         * @description Take back a quote the customer hasn't answered.
+         */
+        post: operations["withdraw_quote_v1_organisations__organisation_id__partner_leads__match_id__quotes__quote_id__withdraw_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/partner/resubmit": {
         parameters: {
             query?: never;
@@ -2840,6 +2880,65 @@ export interface paths {
         get: operations["list_generated_v1_organisations__organisation_id__projects__project_id__generated_documents_get"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/quotes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Quotes
+         * @description Quotes partners sent for this project's introductions, newest first (earlier
+         *     versions of a revised quote are left out).
+         */
+        get: operations["list_quotes_v1_organisations__organisation_id__projects__project_id__quotes_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/quotes/{quote_id}/accept": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Accept Quote
+         * @description Tell the partner you want to go ahead. The agreement for the work is between you and
+         *     them.
+         */
+        post: operations["accept_quote_v1_organisations__organisation_id__projects__project_id__quotes__quote_id__accept_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/quotes/{quote_id}/decline": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Decline Quote */
+        post: operations["decline_quote_v1_organisations__organisation_id__projects__project_id__quotes__quote_id__decline_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -5497,6 +5596,72 @@ export interface components {
             status: components["schemas"]["LeadStatus"];
         };
         /**
+         * CustomerQuoteOut
+         * @description A quote as the customer sees it, with the partner's public business details.
+         */
+        CustomerQuoteOut: {
+            /** Category Key */
+            category_key: string;
+            /** Category Label */
+            category_label: string;
+            /**
+             * Expired
+             * @description Still waiting, but its valid-until date has passed.
+             */
+            expired: boolean;
+            gst: components["schemas"]["GstTreatment"];
+            /** Gst Cents */
+            gst_cents: number;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Lead Id
+             * Format: uuid
+             */
+            lead_id: string;
+            /** Line Items */
+            line_items: components["schemas"]["QuoteLineOut"][];
+            partner: components["schemas"]["QuotedPartnerOut"];
+            /** Responded At */
+            responded_at: string | null;
+            /** Response Note */
+            response_note: string | null;
+            /** Scope */
+            scope: string;
+            /**
+             * Sent At
+             * Format: date-time
+             */
+            sent_at: string;
+            /** Start Estimate */
+            start_estimate: string | null;
+            status: components["schemas"]["QuoteStatus"];
+            /** Terms */
+            terms: string | null;
+            /** Title */
+            title: string;
+            /**
+             * Total Cents
+             * @description The sum of the line items, as entered.
+             */
+            total_cents: number;
+            /**
+             * Total Inc Gst Cents
+             * @description What the customer would pay, with any GST.
+             */
+            total_inc_gst_cents: number;
+            /**
+             * Valid Until
+             * Format: date
+             */
+            valid_until: string;
+            /** Version */
+            version: number;
+        };
+        /**
          * Decision
          * @enum {string}
          */
@@ -6244,6 +6409,11 @@ export interface components {
             /** Title */
             title?: string | null;
         };
+        /**
+         * GstTreatment
+         * @enum {string}
+         */
+        GstTreatment: "INCLUDED" | "EXCLUDED" | "NOT_REGISTERED";
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -6493,6 +6663,11 @@ export interface components {
             /** @description What accepting would cost (open offers only). */
             fee: components["schemas"]["FeeOut"] | null;
             lead: components["schemas"]["LeadPublicView"];
+            /**
+             * Quotes
+             * @description Quotes this partner sent for it, newest first.
+             */
+            quotes?: components["schemas"]["QuoteOut"][];
         };
         /** LeadOutcomeIn */
         LeadOutcomeIn: {
@@ -7142,7 +7317,7 @@ export interface components {
          * NotificationKind
          * @enum {string}
          */
-        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE" | "LEAD_OFFERED" | "LEAD_CLAIMED" | "OPS_ALERT";
+        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE" | "LEAD_OFFERED" | "LEAD_CLAIMED" | "OPS_ALERT" | "QUOTE_RECEIVED" | "QUOTE_ANSWERED";
         /** NotificationListOut */
         NotificationListOut: {
             /** Items */
@@ -8630,6 +8805,145 @@ export interface components {
             project_title: string;
             status: components["schemas"]["ReviewRequestStatus"];
             vertical: components["schemas"]["Vertical"];
+        };
+        /** QuoteAcceptIn */
+        QuoteAcceptIn: {
+            /**
+             * Decline Others
+             * @description Also decline the other quotes waiting for this job and tell those partners.
+             * @default false
+             */
+            decline_others: boolean;
+            /** Note */
+            note?: string | null;
+        };
+        /** QuoteDeclineIn */
+        QuoteDeclineIn: {
+            /**
+             * Note
+             * @description Shown to the partner.
+             */
+            note?: string | null;
+        };
+        /**
+         * QuoteIn
+         * @description A written quote for the job. Sending a new one replaces the one waiting.
+         */
+        QuoteIn: {
+            /** @description INCLUDED: the amounts include GST. EXCLUDED: GST is added on top. NOT_REGISTERED: no GST applies. */
+            gst: components["schemas"]["GstTreatment"];
+            /** Line Items */
+            line_items: components["schemas"]["QuoteLineIn"][];
+            /**
+             * Scope
+             * @description What the work includes (and what it doesn't).
+             */
+            scope: string;
+            /**
+             * Start Estimate
+             * @description When work could start.
+             */
+            start_estimate?: string | null;
+            /**
+             * Terms
+             * @description Deposit, payment and other terms.
+             */
+            terms?: string | null;
+            /** Title */
+            title: string;
+            /**
+             * Valid Until
+             * Format: date
+             */
+            valid_until: string;
+        };
+        /** QuoteLineIn */
+        QuoteLineIn: {
+            /** Amount Cents */
+            amount_cents: number;
+            /** Description */
+            description: string;
+        };
+        /** QuoteLineOut */
+        QuoteLineOut: {
+            /** Amount Cents */
+            amount_cents: number;
+            /** Description */
+            description: string;
+        };
+        /** QuoteOut */
+        QuoteOut: {
+            /**
+             * Expired
+             * @description Still waiting, but its valid-until date has passed.
+             */
+            expired: boolean;
+            gst: components["schemas"]["GstTreatment"];
+            /** Gst Cents */
+            gst_cents: number;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Lead Id
+             * Format: uuid
+             */
+            lead_id: string;
+            /** Line Items */
+            line_items: components["schemas"]["QuoteLineOut"][];
+            /** Responded At */
+            responded_at: string | null;
+            /** Response Note */
+            response_note: string | null;
+            /** Scope */
+            scope: string;
+            /**
+             * Sent At
+             * Format: date-time
+             */
+            sent_at: string;
+            /** Start Estimate */
+            start_estimate: string | null;
+            status: components["schemas"]["QuoteStatus"];
+            /** Terms */
+            terms: string | null;
+            /** Title */
+            title: string;
+            /**
+             * Total Cents
+             * @description The sum of the line items, as entered.
+             */
+            total_cents: number;
+            /**
+             * Total Inc Gst Cents
+             * @description What the customer would pay, with any GST.
+             */
+            total_inc_gst_cents: number;
+            /**
+             * Valid Until
+             * Format: date
+             */
+            valid_until: string;
+            /** Version */
+            version: number;
+        };
+        /**
+         * QuoteStatus
+         * @enum {string}
+         */
+        QuoteStatus: "SENT" | "SUPERSEDED" | "WITHDRAWN" | "ACCEPTED" | "DECLINED";
+        /** QuotedPartnerOut */
+        QuotedPartnerOut: {
+            /** Contact Email */
+            contact_email: string | null;
+            /** Name */
+            name: string;
+            /** Phone */
+            phone: string | null;
+            /** Website */
+            website: string | null;
         };
         /** ReadyResponse */
         ReadyResponse: {
@@ -16369,6 +16683,75 @@ export interface operations {
             };
         };
     };
+    send_quote_v1_organisations__organisation_id__partner_leads__match_id__quotes_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["QuoteIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadOfferOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    withdraw_quote_v1_organisations__organisation_id__partner_leads__match_id__quotes__quote_id__withdraw_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                quote_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeadOfferOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     resubmit_v1_organisations__organisation_id__partner_resubmit_post: {
         parameters: {
             query?: never;
@@ -16853,6 +17236,112 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["GeneratedDocumentOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_quotes_v1_organisations__organisation_id__projects__project_id__quotes_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CustomerQuoteOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    accept_quote_v1_organisations__organisation_id__projects__project_id__quotes__quote_id__accept_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                quote_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["QuoteAcceptIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CustomerQuoteOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    decline_quote_v1_organisations__organisation_id__projects__project_id__quotes__quote_id__decline_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                quote_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["QuoteDeclineIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CustomerQuoteOut"][];
                 };
             };
             /** @description Validation Error */

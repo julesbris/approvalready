@@ -248,6 +248,13 @@ export type CreditStaffOut = Schemas["CreditStaffOut"];
 export type LeadPriceOut = Schemas["LeadPriceOut"];
 export type StaffLeadOut = Schemas["StaffLeadOut"];
 export type StaffMatchOut = Schemas["StaffMatchOut"];
+export type QuoteIn = Schemas["QuoteIn"];
+export type QuoteLineIn = Schemas["QuoteLineIn"];
+export type QuoteOut = Schemas["QuoteOut"];
+export type CustomerQuoteOut = Schemas["CustomerQuoteOut"];
+export type QuotedPartnerOut = Schemas["QuotedPartnerOut"];
+export type QuoteStatus = Schemas["QuoteStatus"];
+export type GstTreatment = Schemas["GstTreatment"];
 
 export type FunnelOut = Schemas["FunnelOut"];
 export type PartnerAnalyticsOut = Schemas["PartnerAnalyticsOut"];

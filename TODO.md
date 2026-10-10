@@ -152,7 +152,7 @@ tests and updated docs before the next starts.
 - [x] Matching (hard filters + explainable ranking), release policy, claiming with row locks
 - [x] Contact locking/release, lead fees + credits ledger, outcomes
 - [x] Partner E2E test (16 steps, API level) + negative cases
-- [ ] Next: confirm the placeholder numbers (included referrals 3/15/50 a month, 14-day expiry, waves of 5 then 3 a day), set lead fees and a credit pack price; per-category lead preferences; quotes; sponsored placement; claw back credit when a credit-pack payment is refunded
+- [ ] Next: confirm the placeholder numbers (included referrals 3/15/50 a month, 14-day expiry, waves of 5 then 3 a day), set lead fees and a credit pack price; per-category lead preferences; quotes (built in Milestone 23); sponsored placement; claw back credit when a credit-pack payment is refunded
 
 ## Milestone 16 — Marketplace analytics ✅
 - [x] Per-partner analytics: own referrals as a funnel (offered, accepted, declined, missed, quoted, won, lost), reply times, fees, by category, area and month (`/partner/analytics`)
@@ -202,6 +202,12 @@ tests and updated docs before the next starts.
 - [x] Staff (`billing.refund`) refund part or all of a review with a reason, e.g. after work started; failed refunds alert staff
 - [x] `refund` table (migration 0021): recorded before sending, idempotent retries, worker sweep for refunds left pending
 - [ ] Next: refunds for other one-off products once any are sold; claw back lead credit when a credit-pack payment is refunded (Milestone 15 next)
+
+## Milestone 23 — Quotes ✅
+- [x] Partners who accepted a referral send the customer a written quote: line items, GST, valid until, start estimate, terms; revisions supersede the waiting quote (migration 0022, `lead_quote`, fixed once sent by a trigger)
+- [x] Customers compare quotes per job on `/projects/[id]/referrals`, accept one (optionally declining the others) or decline with a note; referrals move to won or lost
+- [x] In-app and email notifications both ways; audit events; analytics unchanged (status events)
+- [ ] Next: PDF quotes; reminders before a quote expires; quote templates per partner; messages between customer and partner
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
