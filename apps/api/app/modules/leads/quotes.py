@@ -47,7 +47,7 @@ from app.modules.leads.schemas import (
     QuoteLineOut,
     QuoteOut,
 )
-from app.modules.leads.service import Offer, _transition, get_offer
+from app.modules.leads.service import Offer, _transition, ensure_customer_open, get_offer
 from app.modules.marketplace.models import MarketplaceCategory
 from app.modules.partners.models import PartnerOrganisation
 from app.modules.projects.models import Project
@@ -165,6 +165,7 @@ async def send(
     offer = await get_offer(db, partner, match_id, lock=True)
     if offer.claim is None:
         raise _conflict("not_claimed", "Accept this referral before sending a quote.")
+    await ensure_customer_open(db, offer.lead)
     if offer.match.status not in WORKING:
         raise _conflict(
             "job_finished", "This job is marked won or lost, so you can't quote for it now."

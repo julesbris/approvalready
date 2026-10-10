@@ -691,6 +691,18 @@ class Offer:
     claim: LeadClaim | None
 
 
+async def ensure_customer_open(db: AsyncSession, lead: Lead) -> None:
+    """Refuse to send a closed account anything (Milestone 29): its sign-in and email are
+    gone and its workspace is deleted, or about to be."""
+    customer = await db.get(Organisation, lead.organisation_id)
+    if lead.project_id is None or customer is None or customer.deleted_at is not None:
+        raise ApiError(
+            status.HTTP_409_CONFLICT,
+            "customer_closed_account",
+            "The customer closed their account, so they can't receive messages or quotes.",
+        )
+
+
 async def offers(
     db: AsyncSession, partner: PartnerOrganisation, *, statuses: list[LeadMatchStatus] | None = None
 ) -> list[Offer]:

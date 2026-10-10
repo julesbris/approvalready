@@ -12389,6 +12389,18 @@
             "title": "Created At",
             "type": "string"
           },
+          "deletes_on": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deletes On"
+          },
           "details": {
             "title": "Details",
             "type": "string"
@@ -12419,6 +12431,18 @@
             "readOnly": true,
             "title": "Overdue",
             "type": "boolean"
+          },
+          "purged_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Purged At"
           },
           "resolution_note": {
             "anyOf": [
@@ -23029,6 +23053,50 @@
           }
         },
         "summary": "Update Privacy Request",
+        "tags": [
+          "admin: privacy"
+        ]
+      }
+    },
+    "/v1/admin/privacy/requests/{request_id}/delete-workspace": {
+      "post": {
+        "description": "Delete a closed account's personal workspace now instead of waiting for the\nnightly job.",
+        "operationId": "delete_closed_workspace_v1_admin_privacy_requests__request_id__delete_workspace_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "request_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Request Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrivacyRequestOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Closed Workspace",
         "tags": [
           "admin: privacy"
         ]

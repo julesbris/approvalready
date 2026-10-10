@@ -68,6 +68,10 @@ celery_app.conf.update(
             "task": "sources.weekly_check",
             "schedule": crontab(day_of_week="mon", hour=6, minute=0),
         },
+        "privacy-delete-closed-workspaces": {
+            "task": "privacy.delete_closed_workspaces",
+            "schedule": crontab(hour=3, minute=20),
+        },
     },
 )
 
@@ -322,5 +326,21 @@ def sources_weekly_check() -> int:
     async def job(factory: Any, email: Any, s: Any) -> int:
         result = await checks.run_weekly(factory, email, s, SourceFetcher(s))
         return result.checked
+
+    return asyncio.run(_with_own_engine(job))
+
+
+# --- Closed accounts (Milestone 29) -----------------------------------------------------
+
+
+@celery_app.task(name="privacy.delete_closed_workspaces")
+def delete_closed_workspaces() -> int:
+    """Delete the workspaces of accounts closed PRIVACY_PURGE_AFTER_DAYS ago (3:20 am)."""
+    from app.modules.documents.storage import create_storage
+    from app.modules.privacy import purge
+
+    async def job(factory: Any, email: Any, s: Any) -> int:
+        done = await purge.run_due(factory, create_storage(s), s.privacy_purge_after_days)
+        return len(done)
 
     return asyncio.run(_with_own_engine(job))

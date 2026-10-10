@@ -463,6 +463,23 @@ async def check_sources(settings: Settings) -> int:
     return 0
 
 
+async def delete_closed_workspaces(settings: Settings) -> int:
+    """Delete the closed accounts' workspaces that are due now (the nightly job)."""
+    from app.modules.privacy import purge
+
+    resources = create_resources(settings)
+    try:
+        done = await purge.run_due(
+            resources.session_factory, resources.storage, settings.privacy_purge_after_days
+        )
+    finally:
+        await resources.close()
+    print(f"Deleted {len(done)} closed account workspace(s).")
+    for result in done:
+        print(f"- request {result.request_id}: {result.total} records, {result.files} files")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="python -m app.cli")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -499,6 +516,12 @@ def main(argv: list[str] | None = None) -> int:
     lp.add_argument("--publish", action="store_true", help="Publish rules that pass the gate")
     sc = sub.add_parser("sources", help="Regulatory sources")
     sc.add_argument("action", choices=["check"], help="Run the weekly source check now")
+    pv = sub.add_parser("privacy", help="Closed accounts")
+    pv.add_argument(
+        "action",
+        choices=["delete-closed-workspaces"],
+        help="Delete the closed accounts' workspaces that are due now",
+    )
     args = parser.parse_args(argv)
     if args.command == "grant-platform-role":
         return asyncio.run(grant_platform_role(args.email, RoleKey(args.role)))
@@ -522,6 +545,8 @@ def main(argv: list[str] | None = None) -> int:
         return asyncio.run(sync_consent(get_settings()))
     if args.command == "sources":
         return asyncio.run(check_sources(get_settings()))
+    if args.command == "privacy":
+        return asyncio.run(delete_closed_workspaces(get_settings()))
     if args.command == "rules":
         return asyncio.run(load_pack(args.name, args.email, publish=args.publish))
     return asyncio.run(verify_audit())

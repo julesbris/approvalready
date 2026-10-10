@@ -21,6 +21,26 @@ const STATUS_LABELS: Record<string, string> = {
   DECLINED: "Declined",
 };
 
+/** A closed account's workspace: deleted, due to be deleted, or kept. */
+export function WorkspaceLine({ request }: { request: PrivacyRequestOut }) {
+  if (request.source !== "ACCOUNT_CLOSED") return null;
+  if (request.purged_at) {
+    return <p className="muted">Workspace deleted {formatDateTime(request.purged_at)}.</p>;
+  }
+  if (request.deletes_on) {
+    return (
+      <p className="muted">
+        The workspace is deleted automatically on {formatDate(request.deletes_on.slice(0, 10))}
+        . To keep it (for example a dispute), decline this request with the reason.
+      </p>
+    );
+  }
+  if (request.status !== "OPEN") {
+    return <p className="muted">Workspace kept: reopen the request to have it deleted.</p>;
+  }
+  return null;
+}
+
 function RequestItem({ request }: { request: PrivacyRequestOut }) {
   const router = useRouter();
   const { busy, error, run } = useAction();
@@ -33,6 +53,21 @@ function RequestItem({ request }: { request: PrivacyRequestOut }) {
         status,
         note,
       }),
+    );
+    if (saved) router.refresh();
+  }
+
+  async function deleteWorkspace() {
+    const sure = window.confirm(
+      "Delete this closed account's projects, answers and files now? Payment records are " +
+        "kept. This can't be undone.",
+    );
+    if (!sure) return;
+    const saved = await run(() =>
+      apiRequest<PrivacyRequestOut>(
+        "POST",
+        `/admin/privacy/requests/${request.id}/delete-workspace`,
+      ),
     );
     if (saved) router.refresh();
   }
@@ -54,6 +89,7 @@ function RequestItem({ request }: { request: PrivacyRequestOut }) {
           : `closed ${request.resolved_at ? formatDateTime(request.resolved_at) : ""}`}
       </div>
       <p className="privacy-request-details">{request.details}</p>
+      <WorkspaceLine request={request} />
       <form method="post" className="form" onSubmit={(e) => e.preventDefault()}>
         <label>
           Note (what you did, or why not)
@@ -69,14 +105,25 @@ function RequestItem({ request }: { request: PrivacyRequestOut }) {
         <div className="button-row tight">
           {request.status === "OPEN" ? (
             <>
-              <button
-                type="button"
-                className="button"
-                disabled={busy}
-                onClick={() => setStatus("DONE")}
-              >
-                Mark done
-              </button>
+              {request.deletes_on ? (
+                <button
+                  type="button"
+                  className="button"
+                  disabled={busy}
+                  onClick={deleteWorkspace}
+                >
+                  Delete workspace now
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="button"
+                  disabled={busy}
+                  onClick={() => setStatus("DONE")}
+                >
+                  Mark done
+                </button>
+              )}
               <button
                 type="button"
                 className="button button-secondary"
