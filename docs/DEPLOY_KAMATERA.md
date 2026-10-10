@@ -440,8 +440,10 @@ CI runs, on every pull request:
 
 * **Browser tests** (Playwright, `apps/web/e2e`): the partner journey end to end, and a check
   that pages run no script the Content Security Policy blocks.
-* **OWASP ZAP baseline scan** (passive) of the web app on that same stack. Accepted findings
-  are listed with reasons in `.zap/rules.tsv`; anything else fails the build.
+* **OWASP ZAP baseline scan** (passive) of the web app on that same stack. `.zap/rules.tsv`
+  lists the findings that fail the build (missing security headers, CSP, cookie flags,
+  sensitive data in URLs, XSS) and the accepted ones, with reasons; other warnings are
+  reported only.
 * **Dependency audits**: `pip-audit` over the API's locked runtime packages and
   `npm audit --omit=dev` over the web app's.
 

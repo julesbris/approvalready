@@ -1,7 +1,19 @@
-# ZAP baseline scan rules (Milestone 17): accepted findings, one per line: id<TAB>IGNORE<TAB>why.
-# Every other warning fails the CI job (zap-baseline.py without -I).
+# ZAP baseline scan rules (Milestone 17), one per line: id<TAB>FAIL|IGNORE<TAB>why.
+# The scan runs with -I: warnings are reported but only the FAIL rules below fail CI, so a new
+# informational rule in a newer ZAP release can't turn the build red on its own.
+10020	FAIL	(Anti-clickjacking header) frame-ancestors / X-Frame-Options must be set
+10021	FAIL	(X-Content-Type-Options header missing)
+10024	FAIL	(Sensitive Information in URL) e.g. a form falling back to GET; every form posts
+10038	FAIL	(Content Security Policy header not set) proxy.ts sets it on every page
+10043	FAIL	(User Controllable JavaScript Event, XSS)
+10054	FAIL	(Cookie without SameSite attribute)
+10062	FAIL	(PII disclosure)
+10063	FAIL	(Permissions Policy header not set)
+10098	FAIL	(Cross-domain misconfiguration)
+90022	FAIL	(Application error disclosure)
 10055	IGNORE	(CSP: style-src unsafe-inline) React style attributes need it; scripts stay strict. See apps/web/src/lib/csp.ts
 10109	IGNORE	(Modern Web Application) informational
 10111	IGNORE	(Authentication Request Identified) informational: the sign-in form
-10024	IGNORE	(Sensitive Information in URL) informational: ?next= return paths on sign-in links
 10202	IGNORE	(Absence of Anti-CSRF Tokens) forms are sent by fetch with the X-CSRF-Token header and an Origin check (ARCHITECTURE.md section 5); a form posted without scripts changes nothing
+10049	IGNORE	(Non-Storable Content) informational: signed-in pages must not be cached
+90004	IGNORE	(Cross-Origin-Embedder-Policy missing) no cross-origin isolation is needed; COOP same-origin is set

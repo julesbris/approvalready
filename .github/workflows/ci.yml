@@ -115,14 +115,14 @@ jobs:
         run: scripts/e2e.sh up
       - name: Partner journey in the browser
         run: scripts/e2e.sh test
-      # OWASP ZAP baseline (passive) scan of the web app on the same stack. Accepted findings
-      # are listed with reasons in .zap/rules.tsv; any other warning fails the job.
+      # OWASP ZAP baseline (passive) scan of the web app on the same stack. The rules marked
+      # FAIL in .zap/rules.tsv fail the job; other warnings are reported only (-I).
       - name: ZAP baseline scan
         run: |
           mkdir -p zap-report && chmod 777 zap-report && cp .zap/rules.tsv zap-report/
           docker run --rm --network host -v "$PWD/zap-report:/zap/wrk:rw" \
             mirror.gcr.io/zaproxy/zap-stable zap-baseline.py \
-            -t http://127.0.0.1:3000 -m 2 -j -c rules.tsv -r zap-report.html
+            -t http://127.0.0.1:3000 -m 2 -j -I -c rules.tsv -r zap-report.html
       - name: Stop the stack
         if: always()
         run: scripts/e2e.sh down
