@@ -23,6 +23,8 @@ dependencies = [
     "httpx>=0.28",
     "anthropic>=1.0",
     "sentry-sdk>=2.30",
+    "segno>=1.6.6",
+    "cryptography>=50.0.2",
 ]
 
 [dependency-groups]

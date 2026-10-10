@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import { AdminNav } from "@/components/admin/AdminNav";
 import { AIUsage } from "@/components/admin/AIUsage";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = { title: "AI usage", robots: { index: false } };
@@ -13,7 +13,7 @@ export default async function AIAdminPage() {
   if (!session.permissions.includes("platform.audit.read")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="AI usage" />
+        <AdminNoAccess what="AI usage" session={session} />
       </AppShell>
     );
   }

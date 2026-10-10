@@ -296,15 +296,17 @@ async def _with_billing_context(
     """Run a billing job with a fresh engine, a Stripe client and email."""
     from app.core.email import create_email_provider
     from app.modules.billing.stripe import StripeClient
+    from app.modules.outbox.service import create_sender
 
     engine = create_async_engine(settings.database_url, poolclass=NullPool)
     stripe = StripeClient(settings) if settings.payments_enabled else None
     try:
+        factory = async_sessionmaker(engine, expire_on_commit=False)
         ctx = create_job_context(
             settings,
-            async_sessionmaker(engine, expire_on_commit=False),
+            factory,
             create_storage(settings),
-            create_email_provider(settings),
+            create_sender(settings, factory, create_email_provider(settings)),
             stripe,
         )
         return await job(ctx)

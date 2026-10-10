@@ -2,7 +2,7 @@ import type { LeadPriceOut, StaffLeadOut } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 
 import { AdminNav } from "@/components/admin/AdminNav";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { LeadPrices, StaffLeads } from "@/components/leads/LeadsAdmin";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
@@ -14,7 +14,7 @@ export default async function LeadsAdminPage() {
     return (
       <AppShell session={session}>
         <AdminNav current="leads" />
-        <NoAccess what="referral settings" />
+        <AdminNoAccess what="referral settings" session={session} />
       </AppShell>
     );
   }

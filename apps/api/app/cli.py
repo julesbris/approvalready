@@ -1,7 +1,9 @@
 """Operator commands (run inside the API container).
 
     python -m app.cli grant-platform-role --email ops@example.com --role SUPERADMIN
+    python -m app.cli platform-access [--email ops@example.com]  # who can open /admin
     python -m app.cli verify-audit
+    python -m app.cli auth reset-mfa --email someone@example.com  # lost phone and codes
     python -m app.cli provision-db-role       # after migrations, as the owner
     python -m app.cli questionnaires sync     # publish changed bundled definitions
     python -m app.cli documents sync-templates  # publish changed report templates
@@ -31,6 +33,8 @@ from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
 from app.modules.billing import catalogue as billing_catalogue
 from app.modules.documents import templates as document_templates
+from app.modules.identity import mfa
+from app.modules.identity.models import AppUser
 from app.modules.identity.service import get_user_by_email
 from app.modules.marketplace import service as marketplace
 from app.modules.questionnaires import service as questionnaires
@@ -106,6 +110,112 @@ async def grant_platform_role(email: str, role: RoleKey, settings: Settings | No
             )
             await db.commit()
             print(f"{email} now has {role} in the platform organisation ({org.id})")
+            print(
+                f"Next: sign in as {email} and choose {org.name} in the organisation menu at the"
+                " top of the page. The admin pages only open while it is the active organisation."
+            )
+            return 0
+    finally:
+        await resources.close()
+
+
+# What the admin area's pages check for (apps/web/src/app/admin), in display order.
+ADMIN_PAGES = {
+    "/admin/sources": Perm.SOURCE_MANAGE,
+    "/admin/rules": Perm.RULE_AUTHOR,
+    "/admin/ops": Perm.PLATFORM_AUDIT_READ,
+}
+
+
+async def platform_access(email: str | None, settings: Settings | None = None) -> int:
+    """Explain who can open the admin area: one account's organisations, roles and admin pages,
+    or (without an email) everyone in the platform organisation. Changes nothing."""
+    settings = settings or get_settings()
+    resources = create_resources(settings)
+    try:
+        async with resources.session_factory() as db:
+            platform = (
+                await db.execute(
+                    select(Organisation).where(
+                        Organisation.kind == OrganisationKind.PLATFORM_ADMIN,
+                        Organisation.deleted_at.is_(None),
+                    )
+                )
+            ).scalar_one_or_none()
+            if email is None:
+                if platform is None:
+                    print("There is no platform organisation yet: run grant-platform-role first")
+                    return 1
+                members = (
+                    await db.execute(
+                        select(AppUser.email, OrganisationMember)
+                        .join(AppUser, AppUser.id == OrganisationMember.user_id)
+                        .where(OrganisationMember.organisation_id == platform.id)
+                        .order_by(AppUser.email)
+                    )
+                ).all()
+                print(f"Platform organisation: {platform.name} ({platform.status})")
+                for member_email, member in members:
+                    keys = await tenancy.member_role_keys(db, member.id)
+                    print(f"  {member_email}: {', '.join(keys) or 'no roles'} ({member.status})")
+                return 0
+
+            user = await get_user_by_email(db, email)
+            if user is None:
+                print(f"No account with email {email}", file=sys.stderr)
+                return 1
+            verified = "verified" if user.email_verified_at else "NOT verified"
+            two_step = "on" if await mfa.is_enabled(db, user.id) else "off"
+            print(f"{user.email}: {user.status}, email {verified}, two-step sign-in {two_step}")
+            rows = (
+                await db.execute(
+                    select(Organisation, OrganisationMember)
+                    .join(OrganisationMember, OrganisationMember.organisation_id == Organisation.id)
+                    .where(OrganisationMember.user_id == user.id, Organisation.deleted_at.is_(None))
+                    .order_by(Organisation.kind, Organisation.name)
+                )
+            ).all()
+            print("Organisations:")
+            for org, member in rows:
+                keys = await tenancy.member_role_keys(db, member.id)
+                print(
+                    f"  {org.name} [{org.kind}]: {', '.join(keys) or 'no roles'}"
+                    f" (membership {member.status}, organisation {org.status})"
+                )
+            found = await tenancy.membership(db, user.id, platform.id) if platform else None
+            if platform is None or found is None:
+                print(
+                    "\nNo platform role, so the admin pages won't open. Grant one with:\n"
+                    f"  python -m app.cli grant-platform-role --email {user.email}"
+                    " --role SUPERADMIN"
+                )
+                return 1
+            print(f"\nAdmin pages, while {platform.name} is the active organisation:")
+            for path, perm in ADMIN_PAGES.items():
+                print(f"  {path}: {'yes' if perm in found.permissions else 'no'}")
+            if settings.staff_mfa_required and two_step == "off":
+                print("Turn on two-step sign-in (Account, Security) first: staff pages need it.")
+            return 0
+    finally:
+        await resources.close()
+
+
+async def reset_mfa(email: str, settings: Settings | None = None) -> int:
+    """Turn off two-step sign-in for someone who lost both their phone and their recovery
+    codes (check who they are first). Signs them out everywhere."""
+    resources = create_resources(settings or get_settings())
+    try:
+        async with resources.session_factory() as db:
+            user = await get_user_by_email(db, email)
+            if user is None:
+                print(f"No user with email {email}", file=sys.stderr)
+                return 1
+            had = await mfa.reset_for_user(db, user, CLI_META)
+            await db.commit()
+            if had:
+                print(f"Two-step sign-in removed for {email}; they are signed out everywhere")
+            else:
+                print(f"{email} had no two-step sign-in; they are signed out everywhere")
             return 0
     finally:
         await resources.close()
@@ -334,7 +444,13 @@ def main(argv: list[str] | None = None) -> int:
     grant.add_argument(
         "--role", required=True, choices=[RoleKey.STAFF, RoleKey.ADMIN, RoleKey.SUPERADMIN]
     )
+    access = sub.add_parser("platform-access", help="Show who can open the admin pages")
+    access.add_argument("--email", help="One account (default: everyone with a platform role)")
     sub.add_parser("verify-audit", help="Verify the audit log hash chain")
+    au = sub.add_parser("auth", help="Account security")
+    au_sub = au.add_subparsers(dest="auth_command", required=True)
+    rm = au_sub.add_parser("reset-mfa", help="Turn off two-step sign-in for one user")
+    rm.add_argument("--email", required=True)
     sub.add_parser("provision-db-role", help="Create/update the application's database role")
     q = sub.add_parser("questionnaires", help="Questionnaire definitions")
     q.add_argument("action", choices=["sync"])
@@ -357,6 +473,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.command == "grant-platform-role":
         return asyncio.run(grant_platform_role(args.email, RoleKey(args.role)))
+    if args.command == "platform-access":
+        return asyncio.run(platform_access(args.email))
+    if args.command == "auth":
+        return asyncio.run(reset_mfa(args.email))
     if args.command == "provision-db-role":
         return asyncio.run(provision_db_role(get_settings()))
     if args.command == "questionnaires":

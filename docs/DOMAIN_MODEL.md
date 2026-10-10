@@ -306,6 +306,7 @@ Inspections have no `SALE_OPEN_HOME` kind yet.
 |---|---|---|
 | `audit_event` **AO** | See section 1 (built). Before/after values go in `details`. | Monthly range partitions when volume warrants (the chain is ordered by `seq`, so partitioning does not affect verification). |
 | `notification` **T** | Built in Milestone 11 as `recipient_user_id`, `kind` (`REMINDER`,`GRANT_ROUND`,`SOURCES_DUE`), `title`, `body`, `link_path`, `project_id null`, `reminder_id null`, `dedupe_key` (unique per recipient), `email_status`, `emailed_at`, `read_at` | In-app always; email when requested. No SMS yet. |
+| `notification_preference` | Built in Milestone 21: `user_id`, `category` (`REMINDERS`,`GRANT_ROUNDS`,`REFERRALS`,`SOURCE_REVIEWS`), `channel` (`ALL`,`IN_APP`,`OFF`), `updated_at`; primary key (user, category) | Per person, every organisation. No row = `ALL`. Unsubscribe links set `IN_APP`. |
 | `brand` | `key`, `product_name`, `logo_asset`, `theme_accent`, `default_vertical`, `seo jsonb` | |
 | `brand_domain` | `hostname unique`, `brand_id`, `surface`, `mode` (`PRIMARY`,`REDIRECT`,`ALIAS`), `redirect_target` | |
 | `feature_flag` | `key`, `scope`, `value jsonb` | |

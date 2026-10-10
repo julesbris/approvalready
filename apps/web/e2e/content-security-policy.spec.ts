@@ -6,7 +6,15 @@ import { expect, test } from "@playwright/test";
  * policy blocks shows up as a console error, and the page would stop working in the browser.
  */
 
-const STATIC_PAGES = ["/", "/guides", "/guides/cairns-secondary-dwellings", "/no-such-page"];
+const STATIC_PAGES = [
+  "/",
+  "/guides",
+  "/guides/cairns-secondary-dwellings",
+  "/privacy",
+  "/terms",
+  "/contact",
+  "/no-such-page",
+];
 const DYNAMIC_PAGES = ["/login", "/register", "/partner/apply"];
 
 test("pages run without Content Security Policy violations", async ({ page }) => {

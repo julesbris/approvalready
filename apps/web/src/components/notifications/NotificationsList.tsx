@@ -57,6 +57,9 @@ export function NotificationsList({
           up here and by email.
         </p>
       ) : null}
+      <p className="muted">
+        <Link href="/account#notifications">Choose which notifications you get by email</Link>
+      </p>
       <ul className="notification-list">
         {items.map((n) => (
           <li key={n.id} className={n.read_at ? "notification" : "notification notification-unread"}>

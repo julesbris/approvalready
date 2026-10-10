@@ -8,7 +8,7 @@
 * Permission ``billing.refund`` (ADMIN, SUPERADMIN): refund a paid review.
 
 Revision ID: 0021
-Revises: 0016
+Revises: 0020
 Create Date: 2026-10-10
 """
 
@@ -17,10 +17,8 @@ from collections.abc import Sequence
 import sqlalchemy as sa
 from alembic import op
 
-# Milestones 18 to 20 add 0017 to 0020 on other branches: when they merge first, point this
-# at the newest of them.
 revision: str = "0021"
-down_revision: str | None = "0016"
+down_revision: str | None = "0020"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

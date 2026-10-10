@@ -55,7 +55,9 @@ def create_resources(settings: Settings, stripe: StripeClient | None = None) -> 
 
     session_factory = async_sessionmaker(engine, expire_on_commit=False)
     storage = create_storage(settings)
-    email = create_email_provider(settings)
+    from app.modules.outbox.service import create_sender
+
+    email = create_sender(settings, session_factory, create_email_provider(settings))
     jobs = create_job_runner(
         settings, create_job_context(settings, session_factory, storage, email, stripe)
     )

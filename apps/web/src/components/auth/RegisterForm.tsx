@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { type FormEvent, useState } from "react";
 
 import { FormError, FormNotice } from "@/components/auth/FormStatus";
@@ -22,6 +23,7 @@ export function RegisterForm() {
       display_name: String(form.get("display_name")),
       email,
       password: String(form.get("password")),
+      accept_terms: form.get("accept_terms") === "on",
     });
     setBusy(false);
     if (result.ok) setSentTo(email);
@@ -60,6 +62,20 @@ export function RegisterForm() {
         />
         <span id="password-hint" className="hint">
           At least {MIN_PASSWORD_LENGTH} characters. A short phrase works well.
+        </span>
+      </label>
+      <label className="checkbox-label">
+        <input name="accept_terms" type="checkbox" required />
+        <span>
+          I agree to the{" "}
+          <Link href="/terms" target="_blank" rel="noopener">
+            Terms of Use
+          </Link>{" "}
+          and{" "}
+          <Link href="/privacy" target="_blank" rel="noopener">
+            Privacy Policy
+          </Link>
+          .
         </span>
       </label>
       <FormError message={error} />

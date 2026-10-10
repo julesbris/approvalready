@@ -63,7 +63,12 @@ async def test_duplicate_registration_is_indistinguishable(api: ApiHarness) -> N
     email = await api.register()
     second = await api.client.post(
         "/v1/auth/register",
-        json={"email": email, "password": "another long password", "display_name": "X"},
+        json={
+            "email": email,
+            "password": "another long password",
+            "display_name": "X",
+            "accept_terms": True,
+        },
     )
     assert second.status_code == 202
     assert second.json() == {"status": "accepted"}
@@ -74,7 +79,12 @@ async def test_duplicate_registration_is_indistinguishable(api: ApiHarness) -> N
 async def test_weak_passwords_rejected(api: ApiHarness, password: str) -> None:
     r = await api.client.post(
         "/v1/auth/register",
-        json={"email": unique_email(), "password": password, "display_name": "X"},
+        json={
+            "email": unique_email(),
+            "password": password,
+            "display_name": "X",
+            "accept_terms": True,
+        },
     )
     assert r.status_code == 422
 
@@ -82,7 +92,8 @@ async def test_weak_passwords_rejected(api: ApiHarness, password: str) -> None:
 async def test_password_equal_to_email_rejected(api: ApiHarness) -> None:
     email = unique_email()
     r = await api.client.post(
-        "/v1/auth/register", json={"email": email, "password": email, "display_name": "X"}
+        "/v1/auth/register",
+        json={"email": email, "password": email, "display_name": "X", "accept_terms": True},
     )
     assert r.status_code == 422
     assert r.json()["detail"]["code"] == "weak_password"

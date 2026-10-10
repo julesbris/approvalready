@@ -535,6 +535,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/privacy/requests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Privacy Requests */
+        get: operations["list_privacy_requests_v1_admin_privacy_requests_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/privacy/requests/{request_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Privacy Request */
+        patch: operations["update_privacy_request_v1_admin_privacy_requests__request_id__patch"];
+        trace?: never;
+    };
     "/v1/admin/professionals": {
         parameters: {
             query?: never;
@@ -1108,6 +1142,46 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/auth/account/close": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Close My Account
+         * @description Close the account. Signs out everywhere; can't be undone.
+         */
+        post: operations["close_my_account_v1_auth_account_close_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/account/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Export My Data
+         * @description Everything held about this account and its personal workspace, as a JSON file.
+         */
+        get: operations["export_my_data_v1_auth_account_export_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/auth/login": {
         parameters: {
             query?: never;
@@ -1117,8 +1191,33 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Login */
+        /**
+         * Login
+         * @description Check the password. With two-step sign-in on, the answer is ``mfa_required`` and a
+         *     short-lived challenge cookie instead of a session: send a code to ``/login/mfa``.
+         */
         post: operations["login_v1_auth_login_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/login/mfa": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Login Mfa
+         * @description The second step of signing in: a code from the authenticator app or a recovery
+         *     code. A challenge allows a few tries, then the password is needed again.
+         */
+        post: operations["login_mfa_v1_auth_login_mfa_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1153,6 +1252,126 @@ export interface paths {
         put?: never;
         /** Logout Everywhere */
         post: operations["logout_everywhere_v1_auth_logout_all_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/mfa": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Mfa Status */
+        get: operations["mfa_status_v1_auth_mfa_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/mfa/disable": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Mfa Disable
+         * @description Turn two-step sign-in off (needs the password and a current or recovery code).
+         */
+        post: operations["mfa_disable_v1_auth_mfa_disable_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/mfa/recovery-codes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Mfa Recovery Codes
+         * @description Replace the recovery codes (the old ones stop working); needs a current code.
+         */
+        post: operations["mfa_recovery_codes_v1_auth_mfa_recovery_codes_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/mfa/totp/confirm": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Mfa Confirm
+         * @description Turn two-step sign-in on with the first code from the app. Returns recovery codes
+         *     (shown once), signs out other sessions and rotates this one.
+         */
+        post: operations["mfa_confirm_v1_auth_mfa_totp_confirm_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/mfa/totp/setup": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Mfa Setup
+         * @description Start setting up an authenticator app (needs the password): the secret as text, an
+         *     ``otpauth://`` link and a QR code. Nothing changes at sign-in until it is confirmed.
+         */
+        post: operations["mfa_setup_v1_auth_mfa_totp_setup_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/notification-preferences": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Preferences
+         * @description Every category with the signed-in person's choice (``ALL`` until they choose).
+         */
+        get: operations["get_preferences_v1_auth_notification_preferences_get"];
+        /** Put Preferences */
+        put: operations["put_preferences_v1_auth_notification_preferences_put"];
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -1217,6 +1436,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/auth/policies/accept": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Accept Policies
+         * @description Agree to the current versions of the named documents. Returns what is still
+         *     outstanding.
+         */
+        post: operations["accept_policies_v1_auth_policies_accept_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/auth/register": {
         parameters: {
             query?: never;
@@ -1269,6 +1509,32 @@ export interface paths {
          */
         put: operations["switch_organisation_v1_auth_session_organisation_put"];
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/unsubscribe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Unsubscribe Info
+         * @description What an emailed unsubscribe link is for. Changes nothing (link scanners open it).
+         */
+        get: operations["unsubscribe_info_v1_auth_unsubscribe_get"];
+        put?: never;
+        /**
+         * Unsubscribe
+         * @description Stop emails for the link's category, or every optional email with ``scope=all``.
+         *     Needs no sign-in: the link is the proof. Also the target of one-click unsubscribe
+         *     (RFC 8058), whose form body is ignored.
+         */
+        post: operations["unsubscribe_v1_auth_unsubscribe_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -3485,6 +3751,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/privacy/requests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create Privacy Request
+         * @description Ask about, correct or delete personal information, or make a privacy complaint.
+         */
+        post: operations["create_privacy_request_v1_privacy_requests_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/professional/profile": {
         parameters: {
             query?: never;
@@ -3899,6 +4185,11 @@ export interface components {
             status: string;
             /** Task */
             task: string;
+        };
+        /** AcceptPoliciesRequest */
+        AcceptPoliciesRequest: {
+            /** Documents */
+            documents: components["schemas"]["PolicyDocument"][];
         };
         /**
          * Accepted
@@ -4965,6 +5256,13 @@ export interface components {
          * @enum {string}
          */
         Classification: "PRIVATE" | "SHARED_WITH_REVIEWER" | "RELEASED_TO_PARTNER";
+        /** CloseAccountRequest */
+        CloseAccountRequest: {
+            /** Code */
+            code?: string | null;
+            /** Password */
+            password: string;
+        };
         /** CommentIn */
         CommentIn: {
             /** Body */
@@ -6733,6 +7031,56 @@ export interface components {
             /** Roles */
             roles: string[];
         };
+        /**
+         * MfaChallengeOut
+         * @description The password was right; a code from the authenticator app (or a recovery code) is
+         *     needed next, at ``POST /v1/auth/login/mfa``.
+         */
+        MfaChallengeOut: {
+            /**
+             * Mfa Required
+             * @default true
+             * @constant
+             */
+            mfa_required: true;
+        };
+        /** MfaCodeRequest */
+        MfaCodeRequest: {
+            /** Code */
+            code: string;
+        };
+        /** MfaDisableRequest */
+        MfaDisableRequest: {
+            /** Code */
+            code: string;
+            /** Password */
+            password: string;
+        };
+        /** MfaSetupOut */
+        MfaSetupOut: {
+            /** Otpauth Uri */
+            otpauth_uri: string;
+            /** Qr Svg */
+            qr_svg: string;
+            /** Secret */
+            secret: string;
+        };
+        /** MfaSetupRequest */
+        MfaSetupRequest: {
+            /** Password */
+            password: string;
+        };
+        /** MfaStatusOut */
+        MfaStatusOut: {
+            /** Enabled */
+            enabled: boolean;
+            /** Enabled At */
+            enabled_at: string | null;
+            /** Recovery Codes Left */
+            recovery_codes_left: number;
+            /** Required For Staff */
+            required_for_staff: boolean;
+        };
         /** MonthFunnelOut */
         MonthFunnelOut: {
             /** Accept Rate */
@@ -6779,6 +7127,17 @@ export interface components {
             /** Why */
             why: string;
         };
+        /**
+         * NotificationCategory
+         * @description What a member chooses about (Milestone 21): one or more notification kinds.
+         * @enum {string}
+         */
+        NotificationCategory: "REMINDERS" | "GRANT_ROUNDS" | "REFERRALS" | "SOURCE_REVIEWS";
+        /**
+         * NotificationChannel
+         * @enum {string}
+         */
+        NotificationChannel: "ALL" | "IN_APP" | "OFF";
         /**
          * NotificationKind
          * @enum {string}
@@ -7634,6 +7993,39 @@ export interface components {
              */
             price_id: string;
         };
+        /**
+         * PolicyDocument
+         * @enum {string}
+         */
+        PolicyDocument: "terms" | "privacy";
+        /** PolicyOut */
+        PolicyOut: {
+            document: components["schemas"]["PolicyDocument"];
+            /** Path */
+            path: string;
+            /** Title */
+            title: string;
+            /** Version */
+            version: string;
+        };
+        /** PreferenceOut */
+        PreferenceOut: {
+            category: components["schemas"]["NotificationCategory"];
+            channel: components["schemas"]["NotificationChannel"];
+        };
+        /**
+         * PreferencesIn
+         * @description Only the categories listed change.
+         */
+        PreferencesIn: {
+            /** Items */
+            items: components["schemas"]["PreferenceOut"][];
+        };
+        /** PreferencesOut */
+        PreferencesOut: {
+            /** Items */
+            items: components["schemas"]["PreferenceOut"][];
+        };
         /** PrefillOut */
         PrefillOut: {
             /**
@@ -7715,6 +8107,91 @@ export interface components {
             interval: components["schemas"]["PriceInterval"];
             /** Stripe Price Id */
             stripe_price_id?: string | null;
+        };
+        /** PrivacyRequestCreated */
+        PrivacyRequestCreated: {
+            /**
+             * Due At
+             * Format: date-time
+             */
+            due_at: string;
+            /** Reference */
+            reference: string;
+        };
+        /** PrivacyRequestIn */
+        PrivacyRequestIn: {
+            /** Details */
+            details: string;
+            /**
+             * Email
+             * Format: email
+             */
+            email: string;
+            kind: components["schemas"]["PrivacyRequestKind"];
+            /** Name */
+            name: string;
+        };
+        /**
+         * PrivacyRequestKind
+         * @enum {string}
+         */
+        PrivacyRequestKind: "ACCESS" | "CORRECTION" | "DELETION" | "COMPLAINT" | "OTHER";
+        /** PrivacyRequestOut */
+        PrivacyRequestOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Details */
+            details: string;
+            /**
+             * Due At
+             * Format: date-time
+             */
+            due_at: string;
+            /** Email */
+            email: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            kind: components["schemas"]["PrivacyRequestKind"];
+            /** Name */
+            name: string;
+            /**
+             * Overdue
+             * @description Still open past the 30-day answer date.
+             */
+            readonly overdue: boolean;
+            /** Resolution Note */
+            resolution_note: string | null;
+            /** Resolved At */
+            resolved_at: string | null;
+            source: components["schemas"]["PrivacyRequestSource"];
+            status: components["schemas"]["PrivacyRequestStatus"];
+            /** User Id */
+            user_id: string | null;
+        };
+        /**
+         * PrivacyRequestSource
+         * @enum {string}
+         */
+        PrivacyRequestSource: "CONTACT_FORM" | "ACCOUNT_CLOSED";
+        /**
+         * PrivacyRequestStatus
+         * @enum {string}
+         */
+        PrivacyRequestStatus: "OPEN" | "DONE" | "DECLINED";
+        /** PrivacyRequestUpdate */
+        PrivacyRequestUpdate: {
+            /**
+             * Note
+             * @default
+             */
+            note: string;
+            status: components["schemas"]["PrivacyRequestStatus"];
         };
         /**
          * ProductKind
@@ -8167,6 +8644,14 @@ export interface components {
             status: "ok" | "error";
         };
         /**
+         * RecoveryCodesOut
+         * @description Shown once. Each code signs in once in place of an authenticator code.
+         */
+        RecoveryCodesOut: {
+            /** Recovery Codes */
+            recovery_codes: string[];
+        };
+        /**
          * Recurrence
          * @enum {string}
          */
@@ -8358,6 +8843,11 @@ export interface components {
         RefundStatus: "PENDING" | "SUBMITTED" | "SUCCEEDED" | "FAILED";
         /** RegisterRequest */
         RegisterRequest: {
+            /**
+             * Accept Terms
+             * @default false
+             */
+            accept_terms: boolean;
             /** Display Name */
             display_name: string;
             /**
@@ -9218,6 +9708,13 @@ export interface components {
             organisations: components["schemas"]["MembershipOut"][];
             /** Permissions */
             permissions: string[];
+            /** Policies To Accept */
+            policies_to_accept?: components["schemas"]["PolicyOut"][];
+            /**
+             * Staff Mfa Required
+             * @default false
+             */
+            staff_mfa_required: boolean;
             user: components["schemas"]["UserOut"];
         };
         /** SmsElementOut */
@@ -10255,6 +10752,24 @@ export interface components {
          * @enum {string}
          */
         TurnoverBand: "UNDER_75K" | "75K_2M" | "2M_10M" | "10M_50M" | "OVER_50M";
+        /**
+         * UnsubscribeOut
+         * @description What an unsubscribe link is for, and the person's channel for it now.
+         */
+        UnsubscribeOut: {
+            category: components["schemas"]["NotificationCategory"];
+            channel: components["schemas"]["NotificationChannel"];
+        };
+        /** UnsubscribedOut */
+        UnsubscribedOut: {
+            /** Items */
+            items: components["schemas"]["PreferenceOut"][];
+            /**
+             * Scope
+             * @enum {string}
+             */
+            scope: "category" | "all";
+        };
         /** UploadLimitsOut */
         UploadLimitsOut: {
             /**
@@ -10280,6 +10795,11 @@ export interface components {
              * Format: uuid
              */
             id: string;
+            /**
+             * Mfa Enabled
+             * @default false
+             */
+            mfa_enabled: boolean;
         };
         /** ValidationError */
         ValidationError: {
@@ -11405,6 +11925,72 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["StaffPartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_privacy_requests_v1_admin_privacy_requests_get: {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["PrivacyRequestStatus"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrivacyRequestOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_privacy_request_v1_admin_privacy_requests__request_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                request_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrivacyRequestUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrivacyRequestOut"];
                 };
             };
             /** @description Validation Error */
@@ -12739,6 +13325,57 @@ export interface operations {
             };
         };
     };
+    close_my_account_v1_auth_account_close_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CloseAccountRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    export_my_data_v1_auth_account_export_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     login_v1_auth_login_post: {
         parameters: {
             query?: never;
@@ -12749,6 +13386,39 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": components["schemas"]["LoginRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SessionOut"] | components["schemas"]["MfaChallengeOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    login_mfa_v1_auth_login_mfa_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MfaCodeRequest"];
             };
         };
         responses: {
@@ -12805,6 +13475,211 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+        };
+    };
+    mfa_status_v1_auth_mfa_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MfaStatusOut"];
+                };
+            };
+        };
+    };
+    mfa_disable_v1_auth_mfa_disable_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MfaDisableRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MfaStatusOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    mfa_recovery_codes_v1_auth_mfa_recovery_codes_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MfaCodeRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RecoveryCodesOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    mfa_confirm_v1_auth_mfa_totp_confirm_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MfaCodeRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RecoveryCodesOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    mfa_setup_v1_auth_mfa_totp_setup_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MfaSetupRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MfaSetupOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_preferences_v1_auth_notification_preferences_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PreferencesOut"];
+                };
+            };
+        };
+    };
+    put_preferences_v1_auth_notification_preferences_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PreferencesIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PreferencesOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
             };
         };
     };
@@ -12907,6 +13782,39 @@ export interface operations {
             };
         };
     };
+    accept_policies_v1_auth_policies_accept_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AcceptPoliciesRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PolicyOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     register_v1_auth_register_post: {
         parameters: {
             query?: never;
@@ -12980,6 +13888,69 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SessionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    unsubscribe_info_v1_auth_unsubscribe_get: {
+        parameters: {
+            query: {
+                token: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UnsubscribeOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    unsubscribe_v1_auth_unsubscribe_post: {
+        parameters: {
+            query: {
+                token: string;
+                scope?: "category" | "all";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UnsubscribedOut"];
                 };
             };
             /** @description Validation Error */
@@ -18321,6 +19292,39 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_privacy_request_v1_privacy_requests_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrivacyRequestIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrivacyRequestCreated"];
                 };
             };
             /** @description Validation Error */
