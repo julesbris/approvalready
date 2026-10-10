@@ -93,7 +93,7 @@ export function ChangeEmailForm({
           <input name="new_email" type="email" autoComplete="email" maxLength={254} required />
         </label>
         <label>
-          Your password
+          Password to confirm it&apos;s you
           <input name="password" type="password" autoComplete="current-password" required />
         </label>
         {mfaEnabled ? (

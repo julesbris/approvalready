@@ -20,7 +20,7 @@ describe("ChangeEmailForm", () => {
     fireEvent.change(screen.getByLabelText("New email address"), {
       target: { value: "new@example.com" },
     });
-    fireEvent.change(screen.getByLabelText("Your password"), { target: { value: "pw" } });
+    fireEvent.change(screen.getByLabelText("Password to confirm it's you"), { target: { value: "pw" } });
     fireEvent.click(screen.getByRole("button", { name: "Change email address" }));
     expect(await screen.findByText(/Check the new inbox/)).toBeInTheDocument();
     expect(screen.getByText("new@example.com")).toBeInTheDocument();
