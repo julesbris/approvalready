@@ -1223,6 +1223,54 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/auth/email-change": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Email Change Status */
+        get: operations["email_change_status_v1_auth_email_change_get"];
+        put?: never;
+        /**
+         * Request Email Change
+         * @description Ask to change the account's email address (needs the password, and a code when
+         *     two-step sign-in is on). A link goes to the new address and a notice to the current
+         *     one; the address changes only when the link is opened.
+         */
+        post: operations["request_email_change_v1_auth_email_change_post"];
+        /**
+         * Cancel Email Change
+         * @description Cancel the waiting change: the link sent to the new address stops working.
+         */
+        delete: operations["cancel_email_change_v1_auth_email_change_delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/email-change/confirm": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Confirm Email Change
+         * @description Open the emailed link: the account moves to the new address (no sign-in needed; the
+         *     link proves the new inbox, the request proved the password).
+         */
+        post: operations["confirm_email_change_v1_auth_email_change_confirm_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/auth/login": {
         parameters: {
             query?: never;
@@ -6004,6 +6052,31 @@ export interface components {
             heading: string;
             /** Text */
             text: string;
+        };
+        /**
+         * EmailChangeOut
+         * @description The change waiting for its link to be opened (``pending_email`` is None if none).
+         */
+        EmailChangeOut: {
+            /** Expires At */
+            expires_at?: string | null;
+            /** Pending Email */
+            pending_email?: string | null;
+        };
+        /**
+         * EmailChangeRequest
+         * @description Change of email address (Milestone 28): a link goes to ``new_email``.
+         */
+        EmailChangeRequest: {
+            /** Code */
+            code?: string | null;
+            /**
+             * New Email
+             * Format: email
+             */
+            new_email: string;
+            /** Password */
+            password: string;
         };
         /** EmailRequest */
         EmailRequest: {
@@ -14030,6 +14103,112 @@ export interface operations {
                 };
                 content: {
                     "application/json": unknown;
+                };
+            };
+        };
+    };
+    email_change_status_v1_auth_email_change_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EmailChangeOut"];
+                };
+            };
+        };
+    };
+    request_email_change_v1_auth_email_change_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["EmailChangeRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EmailChangeOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cancel_email_change_v1_auth_email_change_delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EmailChangeOut"];
+                };
+            };
+        };
+    };
+    confirm_email_change_v1_auth_email_change_confirm_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TokenRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Accepted"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };

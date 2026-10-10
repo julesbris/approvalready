@@ -24,11 +24,13 @@ from app.core.errors import ApiError
 from app.core.ratelimit import RateLimiter
 from app.core.security import csrf_token_for
 from app.modules.audit import service as audit
-from app.modules.identity import mfa
+from app.modules.identity import email_change, mfa
 from app.modules.identity import service as identity
 from app.modules.identity.models import AppUser, AuthSession, UserStatus
 from app.modules.identity.schemas import (
     Accepted,
+    EmailChangeOut,
+    EmailChangeRequest,
     EmailRequest,
     LoginRequest,
     MembershipOut,
@@ -450,3 +452,73 @@ async def mfa_recovery_codes(
     codes = await mfa.regenerate_recovery_codes(db, settings, limiter, auth.user, body.code, meta)
     await db.commit()
     return RecoveryCodesOut(recovery_codes=codes)
+
+
+# --- Change of email address (Milestone 28) ----------------------------------------------
+
+
+async def _email_change_out(db: DbDep, user: AppUser) -> EmailChangeOut:
+    waiting = await email_change.pending(db, user.id)
+    if waiting is None:
+        return EmailChangeOut()
+    return EmailChangeOut(pending_email=waiting.new_email, expires_at=waiting.expires_at)
+
+
+@router.get("/email-change", response_model=EmailChangeOut)
+async def email_change_status(auth: AuthDep, db: DbDep) -> EmailChangeOut:
+    return await _email_change_out(db, auth.user)
+
+
+@router.post("/email-change", status_code=status.HTTP_202_ACCEPTED, response_model=EmailChangeOut)
+async def request_email_change(
+    body: EmailChangeRequest,
+    auth: AuthDep,
+    db: DbDep,
+    settings: SettingsDep,
+    resources: ResourcesDep,
+    limiter: LimiterDep,
+    meta: MetaDep,
+) -> EmailChangeOut:
+    """Ask to change the account's email address (needs the password, and a code when
+    two-step sign-in is on). A link goes to the new address and a notice to the current
+    one; the address changes only when the link is opened."""
+    limits = await _guard(limiter, settings, meta)
+    messages = await email_change.request_change(
+        db,
+        settings,
+        limiter,
+        auth.user,
+        new_email=str(body.new_email),
+        password=body.password,
+        code=body.code,
+        meta=meta,
+    )
+    await db.commit()
+    for message in messages:
+        await _send_capped(limiter, limits, resources, message)
+    return await _email_change_out(db, auth.user)
+
+
+@router.delete("/email-change", response_model=EmailChangeOut)
+async def cancel_email_change(auth: AuthDep, db: DbDep, meta: MetaDep) -> EmailChangeOut:
+    """Cancel the waiting change: the link sent to the new address stops working."""
+    await email_change.cancel(db, auth.user, meta)
+    await db.commit()
+    return EmailChangeOut()
+
+
+@router.post("/email-change/confirm", response_model=Accepted)
+async def confirm_email_change(
+    body: TokenRequest,
+    db: DbDep,
+    settings: SettingsDep,
+    resources: ResourcesDep,
+    meta: MetaDep,
+    _: GuardDep,
+) -> Accepted:
+    """Open the emailed link: the account moves to the new address (no sign-in needed; the
+    link proves the new inbox, the request proved the password)."""
+    message = await email_change.confirm(db, settings, body.token, meta)
+    await db.commit()
+    await identity.send_email(resources.email, message)
+    return Accepted()

@@ -907,3 +907,16 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Web | Customer: a "Messages" panel on `/projects/[id]/referrals` (one conversation per partner, unread count, write box). Partner: "Messages with the customer" on `/partner/leads/[match]`, and "N new messages" on the referral list. Opening a conversation marks the other side's messages read; your own show "Seen" once read. |
 | Tests | `tests/test_messages.py`: the journey (both sides write, one notice per batch, unread and read, separate conversations per partner, the trigger, nothing of the text in the audit log) and the rules (claim first, privacy between partners and customers, blank and long text, the hourly limit, read-only once lost). Web: `Messages.test.tsx`. |
 | Not built | Attachments; messages in "Download my data"; a staff view for disputes; live updates without reloading; customer-to-partner messages before a partner accepts. |
+
+## 35. Milestone 28 as built (change of email address)
+
+| Concern | Implementation |
+|---|---|
+| Migration | `0027` (revises `0025` when written; repoint after whichever of Milestones 25 and 27 merges first with `0026`): `one_time_token.new_email` (citext) and token purpose `EMAIL_CHANGE`; a check constraint allows `new_email` on that purpose only. |
+| Request | `POST /v1/auth/email-change` (signed in, auth rate limit): the new address, the password and, when two-step sign-in is on, an authenticator or recovery code. Issues an `EMAIL_CHANGE` link (only the newest works; `EMAIL_VERIFICATION_TTL_HOURS`), emails it to the new address and tells the old address with the new one masked (`j***@example.com`). The same 202 whether or not another account uses the new address; if one does, that address gets "an account already uses this address" instead of a link. Emails are capped per address like the other auth emails. |
+| Confirm | `POST /v1/auth/email-change/confirm` (no sign-in needed: the request proved the password, the link proves the new inbox): moves the account to the new address, marks it confirmed, cancels every other link still waiting (password reset, confirmation) and emails the old address. 409 `email_in_use` if another account took the address meanwhile. Sessions stay signed in. |
+| Status, cancel | `GET /v1/auth/email-change` (the waiting address and when its link expires) and `DELETE` (the link stops working). |
+| Audit | `auth.email_change.requested`, `auth.email_change.cancelled`, `auth.email_changed`, with SHA-256 digests of the addresses rather than the addresses. |
+| Web | Account, Security: "Email address" (current address, a waiting change with cancel, the form). The link opens `/verify-email/change`, which needs a click, so mail scanners that prefetch links don't use it. |
+| Tests | `tests/test_email_change.py` (the journey, password and code, same address, an address in use, taken before confirming, cancel and newest link only, old-inbox links stop working, no addresses in the audit log); web `ChangeEmailForm.test.tsx`. |
+| Not built | Updating the Stripe customer's email (receipts keep going to the address used at checkout); staff changing a customer's address; undoing a change from the old address. |

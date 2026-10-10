@@ -26,6 +26,7 @@ export type AuditEventOut = Schemas["AuditEventOut"];
 export type MfaStatusOut = Schemas["MfaStatusOut"];
 export type MfaSetupOut = Schemas["MfaSetupOut"];
 export type RecoveryCodesOut = Schemas["RecoveryCodesOut"];
+export type EmailChangeOut = Schemas["EmailChangeOut"];
 
 export type ProjectOut = Schemas["ProjectOut"];
 export type ProjectDetailOut = Schemas["ProjectDetailOut"];

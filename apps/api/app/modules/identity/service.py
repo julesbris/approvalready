@@ -128,7 +128,12 @@ async def may_email(limiter: RateLimiter, limits: AuthLimits, kind: str, email: 
 
 
 async def issue_token(
-    db: AsyncSession, user_id: uuid.UUID, purpose: TokenPurpose, ttl: timedelta
+    db: AsyncSession,
+    user_id: uuid.UUID,
+    purpose: TokenPurpose,
+    ttl: timedelta,
+    *,
+    new_email: str | None = None,
 ) -> str:
     now = utcnow()
     # Only the newest link of each kind works.
@@ -144,7 +149,11 @@ async def issue_token(
     token = new_token()
     db.add(
         OneTimeToken(
-            user_id=user_id, purpose=purpose, token_hash=hash_token(token), expires_at=now + ttl
+            user_id=user_id,
+            purpose=purpose,
+            token_hash=hash_token(token),
+            expires_at=now + ttl,
+            new_email=new_email,
         )
     )
     await db.flush()
@@ -152,6 +161,14 @@ async def issue_token(
 
 
 async def consume_token(db: AsyncSession, token: str, purpose: TokenPurpose) -> AppUser:
+    _, user = await consume_token_row(db, token, purpose)
+    return user
+
+
+async def consume_token_row(
+    db: AsyncSession, token: str, purpose: TokenPurpose
+) -> tuple[OneTimeToken, AppUser]:
+    """Like ``consume_token``, also returning the token row (for what it carries)."""
     row = (
         await db.execute(
             select(OneTimeToken)
@@ -170,7 +187,7 @@ async def consume_token(db: AsyncSession, token: str, purpose: TokenPurpose) -> 
     if user.deleted_at is not None or user.status != UserStatus.ACTIVE:
         raise ApiError(status.HTTP_403_FORBIDDEN, "account_unavailable", "Account unavailable.")
     row.used_at = now
-    return user
+    return row, user
 
 
 # --- Registration and verification -----------------------------------------------------
