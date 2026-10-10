@@ -106,6 +106,7 @@ async def _business_answers(db: AsyncSession, project: Project) -> dict[str, Any
             if v
         }
     answers.update(_grant_answers(profile, answers.get("business.state"), address_postcode))
+    answers.update(_trade_answers(profile, answers.get("business.state")))
     return answers
 
 
@@ -145,6 +146,16 @@ def _grant_answers(
         answers["grant.state"] = state
     if postcode:
         answers["grant.postcode"] = postcode
+    return answers
+
+
+def _trade_answers(profile: BusinessProfile, state: str | None) -> dict[str, Any]:
+    """The same business profile, phrased for the import and export questionnaire."""
+    answers: dict[str, Any] = {"trade.has_abn": profile.abn is not None}
+    if profile.abn and profile.gst_registered is not None:
+        answers["trade.gst_registered"] = profile.gst_registered
+    if state:
+        answers["trade.state"] = state
     return answers
 
 

@@ -55,6 +55,74 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/accounts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Newest Accounts */
+        get: operations["newest_accounts_v1_admin_accounts_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/accounts/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Search Accounts */
+        post: operations["search_accounts_v1_admin_accounts_search_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/accounts/{user_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Account */
+        get: operations["get_account_v1_admin_accounts__user_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/accounts/{user_id}/actions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Account Action */
+        post: operations["account_action_v1_admin_accounts__user_id__actions_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/ai/prompts": {
         parameters: {
             query?: never;
@@ -4494,6 +4562,194 @@ export interface components {
              * @constant
              */
             status: "accepted";
+        };
+        /** AccountActionIn */
+        AccountActionIn: {
+            /**
+             * Action
+             * @enum {string}
+             */
+            action: "resend_verification" | "send_password_reset" | "sign_out_everywhere" | "reset_two_step" | "suspend" | "restore";
+            /**
+             * Reason
+             * @default
+             */
+            reason: string;
+        };
+        /** AccountActionOut */
+        AccountActionOut: {
+            account: components["schemas"]["AccountDetail"];
+            /** Message */
+            message: string;
+        };
+        /** AccountDetail */
+        AccountDetail: {
+            /** Allowed Actions */
+            allowed_actions: string[];
+            /** Closed */
+            closed: boolean;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Display Name */
+            display_name: string;
+            /** Email */
+            email: string;
+            /** Email Verified */
+            email_verified: boolean;
+            /** Events */
+            events: components["schemas"]["AccountEvent"][];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Last Login At */
+            last_login_at: string | null;
+            /** Memberships */
+            memberships: components["schemas"]["AccountMembership"][];
+            /** Mfa Enabled */
+            mfa_enabled: boolean;
+            /** Organisations */
+            organisations: number;
+            /** Password Changed At */
+            password_changed_at: string | null;
+            /** Password Set */
+            password_set: boolean;
+            /** Platform Role */
+            platform_role: string | null;
+            /** Recovery Codes Left */
+            recovery_codes_left: number;
+            /** Sessions */
+            sessions: components["schemas"]["AccountSession"][];
+            /** Status */
+            status: string;
+        };
+        /** AccountEvent */
+        AccountEvent: {
+            /** Action */
+            action: string;
+            /** Actor Email */
+            actor_email: string | null;
+            /**
+             * By
+             * @enum {string}
+             */
+            by: "self" | "other" | "system";
+            /** Details */
+            details: {
+                [key: string]: unknown;
+            };
+            /** Ip */
+            ip: string | null;
+            /**
+             * Occurred At
+             * Format: date-time
+             */
+            occurred_at: string;
+            /** Seq */
+            seq: number;
+        };
+        /** AccountMembership */
+        AccountMembership: {
+            /** Abn */
+            abn: string | null;
+            /**
+             * Joined At
+             * Format: date-time
+             */
+            joined_at: string;
+            /** Kind */
+            kind: string;
+            /** Member Status */
+            member_status: string;
+            /** Name */
+            name: string;
+            /**
+             * Organisation Id
+             * Format: uuid
+             */
+            organisation_id: string;
+            /** Organisation Status */
+            organisation_status: string;
+            /** Roles */
+            roles: string[];
+        };
+        /**
+         * AccountSearch
+         * @description Search by email, name, business name or ABN. Sent in the body, not the address, so
+         *     customers' email addresses stay out of logs.
+         */
+        AccountSearch: {
+            /**
+             * Query
+             * @default
+             */
+            query: string;
+            /** Status */
+            status?: ("ACTIVE" | "SUSPENDED" | "UNVERIFIED" | "CLOSED" | "STAFF") | null;
+        };
+        /** AccountSession */
+        AccountSession: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Expires At
+             * Format: date-time
+             */
+            expires_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Ip */
+            ip: string | null;
+            /**
+             * Last Seen At
+             * Format: date-time
+             */
+            last_seen_at: string;
+            /** Surface */
+            surface: string;
+            /** User Agent */
+            user_agent: string | null;
+        };
+        /** AccountSummary */
+        AccountSummary: {
+            /** Closed */
+            closed: boolean;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Display Name */
+            display_name: string;
+            /** Email */
+            email: string;
+            /** Email Verified */
+            email_verified: boolean;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Last Login At */
+            last_login_at: string | null;
+            /** Mfa Enabled */
+            mfa_enabled: boolean;
+            /** Organisations */
+            organisations: number;
+            /** Platform Role */
+            platform_role: string | null;
+            /** Status */
+            status: string;
         };
         /** AddressIn */
         AddressIn: {
@@ -11508,7 +11764,7 @@ export interface components {
          * Vertical
          * @enum {string}
          */
-        Vertical: "PLANNING" | "VESSEL" | "BUSINESS" | "GRANT" | "SELL" | "RENT";
+        Vertical: "PLANNING" | "VESSEL" | "BUSINESS" | "GRANT" | "SELL" | "RENT" | "TRADE";
         /** VesselCreate */
         VesselCreate: {
             /** Activity */
@@ -11736,6 +11992,125 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ReadyResponse"];
+                };
+            };
+        };
+    };
+    newest_accounts_v1_admin_accounts_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountSummary"][];
+                };
+            };
+        };
+    };
+    search_accounts_v1_admin_accounts_search_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AccountSearch"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountSummary"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_account_v1_admin_accounts__user_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountDetail"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    account_action_v1_admin_accounts__user_id__actions_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AccountActionIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountActionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };

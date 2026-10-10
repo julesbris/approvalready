@@ -4,8 +4,8 @@
   Only that purpose carries one (check constraint).
 * Token purpose ``EMAIL_CHANGE``.
 
-Revision ID: 0027
-Revises: 0025
+Revision ID: 0028
+Revises: 0027
 Create Date: 2026-10-10
 """
 
@@ -15,8 +15,8 @@ import sqlalchemy as sa
 from alembic import op
 from sqlalchemy.dialects import postgresql
 
-revision: str = "0027"
-down_revision: str | None = "0025"
+revision: str = "0028"
+down_revision: str | None = "0027"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

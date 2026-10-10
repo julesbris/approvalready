@@ -40,6 +40,7 @@ class Vertical(StrEnum):
     GRANT = "GRANT"
     SELL = "SELL"
     RENT = "RENT"
+    TRADE = "TRADE"  # importing and exporting goods (Milestone 25)
 
 
 class ProjectStatus(StrEnum):

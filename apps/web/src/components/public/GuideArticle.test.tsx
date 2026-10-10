@@ -10,7 +10,7 @@ describe("guides", () => {
     for (const g of GUIDES) {
       expect(g.sources.length).toBeGreaterThan(0);
       for (const s of g.sources) {
-        expect(s.url).toMatch(/^https:\/\/(www\.)?(cairns|planning|legislation)\.qld\.gov\.au\//);
+        expect(s.url).toMatch(/^https:\/\/([a-z0-9-]+\.)*gov\.au\//);
         expect(s.version).not.toBe("");
       }
       expect(g.notCovered.length).toBeGreaterThan(0);

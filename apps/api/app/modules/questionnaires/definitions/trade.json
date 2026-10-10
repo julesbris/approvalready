@@ -1,0 +1,139 @@
+{
+  "key": "trade.general",
+  "vertical": "TRADE",
+  "title": "Importing or exporting goods",
+  "description": "Your answers describe the goods you're bringing into or sending out of Australia and how they will travel. Declarations, permits and registrations are identified later from sourced rules; check anything you're unsure of with a licensed customs broker.",
+  "sections": [
+    {
+      "title": "Your goods",
+      "questions": [
+        {
+          "key": "trade.direction", "type": "SELECT", "label": "Are you importing, exporting or both?", "required": true,
+          "options": [
+            {"value": "import", "label": "Importing goods into Australia"},
+            {"value": "export", "label": "Exporting goods from Australia"},
+            {"value": "both", "label": "Both"}
+          ]
+        },
+        {
+          "key": "trade.goods_description", "type": "TEXT", "label": "Describe the goods in a few words", "required": true,
+          "help_text": "For example: espresso machines from Italy, or frozen prawns to Japan.",
+          "validation": {"max_length": 300}
+        },
+        {
+          "key": "trade.goods_categories", "type": "MULTISELECT", "label": "Which of these describe the goods?", "required": true,
+          "help_text": "Pick every one that fits. Choose \"General goods\" if none of the others do.",
+          "validation": {"min_items": 1},
+          "options": [
+            {"value": "general", "label": "General goods (clothing, homewares, toys, furniture and the like)"},
+            {"value": "food_drink", "label": "Food or drink"},
+            {"value": "plants_seeds", "label": "Plants, seeds, bulbs, cut flowers or plant products"},
+            {"value": "animal_products", "label": "Live animals, meat, dairy, eggs, fish or other animal products"},
+            {"value": "timber_wood", "label": "Timber or wooden goods"},
+            {"value": "vehicles", "label": "Cars, motorbikes, trailers or other road vehicles"},
+            {"value": "machinery_metal", "label": "Machinery, metal goods, stone, ceramics or glass"},
+            {"value": "electrical", "label": "Electrical equipment or appliances"},
+            {"value": "refrigeration_aircon", "label": "Air conditioners, fridges or other equipment with refrigerant gas"},
+            {"value": "chemicals_cosmetics", "label": "Chemicals, or products with them such as cosmetics, soap, paint or glue"},
+            {"value": "medicines_devices", "label": "Medicines, supplements or medical devices"},
+            {"value": "firearms_weapons", "label": "Firearms, weapons or ammunition"},
+            {"value": "tobacco_vapes", "label": "Tobacco or vaping products"},
+            {"value": "wildlife", "label": "Wildlife, or products from protected plants or animals"},
+            {"value": "defence_dual_use", "label": "Military goods, or technology with military uses (for example drones, encryption or advanced electronics)"}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Importing",
+      "questions": [
+        {
+          "key": "trade.import_value_band", "type": "SELECT", "label": "What is the value of a typical shipment you will import?", "required": true,
+          "help_text": "The customs value of the goods in one consignment, in Australian dollars.",
+          "visible_when": {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+          "options": [
+            {"value": "UP_TO_1000", "label": "A$1,000 or less"},
+            {"value": "OVER_1000", "label": "More than A$1,000"}
+          ]
+        },
+        {
+          "key": "trade.import_transport", "type": "SELECT", "label": "How will the goods arrive?", "required": true,
+          "visible_when": {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+          "options": [
+            {"value": "sea_container", "label": "By sea, in a shipping container"},
+            {"value": "sea_break_bulk", "label": "By sea, as break bulk, on a flat rack or in an open-top container"},
+            {"value": "air", "label": "By air freight"},
+            {"value": "post", "label": "By post or courier"}
+          ]
+        },
+        {
+          "key": "trade.bmsb_risk_country", "type": "BOOLEAN", "label": "Are the goods made in, or shipped from or through, one of the countries listed below?", "required": true,
+          "help_text": "Albania, Andorra, Armenia, Austria, Azerbaijan, Belgium, Bosnia and Herzegovina, Bulgaria, Canada, Croatia, Czechia, France, Georgia, Germany, Greece, Hungary, Italy, Kazakhstan, Kosovo, Liechtenstein, Luxembourg, Moldova, Montenegro, Netherlands, North Macedonia, Poland, Portugal, Romania, Russia, Serbia, Slovakia, Slovenia, Spain, Switzerland, Türkiye, Ukraine, the United States or Uzbekistan.",
+          "visible_when": {"fact": "trade.import_transport", "op": "in", "value": ["sea_container", "sea_break_bulk"]}
+        },
+        {
+          "key": "trade.bmsb_season", "type": "BOOLEAN", "label": "Will any shipments leave between 1 September and 30 April?", "required": true,
+          "visible_when": {"fact": "trade.import_transport", "op": "in", "value": ["sea_container", "sea_break_bulk"]}
+        },
+        {
+          "key": "trade.lodge_self", "type": "BOOLEAN", "label": "Will you lodge import declarations yourself, rather than using a customs broker?", "required": true,
+          "visible_when": {"fact": "trade.import_value_band", "op": "equals", "value": "OVER_1000"}
+        },
+        {
+          "key": "trade.refrigerant_over_exemption", "type": "BOOLEAN", "label": "Will any one shipment hold more than five pieces of this equipment, or weigh 10 kg or more in total?", "required": true,
+          "visible_when": {"all": [
+            {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+            {"fact": "trade.goods_categories", "op": "contains", "value": "refrigeration_aircon"}
+          ]}
+        },
+        {
+          "key": "trade.household_electrical", "type": "BOOLEAN", "label": "Is the electrical equipment mains powered and made or sold for household, personal or similar use?", "required": true,
+          "help_text": "Rated above 50 volts AC. For example kettles, heaters, chargers, power tools or lights. Large industrial equipment is usually not included.",
+          "visible_when": {"all": [
+            {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+            {"fact": "trade.goods_categories", "op": "contains", "value": "electrical"}
+          ]}
+        }
+      ]
+    },
+    {
+      "title": "Exporting",
+      "questions": [
+        {
+          "key": "trade.export_value_band", "type": "SELECT", "label": "What is the value of a typical shipment you will export?", "required": true,
+          "help_text": "The value of the goods in one consignment, in Australian dollars.",
+          "visible_when": {"fact": "trade.direction", "op": "in", "value": ["export", "both"]},
+          "options": [
+            {"value": "UP_TO_2000", "label": "A$2,000 or less"},
+            {"value": "OVER_2000", "label": "More than A$2,000"}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Your business",
+      "questions": [
+        {
+          "key": "trade.has_abn", "type": "BOOLEAN", "label": "Does the business have an ABN?", "required": true
+        },
+        {
+          "key": "trade.gst_registered", "type": "BOOLEAN", "label": "Is the business registered for GST?", "required": true,
+          "visible_when": {"fact": "trade.has_abn", "op": "equals", "value": true}
+        },
+        {
+          "key": "trade.state", "type": "SELECT", "label": "Which state or territory is the business based in?", "required": true,
+          "options": [
+            {"value": "QLD", "label": "Queensland"},
+            {"value": "NSW", "label": "New South Wales"},
+            {"value": "VIC", "label": "Victoria"},
+            {"value": "SA", "label": "South Australia"},
+            {"value": "WA", "label": "Western Australia"},
+            {"value": "TAS", "label": "Tasmania"},
+            {"value": "ACT", "label": "Australian Capital Territory"},
+            {"value": "NT", "label": "Northern Territory"}
+          ]
+        }
+      ]
+    }
+  ]
+}

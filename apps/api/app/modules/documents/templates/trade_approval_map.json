@@ -1,0 +1,8 @@
+{
+  "key": "TRADE_APPROVAL_MAP",
+  "title": "Import and export approval map",
+  "vertical": "TRADE",
+  "engine": "JINJA_HTML",
+  "body": "trade_approval_map.html.j2",
+  "output_formats": ["PDF", "DOCX", "HTML"]
+}

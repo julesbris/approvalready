@@ -59,7 +59,7 @@ export interface ApiErrorBody {
 export const CONFIDENCE_LEVELS = ["VERIFIED", "LIKELY", "REVIEW_REQUIRED", "UNKNOWN"] as const;
 export type Confidence = (typeof CONFIDENCE_LEVELS)[number];
 
-export const VERTICALS = ["PLANNING", "VESSEL", "BUSINESS", "GRANT", "SELL", "RENT"] as const;
+export const VERTICALS = ["PLANNING", "VESSEL", "BUSINESS", "GRANT", "SELL", "RENT", "TRADE"] as const;
 export type Vertical = (typeof VERTICALS)[number];
 
 export type RuleResult = Schemas["RuleResult"];
@@ -279,3 +279,11 @@ export type PrivacyRequestOut = Schemas["PrivacyRequestOut"];
 export type PrivacyRequestCreated = Schemas["PrivacyRequestCreated"];
 export type PrivacyRequestKind = Schemas["PrivacyRequestKind"];
 export type PrivacyRequestStatus = Schemas["PrivacyRequestStatus"];
+export type AccountSummary = Schemas["AccountSummary"];
+export type AccountDetail = Schemas["AccountDetail"];
+export type AccountMembership = Schemas["AccountMembership"];
+export type AccountSession = Schemas["AccountSession"];
+export type AccountEvent = Schemas["AccountEvent"];
+export type AccountActionIn = Schemas["AccountActionIn"];
+export type AccountActionOut = Schemas["AccountActionOut"];
+export type AccountSearch = Schemas["AccountSearch"];

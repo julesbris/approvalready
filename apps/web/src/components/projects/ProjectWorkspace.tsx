@@ -54,7 +54,7 @@ type Props = {
 
 /** Verticals whose projects are about a property (the API checks the same). */
 const PROPERTY_VERTICALS = new Set(["PLANNING", "SELL", "RENT"]);
-const BUSINESS_VERTICALS = new Set(["BUSINESS", "GRANT"]);
+const BUSINESS_VERTICALS = new Set(["BUSINESS", "GRANT", "TRADE"]);
 
 const RECURRENCE_LABELS: Record<string, string> = {
   WEEKLY: "Every week",

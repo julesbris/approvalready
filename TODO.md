@@ -231,11 +231,25 @@ tests and updated docs before the next starts.
 - [x] `lead_message` (migration 0025): never edited or deleted (trigger); the text stays out of the audit log
 - [ ] Next: attachments (reusing the scanned upload pipeline); include messages in "Download my data"; reminders before a quote expires; PDF quotes
 
+## Milestone 27 — Staff accounts page ✅
+- [x] `/admin/accounts`: find any account by email, name, business name, ABN or id (posted, so emails stay out of logs), with filters for active, unconfirmed, suspended, staff and closed accounts
+- [x] Account page: organisations and roles, two-step sign-in and recovery codes, password age, signed-in devices, and recent history including what staff did to it
+- [x] Support actions for platform administrators (`platform.users.manage`, migration 0026): resend the verification email, send a password reset link, sign out everywhere, reset two-step sign-in (no server command needed), suspend and restore; reasons kept in the audit log
+- [x] Safeguards: no actions on your own account, only a super administrator can change a staff member's account, closed accounts are read-only, every view and action audited
+- [ ] Next: change staff roles from the page; suspend a business organisation; staff notes on an account
+
+## Milestone 25 — TradeReady: importing and exporting goods ✅
+- [x] `TRADE` vertical (migration 0027), `trade.general` questionnaire, business profile prefill
+- [~] Content pack `trade_au` (4 rule sets, 21 rules, 16 references): import declarations, ICS registration, GST and deferred GST, biosecurity permits, imported food inspection, stink bug season, vehicles, AICIS, ARTG, refrigerant equipment, EESS, firearms, tobacco, wildlife, export declarations, prescribed goods, Defence export permits. Every reference is an **unverified summary**: capture and verify in `/admin/sources`
+- [x] Marketplace categories for import and logistics companies: customs brokers, freight forwarders, logistics and warehousing providers, import and export compliance consultants; `review.trade` product
+- [x] Import and export approval map report; guides for importing and exporting
+- [ ] Next: tariff classification help; BICON look-up links per commodity; MICoR for exports; freight quote requests through the existing quotes feature
+
 ## Milestone 28 — Change of email address ✅
 - [x] Account, Security: ask for a new address with the password (and a two-step code when on); a link goes to the new address, a notice to the old one, and nothing changes until the link is opened
 - [x] Confirming moves the account, marks the address confirmed, cancels links still waiting in the old inbox and tells the old address; a waiting change can be cancelled
 - [x] No account enumeration: an address another account uses gets the same answer, and that inbox is told instead of sent a link
-- [x] Migration 0027: `one_time_token.new_email`, purpose `EMAIL_CHANGE`
+- [x] Migration 0028: `one_time_token.new_email`, purpose `EMAIL_CHANGE`
 - [ ] Next: update the Stripe customer's email for receipts; staff changing a customer's address from Admin > Accounts
 
 ## Backlog / decisions to revisit
