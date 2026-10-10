@@ -37,7 +37,7 @@ from app.modules.billing.models import (
 )
 from app.modules.billing.stripe import StripeClient, StripeError
 from app.modules.identity.models import AppUser
-from app.modules.tenancy.models import Organisation
+from app.modules.tenancy.models import Organisation, OrganisationKind
 
 # A plan that has fallen past due keeps working this long while Stripe retries the card.
 PAST_DUE_GRACE = timedelta(days=7)
@@ -492,6 +492,20 @@ async def live_subscription(db: AsyncSession, organisation_id: uuid.UUID) -> Sub
     ).scalar_one_or_none()
 
 
+def plan_kind(organisation: Organisation) -> ProductKind:
+    """Partner organisations buy partner plans; everyone else customer plans."""
+    if organisation.kind == OrganisationKind.PARTNER:
+        return ProductKind.PARTNER_PLAN
+    return ProductKind.SAAS
+
+
+def grace_ends_at(sub: Subscription) -> datetime | None:
+    """When a past-due plan stops working if the card isn't updated."""
+    if sub.status != SubscriptionStatus.PAST_DUE or sub.past_due_since is None:
+        return None
+    return sub.past_due_since + PAST_DUE_GRACE
+
+
 async def checkout_for_plan(
     db: AsyncSession,
     stripe: StripeClient,
@@ -504,7 +518,7 @@ async def checkout_for_plan(
     meta: RequestMeta | None,
 ) -> str:
     product = await get_product(db, price.product_id)
-    if not price.active or not product.active or product.kind != ProductKind.SAAS:
+    if not price.active or not product.active or product.kind != plan_kind(organisation):
         raise ApiError(409, "price_unavailable", "This plan is not on sale.")
     if await live_subscription(db, organisation.id) is not None:
         raise ApiError(

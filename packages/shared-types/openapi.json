@@ -7268,6 +7268,1122 @@
         "title": "ParcelOut",
         "type": "object"
       },
+      "PartnerApplicationIn": {
+        "additionalProperties": false,
+        "properties": {
+          "abn": {
+            "title": "Abn",
+            "type": "string"
+          },
+          "categories": {
+            "items": {
+              "pattern": "^[a-z][a-z0-9_]{1,59}$",
+              "type": "string"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Categories",
+            "type": "array"
+          },
+          "contact_email": {
+            "anyOf": [
+              {
+                "format": "email",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Email"
+          },
+          "credentials": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerCredentialIn"
+            },
+            "maxItems": 20,
+            "title": "Credentials",
+            "type": "array"
+          },
+          "declaration": {
+            "description": "The applicant confirms the details are true and they may act for the business.",
+            "title": "Declaration",
+            "type": "boolean"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 20,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "name": {
+            "description": "The business name customers will see.",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "service_areas": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerServiceAreaIn"
+            },
+            "maxItems": 50,
+            "minItems": 1,
+            "title": "Service Areas",
+            "type": "array"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "required": [
+          "name",
+          "abn",
+          "categories",
+          "service_areas",
+          "declaration"
+        ],
+        "title": "PartnerApplicationIn",
+        "type": "object"
+      },
+      "PartnerApplicationOut": {
+        "properties": {
+          "decision_notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Decision Notes"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "reviewed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewed At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PartnerApplicationStatus"
+          },
+          "submitted_at": {
+            "format": "date-time",
+            "title": "Submitted At",
+            "type": "string"
+          },
+          "submitted_payload": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "What was submitted (staff only).",
+            "title": "Submitted Payload"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "submitted_at",
+          "reviewed_at",
+          "decision_notes"
+        ],
+        "title": "PartnerApplicationOut",
+        "type": "object"
+      },
+      "PartnerApplicationStatus": {
+        "enum": [
+          "SUBMITTED",
+          "APPROVED",
+          "REJECTED"
+        ],
+        "title": "PartnerApplicationStatus",
+        "type": "string"
+      },
+      "PartnerCategoryCheckIn": {
+        "additionalProperties": false,
+        "properties": {
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Needed to reject; the partner sees it.",
+            "title": "Notes"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PartnerCategoryStatus"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "PartnerCategoryCheckIn",
+        "type": "object"
+      },
+      "PartnerCategoryCredentialIn": {
+        "additionalProperties": false,
+        "properties": {
+          "credential_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credential Id"
+          }
+        },
+        "required": [
+          "credential_id"
+        ],
+        "title": "PartnerCategoryCredentialIn",
+        "type": "object"
+      },
+      "PartnerCategoryIn": {
+        "additionalProperties": false,
+        "properties": {
+          "category_key": {
+            "pattern": "^[a-z][a-z0-9_]{1,59}$",
+            "title": "Category Key",
+            "type": "string"
+          },
+          "credential_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credential Id"
+          }
+        },
+        "required": [
+          "category_key"
+        ],
+        "title": "PartnerCategoryIn",
+        "type": "object"
+      },
+      "PartnerCategoryOut": {
+        "properties": {
+          "category_key": {
+            "title": "Category Key",
+            "type": "string"
+          },
+          "counts": {
+            "description": "Whether it receives referrals now.",
+            "title": "Counts",
+            "type": "boolean"
+          },
+          "credential_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Credential Id"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "problems": {
+            "description": "Why it doesn't receive referrals (empty when it does).",
+            "items": {
+              "type": "string"
+            },
+            "title": "Problems",
+            "type": "array"
+          },
+          "requires_credential": {
+            "title": "Requires Credential",
+            "type": "boolean"
+          },
+          "restricted": {
+            "title": "Restricted",
+            "type": "boolean"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PartnerCategoryStatus"
+          },
+          "verticals": {
+            "items": {
+              "$ref": "#/components/schemas/Vertical"
+            },
+            "title": "Verticals",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "category_key",
+          "label",
+          "description",
+          "verticals",
+          "requires_credential",
+          "restricted",
+          "status",
+          "credential_id",
+          "notes",
+          "counts",
+          "problems"
+        ],
+        "title": "PartnerCategoryOut",
+        "type": "object"
+      },
+      "PartnerCategoryStatus": {
+        "enum": [
+          "PENDING",
+          "APPROVED",
+          "REJECTED"
+        ],
+        "title": "PartnerCategoryStatus",
+        "type": "string"
+      },
+      "PartnerCredentialCheckIn": {
+        "additionalProperties": false,
+        "properties": {
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Needed to reject; the partner sees it.",
+            "title": "Notes"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PartnerCredentialStatus"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "PartnerCredentialCheckIn",
+        "type": "object"
+      },
+      "PartnerCredentialIn": {
+        "additionalProperties": false,
+        "properties": {
+          "category_keys": {
+            "description": "Categories this licence or accreditation covers.",
+            "items": {
+              "pattern": "^[a-z][a-z0-9_]{1,59}$",
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Category Keys",
+            "type": "array"
+          },
+          "cover_cents": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "maximum": 10000000000.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Insurance: the amount of cover.",
+            "title": "Cover Cents"
+          },
+          "expires_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires On"
+          },
+          "issuer": {
+            "description": "Who issued it: the licensing body or the insurer.",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Issuer",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/PartnerCredentialKind"
+          },
+          "number": {
+            "description": "Licence, accreditation or policy number.",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Number",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "issuer",
+          "number"
+        ],
+        "title": "PartnerCredentialIn",
+        "type": "object"
+      },
+      "PartnerCredentialKind": {
+        "enum": [
+          "LICENCE",
+          "PI_INSURANCE",
+          "PL_INSURANCE",
+          "ACCREDITATION"
+        ],
+        "title": "PartnerCredentialKind",
+        "type": "string"
+      },
+      "PartnerCredentialOut": {
+        "properties": {
+          "cover_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cover Cents"
+          },
+          "current": {
+            "description": "Checked and not expired today.",
+            "title": "Current",
+            "type": "boolean"
+          },
+          "expires_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires On"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "issuer": {
+            "title": "Issuer",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/PartnerCredentialKind"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "number": {
+            "title": "Number",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PartnerCredentialStatus"
+          },
+          "verified_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verified At"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "issuer",
+          "number",
+          "cover_cents",
+          "expires_on",
+          "status",
+          "notes",
+          "verified_at",
+          "current"
+        ],
+        "title": "PartnerCredentialOut",
+        "type": "object"
+      },
+      "PartnerCredentialStatus": {
+        "enum": [
+          "UNVERIFIED",
+          "VERIFIED",
+          "REJECTED"
+        ],
+        "title": "PartnerCredentialStatus",
+        "type": "string"
+      },
+      "PartnerMemberOut": {
+        "properties": {
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "roles": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Roles",
+            "type": "array"
+          },
+          "user_id": {
+            "format": "uuid",
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "display_name",
+          "email",
+          "roles"
+        ],
+        "title": "PartnerMemberOut",
+        "type": "object"
+      },
+      "PartnerOut": {
+        "properties": {
+          "abn": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Abn"
+          },
+          "applications": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerApplicationOut"
+            },
+            "title": "Applications",
+            "type": "array"
+          },
+          "categories": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerCategoryOut"
+            },
+            "title": "Categories",
+            "type": "array"
+          },
+          "contact_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Email"
+          },
+          "credentials": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerCredentialOut"
+            },
+            "title": "Credentials",
+            "type": "array"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "details_locked": {
+            "description": "Name and ABN can no longer be changed here.",
+            "title": "Details Locked",
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "organisation_id": {
+            "format": "uuid",
+            "title": "Organisation Id",
+            "type": "string"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "plan": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PartnerPlanOut"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Null when the plan can't be read here."
+          },
+          "problems": {
+            "description": "What stops referrals reaching this partner.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Problems",
+            "type": "array"
+          },
+          "receiving_referrals": {
+            "title": "Receiving Referrals",
+            "type": "boolean"
+          },
+          "service_areas": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerServiceAreaOut"
+            },
+            "title": "Service Areas",
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PartnerStatus"
+          },
+          "status_changed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Changed At"
+          },
+          "status_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Reason"
+          },
+          "submitted_at": {
+            "format": "date-time",
+            "title": "Submitted At",
+            "type": "string"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "required": [
+          "id",
+          "organisation_id",
+          "name",
+          "abn",
+          "status",
+          "status_reason",
+          "status_changed_at",
+          "submitted_at",
+          "website",
+          "phone",
+          "contact_email",
+          "description",
+          "categories",
+          "service_areas",
+          "credentials",
+          "applications",
+          "plan",
+          "receiving_referrals",
+          "problems",
+          "details_locked"
+        ],
+        "title": "PartnerOut",
+        "type": "object"
+      },
+      "PartnerPlanLimitOut": {
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "feature": {
+            "title": "Feature",
+            "type": "string"
+          },
+          "in_use": {
+            "title": "In Use",
+            "type": "integer"
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Null: unlimited (or no limit applies yet).",
+            "title": "Limit"
+          }
+        },
+        "required": [
+          "feature",
+          "description",
+          "limit",
+          "in_use"
+        ],
+        "title": "PartnerPlanLimitOut",
+        "type": "object"
+      },
+      "PartnerPlanOut": {
+        "properties": {
+          "cancel_at_period_end": {
+            "title": "Cancel At Period End",
+            "type": "boolean"
+          },
+          "current_period_end": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current Period End"
+          },
+          "grace_ends_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Payment overdue: when the plan stops if the card isn't updated.",
+            "title": "Grace Ends At"
+          },
+          "limits": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerPlanLimitOut"
+            },
+            "title": "Limits",
+            "type": "array"
+          },
+          "name": {
+            "description": "The plan's name; \"Free\" without a paid plan.",
+            "title": "Name",
+            "type": "string"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SubscriptionStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The paid plan's status at Stripe."
+          }
+        },
+        "required": [
+          "name",
+          "status",
+          "current_period_end",
+          "cancel_at_period_end",
+          "grace_ends_at",
+          "limits"
+        ],
+        "title": "PartnerPlanOut",
+        "type": "object"
+      },
+      "PartnerProfileUpdate": {
+        "additionalProperties": false,
+        "description": "Partner admins: contact details at any time; the name and ABN until approved.",
+        "properties": {
+          "abn": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Abn"
+          },
+          "contact_email": {
+            "anyOf": [
+              {
+                "format": "email",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Email"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 20,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "title": "PartnerProfileUpdate",
+        "type": "object"
+      },
+      "PartnerServiceAreaIn": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/ServiceAreaKind"
+          },
+          "state": {
+            "$ref": "#/components/schemas/AustralianState"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "maxLength": 120,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A postcode or council area name. Not needed for a whole state.",
+            "title": "Value"
+          }
+        },
+        "required": [
+          "kind",
+          "state"
+        ],
+        "title": "PartnerServiceAreaIn",
+        "type": "object"
+      },
+      "PartnerServiceAreaOut": {
+        "properties": {
+          "counts": {
+            "description": "Within the plan's number of service areas.",
+            "title": "Counts",
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ServiceAreaKind"
+          },
+          "state": {
+            "$ref": "#/components/schemas/AustralianState"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "state",
+          "value",
+          "counts"
+        ],
+        "title": "PartnerServiceAreaOut",
+        "type": "object"
+      },
+      "PartnerStatus": {
+        "enum": [
+          "APPLIED",
+          "UNDER_REVIEW",
+          "ACTIVE",
+          "SUSPENDED",
+          "REJECTED"
+        ],
+        "title": "PartnerStatus",
+        "type": "string"
+      },
+      "PartnerStatusIn": {
+        "additionalProperties": false,
+        "properties": {
+          "reason": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "minLength": 10,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Needed to reject or suspend; the partner sees it.",
+            "title": "Reason"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PartnerStatus"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "PartnerStatusIn",
+        "type": "object"
+      },
+      "PartnerSummaryOut": {
+        "properties": {
+          "abn": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Abn"
+          },
+          "categories": {
+            "description": "Category labels.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Categories",
+            "type": "array"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "organisation_id": {
+            "format": "uuid",
+            "title": "Organisation Id",
+            "type": "string"
+          },
+          "pending_categories": {
+            "title": "Pending Categories",
+            "type": "integer"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PartnerStatus"
+          },
+          "submitted_at": {
+            "format": "date-time",
+            "title": "Submitted At",
+            "type": "string"
+          },
+          "unchecked_credentials": {
+            "title": "Unchecked Credentials",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "organisation_id",
+          "name",
+          "abn",
+          "status",
+          "submitted_at",
+          "categories",
+          "pending_categories",
+          "unchecked_credentials"
+        ],
+        "title": "PartnerSummaryOut",
+        "type": "object"
+      },
       "PasswordChangeRequest": {
         "properties": {
           "current_password": {
@@ -11396,6 +12512,15 @@
         "title": "SectionOut",
         "type": "object"
       },
+      "ServiceAreaKind": {
+        "enum": [
+          "POSTCODE",
+          "LGA",
+          "STATE"
+        ],
+        "title": "ServiceAreaKind",
+        "type": "string"
+      },
       "ServiceIn": {
         "properties": {
           "description": {
@@ -12789,6 +13914,198 @@
         "title": "SourceType",
         "type": "string"
       },
+      "StaffPartnerOut": {
+        "properties": {
+          "abn": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Abn"
+          },
+          "applications": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerApplicationOut"
+            },
+            "title": "Applications",
+            "type": "array"
+          },
+          "categories": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerCategoryOut"
+            },
+            "title": "Categories",
+            "type": "array"
+          },
+          "contact_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Email"
+          },
+          "credentials": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerCredentialOut"
+            },
+            "title": "Credentials",
+            "type": "array"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "details_locked": {
+            "description": "Name and ABN can no longer be changed here.",
+            "title": "Details Locked",
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "members": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerMemberOut"
+            },
+            "title": "Members",
+            "type": "array"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "organisation_id": {
+            "format": "uuid",
+            "title": "Organisation Id",
+            "type": "string"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "plan": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PartnerPlanOut"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Null when the plan can't be read here."
+          },
+          "problems": {
+            "description": "What stops referrals reaching this partner.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Problems",
+            "type": "array"
+          },
+          "receiving_referrals": {
+            "title": "Receiving Referrals",
+            "type": "boolean"
+          },
+          "service_areas": {
+            "items": {
+              "$ref": "#/components/schemas/PartnerServiceAreaOut"
+            },
+            "title": "Service Areas",
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PartnerStatus"
+          },
+          "status_changed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Changed At"
+          },
+          "status_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Reason"
+          },
+          "submitted_at": {
+            "format": "date-time",
+            "title": "Submitted At",
+            "type": "string"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "required": [
+          "id",
+          "organisation_id",
+          "name",
+          "abn",
+          "status",
+          "status_reason",
+          "status_changed_at",
+          "submitted_at",
+          "website",
+          "phone",
+          "contact_email",
+          "description",
+          "categories",
+          "service_areas",
+          "credentials",
+          "applications",
+          "plan",
+          "receiving_referrals",
+          "problems",
+          "details_locked",
+          "members"
+        ],
+        "title": "StaffPartnerOut",
+        "type": "object"
+      },
       "StaffReviewOut": {
         "properties": {
           "candidates": {
@@ -13162,6 +14479,19 @@
             "title": "Gives Plan",
             "type": "boolean"
           },
+          "grace_ends_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Payment overdue: when the plan stops working if the card isn't updated.",
+            "title": "Grace Ends At"
+          },
           "id": {
             "format": "uuid",
             "title": "Id",
@@ -13206,6 +14536,7 @@
           "cancel_at_period_end",
           "canceled_at",
           "past_due_since",
+          "grace_ends_at",
           "gives_plan"
         ],
         "title": "SubscriptionOut",
@@ -15453,6 +16784,285 @@
         "summary": "Update Round",
         "tags": [
           "admin: grants"
+        ]
+      }
+    },
+    "/v1/admin/partners": {
+      "get": {
+        "description": "Partners, newest submission first (filter by status for the review queue).",
+        "operationId": "list_partners_v1_admin_partners_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/PartnerStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PartnerSummaryOut"
+                  },
+                  "title": "Response List Partners V1 Admin Partners Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Partners",
+        "tags": [
+          "admin: partners"
+        ]
+      }
+    },
+    "/v1/admin/partners/{partner_id}": {
+      "get": {
+        "operationId": "get_partner_staff_v1_admin_partners__partner_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partner_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Partner Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffPartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Partner Staff",
+        "tags": [
+          "admin: partners"
+        ]
+      }
+    },
+    "/v1/admin/partners/{partner_id}/categories/{partner_category_id}": {
+      "post": {
+        "description": "Approve or reject one of the partner's categories.",
+        "operationId": "check_category_v1_admin_partners__partner_id__categories__partner_category_id__post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partner_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Partner Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "partner_category_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Partner Category Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartnerCategoryCheckIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffPartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Check Category",
+        "tags": [
+          "admin: partners"
+        ]
+      }
+    },
+    "/v1/admin/partners/{partner_id}/credentials/{credential_id}": {
+      "post": {
+        "description": "Mark a licence, insurance or accreditation checked (against the issuer's register) or\nnot accepted.",
+        "operationId": "check_credential_v1_admin_partners__partner_id__credentials__credential_id__post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partner_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Partner Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "credential_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Credential Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartnerCredentialCheckIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffPartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Check Credential",
+        "tags": [
+          "admin: partners"
+        ]
+      }
+    },
+    "/v1/admin/partners/{partner_id}/status": {
+      "post": {
+        "description": "Start the review, approve, reject, suspend or reinstate a partner.",
+        "operationId": "set_status_v1_admin_partners__partner_id__status_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partner_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Partner Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartnerStatusIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffPartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Status",
+        "tags": [
+          "admin: partners"
         ]
       }
     },
@@ -20551,6 +22161,524 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/partner": {
+      "get": {
+        "operationId": "get_partner_v1_organisations__organisation_id__partner_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Partner",
+        "tags": [
+          "partners"
+        ]
+      },
+      "patch": {
+        "operationId": "update_partner_v1_organisations__organisation_id__partner_patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartnerProfileUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Partner",
+        "tags": [
+          "partners"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/categories": {
+      "post": {
+        "operationId": "add_category_v1_organisations__organisation_id__partner_categories_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartnerCategoryIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Category",
+        "tags": [
+          "partners"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/categories/{partner_category_id}": {
+      "delete": {
+        "operationId": "remove_category_v1_organisations__organisation_id__partner_categories__partner_category_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partner_category_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Partner Category Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Remove Category",
+        "tags": [
+          "partners"
+        ]
+      },
+      "patch": {
+        "description": "Name the licence or accreditation that covers a category (it is checked again).",
+        "operationId": "set_category_credential_v1_organisations__organisation_id__partner_categories__partner_category_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partner_category_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Partner Category Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartnerCategoryCredentialIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Category Credential",
+        "tags": [
+          "partners"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/credentials": {
+      "post": {
+        "operationId": "add_credential_v1_organisations__organisation_id__partner_credentials_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartnerCredentialIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Credential",
+        "tags": [
+          "partners"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/credentials/{credential_id}": {
+      "delete": {
+        "operationId": "remove_credential_v1_organisations__organisation_id__partner_credentials__credential_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "credential_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Credential Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Remove Credential",
+        "tags": [
+          "partners"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/resubmit": {
+      "post": {
+        "description": "Send an application that wasn't approved back to our team, after fixing it.",
+        "operationId": "resubmit_v1_organisations__organisation_id__partner_resubmit_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Resubmit",
+        "tags": [
+          "partners"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/service-areas": {
+      "post": {
+        "operationId": "add_service_area_v1_organisations__organisation_id__partner_service_areas_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartnerServiceAreaIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Service Area",
+        "tags": [
+          "partners"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/service-areas/{area_id}": {
+      "delete": {
+        "operationId": "remove_service_area_v1_organisations__organisation_id__partner_service_areas__area_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "area_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Area Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Remove Service Area",
+        "tags": [
+          "partners"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/projects": {
       "get": {
         "operationId": "list_projects_v1_organisations__organisation_id__projects_get",
@@ -25091,6 +27219,48 @@
         "summary": "Add Certificate",
         "tags": [
           "vessels"
+        ]
+      }
+    },
+    "/v1/partners/applications": {
+      "post": {
+        "description": "Apply to become a partner. Creates the partner organisation (switch to it to manage\nthe account) and sends the application to our team.",
+        "operationId": "apply_v1_partners_applications_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartnerApplicationIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartnerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Apply",
+        "tags": [
+          "partners"
         ]
       }
     },

@@ -37,6 +37,9 @@ from app.modules.lookups.router import router as lookups_router
 from app.modules.lookups.service import Lookups
 from app.modules.marketplace.router import router as marketplace_router
 from app.modules.notifications.router import router as notifications_router
+from app.modules.partners.router import admin_router as partners_admin_router
+from app.modules.partners.router import apply_router as partners_apply_router
+from app.modules.partners.router import router as partners_router
 from app.modules.projects.router import router as projects_router
 from app.modules.questionnaires.router import router as questionnaires_router
 from app.modules.regulatory.router import router as sources_router
@@ -89,14 +92,14 @@ def create_app(
     # host and CORS checks) carries a request ID and security headers.
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.cors_origins,
+        allow_origins=settings.allowed_origins,
         allow_credentials=True,
         allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE"],
         allow_headers=["content-type", "x-csrf-token", "x-request-id"],
         expose_headers=["x-request-id"],
         max_age=600,
     )
-    app.add_middleware(OriginCheckMiddleware, allowed_origins=settings.cors_origins)
+    app.add_middleware(OriginCheckMiddleware, allowed_origins=settings.allowed_origins)
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.trusted_hosts)
     app.add_middleware(SecurityHeadersMiddleware, hsts=settings.is_production)
     app.add_middleware(RequestContextMiddleware)
@@ -129,6 +132,9 @@ def create_app(
     app.include_router(billing_router)
     app.include_router(billing_webhook_router)
     app.include_router(billing_admin_router)
+    app.include_router(partners_apply_router)
+    app.include_router(partners_router)
+    app.include_router(partners_admin_router)
     return app
 
 

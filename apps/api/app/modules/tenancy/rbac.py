@@ -2,7 +2,8 @@
 
 This is the source the 0002 migration seeded from (0004 added ``source.manage`` and
 ``rule.author``, 0007 ``professional.verify`` and ``review.assign``, 0013
-``billing.manage`` and ``billing.configure``);
+``billing.manage`` and ``billing.configure``, 0014 ``partner.manage`` and
+``partner.verify``);
 ``tests/test_audit_rbac.py`` asserts the database still matches it. Authorisation
 decisions read the database, so changing a mapping means a new migration, never just an
 edit here.
@@ -46,6 +47,8 @@ class Perm(StrEnum):
     PROFESSIONAL_VERIFY = "professional.verify"
     REVIEW_ASSIGN = "review.assign"
     BILLING_CONFIGURE = "billing.configure"
+    PARTNER_MANAGE = "partner.manage"
+    PARTNER_VERIFY = "partner.verify"
     PLATFORM_USERS_READ = "platform.users.read"
     PLATFORM_ORGANISATIONS_READ = "platform.organisations.read"
     PLATFORM_AUDIT_READ = "platform.audit.read"
@@ -72,6 +75,8 @@ PERMISSION_DESCRIPTIONS: dict[Perm, str] = {
     Perm.PROFESSIONAL_VERIFY: "Verify professionals and their credentials",
     Perm.REVIEW_ASSIGN: "Assign professional reviews",
     Perm.BILLING_CONFIGURE: "Set prices and view payment events (staff)",
+    Perm.PARTNER_MANAGE: "Edit the partner profile, categories, service areas and credentials",
+    Perm.PARTNER_VERIFY: "Verify partners, their categories and credentials (staff)",
     Perm.PLATFORM_USERS_READ: "View any user (staff)",
     Perm.PLATFORM_ORGANISATIONS_READ: "View any organisation (staff)",
     Perm.PLATFORM_AUDIT_READ: "View and verify the platform audit log",
@@ -98,6 +103,7 @@ _STAFF = {
     Perm.RULE_AUTHOR,
     Perm.PROFESSIONAL_VERIFY,
     Perm.REVIEW_ASSIGN,
+    Perm.PARTNER_VERIFY,
 }
 _ADMIN = (
     _STAFF
@@ -140,7 +146,7 @@ ROLES: dict[RoleKey, tuple[str, str, tuple[K, ...], frozenset[Perm]]] = {
         "ORG",
         "Partner account administrator",
         (K.PARTNER,),
-        frozenset(_PARTNER_USER | _ORG_ADMIN),
+        frozenset(_PARTNER_USER | _ORG_ADMIN | {Perm.PARTNER_MANAGE}),
     ),
     RoleKey.STAFF: (
         "PLATFORM",
@@ -171,8 +177,8 @@ CREATOR_ROLES: dict[K, tuple[RoleKey, ...]] = {
     K.PLATFORM_ADMIN: (RoleKey.SUPERADMIN,),
 }
 
-# Kinds a user can create through the API. Partner organisations arrive through the partner
-# application and verification flow (Milestone 14); the platform organisation via the CLI.
+# Kinds a user can create through the API. Partner organisations are created by the partner
+# application (``POST /v1/partners/applications``); the platform organisation via the CLI.
 SELF_SERVICE_KINDS = (K.BUSINESS, K.PROFESSIONAL_PRACTICE)
 
 # Kinds that may have more than one member. A personal account is one person.

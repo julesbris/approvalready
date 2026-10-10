@@ -112,6 +112,13 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "payment": WRITE,
     "subscription": WRITE,
     "invoice_reference": WRITE,
+    # Milestone 14: platform tables (staff verify across partners); credentials, categories
+    # and service areas can be removed by the partner, service areas are never edited.
+    "partner_organisation": WRITE,
+    "partner_application": WRITE,
+    "partner_credential": CRUD,
+    "partner_category": CRUD,
+    "partner_service_area": {"SELECT", "INSERT", "DELETE"},
     # Milestone 11
     "sale_project": WRITE,
     "sale_document": CRUD,

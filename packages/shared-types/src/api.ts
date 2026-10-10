@@ -281,6 +281,104 @@ export interface paths {
         patch: operations["update_round_v1_admin_grant_rounds__round_id__patch"];
         trace?: never;
     };
+    "/v1/admin/partners": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Partners
+         * @description Partners, newest submission first (filter by status for the review queue).
+         */
+        get: operations["list_partners_v1_admin_partners_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/partners/{partner_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Partner Staff */
+        get: operations["get_partner_staff_v1_admin_partners__partner_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/partners/{partner_id}/categories/{partner_category_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Check Category
+         * @description Approve or reject one of the partner's categories.
+         */
+        post: operations["check_category_v1_admin_partners__partner_id__categories__partner_category_id__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/partners/{partner_id}/credentials/{credential_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Check Credential
+         * @description Mark a licence, insurance or accreditation checked (against the issuer's register) or
+         *     not accepted.
+         */
+        post: operations["check_credential_v1_admin_partners__partner_id__credentials__credential_id__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/partners/{partner_id}/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Set Status
+         * @description Start the review, approve, reject, suspend or reinstate a partner.
+         */
+        post: operations["set_status_v1_admin_partners__partner_id__status_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/professionals": {
         parameters: {
             query?: never;
@@ -1843,6 +1941,150 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/partner": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Partner */
+        get: operations["get_partner_v1_organisations__organisation_id__partner_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Partner */
+        patch: operations["update_partner_v1_organisations__organisation_id__partner_patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/categories": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add Category */
+        post: operations["add_category_v1_organisations__organisation_id__partner_categories_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/categories/{partner_category_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Remove Category */
+        delete: operations["remove_category_v1_organisations__organisation_id__partner_categories__partner_category_id__delete"];
+        options?: never;
+        head?: never;
+        /**
+         * Set Category Credential
+         * @description Name the licence or accreditation that covers a category (it is checked again).
+         */
+        patch: operations["set_category_credential_v1_organisations__organisation_id__partner_categories__partner_category_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/credentials": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add Credential */
+        post: operations["add_credential_v1_organisations__organisation_id__partner_credentials_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/credentials/{credential_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Remove Credential */
+        delete: operations["remove_credential_v1_organisations__organisation_id__partner_credentials__credential_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/resubmit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Resubmit
+         * @description Send an application that wasn't approved back to our team, after fixing it.
+         */
+        post: operations["resubmit_v1_organisations__organisation_id__partner_resubmit_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/service-areas": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add Service Area */
+        post: operations["add_service_area_v1_organisations__organisation_id__partner_service_areas_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/service-areas/{area_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Remove Service Area */
+        delete: operations["remove_service_area_v1_organisations__organisation_id__partner_service_areas__area_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/projects": {
         parameters: {
             query?: never;
@@ -2772,6 +3014,27 @@ export interface paths {
         put?: never;
         /** Add Certificate */
         post: operations["add_certificate_v1_organisations__organisation_id__vessels__vessel_id__certificates_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partners/applications": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Apply
+         * @description Apply to become a partner. Creates the partner organisation (switch to it to manage
+         *     the account) and sends the application to our team.
+         */
+        post: operations["apply_v1_partners_applications_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -5643,6 +5906,395 @@ export interface components {
             /** Tenure */
             tenure: string | null;
         };
+        /** PartnerApplicationIn */
+        PartnerApplicationIn: {
+            /** Abn */
+            abn: string;
+            /** Categories */
+            categories: string[];
+            /** Contact Email */
+            contact_email?: string | null;
+            /** Credentials */
+            credentials?: components["schemas"]["PartnerCredentialIn"][];
+            /**
+             * Declaration
+             * @description The applicant confirms the details are true and they may act for the business.
+             */
+            declaration: boolean;
+            /** Description */
+            description?: string | null;
+            /**
+             * Name
+             * @description The business name customers will see.
+             */
+            name: string;
+            /** Phone */
+            phone?: string | null;
+            /** Service Areas */
+            service_areas: components["schemas"]["PartnerServiceAreaIn"][];
+            /** Website */
+            website?: string | null;
+        };
+        /** PartnerApplicationOut */
+        PartnerApplicationOut: {
+            /** Decision Notes */
+            decision_notes: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Reviewed At */
+            reviewed_at: string | null;
+            status: components["schemas"]["PartnerApplicationStatus"];
+            /**
+             * Submitted At
+             * Format: date-time
+             */
+            submitted_at: string;
+            /**
+             * Submitted Payload
+             * @description What was submitted (staff only).
+             */
+            submitted_payload?: {
+                [key: string]: unknown;
+            } | null;
+        };
+        /**
+         * PartnerApplicationStatus
+         * @enum {string}
+         */
+        PartnerApplicationStatus: "SUBMITTED" | "APPROVED" | "REJECTED";
+        /** PartnerCategoryCheckIn */
+        PartnerCategoryCheckIn: {
+            /**
+             * Notes
+             * @description Needed to reject; the partner sees it.
+             */
+            notes?: string | null;
+            status: components["schemas"]["PartnerCategoryStatus"];
+        };
+        /** PartnerCategoryCredentialIn */
+        PartnerCategoryCredentialIn: {
+            /** Credential Id */
+            credential_id: string | null;
+        };
+        /** PartnerCategoryIn */
+        PartnerCategoryIn: {
+            /** Category Key */
+            category_key: string;
+            /** Credential Id */
+            credential_id?: string | null;
+        };
+        /** PartnerCategoryOut */
+        PartnerCategoryOut: {
+            /** Category Key */
+            category_key: string;
+            /**
+             * Counts
+             * @description Whether it receives referrals now.
+             */
+            counts: boolean;
+            /** Credential Id */
+            credential_id: string | null;
+            /** Description */
+            description: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Label */
+            label: string;
+            /** Notes */
+            notes: string | null;
+            /**
+             * Problems
+             * @description Why it doesn't receive referrals (empty when it does).
+             */
+            problems: string[];
+            /** Requires Credential */
+            requires_credential: boolean;
+            /** Restricted */
+            restricted: boolean;
+            status: components["schemas"]["PartnerCategoryStatus"];
+            /** Verticals */
+            verticals: components["schemas"]["Vertical"][];
+        };
+        /**
+         * PartnerCategoryStatus
+         * @enum {string}
+         */
+        PartnerCategoryStatus: "PENDING" | "APPROVED" | "REJECTED";
+        /** PartnerCredentialCheckIn */
+        PartnerCredentialCheckIn: {
+            /**
+             * Notes
+             * @description Needed to reject; the partner sees it.
+             */
+            notes?: string | null;
+            status: components["schemas"]["PartnerCredentialStatus"];
+        };
+        /** PartnerCredentialIn */
+        PartnerCredentialIn: {
+            /**
+             * Category Keys
+             * @description Categories this licence or accreditation covers.
+             */
+            category_keys?: string[];
+            /**
+             * Cover Cents
+             * @description Insurance: the amount of cover.
+             */
+            cover_cents?: number | null;
+            /** Expires On */
+            expires_on?: string | null;
+            /**
+             * Issuer
+             * @description Who issued it: the licensing body or the insurer.
+             */
+            issuer: string;
+            kind: components["schemas"]["PartnerCredentialKind"];
+            /**
+             * Number
+             * @description Licence, accreditation or policy number.
+             */
+            number: string;
+        };
+        /**
+         * PartnerCredentialKind
+         * @enum {string}
+         */
+        PartnerCredentialKind: "LICENCE" | "PI_INSURANCE" | "PL_INSURANCE" | "ACCREDITATION";
+        /** PartnerCredentialOut */
+        PartnerCredentialOut: {
+            /** Cover Cents */
+            cover_cents: number | null;
+            /**
+             * Current
+             * @description Checked and not expired today.
+             */
+            current: boolean;
+            /** Expires On */
+            expires_on: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Issuer */
+            issuer: string;
+            kind: components["schemas"]["PartnerCredentialKind"];
+            /** Notes */
+            notes: string | null;
+            /** Number */
+            number: string;
+            status: components["schemas"]["PartnerCredentialStatus"];
+            /** Verified At */
+            verified_at: string | null;
+        };
+        /**
+         * PartnerCredentialStatus
+         * @enum {string}
+         */
+        PartnerCredentialStatus: "UNVERIFIED" | "VERIFIED" | "REJECTED";
+        /** PartnerMemberOut */
+        PartnerMemberOut: {
+            /** Display Name */
+            display_name: string;
+            /** Email */
+            email: string;
+            /** Roles */
+            roles: string[];
+            /**
+             * User Id
+             * Format: uuid
+             */
+            user_id: string;
+        };
+        /** PartnerOut */
+        PartnerOut: {
+            /** Abn */
+            abn: string | null;
+            /** Applications */
+            applications: components["schemas"]["PartnerApplicationOut"][];
+            /** Categories */
+            categories: components["schemas"]["PartnerCategoryOut"][];
+            /** Contact Email */
+            contact_email: string | null;
+            /** Credentials */
+            credentials: components["schemas"]["PartnerCredentialOut"][];
+            /** Description */
+            description: string | null;
+            /**
+             * Details Locked
+             * @description Name and ABN can no longer be changed here.
+             */
+            details_locked: boolean;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Name */
+            name: string;
+            /**
+             * Organisation Id
+             * Format: uuid
+             */
+            organisation_id: string;
+            /** Phone */
+            phone: string | null;
+            /** @description Null when the plan can't be read here. */
+            plan: components["schemas"]["PartnerPlanOut"] | null;
+            /**
+             * Problems
+             * @description What stops referrals reaching this partner.
+             */
+            problems: string[];
+            /** Receiving Referrals */
+            receiving_referrals: boolean;
+            /** Service Areas */
+            service_areas: components["schemas"]["PartnerServiceAreaOut"][];
+            status: components["schemas"]["PartnerStatus"];
+            /** Status Changed At */
+            status_changed_at: string | null;
+            /** Status Reason */
+            status_reason: string | null;
+            /**
+             * Submitted At
+             * Format: date-time
+             */
+            submitted_at: string;
+            /** Website */
+            website: string | null;
+        };
+        /** PartnerPlanLimitOut */
+        PartnerPlanLimitOut: {
+            /** Description */
+            description: string;
+            /** Feature */
+            feature: string;
+            /** In Use */
+            in_use: number;
+            /**
+             * Limit
+             * @description Null: unlimited (or no limit applies yet).
+             */
+            limit: number | null;
+        };
+        /** PartnerPlanOut */
+        PartnerPlanOut: {
+            /** Cancel At Period End */
+            cancel_at_period_end: boolean;
+            /** Current Period End */
+            current_period_end: string | null;
+            /**
+             * Grace Ends At
+             * @description Payment overdue: when the plan stops if the card isn't updated.
+             */
+            grace_ends_at: string | null;
+            /** Limits */
+            limits: components["schemas"]["PartnerPlanLimitOut"][];
+            /**
+             * Name
+             * @description The plan's name; "Free" without a paid plan.
+             */
+            name: string;
+            /** @description The paid plan's status at Stripe. */
+            status: components["schemas"]["SubscriptionStatus"] | null;
+        };
+        /**
+         * PartnerProfileUpdate
+         * @description Partner admins: contact details at any time; the name and ABN until approved.
+         */
+        PartnerProfileUpdate: {
+            /** Abn */
+            abn?: string | null;
+            /** Contact Email */
+            contact_email?: string | null;
+            /** Description */
+            description?: string | null;
+            /** Name */
+            name?: string | null;
+            /** Phone */
+            phone?: string | null;
+            /** Website */
+            website?: string | null;
+        };
+        /** PartnerServiceAreaIn */
+        PartnerServiceAreaIn: {
+            kind: components["schemas"]["ServiceAreaKind"];
+            state: components["schemas"]["AustralianState"];
+            /**
+             * Value
+             * @description A postcode or council area name. Not needed for a whole state.
+             */
+            value?: string | null;
+        };
+        /** PartnerServiceAreaOut */
+        PartnerServiceAreaOut: {
+            /**
+             * Counts
+             * @description Within the plan's number of service areas.
+             */
+            counts: boolean;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            kind: components["schemas"]["ServiceAreaKind"];
+            state: components["schemas"]["AustralianState"];
+            /** Value */
+            value: string;
+        };
+        /**
+         * PartnerStatus
+         * @enum {string}
+         */
+        PartnerStatus: "APPLIED" | "UNDER_REVIEW" | "ACTIVE" | "SUSPENDED" | "REJECTED";
+        /** PartnerStatusIn */
+        PartnerStatusIn: {
+            /**
+             * Reason
+             * @description Needed to reject or suspend; the partner sees it.
+             */
+            reason?: string | null;
+            status: components["schemas"]["PartnerStatus"];
+        };
+        /** PartnerSummaryOut */
+        PartnerSummaryOut: {
+            /** Abn */
+            abn: string | null;
+            /**
+             * Categories
+             * @description Category labels.
+             */
+            categories: string[];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Name */
+            name: string;
+            /**
+             * Organisation Id
+             * Format: uuid
+             */
+            organisation_id: string;
+            /** Pending Categories */
+            pending_categories: number;
+            status: components["schemas"]["PartnerStatus"];
+            /**
+             * Submitted At
+             * Format: date-time
+             */
+            submitted_at: string;
+            /** Unchecked Credentials */
+            unchecked_credentials: number;
+        };
         /** PasswordChangeRequest */
         PasswordChangeRequest: {
             /** Current Password */
@@ -7051,6 +7703,11 @@ export interface components {
             /** Title */
             title: string;
         };
+        /**
+         * ServiceAreaKind
+         * @enum {string}
+         */
+        ServiceAreaKind: "POSTCODE" | "LGA" | "STATE";
         /** ServiceIn */
         ServiceIn: {
             /** Description */
@@ -7521,6 +8178,65 @@ export interface components {
          * @enum {string}
          */
         SourceType: "LEGISLATION" | "REGULATION" | "PLANNING_SCHEME" | "POLICY" | "GUIDELINE" | "FORM" | "FEE_SCHEDULE" | "WEBPAGE" | "GRANT_GUIDELINES";
+        /** StaffPartnerOut */
+        StaffPartnerOut: {
+            /** Abn */
+            abn: string | null;
+            /** Applications */
+            applications: components["schemas"]["PartnerApplicationOut"][];
+            /** Categories */
+            categories: components["schemas"]["PartnerCategoryOut"][];
+            /** Contact Email */
+            contact_email: string | null;
+            /** Credentials */
+            credentials: components["schemas"]["PartnerCredentialOut"][];
+            /** Description */
+            description: string | null;
+            /**
+             * Details Locked
+             * @description Name and ABN can no longer be changed here.
+             */
+            details_locked: boolean;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Members */
+            members: components["schemas"]["PartnerMemberOut"][];
+            /** Name */
+            name: string;
+            /**
+             * Organisation Id
+             * Format: uuid
+             */
+            organisation_id: string;
+            /** Phone */
+            phone: string | null;
+            /** @description Null when the plan can't be read here. */
+            plan: components["schemas"]["PartnerPlanOut"] | null;
+            /**
+             * Problems
+             * @description What stops referrals reaching this partner.
+             */
+            problems: string[];
+            /** Receiving Referrals */
+            receiving_referrals: boolean;
+            /** Service Areas */
+            service_areas: components["schemas"]["PartnerServiceAreaOut"][];
+            status: components["schemas"]["PartnerStatus"];
+            /** Status Changed At */
+            status_changed_at: string | null;
+            /** Status Reason */
+            status_reason: string | null;
+            /**
+             * Submitted At
+             * Format: date-time
+             */
+            submitted_at: string;
+            /** Website */
+            website: string | null;
+        };
         /** StaffReviewOut */
         StaffReviewOut: {
             /**
@@ -7669,6 +8385,11 @@ export interface components {
              * @description Whether the plan's limits apply right now.
              */
             gives_plan: boolean;
+            /**
+             * Grace Ends At
+             * @description Payment overdue: when the plan stops working if the card isn't updated.
+             */
+            grace_ends_at: string | null;
             /**
              * Id
              * Format: uuid
@@ -8597,6 +9318,175 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["GrantProgramOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_partners_v1_admin_partners_get: {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["PartnerStatus"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerSummaryOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_partner_staff_v1_admin_partners__partner_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partner_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StaffPartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    check_category_v1_admin_partners__partner_id__categories__partner_category_id__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partner_id: string;
+                partner_category_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PartnerCategoryCheckIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StaffPartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    check_credential_v1_admin_partners__partner_id__credentials__credential_id__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partner_id: string;
+                credential_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PartnerCredentialCheckIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StaffPartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    set_status_v1_admin_partners__partner_id__status_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partner_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PartnerStatusIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StaffPartnerOut"];
                 };
             };
             /** @description Validation Error */
@@ -11956,6 +12846,340 @@ export interface operations {
             };
         };
     };
+    get_partner_v1_organisations__organisation_id__partner_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_partner_v1_organisations__organisation_id__partner_patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PartnerProfileUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_category_v1_organisations__organisation_id__partner_categories_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PartnerCategoryIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    remove_category_v1_organisations__organisation_id__partner_categories__partner_category_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partner_category_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    set_category_credential_v1_organisations__organisation_id__partner_categories__partner_category_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partner_category_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PartnerCategoryCredentialIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_credential_v1_organisations__organisation_id__partner_credentials_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PartnerCredentialIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    remove_credential_v1_organisations__organisation_id__partner_credentials__credential_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                credential_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    resubmit_v1_organisations__organisation_id__partner_resubmit_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_service_area_v1_organisations__organisation_id__partner_service_areas_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PartnerServiceAreaIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    remove_service_area_v1_organisations__organisation_id__partner_service_areas__area_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                area_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_projects_v1_organisations__organisation_id__projects_get: {
         parameters: {
             query?: {
@@ -14613,6 +15837,39 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["CertificateOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    apply_v1_partners_applications_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PartnerApplicationIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerOut"];
                 };
             };
             /** @description Validation Error */

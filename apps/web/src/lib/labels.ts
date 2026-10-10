@@ -51,6 +51,8 @@ export const ROLE_HELP: Record<string, string> = {
   CUSTOMER: "Can see, create and edit projects.",
   ORG_ADMIN: "Can manage the organisation's details and members.",
   PROFESSIONAL: "Can perform professional reviews.",
+  PARTNER_USER: "Can see the partner account and, once referrals open, its leads.",
+  PARTNER_ADMIN: "Can manage the partner profile, plan, billing and members.",
 };
 
 /** Roles a member can be given, by organisation kind (mirrors the API's role catalogue). */

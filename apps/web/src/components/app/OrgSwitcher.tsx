@@ -33,8 +33,10 @@ export function OrgSwitcher({
       setError(result.message);
       return;
     }
-    // Project ids belong to one organisation, so start again from the project list.
-    router.push("/projects");
+    // Project ids belong to one organisation, so start again from the project list (or the
+    // partner dashboard for a partner organisation).
+    const kind = organisations.find((o) => o.organisation_id === organisationId)?.kind;
+    router.push(kind === "PARTNER" ? "/partner" : "/projects");
     router.refresh();
   }
 

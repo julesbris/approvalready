@@ -140,10 +140,11 @@ tests and updated docs before the next starts.
 - [x] Customer billing page (plan, usage, payments, invoices) and staff billing page (prices, webhook events)
 - [ ] Next: automatic refunds when a paid review is cancelled; plan switching in the app; coupons and trials; one-off purchases of reports
 
-## Milestone 14 — Partner accounts, subscriptions, dashboard
-- [ ] Partner application + staff verification, categories, service areas, credentials
-- [ ] Plans/features (data), Stripe partner subscriptions, PAST_DUE grace logic
-- [ ] Partner portal surface on `partners.` host
+## Milestone 14 — Partner accounts, subscriptions, dashboard ✅
+- [x] Partner application + staff verification, categories, service areas, credentials (`VERIFIED` folded into `ACTIVE`; see ARCHITECTURE §6)
+- [x] Plans/features (data), Stripe partner subscriptions, PAST_DUE grace logic: partner plans are `PARTNER_PLAN` catalogue products on the Milestone 13 billing; categories and areas are soft limits, members a hard limit. Limit numbers are first guesses for Jules to confirm
+- [x] Partner portal surface on `partners.` host (`/partner`, any host; `partners.` redirects `/` there)
+- [ ] Next: lead preferences and matching (Milestone 15); `RADIUS` service areas; credential evidence uploads; public provider profile; `paused` / `max_open_leads`; automated ABN and licence register checks; credential expiry reminders
 
 ## Milestone 15 — Lead engine
 - [ ] Referral consent (versioned text, fields released)

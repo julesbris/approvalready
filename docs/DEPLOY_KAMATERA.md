@@ -228,6 +228,14 @@ and applied by the worker; the browser never decides what was paid. Refunds are 
 Stripe dashboard and come back by webhook. To go live, swap in the live secret key and a live
 webhook endpoint's secret.
 
+### Partner accounts (Milestone 14)
+
+The partner portal is served at `https://partners.<PRIMARY_DOMAIN>` (the `partners` DNS record
+from §5; Caddy already serves that host). Businesses apply there; staff with `partner.verify`
+are emailed and check applications at `/admin/partners`. Partner plans (`Partner Standard`,
+`Partner Pro`) are sold like the Milestone 13 plans: give them prices at `/admin/billing`. Until
+they have prices, partners keep the free plan and no limits apply.
+
 ## 8. Persistent volumes
 
 | Volume | Contents | Backed up |

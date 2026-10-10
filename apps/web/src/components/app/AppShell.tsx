@@ -8,7 +8,13 @@ import { defaultBrand } from "@/lib/brand";
 
 /** Platform staff working in the platform organisation (display only; the API decides). */
 export function isStaff(session: SessionOut): boolean {
-  return ["source.manage", "rule.author", "review.assign", "professional.verify"].some((p) =>
+  return [
+    "source.manage",
+    "rule.author",
+    "review.assign",
+    "professional.verify",
+    "partner.verify",
+  ].some((p) =>
     session.permissions.includes(p),
   );
 }

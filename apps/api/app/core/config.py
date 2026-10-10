@@ -9,6 +9,7 @@ from __future__ import annotations
 from enum import StrEnum
 from functools import lru_cache
 from typing import Annotated
+from urllib.parse import urlsplit
 
 from pydantic import Field, SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
@@ -70,6 +71,12 @@ def _split_csv(value: object) -> object:
     return value
 
 
+def _origin(url: str) -> str:
+    """scheme://host[:port] of a base URL (no path)."""
+    parts = urlsplit(url)
+    return f"{parts.scheme}://{parts.netloc}"
+
+
 def _db_user(url: str) -> str | None:
     return make_url(url).username
 
@@ -122,6 +129,9 @@ class Settings(BaseSettings):
     # --- Authentication (Milestone 2) ---
     # Public origin of the web app; used to build links in emails (verify, reset, invite).
     web_base_url: str = "http://localhost:3000"
+    # Public origin of the partner portal (Milestone 14), for partner emails and Stripe's
+    # return pages. Unset: the partner portal is reached on WEB_BASE_URL.
+    partners_base_url: str | None = None
     # Secure cookies use the __Host- prefix. Plain-HTTP test clients cannot send Secure
     # cookies, so this may be disabled outside production only.
     cookie_secure: bool = True
@@ -226,6 +236,7 @@ class Settings(BaseSettings):
         "anthropic_api_key",
         "stripe_secret_key",
         "stripe_webhook_secret",
+        "partners_base_url",
         mode="before",
     )
     @classmethod
@@ -249,6 +260,17 @@ class Settings(BaseSettings):
     @property
     def csrf_cookie_name(self) -> str:
         return "__Host-ar_csrf" if self.cookie_secure else "ar_csrf"
+
+    @property
+    def partners_url(self) -> str:
+        return self.partners_base_url or self.web_base_url
+
+    @property
+    def allowed_origins(self) -> list[str]:
+        """CORS_ORIGINS plus the web app's own origins (the app and the partner portal), so
+        a missing entry in CORS_ORIGINS can't lock users out of their own site."""
+        own = [_origin(self.web_base_url), _origin(self.partners_url)]
+        return list(dict.fromkeys([*self.cors_origins, *own]))
 
     @property
     def trusted_hosts(self) -> list[str]:
@@ -302,6 +324,8 @@ class Settings(BaseSettings):
             problems.append("COOKIE_SECURE must be true in production")
         if not self.web_base_url.startswith("https://"):
             problems.append("WEB_BASE_URL must use https:// in production")
+        if self.partners_base_url and not self.partners_base_url.startswith("https://"):
+            problems.append("PARTNERS_BASE_URL must use https:// in production")
         if self.migration_database_url and _db_user(self.migration_database_url) == _db_user(
             self.database_url
         ):

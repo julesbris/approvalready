@@ -5,6 +5,21 @@
       "key": "rent.properties.max",
       "description": "Rental properties managed in RentReady",
       "default_limit": 1
+    },
+    {
+      "key": "partner.categories.max",
+      "description": "Partner categories that receive referrals",
+      "default_limit": 1
+    },
+    {
+      "key": "partner.service_areas.max",
+      "description": "Partner service areas that receive referrals",
+      "default_limit": 3
+    },
+    {
+      "key": "partner.members.max",
+      "description": "People in the partner account",
+      "default_limit": 2
     }
   ],
   "products": [
@@ -65,6 +80,28 @@
       "name": "RentReady Manage Plus",
       "description": "Manage any number of rental properties.",
       "features": {"rent.properties.max": null}
+    },
+    {
+      "key": "partner.standard",
+      "kind": "PARTNER_PLAN",
+      "name": "Partner Standard",
+      "description": "Be referred in up to 3 categories across up to 15 service areas, with up to 5 people in your account.",
+      "features": {
+        "partner.categories.max": 3,
+        "partner.service_areas.max": 15,
+        "partner.members.max": 5
+      }
+    },
+    {
+      "key": "partner.pro",
+      "kind": "PARTNER_PLAN",
+      "name": "Partner Pro",
+      "description": "Be referred in every category you are approved for, in any number of service areas, with up to 20 people in your account.",
+      "features": {
+        "partner.categories.max": null,
+        "partner.service_areas.max": null,
+        "partner.members.max": 20
+      }
     }
   ]
 }

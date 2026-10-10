@@ -7,6 +7,16 @@ import { nonceCsp } from "@/lib/csp";
  * nonce from the request's Content-Security-Policy header and applies it to its own scripts.
  */
 export function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname === "/") {
+    // The partners host (partners.<domain>) opens on the partner portal.
+    const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "";
+    if (host.startsWith("partners.")) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/partner";
+      return NextResponse.redirect(url);
+    }
+    return NextResponse.next();
+  }
   const nonce = btoa(crypto.randomUUID());
   const csp = nonceCsp(nonce, process.env.NODE_ENV === "development");
   const requestHeaders = new Headers(request.headers);
@@ -19,10 +29,11 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/",
     {
       // Keep in sync with NONCE_CSP_PATHS in src/lib/csp.ts (matchers must be literals).
       source:
-        "/(login|register|verify-email|forgot-password|reset-password|account|invitations|projects|admin|review|notifications)(.*)",
+        "/(login|register|verify-email|forgot-password|reset-password|account|invitations|projects|admin|review|notifications|partner)(.*)",
       missing: [
         { type: "header", key: "next-router-prefetch" },
         { type: "header", key: "purpose", value: "prefetch" },

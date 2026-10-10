@@ -38,7 +38,6 @@ from app.modules.billing.models import (
     Payment,
     Price,
     Product,
-    ProductKind,
     StripeEvent,
     Subscription,
 )
@@ -59,6 +58,7 @@ from app.modules.billing.schemas import (
     SubscriptionOut,
 )
 from app.modules.billing.stripe import SignatureError, StripeClient, verify_webhook
+from app.modules.tenancy.models import Organisation, OrganisationKind
 from app.modules.tenancy.rbac import Perm
 
 log = logging.getLogger(__name__)
@@ -98,10 +98,22 @@ def test_mode(settings: Settings) -> bool:
 UsageFn = Callable[[AsyncSession, uuid.UUID], Awaitable[int]]
 
 
-def _usage() -> dict[str, UsageFn]:
+def _usage(organisation: Organisation) -> dict[str, UsageFn]:
+    """The limited features that matter to this kind of organisation."""
+    if organisation.kind == OrganisationKind.PARTNER:
+        from app.modules.partners import entitlements
+
+        return dict(entitlements.USAGE)
     from app.modules.rentals import service as rentals
 
     return {rentals.RENTAL_FEATURE: rentals.rentals_in_use}
+
+
+def _billing_page(settings: Settings, organisation: Organisation) -> str:
+    """Where Stripe sends the user back to: the partner portal for partners."""
+    if organisation.kind == OrganisationKind.PARTNER:
+        return f"{settings.partners_url.rstrip('/')}/partner/billing"
+    return f"{settings.web_base_url}/account/organisations/{organisation.id}/billing"
 
 
 # --- Output ------------------------------------------------------------------------------
@@ -140,6 +152,7 @@ def subscription_out(s: Subscription, product: Product, price: Price) -> Subscri
         cancel_at_period_end=s.cancel_at_period_end,
         canceled_at=s.canceled_at,
         past_due_since=s.past_due_since,
+        grace_ends_at=service.grace_ends_at(s),
         gives_plan=service.subscription_counts(s, service.utcnow()),
     )
 
@@ -189,7 +202,7 @@ async def billing_overview(ctx: Manage, db: DbDep, settings: SettingsDep) -> Bil
     org_id = ctx.organisation.id
     view = await service.overview(db, org_id)
     allowances = []
-    for key, used in _usage().items():
+    for key, used in _usage(ctx.organisation).items():
         a = await service.allowance(db, org_id, key)
         allowances.append(
             AllowanceOut(
@@ -202,7 +215,7 @@ async def billing_overview(ctx: Manage, db: DbDep, settings: SettingsDep) -> Bil
             )
         )
     plans = (
-        _on_sale(await service.catalogue(db, kind=ProductKind.SAAS))
+        _on_sale(await service.catalogue(db, kind=service.plan_kind(ctx.organisation)))
         if settings.payments_enabled
         else []
     )
@@ -230,7 +243,7 @@ async def plan_checkout(
     """A Stripe Checkout page to start a plan. The plan starts when Stripe confirms it."""
     client = _require(stripe)
     price = await service.get_price(db, body.price_id)
-    back = f"{settings.web_base_url}/account/organisations/{ctx.organisation.id}/billing"
+    back = _billing_page(settings, ctx.organisation)
     url = await service.checkout_for_plan(
         db,
         client,
@@ -252,10 +265,7 @@ async def billing_portal(
     """Stripe's customer portal: change the card, download invoices, cancel the plan."""
     client = _require(stripe)
     url = await service.portal_url(
-        db,
-        client,
-        ctx.organisation.id,
-        f"{settings.web_base_url}/account/organisations/{ctx.organisation.id}/billing",
+        db, client, ctx.organisation.id, _billing_page(settings, ctx.organisation)
     )
     await db.commit()
     return RedirectOut(url=url)
