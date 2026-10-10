@@ -12,7 +12,16 @@ import uuid
 from datetime import datetime
 from enum import StrEnum
 
-from sqlalchemy import DateTime, ForeignKey, Index, String, Text, UniqueConstraint, text
+from sqlalchemy import (
+    DateTime,
+    ForeignKey,
+    Index,
+    PrimaryKeyConstraint,
+    String,
+    Text,
+    UniqueConstraint,
+    text,
+)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -26,6 +35,32 @@ class NotificationKind(StrEnum):
     LEAD_OFFERED = "LEAD_OFFERED"  # partner: a referral was offered to them
     LEAD_CLAIMED = "LEAD_CLAIMED"  # customer: a partner accepted their referral
     OPS_ALERT = "OPS_ALERT"  # platform admins: backups, background jobs or disk need attention
+
+
+class NotificationCategory(StrEnum):
+    """What a member chooses about (Milestone 21): one or more notification kinds."""
+
+    REMINDERS = "REMINDERS"
+    GRANT_ROUNDS = "GRANT_ROUNDS"
+    REFERRALS = "REFERRALS"
+    SOURCE_REVIEWS = "SOURCE_REVIEWS"  # staff only
+
+
+# Kinds missing here (ops alerts) can't be turned off: they are how platform admins hear
+# that backups or background jobs have stopped.
+CATEGORY_OF: dict[NotificationKind, NotificationCategory] = {
+    NotificationKind.REMINDER: NotificationCategory.REMINDERS,
+    NotificationKind.GRANT_ROUND: NotificationCategory.GRANT_ROUNDS,
+    NotificationKind.LEAD_OFFERED: NotificationCategory.REFERRALS,
+    NotificationKind.LEAD_CLAIMED: NotificationCategory.REFERRALS,
+    NotificationKind.SOURCES_DUE: NotificationCategory.SOURCE_REVIEWS,
+}
+
+
+class NotificationChannel(StrEnum):
+    ALL = "ALL"  # in the app and by email (the default)
+    IN_APP = "IN_APP"  # in the app only
+    OFF = "OFF"  # not at all
 
 
 class EmailStatus(StrEnum):
@@ -71,5 +106,27 @@ class Notification(UUIDPrimaryKeyMixin, TenantMixin, Base):
     emailed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     read_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+
+
+class NotificationPreference(Base):
+    """A member's choice for one category (Milestone 21). Belongs to the person, not an
+    organisation, so it applies in every organisation they are in; no row means ``ALL``.
+    Unsubscribe links in emails set ``IN_APP``."""
+
+    __tablename__ = "notification_preference"
+    __table_args__ = (
+        PrimaryKeyConstraint("user_id", "category"),
+        enum_check("category", NotificationCategory),
+        enum_check("channel", NotificationChannel),
+    )
+
+    user_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="CASCADE"), nullable=False
+    )
+    category: Mapped[str] = mapped_column(Text, nullable=False)
+    channel: Mapped[str] = mapped_column(Text, nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=text("now()")
     )

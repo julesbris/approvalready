@@ -173,6 +173,12 @@ export type ItemCondition = Schemas["ItemCondition"];
 export type MaintenanceOut = Schemas["MaintenanceOut"];
 export type NotificationOut = Schemas["NotificationOut"];
 export type NotificationListOut = Schemas["NotificationListOut"];
+export type NotificationCategory = Schemas["NotificationCategory"];
+export type NotificationChannel = Schemas["NotificationChannel"];
+export type PreferenceOut = Schemas["PreferenceOut"];
+export type PreferencesOut = Schemas["PreferencesOut"];
+export type UnsubscribeOut = Schemas["UnsubscribeOut"];
+export type UnsubscribedOut = Schemas["UnsubscribedOut"];
 export type CrossSellOut = Schemas["CrossSellOut"];
 
 // Customer payments (Milestone 13)

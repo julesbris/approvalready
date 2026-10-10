@@ -58,6 +58,7 @@ def _pack(settings: Settings, message: OutgoingEmail) -> bytes:
         "text": message.text,
         "kind": message.kind,
         "links": message.links,
+        "headers": message.headers,
     }
     return seal(settings.secret_key.get_secret_value(), PURPOSE, json.dumps(payload).encode())
 
@@ -70,6 +71,7 @@ def _unpack(settings: Settings, value: bytes) -> OutgoingEmail:
         text=payload["text"],
         kind=payload["kind"],
         links=payload.get("links") or {},
+        headers=payload.get("headers") or {},
     )
 
 

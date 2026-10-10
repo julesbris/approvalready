@@ -8688,6 +8688,26 @@
         "title": "NotCheckedOut",
         "type": "object"
       },
+      "NotificationCategory": {
+        "description": "What a member chooses about (Milestone 21): one or more notification kinds.",
+        "enum": [
+          "REMINDERS",
+          "GRANT_ROUNDS",
+          "REFERRALS",
+          "SOURCE_REVIEWS"
+        ],
+        "title": "NotificationCategory",
+        "type": "string"
+      },
+      "NotificationChannel": {
+        "enum": [
+          "ALL",
+          "IN_APP",
+          "OFF"
+        ],
+        "title": "NotificationChannel",
+        "type": "string"
+      },
       "NotificationKind": {
         "enum": [
           "REMINDER",
@@ -11200,6 +11220,57 @@
           "version"
         ],
         "title": "PolicyOut",
+        "type": "object"
+      },
+      "PreferenceOut": {
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/NotificationCategory"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/NotificationChannel"
+          }
+        },
+        "required": [
+          "category",
+          "channel"
+        ],
+        "title": "PreferenceOut",
+        "type": "object"
+      },
+      "PreferencesIn": {
+        "description": "Only the categories listed change.",
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PreferenceOut"
+            },
+            "maxItems": 4,
+            "minItems": 1,
+            "title": "Items",
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "title": "PreferencesIn",
+        "type": "object"
+      },
+      "PreferencesOut": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PreferenceOut"
+            },
+            "title": "Items",
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "title": "PreferencesOut",
         "type": "object"
       },
       "PrefillOut": {
@@ -18897,6 +18968,48 @@
         "title": "TurnoverBand",
         "type": "string"
       },
+      "UnsubscribeOut": {
+        "description": "What an unsubscribe link is for, and the person's channel for it now.",
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/NotificationCategory"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/NotificationChannel"
+          }
+        },
+        "required": [
+          "category",
+          "channel"
+        ],
+        "title": "UnsubscribeOut",
+        "type": "object"
+      },
+      "UnsubscribedOut": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PreferenceOut"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "scope": {
+            "enum": [
+              "category",
+              "all"
+            ],
+            "title": "Scope",
+            "type": "string"
+          }
+        },
+        "required": [
+          "scope",
+          "items"
+        ],
+        "title": "UnsubscribedOut",
+        "type": "object"
+      },
       "UploadLimitsOut": {
         "properties": {
           "accept": {
@@ -23379,6 +23492,67 @@
         ]
       }
     },
+    "/v1/auth/notification-preferences": {
+      "get": {
+        "description": "Every category with the signed-in person's choice (``ALL`` until they choose).",
+        "operationId": "get_preferences_v1_auth_notification_preferences_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferencesOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get Preferences",
+        "tags": [
+          "notifications"
+        ]
+      },
+      "put": {
+        "operationId": "put_preferences_v1_auth_notification_preferences_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PreferencesIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreferencesOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Preferences",
+        "tags": [
+          "notifications"
+        ]
+      }
+    },
     "/v1/auth/password": {
       "post": {
         "description": "Change password (requires the current one). Other sessions are signed out and this\nsession's token is rotated.",
@@ -23652,6 +23826,108 @@
         "summary": "Switch Organisation",
         "tags": [
           "auth"
+        ]
+      }
+    },
+    "/v1/auth/unsubscribe": {
+      "get": {
+        "description": "What an emailed unsubscribe link is for. Changes nothing (link scanners open it).",
+        "operationId": "unsubscribe_info_v1_auth_unsubscribe_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "title": "Token",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnsubscribeOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Unsubscribe Info",
+        "tags": [
+          "notifications"
+        ]
+      },
+      "post": {
+        "description": "Stop emails for the link's category, or every optional email with ``scope=all``.\nNeeds no sign-in: the link is the proof. Also the target of one-click unsubscribe\n(RFC 8058), whose form body is ignored.",
+        "operationId": "unsubscribe_v1_auth_unsubscribe_post",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "title": "Token",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scope",
+            "required": false,
+            "schema": {
+              "default": "category",
+              "enum": [
+                "category",
+                "all"
+              ],
+              "title": "Scope",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnsubscribedOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Unsubscribe",
+        "tags": [
+          "notifications"
         ]
       }
     },

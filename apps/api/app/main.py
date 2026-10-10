@@ -44,6 +44,7 @@ from app.modules.leads.router import partner_router as leads_partner_router
 from app.modules.lookups.router import router as lookups_router
 from app.modules.lookups.service import Lookups
 from app.modules.marketplace.router import router as marketplace_router
+from app.modules.notifications.router import preferences_router as notification_prefs_router
 from app.modules.notifications.router import router as notifications_router
 from app.modules.ops.router import admin_router as ops_admin_router
 from app.modules.partners.router import admin_router as partners_admin_router
@@ -147,6 +148,7 @@ def create_app(
     app.include_router(sales_router)
     app.include_router(rentals_router)
     app.include_router(notifications_router)
+    app.include_router(notification_prefs_router)
     app.include_router(review_customer_router)
     app.include_router(professional_router)
     app.include_router(review_admin_router)

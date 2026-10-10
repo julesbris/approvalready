@@ -141,6 +141,7 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "backup_run": READ,
     # Milestone 20: the API queues emails, the worker sends them and removes old rows.
     "email_outbox": CRUD,
+    "notification_preference": CRUD,
     # Milestone 11
     "sale_project": WRITE,
     "sale_document": CRUD,

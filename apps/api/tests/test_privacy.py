@@ -107,6 +107,7 @@ async def test_export_has_the_account_and_personal_workspace(api: ApiHarness) ->
     assert data["account"]["email"] == user.email
     assert data["account"]["display_name"] == "Exporter"
     assert [o["kind"] for o in data["organisations"]] == ["PERSONAL"]
+    assert data["notification_settings"]["REMINDERS"] == "ALL"
     assert data["sign_ins"]
     assert {a["document"] for a in data["policy_acceptances"]} == {"terms", "privacy"}
     assert any(e["action"] == "auth.registered" for e in data["activity"])

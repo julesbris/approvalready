@@ -1,8 +1,9 @@
-import type { MfaStatusOut } from "@approvalready/shared-types";
+import type { MfaStatusOut, PreferencesOut } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ChangePasswordForm } from "@/components/account/ChangePasswordForm";
+import { NotificationPreferences } from "@/components/account/NotificationPreferences";
 import { TwoStepSignIn } from "@/components/account/TwoStepSignIn";
 import { YourData } from "@/components/account/YourData";
 import { AppShell } from "@/components/app/AppShell";
@@ -17,6 +18,10 @@ export const metadata: Metadata = { title: "Your account", robots: { index: fals
 export default async function AccountPage() {
   const session = await requireSession("/account");
   const mfa = orNotFound(await serverGet<MfaStatusOut>("/auth/mfa"));
+  const preferences = orNotFound(
+    await serverGet<PreferencesOut>("/auth/notification-preferences"),
+  );
+  const isStaff = session.organisations.some((o) => o.kind === "PLATFORM_ADMIN");
   return (
     <AppShell session={session}>
       <h1 className="page-title">Hello, {session.user.display_name}</h1>
@@ -68,6 +73,17 @@ export default async function AccountPage() {
         <TwoStepSignIn status={mfa} />
         <h3 className="subsection-title">Password</h3>
         <ChangePasswordForm />
+      </section>
+
+      <section className="panel" id="notifications" aria-labelledby="notifications-title">
+        <h2 id="notifications-title" className="section-title">
+          Email and notifications
+        </h2>
+        <p className="muted">
+          Choose how you hear about each kind of reminder and alert. This applies in every
+          organisation you belong to.
+        </p>
+        <NotificationPreferences initial={preferences} isStaff={isStaff} />
       </section>
 
       <section className="panel" id="your-data" aria-labelledby="your-data-title">

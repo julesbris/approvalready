@@ -47,6 +47,8 @@ from app.modules.identity.models import (
     PasswordCredential,
     UserStatus,
 )
+from app.modules.notifications import preferences as notification_preferences
+from app.modules.notifications.models import NotificationPreference
 from app.modules.privacy import emails
 from app.modules.privacy.models import (
     PolicyAcceptance,
@@ -193,6 +195,10 @@ async def export_data(db: AsyncSession, user: AppUser) -> dict[str, Any]:
             "last_login_at": _plain(user.last_login_at),
             "locale": user.locale,
             "two_step_sign_in": await mfa.is_enabled(db, user.id),
+        },
+        "notification_settings": {
+            category.value: channel.value
+            for category, channel in (await notification_preferences.choices(db, user.id)).items()
         },
         "organisations": [
             {
@@ -345,7 +351,7 @@ async def close_account(
         if org is not None:
             org.name = "Closed account"
             org.deleted_at = now
-    for model in (PasswordCredential, AuthIdentity, OneTimeToken):
+    for model in (PasswordCredential, AuthIdentity, OneTimeToken, NotificationPreference):
         await db.execute(delete(model).where(model.user_id == user.id))
     await mfa.remove(db, user.id)
     revoked = await identity.revoke_all_sessions(db, user.id, "account_closed")
