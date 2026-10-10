@@ -50,6 +50,10 @@ class ProductDef(BaseModel):
             self.vertical is None or self.key != f"review.{self.vertical.lower()}"
         ):
             raise ValueError("a review product needs a vertical and the key review.<vertical>")
+        if self.kind == ProductKind.PARTNER_PLAN and (
+            self.vertical is not None or not self.key.startswith("partner.")
+        ):
+            raise ValueError("a partner plan has no vertical and the key partner.<plan>")
         if any(v is not None and v < 0 for v in self.features.values()):
             raise ValueError("feature limits can't be negative")
         return self

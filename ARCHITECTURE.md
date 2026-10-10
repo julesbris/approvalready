@@ -371,12 +371,20 @@ grants.
 stateDiagram-v2
     [*] --> APPLIED
     APPLIED --> UNDER_REVIEW
-    UNDER_REVIEW --> VERIFIED : staff checks ABN, licences, insurance
+    APPLIED --> ACTIVE : staff approve
+    APPLIED --> REJECTED
+    UNDER_REVIEW --> ACTIVE : staff checked ABN, licences, insurance
     UNDER_REVIEW --> REJECTED
-    VERIFIED --> ACTIVE : has an active plan (FREE counts)
+    REJECTED --> APPLIED : partner resubmits
     ACTIVE --> SUSPENDED : staff action / compliance
     SUSPENDED --> ACTIVE : staff reinstates
 ```
+
+As built in Milestone 14, `VERIFIED` is folded into `ACTIVE`: the free plan always counts, so a
+verified partner always "has an active plan" and the extra state would never be observable.
+Plans are products of kind `PARTNER_PLAN` in the Milestone 13 catalogue and a partner's plan is
+an ordinary `subscription` of its organisation (no separate `partner_plan` or
+`partner_subscription` tables). See §23.
 
 Two independent state machines, deliberately separate (paying ≠ verified):
 
@@ -719,3 +727,17 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Customer | `GET /v1/organisations/{id}/billing/catalogue` (what is on sale, `org.read`); `GET …/billing` (plan, allowances and usage, payments, invoices), `POST …/billing/checkout` (a plan), `POST …/billing/portal` (Stripe's customer portal), all `billing.manage`. One live plan at a time; changing or cancelling it happens in the portal. |
 | Web | `/account/organisations/[id]/billing` (plan, plans on sale, usage, payments, invoices, Manage billing), a review price and "Request and pay" on assessments, `/admin/billing` (prices per product, Stripe status, webhook address and events, recent events with retry). |
 | Not built | Partner plans and lead fees (Milestones 14 and 15); one-off product purchases other than reviews; automatic refunds when a paid review is cancelled (staff refund in Stripe); switching plans inside the app (the portal does it only for prices made in Stripe); tax invoices beyond Stripe's own; coupons and trials; a staff list of payments across organisations. |
+
+## 23. Milestone 14 as built
+
+| Concern | Implementation |
+|---|---|
+| Migration | `0014`: platform tables (not RLS, like `professional`: staff verify partners across organisations, so the API guards them) `partner_organisation` (one per `PARTNER` organisation: status, ABN, website, phone, customer email, description, the staff reason and who changed the status), `partner_application` (each submission's payload, status and decision), `partner_credential` (licence, accreditation, PI or PL insurance: issuer, number, cover, expiry, check status and notes), `partner_category` (category, status, the licence that covers it) and `partner_service_area` (postcode, council area or whole state). Permissions `partner.manage` (PARTNER_ADMIN) and `partner.verify` (STAFF, ADMIN, SUPERADMIN). |
+| Applying | `POST /v1/partners/applications` (any signed-in user, one open application each) creates a `PARTNER` organisation with the applicant as PARTNER_ADMIN, the partner, its categories, areas and credentials, and the first application; staff with `partner.verify` are emailed. A rejected partner fixes its profile and resubmits, which opens a new application. |
+| Verification | Statuses `APPLIED`, `UNDER_REVIEW`, `ACTIVE`, `SUSPENDED`, `REJECTED` (`VERIFIED` folded into `ACTIVE`, see §6). Approving needs a valid ABN (checksum), at least one approved category and one service area; rejecting and suspending need a reason the partner sees. Staff check each credential (checked or not accepted) and each category; a category that requires a credential is approved only with a checked, unexpired licence named, and changing that licence sends it back for checking. Staff cannot check a partner account they belong to. Every change is audited and the partner's managers are emailed. Business name and ABN lock once the partner leaves `APPLIED`/`REJECTED`. |
+| Plans and limits | Catalogue features `partner.categories.max` (free 1), `partner.service_areas.max` (free 3) and `partner.members.max` (free 2); products `partner.standard` (3, 15, 5) and `partner.pro` (unlimited, unlimited, 20). Limits come from `billing.allowance`, so the 7-day past-due grace and "enforced only while a plan that lifts it is on sale" carry over. Categories and areas are soft limits: the oldest approved ones count and the rest are marked over plan, so a lapsed plan never deletes anything. Members are a hard limit: inviting past it returns 402 `plan_limit` (open invitations count). Checkout for a partner organisation offers only partner plans, and the billing pages return to the partners host. |
+| Referral eligibility | `partners.entitlements.standing(partner)` says whether the partner can receive referrals and, per category and area, whether it counts, with plain-language problems: status `ACTIVE`, an approved category whose required licence is checked and current, a service area, all within the plan's limits. Milestone 15's matching calls `standing(...).can(Action.RECEIVE_REFERRALS, category)`. |
+| Configuration | `PARTNERS_BASE_URL` (production compose sets `https://partners.<domain>`; unset falls back to `WEB_BASE_URL`). The API's allowed origins are `CORS_ORIGINS` plus the web and partners origins. |
+| Web | The partner portal at `/partner` (any host; the `partners.` host redirects `/` there): a signed-out explainer, the application form, a dashboard (status, reason, what receives referrals, plan limits and grace notice, resubmit), the profile (details, categories with their licence, areas, credentials), plan and billing (the Milestone 13 billing panel), and team (organisation members). Staff: `/admin/partners` (filter by status) and `/admin/partners/[id]` (check credentials and categories, approve, reject, suspend, reinstate). |
+| Not built | Lead preferences and matching (Milestone 15); `RADIUS` areas; credential evidence uploads (staff check public registers instead); a public provider profile; `paused` and `max_open_leads`; automated ABN Lookup and licence register checks; reminders before a credential expires. |
+

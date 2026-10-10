@@ -188,3 +188,22 @@ export type RedirectOut = Schemas["RedirectOut"];
 export type CheckoutOut = Schemas["CheckoutOut"];
 export type StripeEventOut = Schemas["StripeEventOut"];
 export type ReviewPaymentOut = Schemas["ReviewPaymentOut"];
+
+// Partner accounts (Milestone 14)
+export type PartnerOut = Schemas["PartnerOut"];
+export type StaffPartnerOut = Schemas["StaffPartnerOut"];
+export type PartnerSummaryOut = Schemas["PartnerSummaryOut"];
+export type PartnerStatus = Schemas["PartnerStatus"];
+export type PartnerCategoryOut = Schemas["PartnerCategoryOut"];
+export type PartnerCategoryStatus = Schemas["PartnerCategoryStatus"];
+export type PartnerCredentialOut = Schemas["PartnerCredentialOut"];
+export type PartnerCredentialKind = Schemas["PartnerCredentialKind"];
+export type PartnerCredentialStatus = Schemas["PartnerCredentialStatus"];
+export type PartnerServiceAreaOut = Schemas["PartnerServiceAreaOut"];
+export type ServiceAreaKind = Schemas["ServiceAreaKind"];
+export type AustralianState = Schemas["AustralianState"];
+export type PartnerPlanOut = Schemas["PartnerPlanOut"];
+export type PartnerPlanLimitOut = Schemas["PartnerPlanLimitOut"];
+export type PartnerApplicationOut = Schemas["PartnerApplicationOut"];
+export type PartnerMemberOut = Schemas["PartnerMemberOut"];
+export type PartnerApplicationIn = Schemas["PartnerApplicationIn"];

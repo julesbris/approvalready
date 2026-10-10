@@ -31,6 +31,7 @@ x-api-env: &api-env
   ALLOWED_HOSTS: ${ALLOWED_HOSTS:?ALLOWED_HOSTS is required}
   FORWARDED_ALLOW_IPS: "*" # only Caddy and web can reach the API (no published port)
   WEB_BASE_URL: https://app.${PRIMARY_DOMAIN:?}
+  PARTNERS_BASE_URL: https://partners.${PRIMARY_DOMAIN:?}
   EMAIL_PROVIDER: smtp
   EMAIL_FROM: ${EMAIL_FROM:?EMAIL_FROM is required}
   SMTP_HOST: ${SMTP_HOST:?SMTP_HOST is required}

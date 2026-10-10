@@ -8,6 +8,7 @@ describe("isProxiedPath", () => {
     [["admin", "audit", "verify"], true],
     [["professional", "reviews", "abc", "start"], true],
     [["questionnaires", "planning.general"], true],
+    [["partners", "applications"], true],
     [["health", "ready"], false],
     [["internal", "tls"], false],
     [[], false],

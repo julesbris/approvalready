@@ -11,6 +11,7 @@ from app.modules.grants import models as grants_models  # noqa: F401
 from app.modules.identity import models as identity_models  # noqa: F401
 from app.modules.marketplace import models as marketplace_models  # noqa: F401
 from app.modules.notifications import models as notifications_models  # noqa: F401
+from app.modules.partners import models as partners_models  # noqa: F401
 from app.modules.projects import models as projects_models  # noqa: F401
 from app.modules.questionnaires import models as questionnaires_models  # noqa: F401
 from app.modules.regulatory import models as regulatory_models  # noqa: F401

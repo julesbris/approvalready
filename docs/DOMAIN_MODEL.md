@@ -234,6 +234,8 @@ Built in Milestone 13 with these differences: `product` adds `name`, `descriptio
 | `provider_profile` | `partner_organisation_id`, `slug unique`, `public bool`, `headline`, `service_summary` | Public SEO/trust page. |
 | `lead_price` | `category_id`, `value_band`, `partner_plan_id null`, `price_id` | |
 
+Built in Milestone 14 with these differences: the five partner tables are platform tables guarded by the API, not RLS; `verification_status` has no `VERIFIED` (folded into `ACTIVE`) and the partner adds `phone`, `contact_email`, `status_reason`, `status_changed_by`/`_at` and `submitted_at`, while `max_open_leads` and `paused` wait for Milestone 15; `partner_application` adds `submitted_by` and `reviewed_at`; `partner_credential` has `issuer` (not `insurer`), `status`, `notes` and `verified_at`, and no `evidence_id` yet; `partner_category` adds `notes`, `reviewed_by` and `reviewed_at`; `partner_service_area` has `state` and no `RADIUS` (no `radius_km`/`centre`); `partner_plan`, `plan_feature` and `partner_subscription` are not tables: plans are `product` rows of kind `PARTNER_PLAN` with `product_feature` limits, and a partner's plan is its organisation's `subscription`; `partner_lead_preference`, `provider_profile` and `lead_price` wait for later milestones.
+
 ## 13. Leads, consent, referrals, quotes
 
 | Table | Key columns | Notes |

@@ -68,6 +68,9 @@ class SubscriptionOut(BaseModel):
     cancel_at_period_end: bool
     canceled_at: datetime | None
     past_due_since: datetime | None
+    grace_ends_at: datetime | None = Field(
+        description="Payment overdue: when the plan stops working if the card isn't updated."
+    )
     gives_plan: bool = Field(description="Whether the plan's limits apply right now.")
 
 

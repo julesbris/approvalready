@@ -381,6 +381,34 @@ async def remove_member(
 # --- Invitations -----------------------------------------------------------------------
 
 
+async def _check_partner_seats(
+    db: AsyncSession, organisation_id: uuid.UUID, email: str, now: datetime
+) -> None:
+    """A partner plan limits the people in the account (members and open invitations)."""
+    from app.modules.billing import service as billing
+    from app.modules.partners.entitlements import MEMBERS_FEATURE, members_in_use
+
+    invited = (
+        await db.execute(
+            select(func.count())
+            .select_from(OrganisationInvitation)
+            .where(
+                OrganisationInvitation.organisation_id == organisation_id,
+                OrganisationInvitation.email != email,
+                OrganisationInvitation.accepted_at.is_(None),
+                OrganisationInvitation.revoked_at.is_(None),
+                OrganisationInvitation.expires_at > now,
+            )
+        )
+    ).scalar_one()
+    await billing.require_allowance(
+        db,
+        organisation_id,
+        MEMBERS_FEATURE,
+        in_use=await members_in_use(db, organisation_id) + int(invited),
+    )
+
+
 async def create_invitation(
     db: AsyncSession,
     settings: Settings,
@@ -415,6 +443,8 @@ async def create_invitation(
             status.HTTP_409_CONFLICT, "already_member", "That person is already a member."
         )
     now = utcnow()
+    if org.kind == OrganisationKind.PARTNER:
+        await _check_partner_seats(db, org.id, email, now)
     # Re-inviting replaces any open invitation for the same address.
     open_invites = (
         (
