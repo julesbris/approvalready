@@ -26,6 +26,9 @@ release. Then:
 * ``lead_quote`` (platform, Milestone 23): a written quote a partner who accepted the lead
   sends the customer. Its content never changes once sent; a revision is a new version and
   the old one is superseded. The customer accepts or declines it.
+* ``lead_message`` (platform, Milestone 26): messages between the customer and a partner who
+  accepted their referral. Never edited or deleted; only when the other side read it is
+  recorded, once.
 
 Leads are platform rows guarded by the API (partners match across customers), like the
 partner tables; the customer's consent and the partner's credits are tenant rows with RLS.
@@ -118,6 +121,11 @@ class QuoteStatus(StrEnum):
     WITHDRAWN = "WITHDRAWN"  # the partner took it back
     ACCEPTED = "ACCEPTED"
     DECLINED = "DECLINED"
+
+
+class MessageSender(StrEnum):
+    CUSTOMER = "CUSTOMER"
+    PARTNER = "PARTNER"
 
 
 class GstTreatment(StrEnum):
@@ -466,3 +474,35 @@ class LeadQuote(UUIDPrimaryKeyMixin, Base):
         UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="SET NULL")
     )
     response_note: Mapped[str | None] = mapped_column(String(500))
+
+
+class LeadMessage(UUIDPrimaryKeyMixin, Base):
+    __tablename__ = "lead_message"
+    __table_args__ = (
+        enum_check("sender", MessageSender),
+        CheckConstraint("char_length(btrim(body)) > 0", name="body_not_blank"),
+        CheckConstraint("char_length(body) <= 4000", name="body_length"),
+        Index("ix_lead_message_match", "lead_match_id", "created_at"),
+    )
+
+    lead_match_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("lead_match.id", ondelete="CASCADE"), nullable=False
+    )
+    lead_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("lead.id", ondelete="CASCADE"), nullable=False
+    )
+    partner_organisation_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("partner_organisation.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    sender: Mapped[str] = mapped_column(Text, nullable=False)
+    sender_user_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="SET NULL")
+    )
+    body: Mapped[str] = mapped_column(Text, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+    # When someone on the other side first opened the conversation after it arrived.
+    read_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))

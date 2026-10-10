@@ -8,6 +8,10 @@
 * ``/v1/organisations/{id}/projects/{pid}/quotes...`` (Milestone 23): the customer's quotes
   (``project.read``), accepting and declining them (``project.write``). Partners send and
   withdraw quotes under ``partner/leads/{match_id}/quotes`` with ``lead.claim``.
+* ``/v1/organisations/{id}/projects/{pid}/conversations...`` (Milestone 26): the customer's
+  messages with each partner who accepted (``project.read`` to read, ``project.write`` to
+  write). Partners use ``partner/leads/{match_id}/messages`` (``lead.read`` to read,
+  ``lead.claim`` to write).
 * ``/v1/admin/leads...``: staff (``lead.manage``): leads with their matches and scores (never
   contact details), lead prices, credit adjustments and fee refunds.
 """
@@ -36,17 +40,19 @@ from app.modules.billing import service as billing
 from app.modules.billing.models import PaymentPurpose, Price, PriceInterval, Product, ProductKind
 from app.modules.billing.router import StripeDep, _require
 from app.modules.billing.schemas import RedirectOut
-from app.modules.leads import consent, jobs, quotes, service
+from app.modules.leads import consent, jobs, messages, quotes, service
 from app.modules.leads.models import (
     OPEN_MATCH,
     CreditLedgerEntry,
     LeadClaim,
     LeadMatchStatus,
     LeadStatus,
+    MessageSender,
 )
 from app.modules.leads.schemas import (
     ClaimedPartnerOut,
     ConsentTextOut,
+    ConversationOut,
     CreditAdjustIn,
     CreditEntryOut,
     CreditsOut,
@@ -60,6 +66,7 @@ from app.modules.leads.schemas import (
     LeadPreferencesOut,
     LeadPriceIn,
     LeadPriceOut,
+    MessageIn,
     QuoteAcceptIn,
     QuoteDeclineIn,
     QuoteIn,
@@ -86,6 +93,10 @@ customer_router = APIRouter(
 partner_router = APIRouter(prefix="/v1/organisations/{organisation_id}/partner", tags=["leads"])
 quotes_router = APIRouter(
     prefix="/v1/organisations/{organisation_id}/projects/{project_id}/quotes", tags=["quotes"]
+)
+conversations_router = APIRouter(
+    prefix="/v1/organisations/{organisation_id}/projects/{project_id}/conversations",
+    tags=["messages"],
 )
 admin_router = APIRouter(prefix="/v1/admin/leads", tags=["admin: leads"])
 
@@ -301,6 +312,67 @@ async def decline_quote(
     return await _quotes(db, project)
 
 
+# --- Customer: messages ----------------------------------------------------------------
+
+
+async def _conversations(db: DbDep, project: Project) -> list[ConversationOut]:
+    return [await c.out(db) for c in await messages.for_project(db, project)]
+
+
+@conversations_router.get("", response_model=list[ConversationOut])
+async def list_conversations(
+    project_id: uuid.UUID, ctx: ProjectRead, db: DbDep
+) -> list[ConversationOut]:
+    """Messages with each partner who accepted one of this project's introductions."""
+    project = await projects.get_project(db, ctx.organisation.id, project_id)
+    return await _conversations(db, project)
+
+
+@conversations_router.post("/{match_id}/messages", response_model=ConversationOut, status_code=201)
+async def send_customer_message(
+    project_id: uuid.UUID,
+    match_id: uuid.UUID,
+    body: MessageIn,
+    ctx: ProjectWrite,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+) -> ConversationOut:
+    """Write to the partner. They are told about the first message waiting for them."""
+    project = await projects.get_project(db, ctx.organisation.id, project_id)
+    found, sent = await messages.customer_send(
+        db, project, match_id, body.body, actor_id=ctx.auth.user.id, meta=meta, now=service.utcnow()
+    )
+    await db.commit()
+    if sent.notify:
+        pending = await jobs.notify_message(
+            db,
+            found.lead,
+            sent.message,
+            partner_name=found.organisation.name,
+            category_label=found.category.label,
+        )
+        await db.commit()
+        await _send(db, resources, settings, pending)
+    await bind_tenant(db, ctx.organisation.id)
+    found = await messages.get_for_customer(db, project, match_id)
+    return await found.out(db)
+
+
+@conversations_router.post("/{match_id}/read", response_model=ConversationOut)
+async def read_customer_conversation(
+    project_id: uuid.UUID, match_id: uuid.UUID, ctx: ProjectRead, db: DbDep
+) -> ConversationOut:
+    """Mark the partner's messages as read (opening the conversation)."""
+    project = await projects.get_project(db, ctx.organisation.id, project_id)
+    found = await messages.get_for_customer(db, project, match_id)
+    await messages.mark_read(db, match_id, MessageSender.CUSTOMER, now=service.utcnow())
+    await db.commit()
+    await bind_tenant(db, ctx.organisation.id)
+    return await found.out(db)
+
+
 # --- Partner -----------------------------------------------------------------------------
 
 
@@ -328,6 +400,9 @@ async def _offer_out(
         ]
         if offer.claim
         else [],
+        unread_messages=await messages.unread_count(db, offer.match.id, MessageSender.PARTNER)
+        if offer.claim
+        else 0,
     )
 
 
@@ -475,6 +550,72 @@ async def withdraw_quote(
     await db.commit()
     offer = await service.get_offer(db, partner, match_id)
     return await _offer_out(db, partner, offer, fee=False)
+
+
+async def _partner_conversation(
+    db: DbDep, ctx: OrgContext, offer: service.Offer
+) -> ConversationOut:
+    return await messages.conversation_out(
+        db,
+        offer.match,
+        category_label=offer.category.label,
+        partner_name=ctx.organisation.name,
+        viewer=MessageSender.PARTNER,
+    )
+
+
+@partner_router.get("/leads/{match_id}/messages", response_model=ConversationOut)
+async def get_partner_conversation(
+    match_id: uuid.UUID, ctx: LeadRead, db: DbDep
+) -> ConversationOut:
+    """Messages with the customer about this referral (once accepted), oldest first."""
+    partner = await _partner(ctx, db)
+    offer = await messages.partner_offer(db, partner, match_id)
+    return await _partner_conversation(db, ctx, offer)
+
+
+@partner_router.post("/leads/{match_id}/messages", response_model=ConversationOut, status_code=201)
+async def send_partner_message(
+    match_id: uuid.UUID,
+    body: MessageIn,
+    ctx: LeadClaimCtx,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+) -> ConversationOut:
+    """Write to the customer. They are told about the first message waiting for them."""
+    partner = await _partner(ctx, db)
+    offer, sent = await messages.partner_send(
+        db, partner, match_id, body.body, actor_id=ctx.auth.user.id, meta=meta, now=service.utcnow()
+    )
+    await db.commit()
+    if sent.notify:
+        pending = await jobs.notify_message(
+            db,
+            offer.lead,
+            sent.message,
+            partner_name=ctx.organisation.name,
+            category_label=offer.category.label,
+        )
+        await db.commit()
+        await _send(db, resources, settings, pending)
+    await bind_tenant(db, ctx.organisation.id)
+    offer = await messages.partner_offer(db, partner, match_id)
+    return await _partner_conversation(db, ctx, offer)
+
+
+@partner_router.post("/leads/{match_id}/messages/read", response_model=ConversationOut)
+async def read_partner_conversation(
+    match_id: uuid.UUID, ctx: LeadRead, db: DbDep
+) -> ConversationOut:
+    """Mark the customer's messages as read (opening the conversation)."""
+    partner = await _partner(ctx, db)
+    offer = await messages.partner_offer(db, partner, match_id)
+    await messages.mark_read(db, offer.match.id, MessageSender.PARTNER, now=service.utcnow())
+    await db.commit()
+    await bind_tenant(db, ctx.organisation.id)
+    return await _partner_conversation(db, ctx, offer)
 
 
 async def _preferences(db: DbDep, partner: PartnerOrganisation) -> LeadPreferencesOut:

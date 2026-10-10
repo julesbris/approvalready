@@ -27,7 +27,7 @@ function OfferList({ offers, empty }: { offers: LeadOfferOut[]; empty: string })
   if (offers.length === 0) return <p className="muted">{empty}</p>;
   return (
     <ul className="task-list">
-      {offers.map(({ lead }) => (
+      {offers.map(({ lead, unread_messages }) => (
         <li key={lead.match_id} className="task">
           <span>
             <Link href={`/partner/leads/${lead.match_id}`}>
@@ -36,6 +36,11 @@ function OfferList({ offers, empty }: { offers: LeadOfferOut[]; empty: string })
             <span className={`status status-${lead.status.toLowerCase()}`}>
               {MATCH_STATUS_LABELS[lead.status]}
             </span>
+            {unread_messages > 0 ? (
+              <span className="badge">
+                {unread_messages} new message{unread_messages === 1 ? "" : "s"}
+              </span>
+            ) : null}
             <br />
             <span className="muted">
               {leadPlace(lead)}. {TIMING_LABELS[lead.timing]}. Offered{" "}
