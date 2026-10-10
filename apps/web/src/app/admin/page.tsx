@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AdminNav } from "@/components/admin/AdminNav";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { VERIFICATION_LABELS } from "@/lib/assessment";
 import { formatDate } from "@/lib/questionnaire";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
@@ -15,7 +15,7 @@ export default async function AdminPage() {
   if (!session.permissions.includes("source.manage")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="the admin area" />
+        <AdminNoAccess what="the admin area" session={session} />
       </AppShell>
     );
   }

@@ -582,7 +582,7 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Web | BFF proxy `/api/v1/*`, pages `/login`, `/register`, `/verify-email`, `/forgot-password`, `/reset-password`, `/invitations/accept`, `/account`. Per-request nonce CSP (`'strict-dynamic'`, no `'unsafe-inline'` scripts) on these pages via `src/proxy.ts`; statically generated public pages keep the baseline policy. |
 | Types | `packages/shared-types/src/api.ts` generated from the API's OpenAPI schema (`npm run generate:types`); CI fails if the schema or types are stale. |
 | Dev email | Mailpit in `docker-compose.yml` (UI `http://localhost:8025`). |
-| Ops | `python -m app.cli grant-platform-role --email … --role SUPERADMIN`, `python -m app.cli verify-audit`. |
+| Ops | `python -m app.cli grant-platform-role --email … --role SUPERADMIN`, `python -m app.cli platform-access [--email …]`, `python -m app.cli verify-audit`. |
 | Verified | 106 API/infrastructure tests (auth flows, throttling, rotation/expiry, CSRF/origin, tenant isolation as an outsider on every org route, privilege rules, append-only and tamper detection, RBAC seed), web unit tests, manual end-to-end run through the Next.js proxy. |
 
 ## 13. Milestone 3 as built

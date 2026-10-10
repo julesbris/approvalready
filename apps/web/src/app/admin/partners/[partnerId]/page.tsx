@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AdminNav } from "@/components/admin/AdminNav";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { PartnerCredits } from "@/components/leads/LeadsAdmin";
 import { PartnerReview } from "@/components/partners/PartnerReview";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
@@ -18,7 +18,7 @@ export default async function PartnerAdminPage({ params }: Props) {
   if (!session.permissions.includes("partner.verify")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="partner checks" />
+        <AdminNoAccess what="partner checks" session={session} />
       </AppShell>
     );
   }

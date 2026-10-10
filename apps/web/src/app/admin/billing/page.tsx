@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import { AdminNav } from "@/components/admin/AdminNav";
 import { BillingAdmin } from "@/components/admin/BillingAdmin";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = { title: "Billing", robots: { index: false } };
@@ -14,7 +14,7 @@ export default async function BillingAdminPage() {
     return (
       <AppShell session={session}>
         <AdminNav current="billing" />
-        <NoAccess what="billing settings" />
+        <AdminNoAccess what="billing settings" session={session} />
       </AppShell>
     );
   }
