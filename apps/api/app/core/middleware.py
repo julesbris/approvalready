@@ -13,6 +13,7 @@ from starlette.responses import JSONResponse
 from starlette.types import ASGIApp, Message, Receive, Scope, Send
 
 from app.core.logging import request_id_var
+from app.core.ratelimit import Limit, RateLimiter
 
 logger = logging.getLogger("app.request")
 
@@ -128,3 +129,61 @@ class OriginCheckMiddleware:
             await response(scope, receive, send)
             return
         await self.app(scope, receive, send)
+
+
+class ApiRateLimitMiddleware:
+    """Per-IP fixed-window limits on every ``/v1`` route (all requests, and changes).
+
+    The client address is the one uvicorn resolved from the proxy headers (Caddy and the
+    web app pass the browser's address on). Stripe's webhooks are exempt: Stripe retries
+    in bursts and signs every call. If Redis can't be reached the request goes ahead
+    (fail open): an outage of the counter store should not take the site down with it.
+    """
+
+    EXEMPT_PREFIXES = ("/v1/billing/stripe/webhook",)
+
+    def __init__(self, app: ASGIApp, *, requests_per_minute: int, writes_per_minute: int):
+        self.app = app
+        self.limits = [
+            ("api-ip", requests_per_minute, None),
+            ("api-write-ip", writes_per_minute, UNSAFE_METHODS),
+        ]
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
+        path = scope.get("path", "") if scope["type"] == "http" else ""
+        if not path.startswith("/v1/") or path.startswith(self.EXEMPT_PREFIXES):
+            await self.app(scope, receive, send)
+            return
+        retry_after = await self._retry_after(scope)
+        if retry_after is not None:
+            response = JSONResponse(
+                {
+                    "detail": {
+                        "code": "rate_limited",
+                        "message": "Too many requests. Please wait a minute and try again.",
+                    }
+                },
+                status_code=429,
+                headers={"retry-after": str(retry_after)},
+            )
+            await response(scope, receive, send)
+            return
+        await self.app(scope, receive, send)
+
+    async def _retry_after(self, scope: Scope) -> int | None:
+        resources = getattr(scope["app"].state, "resources", None)
+        if resources is None:
+            return None
+        client = scope.get("client")
+        subject = client[0] if client else "unknown"
+        limiter = RateLimiter(resources.redis)
+        try:
+            for bucket, max_hits, methods in self.limits:
+                if max_hits <= 0 or (methods is not None and scope["method"] not in methods):
+                    continue
+                limit = Limit(bucket, max_hits, 60)
+                if await limiter.hit(limit, subject) > max_hits:
+                    return await limiter.retry_after(limit, subject)
+        except Exception:
+            logger.warning("rate limit check skipped: counter store unavailable")
+        return None

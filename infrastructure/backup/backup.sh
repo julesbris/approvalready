@@ -240,11 +240,13 @@ loop() {
 if [ "$(id -u)" = 0 ]; then
   # Everything runs as the app user: its files are what the worker (same uid) copies off the
   # server, and uploaded files are private to it. `docker compose exec` arrives as root.
+  # Root only hands the folder over: without CAP_FOWNER it may not chmod a folder it no
+  # longer owns, so the app user tightens the permissions itself, below.
   mkdir -p "$DIR"
   chown "$APP_UID:$APP_UID" "$DIR"
-  chmod 700 "$DIR"
   exec gosu "$APP_UID:$APP_UID" sh "$0" "$@"
 fi
+chmod 700 "$DIR"
 
 case "${1:-loop}" in
   loop) loop ;;

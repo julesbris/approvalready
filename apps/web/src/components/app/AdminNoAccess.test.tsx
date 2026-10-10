@@ -22,7 +22,14 @@ function session(organisations: SessionOut["organisations"]): SessionOut {
     idle_expires_at: "2026-10-10T12:00:00Z",
     organisations,
     permissions: [],
-    user: { id: "u1", display_name: "Jo", email: "jo@example.com", email_verified: true },
+    staff_mfa_required: false,
+    user: {
+      id: "u1",
+      display_name: "Jo",
+      email: "jo@example.com",
+      email_verified: true,
+      mfa_enabled: false,
+    },
   };
 }
 
@@ -44,6 +51,20 @@ describe("AdminNoAccess", () => {
     expect(screen.getByText("No access to operations")).toBeInTheDocument();
     expect(screen.getByText(/isn't on the ApprovalReady team/)).toBeInTheDocument();
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  });
+
+  it("asks staff to turn on two-step sign-in", () => {
+    const s = {
+      ...session([PERSONAL, PLATFORM]),
+      active_organisation_id: "o-platform",
+      staff_mfa_required: true,
+    };
+    render(<AdminNoAccess what="operations" session={s} />);
+    expect(screen.getByText("Turn on two-step sign-in to open operations")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Turn it on in your account" })).toHaveAttribute(
+      "href",
+      "/account#security",
+    );
   });
 
   it("falls back to the role message inside the platform organisation", () => {

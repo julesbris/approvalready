@@ -17,6 +17,7 @@ from typing import Annotated
 from fastapi import Depends, Request, Response
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.breach import BreachChecker
 from app.core.config import Settings
 from app.core.errors import ApiError, forbidden, not_found, unauthenticated
 from app.core.ratelimit import RateLimiter
@@ -24,6 +25,7 @@ from app.core.resources import Resources
 from app.core.security import constant_time_equals, csrf_token_for
 from app.db.tenant import bind_tenant
 from app.modules.audit.service import RequestMeta
+from app.modules.identity import mfa
 from app.modules.identity import service as identity
 from app.modules.identity.models import AppUser, AuthSession
 from app.modules.tenancy import service as tenancy
@@ -62,7 +64,13 @@ def get_meta(request: Request) -> RequestMeta:
     )
 
 
+def get_breach(request: Request) -> BreachChecker:
+    breach: BreachChecker = request.app.state.breach
+    return breach
+
+
 SettingsDep = Annotated[Settings, Depends(get_settings_dep)]
+BreachDep = Annotated[BreachChecker, Depends(get_breach)]
 ResourcesDep = Annotated[Resources, Depends(get_resources)]
 DbDep = Annotated[AsyncSession, Depends(get_db)]
 LimiterDep = Annotated[RateLimiter, Depends(get_limiter)]
@@ -97,6 +105,25 @@ def set_session_cookies(
 def clear_session_cookies(response: Response, settings: Settings) -> None:
     for name in (settings.session_cookie_name, settings.csrf_cookie_name):
         response.delete_cookie(name, path="/", secure=settings.cookie_secure, samesite="lax")
+
+
+def set_mfa_challenge_cookie(response: Response, settings: Settings, token: str) -> None:
+    """The open sign-in challenge between the password and the code (HttpOnly, short)."""
+    response.set_cookie(
+        settings.mfa_cookie_name,
+        token,
+        max_age=settings.mfa_challenge_seconds,
+        path="/",
+        secure=settings.cookie_secure,
+        httponly=True,
+        samesite="lax",
+    )
+
+
+def clear_mfa_challenge_cookie(response: Response, settings: Settings) -> None:
+    response.delete_cookie(
+        settings.mfa_cookie_name, path="/", secure=settings.cookie_secure, samesite="lax"
+    )
 
 
 # --- Authentication --------------------------------------------------------------------
@@ -169,19 +196,30 @@ def require_org_permission(
     return dependency
 
 
+def staff_mfa_missing() -> ApiError:
+    return ApiError(
+        403,
+        "mfa_required",
+        "Staff pages need two-step sign-in. Turn it on under Account, then sign in again.",
+    )
+
+
 def require_platform_permission(
     permission: str,
-) -> Callable[[AuthContext, AsyncSession], Awaitable[OrgContext]]:
+) -> Callable[[AuthContext, AsyncSession, Settings], Awaitable[OrgContext]]:
     """Staff/admin routes. Platform roles count only while the session's active
-    organisation is the PLATFORM_ADMIN organisation (explicit context switch)."""
+    organisation is the PLATFORM_ADMIN organisation (explicit context switch), and only for
+    a session that passed two-step sign-in (STAFF_MFA_REQUIRED, Milestone 18)."""
 
-    async def dependency(auth: AuthDep, db: DbDep) -> OrgContext:
+    async def dependency(auth: AuthDep, db: DbDep, settings: SettingsDep) -> OrgContext:
         active = auth.session.active_organisation_id
         found = await tenancy.membership(db, auth.user.id, active) if active else None
         if found is None or found.organisation.kind != "PLATFORM_ADMIN":
             raise forbidden()
         if permission not in found.permissions:
             raise forbidden()
+        if not await mfa.staff_mfa_satisfied(db, settings, auth.user.id, auth.session):
+            raise staff_mfa_missing()
         return OrgContext(auth, found.organisation, found.role_keys, found.permissions)
 
     return dependency

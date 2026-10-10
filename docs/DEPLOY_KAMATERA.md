@@ -255,6 +255,34 @@ buy credit, give the `Lead credits` product a price at `/admin/billing` (one pur
 much credit). The consent wording lives in `apps/api/app/modules/leads/consent.json` and is
 loaded by the migrate step on every deploy.
 
+### Two-step sign-in for staff (Milestone 18)
+
+From Milestone 18 the admin area needs two-step sign-in: a code from an authenticator app on
+your phone after your password. After deploying, sign in, open **Account**, and under
+**Security** choose **Turn on two-step sign-in**, scan the QR code with an authenticator app
+(Google Authenticator, Microsoft Authenticator, 1Password), type the code it shows and save the
+ten recovery codes somewhere safe (a password manager, or printed). Until then admin pages show
+"Staff pages need two-step sign-in". Every staff member does the same.
+
+Lost phone and recovery codes: on the server, check who is asking, then
+
+```bash
+docker compose -f docker-compose.prod.yml --env-file .env exec api \
+  python -m app.cli auth reset-mfa --email person@example.com
+```
+
+turns it off for that person and signs them out everywhere. The authenticator secrets are
+encrypted with a key derived from `SECRET_KEY`: changing `SECRET_KEY` means everyone has to set
+two-step sign-in up again (reset each person as above). In an emergency
+`STAFF_MFA_REQUIRED=false` in `.env` lifts the requirement (then rebuild); turn it back on
+after.
+
+New and changed passwords are checked against Have I Been Pwned's list of breached passwords
+(`PASSWORD_BREACH_CHECK`, only five characters of a hash leave the server; if the service is
+down the check is skipped). Every API route is limited per IP address
+(`API_REQUESTS_PER_IP_PER_MINUTE`, 600, and `API_WRITES_PER_IP_PER_MINUTE`, 120); a 429 in
+the logs from one address is that limit.
+
 ## 8. Persistent volumes
 
 | Volume | Contents | Backed up |

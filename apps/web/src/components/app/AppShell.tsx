@@ -52,7 +52,16 @@ export function AppShell({
           />
         </div>
       </header>
-      <main className="container app-main">{children}</main>
+      <main className="container app-main">
+        {session.staff_mfa_required ? (
+          <p className="notice notice-warning" role="status">
+            Staff pages need two-step sign-in.{" "}
+            <Link href="/account#security">Turn it on in your account</Link> to use the admin
+            area.
+          </p>
+        ) : null}
+        {children}
+      </main>
     </>
   );
 }
@@ -92,6 +101,18 @@ export function AdminNoAccess({ what, session }: { what: string; session: Sessio
           organisationId={platform.organisation_id}
           label={`Switch to ${platform.name}`}
         />
+      </section>
+    );
+  }
+  if (session.staff_mfa_required) {
+    return (
+      <section className="panel">
+        <h1 className="page-title">Turn on two-step sign-in to open {what}</h1>
+        <p className="muted">
+          Staff pages need two-step sign-in.{" "}
+          <Link href="/account#security">Turn it on in your account</Link>, then come back to
+          this page.
+        </p>
       </section>
     );
   }

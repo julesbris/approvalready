@@ -51,6 +51,10 @@ export LOOKUPS_ENABLED=false
 export JOBS_MODE=celery
 # Every request comes from 127.0.0.1: lift the per-IP limit on sign-up and sign-in.
 export AUTH_REQUESTS_PER_IP_PER_MINUTE=1000
+export API_REQUESTS_PER_IP_PER_MINUTE=0
+export API_WRITES_PER_IP_PER_MINUTE=0
+# No calls to Have I Been Pwned from the test stack.
+export PASSWORD_BREACH_CHECK=false
 OWNER_URL="postgresql+psycopg://$PG_USER:$PG_PASSWORD@$PG_HOST:$PG_PORT/$DB_NAME"
 
 api_py() {
