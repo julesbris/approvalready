@@ -11257,7 +11257,7 @@ export interface components {
          * Vertical
          * @enum {string}
          */
-        Vertical: "PLANNING" | "VESSEL" | "BUSINESS" | "GRANT" | "SELL" | "RENT";
+        Vertical: "PLANNING" | "VESSEL" | "BUSINESS" | "GRANT" | "SELL" | "RENT" | "TRADE";
         /** VesselCreate */
         VesselCreate: {
             /** Activity */

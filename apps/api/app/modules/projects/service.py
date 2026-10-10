@@ -53,6 +53,7 @@ SUBJECTS: dict[str, tuple[str, type[Any]] | None] = {
     Vertical.VESSEL: ("vessel_id", Vessel),
     Vertical.BUSINESS: ("business_profile_id", BusinessProfile),
     Vertical.GRANT: ("business_profile_id", BusinessProfile),
+    Vertical.TRADE: ("business_profile_id", BusinessProfile),
 }
 SUBJECT_COLUMNS = ("property_id", "vessel_id", "business_profile_id")
 
@@ -63,6 +64,7 @@ REFERENCE_PREFIX = {
     Vertical.GRANT: "GRT",
     Vertical.SELL: "SEL",
     Vertical.RENT: "RNT",
+    Vertical.TRADE: "TRD",
 }
 # Crockford base32 without I, L, O, U: unambiguous when read out over the phone.
 _REFERENCE_ALPHABET = "0123456789ABCDEFGHJKMNPQRSTVWXYZ"

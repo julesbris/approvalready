@@ -58,7 +58,7 @@ export interface ApiErrorBody {
 export const CONFIDENCE_LEVELS = ["VERIFIED", "LIKELY", "REVIEW_REQUIRED", "UNKNOWN"] as const;
 export type Confidence = (typeof CONFIDENCE_LEVELS)[number];
 
-export const VERTICALS = ["PLANNING", "VESSEL", "BUSINESS", "GRANT", "SELL", "RENT"] as const;
+export const VERTICALS = ["PLANNING", "VESSEL", "BUSINESS", "GRANT", "SELL", "RENT", "TRADE"] as const;
 export type Vertical = (typeof VERTICALS)[number];
 
 export type RuleResult = Schemas["RuleResult"];

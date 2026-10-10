@@ -893,3 +893,16 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | API | `POST /v1/admin/source-documents/{id}/check` (`source.manage`, 201 with the check, also when it failed), `GET …/{id}/checks` (latest 20). `SourceDocumentOut` gains `auto_check` and `last_check`; `SnapshotSummary` gains `capture_method`; `auto_check` can be set on create and update. |
 | Web | `/admin/sources/[id]`: "Check the official page now", a "Check every week" switch, snapshots marked "read by the app" or "pasted", and recent checks. `/admin/sources` shows "Changed" and "Couldn't be read". |
 | Not built | Reading PDF text; a word-level diff between snapshots; per-document check frequency; checking sources not yet recorded as documents; showing "last checked" on public guide pages. |
+
+## 34. Milestone 25 as built (TradeReady: importing and exporting)
+
+| Concern | Implementation |
+|---|---|
+| Vertical | `TRADE` (reference prefix `TRD`), for businesses importing goods into or exporting goods out of Australia. "Shipping" means moving goods across the border (customs, biosecurity, permits, freight); vessels stay in VesselReady. A trade project is about a business profile, like BusinessReady and GrantReady, so the business picker, prefill and lead location work unchanged. |
+| Migration | `0024` (revises `0023`): only the check constraints that list verticals (`project`, `questionnaire`, `rule_set`, `professional_service`, `product`, `marketplace_category`). The downgrade restores the old lists as `NOT VALID` so existing `TRADE` rows don't block it. |
+| Questionnaire | `trade.general` (`definitions/trade.json`): direction, goods description and kinds of goods; for imports the typical shipment value, how it arrives, the stink bug country and season questions, who lodges, refrigerant equipment size and household electrical equipment; for exports the shipment value; ABN, GST and state (prefilled from the business profile). |
+| Rules | Content pack `trade_au`: 4 rule sets (import clearance, biosecurity and imported food, restricted and regulated imports, exporting), 21 rules, 16 unverified source summaries from the ABF, DAFF, ATO, TGA, Defence, business.gov.au and ABLIS. The approval map and the `TRADE_APPROVAL_MAP` report are the BusinessReady ones with trade wording. An export-grants `CROSS_SELL` outcome suggests GrantReady. |
+| Marketplace | New categories `customs_broker` (credential required), `freight_forwarder`, `logistics_provider` and `trade_compliance_consultant`; `lawyer`, `accountant`, `insurance_broker` and `food_safety_consultant` also list `TRADE`. Rules name them, so referrals and quotes reach import and logistics companies through the existing lead engine. `review.trade` is the professional review product. |
+| Web | TradeReady in the brand's product list (new project form, home page), the approval map and report on trade assessments, and two public guides (`/guides/importing-goods-into-australia`, `/guides/exporting-goods-from-australia`), unverified. |
+| Not built | Tariff classification and duty rates; looking goods up in BICON; the importing country's rules (MICoR); state-by-state electrical rules beyond the national EESS; vaping, cultural heritage and sanctions controls; freight quotes or bookings. |
+

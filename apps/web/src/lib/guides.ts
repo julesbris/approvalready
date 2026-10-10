@@ -1,8 +1,9 @@
 /**
  * Public guide pages (statically generated for search). Every statement in a guide comes from
  * a listed source, and every guide says how far its sources have been checked. The same
- * sources back the Cairns rules in the API's content pack
- * (apps/api/app/modules/rules/packs/planning_qld_cairns.json); keep the two in step.
+ * sources back the rules in the API's content packs
+ * (apps/api/app/modules/rules/packs/planning_qld_cairns.json and trade_au.json); keep them in
+ * step.
  */
 
 export interface GuideSource {
@@ -67,6 +68,69 @@ const STATE_SECONDARY_PAGE: GuideSource = {
   publisher: "Queensland Government (planning.qld.gov.au)",
   url: "https://planning.qld.gov.au/planning-issues-and-interests/changes-to-secondary-dwellings",
   version: "Change took effect 26 September 2022",
+};
+
+const ABF_IMPORT_DECLARATIONS: GuideSource = {
+  title: "Import declarations (fact sheet)",
+  publisher: "Australian Border Force",
+  url: "https://www.abf.gov.au/help-and-support-subsite/FactSheets/import-declarations.pdf",
+  version: "Read 10 October 2026",
+};
+
+const ABF_PROHIBITED: GuideSource = {
+  title: "Prohibited goods",
+  publisher: "Australian Border Force",
+  url: "https://www.abf.gov.au/importing-exporting-and-manufacturing/prohibited-goods",
+  version: "Read 10 October 2026",
+};
+
+const BGA_IMPORTING: GuideSource = {
+  title: "Importing and your business",
+  publisher: "business.gov.au",
+  url: "https://business.gov.au/products-and-services/importing/importing-and-your-business",
+  version: "Read 10 October 2026",
+};
+
+const BGA_EXPORTING: GuideSource = {
+  title: "Exporting and your business",
+  publisher: "business.gov.au",
+  url: "https://business.gov.au/products-and-services/exporting/exporting-and-your-business",
+  version: "Read 10 October 2026",
+};
+
+const BICON: GuideSource = {
+  title: "Biosecurity Import Conditions system (BICON)",
+  publisher: "Department of Agriculture, Fisheries and Forestry",
+  url: "https://www.agriculture.gov.au/biosecurity-trade/import/online-services/bicon",
+  version: "Read 10 October 2026",
+};
+
+const BMSB_GOODS: GuideSource = {
+  title: "Target high risk and risk goods for the Brown Marmorated Stink Bug (fact sheet)",
+  publisher: "Department of Agriculture, Fisheries and Forestry",
+  url: "https://www.agriculture.gov.au/sites/default/files/documents/factsheet3-goods-subject-to-bmsb-measures.pdf",
+  version: "Read 10 October 2026",
+};
+
+const DAFF_EXPORTING: GuideSource = {
+  title: "Exporting from Australia",
+  publisher: "Department of Agriculture, Fisheries and Forestry",
+  url: "https://www.agriculture.gov.au/biosecurity-trade/export/from-australia",
+  version: "Read 10 October 2026",
+};
+
+const DEFENCE_PERMITS: GuideSource = {
+  title: "Permits (Defence export controls)",
+  publisher: "Department of Defence",
+  url: "https://www.defence.gov.au/business-industry/exporting/applications-and-pre-notification/permits",
+  version: "Read 10 October 2026",
+};
+
+const ATO_DEFERRED_GST: GuideSource = {
+  title: "What is the deferred GST scheme?",
+  publisher: "Australian Taxation Office",
+  url: "https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/in-detail/rules-for-specific-transactions/international-transactions/deferred-gst",
+  version: "Read 10 October 2026",
 };
 
 export const GUIDES: Guide[] = [
@@ -184,6 +248,105 @@ export const GUIDES: Guide[] = [
       "The full text of CairnsPlan 2016, which has been amended since the fact sheet was last updated.",
     ],
     sources: [RAL_FACT_SHEET],
+  },
+  {
+    slug: "importing-goods-into-australia",
+    title: "Importing goods into Australia for your business",
+    description:
+      "When you need a full import declaration, who can lodge it, GST and duty, biosecurity permits and stink bug season, and goods that need permission first, with the sources for each point.",
+    area: "Australia",
+    checkedOn: "2026-10-10",
+    verification: "UNVERIFIED",
+    sections: [
+      {
+        heading: "Do you need a full import declaration?",
+        paragraphs: [
+          "The Australian Border Force says goods valued above A$1,000 that arrive by mail, air cargo or sea cargo generally need an import declaration before they are cleared. business.gov.au says most goods worth A$1,000 or less can come in without one, but prohibited or restricted goods and biosecurity rules apply whatever the value.",
+          "You can lodge the declaration yourself in the Integrated Cargo System, which needs client registration and a digital certificate, or a licensed customs broker can lodge it for you. Keep your import records for five years.",
+        ],
+      },
+      {
+        heading: "GST, duty and other charges",
+        paragraphs: [
+          "Most imports attract 10% GST. Depending on the goods you may also pay customs duty, import processing charges, dumping duties, and brokerage, permit and biosecurity fees. Check for concessions such as free trade agreement rates.",
+          "The ATO's deferred GST scheme lets eligible importers pay import GST in their monthly business activity statement instead of at the border. You need an ABN, GST registration and monthly BAS lodged online.",
+        ],
+      },
+      {
+        heading: "Biosecurity",
+        paragraphs: [
+          "Food, plants, animal products and timber have biosecurity import conditions. The department's BICON system shows, for your exact goods, whether you need a permit, treatment or documents. Goods that need a permit but arrive without one are exported or destroyed, and permits usually take 20 to 40 business days.",
+          "From 1 September to 30 April, goods such as timber, stone, ceramics, glass, metal, machinery, electrical equipment and vehicles shipped from listed countries in Europe, Central Asia and North America need treatment for brown marmorated stink bug. Break bulk, flat rack and open-top cargo must be treated before it leaves.",
+        ],
+      },
+      {
+        heading: "Goods that need permission first",
+        paragraphs: [
+          "Some goods are prohibited unless you have written permission, and importing them without it can mean seizure and heavy penalties. The Border Force names tobacco as one example. Other regulated goods include:",
+        ],
+        points: [
+          "road vehicles, which need an import approval before they are shipped;",
+          "industrial chemicals and products containing them, such as cosmetics, soap, paint or glue, which need AICIS registration;",
+          "firearms and weapons, which a customs broker checks against government requirements before release;",
+          "equipment with refrigerant gas, household electrical equipment, medicines and medical devices, and wildlife products, which have their own licences and registrations.",
+        ],
+      },
+    ],
+    notCovered: [
+      "The Customs Act 1901 and the Customs (Prohibited Imports) Regulations themselves.",
+      "Tariff classification, duty rates and free trade agreement rules of origin.",
+      "Product safety bans, mandatory standards and labelling rules.",
+      "Vaping products, which have their own controls.",
+    ],
+    sources: [
+      ABF_IMPORT_DECLARATIONS,
+      BGA_IMPORTING,
+      ABF_PROHIBITED,
+      BICON,
+      BMSB_GOODS,
+      ATO_DEFERRED_GST,
+    ],
+  },
+  {
+    slug: "exporting-goods-from-australia",
+    title: "Exporting goods from Australia",
+    description:
+      "When you need an export declaration, export controls on food, plant and animal goods, Defence export permits and export grants, with the sources for each point.",
+    area: "Australia",
+    checkedOn: "2026-10-10",
+    verification: "UNVERIFIED",
+    sections: [
+      {
+        heading: "Do you need an export declaration?",
+        paragraphs: [
+          "business.gov.au says goods worth more than A$2,000 generally need an export declaration before they can leave Australia, and some goods can't be exported without a permit whatever their value. A customs broker or freight forwarder usually lodges the declaration.",
+        ],
+      },
+      {
+        heading: "Food, plant and animal goods",
+        paragraphs: [
+          "The Department of Agriculture, Fisheries and Forestry controls exports of prescribed goods: dairy, eggs, fish, live animals, meat, poultry, wild game, organic products, plants and wood. Premises that prepare or store them for export must be registered establishments under the Export Control Act 2020, and shipments need government export documents. The importing country's own requirements are in the Manual of Importing Country Requirements (MICoR).",
+        ],
+      },
+      {
+        heading: "Military and dual-use goods",
+        paragraphs: [
+          "Goods, software and technology on the Defence and Strategic Goods List, including dual-use items, need a permit from Defence Export Controls before export. Firearms, parts and ammunition always need one. Applications go through the MADE portal.",
+        ],
+      },
+      {
+        heading: "Help with costs",
+        paragraphs: [
+          "Austrade's Export Market Development Grants help Australian businesses grow their exports.",
+        ],
+      },
+    ],
+    notCovered: [
+      "The Customs (Prohibited Exports) Regulations and trade sanctions.",
+      "Cultural heritage objects and wildlife permits in detail.",
+      "The importing country's tariffs, labelling and certification rules.",
+    ],
+    sources: [BGA_EXPORTING, DAFF_EXPORTING, DEFENCE_PERMITS],
   },
 ];
 

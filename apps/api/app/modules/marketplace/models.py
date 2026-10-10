@@ -15,7 +15,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base, TimestampMixin, UUIDPrimaryKeyMixin
 
-VERTICALS = "ARRAY['PLANNING','VESSEL','BUSINESS','GRANT','SELL','RENT']::text[]"
+VERTICALS = "ARRAY['PLANNING','VESSEL','BUSINESS','GRANT','SELL','RENT','TRADE']::text[]"
 
 
 class MarketplaceCategory(UUIDPrimaryKeyMixin, TimestampMixin, Base):
