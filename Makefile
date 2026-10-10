@@ -1,4 +1,4 @@
-.PHONY: help up down logs test test-api test-web lint migrate prod-config
+.PHONY: help up down logs test test-api test-web test-e2e lint migrate prod-config
 
 help:            ## Show targets
 	@grep -E '^[a-z-]+:.*##' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-14s %s\n", $$1, $$2}'
@@ -20,6 +20,10 @@ test-api:        ## API + infrastructure tests (starts throwaway Postgres/Redis)
 
 test-web:        ## Web unit/component tests
 	npm test
+
+test-e2e:        ## Browser end-to-end tests (starts throwaway Postgres/Redis, then the stack)
+	scripts/test-services.sh up
+	scripts/e2e.sh run
 
 lint:            ## Lint and type-check everything
 	cd apps/api && uv run ruff check . && uv run ruff format --check . && uv run mypy app
