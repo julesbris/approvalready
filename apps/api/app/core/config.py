@@ -180,6 +180,11 @@ class Settings(BaseSettings):
     smtp_username: str | None = None
     smtp_password: SecretStr | None = None
     smtp_starttls: bool = False
+    # Milestone 20: queue emails in ``email_outbox`` and send them from the worker, retrying
+    # for about ten hours when the mail server is unavailable. Off only in tests.
+    email_outbox: bool = True
+    # Sent and failed outbox rows (no content, kind and status only) are kept this long.
+    email_outbox_keep_days: int = Field(default=30, ge=1)
 
     # --- Property facts (Milestone 5) ---
     # Where questionnaire prefill gets facts about a site; see app/modules/property_facts.

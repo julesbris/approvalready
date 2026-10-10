@@ -12,6 +12,8 @@ Each check reads one signal and says ``OK``, ``WARNING`` (shown at ``/admin/ops`
 * ``disk``: free space on the disk holding the database, uploads and backups.
 * ``privacy``: privacy requests waiting for an answer (Milestone 19); failing once one is
   past the 30 days the Australian Privacy Principles expect.
+* ``email``: the email outbox (Milestone 20) is being emptied: nothing waits long, and few
+  emails failed.
 
 The checks never include customer data: counts, sizes, times and error text only.
 """
@@ -32,6 +34,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import Settings
 from app.modules.ops.models import BackupKind, BackupRun, BackupStatus, OffsiteStatus
+from app.modules.outbox import service as outbox
 from app.modules.privacy.models import PrivacyRequest, PrivacyRequestStatus
 
 HEARTBEAT_KEY = "ops:heartbeat"
@@ -43,6 +46,7 @@ RESTORE_CHECK_MAX_AGE = timedelta(days=8)  # weekly, with a day's slack
 OFFSITE_GRACE = timedelta(hours=3)  # the worker copies new backups every 30 minutes
 DISK_WARNING_FREE = 0.20
 DISK_FAILING_FREE = 0.10
+EMAIL_WAIT_FAILING = timedelta(minutes=30)  # the first retries run after 1, 5 and 15 minutes
 
 
 class CheckState(StrEnum):
@@ -252,6 +256,33 @@ async def privacy_summary(db: AsyncSession, now: datetime) -> tuple[int, int, da
     return int(open_count), int(overdue), next_due
 
 
+def email_check(stats: outbox.OutboxStats | None, now: datetime) -> Check:
+    label = "Email delivery"
+    if stats is None:
+        return Check(
+            "email", label, CheckState.OK, "Emails are sent straight away (EMAIL_OUTBOX=false)."
+        )
+    sent = f"{stats.sent_last_day} sent in the last day"
+    error = f" Last error: {stats.last_error}" if stats.last_error else ""
+    if stats.oldest_pending is not None and now - stats.oldest_pending > EMAIL_WAIT_FAILING:
+        return Check(
+            "email",
+            label,
+            CheckState.FAILING,
+            f"Emails are not going out: the oldest was queued {_ago(stats.oldest_pending, now)}"
+            f" ({stats.retrying} being retried, {sent}). Check the SMTP settings and that the "
+            f"worker is running.{error}",
+        )
+    if stats.failed_last_day or stats.retrying:
+        return Check(
+            "email",
+            label,
+            CheckState.WARNING,
+            f"{stats.failed_last_day} failed and {stats.retrying} being retried ({sent}).{error}",
+        )
+    return Check("email", label, CheckState.OK, f"{sent.capitalize()}.")
+
+
 async def latest_run(
     db: AsyncSession, kind: BackupKind, *, ok_only: bool = False
 ) -> BackupRun | None:
@@ -283,6 +314,7 @@ async def collect(db: AsyncSession, redis: Redis, settings: Settings, now: datet
     restore = await latest_run(db, BackupKind.RESTORE_CHECK)
     beat = await heartbeat(redis)
     waiting = int(await cast("Awaitable[int]", redis.llen(CELERY_QUEUE)))
+    email = await outbox.stats(db, now) if settings.email_outbox else None
     return [
         heartbeat_check(beat, settings, now),
         queue_check(waiting),
@@ -291,4 +323,5 @@ async def collect(db: AsyncSession, redis: Redis, settings: Settings, now: datet
         offsite_check(latest_good, settings, now),
         disk_check(settings.storage_local_root),
         privacy_check(*await privacy_summary(db, now)),
+        email_check(email, now),
     ]

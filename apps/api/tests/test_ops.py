@@ -387,7 +387,16 @@ async def test_admin_ops_page(
     assert r.status_code == 200, r.text
     body = r.json()
     states = {c["key"]: c["state"] for c in body["checks"]}
-    assert set(states) == {"jobs", "queue", "backup", "restore_check", "offsite", "disk", "privacy"}
+    assert set(states) == {
+        "jobs",
+        "queue",
+        "backup",
+        "restore_check",
+        "offsite",
+        "disk",
+        "privacy",
+        "email",
+    }
     assert states["backup"] == "OK"
     assert states["restore_check"] == "OK"
     assert states["offsite"] == "WARNING"

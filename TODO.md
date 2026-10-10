@@ -183,13 +183,19 @@ tests and updated docs before the next starts.
 - [x] `sitemap.xml` and `robots.txt` (moved from Milestone 5's backlog note)
 - [ ] Next: have a lawyer review the Terms and Privacy Policy and add the operating entity's legal name and ABN (`apps/web/src/lib/legal.ts`); automatic deletion of a closed account's workspace after the 30 days; closing business organisations; change of email address
 
+## Milestone 20 — Reliable email delivery ✅
+- [x] Email outbox: every email is queued (sealed, erased once sent) and sent by the worker, so a slow or failing mail server no longer slows or loses sign-up, reset, invitation, review and referral emails
+- [x] Retries with back-off for about ten hours; refused addresses fail at once; a sweep every minute catches anything missed and removes rows after 30 days
+- [x] Ops check "Email delivery" on `/admin/ops` and in the watchdog's alerts
+- [ ] Next: bounce and complaint handling from the mail provider; a staff view of failed emails per address; notification email preferences and unsubscribe links
+
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
 - [ ] Fetch source documents automatically for snapshots (manual capture only for now; no claims of live integration)
 - [x] Generic per-IP rate limiting for all API routes (Milestone 18; per-user limits still open)
 - [x] Breached-password check (HIBP k-anonymity range API) at registration and reset (Milestone 18)
 - [~] MFA (TOTP) built in Milestone 18; passkeys via `auth_identity` and Google/Microsoft OIDC still open
-- [ ] Send transactional email from the worker (outbox) instead of in-request
+- [x] Send transactional email from the worker (outbox) instead of in-request (Milestone 20)
 - [ ] `npm audit` flags `braces` (high) via `eslint-config-next` → `fast-glob`; dev-only lint tooling, not shipped in images. Re-check on next eslint-config-next release
 - [ ] Brand/domain tables + Next.js host middleware (not needed until a second brand or partner surface; Milestone 14)
 - [ ] Decide object storage vendor (Wasabi / Backblaze B2 / AWS S3 Sydney) — prefer an Australian region
