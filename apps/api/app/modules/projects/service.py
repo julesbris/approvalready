@@ -298,7 +298,7 @@ async def mark_assessed(
 
 
 async def mark_in_review(
-    db: AsyncSession, project: Project, *, actor_id: uuid.UUID, meta: RequestMeta | None
+    db: AsyncSession, project: Project, *, actor_id: uuid.UUID | None, meta: RequestMeta | None
 ) -> None:
     """A review request moves the project to ``IN_REVIEW`` (a system transition); customers
     can't move it elsewhere until the review ends."""

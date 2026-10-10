@@ -41,6 +41,7 @@ log = logging.getLogger(__name__)
 SCAN_TASK = "documents.scan"
 GENERATE_TASK = "documents.generate"
 AI_TASK = "ai.run"
+BILLING_EVENT_TASK = "billing.process_event"
 
 
 def _disabled_ai() -> AIProvider:
@@ -155,6 +156,18 @@ async def ai_job(
             raise RetryLater(str(exc)) from exc
 
 
+async def billing_event_job(ctx: JobContext, event_id: uuid.UUID) -> str | None:
+    """Apply one stored Stripe webhook event. Not tenant-bound up front: the event names
+    its organisation only through its Stripe customer (``billing/webhooks.py``)."""
+    from app.modules.billing import webhooks
+
+    async with ctx.session_factory() as db:
+        try:
+            return await webhooks.process_event(db, event_id)
+        except webhooks.EventFailed as exc:
+            raise RetryLater(str(exc)) from exc
+
+
 JobFn = Callable[..., Awaitable[str | None]]
 
 
@@ -195,6 +208,30 @@ def create_job_context(
     )
 
 
+async def run_billing_event(settings: Settings, event_id: str) -> str | None:
+    engine = create_async_engine(settings.database_url, poolclass=NullPool)
+    try:
+        ctx = create_job_context(
+            settings,
+            async_sessionmaker(engine, expire_on_commit=False),
+            create_storage(settings),
+        )
+        return await billing_event_job(ctx, uuid.UUID(event_id))
+    finally:
+        await engine.dispose()
+
+
+async def stalled_billing_events(settings: Settings, older_than_minutes: int) -> list[str]:
+    from app.modules.billing import webhooks
+
+    engine = create_async_engine(settings.database_url, poolclass=NullPool)
+    try:
+        async with async_sessionmaker(engine)() as db:
+            return [str(i) for i in await webhooks.events_to_requeue(db, older_than_minutes)]
+    finally:
+        await engine.dispose()
+
+
 async def stalled_jobs(settings: Settings, older_than_minutes: int) -> list[tuple[str, str, str]]:
     """(kind, id, organisation id) of scans and generations still pending after a while."""
     engine = create_async_engine(settings.database_url, poolclass=NullPool)
@@ -226,6 +263,8 @@ class JobRunner(Protocol):
 
     async def ai(self, organisation_id: uuid.UUID, job_id: uuid.UUID) -> None: ...
 
+    async def billing_event(self, event_id: uuid.UUID) -> None: ...
+
 
 class CeleryJobs:
     async def _send(self, name: str, *args: str) -> None:
@@ -242,6 +281,9 @@ class CeleryJobs:
     async def ai(self, organisation_id: uuid.UUID, job_id: uuid.UUID) -> None:
         await self._send(AI_TASK, str(organisation_id), str(job_id))
 
+    async def billing_event(self, event_id: uuid.UUID) -> None:
+        await self._send(BILLING_EVENT_TASK, str(event_id))
+
 
 class InlineJobs:
     def __init__(self, ctx: JobContext) -> None:
@@ -255,6 +297,12 @@ class InlineJobs:
 
     async def ai(self, organisation_id: uuid.UUID, job_id: uuid.UUID) -> None:
         await ai_job(self.ctx, organisation_id, job_id, final_attempt=True)
+
+    async def billing_event(self, event_id: uuid.UUID) -> None:
+        try:
+            await billing_event_job(self.ctx, event_id)
+        except RetryLater:
+            log.warning("stripe event failed", extra={"event_id": str(event_id)})
 
 
 def create_job_runner(settings: Settings, ctx: JobContext) -> JobRunner:

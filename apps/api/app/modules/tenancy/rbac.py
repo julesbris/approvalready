@@ -1,7 +1,8 @@
 """Role and permission catalogue.
 
 This is the source the 0002 migration seeded from (0004 added ``source.manage`` and
-``rule.author``, 0007 ``professional.verify`` and ``review.assign``);
+``rule.author``, 0007 ``professional.verify`` and ``review.assign``, 0013
+``billing.manage`` and ``billing.configure``);
 ``tests/test_audit_rbac.py`` asserts the database still matches it. Authorisation
 decisions read the database, so changing a mapping means a new migration, never just an
 edit here.
@@ -32,6 +33,7 @@ class Perm(StrEnum):
     ORG_MEMBERS_MANAGE = "org.members.manage"
     ORG_INVITATIONS_MANAGE = "org.invitations.manage"
     ORG_AUDIT_READ = "org.audit.read"
+    BILLING_MANAGE = "billing.manage"
     PROJECT_READ = "project.read"
     PROJECT_WRITE = "project.write"
     REVIEW_PERFORM = "review.perform"
@@ -43,6 +45,7 @@ class Perm(StrEnum):
     RULE_PUBLISH = "rule.publish"
     PROFESSIONAL_VERIFY = "professional.verify"
     REVIEW_ASSIGN = "review.assign"
+    BILLING_CONFIGURE = "billing.configure"
     PLATFORM_USERS_READ = "platform.users.read"
     PLATFORM_ORGANISATIONS_READ = "platform.organisations.read"
     PLATFORM_AUDIT_READ = "platform.audit.read"
@@ -56,6 +59,7 @@ PERMISSION_DESCRIPTIONS: dict[Perm, str] = {
     Perm.ORG_MEMBERS_MANAGE: "Change member roles and remove members",
     Perm.ORG_INVITATIONS_MANAGE: "Invite people to the organisation",
     Perm.ORG_AUDIT_READ: "View the organisation's audit log",
+    Perm.BILLING_MANAGE: "View billing, buy plans and manage payment details",
     Perm.PROJECT_READ: "View projects",
     Perm.PROJECT_WRITE: "Create and edit projects",
     Perm.REVIEW_PERFORM: "Perform professional reviews",
@@ -67,6 +71,7 @@ PERMISSION_DESCRIPTIONS: dict[Perm, str] = {
     Perm.RULE_PUBLISH: "Publish rule versions",
     Perm.PROFESSIONAL_VERIFY: "Verify professionals and their credentials",
     Perm.REVIEW_ASSIGN: "Assign professional reviews",
+    Perm.BILLING_CONFIGURE: "Set prices and view payment events (staff)",
     Perm.PLATFORM_USERS_READ: "View any user (staff)",
     Perm.PLATFORM_ORGANISATIONS_READ: "View any organisation (staff)",
     Perm.PLATFORM_AUDIT_READ: "View and verify the platform audit log",
@@ -80,6 +85,7 @@ _ORG_ADMIN = {
     Perm.ORG_MEMBERS_MANAGE,
     Perm.ORG_INVITATIONS_MANAGE,
     Perm.ORG_AUDIT_READ,
+    Perm.BILLING_MANAGE,
 }
 _PARTNER_USER = {Perm.ORG_READ, Perm.ORG_MEMBERS_READ, Perm.LEAD_READ, Perm.LEAD_CLAIM}
 _STAFF = {
@@ -93,7 +99,15 @@ _STAFF = {
     Perm.PROFESSIONAL_VERIFY,
     Perm.REVIEW_ASSIGN,
 }
-_ADMIN = _STAFF | _ORG_ADMIN | {Perm.PLATFORM_AUDIT_READ, Perm.RULE_PUBLISH}
+_ADMIN = (
+    _STAFF
+    | _ORG_ADMIN
+    | {
+        Perm.PLATFORM_AUDIT_READ,
+        Perm.RULE_PUBLISH,
+        Perm.BILLING_CONFIGURE,
+    }
+)
 
 
 ROLES: dict[RoleKey, tuple[str, str, tuple[K, ...], frozenset[Perm]]] = {

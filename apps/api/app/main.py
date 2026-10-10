@@ -23,6 +23,10 @@ from app.modules.ai.router import admin_router as ai_admin_router
 from app.modules.ai.router import router as ai_router
 from app.modules.ai.router import status_router as ai_status_router
 from app.modules.assessments.router import router as assessments_router
+from app.modules.billing.router import admin_router as billing_admin_router
+from app.modules.billing.router import router as billing_router
+from app.modules.billing.router import webhook_router as billing_webhook_router
+from app.modules.billing.stripe import StripeClient
 from app.modules.checklists.router import definitions_router as checklist_definitions_router
 from app.modules.checklists.router import router as checklists_router
 from app.modules.documents.router import router as documents_router
@@ -47,7 +51,9 @@ from app.modules.vessels.router import router as vessels_router
 
 
 def create_app(
-    settings: Settings | None = None, lookup_transport: httpx.AsyncBaseTransport | None = None
+    settings: Settings | None = None,
+    lookup_transport: httpx.AsyncBaseTransport | None = None,
+    stripe_transport: httpx.AsyncBaseTransport | None = None,
 ) -> FastAPI:
     settings = settings or get_settings()
     configure_logging(settings.log_level)
@@ -56,9 +62,14 @@ def create_app(
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         app.state.resources = create_resources(settings)
         app.state.lookups = Lookups(settings, lookup_transport)
+        app.state.stripe = (
+            StripeClient(settings, stripe_transport) if settings.payments_enabled else None
+        )
         try:
             yield
         finally:
+            if app.state.stripe is not None:
+                await app.state.stripe.aclose()
             await app.state.lookups.aclose()
             await app.state.resources.close()
 
@@ -115,6 +126,9 @@ def create_app(
     app.include_router(ai_status_router)
     app.include_router(ai_router)
     app.include_router(ai_admin_router)
+    app.include_router(billing_router)
+    app.include_router(billing_webhook_router)
+    app.include_router(billing_admin_router)
     return app
 
 

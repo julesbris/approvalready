@@ -23,6 +23,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.errors import ApiError, not_found
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
+from app.modules.billing import service as billing
 from app.modules.documents import service as documents
 from app.modules.notifications import reminders
 from app.modules.projects.models import Project, Vertical
@@ -49,6 +50,8 @@ APPLICATION_CHECKS: dict[str, str] = {
     "references": "Personal or employer references",
 }
 
+# The plan limit on how many rentals an organisation manages (billing catalogue).
+RENTAL_FEATURE = "rent.properties.max"
 LEASE_END_REMIND_DAYS = (60, 14)
 RENT_REVIEW_REMIND_DAYS = (70,)
 INSPECTION_REMIND_DAYS = (10, 1)
@@ -177,9 +180,30 @@ async def get_rental(db: AsyncSession, project: Project, *, lock: bool = False) 
     return (await db.execute(query)).scalar_one_or_none()
 
 
+async def rentals_in_use(db: AsyncSession, organisation_id: uuid.UUID) -> int:
+    """Rental properties the organisation manages (in projects not deleted)."""
+    return int(
+        (
+            await db.execute(
+                select(func.count())
+                .select_from(Rental)
+                .join(Project, Project.id == Rental.project_id)
+                .where(Rental.organisation_id == organisation_id, Project.deleted_at.is_(None))
+            )
+        ).scalar_one()
+    )
+
+
 async def ensure_rental(db: AsyncSession, project: Project, actor_id: uuid.UUID) -> Rental:
     rental = await get_rental(db, project, lock=True)
     if rental is None:
+        # Each rental counts towards the plan (RentReady Manage and Manage Plus lift it).
+        await billing.require_allowance(
+            db,
+            project.organisation_id,
+            RENTAL_FEATURE,
+            in_use=await rentals_in_use(db, project.organisation_id),
+        )
         rental = Rental(
             organisation_id=project.organisation_id, project_id=project.id, created_by=actor_id
         )

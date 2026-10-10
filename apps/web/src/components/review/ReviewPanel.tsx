@@ -1,12 +1,13 @@
 "use client";
 
-import type { ReviewOut, ReviewSummary } from "@approvalready/shared-types";
+import type { CheckoutOut, PriceOut, ReviewOut, ReviewSummary } from "@approvalready/shared-types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 
 import { useAction } from "@/components/admin/useAction";
 import { FormError } from "@/components/auth/FormStatus";
+import { formatMoney } from "@/lib/billing";
 import { type ApiResult, apiRequest } from "@/lib/client-api";
 import { formatDateTime } from "@/lib/labels";
 import { formatDate } from "@/lib/questionnaire";
@@ -23,6 +24,10 @@ type Props = {
   /** The project's open review, when it is about another assessment (one at a time). */
   openElsewhere: ReviewSummary | null;
   canWrite: boolean;
+  /** The price of a review, when reviews are paid for. */
+  price?: PriceOut | null;
+  /** Back from Stripe Checkout: "done" or "cancelled". */
+  paymentReturn?: string | null;
 };
 
 export function Conversation({
@@ -109,6 +114,7 @@ export function Decisions({ review }: { review: ReviewOut }) {
 /** The customer's side of professional review on an assessment page. */
 export function ReviewPanel(props: Props) {
   const { organisationId, projectId, assessmentId, isLatest, openElsewhere, canWrite } = props;
+  const { price = null, paymentReturn = null } = props;
   const router = useRouter();
   const [review, setReview] = useState(props.review);
   const [message, setMessage] = useState("");
@@ -123,14 +129,26 @@ export function ReviewPanel(props: Props) {
     return true;
   }
 
-  const request = (event: FormEvent) => {
+  /** Off to Stripe's checkout page; the review moves on once Stripe confirms payment. */
+  async function pay(reviewId: string): Promise<void> {
+    const data = await run(() =>
+      apiRequest<CheckoutOut>("POST", `${org}/reviews/${reviewId}/checkout`),
+    );
+    if (data) window.location.assign(data.url);
+  }
+
+  const request = async (event: FormEvent) => {
     event.preventDefault();
-    void act(() =>
+    const data = await run(() =>
       apiRequest<ReviewOut>("POST", `${org}/projects/${projectId}/reviews`, {
         assessment_id: assessmentId,
         message: message.trim() || null,
       }),
     );
+    if (!data) return;
+    setReview(data);
+    if (data.status === "PAYMENT_PENDING") await pay(data.id);
+    else router.refresh();
   };
 
   if (openElsewhere) {
@@ -188,7 +206,14 @@ export function ReviewPanel(props: Props) {
           Your reviewer will see your answers, this assessment, the files you attach as evidence
           and any files you choose to share with them. Nobody else outside your organisation will.
         </p>
-        <form className="form" onSubmit={request}>
+        {price ? (
+          <p>
+            A review costs <strong>{formatMoney(price.amount_cents, price.currency)}</strong>{" "}
+            (including GST), paid securely through Stripe. We assign your reviewer once the payment
+            is confirmed.
+          </p>
+        ) : null}
+        <form className="form" onSubmit={(e) => void request(e)}>
           <label>
             Anything you&apos;d like them to look at? (optional)
             <textarea
@@ -201,7 +226,7 @@ export function ReviewPanel(props: Props) {
           <FormError message={error} />
           <div className="button-row">
             <button type="submit" className="button" disabled={busy}>
-              Request a professional review
+              {price ? "Request and pay" : "Request a professional review"}
             </button>
           </div>
         </form>
@@ -210,6 +235,55 @@ export function ReviewPanel(props: Props) {
   }
 
   const open = isOpen(review.status);
+  if (review.status === "PAYMENT_PENDING") {
+    const amount = review.payment
+      ? formatMoney(review.payment.amount_cents, review.payment.currency)
+      : null;
+    return (
+      <section className="panel" aria-labelledby="review-title">
+        <h2 id="review-title" className="section-title">
+          Professional review
+        </h2>
+        <p>
+          <span className="status status-payment_pending">Waiting for payment</span>{" "}
+          {paymentReturn === "done"
+            ? "Thanks. We're confirming your payment with Stripe; this usually takes a few seconds."
+            : "Your review starts once it's paid for."}
+        </p>
+        {paymentReturn === "done" ? (
+          <p className="muted">Reload this page in a moment to see your review move on.</p>
+        ) : null}
+        {paymentReturn === "cancelled" ? (
+          <p className="notice">The payment wasn&apos;t completed. You can try again.</p>
+        ) : null}
+        <FormError message={error} />
+        {canWrite ? (
+          <div className="button-row">
+            <button
+              type="button"
+              className="button"
+              disabled={busy}
+              onClick={() => void pay(review.id)}
+            >
+              {amount ? `Pay ${amount}` : "Pay now"}
+            </button>
+            <button
+              type="button"
+              className="button-link"
+              disabled={busy}
+              onClick={() => {
+                if (window.confirm("Cancel this review request?")) {
+                  void act(() => apiRequest<ReviewOut>("POST", `${org}/reviews/${review.id}/cancel`));
+                }
+              }}
+            >
+              Cancel the request
+            </button>
+          </div>
+        ) : null}
+      </section>
+    );
+  }
   return (
     <section className="panel" aria-labelledby="review-title">
       <h2 id="review-title" className="section-title">

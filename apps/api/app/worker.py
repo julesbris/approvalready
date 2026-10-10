@@ -119,17 +119,36 @@ def run_ai_job(self: Any, organisation_id: str, job_id: str) -> str | None:
         raise self.retry(exc=exc, countdown=_countdown(self.request.retries)) from exc
 
 
+# --- Payments (Milestone 13) ------------------------------------------------------------
+
+# Applying a webhook only fails when the database is unavailable or on a bug; after about an
+# hour of retries the event stays FAILED and staff can retry it at /admin/billing.
+BILLING_EVENT_RETRIES = 8
+
+
+@celery_app.task(name=jobs.BILLING_EVENT_TASK, bind=True, max_retries=BILLING_EVENT_RETRIES)
+def process_billing_event(self: Any, event_id: str) -> str | None:
+    try:
+        return asyncio.run(jobs.run_billing_event(settings, event_id))
+    except jobs.RetryLater as exc:
+        raise self.retry(exc=exc, countdown=_countdown(self.request.retries)) from exc
+
+
 @celery_app.task(name="documents.requeue_stalled")
 def requeue_stalled() -> int:
-    """Re-queue scans, reports and AI drafts still pending well after their retries would
-    have run (for example when the queue was down at upload time). Jobs ignore finished
-    work."""
+    """Re-queue scans, reports, AI drafts and Stripe events still pending well after their
+    retries would have run (for example when the queue was down at upload time). Jobs
+    ignore finished work."""
     stalled = asyncio.run(jobs.stalled_jobs(settings, older_than_minutes=120))
     names = {"scan": jobs.SCAN_TASK, "generate": jobs.GENERATE_TASK, "ai": jobs.AI_TASK}
     for kind, target_id, organisation_id in stalled:
         name = names[kind]
         celery_app.send_task(name, args=[organisation_id, target_id])
-    return len(stalled)
+    # Stripe events still waiting (the queue was down) or failed with tries left.
+    events = asyncio.run(jobs.stalled_billing_events(settings, older_than_minutes=10))
+    for event_id in events:
+        celery_app.send_task(jobs.BILLING_EVENT_TASK, args=[event_id])
+    return len(stalled) + len(events)
 
 
 # --- Notifications (Milestone 11) ------------------------------------------------------

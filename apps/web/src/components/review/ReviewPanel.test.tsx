@@ -111,4 +111,49 @@ describe("ReviewPanel", () => {
       screen.getByRole("button", { name: "Send this assessment to your reviewer" }),
     ).toBeInTheDocument();
   });
+
+  it("shows the price and sends the customer to Stripe to pay", async () => {
+    const assign = vi.fn();
+    vi.stubGlobal("location", { ...window.location, assign });
+    const pending = {
+      ...REVIEW,
+      status: "PAYMENT_PENDING",
+      professional: null,
+      decisions: [],
+      payment: { id: "pay1", status: "PENDING", amount_cents: 24_900, currency: "AUD", paid_at: null },
+    };
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(Response.json(pending))
+      .mockResolvedValueOnce(Response.json({ url: "https://checkout.stripe.com/c/pay/cs_1" }));
+    vi.stubGlobal("fetch", fetchMock);
+    const price = {
+      id: "price1",
+      amount_cents: 24_900,
+      currency: "AUD",
+      interval: "ONE_TIME" as const,
+      active: true,
+      created_at: "2026-10-10T00:00:00Z",
+    };
+    render(<ReviewPanel {...props} review={null} price={price} />);
+    expect(screen.getByText("$249.00")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Request and pay" }));
+    await waitFor(() => expect(assign).toHaveBeenCalledWith("https://checkout.stripe.com/c/pay/cs_1"));
+    const [checkoutUrl] = fetchMock.mock.calls[1] as [string];
+    expect(checkoutUrl).toBe("/api/v1/organisations/o1/reviews/r1/checkout");
+  });
+
+  it("waits for a payment Stripe hasn't confirmed yet", () => {
+    const pending = {
+      ...REVIEW,
+      status: "PAYMENT_PENDING",
+      professional: null,
+      decisions: [],
+      payment: { id: "pay1", status: "PENDING", amount_cents: 9_900, currency: "AUD", paid_at: null },
+    } as ReviewOut;
+    render(<ReviewPanel {...props} review={pending} paymentReturn="done" />);
+    expect(screen.getByText(/confirming your payment/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Pay $99.00" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Cancel the request" })).toBeInTheDocument();
+  });
 });

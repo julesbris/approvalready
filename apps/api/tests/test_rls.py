@@ -101,6 +101,17 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "prompt_version": READ,
     "ai_job": WRITE,
     "ai_provider_log": APPEND,
+    # Milestone 13: the catalogue is reviewed data; prices and webhook events are platform
+    # rows whose fixed columns triggers protect; billing customers are never edited.
+    "product": READ,
+    "feature": READ,
+    "product_feature": READ,
+    "price": WRITE,
+    "stripe_event": WRITE,
+    "billing_customer": APPEND,
+    "payment": WRITE,
+    "subscription": WRITE,
+    "invoice_reference": WRITE,
     # Milestone 11
     "sale_project": WRITE,
     "sale_document": CRUD,

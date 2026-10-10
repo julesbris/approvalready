@@ -200,6 +200,34 @@ application notes" on grant matches. Every call is logged; staff with `platform.
 the migrate step, like report templates. Set `AI_PROVIDER=none` (or remove the key) to switch
 it off again; existing drafts stay visible to their owners only while it is on.
 
+### Payments (Milestone 13)
+
+Off by default: nothing is for sale and no plan limits apply. To switch Stripe on:
+
+1. In the Stripe dashboard (start in test mode), copy the secret key from Developers → API
+   keys.
+2. Developers → Webhooks → Add endpoint: `https://api.<PRIMARY_DOMAIN>/v1/billing/stripe/webhook`,
+   with the events listed at `/admin/billing` (checkout sessions, customer subscriptions,
+   invoices and `charge.refunded`). Copy its signing secret (`whsec_...`).
+3. Settings → Billing → Customer portal: turn it on (customers change cards, download
+   invoices and cancel plans there).
+4. Add to `.env` and redeploy:
+
+```bash
+PAYMENTS_PROVIDER=stripe
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+```
+
+5. Set prices at `/admin/billing` (platform ADMIN). A product without a price is not on sale.
+   Professional reviews then ask for payment before staff can assign them, and the
+   RentReady plans limit how many rentals a free account manages.
+
+Webhooks are verified (signature and a 5-minute timestamp window), stored once by event id
+and applied by the worker; the browser never decides what was paid. Refunds are made in the
+Stripe dashboard and come back by webhook. To go live, swap in the live secret key and a live
+webhook endpoint's secret.
+
 ## 8. Persistent volumes
 
 | Volume | Contents | Backed up |

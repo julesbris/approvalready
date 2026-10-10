@@ -54,6 +54,11 @@ class AIProviderKind(StrEnum):
     ANTHROPIC = "anthropic"  # Claude through the Anthropic API (needs ANTHROPIC_API_KEY)
 
 
+class PaymentsProviderKind(StrEnum):
+    NONE = "none"  # payments are switched off: nothing is for sale and no plan limits apply
+    STRIPE = "stripe"  # Stripe Checkout, the customer portal and signed webhooks
+
+
 class JobsMode(StrEnum):
     CELERY = "celery"  # background work goes to the worker
     INLINE = "inline"  # run straight after the request commits (tests, workerless development)
@@ -201,6 +206,17 @@ class Settings(BaseSettings):
     ai_output_price_per_mtok_usd: float = Field(default=20.0, ge=0)
     ai_jobs_per_user_per_hour: int = Field(default=20, ge=1)
 
+    # --- Payments (Milestone 13, app/modules/billing) ---
+    # Prices are data that staff set at /admin/billing; nothing is sold while this is "none".
+    payments_provider: PaymentsProviderKind = PaymentsProviderKind.NONE
+    stripe_secret_key: SecretStr | None = None
+    # The signing secret of the webhook endpoint (whsec_...), from the Stripe dashboard.
+    stripe_webhook_secret: SecretStr | None = None
+    stripe_api_base: str = "https://api.stripe.com"
+    stripe_timeout_seconds: float = Field(default=20.0, gt=0, le=60)
+    # Webhooks signed longer ago than this are refused (replay protection).
+    stripe_webhook_tolerance_seconds: int = Field(default=300, ge=30, le=3600)
+
     @field_validator(
         "storage_s3_bucket",
         "storage_s3_region",
@@ -208,6 +224,8 @@ class Settings(BaseSettings):
         "storage_s3_access_key_id",
         "storage_s3_secret_access_key",
         "anthropic_api_key",
+        "stripe_secret_key",
+        "stripe_webhook_secret",
         mode="before",
     )
     @classmethod
@@ -235,6 +253,14 @@ class Settings(BaseSettings):
     @property
     def trusted_hosts(self) -> list[str]:
         return list(dict.fromkeys([*self.allowed_hosts, *self.internal_hosts]))
+
+    @property
+    def payments_enabled(self) -> bool:
+        return (
+            self.payments_provider == PaymentsProviderKind.STRIPE
+            and self.stripe_secret_key is not None
+            and self.stripe_webhook_secret is not None
+        )
 
     @property
     def upload_max_bytes(self) -> int:
@@ -295,6 +321,13 @@ class Settings(BaseSettings):
             problems.append("AI_PROVIDER=mock writes canned text and is not allowed")
         if self.ai_provider == AIProviderKind.ANTHROPIC and not self.anthropic_api_key:
             problems.append("ANTHROPIC_API_KEY is required when AI_PROVIDER=anthropic")
+        if self.payments_provider == PaymentsProviderKind.STRIPE and not (
+            self.stripe_secret_key and self.stripe_webhook_secret
+        ):
+            problems.append(
+                "STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET are required when "
+                "PAYMENTS_PROVIDER=stripe"
+            )
         if problems:
             raise ValueError("Unsafe production configuration: " + "; ".join(problems))
         return self

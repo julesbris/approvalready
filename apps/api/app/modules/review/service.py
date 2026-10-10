@@ -2,6 +2,7 @@
 
 Workflow (``TRANSITIONS``)::
 
+    PAYMENT_PENDING -> REVIEW_REQUESTED (Stripe confirms the payment, when reviews are priced)
     REVIEW_REQUESTED -> ASSIGNED (staff) -> IN_REVIEW (reviewer starts)
     ASSIGNED -> REVIEW_REQUESTED (reviewer declines, or staff unassign)
     IN_REVIEW -> CHANGES_REQUIRED | APPROVED | COMPLETED (reviewer decides)
@@ -30,10 +31,13 @@ from sqlalchemy import select, text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.errors import ApiError, not_found
+from app.db.base import uuid7
 from app.db.tenant import bind_tenant
 from app.modules.assessments.models import Assessment, AssessmentFinding
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
+from app.modules.billing import service as billing
+from app.modules.billing.models import Payment, PaymentPurpose, Price, Product
 from app.modules.documents import service as documents
 from app.modules.documents.models import (
     Classification,
@@ -64,6 +68,7 @@ from app.modules.rules.models import Confidence
 from app.modules.tenancy import service as tenancy
 
 TRANSITIONS: dict[str, frozenset[str]] = {
+    RS.PAYMENT_PENDING: frozenset({RS.REVIEW_REQUESTED, RS.CANCELLED}),
     RS.REVIEW_REQUESTED: frozenset({RS.ASSIGNED, RS.CANCELLED}),
     RS.ASSIGNED: frozenset({RS.REVIEW_REQUESTED, RS.IN_REVIEW, RS.CANCELLED}),
     RS.IN_REVIEW: frozenset({RS.CHANGES_REQUIRED, RS.APPROVED, RS.COMPLETED, RS.CANCELLED}),
@@ -78,7 +83,11 @@ DECISION_STATUS = {
     Decision.COMPLETED: RS.COMPLETED,
 }
 # The reviewer can see the review once assigned, and keeps read access to their past reviews.
-REVIEWER_VISIBLE = frozenset(TRANSITIONS) - {RS.REVIEW_REQUESTED, RS.CANCELLED}
+REVIEWER_VISIBLE = frozenset(TRANSITIONS) - {
+    RS.PAYMENT_PENDING,
+    RS.REVIEW_REQUESTED,
+    RS.CANCELLED,
+}
 # The reviewer can talk and add tasks while the review is in their hands or the customer's.
 REVIEWER_ACTIVE = frozenset({RS.ASSIGNED, RS.IN_REVIEW, RS.CHANGES_REQUIRED})
 
@@ -153,6 +162,7 @@ class ReviewView:
     comments: list[CommentRow]
     overrides: list[OverrideRow]
     decisions: list[ReviewDecision]
+    payment: Payment | None = None
 
 
 async def _names(db: AsyncSession, ids: set[uuid.UUID | None]) -> dict[uuid.UUID, str]:
@@ -262,6 +272,7 @@ async def build_view(db: AsyncSession, review: ReviewRequest) -> ReviewView:
         [CommentRow(c, names.get(c.author_id) if c.author_id else None) for c in comments],
         overrides,
         decisions,
+        await db.get(Payment, review.payment_id) if review.payment_id else None,
     )
 
 
@@ -364,7 +375,10 @@ async def request_review(
     message: str | None,
     actor_id: uuid.UUID,
     meta: RequestMeta | None,
+    price: tuple[Product, Price] | None = None,
 ) -> ReviewRequest:
+    """Ask for a review. When reviews of this vertical have a price, the request waits for
+    payment (``PAYMENT_PENDING``) and goes to staff only once Stripe confirms it."""
     if project.status == ProjectStatus.ARCHIVED:
         raise _conflict("project_archived", "Move this project back into progress first.")
     await _require_latest(db, project, assessment_id)
@@ -377,12 +391,27 @@ async def request_review(
     ).scalar_one_or_none()
     if open_review is not None:
         raise _conflict("review_open", "This project already has a review under way.")
+    review_id = uuid7()
+    payment = None
+    if price is not None:
+        payment = await billing.start_payment(
+            db,
+            organisation_id=project.organisation_id,
+            purpose=PaymentPurpose.REVIEW,
+            product=price[0],
+            price=price[1],
+            subject_type="review_request",
+            subject_id=review_id,
+            actor_id=actor_id,
+        )
     review = ReviewRequest(
+        id=review_id,
         organisation_id=project.organisation_id,
         project_id=project.id,
         assessment_id=assessment_id,
-        status=RS.REVIEW_REQUESTED,
+        status=RS.REVIEW_REQUESTED if payment is None else RS.PAYMENT_PENDING,
         message=message,
+        payment_id=payment.id if payment else None,
         created_by=actor_id,
     )
     db.add(review)
@@ -393,10 +422,50 @@ async def request_review(
         review,
         actor_id=actor_id,
         meta=meta,
-        details={"project_id": str(project.id), "assessment_id": str(assessment_id)},
+        details={"project_id": str(project.id), "assessment_id": str(assessment_id)}
+        | ({"payment_id": str(payment.id)} if payment else {}),
     )
-    await projects.mark_in_review(db, project, actor_id=actor_id, meta=meta)
+    if payment is None:
+        await projects.mark_in_review(db, project, actor_id=actor_id, meta=meta)
     return review
+
+
+async def payment_received(db: AsyncSession, payment: Payment) -> None:
+    """Stripe confirmed a review's payment (webhook, organisation bound): send it to staff."""
+    review = (
+        await db.execute(
+            select(ReviewRequest)
+            .where(
+                ReviewRequest.organisation_id == payment.organisation_id,
+                ReviewRequest.id == payment.subject_id,
+            )
+            .with_for_update()
+        )
+    ).scalar_one_or_none()
+    if review is None or review.status != RS.PAYMENT_PENDING:
+        # Cancelled before the payment went through: staff refund it in Stripe.
+        await audit.record(
+            db,
+            "review.paid_but_not_waiting",
+            organisation_id=payment.organisation_id,
+            target_type="payment",
+            target_id=payment.id,
+            details={"review_status": review.status if review else None},
+        )
+        return
+    _move(review, RS.REVIEW_REQUESTED)
+    await db.flush()
+    await audit.record(
+        db,
+        "review.paid",
+        organisation_id=review.organisation_id,
+        target_type="review_request",
+        target_id=review.id,
+        details={"payment_id": str(payment.id)},
+    )
+    project = await db.get(Project, review.project_id)
+    if project is not None and project.deleted_at is None:
+        await projects.mark_in_review(db, project, actor_id=review.created_by, meta=None)
 
 
 async def _close(
@@ -410,13 +479,20 @@ async def _close(
 
 async def cancel(
     db: AsyncSession, review: ReviewRequest, *, actor_id: uuid.UUID, meta: RequestMeta | None
-) -> None:
+) -> Payment | None:
+    """Cancel the review. Returns its payment when that was still waiting (now cancelled),
+    so the caller can close the checkout page at Stripe."""
     previous = _move(review, RS.CANCELLED)
+    unpaid = None
+    if previous == RS.PAYMENT_PENDING and review.payment_id is not None:
+        unpaid = await billing.get_payment(db, review.organisation_id, review.payment_id, lock=True)
+        await billing.cancel_payment(db, unpaid)
     await _close(db, review, actor_id=actor_id, meta=meta)
     await db.flush()
     await _audit(
         db, "review.cancelled", review, actor_id=actor_id, meta=meta, details={"from": previous}
     )
+    return unpaid
 
 
 async def resubmit(

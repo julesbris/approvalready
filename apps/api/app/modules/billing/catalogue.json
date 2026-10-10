@@ -1,0 +1,70 @@
+{
+  "notes": "What can be sold and which limits each plan lifts. Prices are not here: staff set them at /admin/billing, and nothing is on sale until they do. Removing a product or feature deactivates it (rows are never deleted, so old payments keep their product).",
+  "features": [
+    {
+      "key": "rent.properties.max",
+      "description": "Rental properties managed in RentReady",
+      "default_limit": 1
+    }
+  ],
+  "products": [
+    {
+      "key": "review.planning",
+      "kind": "REVIEW",
+      "vertical": "PLANNING",
+      "name": "Professional review: planning",
+      "description": "A qualified professional, such as a town planner, checks one planning assessment, corrects what doesn't fit and tells you what to do next."
+    },
+    {
+      "key": "review.vessel",
+      "kind": "REVIEW",
+      "vertical": "VESSEL",
+      "name": "Professional review: vessel",
+      "description": "A qualified professional, such as a marine surveyor, checks one vessel assessment and tells you what to do next."
+    },
+    {
+      "key": "review.business",
+      "kind": "REVIEW",
+      "vertical": "BUSINESS",
+      "name": "Professional review: business approvals",
+      "description": "A qualified professional checks one business approval map and tells you what to do next."
+    },
+    {
+      "key": "review.grant",
+      "kind": "REVIEW",
+      "vertical": "GRANT",
+      "name": "Professional review: grants",
+      "description": "A grant professional checks one grant eligibility assessment and tells you what to do next."
+    },
+    {
+      "key": "review.sell",
+      "kind": "REVIEW",
+      "vertical": "SELL",
+      "name": "Professional review: selling",
+      "description": "A qualified professional checks one sale assessment and tells you what to do next."
+    },
+    {
+      "key": "review.rent",
+      "kind": "REVIEW",
+      "vertical": "RENT",
+      "name": "Professional review: renting",
+      "description": "A qualified professional checks one rental assessment and tells you what to do next."
+    },
+    {
+      "key": "rent.manage",
+      "kind": "SAAS",
+      "vertical": "RENT",
+      "name": "RentReady Manage",
+      "description": "Manage up to 10 rental properties: listings, applications, tenancies, inspections and reminders.",
+      "features": {"rent.properties.max": 10}
+    },
+    {
+      "key": "rent.manage_plus",
+      "kind": "SAAS",
+      "vertical": "RENT",
+      "name": "RentReady Manage Plus",
+      "description": "Manage any number of rental properties.",
+      "features": {"rent.properties.max": null}
+    }
+  ]
+}

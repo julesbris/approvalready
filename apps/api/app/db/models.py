@@ -3,6 +3,7 @@
 from app.modules.ai import models as ai_models  # noqa: F401
 from app.modules.assessments import models as assessments_models  # noqa: F401
 from app.modules.audit import models as audit_models  # noqa: F401
+from app.modules.billing import models as billing_models  # noqa: F401
 from app.modules.checklists import models as checklists_models  # noqa: F401
 from app.modules.documents import models as documents_models  # noqa: F401
 from app.modules.entities import models as entities_models  # noqa: F401
