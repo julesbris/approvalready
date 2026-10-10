@@ -341,7 +341,7 @@ async def disable(
             status.HTTP_400_BAD_REQUEST, "invalid_credentials", "Your password is incorrect."
         )
     await check_code(db, settings, limiter, user, code, meta)
-    await _remove(db, user.id)
+    await remove(db, user.id)
     await audit.record(
         db,
         "auth.mfa.disabled",
@@ -353,7 +353,7 @@ async def disable(
     return emails.mfa_disabled(settings, user.email, user.display_name)
 
 
-async def _remove(db: AsyncSession, user_id: uuid.UUID) -> None:
+async def remove(db: AsyncSession, user_id: uuid.UUID) -> None:
     await db.execute(delete(MfaRecoveryCode).where(MfaRecoveryCode.user_id == user_id))
     await db.execute(delete(MfaTotp).where(MfaTotp.user_id == user_id))
 
@@ -388,7 +388,7 @@ async def reset_for_user(db: AsyncSession, user: AppUser, meta: RequestMeta) -> 
     from app.modules.identity import service as identity
 
     had = await get_totp(db, user.id) is not None
-    await _remove(db, user.id)
+    await remove(db, user.id)
     revoked = await identity.revoke_all_sessions(db, user.id, "mfa_reset")
     await audit.record(
         db,

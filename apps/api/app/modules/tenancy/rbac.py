@@ -3,7 +3,7 @@
 This is the source the 0002 migration seeded from (0004 added ``source.manage`` and
 ``rule.author``, 0007 ``professional.verify`` and ``review.assign``, 0013
 ``billing.manage`` and ``billing.configure``, 0014 ``partner.manage`` and
-``partner.verify``, 0015 ``lead.manage``);
+``partner.verify``, 0015 ``lead.manage``, 0018 ``privacy.manage``);
 ``tests/test_audit_rbac.py`` asserts the database still matches it. Authorisation
 decisions read the database, so changing a mapping means a new migration, never just an
 edit here.
@@ -50,6 +50,7 @@ class Perm(StrEnum):
     PARTNER_MANAGE = "partner.manage"
     PARTNER_VERIFY = "partner.verify"
     LEAD_MANAGE = "lead.manage"
+    PRIVACY_MANAGE = "privacy.manage"
     PLATFORM_USERS_READ = "platform.users.read"
     PLATFORM_ORGANISATIONS_READ = "platform.organisations.read"
     PLATFORM_AUDIT_READ = "platform.audit.read"
@@ -79,6 +80,7 @@ PERMISSION_DESCRIPTIONS: dict[Perm, str] = {
     Perm.PARTNER_MANAGE: "Edit the partner profile, categories, service areas and credentials",
     Perm.PARTNER_VERIFY: "Verify partners, their categories and credentials (staff)",
     Perm.LEAD_MANAGE: "Set lead prices, give credits and refund lead fees (staff)",
+    Perm.PRIVACY_MANAGE: "Read and answer privacy requests (staff)",
     Perm.PLATFORM_USERS_READ: "View any user (staff)",
     Perm.PLATFORM_ORGANISATIONS_READ: "View any organisation (staff)",
     Perm.PLATFORM_AUDIT_READ: "View and verify the platform audit log",
@@ -115,6 +117,7 @@ _ADMIN = (
         Perm.RULE_PUBLISH,
         Perm.BILLING_CONFIGURE,
         Perm.LEAD_MANAGE,
+        Perm.PRIVACY_MANAGE,
     }
 )
 

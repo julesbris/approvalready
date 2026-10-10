@@ -277,7 +277,12 @@ async def pwned_client(migrated: None) -> AsyncIterator[httpx.AsyncClient]:
 
 
 async def test_breached_passwords_are_refused(pwned_client: httpx.AsyncClient) -> None:
-    body = {"email": "pwned@example.com", "password": "password123456", "display_name": "P"}
+    body = {
+        "email": "pwned@example.com",
+        "password": "password123456",
+        "display_name": "P",
+        "accept_terms": True,
+    }
     r = await pwned_client.post("/v1/auth/register", json=body)
     assert r.status_code == 422
     assert r.json()["detail"]["code"] == "breached_password"
@@ -290,7 +295,12 @@ async def test_breach_check_fails_open(migrated: None) -> None:
         make_settings(password_breach_check=True), breach_transport=_pwned_api(set(), fail=True)
     )
     async for client in _client_for(app):
-        body = {"email": "open@example.com", "password": "password123456", "display_name": "O"}
+        body = {
+            "email": "open@example.com",
+            "password": "password123456",
+            "display_name": "O",
+            "accept_terms": True,
+        }
         assert (await client.post("/v1/auth/register", json=body)).status_code == 202
 
 

@@ -39,6 +39,8 @@ from app.modules.identity.models import (
     TokenPurpose,
     UserStatus,
 )
+from app.modules.privacy import acceptance
+from app.modules.privacy.models import PolicyDocument
 from app.modules.tenancy import service as tenancy
 from app.modules.tenancy.models import OrganisationKind
 
@@ -193,8 +195,16 @@ async def register(
     display_name: str,
     meta: RequestMeta,
     breach: BreachChecker | None = None,
+    accept_terms: bool = False,
 ) -> OutgoingEmail:
-    """Create the user and their PERSONAL organisation. Returns the email to send."""
+    """Create the user and their PERSONAL organisation, recording their agreement to the
+    current Terms of Use and Privacy Policy. Returns the email to send."""
+    if not accept_terms:
+        raise ApiError(
+            status.HTTP_422_UNPROCESSABLE_CONTENT,
+            "terms_not_accepted",
+            "Agree to the Terms of Use and Privacy Policy to create an account.",
+        )
     email = normalise_email(email)
     validate_password(settings, password, email)
     await ensure_not_breached(breach, password)
@@ -217,6 +227,7 @@ async def register(
     await tenancy.create_organisation(
         db, creator=user, kind=OrganisationKind.PERSONAL, name=user.display_name, meta=meta
     )
+    await acceptance.record_acceptance(db, user.id, list(PolicyDocument), meta)
     token = await issue_token(
         db,
         user.id,

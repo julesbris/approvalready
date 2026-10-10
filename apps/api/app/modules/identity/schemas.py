@@ -6,11 +6,15 @@ from typing import Literal
 
 from pydantic import BaseModel, EmailStr, Field
 
+from app.modules.privacy.schemas import PolicyOut
+
 
 class RegisterRequest(BaseModel):
     email: EmailStr
     password: str = Field(max_length=256)
     display_name: str = Field(min_length=1, max_length=120)
+    # Agreement to the current Terms of Use and Privacy Policy (Milestone 19); required.
+    accept_terms: bool = False
 
 
 class EmailRequest(BaseModel):
@@ -75,6 +79,9 @@ class SessionOut(BaseModel):
     # The active organisation is the platform's, but staff pages stay closed until the user
     # turns on two-step sign-in and signs in with it (``permissions`` is empty meanwhile).
     staff_mfa_required: bool = False
+    # Current Terms of Use / Privacy Policy versions this user hasn't agreed to yet
+    # (Milestone 19). The web app asks for agreement while this is not empty.
+    policies_to_accept: list[PolicyOut] = Field(default_factory=list)
 
 
 class MfaChallengeOut(BaseModel):

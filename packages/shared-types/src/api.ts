@@ -535,6 +535,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/privacy/requests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Privacy Requests */
+        get: operations["list_privacy_requests_v1_admin_privacy_requests_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/privacy/requests/{request_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Privacy Request */
+        patch: operations["update_privacy_request_v1_admin_privacy_requests__request_id__patch"];
+        trace?: never;
+    };
     "/v1/admin/professionals": {
         parameters: {
             query?: never;
@@ -1087,6 +1121,46 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/auth/account/close": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Close My Account
+         * @description Close the account. Signs out everywhere; can't be undone.
+         */
+        post: operations["close_my_account_v1_auth_account_close_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/account/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Export My Data
+         * @description Everything held about this account and its personal workspace, as a JSON file.
+         */
+        get: operations["export_my_data_v1_auth_account_export_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/auth/login": {
         parameters: {
             query?: never;
@@ -1314,6 +1388,27 @@ export interface paths {
         put?: never;
         /** Request Password Reset */
         post: operations["request_password_reset_v1_auth_password_reset_request_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/policies/accept": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Accept Policies
+         * @description Agree to the current versions of the named documents. Returns what is still
+         *     outstanding.
+         */
+        post: operations["accept_policies_v1_auth_policies_accept_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -3584,6 +3679,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/privacy/requests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Create Privacy Request
+         * @description Ask about, correct or delete personal information, or make a privacy complaint.
+         */
+        post: operations["create_privacy_request_v1_privacy_requests_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/professional/profile": {
         parameters: {
             query?: never;
@@ -3998,6 +4113,11 @@ export interface components {
             status: string;
             /** Task */
             task: string;
+        };
+        /** AcceptPoliciesRequest */
+        AcceptPoliciesRequest: {
+            /** Documents */
+            documents: components["schemas"]["PolicyDocument"][];
         };
         /**
          * Accepted
@@ -5064,6 +5184,13 @@ export interface components {
          * @enum {string}
          */
         Classification: "PRIVATE" | "SHARED_WITH_REVIEWER" | "RELEASED_TO_PARTNER";
+        /** CloseAccountRequest */
+        CloseAccountRequest: {
+            /** Code */
+            code?: string | null;
+            /** Password */
+            password: string;
+        };
         /** CommentIn */
         CommentIn: {
             /** Body */
@@ -7783,6 +7910,21 @@ export interface components {
              */
             price_id: string;
         };
+        /**
+         * PolicyDocument
+         * @enum {string}
+         */
+        PolicyDocument: "terms" | "privacy";
+        /** PolicyOut */
+        PolicyOut: {
+            document: components["schemas"]["PolicyDocument"];
+            /** Path */
+            path: string;
+            /** Title */
+            title: string;
+            /** Version */
+            version: string;
+        };
         /** PrefillOut */
         PrefillOut: {
             /**
@@ -7864,6 +8006,91 @@ export interface components {
             interval: components["schemas"]["PriceInterval"];
             /** Stripe Price Id */
             stripe_price_id?: string | null;
+        };
+        /** PrivacyRequestCreated */
+        PrivacyRequestCreated: {
+            /**
+             * Due At
+             * Format: date-time
+             */
+            due_at: string;
+            /** Reference */
+            reference: string;
+        };
+        /** PrivacyRequestIn */
+        PrivacyRequestIn: {
+            /** Details */
+            details: string;
+            /**
+             * Email
+             * Format: email
+             */
+            email: string;
+            kind: components["schemas"]["PrivacyRequestKind"];
+            /** Name */
+            name: string;
+        };
+        /**
+         * PrivacyRequestKind
+         * @enum {string}
+         */
+        PrivacyRequestKind: "ACCESS" | "CORRECTION" | "DELETION" | "COMPLAINT" | "OTHER";
+        /** PrivacyRequestOut */
+        PrivacyRequestOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Details */
+            details: string;
+            /**
+             * Due At
+             * Format: date-time
+             */
+            due_at: string;
+            /** Email */
+            email: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            kind: components["schemas"]["PrivacyRequestKind"];
+            /** Name */
+            name: string;
+            /**
+             * Overdue
+             * @description Still open past the 30-day answer date.
+             */
+            readonly overdue: boolean;
+            /** Resolution Note */
+            resolution_note: string | null;
+            /** Resolved At */
+            resolved_at: string | null;
+            source: components["schemas"]["PrivacyRequestSource"];
+            status: components["schemas"]["PrivacyRequestStatus"];
+            /** User Id */
+            user_id: string | null;
+        };
+        /**
+         * PrivacyRequestSource
+         * @enum {string}
+         */
+        PrivacyRequestSource: "CONTACT_FORM" | "ACCOUNT_CLOSED";
+        /**
+         * PrivacyRequestStatus
+         * @enum {string}
+         */
+        PrivacyRequestStatus: "OPEN" | "DONE" | "DECLINED";
+        /** PrivacyRequestUpdate */
+        PrivacyRequestUpdate: {
+            /**
+             * Note
+             * @default
+             */
+            note: string;
+            status: components["schemas"]["PrivacyRequestStatus"];
         };
         /**
          * ProductKind
@@ -8485,6 +8712,11 @@ export interface components {
         };
         /** RegisterRequest */
         RegisterRequest: {
+            /**
+             * Accept Terms
+             * @default false
+             */
+            accept_terms: boolean;
             /** Display Name */
             display_name: string;
             /**
@@ -9329,6 +9561,8 @@ export interface components {
             organisations: components["schemas"]["MembershipOut"][];
             /** Permissions */
             permissions: string[];
+            /** Policies To Accept */
+            policies_to_accept?: components["schemas"]["PolicyOut"][];
             /**
              * Staff Mfa Required
              * @default false
@@ -11470,6 +11704,72 @@ export interface operations {
             };
         };
     };
+    list_privacy_requests_v1_admin_privacy_requests_get: {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["PrivacyRequestStatus"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrivacyRequestOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_privacy_request_v1_admin_privacy_requests__request_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                request_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrivacyRequestUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrivacyRequestOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_professionals_v1_admin_professionals_get: {
         parameters: {
             query?: {
@@ -12756,6 +13056,57 @@ export interface operations {
             };
         };
     };
+    close_my_account_v1_auth_account_close_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CloseAccountRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    export_my_data_v1_auth_account_export_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
     login_v1_auth_login_post: {
         parameters: {
             query?: never;
@@ -13096,6 +13447,39 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["Accepted"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    accept_policies_v1_auth_policies_accept_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AcceptPoliciesRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PolicyOut"][];
                 };
             };
             /** @description Validation Error */
@@ -18523,6 +18907,39 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PartnerOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_privacy_request_v1_privacy_requests_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PrivacyRequestIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrivacyRequestCreated"];
                 };
             };
             /** @description Validation Error */

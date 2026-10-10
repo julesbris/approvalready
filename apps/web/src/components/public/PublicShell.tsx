@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { SiteFooter } from "@/components/public/SiteFooter";
 import { defaultBrand } from "@/lib/brand";
 
 /** Header and footer for public, statically generated pages. */
@@ -20,12 +21,7 @@ export function PublicShell({ children }: { children: ReactNode }) {
         </div>
       </header>
       <main className="container">{children}</main>
-      <footer className="site-footer">
-        <div className="container">
-          {brand.productName} provides information and preparation tools. It is not legal,
-          financial or planning advice.
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

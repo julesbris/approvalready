@@ -47,6 +47,8 @@ from app.modules.identity.schemas import (
     TokenRequest,
     UserOut,
 )
+from app.modules.privacy import acceptance
+from app.modules.privacy.schemas import PolicyOut
 from app.modules.tenancy import service as tenancy
 
 router = APIRouter(prefix="/v1/auth", tags=["auth"])
@@ -97,6 +99,10 @@ async def _session_out(
         expires_at=session.expires_at,
         idle_expires_at=session.idle_expires_at,
         staff_mfa_required=staff_mfa_required,
+        policies_to_accept=[
+            PolicyOut(document=p.document, title=p.title, path=p.path, version=p.version)
+            for p in await acceptance.outstanding(db, user.id)
+        ],
     )
 
 
@@ -131,6 +137,7 @@ async def register(
         display_name=body.display_name,
         meta=meta,
         breach=breach,
+        accept_terms=body.accept_terms,
     )
     await db.commit()
     await _send_capped(limiter, limits, resources, message)

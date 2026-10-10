@@ -10,6 +10,8 @@ Each check reads one signal and says ``OK``, ``WARNING`` (shown at ``/admin/ops`
 * ``restore_check``: the latest weekly restore check succeeded.
 * ``offsite``: the latest backup was copied off the server (when that is set up).
 * ``disk``: free space on the disk holding the database, uploads and backups.
+* ``privacy``: privacy requests waiting for an answer (Milestone 19); failing once one is
+  past the 30 days the Australian Privacy Principles expect.
 
 The checks never include customer data: counts, sizes, times and error text only.
 """
@@ -25,11 +27,12 @@ from pathlib import Path
 from typing import cast
 
 from redis.asyncio import Redis
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import Settings
 from app.modules.ops.models import BackupKind, BackupRun, BackupStatus, OffsiteStatus
+from app.modules.privacy.models import PrivacyRequest, PrivacyRequestStatus
 
 HEARTBEAT_KEY = "ops:heartbeat"
 CELERY_QUEUE = "default"  # task_default_queue in app.worker
@@ -216,6 +219,39 @@ def disk_check(path: str) -> Check:
     return Check("disk", label, CheckState.OK, detail)
 
 
+def privacy_check(open_count: int, overdue: int, next_due: datetime | None) -> Check:
+    label = "Privacy requests"
+    if open_count == 0 or next_due is None:
+        return Check("privacy", label, CheckState.OK, "No privacy requests waiting.")
+    if overdue:
+        return Check(
+            "privacy",
+            label,
+            CheckState.FAILING,
+            f"{overdue} privacy request(s) are past their 30-day answer date. Answer them at "
+            "/admin/privacy.",
+        )
+    return Check(
+        "privacy",
+        label,
+        CheckState.WARNING,
+        f"{open_count} privacy request(s) waiting; the next is due {next_due.date().isoformat()}.",
+    )
+
+
+async def privacy_summary(db: AsyncSession, now: datetime) -> tuple[int, int, datetime | None]:
+    open_count, overdue, next_due = (
+        await db.execute(
+            select(
+                func.count(),
+                func.count().filter(PrivacyRequest.due_at < now),
+                func.min(PrivacyRequest.due_at),
+            ).where(PrivacyRequest.status == PrivacyRequestStatus.OPEN)
+        )
+    ).one()
+    return int(open_count), int(overdue), next_due
+
+
 async def latest_run(
     db: AsyncSession, kind: BackupKind, *, ok_only: bool = False
 ) -> BackupRun | None:
@@ -254,4 +290,5 @@ async def collect(db: AsyncSession, redis: Redis, settings: Settings, now: datet
         restore_check(restore, now),
         offsite_check(latest_good, settings, now),
         disk_check(settings.storage_local_root),
+        privacy_check(*await privacy_summary(db, now)),
     ]

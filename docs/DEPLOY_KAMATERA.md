@@ -274,6 +274,18 @@ down the check is skipped). Every API route is limited per IP address
 (`API_REQUESTS_PER_IP_PER_MINUTE`, 600, and `API_WRITES_PER_IP_PER_MINUTE`, 120); a 429 in
 the logs from one address is that limit.
 
+### Privacy requests and closed accounts (Milestone 19)
+
+The site now has Terms of Use, a Privacy Policy and a contact page (links in every page's
+footer). People can download their data and close their account from **Account**. Requests
+from the contact page, and every closed account, appear at **Admin > Privacy**; each must be
+answered within 30 days. Set `OPS_ALERT_EMAILS` in `.env` to get an email when one arrives;
+**Admin > Operations** warns while any are open and alerts once one is overdue.
+
+For a closed account, delete the personal workspace's projects and files (keep payment
+records), email the person at the address shown, and mark the request done. Existing users are
+asked once to agree to the Terms and Privacy Policy when they next use the app.
+
 ## 8. Persistent volumes
 
 | Volume | Contents | Backed up |

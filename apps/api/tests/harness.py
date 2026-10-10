@@ -108,7 +108,12 @@ class ApiHarness:
         email = email or unique_email()
         r = await self.client.post(
             "/v1/auth/register",
-            json={"email": email, "password": password, "display_name": name},
+            json={
+                "email": email,
+                "password": password,
+                "display_name": name,
+                "accept_terms": True,
+            },
         )
         assert r.status_code == 202, r.text
         return email

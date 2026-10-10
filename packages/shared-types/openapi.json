@@ -249,6 +249,24 @@
         "title": "AIUsageRowOut",
         "type": "object"
       },
+      "AcceptPoliciesRequest": {
+        "properties": {
+          "documents": {
+            "items": {
+              "$ref": "#/components/schemas/PolicyDocument"
+            },
+            "maxItems": 2,
+            "minItems": 1,
+            "title": "Documents",
+            "type": "array"
+          }
+        },
+        "required": [
+          "documents"
+        ],
+        "title": "AcceptPoliciesRequest",
+        "type": "object"
+      },
       "Accepted": {
         "description": "Same response whether or not the address is registered (no account enumeration).",
         "properties": {
@@ -3341,6 +3359,32 @@
         ],
         "title": "Classification",
         "type": "string"
+      },
+      "CloseAccountRequest": {
+        "properties": {
+          "code": {
+            "anyOf": [
+              {
+                "maxLength": 64,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code"
+          },
+          "password": {
+            "maxLength": 256,
+            "title": "Password",
+            "type": "string"
+          }
+        },
+        "required": [
+          "password"
+        ],
+        "title": "CloseAccountRequest",
+        "type": "object"
       },
       "CommentIn": {
         "properties": {
@@ -11123,6 +11167,41 @@
         "title": "PlanCheckoutIn",
         "type": "object"
       },
+      "PolicyDocument": {
+        "enum": [
+          "terms",
+          "privacy"
+        ],
+        "title": "PolicyDocument",
+        "type": "string"
+      },
+      "PolicyOut": {
+        "properties": {
+          "document": {
+            "$ref": "#/components/schemas/PolicyDocument"
+          },
+          "path": {
+            "title": "Path",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "document",
+          "title",
+          "path",
+          "version"
+        ],
+        "title": "PolicyOut",
+        "type": "object"
+      },
       "PrefillOut": {
         "properties": {
           "provider": {
@@ -11301,6 +11380,201 @@
           "created_at"
         ],
         "title": "PriceOut",
+        "type": "object"
+      },
+      "PrivacyRequestCreated": {
+        "properties": {
+          "due_at": {
+            "format": "date-time",
+            "title": "Due At",
+            "type": "string"
+          },
+          "reference": {
+            "title": "Reference",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reference",
+          "due_at"
+        ],
+        "title": "PrivacyRequestCreated",
+        "type": "object"
+      },
+      "PrivacyRequestIn": {
+        "properties": {
+          "details": {
+            "maxLength": 4000,
+            "minLength": 10,
+            "title": "Details",
+            "type": "string"
+          },
+          "email": {
+            "format": "email",
+            "title": "Email",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/PrivacyRequestKind"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "kind",
+          "details"
+        ],
+        "title": "PrivacyRequestIn",
+        "type": "object"
+      },
+      "PrivacyRequestKind": {
+        "enum": [
+          "ACCESS",
+          "CORRECTION",
+          "DELETION",
+          "COMPLAINT",
+          "OTHER"
+        ],
+        "title": "PrivacyRequestKind",
+        "type": "string"
+      },
+      "PrivacyRequestOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "details": {
+            "title": "Details",
+            "type": "string"
+          },
+          "due_at": {
+            "format": "date-time",
+            "title": "Due At",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/PrivacyRequestKind"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "overdue": {
+            "description": "Still open past the 30-day answer date.",
+            "readOnly": true,
+            "title": "Overdue",
+            "type": "boolean"
+          },
+          "resolution_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolution Note"
+          },
+          "resolved_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Resolved At"
+          },
+          "source": {
+            "$ref": "#/components/schemas/PrivacyRequestSource"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PrivacyRequestStatus"
+          },
+          "user_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Id"
+          }
+        },
+        "required": [
+          "id",
+          "user_id",
+          "name",
+          "email",
+          "kind",
+          "source",
+          "details",
+          "status",
+          "created_at",
+          "due_at",
+          "resolved_at",
+          "resolution_note",
+          "overdue"
+        ],
+        "title": "PrivacyRequestOut",
+        "type": "object"
+      },
+      "PrivacyRequestSource": {
+        "enum": [
+          "CONTACT_FORM",
+          "ACCOUNT_CLOSED"
+        ],
+        "title": "PrivacyRequestSource",
+        "type": "string"
+      },
+      "PrivacyRequestStatus": {
+        "enum": [
+          "OPEN",
+          "DONE",
+          "DECLINED"
+        ],
+        "title": "PrivacyRequestStatus",
+        "type": "string"
+      },
+      "PrivacyRequestUpdate": {
+        "properties": {
+          "note": {
+            "default": "",
+            "maxLength": 4000,
+            "title": "Note",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PrivacyRequestStatus"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "PrivacyRequestUpdate",
         "type": "object"
       },
       "ProductKind": {
@@ -13034,6 +13308,11 @@
       },
       "RegisterRequest": {
         "properties": {
+          "accept_terms": {
+            "default": false,
+            "title": "Accept Terms",
+            "type": "boolean"
+          },
           "display_name": {
             "maxLength": 120,
             "minLength": 1,
@@ -15600,6 +15879,13 @@
               "type": "string"
             },
             "title": "Permissions",
+            "type": "array"
+          },
+          "policies_to_accept": {
+            "items": {
+              "$ref": "#/components/schemas/PolicyOut"
+            },
+            "title": "Policies To Accept",
             "type": "array"
           },
           "staff_mfa_required": {
@@ -20707,6 +20993,112 @@
         ]
       }
     },
+    "/v1/admin/privacy/requests": {
+      "get": {
+        "operationId": "list_privacy_requests_v1_admin_privacy_requests_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/PrivacyRequestStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PrivacyRequestOut"
+                  },
+                  "title": "Response List Privacy Requests V1 Admin Privacy Requests Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Privacy Requests",
+        "tags": [
+          "admin: privacy"
+        ]
+      }
+    },
+    "/v1/admin/privacy/requests/{request_id}": {
+      "patch": {
+        "operationId": "update_privacy_request_v1_admin_privacy_requests__request_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "request_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Request Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrivacyRequestUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrivacyRequestOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Privacy Request",
+        "tags": [
+          "admin: privacy"
+        ]
+      }
+    },
     "/v1/admin/professionals": {
       "get": {
         "operationId": "list_professionals_v1_admin_professionals_get",
@@ -22623,6 +23015,61 @@
         ]
       }
     },
+    "/v1/auth/account/close": {
+      "post": {
+        "description": "Close the account. Signs out everywhere; can't be undone.",
+        "operationId": "close_my_account_v1_auth_account_close_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloseAccountRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Close My Account",
+        "tags": [
+          "account"
+        ]
+      }
+    },
+    "/v1/auth/account/export": {
+      "get": {
+        "description": "Everything held about this account and its personal workspace, as a JSON file.",
+        "operationId": "export_my_data_v1_auth_account_export_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Export My Data",
+        "tags": [
+          "account"
+        ]
+      }
+    },
     "/v1/auth/login": {
       "post": {
         "description": "Check the password. With two-step sign-in on, the answer is ``mfa_required`` and a\nshort-lived challenge cookie instead of a session: send a code to ``/login/mfa``.",
@@ -23054,6 +23501,52 @@
         "summary": "Request Password Reset",
         "tags": [
           "auth"
+        ]
+      }
+    },
+    "/v1/auth/policies/accept": {
+      "post": {
+        "description": "Agree to the current versions of the named documents. Returns what is still\noutstanding.",
+        "operationId": "accept_policies_v1_auth_policies_accept_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptPoliciesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PolicyOut"
+                  },
+                  "title": "Response Accept Policies V1 Auth Policies Accept Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Accept Policies",
+        "tags": [
+          "account"
         ]
       }
     },
@@ -31994,6 +32487,48 @@
         "summary": "Apply",
         "tags": [
           "partners"
+        ]
+      }
+    },
+    "/v1/privacy/requests": {
+      "post": {
+        "description": "Ask about, correct or delete personal information, or make a privacy complaint.",
+        "operationId": "create_privacy_request_v1_privacy_requests_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrivacyRequestIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrivacyRequestCreated"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Privacy Request",
+        "tags": [
+          "privacy"
         ]
       }
     },

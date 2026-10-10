@@ -248,3 +248,9 @@ export type CheckState = Schemas["CheckState"];
 export type CheckOut = Schemas["CheckOut"];
 export type BackupRunOut = Schemas["BackupRunOut"];
 export type OpsStatusOut = Schemas["OpsStatusOut"];
+
+export type PolicyOut = Schemas["PolicyOut"];
+export type PrivacyRequestOut = Schemas["PrivacyRequestOut"];
+export type PrivacyRequestCreated = Schemas["PrivacyRequestCreated"];
+export type PrivacyRequestKind = Schemas["PrivacyRequestKind"];
+export type PrivacyRequestStatus = Schemas["PrivacyRequestStatus"];
