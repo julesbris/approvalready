@@ -80,7 +80,7 @@ export default function HomePage() {
 
         <section className="section" aria-labelledby="products-title">
           <div className="container">
-            <p className="eyebrow">One platform, six areas</p>
+            <p className="eyebrow">One platform for every approval</p>
             <h2 id="products-title" className="section-heading">
               Start with the question you have
             </h2>
