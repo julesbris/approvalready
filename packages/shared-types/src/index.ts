@@ -140,3 +140,24 @@ export type AddressMatchOut = Schemas["AddressMatchOut"];
 export type AddressSearchOut = Schemas["AddressSearchOut"];
 export type ParcelOut = Schemas["ParcelOut"];
 export type VesselLookupOut = Schemas["VesselLookupOut"];
+
+// PropertyReady (Milestone 11)
+export type SaleOut = Schemas["SaleOut"];
+export type SaleStatus = Schemas["SaleStatus"];
+export type DisclosureOut = Schemas["DisclosureOut"];
+export type SaleDocumentOut = Schemas["SaleDocumentOut"];
+export type VaultCategory = Schemas["VaultCategory"];
+export type OfferOut = Schemas["OfferOut"];
+export type OfferStatus = Schemas["OfferStatus"];
+export type EnquiryOut = Schemas["EnquiryOut"];
+export type RentalOut = Schemas["RentalOut"];
+export type ApplicationOut = Schemas["ApplicationOut"];
+export type TenancyOut = Schemas["TenancyOut"];
+export type InspectionOut = Schemas["InspectionOut"];
+export type InspectionDetailOut = Schemas["InspectionDetailOut"];
+export type InspectionItemOut = Schemas["InspectionItemOut"];
+export type ItemCondition = Schemas["ItemCondition"];
+export type MaintenanceOut = Schemas["MaintenanceOut"];
+export type NotificationOut = Schemas["NotificationOut"];
+export type NotificationListOut = Schemas["NotificationListOut"];
+export type CrossSellOut = Schemas["CrossSellOut"];

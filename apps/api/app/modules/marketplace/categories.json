@@ -24,6 +24,9 @@
     {"key": "marine_safety_consultant", "label": "Marine safety consultant", "description": "Helps operators of commercial vessels write and maintain their safety management system and prepare for AMSA applications.", "verticals": ["VESSEL"], "requires_credential": false, "restricted": false},
     {"key": "maritime_trainer", "label": "Maritime training provider", "description": "Trains crew towards maritime certificates of competency and licences.", "verticals": ["VESSEL"], "requires_credential": true, "restricted": false},
     {"key": "conveyancer", "label": "Conveyancer", "description": "Handles the legal transfer of property.", "verticals": ["SELL"], "requires_credential": true, "restricted": true},
-    {"key": "grant_writer", "label": "Grant writer", "description": "Prepares grant applications.", "verticals": ["GRANT"], "requires_credential": false, "restricted": false}
+    {"key": "grant_writer", "label": "Grant writer", "description": "Prepares grant applications.", "verticals": ["GRANT"], "requires_credential": false, "restricted": false},
+    {"key": "property_manager", "label": "Property manager", "description": "Manages residential tenancies for owners: agreements, bonds, inspections, repairs and notices.", "verticals": ["RENT", "SELL"], "requires_credential": true, "restricted": false},
+    {"key": "pool_safety_inspector", "label": "Pool safety inspector", "description": "Inspects pool barriers and issues pool safety certificates.", "verticals": ["SELL", "RENT"], "requires_credential": true, "restricted": false},
+    {"key": "smoke_alarm_technician", "label": "Smoke alarm technician", "description": "Checks, tests and replaces smoke alarms against the current standard (hardwired alarms need a licensed electrician).", "verticals": ["SELL", "RENT"], "requires_credential": false, "restricted": false}
   ]
 }

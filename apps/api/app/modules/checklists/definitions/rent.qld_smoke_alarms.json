@@ -1,0 +1,57 @@
+{
+  "key": "rent.qld_smoke_alarms",
+  "vertical": "RENT",
+  "title": "Smoke alarms in a Queensland rental",
+  "description": "Smoke alarm checks for a leased Queensland dwelling. Summarised from Queensland Fire Department and RTA pages.",
+  "sources": [
+    {
+      "title": "Smoke Alarm Reforms",
+      "organisation": "Queensland Fire Department",
+      "url": "https://www.fire.qld.gov.au/about-us/corporate-knowledge-centre/qfdlegislation/smoke-alarm-reforms"
+    },
+    {
+      "title": "Smoke alarms",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/during-a-tenancy/maintenance/smoke-alarms"
+    }
+  ],
+  "items": [
+    {
+      "key": "type",
+      "title": "Photoelectric alarms to AS 3786-2014, with no ionisation alarms"
+    },
+    {
+      "key": "interconnected",
+      "title": "All required alarms interconnected so they sound together"
+    },
+    {
+      "key": "power",
+      "title": "Hardwired, or powered by a non-removable 10-year battery"
+    },
+    {
+      "key": "age",
+      "title": "Each alarm less than 10 years past its manufacture date"
+    },
+    {
+      "key": "locations",
+      "title": "An alarm in every bedroom, in hallways connecting bedrooms and on every storey"
+    },
+    {
+      "key": "test_before_tenancy",
+      "title": "Test and clean the alarms within 30 days before each tenancy starts or is renewed"
+    },
+    {
+      "key": "batteries",
+      "title": "Replace flat or nearly flat batteries within 30 days before each tenancy starts or is renewed"
+    },
+    {
+      "key": "instructions",
+      "title": "Give the tenant the manufacturer's instructions",
+      "required": false
+    },
+    {
+      "key": "entry_notice",
+      "title": "Give 48 hours' notice to enter for smoke alarm work"
+    }
+  ]
+}

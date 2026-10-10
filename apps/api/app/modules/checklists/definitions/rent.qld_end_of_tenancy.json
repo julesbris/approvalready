@@ -1,0 +1,50 @@
+{
+  "key": "rent.qld_end_of_tenancy",
+  "vertical": "RENT",
+  "title": "Ending a Queensland tenancy",
+  "description": "Closing out a general tenancy in Queensland: the exit condition report and the bond refund. Summarised from RTA pages.",
+  "sources": [
+    {
+      "title": "Exit condition report",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/ending-a-tenancy/vacating-a-property/exit-condition-report"
+    },
+    {
+      "title": "Bond refunds",
+      "organisation": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/ending-a-tenancy/bond-refunds"
+    }
+  ],
+  "items": [
+    {
+      "key": "exit_report",
+      "title": "Have the tenant complete the Exit condition report (Form 14a), ideally together"
+    },
+    {
+      "key": "compare",
+      "title": "Compare it with the entry condition report, allowing for fair wear and tear"
+    },
+    {
+      "key": "send_copy",
+      "title": "Add your comments, sign and send the tenant a copy within three business days"
+    },
+    {
+      "key": "keep_reports",
+      "title": "Keep the entry and exit reports for at least a year after the tenancy ends"
+    },
+    {
+      "key": "bond_refund",
+      "title": "Apply for the bond refund through the RTA (Form 4)"
+    },
+    {
+      "key": "claim_evidence",
+      "title": "If you claim against the bond, give the tenant your evidence within 14 days",
+      "required": false
+    },
+    {
+      "key": "disputes",
+      "title": "If the claim is disputed, respond through the RTA's dispute resolution process",
+      "required": false
+    }
+  ]
+}

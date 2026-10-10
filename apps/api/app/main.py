@@ -29,13 +29,16 @@ from app.modules.identity.router import router as auth_router
 from app.modules.lookups.router import router as lookups_router
 from app.modules.lookups.service import Lookups
 from app.modules.marketplace.router import router as marketplace_router
+from app.modules.notifications.router import router as notifications_router
 from app.modules.projects.router import router as projects_router
 from app.modules.questionnaires.router import router as questionnaires_router
 from app.modules.regulatory.router import router as sources_router
+from app.modules.rentals.router import router as rentals_router
 from app.modules.review.router import admin_router as review_admin_router
 from app.modules.review.router import customer_router as review_customer_router
 from app.modules.review.router import professional_router
 from app.modules.rules.router import router as rules_router
+from app.modules.sales.router import router as sales_router
 from app.modules.tenancy.router import router as tenancy_router
 from app.modules.vessels.router import router as vessels_router
 
@@ -100,6 +103,9 @@ def create_app(
     app.include_router(vessels_router)
     app.include_router(grants_router)
     app.include_router(lookups_router)
+    app.include_router(sales_router)
+    app.include_router(rentals_router)
+    app.include_router(notifications_router)
     app.include_router(review_customer_router)
     app.include_router(professional_router)
     app.include_router(review_admin_router)

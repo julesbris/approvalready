@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { OrgSwitcher } from "@/components/app/OrgSwitcher";
+import { NotificationBell } from "@/components/notifications/NotificationBell";
 import { defaultBrand } from "@/lib/brand";
 
 /** Platform staff working in the platform organisation (display only; the API decides). */
@@ -31,6 +32,9 @@ export function AppShell({
             <Link href="/projects">Projects</Link>
             {session.permissions.includes("review.perform") ? (
               <Link href="/review">Reviews</Link>
+            ) : null}
+            {session.active_organisation_id ? (
+              <NotificationBell organisationId={session.active_organisation_id} />
             ) : null}
             <Link href="/account">Account</Link>
             {isStaff(session) ? <Link href="/admin">Admin</Link> : null}

@@ -69,9 +69,12 @@ describe("ProjectWorkspace", () => {
     expect(JSON.parse(init.body as string)).toEqual({ status: "IN_PROGRESS" });
   });
 
-  it("is honest that reminder delivery isn't switched on yet", () => {
+  it("says where reminders arrive", () => {
     renderWorkspace();
-    expect(screen.getByText(/don.t rely on them for deadlines yet/)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "notifications" })).toHaveAttribute(
+      "href",
+      "/notifications",
+    );
   });
 
   it("adds a task", async () => {

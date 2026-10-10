@@ -22,7 +22,7 @@ export const config = {
     {
       // Keep in sync with NONCE_CSP_PATHS in src/lib/csp.ts (matchers must be literals).
       source:
-        "/(login|register|verify-email|forgot-password|reset-password|account|invitations|projects|admin|review)(.*)",
+        "/(login|register|verify-email|forgot-password|reset-password|account|invitations|projects|admin|review|notifications)(.*)",
       missing: [
         { type: "header", key: "next-router-prefetch" },
         { type: "header", key: "purpose", value: "prefetch" },

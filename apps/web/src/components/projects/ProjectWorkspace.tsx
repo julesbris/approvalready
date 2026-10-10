@@ -309,6 +309,36 @@ export function ProjectWorkspace(props: Props) {
         ) : null}
       </section>
 
+      {project.vertical === "SELL" ? (
+        <section className="panel" aria-labelledby="sale-panel-title">
+          <h2 id="sale-panel-title" className="section-title">
+            Your sale
+          </h2>
+          <p className="muted">
+            Track the sale from preparing to settlement: the document vault, disclosure to
+            buyers, offers and enquiries.
+          </p>
+          <Link className="button button-secondary" href={`/projects/${project.id}/sale`}>
+            Open the sale
+          </Link>
+        </section>
+      ) : null}
+
+      {project.vertical === "RENT" ? (
+        <section className="panel" aria-labelledby="rental-panel-title">
+          <h2 id="rental-panel-title" className="section-title">
+            Your rental
+          </h2>
+          <p className="muted">
+            The listing, applications, tenancies, inspections on your phone, and repairs, with
+            reminders for bonds, lease ends and rent reviews.
+          </p>
+          <Link className="button button-secondary" href={`/projects/${project.id}/rental`}>
+            Open the rental
+          </Link>
+        </section>
+      ) : null}
+
       {project.vertical === "VESSEL" ? (
         <section className="panel" aria-labelledby="sms-panel-title">
           <h2 id="sms-panel-title" className="section-title">
@@ -416,9 +446,9 @@ export function ProjectWorkspace(props: Props) {
         <h2 id="reminders-title" className="section-title">
           Reminders
         </h2>
-        <p className="notice">
-          Reminders are saved now. Sending them by email is switched on in a later update, so
-          don&apos;t rely on them for deadlines yet.
+        <p className="muted">
+          Reminders arrive in your <Link href="/notifications">notifications</Link> and by email
+          at the time you choose. Dates in a sale or rental add their own reminders.
         </p>
         {scheduled.length === 0 ? <p className="muted">No reminders scheduled.</p> : null}
         <ul className="task-list">
@@ -432,7 +462,8 @@ export function ProjectWorkspace(props: Props) {
                   ? ` · for ${memberName(reminder.recipient_user_id)}`
                   : ""}
               </span>
-              {canWrite ? (
+              {reminder.source_key ? <span className="badge">Automatic</span> : null}
+              {canWrite && !reminder.source_key ? (
                 <button
                   type="button"
                   className="button-link"
