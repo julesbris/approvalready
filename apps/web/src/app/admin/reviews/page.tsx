@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AdminNav } from "@/components/admin/AdminNav";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { verticalName } from "@/lib/labels";
 import { formatDate } from "@/lib/questionnaire";
 import { REVIEW_STATUS_LABELS } from "@/lib/review";
@@ -16,7 +16,7 @@ export default async function AdminReviewsPage() {
   if (!session.permissions.includes("review.assign")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="professional reviews" />
+        <AdminNoAccess what="professional reviews" session={session} />
       </AppShell>
     );
   }

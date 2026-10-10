@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { AdminNav } from "@/components/admin/AdminNav";
 import { NewRuleForm, RuleSetScopeForm, verticalName } from "@/components/admin/RuleForms";
-import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default async function RuleSetPage({ params }: { params: Promise<{ ruleSe
   if (!session.permissions.includes("rule.author")) {
     return (
       <AppShell session={session}>
-        <NoAccess what="rule authoring" />
+        <AdminNoAccess what="rule authoring" session={session} />
       </AppShell>
     );
   }
