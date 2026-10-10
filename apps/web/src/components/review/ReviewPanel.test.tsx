@@ -26,6 +26,7 @@ const REVIEW: ReviewOut = {
   started_at: "2026-10-09T00:00:00Z",
   closed_at: null,
   created_at: "2026-10-09T00:00:00Z",
+  cancel_refund_cents: 0,
   comments: [],
   overrides: [],
   decisions: [
@@ -120,7 +121,15 @@ describe("ReviewPanel", () => {
       status: "PAYMENT_PENDING",
       professional: null,
       decisions: [],
-      payment: { id: "pay1", status: "PENDING", amount_cents: 24_900, currency: "AUD", paid_at: null },
+      payment: {
+        id: "pay1",
+        status: "PENDING",
+        amount_cents: 24_900,
+        currency: "AUD",
+        paid_at: null,
+        refunded_cents: 0,
+        refunds: [],
+      },
     };
     const fetchMock = vi
       .fn()
@@ -149,11 +158,48 @@ describe("ReviewPanel", () => {
       status: "PAYMENT_PENDING",
       professional: null,
       decisions: [],
-      payment: { id: "pay1", status: "PENDING", amount_cents: 9_900, currency: "AUD", paid_at: null },
+      payment: {
+        id: "pay1",
+        status: "PENDING",
+        amount_cents: 9_900,
+        currency: "AUD",
+        paid_at: null,
+        refunded_cents: 0,
+        refunds: [],
+      },
     } as ReviewOut;
     render(<ReviewPanel {...props} review={pending} paymentReturn="done" />);
     expect(screen.getByText(/confirming your payment/)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Pay $99.00" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Cancel the request" })).toBeInTheDocument();
+  });
+
+  it("shows the refund on a cancelled review", () => {
+    const cancelled = {
+      ...REVIEW,
+      status: "CANCELLED",
+      payment: {
+        id: "pay1",
+        status: "REFUNDED",
+        amount_cents: 24_900,
+        currency: "AUD",
+        paid_at: "2026-10-09T00:00:00Z",
+        refunded_cents: 24_900,
+        refunds: [
+          {
+            id: "re1",
+            amount_cents: 24_900,
+            currency: "AUD",
+            reason: "REVIEW_CANCELLED",
+            status: "SUCCEEDED",
+            created_at: "2026-10-10T00:00:00Z",
+            sent_at: "2026-10-10T00:00:00Z",
+          },
+        ],
+      },
+    } as ReviewOut;
+    render(<ReviewPanel {...props} review={cancelled} />);
+    expect(screen.getByText(/Refunded \$249\.00/)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Cancel the review" })).not.toBeInTheDocument();
   });
 });

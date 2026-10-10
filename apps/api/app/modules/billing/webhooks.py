@@ -10,7 +10,8 @@ only this server creates), binds that organisation and applies the event:
 * ``checkout.session.async_payment_failed``: the payment failed.
 * ``customer.subscription.*``: the plan's status, period and cancellation, as Stripe says.
 * ``invoice.*``: the invoice's number, amounts, status and links.
-* ``charge.refunded``: the payment is marked refunded (refunds are made in Stripe).
+* ``charge.refunded``: the payment is marked refunded, with Stripe's running total (refunds
+  sent from here, Milestone 22, and any made in the Stripe dashboard).
 
 Events can arrive out of order: subscription and invoice rows remember the time of the
 event last applied, and an older event is skipped.
@@ -30,7 +31,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.tenant import bind_tenant
 from app.modules.audit import service as audit
-from app.modules.billing import service
+from app.modules.billing import refunds, service
 from app.modules.billing.models import (
     EventStatus,
     InvoiceReference,
@@ -313,15 +314,9 @@ async def _refunded(db: AsyncSession, org: uuid.UUID, obj: dict[str, Any], at: d
     ).scalar_one_or_none()
     if payment is None:
         return EventStatus.IGNORED  # e.g. a subscription invoice's charge
-    refunded = min(int(obj.get("amount_refunded") or 0), payment.amount_cents)
-    if refunded <= payment.refunded_cents:
+    refunded = int(obj.get("amount_refunded") or 0)
+    if not refunds.apply_refunded(payment, refunded):
         return EventStatus.PROCESSED
-    payment.refunded_cents = refunded
-    payment.status = (
-        PaymentStatus.REFUNDED
-        if refunded >= payment.amount_cents
-        else PaymentStatus.PARTIALLY_REFUNDED
-    )
     await db.flush()
     await audit.record(
         db,
@@ -329,7 +324,7 @@ async def _refunded(db: AsyncSession, org: uuid.UUID, obj: dict[str, Any], at: d
         organisation_id=org,
         target_type="payment",
         target_id=payment.id,
-        details={"refunded_cents": refunded},
+        details={"refunded_cents": payment.refunded_cents},
     )
     return EventStatus.PROCESSED
 

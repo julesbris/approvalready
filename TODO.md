@@ -138,7 +138,8 @@ tests and updated docs before the next starts.
 - [x] Entitlements: plan limits with a 7-day past-due grace; RentReady free accounts manage 1 rental, Manage 10, Manage Plus unlimited (enforced only while a plan is on sale)
 - [x] Paid professional reviews (moved from Milestone 7): `PAYMENT_PENDING` until Stripe confirms, then staff assign
 - [x] Customer billing page (plan, usage, payments, invoices) and staff billing page (prices, webhook events)
-- [ ] Next: automatic refunds when a paid review is cancelled; plan switching in the app; coupons and trials; one-off purchases of reports
+- [x] Built in Milestone 22: automatic refunds when a paid review is cancelled before work starts
+- [ ] Next: plan switching in the app; coupons and trials; one-off purchases of reports
 
 ## Milestone 14 — Partner accounts, subscriptions, dashboard ✅
 - [x] Partner application + staff verification, categories, service areas, credentials (`VERIFIED` folded into `ACTIVE`; see ARCHITECTURE §6)
@@ -166,6 +167,13 @@ tests and updated docs before the next starts.
 - [x] Kamatera go-live (approvalready.au, 2026-10-10)
 - [x] Browser (Playwright) end-to-end tests: the partner journey from Milestone 15, and a CSP check
 - [ ] Next: choose the backup bucket (see backlog: object storage vendor) and set `BACKUP_S3_*`; set `OPS_ALERT_EMAILS` and an external uptime monitor; WAL archiving for point-in-time recovery once a day's loss matters; more browser journeys (customer questionnaire, professional review, billing)
+
+## Milestone 22 — Refunds for paid reviews ✅
+- [x] Cancelling a paid review before a reviewer starts refunds it in full through Stripe; the customer is told before cancelling and emailed when it is on its way
+- [x] A payment that arrives after the review was cancelled is refunded in full
+- [x] Staff (`billing.refund`) refund part or all of a review with a reason, e.g. after work started; failed refunds alert staff
+- [x] `refund` table (migration 0021): recorded before sending, idempotent retries, worker sweep for refunds left pending
+- [ ] Next: refunds for other one-off products once any are sold; claw back lead credit when a credit-pack payment is refunded (Milestone 15 next)
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)

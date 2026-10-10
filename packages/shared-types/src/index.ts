@@ -189,6 +189,13 @@ export type CheckoutOut = Schemas["CheckoutOut"];
 export type StripeEventOut = Schemas["StripeEventOut"];
 export type ReviewPaymentOut = Schemas["ReviewPaymentOut"];
 
+// Refunds (Milestone 22)
+export type RefundOut = Schemas["RefundOut"];
+export type StaffRefundOut = Schemas["StaffRefundOut"];
+export type StaffPaymentOut = Schemas["StaffPaymentOut"];
+export type RefundReason = RefundOut["reason"];
+export type RefundStatus = RefundOut["status"];
+
 // Partner accounts (Milestone 14)
 export type PartnerOut = Schemas["PartnerOut"];
 export type StaffPartnerOut = Schemas["StaffPartnerOut"];

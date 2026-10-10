@@ -25,6 +25,14 @@ export default async function AdminReviewsPage() {
       "/admin/reviews?status=REVIEW_REQUESTED&status=ASSIGNED&status=IN_REVIEW&status=CHANGES_REQUIRED",
     ),
   );
+  // Closed reviews stay reachable, e.g. to refund one (newest first, the latest 50).
+  const closed = orNotFound(
+    await serverGet<QueueItemOut[]>(
+      "/admin/reviews?status=CANCELLED&status=APPROVED&status=COMPLETED",
+    ),
+  )
+    .sort((a, b) => b.created_at.localeCompare(a.created_at))
+    .slice(0, 50);
   return (
     <AppShell session={session}>
       <AdminNav current="reviews" />
@@ -50,6 +58,24 @@ export default async function AdminReviewsPage() {
           ))}
         </ul>
       )}
+      {closed.length > 0 ? (
+        <>
+          <h2 className="section-title">Closed reviews</h2>
+          <ul className="card-list" aria-label="Closed reviews">
+            {closed.map((r) => (
+              <li key={r.id} className="card">
+                <Link className="card-title" href={`/admin/reviews/${r.id}`}>
+                  {r.project_title} ({r.project_reference})
+                </Link>
+                <div className="muted">
+                  {verticalName(r.vertical)} · requested {formatDate(r.created_at.slice(0, 10))}
+                </div>
+                <span className="status">{REVIEW_STATUS_LABELS[r.status]}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
     </AppShell>
   );
 }

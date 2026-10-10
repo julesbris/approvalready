@@ -17,6 +17,7 @@ from app.core.config import Settings
 from app.core.email import EmailProvider, create_email_provider
 
 if TYPE_CHECKING:
+    from app.modules.billing.stripe import StripeClient
     from app.modules.documents.jobs import JobRunner
     from app.modules.documents.storage import ObjectStorage
 
@@ -35,7 +36,7 @@ class Resources:
         await self.engine.dispose()
 
 
-def create_resources(settings: Settings) -> Resources:
+def create_resources(settings: Settings, stripe: StripeClient | None = None) -> Resources:
     engine = create_async_engine(
         settings.database_url,
         pool_size=settings.database_pool_size,
@@ -56,7 +57,7 @@ def create_resources(settings: Settings) -> Resources:
     storage = create_storage(settings)
     email = create_email_provider(settings)
     jobs = create_job_runner(
-        settings, create_job_context(settings, session_factory, storage, email)
+        settings, create_job_context(settings, session_factory, storage, email, stripe)
     )
     return Resources(
         engine=engine,

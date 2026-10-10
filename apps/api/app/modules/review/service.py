@@ -9,6 +9,10 @@ Workflow (``TRANSITIONS``)::
     CHANGES_REQUIRED -> IN_REVIEW (customer resubmits, optionally with a newer assessment)
     any open status -> CANCELLED (customer)
 
+Refunds (Milestone 22): cancelling a paid review before the reviewer starts work
+(``REFUND_ON_CANCEL``) refunds it in full; once work has started, staff decide. A payment
+that arrives after the review was cancelled is refunded in full.
+
 How a reviewer reaches a customer's rows. Review rows belong to the customer's organisation
 and are protected by row-level security like every tenant row. A reviewer is not a member of
 that organisation, so their requests resolve the review's organisation through
@@ -22,7 +26,7 @@ files the customer shared.
 from __future__ import annotations
 
 import uuid
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import UTC, date, datetime
 from typing import Any
 
@@ -36,8 +40,16 @@ from app.db.tenant import bind_tenant
 from app.modules.assessments.models import Assessment, AssessmentFinding
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
+from app.modules.billing import refunds
 from app.modules.billing import service as billing
-from app.modules.billing.models import Payment, PaymentPurpose, Price, Product
+from app.modules.billing.models import (
+    Payment,
+    PaymentPurpose,
+    Price,
+    Product,
+    Refund,
+    RefundReason,
+)
 from app.modules.documents import service as documents
 from app.modules.documents.models import (
     Classification,
@@ -88,6 +100,8 @@ REVIEWER_VISIBLE = frozenset(TRANSITIONS) - {
     RS.REVIEW_REQUESTED,
     RS.CANCELLED,
 }
+# Cancelling a paid review in these statuses refunds it in full: no reviewer has started.
+REFUND_ON_CANCEL = frozenset({RS.REVIEW_REQUESTED, RS.ASSIGNED})
 # The reviewer can talk and add tasks while the review is in their hands or the customer's.
 REVIEWER_ACTIVE = frozenset({RS.ASSIGNED, RS.IN_REVIEW, RS.CHANGES_REQUIRED})
 
@@ -163,6 +177,9 @@ class ReviewView:
     overrides: list[OverrideRow]
     decisions: list[ReviewDecision]
     payment: Payment | None = None
+    refunds: list[Refund] = field(default_factory=list)
+    # What cancelling now would refund (the customer is told before cancelling).
+    cancel_refund_cents: int = 0
 
 
 async def _names(db: AsyncSession, ids: set[uuid.UUID | None]) -> dict[uuid.UUID, str]:
@@ -273,6 +290,8 @@ async def build_view(db: AsyncSession, review: ReviewRequest) -> ReviewView:
         overrides,
         decisions,
         await db.get(Payment, review.payment_id) if review.payment_id else None,
+        await refunds.for_payment(db, review.payment_id) if review.payment_id else [],
+        await cancel_refund_cents(db, review),
     )
 
 
@@ -443,7 +462,6 @@ async def payment_received(db: AsyncSession, payment: Payment) -> None:
         )
     ).scalar_one_or_none()
     if review is None or review.status != RS.PAYMENT_PENDING:
-        # Cancelled before the payment went through: staff refund it in Stripe.
         await audit.record(
             db,
             "review.paid_but_not_waiting",
@@ -452,6 +470,11 @@ async def payment_received(db: AsyncSession, payment: Payment) -> None:
             target_id=payment.id,
             details={"review_status": review.status if review else None},
         )
+        if review is not None and review.status == RS.CANCELLED:
+            # Paid on a checkout page left open after cancelling: give it all back.
+            await refunds.request(
+                db, payment, reason=RefundReason.PAID_AFTER_CANCEL, actor_id=None, meta=None
+            )
         return
     _move(review, RS.REVIEW_REQUESTED)
     await db.flush()
@@ -477,22 +500,86 @@ async def _close(
     await projects.end_review(db, project, actor_id=actor_id, meta=meta)
 
 
+@dataclass(frozen=True)
+class Cancelled:
+    # The payment, when it was still waiting (now cancelled): close its checkout page.
+    unpaid: Payment | None
+    # The refund, when the review was paid for and no reviewer had started: send it.
+    refund: Refund | None
+
+
+async def cancel_refund_cents(db: AsyncSession, review: ReviewRequest) -> int:
+    """What cancelling the review now would refund."""
+    if review.status not in REFUND_ON_CANCEL or review.payment_id is None:
+        return 0
+    payment = await billing.get_payment(db, review.organisation_id, review.payment_id)
+    return await refunds.refundable_cents(db, payment)
+
+
 async def cancel(
     db: AsyncSession, review: ReviewRequest, *, actor_id: uuid.UUID, meta: RequestMeta | None
-) -> Payment | None:
-    """Cancel the review. Returns its payment when that was still waiting (now cancelled),
-    so the caller can close the checkout page at Stripe."""
+) -> Cancelled:
+    """Cancel the review: an unpaid payment is cancelled, a paid one refunded in full when
+    no reviewer has started."""
     previous = _move(review, RS.CANCELLED)
-    unpaid = None
-    if previous == RS.PAYMENT_PENDING and review.payment_id is not None:
+    unpaid = refund = None
+    if review.payment_id is not None and previous == RS.PAYMENT_PENDING:
         unpaid = await billing.get_payment(db, review.organisation_id, review.payment_id, lock=True)
         await billing.cancel_payment(db, unpaid)
+    elif review.payment_id is not None and previous in REFUND_ON_CANCEL:
+        payment = await billing.get_payment(
+            db, review.organisation_id, review.payment_id, lock=True
+        )
+        if await refunds.refundable_cents(db, payment) > 0:
+            refund = await refunds.request(
+                db, payment, reason=RefundReason.REVIEW_CANCELLED, actor_id=actor_id, meta=meta
+            )
     await _close(db, review, actor_id=actor_id, meta=meta)
     await db.flush()
     await _audit(
-        db, "review.cancelled", review, actor_id=actor_id, meta=meta, details={"from": previous}
+        db,
+        "review.cancelled",
+        review,
+        actor_id=actor_id,
+        meta=meta,
+        details={"from": previous} | ({"refund_id": str(refund.id)} if refund else {}),
     )
-    return unpaid
+    return Cancelled(unpaid, refund)
+
+
+async def staff_refund(
+    db: AsyncSession,
+    review: ReviewRequest,
+    *,
+    amount_cents: int | None,
+    note: str,
+    actor_id: uuid.UUID,
+    meta: RequestMeta | None,
+) -> Refund:
+    """Staff give back part or all of what was paid for a review, in any status."""
+    if review.payment_id is None:
+        raise _conflict("not_paid", "This review wasn't paid for.")
+    payment = await billing.get_payment(db, review.organisation_id, review.payment_id, lock=True)
+    if payment.paid_at is None:
+        raise _conflict("not_paid", "This review's payment hasn't been made.")
+    refund = await refunds.request(
+        db,
+        payment,
+        reason=RefundReason.STAFF,
+        amount_cents=amount_cents,
+        note=note,
+        actor_id=actor_id,
+        meta=meta,
+    )
+    await _audit(
+        db,
+        "review.refunded",
+        review,
+        actor_id=actor_id,
+        meta=meta,
+        details={"refund_id": str(refund.id), "amount_cents": refund.amount_cents},
+    )
+    return refund
 
 
 async def resubmit(

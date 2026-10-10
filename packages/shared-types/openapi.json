@@ -12877,21 +12877,77 @@
         "title": "ReferralOut",
         "type": "object"
       },
-      "RefundIn": {
-        "additionalProperties": false,
+      "RefundOut": {
+        "description": "Money given back on the review's payment (Milestone 22).",
         "properties": {
-          "note": {
-            "maxLength": 300,
-            "minLength": 5,
-            "title": "Note",
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
             "type": "string"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/RefundReason"
+          },
+          "sent_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sent At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RefundStatus",
+            "description": "PENDING: being sent to Stripe. SUBMITTED or SUCCEEDED: on its way to the card. FAILED: Stripe refused it and staff are following it up."
           }
         },
         "required": [
-          "note"
+          "id",
+          "amount_cents",
+          "currency",
+          "reason",
+          "status",
+          "created_at",
+          "sent_at"
         ],
-        "title": "RefundIn",
+        "title": "RefundOut",
         "type": "object"
+      },
+      "RefundReason": {
+        "enum": [
+          "REVIEW_CANCELLED",
+          "PAID_AFTER_CANCEL",
+          "STAFF"
+        ],
+        "title": "RefundReason",
+        "type": "string"
+      },
+      "RefundStatus": {
+        "enum": [
+          "PENDING",
+          "SUBMITTED",
+          "SUCCEEDED",
+          "FAILED"
+        ],
+        "title": "RefundStatus",
+        "type": "string"
       },
       "RegisterRequest": {
         "properties": {
@@ -13578,6 +13634,12 @@
             ],
             "title": "Assigned At"
           },
+          "cancel_refund_cents": {
+            "default": 0,
+            "description": "What cancelling now would refund (0: nothing).",
+            "title": "Cancel Refund Cents",
+            "type": "integer"
+          },
           "closed_at": {
             "anyOf": [
               {
@@ -13746,6 +13808,17 @@
             ],
             "title": "Paid At"
           },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "refunds": {
+            "items": {
+              "$ref": "#/components/schemas/RefundOut"
+            },
+            "title": "Refunds",
+            "type": "array"
+          },
           "status": {
             "$ref": "#/components/schemas/PaymentStatus"
           }
@@ -13755,7 +13828,9 @@
           "status",
           "amount_cents",
           "currency",
-          "paid_at"
+          "paid_at",
+          "refunded_cents",
+          "refunds"
         ],
         "title": "ReviewPaymentOut",
         "type": "object"
@@ -13830,6 +13905,12 @@
               }
             ],
             "title": "Assigned At"
+          },
+          "cancel_refund_cents": {
+            "default": 0,
+            "description": "What cancelling now would refund (0: nothing).",
+            "title": "Cancel Refund Cents",
+            "type": "integer"
           },
           "closed_at": {
             "anyOf": [
@@ -17160,6 +17241,142 @@
         "title": "StaffPartnerOut",
         "type": "object"
       },
+      "StaffPaymentOut": {
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "paid_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paid At"
+          },
+          "refundable_cents": {
+            "description": "What staff can still refund.",
+            "title": "Refundable Cents",
+            "type": "integer"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "refunds": {
+            "items": {
+              "$ref": "#/components/schemas/StaffRefundOut"
+            },
+            "title": "Refunds",
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PaymentStatus"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "amount_cents",
+          "currency",
+          "paid_at",
+          "refunded_cents",
+          "refundable_cents",
+          "refunds"
+        ],
+        "title": "StaffPaymentOut",
+        "type": "object"
+      },
+      "StaffRefundOut": {
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/RefundReason"
+          },
+          "sent_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sent At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RefundStatus",
+            "description": "PENDING: being sent to Stripe. SUBMITTED or SUCCEEDED: on its way to the card. FAILED: Stripe refused it and staff are following it up."
+          }
+        },
+        "required": [
+          "id",
+          "amount_cents",
+          "currency",
+          "reason",
+          "status",
+          "created_at",
+          "sent_at",
+          "note",
+          "error"
+        ],
+        "title": "StaffRefundOut",
+        "type": "object"
+      },
       "StaffReviewOut": {
         "properties": {
           "candidates": {
@@ -17169,6 +17386,16 @@
             },
             "title": "Candidates",
             "type": "array"
+          },
+          "payment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StaffPaymentOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "project_reference": {
             "title": "Project Reference",
@@ -19178,6 +19405,51 @@
         },
         "title": "VesselUpdate",
         "type": "object"
+      },
+      "app__modules__leads__schemas__RefundIn": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "maxLength": 300,
+            "minLength": 5,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "note"
+        ],
+        "title": "RefundIn",
+        "type": "object"
+      },
+      "app__modules__review__schemas__RefundIn": {
+        "properties": {
+          "amount_cents": {
+            "anyOf": [
+              {
+                "exclusiveMinimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Leave out to refund everything that is left.",
+            "title": "Amount Cents"
+          },
+          "note": {
+            "description": "Why (staff only).",
+            "maxLength": 500,
+            "minLength": 3,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "note"
+        ],
+        "title": "RefundIn",
+        "type": "object"
       }
     }
   },
@@ -20002,7 +20274,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RefundIn"
+                "$ref": "#/components/schemas/app__modules__leads__schemas__RefundIn"
               }
             }
           },
@@ -20919,6 +21191,60 @@
           }
         },
         "summary": "Assign Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/admin/reviews/{review_id}/refund": {
+      "post": {
+        "description": "Give back part or all of what the customer paid for a review (``billing.refund``).\nSent to Stripe straight after; the customer is emailed once Stripe accepts it.",
+        "operationId": "refund_review_v1_admin_reviews__review_id__refund_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/app__modules__review__schemas__RefundIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StaffReviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Refund Review",
         "tags": [
           "review"
         ]
@@ -30108,6 +30434,7 @@
     },
     "/v1/organisations/{organisation_id}/reviews/{review_id}/cancel": {
       "post": {
+        "description": "Cancel the review. Paid for and no reviewer has started yet: refunded in full\n(``cancel_refund_cents`` on the review says how much, before cancelling).",
         "operationId": "cancel_review_v1_organisations__organisation_id__reviews__review_id__cancel_post",
         "parameters": [
           {

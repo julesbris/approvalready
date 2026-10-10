@@ -661,6 +661,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/reviews/{review_id}/refund": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Refund Review
+         * @description Give back part or all of what the customer paid for a review (``billing.refund``).
+         *     Sent to Stripe straight after; the customer is emailed once Stripe accepts it.
+         */
+        post: operations["refund_review_v1_admin_reviews__review_id__refund_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/reviews/{review_id}/unassign": {
         parameters: {
             query?: never;
@@ -3080,7 +3101,11 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** Cancel Review */
+        /**
+         * Cancel Review
+         * @description Cancel the review. Paid for and no reviewer has started yet: refunded in full
+         *     (``cancel_refund_cents`` on the review says how much, before cancelling).
+         */
         post: operations["cancel_review_v1_organisations__organisation_id__reviews__review_id__cancel_post"];
         delete?: never;
         options?: never;
@@ -8296,11 +8321,41 @@ export interface components {
             /** Withdrawn At */
             withdrawn_at: string | null;
         };
-        /** RefundIn */
-        RefundIn: {
-            /** Note */
-            note: string;
+        /**
+         * RefundOut
+         * @description Money given back on the review's payment (Milestone 22).
+         */
+        RefundOut: {
+            /** Amount Cents */
+            amount_cents: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Currency */
+            currency: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            reason: components["schemas"]["RefundReason"];
+            /** Sent At */
+            sent_at: string | null;
+            /** @description PENDING: being sent to Stripe. SUBMITTED or SUCCEEDED: on its way to the card. FAILED: Stripe refused it and staff are following it up. */
+            status: components["schemas"]["RefundStatus"];
         };
+        /**
+         * RefundReason
+         * @enum {string}
+         */
+        RefundReason: "REVIEW_CANCELLED" | "PAID_AFTER_CANCEL" | "STAFF";
+        /**
+         * RefundStatus
+         * @enum {string}
+         */
+        RefundStatus: "PENDING" | "SUBMITTED" | "SUCCEEDED" | "FAILED";
         /** RegisterRequest */
         RegisterRequest: {
             /** Display Name */
@@ -8505,6 +8560,12 @@ export interface components {
             assessment_id: string;
             /** Assigned At */
             assigned_at: string | null;
+            /**
+             * Cancel Refund Cents
+             * @description What cancelling now would refund (0: nothing).
+             * @default 0
+             */
+            cancel_refund_cents: number;
             /** Closed At */
             closed_at: string | null;
             /** Comments */
@@ -8559,6 +8620,10 @@ export interface components {
             id: string;
             /** Paid At */
             paid_at: string | null;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** Refunds */
+            refunds: components["schemas"]["RefundOut"][];
             status: components["schemas"]["PaymentStatus"];
         };
         /** ReviewRequestIn */
@@ -8591,6 +8656,12 @@ export interface components {
             assessment_id: string;
             /** Assigned At */
             assigned_at: string | null;
+            /**
+             * Cancel Refund Cents
+             * @description What cancelling now would refund (0: nothing).
+             * @default 0
+             */
+            cancel_refund_cents: number;
             /** Closed At */
             closed_at: string | null;
             /**
@@ -9712,6 +9783,56 @@ export interface components {
             /** Website */
             website: string | null;
         };
+        /** StaffPaymentOut */
+        StaffPaymentOut: {
+            /** Amount Cents */
+            amount_cents: number;
+            /** Currency */
+            currency: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Paid At */
+            paid_at: string | null;
+            /**
+             * Refundable Cents
+             * @description What staff can still refund.
+             */
+            refundable_cents: number;
+            /** Refunded Cents */
+            refunded_cents: number;
+            /** Refunds */
+            refunds: components["schemas"]["StaffRefundOut"][];
+            status: components["schemas"]["PaymentStatus"];
+        };
+        /** StaffRefundOut */
+        StaffRefundOut: {
+            /** Amount Cents */
+            amount_cents: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Currency */
+            currency: string;
+            /** Error */
+            error: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Note */
+            note: string | null;
+            reason: components["schemas"]["RefundReason"];
+            /** Sent At */
+            sent_at: string | null;
+            /** @description PENDING: being sent to Stripe. SUBMITTED or SUCCEEDED: on its way to the card. FAILED: Stripe refused it and staff are following it up. */
+            status: components["schemas"]["RefundStatus"];
+        };
         /** StaffReviewOut */
         StaffReviewOut: {
             /**
@@ -9719,6 +9840,7 @@ export interface components {
              * @description Active professionals who can be assigned this review today.
              */
             candidates: components["schemas"]["ProfessionalOut"][];
+            payment?: components["schemas"]["StaffPaymentOut"] | null;
             /** Project Reference */
             project_reference: string;
             /** Project Title */
@@ -10324,6 +10446,24 @@ export interface components {
             uvi?: string | null;
             vessel_type?: components["schemas"]["VesselType"] | null;
         };
+        /** RefundIn */
+        app__modules__leads__schemas__RefundIn: {
+            /** Note */
+            note: string;
+        };
+        /** RefundIn */
+        app__modules__review__schemas__RefundIn: {
+            /**
+             * Amount Cents
+             * @description Leave out to refund everything that is left.
+             */
+            amount_cents?: number | null;
+            /**
+             * Note
+             * @description Why (staff only).
+             */
+            note: string;
+        };
     };
     responses: never;
     parameters: never;
@@ -10913,7 +11053,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["RefundIn"];
+                "application/json": components["schemas"]["app__modules__leads__schemas__RefundIn"];
             };
         };
         responses: {
@@ -11485,6 +11625,41 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": components["schemas"]["AssignIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StaffReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    refund_review_v1_admin_reviews__review_id__refund_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["app__modules__review__schemas__RefundIn"];
             };
         };
         responses: {

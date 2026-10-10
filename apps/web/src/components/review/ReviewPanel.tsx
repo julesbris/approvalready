@@ -11,7 +11,14 @@ import { formatMoney } from "@/lib/billing";
 import { type ApiResult, apiRequest } from "@/lib/client-api";
 import { formatDateTime } from "@/lib/labels";
 import { formatDate } from "@/lib/questionnaire";
-import { DECISION_DONE, REVIEW_STATUS_LABELS, isOpen, reviewerName } from "@/lib/review";
+import {
+  DECISION_DONE,
+  REVIEW_STATUS_LABELS,
+  cancelQuestion,
+  isOpen,
+  refundLine,
+  reviewerName,
+} from "@/lib/review";
 
 type Props = {
   organisationId: string;
@@ -210,7 +217,7 @@ export function ReviewPanel(props: Props) {
           <p>
             A review costs <strong>{formatMoney(price.amount_cents, price.currency)}</strong>{" "}
             (including GST), paid securely through Stripe. We assign your reviewer once the payment
-            is confirmed.
+            is confirmed. If you cancel before your reviewer starts, we refund you in full.
           </p>
         ) : null}
         <form method="post" className="form" onSubmit={(e) => void request(e)}>
@@ -298,6 +305,11 @@ export function ReviewPanel(props: Props) {
           : "We're finding a reviewer for you."}
         {review.due_on && open ? ` Expected by ${formatDate(review.due_on)}.` : ""}
       </p>
+      {review.payment?.refunds.map((r) => (
+        <p key={r.id} className="notice">
+          {refundLine(r)}
+        </p>
+      ))}
       {review.status === "CHANGES_REQUIRED" ? (
         <p className="notice">
           Your reviewer asked for changes. Make them (update your answers and run a new assessment
@@ -344,7 +356,7 @@ export function ReviewPanel(props: Props) {
             className="button-link"
             disabled={busy}
             onClick={() => {
-              if (window.confirm("Cancel this review?")) {
+              if (window.confirm(cancelQuestion(review))) {
                 void act(() => apiRequest<ReviewOut>("POST", `${org}/reviews/${review.id}/cancel`));
               }
             }}

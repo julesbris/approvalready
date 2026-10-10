@@ -123,13 +123,26 @@ def test_stripe_needs_both_secrets_in_production() -> None:
 class FakeStripe:
     calls: list[tuple[str, dict[str, str]]] = field(default_factory=list)
     fail: bool = False
+    # Refunds (Milestone 22): Stripe's answer, or an HTTP error status.
+    refund_status: str = "succeeded"
+    refund_error: int | None = None
+    idempotency_keys: list[str] = field(default_factory=list)
 
     def handle(self, request: httpx.Request) -> httpx.Response:
         params = dict(parse_qsl(request.content.decode()))
         path = request.url.path
         self.calls.append((path, params))
+        if "idempotency-key" in request.headers:
+            self.idempotency_keys.append(request.headers["idempotency-key"])
         if self.fail:
             return httpx.Response(500, json={"error": {"message": "Stripe is down"}})
+        if path == "/v1/refunds":
+            if self.refund_error:
+                message = "Charge has already been refunded."
+                return httpx.Response(self.refund_error, json={"error": {"message": message}})
+            return httpx.Response(
+                200, json={"id": f"re_{uuid.uuid4().hex[:14]}", "status": self.refund_status}
+            )
         if path == "/v1/customers":
             return httpx.Response(200, json={"id": f"cus_{uuid.uuid4().hex[:14]}"})
         if path == "/v1/checkout/sessions":
@@ -486,7 +499,12 @@ async def test_cancelling_an_unpaid_review_cancels_its_payment(
     )
     await deliver(api, late)
     r = await customer.get(f"{org}/reviews/{review['id']}")
-    assert r.json()["status"] == "CANCELLED" and r.json()["payment"]["status"] == "PAID"
+    # ...and given back straight away (Milestone 22).
+    assert r.json()["status"] == "CANCELLED" and r.json()["payment"]["status"] == "REFUNDED"
+    [refund] = r.json()["payment"]["refunds"]
+    assert refund["reason"] == "PAID_AFTER_CANCEL" and refund["amount_cents"] == 9_900
+    assert stripe_api.last("/v1/refunds")["payment_intent"] == "pi_late"
+    assert api.last_email(customer.email, "billing.refund_sent")
 
 
 @pytest.mark.integration
@@ -706,3 +724,198 @@ async def test_events_we_cannot_place_are_ignored_and_staff_can_follow_them(
                 text("UPDATE stripe_event SET payload = '{}' WHERE id = :id"), {"id": row.id}
             )
         await db.rollback()
+
+
+# --- Refunds (Milestone 22) -------------------------------------------------------------
+
+
+async def paid_review(
+    api: ApiHarness, stripe_api: FakeStripe, cents: int = 24_900
+) -> tuple[User, User, dict[str, Any], str]:
+    """(admin, customer, review, payment intent) for a review that has been paid for."""
+    admin = await platform_user(api, "ADMIN")
+    await set_price(admin, "review.planning", cents)
+    customer, project, assessment = await _assessed(api)
+    org = org_url(customer)
+    review = (
+        await customer.post(
+            f"{org}/projects/{project['id']}/reviews", json={"assessment_id": assessment["id"]}
+        )
+    ).json()
+    await customer.post(f"{org}/reviews/{review['id']}/checkout")
+    session = stripe_api.last("/v1/checkout/sessions")
+    intent = f"pi_{uuid.uuid4().hex[:12]}"
+    paid = event(
+        "checkout.session.completed",
+        {
+            "id": f"cs_{uuid.uuid4().hex[:12]}",
+            "object": "checkout.session",
+            "mode": "payment",
+            "payment_status": "paid",
+            "payment_intent": intent,
+            "customer": session["customer"],
+            "metadata": {"payment_id": review["payment"]["id"]},
+        },
+    )
+    assert (await deliver(api, paid)).status_code == 200
+    review = (await customer.get(f"{org}/reviews/{review['id']}")).json()
+    assert review["status"] == "REVIEW_REQUESTED" and review["payment"]["status"] == "PAID"
+    return admin, customer, review, intent
+
+
+@pytest.mark.integration
+async def test_cancelling_a_paid_review_before_work_starts_refunds_it(
+    api: ApiHarness, stripe_api: FakeStripe, owner_sessions: async_sessionmaker[AsyncSession]
+) -> None:
+    admin, customer, review, intent = await paid_review(api, stripe_api)
+    org = org_url(customer)
+    assert review["cancel_refund_cents"] == 24_900  # the page says so before cancelling
+
+    r = await customer.post(f"{org}/reviews/{review['id']}/cancel")
+    assert r.status_code == 200, r.text
+    out = r.json()
+    assert out["status"] == "CANCELLED" and out["cancel_refund_cents"] == 0
+    assert out["payment"]["status"] == "REFUNDED" and out["payment"]["refunded_cents"] == 24_900
+    [refund] = out["payment"]["refunds"]
+    assert refund["reason"] == "REVIEW_CANCELLED" and refund["status"] == "SUCCEEDED"
+    assert "note" not in refund and "error" not in refund  # staff-only
+
+    sent = stripe_api.last("/v1/refunds")
+    assert sent["payment_intent"] == intent and sent["amount"] == "24900"
+    assert sent["metadata[refund_id]"] == refund["id"]
+    assert stripe_api.idempotency_keys[-1] == f"refund-{refund['id']}"
+    email = api.last_email(customer.email, "billing.refund_sent")
+    assert "$249.00 AUD" in email.subject and "5 to 10 business days" in email.text
+
+    # Stripe's own refund event agrees: nothing changes, nothing is refunded twice.
+    refunded = event(
+        "charge.refunded",
+        {
+            "id": "ch_r",
+            "object": "charge",
+            "customer": stripe_api.last("/v1/checkout/sessions")["customer"],
+            "payment_intent": intent,
+            "amount": 24_900,
+            "amount_refunded": 24_900,
+        },
+    )
+    await deliver(api, refunded)
+    r = await customer.get(f"{org}/reviews/{review['id']}")
+    assert r.json()["payment"]["refunded_cents"] == 24_900
+    assert len([c for c, _ in stripe_api.calls if c == "/v1/refunds"]) == 1
+
+    # Nothing left for staff to refund.
+    r = await admin.post(
+        f"/v1/admin/reviews/{review['id']}/refund", json={"note": "Goodwill refund."}
+    )
+    assert (r.status_code, r.json()["detail"]["code"]) == (409, "nothing_to_refund")
+
+    # What a refund is never changes, and refunds are never deleted, even by the owner.
+    async with owner_sessions() as db:
+        with pytest.raises(DBAPIError, match="never changes"):
+            await db.execute(
+                text("UPDATE refund SET amount_cents = 1 WHERE id = :id"), {"id": refund["id"]}
+            )
+        await db.rollback()
+        with pytest.raises(DBAPIError, match="cannot be deleted"):
+            await db.execute(text("DELETE FROM refund WHERE id = :id"), {"id": refund["id"]})
+        await db.rollback()
+
+
+@pytest.mark.integration
+async def test_staff_refund_a_review_the_reviewer_started(
+    api: ApiHarness, stripe_api: FakeStripe
+) -> None:
+    from tests.test_review import professional
+
+    admin, customer, review, intent = await paid_review(api, stripe_api, 20_000)
+    org = org_url(customer)
+    staff = await platform_user(api, "STAFF")
+    reviewer, profile = await professional(api, staff)
+    r = await staff.post(
+        f"/v1/admin/reviews/{review['id']}/assign", json={"professional_id": profile["id"]}
+    )
+    assert r.status_code == 200, r.text
+    assert r.json()["payment"]["refundable_cents"] == 20_000
+    r = await reviewer.post(f"/v1/professional/reviews/{review['id']}/start")
+    assert r.status_code == 200, r.text
+    # The reviewer never sees what the customer paid or got back.
+    assert r.json()["review"]["payment"] is None
+    assert r.json()["review"]["cancel_refund_cents"] == 0
+
+    # Work has started: cancelling no longer refunds by itself.
+    r = await customer.get(f"{org}/reviews/{review['id']}")
+    assert r.json()["cancel_refund_cents"] == 0
+    r = await customer.post(f"{org}/reviews/{review['id']}/cancel")
+    assert r.json()["status"] == "CANCELLED" and r.json()["payment"]["refunds"] == []
+    assert not [c for c, _ in stripe_api.calls if c == "/v1/refunds"]
+
+    # Staff decide. Only billing.refund may, with a reason, and never more than was paid.
+    url = f"/v1/admin/reviews/{review['id']}/refund"
+    r = await staff.post(url, json={"note": "Reviewer only read the file."})
+    assert r.status_code == 403
+    assert (await admin.post(url, json={"amount_cents": 5_000})).status_code == 422
+    r = await admin.post(url, json={"amount_cents": 20_001, "note": "Too much."})
+    assert (r.status_code, r.json()["detail"]["code"]) == (409, "refund_too_large")
+
+    r = await admin.post(
+        url, json={"amount_cents": 15_000, "note": "Cancelled early in the review."}
+    )
+    assert r.status_code == 200, r.text
+    payment = r.json()["payment"]
+    assert payment["status"] == "PARTIALLY_REFUNDED" and payment["refunded_cents"] == 15_000
+    assert payment["refundable_cents"] == 5_000
+    [refund] = payment["refunds"]
+    assert refund["reason"] == "STAFF" and refund["note"] == "Cancelled early in the review."
+    sent = stripe_api.last("/v1/refunds")
+    assert (sent["payment_intent"], sent["amount"]) == (intent, "15000")
+    assert api.last_email(customer.email, "billing.refund_sent")
+
+    # Stripe refuses the rest (e.g. refunded in the dashboard already): marked failed, staff
+    # alerted, and the amount can be tried again.
+    stripe_api.refund_error = 400
+    r = await admin.post(url, json={"note": "The rest as well."})
+    assert r.status_code == 200, r.text
+    payment = r.json()["payment"]
+    failed = payment["refunds"][-1]
+    assert failed["status"] == "FAILED" and "already been refunded" in failed["error"]
+    assert payment["refundable_cents"] == 5_000 and payment["refunded_cents"] == 15_000
+    assert api.last_email(admin.email).subject == "A refund could not be made"
+
+
+@pytest.mark.integration
+async def test_refunds_wait_out_a_stripe_outage(api: ApiHarness, stripe_api: FakeStripe) -> None:
+    from app.modules.billing import refunds
+
+    admin, customer, review, _ = await paid_review(api, stripe_api, 9_900)
+    org = org_url(customer)
+    stripe_api.refund_error = 503
+    r = await customer.post(f"{org}/reviews/{review['id']}/cancel")
+    assert r.status_code == 200, r.text  # cancelling never waits on Stripe
+    [refund] = r.json()["payment"]["refunds"]
+    assert refund["status"] == "PENDING" and r.json()["payment"]["status"] == "PAID"
+    assert not api.emails_to(customer.email, "billing.refund_sent")
+    # A pending refund already counts: staff can't refund the same money again.
+    r = await admin.post(
+        f"/v1/admin/reviews/{review['id']}/refund", json={"note": "Customer asked twice."}
+    )
+    assert (r.status_code, r.json()["detail"]["code"]) == (409, "nothing_to_refund")
+
+    # The worker's sweep finds it and sends it again, with the same idempotency key.
+    async with api.app.state.resources.session_factory() as db:
+        waiting = await refunds.pending(db, older_than_minutes=0)
+    assert (customer.personal_org_id, refund["id"]) in waiting
+    stripe_api.refund_error = None
+    await api.app.state.resources.jobs.refund(
+        uuid.UUID(customer.personal_org_id), uuid.UUID(refund["id"])
+    )
+    assert stripe_api.idempotency_keys[-2:] == [f"refund-{refund['id']}"] * 2
+    r = await customer.get(f"{org}/reviews/{review['id']}")
+    assert r.json()["payment"]["status"] == "REFUNDED"
+    assert r.json()["payment"]["refunds"][0]["status"] == "SUCCEEDED"
+    assert api.last_email(customer.email, "billing.refund_sent")
+    # Sent once: running it again does nothing.
+    await api.app.state.resources.jobs.refund(
+        uuid.UUID(customer.personal_org_id), uuid.UUID(refund["id"])
+    )
+    assert len([c for c, _ in stripe_api.calls if c == "/v1/refunds"]) == 2

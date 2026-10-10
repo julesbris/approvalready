@@ -71,11 +71,11 @@ def create_app(
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
-        app.state.resources = create_resources(settings)
-        app.state.lookups = Lookups(settings, lookup_transport)
         app.state.stripe = (
             StripeClient(settings, stripe_transport) if settings.payments_enabled else None
         )
+        app.state.resources = create_resources(settings, app.state.stripe)
+        app.state.lookups = Lookups(settings, lookup_transport)
         try:
             yield
         finally:
