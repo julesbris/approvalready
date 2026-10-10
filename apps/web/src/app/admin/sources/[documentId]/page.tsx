@@ -1,5 +1,6 @@
 import type {
   SnapshotSummary,
+  SourceCheckOut,
   SourceDocumentOut,
   SourceReferenceOut,
 } from "@approvalready/shared-types";
@@ -30,9 +31,10 @@ export default async function SourceDocumentPage({
     );
   }
   const id = encodeURIComponent(documentId);
-  const [document, snapshots, references] = await Promise.all([
+  const [document, snapshots, checks, references] = await Promise.all([
     serverGet<SourceDocumentOut>(`/admin/source-documents/${id}`),
     serverGet<SnapshotSummary[]>(`/admin/source-documents/${id}/snapshots`),
+    serverGet<SourceCheckOut[]>(`/admin/source-documents/${id}/checks`),
     serverGet<SourceReferenceOut[]>(`/admin/source-references?source_document_id=${id}`),
   ]);
   return (
@@ -41,6 +43,7 @@ export default async function SourceDocumentPage({
       <DocumentWorkspace
         document={orNotFound(document)}
         snapshots={orNotFound(snapshots)}
+        checks={orNotFound(checks)}
         references={orNotFound(references)}
         canVerify={session.permissions.includes("source.verify")}
       />

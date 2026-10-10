@@ -56,6 +56,7 @@ from app.modules.privacy.router import admin_router as privacy_admin_router
 from app.modules.privacy.router import public_router as privacy_public_router
 from app.modules.projects.router import router as projects_router
 from app.modules.questionnaires.router import router as questionnaires_router
+from app.modules.regulatory.fetch import Resolver, SourceFetcher
 from app.modules.regulatory.router import router as sources_router
 from app.modules.rentals.router import router as rentals_router
 from app.modules.review.router import admin_router as review_admin_router
@@ -71,6 +72,8 @@ def create_app(
     settings: Settings | None = None,
     lookup_transport: httpx.AsyncBaseTransport | None = None,
     stripe_transport: httpx.AsyncBaseTransport | None = None,
+    source_fetch_transport: httpx.AsyncBaseTransport | None = None,
+    source_fetch_resolver: Resolver | None = None,
     breach_transport: httpx.AsyncBaseTransport | None = None,
 ) -> FastAPI:
     settings = settings or get_settings()
@@ -85,6 +88,9 @@ def create_app(
         app.state.resources = create_resources(settings, app.state.stripe)
         app.state.lookups = Lookups(settings, lookup_transport)
         app.state.breach = BreachChecker(settings, breach_transport)
+        app.state.source_fetcher = SourceFetcher(
+            settings, source_fetch_transport, source_fetch_resolver
+        )
         try:
             yield
         finally:

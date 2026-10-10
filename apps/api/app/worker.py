@@ -64,6 +64,10 @@ celery_app.conf.update(
         "ops-watchdog": {"task": "ops.watchdog", "schedule": 600.0},
         "ops-ship-backups": {"task": "ops.ship_backups", "schedule": 1800.0},
         "email-sweep": {"task": "email.sweep", "schedule": 60.0},
+        "sources-weekly-check": {
+            "task": "sources.weekly_check",
+            "schedule": crontab(day_of_week="mon", hour=6, minute=0),
+        },
     },
 )
 
@@ -302,5 +306,21 @@ def ship_backups() -> int:
     async def job(factory: Any, email: Any, s: Any) -> int:
         result = await offsite.ship(factory, s)
         return result.uploaded
+
+    return asyncio.run(_with_own_engine(job))
+
+
+# --- Source checks (Milestone 24) -------------------------------------------------------
+
+
+@celery_app.task(name="sources.weekly_check")
+def sources_weekly_check() -> int:
+    """Read every source document from its official address (Mondays, 6 am Brisbane)."""
+    from app.modules.regulatory import checks
+    from app.modules.regulatory.fetch import SourceFetcher
+
+    async def job(factory: Any, email: Any, s: Any) -> int:
+        result = await checks.run_weekly(factory, email, s, SourceFetcher(s))
+        return result.checked
 
     return asyncio.run(_with_own_engine(job))

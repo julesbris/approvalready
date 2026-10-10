@@ -80,6 +80,7 @@ export type SourceDocumentOut = Schemas["SourceDocumentOut"];
 export type SnapshotSummary = Schemas["SnapshotSummary"];
 export type SnapshotOut = Schemas["SnapshotOut"];
 export type SnapshotCaptured = Schemas["SnapshotCaptured"];
+export type SourceCheckOut = Schemas["SourceCheckOut"];
 export type SourceReferenceOut = Schemas["SourceReferenceOut"];
 export type ReviewEventOut = Schemas["ReviewEventOut"];
 

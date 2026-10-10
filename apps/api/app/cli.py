@@ -436,6 +436,32 @@ async def load_pack(
     return 0
 
 
+async def check_sources(settings: Settings) -> int:
+    """Run the weekly source check now (documents checked in the last 6 days are skipped)."""
+    from app.core.email import create_email_provider
+    from app.modules.regulatory import checks
+    from app.modules.regulatory.fetch import SourceFetcher
+    from app.modules.regulatory.models import CheckOutcome
+
+    resources = create_resources(settings)
+    try:
+        result = await checks.run_weekly(
+            resources.session_factory,
+            create_email_provider(settings),
+            settings,
+            SourceFetcher(settings),
+        )
+    finally:
+        await resources.close()
+    print(f"Checked {result.checked} source document(s).")
+    for outcome, count in sorted(result.outcomes.items()):
+        print(f"  {checks.OUTCOME_LABELS[CheckOutcome(outcome)]}: {count}")
+    for title, outcome, error in result.news:
+        label = checks.OUTCOME_LABELS[CheckOutcome(outcome)]
+        print(f"- {title}: {label}{f' ({error})' if error else ''}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="python -m app.cli")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -470,6 +496,8 @@ def main(argv: list[str] | None = None) -> int:
     lp.add_argument("name", help=f"One of: {', '.join(packs.available())}")
     lp.add_argument("--email", required=True, help="Platform staff member doing the load")
     lp.add_argument("--publish", action="store_true", help="Publish rules that pass the gate")
+    sc = sub.add_parser("sources", help="Regulatory sources")
+    sc.add_argument("action", choices=["check"], help="Run the weekly source check now")
     args = parser.parse_args(argv)
     if args.command == "grant-platform-role":
         return asyncio.run(grant_platform_role(args.email, RoleKey(args.role)))
@@ -491,6 +519,8 @@ def main(argv: list[str] | None = None) -> int:
         return asyncio.run(sync_catalogue(get_settings()))
     if args.command == "leads":
         return asyncio.run(sync_consent(get_settings()))
+    if args.command == "sources":
+        return asyncio.run(check_sources(get_settings()))
     if args.command == "rules":
         return asyncio.run(load_pack(args.name, args.email, publish=args.publish))
     return asyncio.run(verify_audit())

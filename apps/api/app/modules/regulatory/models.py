@@ -1,9 +1,11 @@
 """Regulatory sources and provenance: who publishes a source, the document, captured snapshots
 of its content, and the atomic citations (references) that rules link to.
 
-Global reference data maintained by ApprovalReady staff, not tenant-owned. Nothing here is
-fetched from a government system: staff capture each source by hand with its provenance
-(URL, version, effective dates, section/clause/page and the extracted text).
+Global reference data maintained by ApprovalReady staff, not tenant-owned. Staff record each
+source with its provenance (URL, version, effective dates, section/clause/page and the
+extracted text). A snapshot is either pasted by staff or read from the document's official
+address by the app (Milestone 24, ``source_check``); the app never decides what a source
+means, it only notices when the published text changes.
 
 A reference is only trusted once a person with ``source.verify`` has checked it against a
 captured snapshot. ``source_review_event`` is the append-only history of those decisions.
@@ -16,11 +18,13 @@ from datetime import date, datetime
 from enum import StrEnum
 
 from sqlalchemy import (
+    Boolean,
     CheckConstraint,
     Date,
     DateTime,
     ForeignKey,
     Index,
+    Integer,
     LargeBinary,
     String,
     Text,
@@ -79,6 +83,29 @@ class ReviewAction(StrEnum):
     REOPENED = "REOPENED"
 
 
+class CaptureMethod(StrEnum):
+    MANUAL = "MANUAL"  # pasted by staff
+    FETCHED = "FETCHED"  # read from the official address by the app
+
+
+class CheckTrigger(StrEnum):
+    SCHEDULED = "SCHEDULED"  # the weekly check
+    MANUAL = "MANUAL"  # a staff member pressed "Check now"
+
+
+class CheckOutcome(StrEnum):
+    # First reading by the app (the latest snapshot, if any, was pasted by staff, so a
+    # difference from it is not evidence of a change).
+    SAVED = "SAVED"
+    CHANGED = "CHANGED"  # the text differs from the latest snapshot: a new snapshot
+    UNCHANGED = "UNCHANGED"
+    # A file whose text the app doesn't read (a PDF): only whether its bytes changed.
+    FILE_SEEN = "FILE_SEEN"  # first reading of the file
+    FILE_CHANGED = "FILE_CHANGED"
+    FILE_UNCHANGED = "FILE_UNCHANGED"
+    FAILED = "FAILED"  # not reachable, refused, too large or no readable text
+
+
 def _jurisdiction_check() -> CheckConstraint:
     return CheckConstraint(f"jurisdiction ~ '{JURISDICTION_PATTERN}'", name="jurisdiction_format")
 
@@ -128,6 +155,10 @@ class SourceDocument(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, Base):
     supersedes_id: Mapped[uuid.UUID | None] = mapped_column(
         UUID(as_uuid=True), ForeignKey("source_document.id", ondelete="RESTRICT")
     )
+    # Read the official address every week and keep a snapshot when the text changes.
+    auto_check: Mapped[bool] = mapped_column(
+        Boolean, nullable=False, default=True, server_default=text("true")
+    )
 
 
 class SourceSnapshot(UUIDPrimaryKeyMixin, Base):
@@ -142,6 +173,7 @@ class SourceSnapshot(UUIDPrimaryKeyMixin, Base):
         CheckConstraint(
             f"char_length(content_text) <= {MAX_SNAPSHOT_CHARS}", name="content_text_size"
         ),
+        enum_check("capture_method", CaptureMethod),
         Index("ix_source_snapshot_document_captured", "source_document_id", "captured_at"),
     )
 
@@ -157,6 +189,47 @@ class SourceSnapshot(UUIDPrimaryKeyMixin, Base):
     captured_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=text("now()")
     )
+    capture_method: Mapped[str] = mapped_column(
+        Text, nullable=False, default=CaptureMethod.MANUAL, server_default=CaptureMethod.MANUAL
+    )
+
+
+class SourceCheck(UUIDPrimaryKeyMixin, Base):
+    """One attempt by the app to read a document from its official address (append-only).
+    A changed text becomes a new snapshot; files the app can't read as text (PDFs) are
+    compared by their bytes so staff know to capture them by hand."""
+
+    __tablename__ = "source_check"
+    __table_args__ = (
+        enum_check("trigger", CheckTrigger),
+        enum_check("outcome", CheckOutcome),
+        CheckConstraint(
+            "body_sha256 IS NULL OR octet_length(body_sha256) = 32", name="body_sha256_size"
+        ),
+        Index("ix_source_check_document_checked", "source_document_id", "checked_at"),
+    )
+
+    source_document_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("source_document.id", ondelete="RESTRICT"), nullable=False
+    )
+    checked_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=text("now()")
+    )
+    trigger: Mapped[str] = mapped_column(Text, nullable=False)
+    requested_by: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="SET NULL")
+    )
+    outcome: Mapped[str] = mapped_column(Text, nullable=False)
+    url: Mapped[str] = mapped_column(String(2000), nullable=False)  # the address read
+    final_url: Mapped[str | None] = mapped_column(String(2000))  # after redirects
+    http_status: Mapped[int | None] = mapped_column(Integer)
+    content_type: Mapped[str | None] = mapped_column(String(200))
+    size_bytes: Mapped[int | None] = mapped_column(Integer)
+    body_sha256: Mapped[bytes | None] = mapped_column(LargeBinary)
+    snapshot_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("source_snapshot.id", ondelete="RESTRICT")
+    )
+    error: Mapped[str | None] = mapped_column(String(500))
 
 
 class SourceReference(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, Base):

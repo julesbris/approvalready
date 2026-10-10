@@ -32,6 +32,7 @@ from app.core.errors import ApiError, not_found
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
 from app.modules.regulatory.models import (
+    CaptureMethod,
     ReviewAction,
     SourceDocument,
     SourceOrganisation,
@@ -350,6 +351,30 @@ async def capture_snapshot(
         raise _invalid("timezone_required", "Include a time zone with the retrieval time.")
     if retrieved_at > utcnow() + timedelta(minutes=5):
         raise _invalid("in_the_future", "The retrieval time can't be in the future.")
+    return await store_snapshot(
+        db,
+        document,
+        content_text,
+        retrieved_at,
+        captured_by=actor.user_id,
+        organisation_id=actor.organisation_id,
+        meta=actor.meta,
+    )
+
+
+async def store_snapshot(
+    db: AsyncSession,
+    document: SourceDocument,
+    content_text: str,
+    retrieved_at: datetime,
+    *,
+    captured_by: uuid.UUID | None,
+    organisation_id: uuid.UUID | None,
+    meta: RequestMeta | None,
+    capture_method: str = CaptureMethod.MANUAL,
+) -> tuple[SourceSnapshot, bool]:
+    """Store a snapshot unless it matches the latest one (``captured_by`` is ``None`` when the
+    weekly check read it)."""
     digest = content_hash(content_text)
     previous = (await latest_snapshots(db, [document.id])).get(document.id)
     if previous is not None and previous.content_hash == digest:
@@ -359,23 +384,25 @@ async def capture_snapshot(
         retrieved_at=retrieved_at,
         content_text=content_text,
         content_hash=digest,
-        captured_by=actor.user_id,
+        captured_by=captured_by,
+        capture_method=capture_method,
     )
     db.add(snapshot)
     await db.flush()
     await db.refresh(snapshot)
-    await _audit(
+    await audit.record(
         db,
         "source.snapshot_captured",
-        actor_id=actor.user_id,
-        platform_org_id=actor.organisation_id,
+        actor_user_id=captured_by,
+        organisation_id=organisation_id,
         target_type="source_document",
         target_id=document.id,
-        meta=actor.meta,
+        meta=meta,
         details={
             "snapshot_id": str(snapshot.id),
             "content_hash": digest.hex(),
             "changed": previous is not None,
+            "capture_method": capture_method,
         },
     )
     return snapshot, True

@@ -216,6 +216,21 @@ tests and updated docs before the next starts.
 - [x] Breached-password check (HIBP k-anonymity range API) at registration and reset (Milestone 18)
 - [~] MFA (TOTP) built in Milestone 18; passkeys via `auth_identity` and Google/Microsoft OIDC still open
 - [x] Send transactional email from the worker (outbox) instead of in-request (Milestone 20)
+## Milestone 24 — Automatic source checks ✅
+- [x] "Check the official page now" on each source document: the app reads the official address and saves a snapshot when the wording changes (marked "read by the app"), or says why it couldn't
+- [x] Weekly check (Mondays 6 am Brisbane) of every source document that is in force, not superseded and set to "Check every week"; one notification and email to source staff listing what changed and what couldn't be read
+- [x] Safe fetching: https only, allowed domains (`SOURCE_FETCH_ALLOWED_DOMAINS`, government by default), public addresses only, every redirect re-checked, size and time limits
+- [x] Page text keeps the wording only (main content, no scripts, menus, headers or footers) so banners and scripts don't count as changes; PDFs are compared by their bytes and flagged for pasting by hand
+- [x] `source_check` history (append-only), `python -m app.cli sources check` to run it at once
+- [ ] Next: read PDF text (needs a PDF library); show a word-level diff between snapshots; per-document check frequency; a public "last checked" date on guide pages
+
+## Backlog / decisions to revisit
+- [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
+- [x] Fetch source documents automatically for snapshots (built in Milestone 24; PDFs still pasted by hand)
+- [ ] Generic per-user/per-IP rate limiting for all API routes (auth routes already limited)
+- [ ] Breached-password check (HIBP k-anonymity range API) at registration and reset
+- [ ] MFA (TOTP) and passkeys via `auth_identity`; Google/Microsoft OIDC
+- [ ] Send transactional email from the worker (outbox) instead of in-request
 - [ ] `npm audit` flags `braces` (high) via `eslint-config-next` → `fast-glob`; dev-only lint tooling, not shipped in images. Re-check on next eslint-config-next release
 - [ ] Brand/domain tables + Next.js host middleware (not needed until a second brand or partner surface; Milestone 14)
 - [ ] Decide object storage vendor (Wasabi / Backblaze B2 / AWS S3 Sydney) — prefer an Australian region

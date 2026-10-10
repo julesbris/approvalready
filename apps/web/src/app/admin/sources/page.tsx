@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
+function sourceStatus(d: SourceDocumentOut): string {
+  const check = d.last_check;
+  if (check?.outcome === "FAILED") return "Couldn't be read";
+  if (check?.outcome === "CHANGED" || check?.outcome === "FILE_CHANGED") return "Changed";
+  return d.latest_snapshot ? "Snapshot taken" : "No snapshot";
+}
+
 export default async function SourcesPage() {
   const session = await requireSession("/admin/sources");
   if (!session.permissions.includes("source.manage")) {
@@ -32,9 +39,10 @@ export default async function SourcesPage() {
       <AdminNav current="sources" />
       <h1 className="page-title">Sources</h1>
       <p className="muted">
-        Every rule must cite the official source it encodes. Capture each document by hand from its
-        official address, with its version and dates; nothing here is fetched from a government
-        system.
+        Every rule must cite the official source it encodes. Record each document with its official
+        address, version and dates. Every Monday the app reads each address and saves a snapshot
+        when the wording changes; files it can&apos;t read as text (PDFs) still need pasting by
+        hand.
       </p>
       {docs.length === 0 ? (
         <section className="panel empty">
@@ -54,7 +62,7 @@ export default async function SourcesPage() {
                   .map(([status, n]) => `${n} ${VERIFICATION_LABELS[status]?.toLowerCase()}`)
                   .join(", ") || "no references"}
               </div>
-              <span className="status">{d.latest_snapshot ? "Snapshot taken" : "No snapshot"}</span>
+              <span className="status">{sourceStatus(d)}</span>
             </li>
           ))}
         </ul>
