@@ -231,6 +231,13 @@ tests and updated docs before the next starts.
 - [x] `lead_message` (migration 0025): never edited or deleted (trigger); the text stays out of the audit log
 - [ ] Next: attachments (reusing the scanned upload pipeline); include messages in "Download my data"; reminders before a quote expires; PDF quotes
 
+## Milestone 27 — Staff accounts page ✅
+- [x] `/admin/accounts`: find any account by email, name, business name, ABN or id (posted, so emails stay out of logs), with filters for active, unconfirmed, suspended, staff and closed accounts
+- [x] Account page: organisations and roles, two-step sign-in and recovery codes, password age, signed-in devices, and recent history including what staff did to it
+- [x] Support actions for platform administrators (`platform.users.manage`, migration 0026): resend the verification email, send a password reset link, sign out everywhere, reset two-step sign-in (no server command needed), suspend and restore; reasons kept in the audit log
+- [x] Safeguards: no actions on your own account, only a super administrator can change a staff member's account, closed accounts are read-only, every view and action audited
+- [ ] Next: change staff roles from the page; suspend a business organisation; staff notes on an account
+
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
 - [x] Fetch source documents automatically for snapshots (built in Milestone 24; PDFs still pasted by hand)
