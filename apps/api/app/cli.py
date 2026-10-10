@@ -331,6 +331,7 @@ async def check_sources(settings: Settings) -> int:
     from app.core.email import create_email_provider
     from app.modules.regulatory import checks
     from app.modules.regulatory.fetch import SourceFetcher
+    from app.modules.regulatory.models import CheckOutcome
 
     resources = create_resources(settings)
     try:
@@ -344,9 +345,9 @@ async def check_sources(settings: Settings) -> int:
         await resources.close()
     print(f"Checked {result.checked} source document(s).")
     for outcome, count in sorted(result.outcomes.items()):
-        print(f"  {checks.OUTCOME_LABELS[checks.CheckOutcome(outcome)]}: {count}")
+        print(f"  {checks.OUTCOME_LABELS[CheckOutcome(outcome)]}: {count}")
     for title, outcome, error in result.news:
-        label = checks.OUTCOME_LABELS[checks.CheckOutcome(outcome)]
+        label = checks.OUTCOME_LABELS[CheckOutcome(outcome)]
         print(f"- {title}: {label}{f' ({error})' if error else ''}")
     return 0
 

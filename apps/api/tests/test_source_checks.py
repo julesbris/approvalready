@@ -420,3 +420,11 @@ async def test_weekly_run_can_be_switched_off(api: ApiHarness, site: FakeSite) -
         site.fetcher(settings),
     )
     assert result.checked == 0 and site.calls == []
+
+
+@pytest.mark.integration
+async def test_command_line(migrated: None, capsys: pytest.CaptureFixture[str]) -> None:
+    from app import cli
+
+    assert await cli.check_sources(make_settings(source_checks_enabled=False)) == 0
+    assert "Checked 0 source document(s)." in capsys.readouterr().out
