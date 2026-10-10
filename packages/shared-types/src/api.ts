@@ -1336,6 +1336,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/auth/notification-preferences": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Preferences
+         * @description Every category with the signed-in person's choice (``ALL`` until they choose).
+         */
+        get: operations["get_preferences_v1_auth_notification_preferences_get"];
+        /** Put Preferences */
+        put: operations["put_preferences_v1_auth_notification_preferences_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/auth/password": {
         parameters: {
             query?: never;
@@ -1467,6 +1488,32 @@ export interface paths {
          */
         put: operations["switch_organisation_v1_auth_session_organisation_put"];
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/auth/unsubscribe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Unsubscribe Info
+         * @description What an emailed unsubscribe link is for. Changes nothing (link scanners open it).
+         */
+        get: operations["unsubscribe_info_v1_auth_unsubscribe_get"];
+        put?: never;
+        /**
+         * Unsubscribe
+         * @description Stop emails for the link's category, or every optional email with ``scope=all``.
+         *     Needs no sign-in: the link is the proof. Also the target of one-click unsubscribe
+         *     (RFC 8058), whose form body is ignored.
+         */
+        post: operations["unsubscribe_v1_auth_unsubscribe_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -7056,6 +7103,17 @@ export interface components {
             why: string;
         };
         /**
+         * NotificationCategory
+         * @description What a member chooses about (Milestone 21): one or more notification kinds.
+         * @enum {string}
+         */
+        NotificationCategory: "REMINDERS" | "GRANT_ROUNDS" | "REFERRALS" | "SOURCE_REVIEWS";
+        /**
+         * NotificationChannel
+         * @enum {string}
+         */
+        NotificationChannel: "ALL" | "IN_APP" | "OFF";
+        /**
          * NotificationKind
          * @enum {string}
          */
@@ -7924,6 +7982,24 @@ export interface components {
             title: string;
             /** Version */
             version: string;
+        };
+        /** PreferenceOut */
+        PreferenceOut: {
+            category: components["schemas"]["NotificationCategory"];
+            channel: components["schemas"]["NotificationChannel"];
+        };
+        /**
+         * PreferencesIn
+         * @description Only the categories listed change.
+         */
+        PreferencesIn: {
+            /** Items */
+            items: components["schemas"]["PreferenceOut"][];
+        };
+        /** PreferencesOut */
+        PreferencesOut: {
+            /** Items */
+            items: components["schemas"]["PreferenceOut"][];
         };
         /** PrefillOut */
         PrefillOut: {
@@ -10554,6 +10630,24 @@ export interface components {
          * @enum {string}
          */
         TurnoverBand: "UNDER_75K" | "75K_2M" | "2M_10M" | "10M_50M" | "OVER_50M";
+        /**
+         * UnsubscribeOut
+         * @description What an unsubscribe link is for, and the person's channel for it now.
+         */
+        UnsubscribeOut: {
+            category: components["schemas"]["NotificationCategory"];
+            channel: components["schemas"]["NotificationChannel"];
+        };
+        /** UnsubscribedOut */
+        UnsubscribedOut: {
+            /** Items */
+            items: components["schemas"]["PreferenceOut"][];
+            /**
+             * Scope
+             * @enum {string}
+             */
+            scope: "category" | "all";
+        };
         /** UploadLimitsOut */
         UploadLimitsOut: {
             /**
@@ -13361,6 +13455,59 @@ export interface operations {
             };
         };
     };
+    get_preferences_v1_auth_notification_preferences_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PreferencesOut"];
+                };
+            };
+        };
+    };
+    put_preferences_v1_auth_notification_preferences_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PreferencesIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PreferencesOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     change_password_v1_auth_password_post: {
         parameters: {
             query?: never;
@@ -13566,6 +13713,69 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SessionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    unsubscribe_info_v1_auth_unsubscribe_get: {
+        parameters: {
+            query: {
+                token: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UnsubscribeOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    unsubscribe_v1_auth_unsubscribe_post: {
+        parameters: {
+            query: {
+                token: string;
+                scope?: "category" | "all";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UnsubscribedOut"];
                 };
             };
             /** @description Validation Error */

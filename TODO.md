@@ -121,7 +121,7 @@ tests and updated docs before the next starts.
 - [x] Reminder delivery (Celery beat), in-app notifications and email, header bell and `/notifications`
 - [x] Rules-driven cross-sell offers (`cross_sell` on `CROSS_SELL` outcomes, shown on assessment reports)
 - [~] Content pack `property_qld` (2 rule sets, 20 rules, 21 references, 6 checklists). Every reference is an **unverified summary**
-- [ ] Next: verify the pack's references (open points: entry notice period for showing buyers, disclosure timing rules); other states; Form 1 entry condition report and disclosure statement generation; notification preferences
+- [ ] Next: verify the pack's references (open points: entry notice period for showing buyers, disclosure timing rules); other states; Form 1 entry condition report and disclosure statement generation; notification preferences (built in Milestone 21)
 
 ## Milestone 12 — AI abstraction and drafting ✅
 - [x] `AIProvider` protocol (`generate_structured`, `generate_text`); providers `none` (default), `mock` (refused in production) and `anthropic` (official SDK, JSON structured output, refusal fallback), chosen by `AI_PROVIDER`
@@ -187,7 +187,13 @@ tests and updated docs before the next starts.
 - [x] Email outbox: every email is queued (sealed, erased once sent) and sent by the worker, so a slow or failing mail server no longer slows or loses sign-up, reset, invitation, review and referral emails
 - [x] Retries with back-off for about ten hours; refused addresses fail at once; a sweep every minute catches anything missed and removes rows after 30 days
 - [x] Ops check "Email delivery" on `/admin/ops` and in the watchdog's alerts
-- [ ] Next: bounce and complaint handling from the mail provider; a staff view of failed emails per address; notification email preferences and unsubscribe links
+- [ ] Next: bounce and complaint handling from the mail provider; a staff view of failed emails per address; ~~notification email preferences and unsubscribe links~~ (Milestone 21)
+
+## Milestone 21 — Email and notification settings ✅
+- [x] Per-person choice for reminders, grant rounds, referrals and (staff) source reviews: email and in the app, in the app only, or off; applies in every organisation (Account > Email and notifications)
+- [x] Unsubscribe link in every reminder and alert email, plus `List-Unsubscribe` one-click headers (RFC 8058) for Gmail and Outlook; no sign-in needed, the link only switches emails off
+- [x] Account emails (sign-in, password, security, invitations, reviews) and ops alerts stay always on
+- [ ] Next: a per-project mute; digest emails (one a day instead of each reminder); SMS
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
