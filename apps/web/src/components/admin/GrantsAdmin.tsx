@@ -197,6 +197,7 @@ function Program({
           editing === r.id ? (
             <li key={r.id}>
               <form
+                method="post"
                 className="form"
                 aria-label={`Update ${r.title}`}
                 onSubmit={(e) => save(e, r)}
@@ -249,6 +250,7 @@ function Program({
       </ul>
       {adding ? (
         <form
+          method="post"
           className="form"
           aria-label={`Add a round to ${program.title}`}
           onSubmit={(e) => save(e)}

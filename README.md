@@ -70,6 +70,13 @@ After changing API routes or schemas, regenerate the web's types with
 `scripts/test-services.sh up` starts throwaway Postgres and Redis containers bound to
 loopback for the API suite; `down` removes them.
 
+Browser end-to-end tests (Playwright, `apps/web/e2e`) drive the partner journey through a real
+stack: `npm run test:e2e` (or `make test-e2e`) recreates an `approvalready_e2e` database on the
+Postgres at 127.0.0.1:5432, migrates it, starts the API, a Celery worker and the production web
+build as host processes, seeds the accounts and an assessed project, runs Playwright and stops
+everything. Run the steps separately with `scripts/e2e.sh up|seed|test|down`; logs are in
+`.e2e/`. Install the browser once with `npx playwright install chromium`.
+
 ## Status
 
 Milestones 1 (infrastructure), 2 (authentication, organisations, RBAC, audit) and 3 (projects,

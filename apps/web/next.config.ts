@@ -1,12 +1,7 @@
 import type { NextConfig } from "next";
 
-import { staticCsp } from "./src/lib/csp";
-
-const isProd = process.env.NODE_ENV === "production";
-
-// Static pages get the baseline policy; dynamically rendered app/auth pages get a strict
-// per-request nonce policy from src/proxy.ts instead (see src/lib/csp.ts).
-const csp = staticCsp(!isProd);
+// The Content-Security-Policy header is set by src/proxy.ts for every page: a per-request nonce
+// for dynamically rendered pages, the build's script hashes for static ones (src/lib/csp.ts).
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -22,15 +17,7 @@ const config: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ["@approvalready/ui", "@approvalready/shared-types"],
   async headers() {
-    return [
-      { source: "/:path*", headers: securityHeaders },
-      {
-        // Everything except the nonce-CSP paths (NONCE_CSP_PATHS in src/lib/csp.ts).
-        source:
-          "/((?!login|register|verify-email|forgot-password|reset-password|account|invitations|projects|admin|review|notifications|partner).*)",
-        headers: [{ key: "Content-Security-Policy", value: csp }],
-      },
-    ];
+    return [{ source: "/:path*", headers: securityHeaders }];
   },
 };
 

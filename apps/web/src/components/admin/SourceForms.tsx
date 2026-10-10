@@ -88,7 +88,12 @@ export function SourceForms({ organisations }: { organisations: SourceOrganisati
         {organisations.length === 0 ? (
           <p className="muted">Add the organisation that publishes it first.</p>
         ) : (
-          <form className="form" onSubmit={addDocument} aria-label="Add a source document">
+          <form
+            method="post"
+            className="form"
+            onSubmit={addDocument}
+            aria-label="Add a source document"
+          >
             <FormError message={doc.error} />
             <label>
               Published by
@@ -158,7 +163,12 @@ export function SourceForms({ organisations }: { organisations: SourceOrganisati
         <h2 id="add-org-title" className="section-title">
           Add a source organisation
         </h2>
-        <form className="form" onSubmit={addOrganisation} aria-label="Add a source organisation">
+        <form
+          method="post"
+          className="form"
+          onSubmit={addOrganisation}
+          aria-label="Add a source organisation"
+        >
           <FormError message={org.error} />
           <label>
             Name

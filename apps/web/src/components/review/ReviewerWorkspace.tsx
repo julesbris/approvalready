@@ -73,7 +73,12 @@ function OverrideForm({
     }
   }
   return (
-    <form className="form" onSubmit={submit} aria-label={`Change ${finding.rule_title}`}>
+    <form
+      method="post"
+      className="form"
+      onSubmit={submit}
+      aria-label={`Change ${finding.rule_title}`}
+    >
       <label>
         Outcome
         <select value={outcome} onChange={(e) => setOutcome(e.target.value)}>
@@ -353,7 +358,7 @@ export function ReviewerWorkspace({ initial }: { initial: ReviewerWorkspaceOut }
             </>
           ) : null}
           {active ? (
-            <form className="form inline-form" onSubmit={addTask}>
+            <form method="post" className="form inline-form" onSubmit={addTask}>
               <label>
                 Add a task to the customer&apos;s project
                 <input
@@ -369,7 +374,7 @@ export function ReviewerWorkspace({ initial }: { initial: ReviewerWorkspaceOut }
             </form>
           ) : null}
           {inReview ? (
-            <form className="form" onSubmit={decide} aria-label="Decision">
+            <form method="post" className="form" onSubmit={decide} aria-label="Decision">
               <fieldset>
                 <legend>Your decision</legend>
                 {(Object.keys(DECISION_LABELS) as Decision[]).map((d) => (

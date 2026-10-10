@@ -197,7 +197,7 @@ export function VesselPanel({
         </div>
       ) : null}
       {canWrite && adding ? (
-        <form className="form" onSubmit={addVessel} aria-label="Add a vessel">
+        <form method="post" className="form" onSubmit={addVessel} aria-label="Add a vessel">
           <VesselLookup organisationId={organisationId} onFound={applyRecord} disabled={busy} />
           {found ? <VesselRecord record={found} /> : null}
           <div className="field-row">
@@ -397,7 +397,7 @@ function Certificates({
         </button>
       ) : null}
       {canWrite && adding ? (
-        <form className="form" onSubmit={add} aria-label="Add a certificate">
+        <form method="post" className="form" onSubmit={add} aria-label="Add a certificate">
           <div className="field-row">
             <label>
               Certificate

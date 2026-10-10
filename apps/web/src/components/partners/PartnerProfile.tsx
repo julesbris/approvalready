@@ -75,7 +75,7 @@ export function PartnerProfile({ organisationId, initial, categories, canManage 
         <h2 id="details-title" className="section-title">
           Business details
         </h2>
-        <form className="form" onSubmit={saveDetails}>
+        <form method="post" className="form" onSubmit={saveDetails}>
           <label>
             Business name
             <input

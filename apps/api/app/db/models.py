@@ -12,6 +12,7 @@ from app.modules.identity import models as identity_models  # noqa: F401
 from app.modules.leads import models as leads_models  # noqa: F401
 from app.modules.marketplace import models as marketplace_models  # noqa: F401
 from app.modules.notifications import models as notifications_models  # noqa: F401
+from app.modules.ops import models as ops_models  # noqa: F401
 from app.modules.partners import models as partners_models  # noqa: F401
 from app.modules.projects import models as projects_models  # noqa: F401
 from app.modules.questionnaires import models as questionnaires_models  # noqa: F401

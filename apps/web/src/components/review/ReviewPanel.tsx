@@ -72,7 +72,7 @@ export function Conversation({
         ))}
       </ul>
       {canWrite ? (
-        <form className="form" onSubmit={submit}>
+        <form method="post" className="form" onSubmit={submit}>
           <label>
             {who === "customer" ? "Message your reviewer" : "Message the customer"}
             <textarea
@@ -213,7 +213,7 @@ export function ReviewPanel(props: Props) {
             is confirmed.
           </p>
         ) : null}
-        <form className="form" onSubmit={(e) => void request(e)}>
+        <form method="post" className="form" onSubmit={(e) => void request(e)}>
           <label>
             Anything you&apos;d like them to look at? (optional)
             <textarea

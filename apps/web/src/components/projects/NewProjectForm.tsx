@@ -44,7 +44,7 @@ export function NewProjectForm({
   }
 
   return (
-    <form className="form form-wide" onSubmit={onSubmit}>
+    <form method="post" className="form form-wide" onSubmit={onSubmit}>
       <fieldset className="choice-grid">
         <legend>What is the project about?</legend>
         {defaultBrand.products.map((product) => (

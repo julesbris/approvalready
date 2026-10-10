@@ -80,7 +80,8 @@ def test_only_migrate_gets_owner_credentials(
     compose: str, prod: dict[str, Any], dev: dict[str, Any]
 ) -> None:
     """Long-running services connect as the application role, so row-level security applies
-    to them. Only the one-shot migrate service sees the owner's credentials."""
+    to them. Only the one-shot migrate service sees the owner's credentials (and the backup
+    service, which has no internet access: see below)."""
     services = (prod if compose == "prod" else dev)["services"]
     for name, svc in services.items():
         env = svc.get("environment") or {}
@@ -99,3 +100,24 @@ def test_documents_share_one_volume_and_scanner(prod: dict[str, Any]) -> None:
     clamav = prod["services"]["clamav"]
     assert "ports" not in clamav
     assert "data" not in clamav["networks"]
+
+
+def test_backup_service_is_internal_and_reads_files_only(prod: dict[str, Any]) -> None:
+    """The backup service holds the owner's password (pg_dump), so it has no route to the
+    internet; the worker copies its files off the server, reading them only."""
+    backup = prod["services"]["backup"]
+    assert backup["networks"] == ["data"]
+    assert "ports" not in backup
+    assert backup["image"] == prod["services"]["db"]["image"]
+    assert "uploads:/uploads:ro" in backup["volumes"]
+    assert "backups:/backups" in backup["volumes"]
+    assert backup["cap_drop"] == ["ALL"]
+    assert set(backup["cap_add"]) == {"CHOWN", "SETUID", "SETGID"}
+    assert "backups:/backups:ro" in prod["services"]["worker"]["volumes"]
+    owner_password = [
+        name
+        for name, svc in prod["services"].items()
+        if "POSTGRES_PASSWORD" in str(svc.get("environment") or {})
+        and name not in {"db", "migrate"}
+    ]
+    assert owner_password == ["backup"]

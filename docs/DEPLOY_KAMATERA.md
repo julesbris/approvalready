@@ -1,7 +1,8 @@
 # Deploying ApprovalReady on Kamatera
 
-Single Ubuntu LTS cloud server running `docker-compose.prod.yml`. This is the Milestone 1
-runbook; Milestone 17 adds monitoring, WAL archiving and security testing.
+Single Ubuntu LTS cloud server running `docker-compose.prod.yml`. Production runs at
+`approvalready.au`. Milestone 17 added backups with restore checks (§10, §11), monitoring and
+alerts (§12) and security testing in CI (§15).
 
 ```
 Internet → Cloudflare (DNS, proxy, WAF) → Caddy :443 → web (Next.js) / api (FastAPI)
@@ -249,12 +250,12 @@ loaded by the migrate step on every deploy.
 
 | Volume | Contents | Backed up |
 |---|---|---|
-| `pgdata` | PostgreSQL cluster (PG18 layout under `/var/lib/postgresql`) | Yes (dumps + later WAL) |
+| `pgdata` | PostgreSQL cluster (PG18 layout under `/var/lib/postgresql`) | Yes (nightly dump) |
 | `redisdata` | Redis AOF (queues, rate counters) | No (rebuildable) |
 | `caddy_data` | TLS certificates and ACME account | Optional |
-| `uploads` | Customer files and generated reports (`STORAGE_BACKEND=local`, the default) | **Yes** (nightly tar, below) |
+| `uploads` | Customer files and generated reports (`STORAGE_BACKEND=local`, the default) | **Yes** (nightly archive) |
 | `clamav_db` | ClamAV virus signatures | No (re-downloaded) |
-| `./backups` (bind) | Local dump staging | Shipped off-host |
+| `backups` | Nightly dumps and file archives (14 days) | Copied off-host (§10) |
 
 From Milestone 6 customer files live in the `uploads` volume by default. To keep them off the
 server instead, set `STORAGE_BACKEND=s3` with `STORAGE_S3_BUCKET`, `STORAGE_S3_REGION`,
@@ -274,55 +275,133 @@ to download signatures. Until it is ready uploads wait as "Checking for viruses"
 
 ## 10. Backups
 
-Nightly logical backup (cron as `deploy`, 02:30 AEST):
+The `backup` service (Milestone 17, `infrastructure/backup/backup.sh`) runs every night at
+02:30 Brisbane time. It writes a database dump (`db-<time>.dump`, `pg_dump -Fc`) and an
+archive of uploaded files (`uploads-<time>.tgz`) to the `backups` volume, keeps 14 days of them
+on the server and records each run (sizes, SHA-256) in the database. It also runs once straight
+after its first start, so a deploy shows a backup within a minute. It holds the database
+owner's password, so it sits on the internal network only and can't reach the internet.
+
+| Setting (`.env`) | Default | Meaning |
+|---|---|---|
+| `BACKUP_TIMES` | `02:30` | Brisbane times, comma-separated (`02:30,14:30` for twice a day) |
+| `BACKUP_KEEP_DAYS` | `14` | Days of backups kept on the server |
+| `BACKUP_RESTORE_CHECK_DAY` | `7` | Day of the weekly restore check (1 Monday … 7 Sunday) |
 
 ```bash
-#!/usr/bin/env bash
-set -euo pipefail
-cd /srv/approvalready
-ts=$(date -u +%Y%m%dT%H%M%SZ)
-docker compose -f docker-compose.prod.yml exec -T db \
-  sh -c 'pg_dump -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc' > "backups/db-$ts.dump"
-# ship off-host (S3-compatible, Australian region), then prune local copies
-aws s3 cp "backups/db-$ts.dump" "s3://<backup-bucket>/postgres/" --endpoint-url "<endpoint>"
-find backups -name 'db-*.dump' -mtime +7 -delete
-# customer files (STORAGE_BACKEND=local)
-docker run --rm -v approvalready_uploads:/data:ro -v "$PWD/backups":/out alpine \
-  tar czf "/out/uploads-$ts.tgz" -C /data .
-aws s3 cp "backups/uploads-$ts.tgz" "s3://<backup-bucket>/uploads/" --endpoint-url "<endpoint>"
-find backups -name 'uploads-*.tgz' -mtime +7 -delete
+docker compose -f docker-compose.prod.yml --env-file .env exec backup sh /usr/local/bin/backup.sh now
+docker compose -f docker-compose.prod.yml --env-file .env exec backup sh /usr/local/bin/backup.sh list
+docker compose -f docker-compose.prod.yml --env-file .env logs --tail 50 backup
 ```
 
-Encrypt the bucket, enable object lock/versioning, keep 35 daily + 12 monthly. Milestone 17
-adds continuous WAL archiving (pgBackRest or WAL-G) for point-in-time recovery.
+**Off-site copies.** Backups on the server die with the server, so copy them off it. Either:
 
-## 11. Restore procedure (test quarterly)
+1. **Cloud storage (recommended).** Create a private bucket in an Australian region (AWS S3
+   Sydney `ap-southeast-2`, Wasabi Sydney, or Backblaze B2) with encryption at rest and
+   versioning or object lock, and a key that can only write to and read that bucket. Add to
+   `.env` and redeploy:
+
+   ```bash
+   BACKUP_S3_BUCKET=approvalready-backups
+   BACKUP_S3_REGION=ap-southeast-2
+   BACKUP_S3_ENDPOINT_URL=          # only for Wasabi or B2, e.g. https://s3.ap-southeast-2.wasabisys.com
+   BACKUP_S3_ACCESS_KEY_ID=...
+   BACKUP_S3_SECRET_ACCESS_KEY=...
+   ```
+
+   Every 30 minutes the worker uploads new backups to `approvalready/db/` and
+   `approvalready/uploads/` in the bucket (`BACKUP_S3_PREFIX`) and checks their size. Set the
+   bucket's lifecycle rule to keep 35 daily copies (and monthly ones for a year if you like).
+   Backups from before the bucket was set are copied too, as long as they are still on the
+   server.
+2. **Download them to your own computer** (no account needed, but you have to remember):
+
+   ```bash
+   docker compose -f docker-compose.prod.yml --env-file .env cp backup:/backups ./backups-copy
+   sudo chown -R deploy:deploy backups-copy
+   ```
+
+   then, on your computer, `scp -r deploy@<server>:/srv/approvalready/backups-copy .` and
+   delete `backups-copy` on the server.
+
+Point-in-time recovery (continuous WAL archiving with WAL-G or pgBackRest) is not set up: at
+worst a day of changes is lost (less with two `BACKUP_TIMES`). Revisit when there are paying
+customers whose day of work matters more than the extra moving part.
+
+## 11. Restore checks and restoring
+
+**Weekly restore check (automatic).** Every Sunday after the backup (and after the very first
+one), the backup service restores the newest dump into a scratch database
+(`<db>_restore_check`), checks that every table and the schema version came back and that the
+files archive reads, records how long it took, and drops the scratch database. Run one now:
 
 ```bash
-docker compose -f docker-compose.prod.yml stop api worker scheduler
-docker compose -f docker-compose.prod.yml exec -T db \
-  sh -c 'dropdb -U "$POSTGRES_USER" --if-exists "$POSTGRES_DB" && createdb -U "$POSTGRES_USER" "$POSTGRES_DB"'
-docker compose -f docker-compose.prod.yml exec -T db \
-  sh -c 'pg_restore -U "$POSTGRES_USER" -d "$POSTGRES_DB" --no-owner' < backups/db-<ts>.dump
-docker compose -f docker-compose.prod.yml run --rm migrate
-docker compose -f docker-compose.prod.yml up -d --wait
+docker compose -f docker-compose.prod.yml --env-file .env exec backup sh /usr/local/bin/backup.sh restore-check
+```
+
+The result (tables, schema version, users, organisations, projects, files, seconds) shows at
+`/admin/ops`. A failure is alerted like any other (§12).
+
+**Restoring for real** (data lost or damaged, or a new server). This replaces the database and
+the uploaded files with a backup, so everything since that backup is lost:
+
+```bash
+cd /srv/approvalready
+docker compose -f docker-compose.prod.yml --env-file .env stop proxy web api worker scheduler
+docker compose -f docker-compose.prod.yml --env-file .env exec backup sh /usr/local/bin/backup.sh list
+# pick a pair with the same time, then:
+docker compose -f docker-compose.prod.yml --env-file .env run --rm --no-deps \
+  -v approvalready_uploads:/restore-uploads backup restore \
+  db-<time>.dump uploads-<time>.tgz --yes
+docker compose -f docker-compose.prod.yml --env-file .env run --rm migrate
+docker compose -f docker-compose.prod.yml --env-file .env up -d --wait
 curl -fsS https://api.<domain>/health/ready
 ```
 
-Record restore duration; that is your real recovery time.
+On a new server, put the files from the bucket (or your computer) into the `backups` volume
+first: start the stack once, then `docker compose ... cp ./db-<time>.dump backup:/backups/`
+(and the matching `uploads-…tgz`). The restore creates the database's privilege group if it is
+missing; `migrate` then recreates the application's login role. Run `verify-audit` afterwards
+(§7) to confirm the audit log's hash chain survived.
 
-## 12. Health checks
+## 12. Health checks, monitoring and alerts
 
 | Endpoint | Meaning | Used by |
 |---|---|---|
 | `GET /health/live` (api) | Process serving | Docker HEALTHCHECK, Caddy upstream check |
 | `GET /health/ready` (api) | PostgreSQL + Redis reachable; 503 otherwise | External uptime monitor |
+| `GET /health/jobs` (api) | The scheduler's heartbeat is under 15 minutes old; 503 otherwise | External uptime monitor |
 | `GET /version` (api) | Version, git SHA, environment | Deploy verification |
 | `GET /api/health` (web) | Web serving, plus API status | Docker HEALTHCHECK, Caddy |
 | `celery inspect ping` | Worker responsive | Docker HEALTHCHECK |
 
-Point an external monitor (e.g. UptimeRobot, Better Stack) at `https://api.<domain>/health/ready`
-and `https://<domain>/api/health`.
+**Inside the app (Milestone 17).** Every 10 minutes the worker checks background jobs (the
+heartbeat), the job queue, the latest backup (failed, or older than 26 hours), the weekly
+restore check, the off-site copy (when set up) and free disk space. Platform admins see all of
+it at `/admin/ops` ("Operations" in the admin menu). When a check starts failing, platform
+admins get a notification and an email, as do the addresses in `OPS_ALERT_EMAILS`
+(comma-separated, e.g. your own email); a check still failing is repeated every 12 hours, and
+recovery is announced once. Warnings (no off-site copy yet, disk over 80 % full) are shown on
+the page only.
+
+**Outside the app.** The checks above run on the worker, so they can't report the worker or the
+whole server being down. Add a free external monitor (UptimeRobot or Better Stack, checking
+every 5 minutes, alerting your email or phone) on:
+
+* `https://api.<domain>/health/ready` (database and Redis)
+* `https://api.<domain>/health/jobs` (worker and scheduler)
+* `https://<domain>/api/health` (web)
+
+**Errors.** Set `SENTRY_DSN` (from a project at sentry.io, which offers EU data residency, or a
+self-hosted GlitchTip) and redeploy: unhandled errors in the API and worker are reported with
+their stack trace and request id, never cookies, headers, request bodies, query strings, user
+details or IP addresses. Without it, errors are in the logs only:
+
+```bash
+docker compose -f docker-compose.prod.yml --env-file .env logs --since 1h api worker | grep -i error
+```
+
+Logs are JSON, one line per event, rotated at 5 × 20 MB per container.
 
 ## 13. Rolling deployment
 
@@ -354,3 +433,22 @@ a registry.
 | Separate worker server | Run `worker` on a second host against the same Redis/DB over a private network |
 | Object storage / CDN | `STORAGE_BACKEND=s3` (Milestone 6); Cloudflare caches `/_next/static` |
 | More API/web capacity | Multiple replicas or hosts behind Caddy / a load balancer; sessions live in Postgres so any node serves any user |
+
+## 15. Security testing (Milestone 17)
+
+CI runs, on every pull request:
+
+* **Browser tests** (Playwright, `apps/web/e2e`): the partner journey end to end, and a check
+  that pages run no script the Content Security Policy blocks.
+* **OWASP ZAP baseline scan** (passive) of the web app on that same stack. `.zap/rules.tsv`
+  lists the findings that fail the build (missing security headers, CSP, cookie flags,
+  sensitive data in URLs, XSS) and the accepted ones, with reasons; other warnings are
+  reported only.
+* **Dependency audits**: `pip-audit` over the API's locked runtime packages and
+  `npm audit --omit=dev` over the web app's.
+
+Content Security Policy: signed-in and auth pages use a per-request nonce; statically built
+pages (home, guides, not-found) allow only the inline scripts hashed at build time
+(`apps/web/scripts/csp-hashes.mjs`), so neither allows `'unsafe-inline'` scripts. Forms post
+(`method="post"`), so nothing typed into a form can land in a URL or a log before the page's
+scripts load.

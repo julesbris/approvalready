@@ -54,7 +54,7 @@ function PriceForm({
   }
 
   return (
-    <form className="form" onSubmit={(e) => void submit(e)}>
+    <form method="post" className="form" onSubmit={(e) => void submit(e)}>
       <div className="button-row">
         <label>
           New price in dollars, including GST

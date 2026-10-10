@@ -11,17 +11,21 @@ import uuid
 from datetime import UTC, datetime
 from typing import Any
 
+import redis
 from celery import Celery
 from celery.schedules import crontab
+from redis.asyncio import Redis
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.pool import NullPool
 
 from app.core.config import get_settings
 from app.core.email import create_email_provider
+from app.core.errors_tracking import init_error_tracking
 from app.modules.documents import jobs
 from app.modules.notifications import delivery
 
 settings = get_settings()
+init_error_tracking(settings, "worker")
 
 celery_app = Celery(
     "approvalready",
@@ -54,6 +58,8 @@ celery_app.conf.update(
             "schedule": crontab(hour=7, minute=30),
         },
         "leads-sweep": {"task": "leads.sweep", "schedule": 900.0},
+        "ops-watchdog": {"task": "ops.watchdog", "schedule": 600.0},
+        "ops-ship-backups": {"task": "ops.ship_backups", "schedule": 1800.0},
     },
 )
 
@@ -65,7 +71,16 @@ def ping() -> str:
 
 @celery_app.task(name="system.heartbeat")
 def heartbeat() -> str:
-    return datetime.now(UTC).isoformat()
+    """Proves the scheduler and a worker are both running (``/health/jobs``, ``/admin/ops``)."""
+    from app.modules.ops.checks import HEARTBEAT_KEY
+
+    now = datetime.now(UTC).isoformat()
+    client = redis.Redis.from_url(settings.redis_url, socket_timeout=5)
+    try:
+        client.set(HEARTBEAT_KEY, now, ex=7 * 24 * 3600)
+    finally:
+        client.close()
+    return now
 
 
 # --- Documents (Milestone 6) -----------------------------------------------------------
@@ -197,3 +212,34 @@ def sweep_leads() -> int:
     from app.modules.leads import jobs as leads
 
     return asyncio.run(_with_own_engine(leads.sweep))
+
+
+# --- Operations (Milestone 17) ----------------------------------------------------------
+
+
+@celery_app.task(name="ops.watchdog")
+def ops_watchdog() -> int:
+    """Run the operational checks and alert platform admins (every 10 minutes)."""
+    from app.modules.ops import service as ops
+
+    async def job(factory: Any, email: Any, s: Any) -> int:
+        client = Redis.from_url(s.redis_url, decode_responses=True, socket_timeout=5)
+        try:
+            checks = await ops.watchdog(factory, email, s, client, datetime.now(UTC))
+        finally:
+            await client.aclose()
+        return sum(1 for c in checks if c.state != "OK")
+
+    return asyncio.run(_with_own_engine(job))
+
+
+@celery_app.task(name="ops.ship_backups")
+def ship_backups() -> int:
+    """Copy new backups off the server when BACKUP_S3_BUCKET is set (every 30 minutes)."""
+    from app.modules.ops import offsite
+
+    async def job(factory: Any, email: Any, s: Any) -> int:
+        result = await offsite.ship(factory, s)
+        return result.uploaded
+
+    return asyncio.run(_with_own_engine(job))

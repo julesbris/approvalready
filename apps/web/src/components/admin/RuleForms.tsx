@@ -46,7 +46,7 @@ export function NewRuleSetForm() {
   }
 
   return (
-    <form className="form" onSubmit={submit} aria-label="Add a rule set">
+    <form method="post" className="form" onSubmit={submit} aria-label="Add a rule set">
       <FormError message={action.error} />
       <label>
         Title
@@ -122,7 +122,7 @@ export function RuleSetScopeForm({ ruleSet }: { ruleSet: RuleSetOut }) {
   }
 
   return (
-    <form className="form" onSubmit={submit} aria-label="Edit rule set">
+    <form method="post" className="form" onSubmit={submit} aria-label="Edit rule set">
       <FormError message={action.error} />
       <label>
         Title
@@ -190,7 +190,7 @@ export function NewRuleForm({ ruleSetId }: { ruleSetId: string }) {
   }
 
   return (
-    <form className="form" onSubmit={submit} aria-label="Add a rule">
+    <form method="post" className="form" onSubmit={submit} aria-label="Add a rule">
       <FormError message={action.error} />
       <label>
         Title

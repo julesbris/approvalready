@@ -1572,6 +1572,139 @@
         "title": "AuthorRole",
         "type": "string"
       },
+      "BackupRunOut": {
+        "properties": {
+          "database_bytes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Database Bytes"
+          },
+          "database_file": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Database File"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "finished_at": {
+            "format": "date-time",
+            "title": "Finished At",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "offsite_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offsite At"
+          },
+          "offsite_error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offsite Error"
+          },
+          "offsite_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offsite Status"
+          },
+          "started_at": {
+            "format": "date-time",
+            "title": "Started At",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "uploads_bytes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Uploads Bytes"
+          },
+          "uploads_file": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Uploads File"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "status",
+          "started_at",
+          "finished_at",
+          "database_file",
+          "database_bytes",
+          "uploads_file",
+          "uploads_bytes",
+          "detail",
+          "offsite_status",
+          "offsite_at",
+          "offsite_error"
+        ],
+        "title": "BackupRunOut",
+        "type": "object"
+      },
       "BenchmarkOut": {
         "description": "Other partners' medians. Each figure is None unless enough partners contribute.",
         "properties": {
@@ -2670,6 +2803,42 @@
         },
         "title": "CertificateUpdate",
         "type": "object"
+      },
+      "CheckOut": {
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/CheckState"
+          }
+        },
+        "required": [
+          "key",
+          "label",
+          "state",
+          "detail"
+        ],
+        "title": "CheckOut",
+        "type": "object"
+      },
+      "CheckState": {
+        "enum": [
+          "OK",
+          "WARNING",
+          "FAILING"
+        ],
+        "title": "CheckState",
+        "type": "string"
       },
       "ChecklistAddIn": {
         "properties": {
@@ -6531,6 +6700,23 @@
         "title": "JobStatus",
         "type": "string"
       },
+      "JobsResponse": {
+        "properties": {
+          "status": {
+            "enum": [
+              "ok",
+              "error"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "JobsResponse",
+        "type": "object"
+      },
       "LeadDeclineIn": {
         "additionalProperties": false,
         "properties": {
@@ -8342,7 +8528,8 @@
           "GRANT_ROUND",
           "SOURCES_DUE",
           "LEAD_OFFERED",
-          "LEAD_CLAIMED"
+          "LEAD_CLAIMED",
+          "OPS_ALERT"
         ],
         "title": "NotificationKind",
         "type": "string"
@@ -8788,6 +8975,61 @@
           }
         },
         "title": "OfferUpdate",
+        "type": "object"
+      },
+      "OpsStatusOut": {
+        "properties": {
+          "alert_email_count": {
+            "title": "Alert Email Count",
+            "type": "integer"
+          },
+          "checked_at": {
+            "format": "date-time",
+            "title": "Checked At",
+            "type": "string"
+          },
+          "checks": {
+            "items": {
+              "$ref": "#/components/schemas/CheckOut"
+            },
+            "title": "Checks",
+            "type": "array"
+          },
+          "error_tracking_enabled": {
+            "title": "Error Tracking Enabled",
+            "type": "boolean"
+          },
+          "git_sha": {
+            "title": "Git Sha",
+            "type": "string"
+          },
+          "offsite_enabled": {
+            "title": "Offsite Enabled",
+            "type": "boolean"
+          },
+          "runs": {
+            "items": {
+              "$ref": "#/components/schemas/BackupRunOut"
+            },
+            "title": "Runs",
+            "type": "array"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "checked_at",
+          "checks",
+          "runs",
+          "offsite_enabled",
+          "error_tracking_enabled",
+          "alert_email_count",
+          "version",
+          "git_sha"
+        ],
+        "title": "OpsStatusOut",
         "type": "object"
       },
       "OptionOut": {
@@ -18945,6 +19187,37 @@
   },
   "openapi": "3.1.0",
   "paths": {
+    "/health/jobs": {
+      "get": {
+        "operationId": "jobs_health_jobs_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobsResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobsResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "summary": "Jobs",
+        "tags": [
+          "health"
+        ]
+      }
+    },
     "/health/live": {
       "get": {
         "operationId": "live_health_live_get",
@@ -19981,6 +20254,28 @@
         "summary": "Set Price",
         "tags": [
           "admin: leads"
+        ]
+      }
+    },
+    "/v1/admin/ops": {
+      "get": {
+        "description": "Is the platform looking after itself: background jobs, backups, disk.",
+        "operationId": "ops_status_v1_admin_ops_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OpsStatusOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Ops Status",
+        "tags": [
+          "admin: operations"
         ]
       }
     },

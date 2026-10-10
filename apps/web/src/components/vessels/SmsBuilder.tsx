@@ -104,6 +104,7 @@ export function SmsBuilder({
             {section.title}
           </h2>
           <form
+            method="post"
             className="form"
             onSubmit={(event) => {
               event.preventDefault();

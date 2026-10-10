@@ -25,6 +25,7 @@ class NotificationKind(StrEnum):
     SOURCES_DUE = "SOURCES_DUE"  # staff: source references due for review
     LEAD_OFFERED = "LEAD_OFFERED"  # partner: a referral was offered to them
     LEAD_CLAIMED = "LEAD_CLAIMED"  # customer: a partner accepted their referral
+    OPS_ALERT = "OPS_ALERT"  # platform admins: backups, background jobs or disk need attention
 
 
 class EmailStatus(StrEnum):

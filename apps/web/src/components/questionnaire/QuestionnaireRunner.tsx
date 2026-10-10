@@ -341,6 +341,7 @@ export function QuestionnaireRunner({
             {sections[step]?.title}
           </h2>
           <form
+            method="post"
             className="form"
             onSubmit={(event) => {
               event.preventDefault();

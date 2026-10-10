@@ -38,7 +38,7 @@ export function RegisterForm() {
   }
 
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form method="post" className="form" onSubmit={onSubmit}>
       <label>
         Your name
         <input name="display_name" autoComplete="name" required maxLength={120} />

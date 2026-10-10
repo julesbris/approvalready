@@ -159,12 +159,13 @@ tests and updated docs before the next starts.
 - [x] Staff marketplace figures (`/admin/analytics`): requests, supply gaps (no partner available), time to first acceptance, outcomes and fees by category, area, month and partner
 - [ ] Next: CSV export; charts; area benchmarks once there are enough partners per region
 
-## Milestone 17 — Production hardening
-- [ ] Backups (pg_dump + WAL to off-site S3), restore drills
-- [ ] Monitoring (uptime, logs, metrics, error tracking), alerting
-- [ ] Security testing (ZAP baseline, dependency audit), CSP tightening (hash-based CSP for static pages)
-- [ ] Kamatera go-live
-- [ ] Browser (Playwright) end-to-end tests, starting with the partner journey from Milestone 15
+## Milestone 17 — Production hardening ✅
+- [x] Backups: nightly `pg_dump` and uploads archive by the `backup` service (14 days on the server), off-site copies to S3-compatible storage by the worker (`BACKUP_S3_*`), weekly automatic restore checks into a scratch database, and a tested restore command
+- [x] Monitoring and alerting: scheduler heartbeat, queue, backup, restore-check, off-site and disk checks every 10 minutes, alerts to platform admins and `OPS_ALERT_EMAILS`, `/health/jobs` for an external uptime monitor, `/admin/ops`, error tracking with `SENTRY_DSN`
+- [x] Security testing: OWASP ZAP baseline scan and dependency audits (pip-audit, npm audit) in CI; hash-based CSP for static pages; forms post (a ZAP finding)
+- [x] Kamatera go-live (approvalready.au, 2026-10-10)
+- [x] Browser (Playwright) end-to-end tests: the partner journey from Milestone 15, and a CSP check
+- [ ] Next: choose the backup bucket (see backlog: object storage vendor) and set `BACKUP_S3_*`; set `OPS_ALERT_EMAILS` and an external uptime monitor; WAL archiving for point-in-time recovery once a day's loss matters; more browser journeys (customer questionnaire, professional review, billing)
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)

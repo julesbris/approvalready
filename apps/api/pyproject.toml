@@ -22,6 +22,7 @@ dependencies = [
     "python-docx>=1.2",
     "httpx>=0.28",
     "anthropic>=1.0",
+    "sentry-sdk>=2.30",
 ]
 
 [dependency-groups]

@@ -41,7 +41,7 @@ export function LoginForm({ next }: { next: string }) {
   }
 
   return (
-    <form className="form" onSubmit={onSubmit} noValidate={false}>
+    <form method="post" className="form" onSubmit={onSubmit} noValidate={false}>
       <label>
         Email
         <input name="email" type="email" autoComplete="email" required />

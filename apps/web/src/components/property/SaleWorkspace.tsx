@@ -290,7 +290,7 @@ export function SaleWorkspace({ organisationId, projectId, canWrite, ...props }:
           </p>
         ) : null}
         {canWrite ? (
-          <form className="form" onSubmit={saveDetails} aria-label="Sale details">
+          <form method="post" className="form" onSubmit={saveDetails} aria-label="Sale details">
             <div className="field-row">
               <label>
                 Asking price (optional)
@@ -353,7 +353,12 @@ export function SaleWorkspace({ organisationId, projectId, canWrite, ...props }:
         ) : null}
         {canWrite && !closed ? (
           <>
-            <form className="form inline-form" onSubmit={giveDisclosure} aria-label="Record the disclosure">
+            <form
+              method="post"
+              className="form inline-form"
+              onSubmit={giveDisclosure}
+              aria-label="Record the disclosure"
+            >
               <label>
                 Given to
                 <input name="given_to" required maxLength={200} />
@@ -368,7 +373,12 @@ export function SaleWorkspace({ organisationId, projectId, canWrite, ...props }:
             </form>
             <details>
               <summary>No disclosure needed?</summary>
-              <form className="form" onSubmit={notNeeded} aria-label="No disclosure needed">
+              <form
+                method="post"
+                className="form"
+                onSubmit={notNeeded}
+                aria-label="No disclosure needed"
+              >
                 <label>
                   Why not (for example, what your assessment or conveyancer said)
                   <textarea name="note" required minLength={10} maxLength={1000} />
@@ -432,7 +442,12 @@ export function SaleWorkspace({ organisationId, projectId, canWrite, ...props }:
           ))}
         </ul>
         {canWrite && unfiled.length > 0 ? (
-          <form className="form inline-form" onSubmit={fileDocument} aria-label="File a document">
+          <form
+            method="post"
+            className="form inline-form"
+            onSubmit={fileDocument}
+            aria-label="File a document"
+          >
             <label>
               Document
               <select name="document" required>
@@ -508,7 +523,7 @@ export function SaleWorkspace({ organisationId, projectId, canWrite, ...props }:
         {canWrite && !["SETTLED", "WITHDRAWN"].includes(sale.status) ? (
           <details>
             <summary>Record an offer</summary>
-            <form className="form" onSubmit={addOffer} aria-label="Record an offer">
+            <form method="post" className="form" onSubmit={addOffer} aria-label="Record an offer">
               <div className="field-row">
                 <label>
                   Buyer
@@ -593,7 +608,12 @@ export function SaleWorkspace({ organisationId, projectId, canWrite, ...props }:
         {canWrite ? (
           <details>
             <summary>Record an enquiry</summary>
-            <form className="form" onSubmit={addEnquiry} aria-label="Record an enquiry">
+            <form
+              method="post"
+              className="form"
+              onSubmit={addEnquiry}
+              aria-label="Record an enquiry"
+            >
               <div className="field-row">
                 <label>
                   Name

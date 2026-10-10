@@ -1039,3 +1039,36 @@ fieldset.question {
 .table-scroll {
   overflow-x: auto;
 }
+
+/* --- Operations (Milestone 17) --- */
+
+.ops-checks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.ops-check {
+  padding: 10px 12px;
+  border: 1px solid var(--ar-border);
+  border-left-width: 4px;
+  border-radius: 6px;
+}
+
+.ops-check .status {
+  margin-left: 8px;
+}
+
+.ops-ok {
+  border-left-color: var(--ar-success, #067647);
+}
+
+.ops-warning {
+  border-left-color: var(--ar-warning, #b54708);
+}
+
+.ops-failing {
+  border-left-color: var(--ar-danger, #b42318);
+}

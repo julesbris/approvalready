@@ -232,6 +232,26 @@ class Settings(BaseSettings):
     # (k-anonymity); below it the figure is withheld.
     analytics_min_partners: int = Field(default=5, ge=3, le=50)
 
+    # --- Operations (Milestone 17, app/modules/ops) ---
+    # The ``backup`` service writes nightly database dumps and uploads archives here (the
+    # "backups" volume); the worker copies them off the server when BACKUP_S3_BUCKET is set.
+    backup_dir: str = "/backups"
+    backup_s3_bucket: str | None = None
+    backup_s3_region: str | None = None
+    backup_s3_endpoint_url: str | None = None  # non-AWS providers (Backblaze B2, Wasabi)
+    backup_s3_access_key_id: str | None = None
+    backup_s3_secret_access_key: SecretStr | None = None
+    backup_s3_prefix: str = Field(default="approvalready/", max_length=200)
+    # A backup older than this (or a failed one) raises an alert.
+    backup_max_age_hours: int = Field(default=26, ge=2, le=24 * 8)
+    # The scheduler's heartbeat (every 5 minutes) older than this means background jobs
+    # (reminders, scans, referrals) have stopped.
+    heartbeat_max_age_minutes: int = Field(default=15, ge=6, le=24 * 60)
+    # Alerts go to platform admins (in the app and by email) and to these addresses.
+    ops_alert_emails: Annotated[list[str], NoDecode] = Field(default_factory=list)
+    # Error tracking (Sentry or a compatible service such as GlitchTip). Off when unset.
+    sentry_dsn: SecretStr | None = None
+
     @field_validator(
         "storage_s3_bucket",
         "storage_s3_region",
@@ -242,6 +262,12 @@ class Settings(BaseSettings):
         "stripe_secret_key",
         "stripe_webhook_secret",
         "partners_base_url",
+        "backup_s3_bucket",
+        "backup_s3_region",
+        "backup_s3_endpoint_url",
+        "backup_s3_access_key_id",
+        "backup_s3_secret_access_key",
+        "sentry_dsn",
         mode="before",
     )
     @classmethod
@@ -249,7 +275,9 @@ class Settings(BaseSettings):
         # Compose passes unset optional variables as empty strings.
         return None if value == "" else value
 
-    @field_validator("cors_origins", "allowed_hosts", "internal_hosts", mode="before")
+    @field_validator(
+        "cors_origins", "allowed_hosts", "internal_hosts", "ops_alert_emails", mode="before"
+    )
     @classmethod
     def _parse_csv(cls, value: object) -> object:
         return _split_csv(value)
@@ -288,6 +316,10 @@ class Settings(BaseSettings):
             and self.stripe_secret_key is not None
             and self.stripe_webhook_secret is not None
         )
+
+    @property
+    def offsite_backups_enabled(self) -> bool:
+        return self.backup_s3_bucket is not None
 
     @property
     def upload_max_bytes(self) -> int:
@@ -356,6 +388,13 @@ class Settings(BaseSettings):
             problems.append(
                 "STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET are required when "
                 "PAYMENTS_PROVIDER=stripe"
+            )
+        if self.backup_s3_bucket and not (
+            self.backup_s3_access_key_id and self.backup_s3_secret_access_key
+        ):
+            problems.append(
+                "BACKUP_S3_ACCESS_KEY_ID and BACKUP_S3_SECRET_ACCESS_KEY are required when "
+                "BACKUP_S3_BUCKET is set"
             )
         if problems:
             raise ValueError("Unsafe production configuration: " + "; ".join(problems))
