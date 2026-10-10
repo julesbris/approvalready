@@ -10,7 +10,7 @@ export function SiteFooter() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Wordmark />
+            <Wordmark tone="reversed" />
             <p>
               {defaultBrand.productName} provides information and preparation tools. It is not
               legal, financial or planning advice.

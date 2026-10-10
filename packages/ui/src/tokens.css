@@ -1,64 +1,78 @@
 /*
- * Design tokens (see index.ts). Clean, confident and trustworthy: near-black ink, soft grey
- * canvases, white cards with generous radius, pill buttons and one accent per brand.
+ * Design tokens from the ApprovalReady.au design system (see index.ts). Navy and white lead;
+ * teal is the reward, kept for what is done, ready or approved.
  */
 :root {
-  --ar-ink: #0d1321;
-  --ar-ink-muted: #545e6f;
-  --ar-ink-subtle: #7a8394;
+  --ar-brand-navy: #012455;
+  --ar-brand-blue: #01387f;
+  --ar-brand-teal: #00cab5;
+  --ar-brand-teal-deep: #00776b;
+  --ar-brand-mist: #e6faf7;
   --ar-surface: #ffffff;
-  --ar-surface-subtle: #f3f5f9;
-  --ar-surface-sunken: #e9edf3;
-  --ar-border: #e1e5ec;
-  --ar-border-strong: #c9d0db;
-  --ar-accent: #2e46d1;
-  --ar-accent-hover: #2235ad;
-  --ar-accent-soft: #ebeefd;
-  --ar-accent-ink: #ffffff;
-  --ar-success: #11743f;
-  --ar-success-soft: #e5f5ec;
-  --ar-warning: #9a5800;
-  --ar-warning-soft: #fdf2df;
-  --ar-danger: #c0262d;
-  --ar-danger-soft: #fdecec;
-  --ar-invert: #0d1321;
-  --ar-invert-ink: #ffffff;
-  --ar-radius-sm: 8px;
-  --ar-radius: 12px;
-  --ar-radius-lg: 20px;
-  --ar-radius-xl: 32px;
-  --ar-shadow-sm: 0 1px 2px rgb(13 19 33 / 0.05);
-  --ar-shadow: 0 1px 2px rgb(13 19 33 / 0.04), 0 8px 24px rgb(13 19 33 / 0.06);
-  --ar-shadow-lg: 0 2px 6px rgb(13 19 33 / 0.05), 0 24px 48px rgb(13 19 33 / 0.1);
+  --ar-surface-sunk: #f2f5f9;
+  --ar-surface-raised: #ffffff;
+  --ar-surface-inverse: #012455;
+  --ar-ink: #0a1a33;
+  --ar-ink-muted: #4b5b74;
+  --ar-ink-inverse: #ffffff;
+  --ar-heading: #012455;
+  --ar-border: #d7dfea;
+  --ar-border-strong: #7f90a9;
+  --ar-primary: #012455;
+  --ar-primary-hover: #01387f;
+  --ar-on-primary: #ffffff;
+  --ar-accent: #00cab5;
+  --ar-on-accent: #012455;
+  --ar-link: #00776b;
+  --ar-focus: #01387f;
+  --ar-success: #00695f;
+  --ar-success-bg: #e3f8f5;
+  --ar-warning: #9a4a00;
+  --ar-warning-bg: #fff3e2;
+  --ar-danger: #b3261e;
+  --ar-danger-bg: #fdecea;
+  --ar-info: #01387f;
+  --ar-info-bg: #e7eef8;
+  --ar-radius-sm: 6px;
+  --ar-radius: 10px;
+  --ar-radius-lg: 16px;
+  --ar-radius-xl: 24px;
+  --ar-radius-pill: 999px;
+  --ar-shadow-sm: 0 1px 2px rgba(1, 36, 85, 0.08), 0 1px 1px rgba(1, 36, 85, 0.04);
+  --ar-shadow: 0 8px 24px rgba(1, 36, 85, 0.1), 0 2px 6px rgba(1, 36, 85, 0.06);
+  --ar-font-display: var(--ar-font-outfit), var(--ar-font-figtree), system-ui, sans-serif;
   --ar-font-sans:
-    var(--ar-font-inter), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
+    var(--ar-font-figtree), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --ar-font-mono: var(--ar-font-jetbrains), ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ar-ink: #eef1f6;
-    --ar-ink-muted: #a6aebb;
-    --ar-ink-subtle: #7f8897;
-    --ar-surface: #141922;
-    --ar-surface-subtle: #0c1017;
-    --ar-surface-sunken: #1c222d;
-    --ar-border: #262d39;
-    --ar-border-strong: #384151;
-    --ar-accent: #8ea0ff;
-    --ar-accent-hover: #aab8ff;
-    --ar-accent-soft: #1d2445;
-    --ar-accent-ink: #0b1020;
-    --ar-success: #5fd394;
-    --ar-success-soft: #12301f;
-    --ar-warning: #f0b45a;
-    --ar-warning-soft: #33250f;
-    --ar-danger: #ff8a8f;
-    --ar-danger-soft: #3a1618;
-    --ar-invert: #1c2333;
-    --ar-invert-ink: #ffffff;
-    --ar-shadow-sm: none;
-    --ar-shadow: 0 0 0 1px rgb(255 255 255 / 0.02);
-    --ar-shadow-lg: 0 24px 48px rgb(0 0 0 / 0.4);
+    --ar-brand-teal-deep: #4be3d2;
+    --ar-surface: #061631;
+    --ar-surface-sunk: #040f24;
+    --ar-surface-raised: #0c2147;
+    --ar-surface-inverse: #eef3fa;
+    --ar-ink: #eef3fa;
+    --ar-ink-muted: #a6b4c8;
+    --ar-ink-inverse: #012455;
+    --ar-heading: #eef3fa;
+    --ar-border: #1e345c;
+    --ar-border-strong: #5a6f93;
+    --ar-primary: #00cab5;
+    --ar-primary-hover: #3ddcc9;
+    --ar-on-primary: #012455;
+    --ar-link: #4be3d2;
+    --ar-focus: #4be3d2;
+    --ar-success: #4be3d2;
+    --ar-success-bg: #0a3a3d;
+    --ar-warning: #ffb55c;
+    --ar-warning-bg: #3a2508;
+    --ar-danger: #ff8a80;
+    --ar-danger-bg: #3d1414;
+    --ar-info: #8db8ff;
+    --ar-info-bg: #11284f;
+    --ar-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --ar-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   }
 }

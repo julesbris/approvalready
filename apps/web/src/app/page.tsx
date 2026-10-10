@@ -24,6 +24,17 @@ const STEPS = [
   },
 ];
 
+/** The brand pattern: one row of roof chevrons, the symbol's roofline at 30 degrees. */
+function RoofChevrons() {
+  return (
+    <svg className="roof-chevrons" viewBox="0 0 384 32" aria-hidden="true" focusable="false">
+      {Array.from({ length: 8 }, (_, i) => (
+        <path key={i} d={`M${8 + i * 48} 28 L${24 + i * 48} 4 L${40 + i * 48} 28`} />
+      ))}
+    </svg>
+  );
+}
+
 /** An illustration of a result, so visitors see what they get before they sign up. */
 function ExampleResult() {
   const rows: { name: string; level: Confidence }[] = [
@@ -34,9 +45,11 @@ function ExampleResult() {
   return (
     <aside className="example-card" aria-label="Example result">
       <div className="example-head">
-        <span className="example-tag">Example</span>
-        <p className="example-title">Granny flat in the backyard</p>
-        <p className="muted">PlanningReady · 3 findings</p>
+        <div>
+          <p className="example-ref">Example · PlanningReady</p>
+          <p className="example-title">Granny flat in the backyard</p>
+        </div>
+        <span className="status status-assessed">Assessed</span>
       </div>
       <ul className="example-rows">
         {rows.map((row) => (
@@ -62,14 +75,15 @@ export default function HomePage() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="container hero-grid">
             <div className="hero-copy">
+              <RoofChevrons />
               <p className="eyebrow">Approvals, licences and grants in Australia</p>
               <h1 id="hero-title">{brand.tagline}</h1>
               <p className="hero-lede">{brand.description}</p>
               <div className="button-row">
-                <Link className="button button-large" href="/register">
+                <Link className="button button-on-inverse button-large" href="/register">
                   Get started
                 </Link>
-                <Link className="button button-secondary button-large" href="/guides">
+                <Link className="button button-outline-inverse button-large" href="/guides">
                   Read the guides
                 </Link>
               </div>
@@ -141,7 +155,7 @@ export default function HomePage() {
           <div className="cta-band">
             <h2 id="cta-title">Find out what applies to you</h2>
             <p>Create an account, start a project and see which approvals apply.</p>
-            <Link className="button button-inverse button-large" href="/register">
+            <Link className="button button-large" href="/register">
               Get started
             </Link>
           </div>
