@@ -15,6 +15,7 @@ import type {
 } from "@approvalready/shared-types";
 
 export const REVIEW_STATUS_LABELS: Record<ReviewRequestStatus, string> = {
+  PAYMENT_PENDING: "Waiting for payment",
   REVIEW_REQUESTED: "Waiting for a reviewer",
   ASSIGNED: "Reviewer assigned",
   IN_REVIEW: "Being reviewed",
@@ -74,6 +75,7 @@ export const PROFESSIONAL_STATUS_LABELS: Record<ProfessionalStatus, string> = {
 
 /** Statuses in which the customer can still cancel, comment or wait on the reviewer. */
 export const OPEN_REVIEW_STATUSES: ReviewRequestStatus[] = [
+  "PAYMENT_PENDING",
   "REVIEW_REQUESTED",
   "ASSIGNED",
   "IN_REVIEW",

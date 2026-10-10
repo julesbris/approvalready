@@ -31,6 +31,13 @@ export default async function OrganisationPage({ params }: Props) {
         {KIND_LABELS[organisation.kind] ?? organisation.kind}
         {organisation.abn ? ` · ABN ${organisation.abn}` : ""}
       </p>
+      {can("billing.manage") ? (
+        <p>
+          <Link href={`/account/organisations/${organisation.id}/billing`}>
+            Billing, plans and invoices
+          </Link>
+        </p>
+      ) : null}
       <OrganisationMembers
         organisationId={organisation.id}
         kind={organisation.kind}

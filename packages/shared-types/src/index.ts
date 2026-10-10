@@ -171,3 +171,20 @@ export type MaintenanceOut = Schemas["MaintenanceOut"];
 export type NotificationOut = Schemas["NotificationOut"];
 export type NotificationListOut = Schemas["NotificationListOut"];
 export type CrossSellOut = Schemas["CrossSellOut"];
+
+// Customer payments (Milestone 13)
+export type BillingOut = Schemas["BillingOut"];
+export type BillingStatusOut = Schemas["BillingStatusOut"];
+export type CatalogueOut = Schemas["CatalogueOut"];
+export type ProductOut = Schemas["ProductOut"];
+export type PriceOut = Schemas["PriceOut"];
+export type PriceInterval = Schemas["PriceInterval"];
+export type FeatureLimitOut = Schemas["FeatureLimitOut"];
+export type SubscriptionOut = Schemas["SubscriptionOut"];
+export type AllowanceOut = Schemas["AllowanceOut"];
+export type PaymentOut = Schemas["PaymentOut"];
+export type InvoiceOut = Schemas["InvoiceOut"];
+export type RedirectOut = Schemas["RedirectOut"];
+export type CheckoutOut = Schemas["CheckoutOut"];
+export type StripeEventOut = Schemas["StripeEventOut"];
+export type ReviewPaymentOut = Schemas["ReviewPaymentOut"];

@@ -97,6 +97,120 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/billing/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Events
+         * @description Recent webhook events and how they were processed (no payloads).
+         */
+        get: operations["list_events_v1_admin_billing_events_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/billing/events/{event_id}/retry": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Retry Event */
+        post: operations["retry_event_v1_admin_billing_events__event_id__retry_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/billing/prices/{price_id}/deactivate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Deactivate Price
+         * @description Take a price off sale. Payments and plans already on it are not affected.
+         */
+        post: operations["deactivate_price_v1_admin_billing_prices__price_id__deactivate_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/billing/products": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Admin Products
+         * @description Every product in the catalogue with its current and past prices.
+         */
+        get: operations["admin_products_v1_admin_billing_products_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/billing/products/{product_id}/prices": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Add Price
+         * @description Put a product on sale. A new price replaces the current one for the same interval.
+         */
+        post: operations["add_price_v1_admin_billing_products__product_id__prices_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/billing/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Billing Status */
+        get: operations["billing_status_v1_admin_billing_status_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/grant-programs": {
         parameters: {
             query?: never;
@@ -1184,6 +1298,86 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/billing": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Billing Overview
+         * @description The organisation's plan, what it allows, and its payments and invoices.
+         */
+        get: operations["billing_overview_v1_organisations__organisation_id__billing_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/billing/catalogue": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Catalogue
+         * @description What is on sale and at what price (nothing while payments are switched off).
+         */
+        get: operations["catalogue_v1_organisations__organisation_id__billing_catalogue_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/billing/checkout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Plan Checkout
+         * @description A Stripe Checkout page to start a plan. The plan starts when Stripe confirms it.
+         */
+        post: operations["plan_checkout_v1_organisations__organisation_id__billing_checkout_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/billing/portal": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Billing Portal
+         * @description Stripe's customer portal: change the card, download invoices, cancel the plan.
+         */
+        post: operations["billing_portal_v1_organisations__organisation_id__billing_portal_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/business-profiles": {
         parameters: {
             query?: never;
@@ -1918,7 +2112,8 @@ export interface paths {
         put?: never;
         /**
          * Request Review
-         * @description Ask a professional to check the project's latest assessment.
+         * @description Ask a professional to check the project's latest assessment. When reviews have a
+         *     price, the review waits in ``PAYMENT_PENDING``: send the customer to ``/checkout``.
          */
         post: operations["request_review_v1_organisations__organisation_id__projects__project_id__reviews_post"];
         delete?: never;
@@ -2226,6 +2421,26 @@ export interface paths {
         put?: never;
         /** Cancel Review */
         post: operations["cancel_review_v1_organisations__organisation_id__reviews__review_id__cancel_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/reviews/{review_id}/checkout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Review Checkout
+         * @description A Stripe Checkout page to pay for a review that is waiting for payment.
+         */
+        post: operations["review_checkout_v1_organisations__organisation_id__reviews__review_id__checkout_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -3076,6 +3291,30 @@ export interface components {
             /** Name */
             name: string;
         };
+        /** AllowanceOut */
+        AllowanceOut: {
+            /** Description */
+            description: string;
+            /**
+             * Enforced
+             * @description Limits apply only once a plan that lifts them is on sale.
+             */
+            enforced: boolean;
+            /** Feature */
+            feature: string;
+            /** In Use */
+            in_use: number;
+            /**
+             * Limit
+             * @description Null: unlimited.
+             */
+            limit: number | null;
+            /**
+             * Plan
+             * @description The plan it comes from; null for the free allowance.
+             */
+            plan: string | null;
+        };
         /** AnswersUpdate */
         AnswersUpdate: {
             /**
@@ -3426,6 +3665,45 @@ export interface components {
          * @enum {string}
          */
         AuthorRole: "CUSTOMER" | "REVIEWER";
+        /** BillingOut */
+        BillingOut: {
+            /** Allowances */
+            allowances: components["schemas"]["AllowanceOut"][];
+            /** Enabled */
+            enabled: boolean;
+            /** Has Billing Account */
+            has_billing_account: boolean;
+            /** Invoices */
+            invoices: components["schemas"]["InvoiceOut"][];
+            /** Payments */
+            payments: components["schemas"]["PaymentOut"][];
+            /**
+             * Plans
+             * @description Plans on sale.
+             */
+            plans: components["schemas"]["ProductOut"][];
+            /** Subscriptions */
+            subscriptions: components["schemas"]["SubscriptionOut"][];
+            /**
+             * Test Mode
+             * @description Stripe test keys: no real money moves.
+             */
+            test_mode: boolean;
+        };
+        /** BillingStatusOut */
+        BillingStatusOut: {
+            /** Enabled */
+            enabled: boolean;
+            /** Test Mode */
+            test_mode: boolean;
+            /**
+             * Webhook Events
+             * @description Event types to send to the webhook.
+             */
+            webhook_events: string[];
+            /** Webhook Path */
+            webhook_path: string;
+        };
         /** Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post */
         Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post: {
             /**
@@ -3514,6 +3792,19 @@ export interface components {
             /** Trading Name */
             trading_name?: string | null;
             turnover_band?: components["schemas"]["TurnoverBand"] | null;
+        };
+        /** CatalogueOut */
+        CatalogueOut: {
+            /**
+             * Enabled
+             * @description Whether anything can be bought on this server.
+             */
+            enabled: boolean;
+            /**
+             * Products
+             * @description Products with a price on sale.
+             */
+            products: components["schemas"]["ProductOut"][];
         };
         /**
          * Certainty
@@ -3729,6 +4020,14 @@ export interface components {
             /** Title */
             title: string;
             /** Url */
+            url: string;
+        };
+        /** CheckoutOut */
+        CheckoutOut: {
+            /**
+             * Url
+             * @description Stripe's hosted checkout page: send the browser there.
+             */
             url: string;
         };
         /** CitedPoint */
@@ -4114,6 +4413,11 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /**
+         * EventStatus
+         * @enum {string}
+         */
+        EventStatus: "RECEIVED" | "PROCESSED" | "IGNORED" | "FAILED";
         /** EvidenceCheckIn */
         EvidenceCheckIn: {
             /** Note */
@@ -4197,6 +4501,18 @@ export interface components {
              * @default false
              */
             regenerate: boolean;
+        };
+        /** FeatureLimitOut */
+        FeatureLimitOut: {
+            /** Description */
+            description: string;
+            /** Key */
+            key: string;
+            /**
+             * Limit
+             * @description Null: unlimited.
+             */
+            limit: number | null;
         };
         /** FindingOut */
         FindingOut: {
@@ -4704,6 +5020,37 @@ export interface components {
             /** Roles */
             roles: string[];
         };
+        /** InvoiceOut */
+        InvoiceOut: {
+            /** Amount Due Cents */
+            amount_due_cents: number;
+            /** Amount Paid Cents */
+            amount_paid_cents: number;
+            /** Currency */
+            currency: string;
+            /** Hosted Invoice Url */
+            hosted_invoice_url: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Invoice Pdf Url */
+            invoice_pdf_url: string | null;
+            /**
+             * Issued At
+             * Format: date-time
+             */
+            issued_at: string;
+            /** Number */
+            number: string | null;
+            status: components["schemas"]["InvoiceStatus"];
+        };
+        /**
+         * InvoiceStatus
+         * @enum {string}
+         */
+        InvoiceStatus: "DRAFT" | "OPEN" | "PAID" | "VOID" | "UNCOLLECTIBLE";
         /**
          * ItemCondition
          * @enum {string}
@@ -5310,6 +5657,53 @@ export interface components {
             /** Token */
             token: string;
         };
+        /** PaymentOut */
+        PaymentOut: {
+            /** Amount Cents */
+            amount_cents: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Currency */
+            currency: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Paid At */
+            paid_at: string | null;
+            /** Product Name */
+            product_name: string;
+            purpose: components["schemas"]["PaymentPurpose"];
+            /** Refunded Cents */
+            refunded_cents: number;
+            status: components["schemas"]["PaymentStatus"];
+            /** Subject Id */
+            subject_id: string | null;
+            /** Subject Type */
+            subject_type: string | null;
+        };
+        /**
+         * PaymentPurpose
+         * @enum {string}
+         */
+        PaymentPurpose: "REVIEW" | "PRODUCT";
+        /**
+         * PaymentStatus
+         * @enum {string}
+         */
+        PaymentStatus: "PENDING" | "PAID" | "FAILED" | "CANCELLED" | "REFUNDED" | "PARTIALLY_REFUNDED";
+        /** PlanCheckoutIn */
+        PlanCheckoutIn: {
+            /**
+             * Price Id
+             * Format: uuid
+             */
+            price_id: string;
+        };
         /** PrefillOut */
         PrefillOut: {
             /**
@@ -5343,6 +5737,84 @@ export interface components {
              * @description A valid answer for the question, ready to save.
              */
             value: unknown;
+        };
+        /** PriceIn */
+        PriceIn: {
+            /**
+             * Amount Cents
+             * @description Including GST.
+             */
+            amount_cents: number;
+            /**
+             * Currency
+             * @default AUD
+             */
+            currency: string;
+            interval: components["schemas"]["PriceInterval"];
+            /**
+             * Stripe Price Id
+             * @description Optional: a price made in the Stripe dashboard (same amount and interval).
+             */
+            stripe_price_id?: string | null;
+        };
+        /**
+         * PriceInterval
+         * @enum {string}
+         */
+        PriceInterval: "ONE_TIME" | "MONTH" | "YEAR";
+        /** PriceOut */
+        PriceOut: {
+            /** Active */
+            active: boolean;
+            /** Amount Cents */
+            amount_cents: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Currency */
+            currency: string;
+            /** Deactivated At */
+            deactivated_at?: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            interval: components["schemas"]["PriceInterval"];
+            /** Stripe Price Id */
+            stripe_price_id?: string | null;
+        };
+        /**
+         * ProductKind
+         * @enum {string}
+         */
+        ProductKind: "ONE_OFF" | "SAAS" | "REVIEW" | "PARTNER_PLAN" | "LEAD" | "CREDIT_PACK";
+        /** ProductOut */
+        ProductOut: {
+            /** Active */
+            active: boolean;
+            /** Description */
+            description: string;
+            /** Features */
+            features: components["schemas"]["FeatureLimitOut"][];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Key */
+            key: string;
+            kind: components["schemas"]["ProductKind"];
+            /** Name */
+            name: string;
+            /**
+             * Prices
+             * @description Prices on sale (staff also see past prices).
+             */
+            prices: components["schemas"]["PriceOut"][];
+            vertical: components["schemas"]["Vertical"] | null;
         };
         /** ProfessionalOut */
         ProfessionalOut: {
@@ -5769,6 +6241,14 @@ export interface components {
          * @enum {string}
          */
         Recurrence: "WEEKLY" | "MONTHLY" | "YEARLY";
+        /** RedirectOut */
+        RedirectOut: {
+            /**
+             * Url
+             * @description A Stripe page: send the browser there.
+             */
+            url: string;
+        };
         /** ReferralCategoryOut */
         ReferralCategoryOut: {
             /** Description */
@@ -6004,6 +6484,7 @@ export interface components {
             message: string | null;
             /** Overrides */
             overrides: components["schemas"]["OverrideOut"][];
+            payment?: components["schemas"]["ReviewPaymentOut"] | null;
             professional: components["schemas"]["ProfessionalPublicOut"] | null;
             /**
              * Project Id
@@ -6019,6 +6500,24 @@ export interface components {
             status: components["schemas"]["ReviewRequestStatus"];
             vertical: components["schemas"]["Vertical"];
         };
+        /**
+         * ReviewPaymentOut
+         * @description The payment for a priced review (Milestone 13), as Stripe last confirmed it.
+         */
+        ReviewPaymentOut: {
+            /** Amount Cents */
+            amount_cents: number;
+            /** Currency */
+            currency: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Paid At */
+            paid_at: string | null;
+            status: components["schemas"]["PaymentStatus"];
+        };
         /** ReviewRequestIn */
         ReviewRequestIn: {
             /**
@@ -6033,7 +6532,7 @@ export interface components {
          * ReviewRequestStatus
          * @enum {string}
          */
-        ReviewRequestStatus: "REVIEW_REQUESTED" | "ASSIGNED" | "IN_REVIEW" | "CHANGES_REQUIRED" | "APPROVED" | "COMPLETED" | "CANCELLED";
+        ReviewRequestStatus: "PAYMENT_PENDING" | "REVIEW_REQUESTED" | "ASSIGNED" | "IN_REVIEW" | "CHANGES_REQUIRED" | "APPROVED" | "COMPLETED" | "CANCELLED";
         /**
          * ReviewStatus
          * @description The assessment's professional review when the report was generated (Milestone 7).
@@ -6065,6 +6564,7 @@ export interface components {
             id: string;
             /** Message */
             message: string | null;
+            payment?: components["schemas"]["ReviewPaymentOut"] | null;
             professional: components["schemas"]["ProfessionalPublicOut"] | null;
             /**
              * Project Id
@@ -7051,6 +7551,39 @@ export interface components {
             /** To Status */
             to_status: string;
         };
+        /** StripeEventOut */
+        StripeEventOut: {
+            /** Attempts */
+            attempts: number;
+            /** Error */
+            error: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Livemode */
+            livemode: boolean;
+            /** Organisation Id */
+            organisation_id: string | null;
+            /** Processed At */
+            processed_at: string | null;
+            /**
+             * Received At
+             * Format: date-time
+             */
+            received_at: string;
+            status: components["schemas"]["EventStatus"];
+            /**
+             * Stripe Created At
+             * Format: date-time
+             */
+            stripe_created_at: string;
+            /** Stripe Event Id */
+            stripe_event_id: string;
+            /** Type */
+            type: string;
+        };
         /** SubmissionOut */
         SubmissionOut: {
             /** Answers */
@@ -7119,6 +7652,43 @@ export interface components {
             /** Version */
             version: number;
         };
+        /** SubscriptionOut */
+        SubscriptionOut: {
+            /** Amount Cents */
+            amount_cents: number;
+            /** Cancel At Period End */
+            cancel_at_period_end: boolean;
+            /** Canceled At */
+            canceled_at: string | null;
+            /** Currency */
+            currency: string;
+            /** Current Period End */
+            current_period_end: string | null;
+            /**
+             * Gives Plan
+             * @description Whether the plan's limits apply right now.
+             */
+            gives_plan: boolean;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            interval: components["schemas"]["PriceInterval"];
+            /** Past Due Since */
+            past_due_since: string | null;
+            /** Product Key */
+            product_key: string;
+            /** Product Name */
+            product_name: string;
+            status: components["schemas"]["SubscriptionStatus"];
+        };
+        /**
+         * SubscriptionStatus
+         * @description Stripe's subscription statuses, upper-cased.
+         * @enum {string}
+         */
+        SubscriptionStatus: "INCOMPLETE" | "INCOMPLETE_EXPIRED" | "TRIALING" | "ACTIVE" | "PAST_DUE" | "CANCELED" | "UNPAID" | "PAUSED";
         /** SwitchOrganisationRequest */
         SwitchOrganisationRequest: {
             /**
@@ -7678,6 +8248,175 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuditChainOut"];
+                };
+            };
+        };
+    };
+    list_events_v1_admin_billing_events_get: {
+        parameters: {
+            query?: {
+                status?: components["schemas"]["EventStatus"] | null;
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StripeEventOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    retry_event_v1_admin_billing_events__event_id__retry_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                event_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StripeEventOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    deactivate_price_v1_admin_billing_prices__price_id__deactivate_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                price_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProductOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    admin_products_v1_admin_billing_products_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProductOut"][];
+                };
+            };
+        };
+    };
+    add_price_v1_admin_billing_products__product_id__prices_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                product_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PriceIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProductOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    billing_status_v1_admin_billing_status_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BillingStatusOut"];
                 };
             };
         };
@@ -9980,6 +10719,134 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AuditEventOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    billing_overview_v1_organisations__organisation_id__billing_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BillingOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    catalogue_v1_organisations__organisation_id__billing_catalogue_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CatalogueOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    plan_checkout_v1_organisations__organisation_id__billing_checkout_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PlanCheckoutIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RedirectOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    billing_portal_v1_organisations__organisation_id__billing_portal_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RedirectOut"];
                 };
             };
             /** @description Validation Error */
@@ -12903,6 +13770,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ReviewOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_checkout_v1_organisations__organisation_id__reviews__review_id__checkout_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                review_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CheckoutOut"];
                 };
             };
             /** @description Validation Error */

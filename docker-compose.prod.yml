@@ -59,6 +59,10 @@ x-api-env: &api-env
   AI_MODEL: ${AI_MODEL:-claude-opus-5-5}
   AI_EFFORT: ${AI_EFFORT:-medium}
   ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+  # Payments (Milestone 13). Off unless PAYMENTS_PROVIDER=stripe and both secrets are set.
+  PAYMENTS_PROVIDER: ${PAYMENTS_PROVIDER:-none}
+  STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
+  STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
 
 x-api-image: &api-image
   image: ${IMAGE_PREFIX:-approvalready}/api:${IMAGE_TAG:-latest}

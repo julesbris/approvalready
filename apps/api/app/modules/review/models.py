@@ -78,6 +78,9 @@ class CredentialStatus(StrEnum):
 
 
 class ReviewRequestStatus(StrEnum):
+    # The review has a price and the customer has not paid yet (Milestone 13). Staff can't
+    # assign it until the payment is confirmed by Stripe.
+    PAYMENT_PENDING = "PAYMENT_PENDING"
     REVIEW_REQUESTED = "REVIEW_REQUESTED"  # waiting for staff to assign a professional
     ASSIGNED = "ASSIGNED"
     IN_REVIEW = "IN_REVIEW"
@@ -88,6 +91,7 @@ class ReviewRequestStatus(StrEnum):
 
 
 OPEN_STATUSES = (
+    ReviewRequestStatus.PAYMENT_PENDING,
     ReviewRequestStatus.REVIEW_REQUESTED,
     ReviewRequestStatus.ASSIGNED,
     ReviewRequestStatus.IN_REVIEW,
@@ -175,8 +179,9 @@ class ProfessionalCredential(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin
 
 
 class ProfessionalService(UUIDPrimaryKeyMixin, TimestampMixin, Base):
-    """What a professional reviews: a vertical and a short description. Prices arrive with
-    payments (Milestone 13)."""
+    """What a professional reviews: a vertical and a short description. Review prices are
+    per vertical (the ``review.*`` products, Milestone 13), not per professional, because
+    staff choose the reviewer after the customer has paid."""
 
     __tablename__ = "professional_service"
     __table_args__ = (
@@ -199,10 +204,14 @@ class ReviewRequest(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantM
         UniqueConstraint("organisation_id", "id"),
         tenant_fk("project_id", "project", ondelete="CASCADE"),
         tenant_fk("assessment_id", "assessment", ondelete="CASCADE"),
+        tenant_fk("payment_id", "payment"),
         enum_check("status", ReviewRequestStatus),
         CheckConstraint(
             f"status NOT IN ({_in(ASSIGNED_STATUSES)}) OR assigned_professional_id IS NOT NULL",
             name="assigned_has_professional",
+        ),
+        CheckConstraint(
+            "status <> 'PAYMENT_PENDING' OR payment_id IS NOT NULL", name="pending_has_payment"
         ),
         # One open review per project at a time.
         Index(
@@ -232,6 +241,8 @@ class ReviewRequest(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantM
     due_on: Mapped[date | None] = mapped_column(Date)
     started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     closed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    # The payment for a priced review (Milestone 13); null when reviews were free.
+    payment_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True))
 
 
 class ReviewComment(UUIDPrimaryKeyMixin, TenantMixin, Base):

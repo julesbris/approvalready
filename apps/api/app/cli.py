@@ -29,6 +29,7 @@ from app.core.resources import create_resources
 from app.modules.ai import prompts as ai_prompts
 from app.modules.audit import service as audit
 from app.modules.audit.service import RequestMeta
+from app.modules.billing import catalogue as billing_catalogue
 from app.modules.documents import templates as document_templates
 from app.modules.identity.service import get_user_by_email
 from app.modules.marketplace import service as marketplace
@@ -250,6 +251,21 @@ async def sync_categories(settings: Settings) -> int:
     return 0
 
 
+async def sync_catalogue(settings: Settings) -> int:
+    """Apply the reviewed billing catalogue (products and plan limits, never prices)."""
+    catalogue = billing_catalogue.load_bundled()
+    engine = create_async_engine(settings.owner_database_url, poolclass=NullPool)
+    try:
+        async with async_sessionmaker(engine, expire_on_commit=False)() as db:
+            report = await billing_catalogue.sync(db, catalogue)
+            await db.commit()
+    finally:
+        await engine.dispose()
+    for line in report.lines():
+        print(line)
+    return 0
+
+
 async def load_pack(
     name: str, email: str, *, publish: bool, settings: Settings | None = None
 ) -> int:
@@ -311,6 +327,8 @@ def main(argv: list[str] | None = None) -> int:
     a.add_argument("action", choices=["sync-prompts"])
     m = sub.add_parser("marketplace", help="Marketplace categories")
     m.add_argument("action", choices=["sync-categories"])
+    b = sub.add_parser("billing", help="Billing catalogue (products and plan limits)")
+    b.add_argument("action", choices=["sync-catalogue"])
     r = sub.add_parser("rules", help="Rule content packs")
     r_sub = r.add_subparsers(dest="rules_command", required=True)
     lp = r_sub.add_parser("load-pack", help="Create a pack's sources and rules (as drafts)")
@@ -330,6 +348,8 @@ def main(argv: list[str] | None = None) -> int:
         return asyncio.run(sync_prompts(get_settings()))
     if args.command == "marketplace":
         return asyncio.run(sync_categories(get_settings()))
+    if args.command == "billing":
+        return asyncio.run(sync_catalogue(get_settings()))
     if args.command == "rules":
         return asyncio.run(load_pack(args.name, args.email, publish=args.publish))
     return asyncio.run(verify_audit())

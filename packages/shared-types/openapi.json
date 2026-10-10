@@ -514,6 +514,61 @@
         "title": "AdministratorOut",
         "type": "object"
       },
+      "AllowanceOut": {
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "enforced": {
+            "description": "Limits apply only once a plan that lifts them is on sale.",
+            "title": "Enforced",
+            "type": "boolean"
+          },
+          "feature": {
+            "title": "Feature",
+            "type": "string"
+          },
+          "in_use": {
+            "title": "In Use",
+            "type": "integer"
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Null: unlimited.",
+            "title": "Limit"
+          },
+          "plan": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The plan it comes from; null for the free allowance.",
+            "title": "Plan"
+          }
+        },
+        "required": [
+          "feature",
+          "description",
+          "limit",
+          "in_use",
+          "enforced",
+          "plan"
+        ],
+        "title": "AllowanceOut",
+        "type": "object"
+      },
       "AnswersUpdate": {
         "additionalProperties": false,
         "properties": {
@@ -1391,6 +1446,103 @@
         "title": "AuthorRole",
         "type": "string"
       },
+      "BillingOut": {
+        "properties": {
+          "allowances": {
+            "items": {
+              "$ref": "#/components/schemas/AllowanceOut"
+            },
+            "title": "Allowances",
+            "type": "array"
+          },
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "has_billing_account": {
+            "title": "Has Billing Account",
+            "type": "boolean"
+          },
+          "invoices": {
+            "items": {
+              "$ref": "#/components/schemas/InvoiceOut"
+            },
+            "title": "Invoices",
+            "type": "array"
+          },
+          "payments": {
+            "items": {
+              "$ref": "#/components/schemas/PaymentOut"
+            },
+            "title": "Payments",
+            "type": "array"
+          },
+          "plans": {
+            "description": "Plans on sale.",
+            "items": {
+              "$ref": "#/components/schemas/ProductOut"
+            },
+            "title": "Plans",
+            "type": "array"
+          },
+          "subscriptions": {
+            "items": {
+              "$ref": "#/components/schemas/SubscriptionOut"
+            },
+            "title": "Subscriptions",
+            "type": "array"
+          },
+          "test_mode": {
+            "description": "Stripe test keys: no real money moves.",
+            "title": "Test Mode",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled",
+          "test_mode",
+          "has_billing_account",
+          "plans",
+          "subscriptions",
+          "allowances",
+          "payments",
+          "invoices"
+        ],
+        "title": "BillingOut",
+        "type": "object"
+      },
+      "BillingStatusOut": {
+        "properties": {
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "test_mode": {
+            "title": "Test Mode",
+            "type": "boolean"
+          },
+          "webhook_events": {
+            "description": "Event types to send to the webhook.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Webhook Events",
+            "type": "array"
+          },
+          "webhook_path": {
+            "title": "Webhook Path",
+            "type": "string"
+          }
+        },
+        "required": [
+          "enabled",
+          "test_mode",
+          "webhook_path",
+          "webhook_events"
+        ],
+        "title": "BillingStatusOut",
+        "type": "object"
+      },
       "Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post": {
         "properties": {
           "file": {
@@ -1796,6 +1948,29 @@
           }
         },
         "title": "BusinessUpdate",
+        "type": "object"
+      },
+      "CatalogueOut": {
+        "properties": {
+          "enabled": {
+            "description": "Whether anything can be bought on this server.",
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "products": {
+            "description": "Products with a price on sale.",
+            "items": {
+              "$ref": "#/components/schemas/ProductOut"
+            },
+            "title": "Products",
+            "type": "array"
+          }
+        },
+        "required": [
+          "enabled",
+          "products"
+        ],
+        "title": "CatalogueOut",
         "type": "object"
       },
       "Certainty": {
@@ -2480,6 +2655,20 @@
           "url"
         ],
         "title": "ChecklistSourceOut",
+        "type": "object"
+      },
+      "CheckoutOut": {
+        "properties": {
+          "url": {
+            "description": "Stripe's hosted checkout page: send the browser there.",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "title": "CheckoutOut",
         "type": "object"
       },
       "CitedPoint": {
@@ -3492,6 +3681,16 @@
         "title": "EvaluateOut",
         "type": "object"
       },
+      "EventStatus": {
+        "enum": [
+          "RECEIVED",
+          "PROCESSED",
+          "IGNORED",
+          "FAILED"
+        ],
+        "title": "EventStatus",
+        "type": "string"
+      },
       "EvidenceCheckIn": {
         "properties": {
           "note": {
@@ -3687,6 +3886,37 @@
           }
         },
         "title": "ExplanationIn",
+        "type": "object"
+      },
+      "FeatureLimitOut": {
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Null: unlimited.",
+            "title": "Limit"
+          }
+        },
+        "required": [
+          "key",
+          "description",
+          "limit"
+        ],
+        "title": "FeatureLimitOut",
         "type": "object"
       },
       "FindingOut": {
@@ -5211,6 +5441,92 @@
         ],
         "title": "InvitationOut",
         "type": "object"
+      },
+      "InvoiceOut": {
+        "properties": {
+          "amount_due_cents": {
+            "title": "Amount Due Cents",
+            "type": "integer"
+          },
+          "amount_paid_cents": {
+            "title": "Amount Paid Cents",
+            "type": "integer"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "hosted_invoice_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hosted Invoice Url"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "invoice_pdf_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Invoice Pdf Url"
+          },
+          "issued_at": {
+            "format": "date-time",
+            "title": "Issued At",
+            "type": "string"
+          },
+          "number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Number"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InvoiceStatus"
+          }
+        },
+        "required": [
+          "id",
+          "number",
+          "status",
+          "amount_due_cents",
+          "amount_paid_cents",
+          "currency",
+          "hosted_invoice_url",
+          "invoice_pdf_url",
+          "issued_at"
+        ],
+        "title": "InvoiceOut",
+        "type": "object"
+      },
+      "InvoiceStatus": {
+        "enum": [
+          "DRAFT",
+          "OPEN",
+          "PAID",
+          "VOID",
+          "UNCOLLECTIBLE"
+        ],
+        "title": "InvoiceStatus",
+        "type": "string"
       },
       "ItemCondition": {
         "enum": [
@@ -6993,6 +7309,127 @@
         "title": "PasswordResetConfirm",
         "type": "object"
       },
+      "PaymentOut": {
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "paid_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paid At"
+          },
+          "product_name": {
+            "title": "Product Name",
+            "type": "string"
+          },
+          "purpose": {
+            "$ref": "#/components/schemas/PaymentPurpose"
+          },
+          "refunded_cents": {
+            "title": "Refunded Cents",
+            "type": "integer"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PaymentStatus"
+          },
+          "subject_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject Id"
+          },
+          "subject_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject Type"
+          }
+        },
+        "required": [
+          "id",
+          "purpose",
+          "product_name",
+          "amount_cents",
+          "currency",
+          "status",
+          "refunded_cents",
+          "subject_type",
+          "subject_id",
+          "created_at",
+          "paid_at"
+        ],
+        "title": "PaymentOut",
+        "type": "object"
+      },
+      "PaymentPurpose": {
+        "enum": [
+          "REVIEW",
+          "PRODUCT"
+        ],
+        "title": "PaymentPurpose",
+        "type": "string"
+      },
+      "PaymentStatus": {
+        "enum": [
+          "PENDING",
+          "PAID",
+          "FAILED",
+          "CANCELLED",
+          "REFUNDED",
+          "PARTIALLY_REFUNDED"
+        ],
+        "title": "PaymentStatus",
+        "type": "string"
+      },
+      "PlanCheckoutIn": {
+        "additionalProperties": false,
+        "properties": {
+          "price_id": {
+            "format": "uuid",
+            "title": "Price Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "price_id"
+        ],
+        "title": "PlanCheckoutIn",
+        "type": "object"
+      },
       "PrefillOut": {
         "properties": {
           "provider": {
@@ -7060,6 +7497,195 @@
           "is_mock"
         ],
         "title": "PrefillSuggestion",
+        "type": "object"
+      },
+      "PriceIn": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_cents": {
+            "description": "Including GST.",
+            "exclusiveMinimum": 0.0,
+            "maximum": 100000000.0,
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "currency": {
+            "default": "AUD",
+            "pattern": "^[A-Z]{3}$",
+            "title": "Currency",
+            "type": "string"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/PriceInterval"
+          },
+          "stripe_price_id": {
+            "anyOf": [
+              {
+                "pattern": "^price_[A-Za-z0-9]{6,200}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional: a price made in the Stripe dashboard (same amount and interval).",
+            "title": "Stripe Price Id"
+          }
+        },
+        "required": [
+          "amount_cents",
+          "interval"
+        ],
+        "title": "PriceIn",
+        "type": "object"
+      },
+      "PriceInterval": {
+        "enum": [
+          "ONE_TIME",
+          "MONTH",
+          "YEAR"
+        ],
+        "title": "PriceInterval",
+        "type": "string"
+      },
+      "PriceOut": {
+        "properties": {
+          "active": {
+            "title": "Active",
+            "type": "boolean"
+          },
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "deactivated_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deactivated At"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/PriceInterval"
+          },
+          "stripe_price_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stripe Price Id"
+          }
+        },
+        "required": [
+          "id",
+          "amount_cents",
+          "currency",
+          "interval",
+          "active",
+          "created_at"
+        ],
+        "title": "PriceOut",
+        "type": "object"
+      },
+      "ProductKind": {
+        "enum": [
+          "ONE_OFF",
+          "SAAS",
+          "REVIEW",
+          "PARTNER_PLAN",
+          "LEAD",
+          "CREDIT_PACK"
+        ],
+        "title": "ProductKind",
+        "type": "string"
+      },
+      "ProductOut": {
+        "properties": {
+          "active": {
+            "title": "Active",
+            "type": "boolean"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "features": {
+            "items": {
+              "$ref": "#/components/schemas/FeatureLimitOut"
+            },
+            "title": "Features",
+            "type": "array"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/ProductKind"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "prices": {
+            "description": "Prices on sale (staff also see past prices).",
+            "items": {
+              "$ref": "#/components/schemas/PriceOut"
+            },
+            "title": "Prices",
+            "type": "array"
+          },
+          "vertical": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Vertical"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "key",
+          "kind",
+          "vertical",
+          "name",
+          "description",
+          "active",
+          "features",
+          "prices"
+        ],
+        "title": "ProductOut",
         "type": "object"
       },
       "ProfessionalOut": {
@@ -8301,6 +8927,20 @@
         "title": "Recurrence",
         "type": "string"
       },
+      "RedirectOut": {
+        "properties": {
+          "url": {
+            "description": "A Stripe page: send the browser there.",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "title": "RedirectOut",
+        "type": "object"
+      },
       "ReferralCategoryOut": {
         "properties": {
           "description": {
@@ -9082,6 +9722,16 @@
             "title": "Overrides",
             "type": "array"
           },
+          "payment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReviewPaymentOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "professional": {
             "anyOf": [
               {
@@ -9146,6 +9796,48 @@
         "title": "ReviewOut",
         "type": "object"
       },
+      "ReviewPaymentOut": {
+        "description": "The payment for a priced review (Milestone 13), as Stripe last confirmed it.",
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "paid_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paid At"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PaymentStatus"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "amount_cents",
+          "currency",
+          "paid_at"
+        ],
+        "title": "ReviewPaymentOut",
+        "type": "object"
+      },
       "ReviewRequestIn": {
         "properties": {
           "assessment_id": {
@@ -9174,6 +9866,7 @@
       },
       "ReviewRequestStatus": {
         "enum": [
+          "PAYMENT_PENDING",
           "REVIEW_REQUESTED",
           "ASSIGNED",
           "IN_REVIEW",
@@ -9260,6 +9953,16 @@
               }
             ],
             "title": "Message"
+          },
+          "payment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ReviewPaymentOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "professional": {
             "anyOf": [
@@ -12173,6 +12876,94 @@
         "title": "StatusEventOut",
         "type": "object"
       },
+      "StripeEventOut": {
+        "properties": {
+          "attempts": {
+            "title": "Attempts",
+            "type": "integer"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "livemode": {
+            "title": "Livemode",
+            "type": "boolean"
+          },
+          "organisation_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Organisation Id"
+          },
+          "processed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Processed At"
+          },
+          "received_at": {
+            "format": "date-time",
+            "title": "Received At",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/EventStatus"
+          },
+          "stripe_created_at": {
+            "format": "date-time",
+            "title": "Stripe Created At",
+            "type": "string"
+          },
+          "stripe_event_id": {
+            "title": "Stripe Event Id",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "stripe_event_id",
+          "type",
+          "livemode",
+          "status",
+          "attempts",
+          "error",
+          "organisation_id",
+          "stripe_created_at",
+          "received_at",
+          "processed_at"
+        ],
+        "title": "StripeEventOut",
+        "type": "object"
+      },
       "SubmissionOut": {
         "properties": {
           "answers": {
@@ -12327,6 +13118,113 @@
         ],
         "title": "SubmissionSummary",
         "type": "object"
+      },
+      "SubscriptionOut": {
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "cancel_at_period_end": {
+            "title": "Cancel At Period End",
+            "type": "boolean"
+          },
+          "canceled_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Canceled At"
+          },
+          "currency": {
+            "title": "Currency",
+            "type": "string"
+          },
+          "current_period_end": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current Period End"
+          },
+          "gives_plan": {
+            "description": "Whether the plan's limits apply right now.",
+            "title": "Gives Plan",
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "interval": {
+            "$ref": "#/components/schemas/PriceInterval"
+          },
+          "past_due_since": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Past Due Since"
+          },
+          "product_key": {
+            "title": "Product Key",
+            "type": "string"
+          },
+          "product_name": {
+            "title": "Product Name",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SubscriptionStatus"
+          }
+        },
+        "required": [
+          "id",
+          "product_key",
+          "product_name",
+          "status",
+          "amount_cents",
+          "currency",
+          "interval",
+          "current_period_end",
+          "cancel_at_period_end",
+          "canceled_at",
+          "past_due_since",
+          "gives_plan"
+        ],
+        "title": "SubscriptionOut",
+        "type": "object"
+      },
+      "SubscriptionStatus": {
+        "description": "Stripe's subscription statuses, upper-cased.",
+        "enum": [
+          "INCOMPLETE",
+          "INCOMPLETE_EXPIRED",
+          "TRIALING",
+          "ACTIVE",
+          "PAST_DUE",
+          "CANCELED",
+          "UNPAID",
+          "PAUSED"
+        ],
+        "title": "SubscriptionStatus",
+        "type": "string"
       },
       "SwitchOrganisationRequest": {
         "properties": {
@@ -14037,6 +14935,260 @@
         "tags": [
           "organisations",
           "admin"
+        ]
+      }
+    },
+    "/v1/admin/billing/events": {
+      "get": {
+        "description": "Recent webhook events and how they were processed (no payloads).",
+        "operationId": "list_events_v1_admin_billing_events_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/EventStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 50,
+              "maximum": 200,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/StripeEventOut"
+                  },
+                  "title": "Response List Events V1 Admin Billing Events Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Events",
+        "tags": [
+          "admin: billing"
+        ]
+      }
+    },
+    "/v1/admin/billing/events/{event_id}/retry": {
+      "post": {
+        "operationId": "retry_event_v1_admin_billing_events__event_id__retry_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "event_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Event Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StripeEventOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Retry Event",
+        "tags": [
+          "admin: billing"
+        ]
+      }
+    },
+    "/v1/admin/billing/prices/{price_id}/deactivate": {
+      "post": {
+        "description": "Take a price off sale. Payments and plans already on it are not affected.",
+        "operationId": "deactivate_price_v1_admin_billing_prices__price_id__deactivate_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "price_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Price Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Deactivate Price",
+        "tags": [
+          "admin: billing"
+        ]
+      }
+    },
+    "/v1/admin/billing/products": {
+      "get": {
+        "description": "Every product in the catalogue with its current and past prices.",
+        "operationId": "admin_products_v1_admin_billing_products_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ProductOut"
+                  },
+                  "title": "Response Admin Products V1 Admin Billing Products Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Admin Products",
+        "tags": [
+          "admin: billing"
+        ]
+      }
+    },
+    "/v1/admin/billing/products/{product_id}/prices": {
+      "post": {
+        "description": "Put a product on sale. A new price replaces the current one for the same interval.",
+        "operationId": "add_price_v1_admin_billing_products__product_id__prices_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "product_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Product Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PriceIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Price",
+        "tags": [
+          "admin: billing"
+        ]
+      }
+    },
+    "/v1/admin/billing/status": {
+      "get": {
+        "operationId": "billing_status_v1_admin_billing_status_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillingStatusOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Billing Status",
+        "tags": [
+          "admin: billing"
         ]
       }
     },
@@ -17458,6 +18610,192 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/billing": {
+      "get": {
+        "description": "The organisation's plan, what it allows, and its payments and invoices.",
+        "operationId": "billing_overview_v1_organisations__organisation_id__billing_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillingOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Billing Overview",
+        "tags": [
+          "billing"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/billing/catalogue": {
+      "get": {
+        "description": "What is on sale and at what price (nothing while payments are switched off).",
+        "operationId": "catalogue_v1_organisations__organisation_id__billing_catalogue_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CatalogueOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Catalogue",
+        "tags": [
+          "billing"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/billing/checkout": {
+      "post": {
+        "description": "A Stripe Checkout page to start a plan. The plan starts when Stripe confirms it.",
+        "operationId": "plan_checkout_v1_organisations__organisation_id__billing_checkout_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlanCheckoutIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RedirectOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Plan Checkout",
+        "tags": [
+          "billing"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/billing/portal": {
+      "post": {
+        "description": "Stripe's customer portal: change the card, download invoices, cancel the plan.",
+        "operationId": "billing_portal_v1_organisations__organisation_id__billing_portal_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RedirectOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Billing Portal",
+        "tags": [
+          "billing"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/business-profiles": {
       "get": {
         "operationId": "list_business_profiles_v1_organisations__organisation_id__business_profiles_get",
@@ -20721,7 +22059,7 @@
         ]
       },
       "post": {
-        "description": "Ask a professional to check the project's latest assessment.",
+        "description": "Ask a professional to check the project's latest assessment. When reviews have a\nprice, the review waits in ``PAYMENT_PENDING``: send the customer to ``/checkout``.",
         "operationId": "request_review_v1_organisations__organisation_id__projects__project_id__reviews_post",
         "parameters": [
           {
@@ -22344,6 +23682,60 @@
           }
         },
         "summary": "Cancel Review",
+        "tags": [
+          "review"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/reviews/{review_id}/checkout": {
+      "post": {
+        "description": "A Stripe Checkout page to pay for a review that is waiting for payment.",
+        "operationId": "review_checkout_v1_organisations__organisation_id__reviews__review_id__checkout_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Review Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckoutOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Review Checkout",
         "tags": [
           "review"
         ]

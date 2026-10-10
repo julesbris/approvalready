@@ -85,7 +85,7 @@ tests and updated docs before the next starts.
 - [x] Professionals, credentials, services; staff credential checks and activation
 - [x] Review workflow states (request, assign, start, changes, resubmit, approve or complete, cancel, decline); comments; overrides (audited, append-only)
 - [x] Reviewer workspace: shared files, evidence accept/reject, tasks; reports show the review and changes
-- [ ] Moved to Milestone 13: paid reviews (`payment_id`, service prices)
+- [x] Moved to Milestone 13 (built there): paid reviews (`payment_id`; prices per vertical, not per professional, because staff choose the reviewer)
 - [ ] Backlog: credential evidence uploads, automatic assignment, review due-date reminders
 
 ## Milestone 8 — BusinessReady ✅
@@ -131,8 +131,14 @@ tests and updated docs before the next starts.
 - [x] Plain-language explanation of an assessment's findings and grant application notes, shown as "AI draft" panels; staff usage and prompts at `/admin/ai`
 - [ ] Next: AI text in generated reports (`generated_document.ai_job_id`), document extraction from uploads (with the S3 safeguards), per-task model choice, an evaluation set for the prompts
 
-## Milestone 13 — Customer payments
-- [ ] Products/prices/features tables, Stripe checkout + portal, webhooks (idempotent), entitlements
+## Milestone 13 — Customer payments ✅
+- [x] Products, features and plan limits from a reviewed catalogue file (synced on migrate); prices set by staff at `/admin/billing` (immutable, replaced not edited)
+- [x] Stripe Checkout (one-off and subscription) and the customer portal; one Stripe customer per organisation
+- [x] Webhooks: signature and timestamp verified, stored once per event id, applied by the worker (out-of-order safe, retried, staff retry)
+- [x] Entitlements: plan limits with a 7-day past-due grace; RentReady free accounts manage 1 rental, Manage 10, Manage Plus unlimited (enforced only while a plan is on sale)
+- [x] Paid professional reviews (moved from Milestone 7): `PAYMENT_PENDING` until Stripe confirms, then staff assign
+- [x] Customer billing page (plan, usage, payments, invoices) and staff billing page (prices, webhook events)
+- [ ] Next: automatic refunds when a paid review is cancelled; plan switching in the app; coupons and trials; one-off purchases of reports
 
 ## Milestone 14 — Partner accounts, subscriptions, dashboard
 - [ ] Partner application + staff verification, categories, service areas, credentials

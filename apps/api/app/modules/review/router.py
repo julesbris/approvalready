@@ -11,7 +11,7 @@
 from __future__ import annotations
 
 import uuid
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query, Response, status
@@ -29,10 +29,13 @@ from app.api.deps import (
     require_platform_permission,
 )
 from app.core.config import Settings
-from app.core.errors import forbidden, not_found
+from app.core.errors import ApiError, forbidden, not_found
 from app.core.resources import Resources
 from app.modules.assessments import service as assessments
 from app.modules.assessments.router import assessment_detail
+from app.modules.billing import service as billing
+from app.modules.billing.models import Payment
+from app.modules.billing.router import StripeDep
 from app.modules.documents import service as documents
 from app.modules.documents.router import _download, document_out, evidence_out
 from app.modules.identity import service as identity
@@ -52,6 +55,7 @@ from app.modules.review.professionals import ProfessionalView
 from app.modules.review.schemas import (
     AssessmentReviewOut,
     AssignIn,
+    CheckoutOut,
     CommentIn,
     CommentOut,
     CredentialCheckIn,
@@ -73,6 +77,7 @@ from app.modules.review.schemas import (
     ResubmitIn,
     ReviewerWorkspaceOut,
     ReviewOut,
+    ReviewPaymentOut,
     ReviewRequestIn,
     ReviewSummary,
     ReviewTaskIn,
@@ -178,9 +183,22 @@ def overrides_out(rows: list[service.OverrideRow]) -> list[OverrideOut]:
     ]
 
 
+def payment_out(payment: Payment | None) -> ReviewPaymentOut | None:
+    if payment is None:
+        return None
+    return ReviewPaymentOut(
+        id=payment.id,
+        status=payment.status,
+        amount_cents=payment.amount_cents,
+        currency=payment.currency,
+        paid_at=payment.paid_at,
+    )
+
+
 def review_out(v: service.ReviewView) -> ReviewOut:
     return ReviewOut(
-        **summary_out(v.review, v.professional).model_dump(),
+        **summary_out(v.review, v.professional).model_dump(exclude={"payment"}),
+        payment=payment_out(v.payment),
         project_title=v.project.title,
         project_reference=v.project.reference_code,
         vertical=v.project.vertical,
@@ -227,10 +245,17 @@ async def _user(db: DbDep, user_id: uuid.UUID | None) -> AppUser | None:
     "/projects/{project_id}/reviews", status_code=status.HTTP_201_CREATED, response_model=ReviewOut
 )
 async def request_review(
-    project_id: uuid.UUID, body: ReviewRequestIn, ctx: Write, db: DbDep, meta: MetaDep
+    project_id: uuid.UUID,
+    body: ReviewRequestIn,
+    ctx: Write,
+    db: DbDep,
+    meta: MetaDep,
+    settings: SettingsDep,
 ) -> ReviewOut:
-    """Ask a professional to check the project's latest assessment."""
+    """Ask a professional to check the project's latest assessment. When reviews have a
+    price, the review waits in ``PAYMENT_PENDING``: send the customer to ``/checkout``."""
     project = await projects.get_project(db, ctx.organisation.id, project_id)
+    price = await billing.review_price(db, project.vertical) if settings.payments_enabled else None
     review = await service.request_review(
         db,
         project,
@@ -238,9 +263,41 @@ async def request_review(
         message=body.message,
         actor_id=ctx.auth.user.id,
         meta=meta,
+        price=price,
     )
     await db.commit()
     return await _reload(db, review)
+
+
+@customer_router.post("/reviews/{review_id}/checkout", response_model=CheckoutOut)
+async def review_checkout(
+    review_id: uuid.UUID,
+    ctx: Write,
+    db: DbDep,
+    settings: SettingsDep,
+    stripe: StripeDep,
+) -> CheckoutOut:
+    """A Stripe Checkout page to pay for a review that is waiting for payment."""
+    review = await service.get_review(db, ctx.organisation.id, review_id, lock=True)
+    if review.status != RS.PAYMENT_PENDING or review.payment_id is None:
+        raise ApiError(409, "payment_not_pending", "This review doesn't need paying for.")
+    if stripe is None:
+        raise ApiError(409, "payments_disabled", "Payments are switched off on this server.")
+    payment = await billing.get_payment(db, ctx.organisation.id, review.payment_id, lock=True)
+    back = (
+        f"{settings.web_base_url}/projects/{review.project_id}/assessments/{review.assessment_id}"
+    )
+    url = await billing.checkout_for_payment(
+        db,
+        stripe,
+        organisation=ctx.organisation,
+        user=ctx.auth.user,
+        payment=payment,
+        success_url=f"{back}?payment=done",
+        cancel_url=f"{back}?payment=cancelled",
+    )
+    await db.commit()
+    return CheckoutOut(url=url)
 
 
 @customer_router.get("/projects/{project_id}/reviews", response_model=list[ReviewSummary])
@@ -306,10 +363,14 @@ async def customer_comment(
 
 
 @customer_router.post("/reviews/{review_id}/cancel", response_model=ReviewOut)
-async def cancel_review(review_id: uuid.UUID, ctx: Write, db: DbDep, meta: MetaDep) -> ReviewOut:
+async def cancel_review(
+    review_id: uuid.UUID, ctx: Write, db: DbDep, meta: MetaDep, stripe: StripeDep
+) -> ReviewOut:
     review = await service.get_review(db, ctx.organisation.id, review_id, lock=True)
-    await service.cancel(db, review, actor_id=ctx.auth.user.id, meta=meta)
+    unpaid = await service.cancel(db, review, actor_id=ctx.auth.user.id, meta=meta)
     await db.commit()
+    if unpaid is not None and unpaid.stripe_checkout_session_id and stripe is not None:
+        await billing.close_checkout(stripe, unpaid.stripe_checkout_session_id)
     return await _reload(db, review)
 
 
@@ -514,7 +575,8 @@ async def _workspace(db: DbDep, review: ReviewRequest) -> ReviewerWorkspaceOut:
     organisation_id, review_id = review.organisation_id, review.id
     db.expire_all()
     review = await service.get_review(db, organisation_id, review_id)
-    view = await service.build_view(db, review)
+    # What the customer paid is between them and us.
+    view = replace(await service.build_view(db, review), payment=None)
     a, p, findings = await assessments.get(db, review.organisation_id, review.assessment_id)
     shared, evidence = await service.reviewable_documents(db, review)
     tasks = (

@@ -26,6 +26,10 @@ x-api-env: &api-env
   # Canned AI drafts so the AI panels can be tried without a key (AI_PROVIDER=anthropic for real).
   AI_PROVIDER: ${AI_PROVIDER:-mock}
   ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+  # Payments are off unless you set Stripe test keys (see .env.example).
+  PAYMENTS_PROVIDER: ${PAYMENTS_PROVIDER:-none}
+  STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
+  STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
 
 services:
   db:

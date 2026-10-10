@@ -4,6 +4,7 @@ import type {
   AssessmentOut,
   AssessmentReviewOut,
   AssessmentSummary,
+  CatalogueOut,
   DocumentOut,
   EvidenceOut,
   GeneratedDocumentOut,
@@ -21,15 +22,21 @@ import { EvidencePanel } from "@/components/documents/EvidencePanel";
 import { REPORT_TEMPLATES, ReportDownloads } from "@/components/documents/ReportDownloads";
 import { ReviewPanel } from "@/components/review/ReviewPanel";
 import { MAP_VERTICALS } from "@/lib/assessment";
+import { reviewPrice } from "@/lib/billing";
+import { firstParam } from "@/lib/redirect";
 import { isOpen } from "@/lib/review";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = { title: "Assessment", robots: { index: false } };
 
-type Props = { params: Promise<{ projectId: string; assessmentId: string }> };
+type Props = {
+  params: Promise<{ projectId: string; assessmentId: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
 
-export default async function AssessmentPage({ params }: Props) {
+export default async function AssessmentPage({ params, searchParams }: Props) {
   const { projectId, assessmentId } = await params;
+  const paymentReturn = firstParam((await searchParams).payment) ?? null;
   const session = await requireSession(`/projects/${projectId}/assessments/${assessmentId}`);
   const orgId = session.active_organisation_id;
   if (!orgId || !session.permissions.includes("project.read")) {
@@ -51,6 +58,7 @@ export default async function AssessmentPage({ params }: Props) {
     project,
     aiStatus,
     aiJobs,
+    catalogue,
   ] = await Promise.all([
       serverGet<AssessmentOut>(`${base}/assessments/${assessmentId}`),
       serverGet<EvidenceOut[]>(`${base}/assessments/${assessmentId}/evidence`),
@@ -62,6 +70,7 @@ export default async function AssessmentPage({ params }: Props) {
       serverGet<ProjectDetailOut>(`${base}/projects/${projectId}`),
       serverGet<AIStatusOut>("/ai/status"),
       serverGet<AIJobOut[]>(`${base}/assessments/${assessmentId}/ai-jobs`),
+      serverGet<CatalogueOut>(`${base}/billing/catalogue`),
     ]);
   const assessment = orNotFound(found);
   if (assessment.project_id !== projectId) {
@@ -95,6 +104,12 @@ export default async function AssessmentPage({ params }: Props) {
               openReview && openReview.assessment_id !== assessment.id ? openReview : null
             }
             canWrite={canWrite}
+            price={
+              catalogue.ok && project.ok
+                ? reviewPrice(catalogue.data.products, project.data.vertical)
+                : null
+            }
+            paymentReturn={paymentReturn}
           />
         }
       >

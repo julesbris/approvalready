@@ -7,6 +7,7 @@ from typing import Annotated
 from pydantic import BaseModel, Field, StringConstraints
 
 from app.modules.assessments.schemas import AssessmentOut
+from app.modules.billing.models import PaymentStatus
 from app.modules.documents.models import EvidenceStatus, ReviewStatus
 from app.modules.documents.schemas import DocumentOut, EvidenceOut
 from app.modules.projects.models import ProjectStatus, Vertical
@@ -197,6 +198,16 @@ class AssignIn(BaseModel):
     due_on: date | None = None
 
 
+class ReviewPaymentOut(BaseModel):
+    """The payment for a priced review (Milestone 13), as Stripe last confirmed it."""
+
+    id: uuid.UUID
+    status: PaymentStatus
+    amount_cents: int
+    currency: str
+    paid_at: datetime | None
+
+
 class ReviewSummary(BaseModel):
     id: uuid.UUID
     project_id: uuid.UUID
@@ -209,6 +220,7 @@ class ReviewSummary(BaseModel):
     assigned_at: datetime | None
     started_at: datetime | None
     closed_at: datetime | None
+    payment: ReviewPaymentOut | None = None
 
 
 class ReviewOut(ReviewSummary):
@@ -218,6 +230,10 @@ class ReviewOut(ReviewSummary):
     comments: list[CommentOut]
     overrides: list[OverrideOut]
     decisions: list[DecisionOut]
+
+
+class CheckoutOut(BaseModel):
+    url: str = Field(description="Stripe's hosted checkout page: send the browser there.")
 
 
 class AssessmentReviewOut(BaseModel):
