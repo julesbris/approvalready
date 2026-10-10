@@ -229,14 +229,16 @@ class Lead(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     )
 
     # The customer's organisation and project (the consent is that organisation's row).
+    # Project and consent become NULL when a closed account's workspace is deleted
+    # (Milestone 29): the referral stays with the partners who received it.
     organisation_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("organisation.id", ondelete="CASCADE"), nullable=False
     )
-    project_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("project.id", ondelete="CASCADE"), nullable=False
+    project_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("project.id", ondelete="SET NULL")
     )
-    referral_consent_id: Mapped[uuid.UUID] = mapped_column(
-        UUID(as_uuid=True), ForeignKey("referral_consent.id", ondelete="CASCADE"), nullable=False
+    referral_consent_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("referral_consent.id", ondelete="SET NULL")
     )
     category_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True),

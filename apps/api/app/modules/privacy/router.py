@@ -7,6 +7,8 @@
 * ``POST /v1/privacy/requests``: a privacy request from the contact page (no sign-in).
 * ``GET /v1/admin/privacy/requests``, ``PATCH /v1/admin/privacy/requests/{id}``: staff
   (``privacy.manage``) work the requests.
+* ``POST /v1/admin/privacy/requests/{id}/delete-workspace``: delete a closed account's
+  workspace now (Milestone 29; otherwise the nightly job does it).
 """
 
 from __future__ import annotations
@@ -28,12 +30,13 @@ from app.api.deps import (
     clear_session_cookies,
     require_platform_permission,
 )
+from app.core.config import Settings
 from app.core.errors import rate_limited
 from app.core.ratelimit import Limit
 from app.modules.audit import service as audit
 from app.modules.identity import service as identity
-from app.modules.privacy import acceptance, service
-from app.modules.privacy.models import PrivacyRequestStatus
+from app.modules.privacy import acceptance, purge, service
+from app.modules.privacy.models import PrivacyRequest, PrivacyRequestStatus
 from app.modules.privacy.schemas import (
     AcceptPoliciesRequest,
     CloseAccountRequest,
@@ -141,16 +144,47 @@ async def create_privacy_request(
     return PrivacyRequestCreated(reference=str(request.id)[-8:].upper(), due_at=request.due_at)
 
 
+def _out(request: PrivacyRequest, settings: Settings) -> PrivacyRequestOut:
+    out = PrivacyRequestOut.model_validate(request)
+    out.deletes_on = purge.deletes_on(request, settings.privacy_purge_after_days)
+    return out
+
+
 @admin_router.get("/requests", response_model=list[PrivacyRequestOut])
 async def list_privacy_requests(
-    _: Staff, db: DbDep, status: PrivacyRequestStatus | None = None
+    _: Staff, db: DbDep, settings: SettingsDep, status: PrivacyRequestStatus | None = None
 ) -> list[PrivacyRequestOut]:
-    return [PrivacyRequestOut.model_validate(r) for r in await service.list_requests(db, status)]
+    return [_out(r, settings) for r in await service.list_requests(db, status)]
+
+
+@admin_router.post("/requests/{request_id}/delete-workspace", response_model=PrivacyRequestOut)
+async def delete_closed_workspace(
+    request_id: uuid.UUID,
+    ctx: Staff,
+    db: DbDep,
+    settings: SettingsDep,
+    resources: ResourcesDep,
+    meta: MetaDep,
+) -> PrivacyRequestOut:
+    """Delete a closed account's personal workspace now instead of waiting for the
+    nightly job."""
+    await purge.purge_workspace(
+        db, resources.storage, request_id, staff_user_id=ctx.auth.user.id, meta=meta
+    )
+    await db.commit()
+    request = await db.get(PrivacyRequest, request_id)
+    assert request is not None
+    return _out(request, settings)
 
 
 @admin_router.patch("/requests/{request_id}", response_model=PrivacyRequestOut)
 async def update_privacy_request(
-    request_id: uuid.UUID, body: PrivacyRequestUpdate, ctx: Staff, db: DbDep, meta: MetaDep
+    request_id: uuid.UUID,
+    body: PrivacyRequestUpdate,
+    ctx: Staff,
+    db: DbDep,
+    settings: SettingsDep,
+    meta: MetaDep,
 ) -> PrivacyRequestOut:
     request = await service.resolve_request(
         db,
@@ -161,4 +195,4 @@ async def update_privacy_request(
         meta=meta,
     )
     await db.commit()
-    return PrivacyRequestOut.model_validate(request)
+    return _out(request, settings)

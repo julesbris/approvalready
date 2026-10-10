@@ -182,7 +182,7 @@ tests and updated docs before the next starts.
 - [x] Download my data (account and personal workspace as JSON) and close my account from Account
 - [x] Privacy requests from the contact page, worked by staff at `/admin/privacy` within 30 days; operations check and alerts
 - [x] `sitemap.xml` and `robots.txt` (moved from Milestone 5's backlog note)
-- [ ] Next: have a lawyer review the Terms and Privacy Policy and add the operating entity's legal name and ABN (`apps/web/src/lib/legal.ts`); automatic deletion of a closed account's workspace after the 30 days; closing business organisations; change of email address
+- [ ] Next: have a lawyer review the Terms and Privacy Policy and add the operating entity's legal name and ABN (`apps/web/src/lib/legal.ts`); ~~automatic deletion of a closed account's workspace after the 30 days~~ (Milestone 29); closing business organisations; change of email address
 
 ## Milestone 20 — Reliable email delivery ✅
 - [x] Email outbox: every email is queued (sealed, erased once sent) and sent by the worker, so a slow or failing mail server no longer slows or loses sign-up, reset, invitation, review and referral emails
@@ -230,6 +230,13 @@ tests and updated docs before the next starts.
 - [x] Unread counts, "Seen", and a notice (in the app and by email, per the Referrals setting) for the first message waiting
 - [x] `lead_message` (migration 0025): never edited or deleted (trigger); the text stays out of the audit log
 - [ ] Next: attachments (reusing the scanned upload pipeline); include messages in "Download my data"; reminders before a quote expires; PDF quotes
+
+## Milestone 29 — Deleting closed accounts' workspaces ✅
+- [x] A closed account's personal workspace (projects, answers, files, reports) is deleted automatically 7 days after closing (`PRIVACY_PURGE_AFTER_DAYS`), well inside the Privacy Policy's 30 days; payment records and the security log are kept
+- [x] Staff see when each will be deleted at `/admin/privacy`, can delete one now, or keep it by declining the request with a reason
+- [x] Closing withdraws referrals still offered to partners; partners keep the referrals they accepted (detached from the deleted project) but can't message or quote a closed account
+- [x] Database function `purge_closed_workspace` (migration 0027) only empties closed personal workspaces and never payment tables; a test makes every new workspace table a deliberate delete-or-keep choice
+- [ ] Next: closing business organisations; a lawyer's check that the kept records match what the law requires
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)

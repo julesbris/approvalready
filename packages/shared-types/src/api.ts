@@ -569,6 +569,27 @@ export interface paths {
         patch: operations["update_privacy_request_v1_admin_privacy_requests__request_id__patch"];
         trace?: never;
     };
+    "/v1/admin/privacy/requests/{request_id}/delete-workspace": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Delete Closed Workspace
+         * @description Delete a closed account's personal workspace now instead of waiting for the
+         *     nightly job.
+         */
+        post: operations["delete_closed_workspace_v1_admin_privacy_requests__request_id__delete_workspace_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/professionals": {
         parameters: {
             query?: never;
@@ -8552,6 +8573,8 @@ export interface components {
              * Format: date-time
              */
             created_at: string;
+            /** Deletes On */
+            deletes_on?: string | null;
             /** Details */
             details: string;
             /**
@@ -8574,6 +8597,8 @@ export interface components {
              * @description Still open past the 30-day answer date.
              */
             readonly overdue: boolean;
+            /** Purged At */
+            purged_at?: string | null;
             /** Resolution Note */
             resolution_note: string | null;
             /** Resolved At */
@@ -12579,6 +12604,37 @@ export interface operations {
                 "application/json": components["schemas"]["PrivacyRequestUpdate"];
             };
         };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrivacyRequestOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_closed_workspace_v1_admin_privacy_requests__request_id__delete_workspace_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                request_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {

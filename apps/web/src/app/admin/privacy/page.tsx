@@ -25,9 +25,11 @@ export default async function PrivacyAdminPage() {
       <p className="muted">
         Requests to see, correct or delete personal information, complaints, and accounts
         their owners closed. The Australian Privacy Principles expect an answer within 30 days;
-        Operations shows a warning while any are open and an alert once one is overdue. For a
-        closed account, delete the personal workspace&apos;s projects and files (keep payment
-        records), then email the person and mark the request done.
+        Operations shows a warning while any are open and an alert once one is overdue. A
+        closed account&apos;s personal workspace (projects, answers and files) is deleted
+        automatically a few days after closing, keeping payment records, and its request is
+        marked done; delete it sooner with &ldquo;Delete workspace now&rdquo;, or keep it by
+        declining the request with the reason.
       </p>
       <PrivacyRequests requests={requests} />
     </AppShell>
