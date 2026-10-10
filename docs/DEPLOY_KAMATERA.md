@@ -236,6 +236,15 @@ are emailed and check applications at `/admin/partners`. Partner plans (`Partner
 `Partner Pro`) are sold like the Milestone 13 plans: give them prices at `/admin/billing`. Until
 they have prices, partners keep the free plan and no limits apply.
 
+### Referrals (Milestone 15)
+
+Customers ask to be introduced from an assessment; checked partners are offered the job and
+accept it at `/partner/leads`. Nothing needs configuring for free referrals. To charge a fee
+after a partner's included referrals, set a fee per category at `/admin/leads`. To let partners
+buy credit, give the `Lead credits` product a price at `/admin/billing` (one purchase adds that
+much credit). The consent wording lives in `apps/api/app/modules/leads/consent.json` and is
+loaded by the migrate step on every deploy.
+
 ## 8. Persistent volumes
 
 | Volume | Contents | Backed up |

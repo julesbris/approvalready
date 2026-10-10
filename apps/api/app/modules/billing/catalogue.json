@@ -20,6 +20,11 @@
       "key": "partner.members.max",
       "description": "People in the partner account",
       "default_limit": 2
+    },
+    {
+      "key": "partner.leads.included",
+      "description": "Referrals included each month without a lead fee",
+      "default_limit": 3
     }
   ],
   "products": [
@@ -85,23 +90,31 @@
       "key": "partner.standard",
       "kind": "PARTNER_PLAN",
       "name": "Partner Standard",
-      "description": "Be referred in up to 3 categories across up to 15 service areas, with up to 5 people in your account.",
+      "description": "Be referred in up to 3 categories across up to 15 service areas, with up to 5 people in your account and 15 referrals a month without a lead fee.",
       "features": {
         "partner.categories.max": 3,
         "partner.service_areas.max": 15,
-        "partner.members.max": 5
+        "partner.members.max": 5,
+        "partner.leads.included": 15
       }
     },
     {
       "key": "partner.pro",
       "kind": "PARTNER_PLAN",
       "name": "Partner Pro",
-      "description": "Be referred in every category you are approved for, in any number of service areas, with up to 20 people in your account.",
+      "description": "Be referred in every category you are approved for, in any number of service areas, with up to 20 people in your account and 50 referrals a month without a lead fee.",
       "features": {
         "partner.categories.max": null,
         "partner.service_areas.max": null,
-        "partner.members.max": 20
+        "partner.members.max": 20,
+        "partner.leads.included": 50
       }
+    },
+    {
+      "key": "lead.credits",
+      "kind": "CREDIT_PACK",
+      "name": "Lead credits",
+      "description": "Prepaid credit for lead fees (referrals beyond your plan's monthly allowance). You get credit equal to what you pay."
     }
   ]
 }

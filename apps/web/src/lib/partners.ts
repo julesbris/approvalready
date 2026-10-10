@@ -58,6 +58,7 @@ export const LIMIT_LABELS: Record<string, string> = {
   "partner.categories.max": "Categories that receive referrals",
   "partner.service_areas.max": "Service areas that receive referrals",
   "partner.members.max": "People in your account",
+  "partner.leads.included": "Referrals included each month",
 };
 
 /** The user's partner organisations. */

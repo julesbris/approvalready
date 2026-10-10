@@ -26,6 +26,7 @@ case "${1:-api}" in
     python -m app.cli questionnaires sync
     python -m app.cli marketplace sync-categories
     python -m app.cli billing sync-catalogue
+    python -m app.cli leads sync-consent
     python -m app.cli documents sync-templates
     exec python -m app.cli ai sync-prompts
     ;;

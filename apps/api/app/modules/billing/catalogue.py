@@ -54,6 +54,10 @@ class ProductDef(BaseModel):
             self.vertical is not None or not self.key.startswith("partner.")
         ):
             raise ValueError("a partner plan has no vertical and the key partner.<plan>")
+        if self.kind == ProductKind.CREDIT_PACK and (
+            self.vertical is not None or not self.key.startswith("lead.") or self.features
+        ):
+            raise ValueError("a credit pack has no vertical or features and the key lead.<pack>")
         if any(v is not None and v < 0 for v in self.features.values()):
             raise ValueError("feature limits can't be negative")
         return self

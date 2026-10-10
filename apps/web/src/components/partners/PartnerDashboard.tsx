@@ -77,9 +77,9 @@ export function PartnerDashboard({
           </>
         )}
         <p className="muted">
-          Customers are matched to partners by category and area once referrals open. Until then,
-          keep your <Link href="/partner/profile">profile</Link> current: categories, areas and
-          licences.
+          Customers are matched to partners by category and area. Keep your{" "}
+          <Link href="/partner/profile">profile</Link> current (categories, areas, licences and
+          insurance) and see what comes in under <Link href="/partner/leads">Referrals</Link>.
         </p>
       </section>
 

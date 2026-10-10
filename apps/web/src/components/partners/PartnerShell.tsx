@@ -6,7 +6,7 @@ import { OrgSwitcher } from "@/components/app/OrgSwitcher";
 import { defaultBrand } from "@/lib/brand";
 import { activePartnerOrganisation } from "@/lib/partners";
 
-type Section = "dashboard" | "profile" | "billing" | "team" | "apply" | "none";
+type Section = "dashboard" | "leads" | "profile" | "billing" | "team" | "apply" | "none";
 
 /** Layout for the partner portal (partners.<domain>, or /partner on the app host). */
 export function PartnerShell({
@@ -22,6 +22,7 @@ export function PartnerShell({
   const links: [Section, string, string][] = partner
     ? [
         ["dashboard", "/partner", "Dashboard"],
+        ["leads", "/partner/leads", "Referrals"],
         ["profile", "/partner/profile", "Profile"],
         ["billing", "/partner/billing", "Plan and billing"],
         ["team", `/account/organisations/${partner.organisation_id}`, "Team"],

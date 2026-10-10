@@ -2700,6 +2700,130 @@
         "title": "CitedPoint",
         "type": "object"
       },
+      "ClaimOut": {
+        "description": "A referral the partner accepted: what they were given and what it cost.",
+        "properties": {
+          "claimed_at": {
+            "format": "date-time",
+            "title": "Claimed At",
+            "type": "string"
+          },
+          "contact": {
+            "additionalProperties": true,
+            "title": "Contact",
+            "type": "object"
+          },
+          "fee_cents": {
+            "title": "Fee Cents",
+            "type": "integer"
+          },
+          "included": {
+            "title": "Included",
+            "type": "boolean"
+          },
+          "lead": {
+            "$ref": "#/components/schemas/LeadPublicView"
+          },
+          "match_id": {
+            "format": "uuid",
+            "title": "Match Id",
+            "type": "string"
+          },
+          "refunded_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Refunded At"
+          },
+          "released_fields": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Released Fields",
+            "type": "array"
+          }
+        },
+        "required": [
+          "match_id",
+          "lead",
+          "claimed_at",
+          "fee_cents",
+          "included",
+          "refunded_at",
+          "released_fields",
+          "contact"
+        ],
+        "title": "ClaimOut",
+        "type": "object"
+      },
+      "ClaimedPartnerOut": {
+        "description": "What the customer sees of a partner that accepted their request (the partner's own\npublic business details).",
+        "properties": {
+          "claimed_at": {
+            "format": "date-time",
+            "title": "Claimed At",
+            "type": "string"
+          },
+          "contact_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Email"
+          },
+          "is_promoted": {
+            "description": "Paid placement: shown as Sponsored.",
+            "title": "Is Promoted",
+            "type": "boolean"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "required": [
+          "name",
+          "phone",
+          "contact_email",
+          "website",
+          "claimed_at",
+          "is_promoted"
+        ],
+        "title": "ClaimedPartnerOut",
+        "type": "object"
+      },
       "Classification": {
         "enum": [
           "PRIVATE",
@@ -2800,6 +2924,92 @@
         ],
         "title": "Confidence",
         "type": "string"
+      },
+      "ConsentTextOut": {
+        "properties": {
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "title",
+          "body"
+        ],
+        "title": "ConsentTextOut",
+        "type": "object"
+      },
+      "ContactIn": {
+        "additionalProperties": false,
+        "description": "The details the customer is willing to share. Only the released ones are kept.",
+        "properties": {
+          "email": {
+            "anyOf": [
+              {
+                "format": "email",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 2,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "site_address": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "minLength": 5,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Site Address"
+          }
+        },
+        "title": "ContactIn",
+        "type": "object"
       },
       "CredentialCheckIn": {
         "properties": {
@@ -2962,6 +3172,199 @@
         "title": "CredentialStatus",
         "type": "string"
       },
+      "CreditAdjustIn": {
+        "additionalProperties": false,
+        "properties": {
+          "delta_cents": {
+            "maximum": 1000000.0,
+            "minimum": -1000000.0,
+            "title": "Delta Cents",
+            "type": "integer"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/CreditKind",
+            "description": "PROMO or ADJUSTMENT."
+          },
+          "note": {
+            "maxLength": 300,
+            "minLength": 5,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "delta_cents",
+          "note"
+        ],
+        "title": "CreditAdjustIn",
+        "type": "object"
+      },
+      "CreditEntryOut": {
+        "properties": {
+          "balance_after_cents": {
+            "title": "Balance After Cents",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "delta_cents": {
+            "title": "Delta Cents",
+            "type": "integer"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/CreditKind"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "reference_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Id"
+          },
+          "reference_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Type"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "delta_cents",
+          "balance_after_cents",
+          "note",
+          "reference_type",
+          "reference_id",
+          "created_at"
+        ],
+        "title": "CreditEntryOut",
+        "type": "object"
+      },
+      "CreditKind": {
+        "enum": [
+          "PURCHASE",
+          "PROMO",
+          "LEAD_CHARGE",
+          "REFUND",
+          "ADJUSTMENT"
+        ],
+        "title": "CreditKind",
+        "type": "string"
+      },
+      "CreditStaffOut": {
+        "properties": {
+          "balance_cents": {
+            "title": "Balance Cents",
+            "type": "integer"
+          },
+          "entries": {
+            "items": {
+              "$ref": "#/components/schemas/CreditEntryOut"
+            },
+            "title": "Entries",
+            "type": "array"
+          },
+          "partner_id": {
+            "format": "uuid",
+            "title": "Partner Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "partner_id",
+          "balance_cents",
+          "entries"
+        ],
+        "title": "CreditStaffOut",
+        "type": "object"
+      },
+      "CreditsOut": {
+        "properties": {
+          "balance_cents": {
+            "title": "Balance Cents",
+            "type": "integer"
+          },
+          "currency": {
+            "default": "AUD",
+            "title": "Currency",
+            "type": "string"
+          },
+          "entries": {
+            "items": {
+              "$ref": "#/components/schemas/CreditEntryOut"
+            },
+            "title": "Entries",
+            "type": "array"
+          },
+          "included_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Included Limit"
+          },
+          "included_used": {
+            "title": "Included Used",
+            "type": "integer"
+          },
+          "pack_price_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Price of a credit pack, if on sale.",
+            "title": "Pack Price Cents"
+          }
+        },
+        "required": [
+          "balance_cents",
+          "included_used",
+          "included_limit",
+          "pack_price_cents",
+          "entries"
+        ],
+        "title": "CreditsOut",
+        "type": "object"
+      },
       "CrossSellOut": {
         "properties": {
           "confidence": {
@@ -3001,6 +3404,63 @@
           "confidence"
         ],
         "title": "CrossSellOut",
+        "type": "object"
+      },
+      "CustomerLeadOut": {
+        "properties": {
+          "category_key": {
+            "title": "Category Key",
+            "type": "string"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "claimed_count": {
+            "title": "Claimed Count",
+            "type": "integer"
+          },
+          "claims": {
+            "items": {
+              "$ref": "#/components/schemas/ClaimedPartnerOut"
+            },
+            "title": "Claims",
+            "type": "array"
+          },
+          "expires_at": {
+            "format": "date-time",
+            "title": "Expires At",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "max_claims": {
+            "title": "Max Claims",
+            "type": "integer"
+          },
+          "offered_count": {
+            "title": "Offered Count",
+            "type": "integer"
+          },
+          "status": {
+            "$ref": "#/components/schemas/LeadStatus"
+          }
+        },
+        "required": [
+          "id",
+          "category_key",
+          "category_label",
+          "status",
+          "max_claims",
+          "claimed_count",
+          "offered_count",
+          "expires_at",
+          "claims"
+        ],
+        "title": "CustomerLeadOut",
         "type": "object"
       },
       "Decision": {
@@ -3917,6 +4377,63 @@
           "limit"
         ],
         "title": "FeatureLimitOut",
+        "type": "object"
+      },
+      "FeeOut": {
+        "properties": {
+          "balance_cents": {
+            "title": "Balance Cents",
+            "type": "integer"
+          },
+          "can_afford": {
+            "title": "Can Afford",
+            "type": "boolean"
+          },
+          "currency": {
+            "default": "AUD",
+            "title": "Currency",
+            "type": "string"
+          },
+          "explanation": {
+            "title": "Explanation",
+            "type": "string"
+          },
+          "fee_cents": {
+            "title": "Fee Cents",
+            "type": "integer"
+          },
+          "included": {
+            "description": "One of the plan's referrals this month (no fee).",
+            "title": "Included",
+            "type": "boolean"
+          },
+          "included_limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "None: unlimited.",
+            "title": "Included Limit"
+          },
+          "included_used": {
+            "title": "Included Used",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "included",
+          "fee_cents",
+          "included_used",
+          "included_limit",
+          "balance_cents",
+          "can_afford",
+          "explanation"
+        ],
+        "title": "FeeOut",
         "type": "object"
       },
       "FindingOut": {
@@ -5558,6 +6075,395 @@
         "title": "JobStatus",
         "type": "string"
       },
+      "LeadDeclineIn": {
+        "additionalProperties": false,
+        "properties": {
+          "reason": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          }
+        },
+        "title": "LeadDeclineIn",
+        "type": "object"
+      },
+      "LeadMatchStatus": {
+        "enum": [
+          "MATCHED",
+          "VIEWED",
+          "CLAIMED",
+          "CONTACTED",
+          "QUOTED",
+          "WON",
+          "LOST",
+          "EXPIRED",
+          "DECLINED"
+        ],
+        "title": "LeadMatchStatus",
+        "type": "string"
+      },
+      "LeadOfferOut": {
+        "properties": {
+          "claim": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ClaimOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "fee": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FeeOut"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "What accepting would cost (open offers only)."
+          },
+          "lead": {
+            "$ref": "#/components/schemas/LeadPublicView"
+          }
+        },
+        "required": [
+          "lead",
+          "fee",
+          "claim"
+        ],
+        "title": "LeadOfferOut",
+        "type": "object"
+      },
+      "LeadOutcomeIn": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "status": {
+            "$ref": "#/components/schemas/LeadMatchStatus",
+            "description": "CONTACTED, QUOTED, WON or LOST."
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "LeadOutcomeIn",
+        "type": "object"
+      },
+      "LeadPreferencesIn": {
+        "additionalProperties": false,
+        "properties": {
+          "clear_max_open_leads": {
+            "default": false,
+            "description": "Remove the limit on referrals in progress.",
+            "title": "Clear Max Open Leads",
+            "type": "boolean"
+          },
+          "max_open_leads": {
+            "anyOf": [
+              {
+                "maximum": 500.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Open Leads"
+          },
+          "paused": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paused"
+          }
+        },
+        "title": "LeadPreferencesIn",
+        "type": "object"
+      },
+      "LeadPreferencesOut": {
+        "properties": {
+          "in_progress": {
+            "title": "In Progress",
+            "type": "integer"
+          },
+          "max_open_leads": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Open Leads"
+          },
+          "paused": {
+            "title": "Paused",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "paused",
+          "max_open_leads",
+          "in_progress"
+        ],
+        "title": "LeadPreferencesOut",
+        "type": "object"
+      },
+      "LeadPriceIn": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_cents": {
+            "exclusiveMinimum": 0.0,
+            "maximum": 1000000.0,
+            "title": "Amount Cents",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "amount_cents"
+        ],
+        "title": "LeadPriceIn",
+        "type": "object"
+      },
+      "LeadPriceOut": {
+        "properties": {
+          "amount_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Amount Cents"
+          },
+          "category_key": {
+            "title": "Category Key",
+            "type": "string"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "price_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Price Id"
+          },
+          "restricted": {
+            "title": "Restricted",
+            "type": "boolean"
+          },
+          "set_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Set At"
+          }
+        },
+        "required": [
+          "category_key",
+          "category_label",
+          "restricted",
+          "price_id",
+          "amount_cents",
+          "set_at"
+        ],
+        "title": "LeadPriceOut",
+        "type": "object"
+      },
+      "LeadPublicView": {
+        "additionalProperties": false,
+        "description": "A referral as a partner sees it before accepting. No names or contact details.",
+        "properties": {
+          "category_key": {
+            "title": "Category Key",
+            "type": "string"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "claims_left": {
+            "title": "Claims Left",
+            "type": "integer"
+          },
+          "expires_at": {
+            "format": "date-time",
+            "title": "Expires At",
+            "type": "string"
+          },
+          "lead_id": {
+            "format": "uuid",
+            "title": "Lead Id",
+            "type": "string"
+          },
+          "lead_status": {
+            "$ref": "#/components/schemas/LeadStatus"
+          },
+          "lga": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lga"
+          },
+          "match_id": {
+            "format": "uuid",
+            "title": "Match Id",
+            "type": "string"
+          },
+          "max_claims": {
+            "title": "Max Claims",
+            "type": "integer"
+          },
+          "offered_at": {
+            "format": "date-time",
+            "title": "Offered At",
+            "type": "string"
+          },
+          "postcode": {
+            "title": "Postcode",
+            "type": "string"
+          },
+          "requirements": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Requirements",
+            "type": "array"
+          },
+          "score": {
+            "title": "Score",
+            "type": "number"
+          },
+          "score_breakdown": {
+            "items": {
+              "$ref": "#/components/schemas/ScoreFactorOut"
+            },
+            "title": "Score Breakdown",
+            "type": "array"
+          },
+          "state": {
+            "title": "State",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/LeadMatchStatus"
+          },
+          "suburb": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suburb"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary"
+          },
+          "timing": {
+            "$ref": "#/components/schemas/Timing"
+          },
+          "vertical": {
+            "title": "Vertical",
+            "type": "string"
+          }
+        },
+        "required": [
+          "match_id",
+          "lead_id",
+          "category_key",
+          "category_label",
+          "vertical",
+          "suburb",
+          "lga",
+          "state",
+          "postcode",
+          "timing",
+          "summary",
+          "requirements",
+          "max_claims",
+          "claims_left",
+          "lead_status",
+          "status",
+          "offered_at",
+          "expires_at",
+          "score",
+          "score_breakdown"
+        ],
+        "title": "LeadPublicView",
+        "type": "object"
+      },
+      "LeadStatus": {
+        "enum": [
+          "OPEN",
+          "FILLED",
+          "EXPIRED",
+          "WITHDRAWN"
+        ],
+        "title": "LeadStatus",
+        "type": "string"
+      },
       "ListingStatus": {
         "enum": [
           "NOT_LISTED",
@@ -5578,6 +6484,52 @@
           }
         },
         "title": "LiveResponse",
+        "type": "object"
+      },
+      "LocationIn": {
+        "additionalProperties": false,
+        "properties": {
+          "lga": {
+            "anyOf": [
+              {
+                "maxLength": 120,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Council (local government) area.",
+            "title": "Lga"
+          },
+          "postcode": {
+            "pattern": "^[0-9]{4}$",
+            "title": "Postcode",
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/AustralianState"
+          },
+          "suburb": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suburb"
+          }
+        },
+        "required": [
+          "state",
+          "postcode"
+        ],
+        "title": "LocationIn",
         "type": "object"
       },
       "LoginRequest": {
@@ -6182,7 +7134,9 @@
         "enum": [
           "REMINDER",
           "GRANT_ROUND",
-          "SOURCES_DUE"
+          "SOURCES_DUE",
+          "LEAD_OFFERED",
+          "LEAD_CLAIMED"
         ],
         "title": "NotificationKind",
         "type": "string"
@@ -10057,6 +11011,42 @@
         "title": "RedirectOut",
         "type": "object"
       },
+      "ReferralCategoryOptionOut": {
+        "properties": {
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "open_request": {
+            "description": "An introduction for this is already in progress.",
+            "title": "Open Request",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "key",
+          "label",
+          "description",
+          "open_request"
+        ],
+        "title": "ReferralCategoryOptionOut",
+        "type": "object"
+      },
       "ReferralCategoryOut": {
         "properties": {
           "description": {
@@ -10097,6 +11087,311 @@
         "title": "ReferralCategoryOut",
         "type": "object"
       },
+      "ReferralIn": {
+        "additionalProperties": false,
+        "description": "The customer's consent to be introduced, with exactly what they agreed to.",
+        "properties": {
+          "agreed": {
+            "description": "The customer ticked the consent box.",
+            "title": "Agreed",
+            "type": "boolean"
+          },
+          "assessment_id": {
+            "format": "uuid",
+            "title": "Assessment Id",
+            "type": "string"
+          },
+          "categories": {
+            "items": {
+              "pattern": "^[a-z][a-z0-9_]{1,59}$",
+              "type": "string"
+            },
+            "maxItems": 5,
+            "minItems": 1,
+            "title": "Categories",
+            "type": "array"
+          },
+          "consent_text_version_id": {
+            "description": "The consent text shown (must be the current version).",
+            "format": "uuid",
+            "title": "Consent Text Version Id",
+            "type": "string"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/ContactIn"
+          },
+          "fields_released": {
+            "items": {
+              "$ref": "#/components/schemas/ReleasableField"
+            },
+            "maxItems": 4,
+            "minItems": 1,
+            "title": "Fields Released",
+            "type": "array"
+          },
+          "location": {
+            "$ref": "#/components/schemas/LocationIn"
+          },
+          "max_providers": {
+            "maximum": 3.0,
+            "minimum": 1.0,
+            "title": "Max Providers",
+            "type": "integer"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Shown to matched partners before they accept: no names or contact details.",
+            "title": "Summary"
+          },
+          "timing": {
+            "$ref": "#/components/schemas/Timing"
+          }
+        },
+        "required": [
+          "assessment_id",
+          "consent_text_version_id",
+          "agreed",
+          "categories",
+          "max_providers",
+          "fields_released",
+          "contact",
+          "location",
+          "timing"
+        ],
+        "title": "ReferralIn",
+        "type": "object"
+      },
+      "ReferralOptionsOut": {
+        "properties": {
+          "assessment_id": {
+            "format": "uuid",
+            "title": "Assessment Id",
+            "type": "string"
+          },
+          "categories": {
+            "items": {
+              "$ref": "#/components/schemas/ReferralCategoryOptionOut"
+            },
+            "title": "Categories",
+            "type": "array"
+          },
+          "consent": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ConsentTextOut"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "None until introductions are set up."
+          },
+          "contact": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "description": "Suggested contact details (prefill).",
+            "title": "Contact",
+            "type": "object"
+          },
+          "location": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "description": "Suggested location (prefill).",
+            "title": "Location",
+            "type": "object"
+          },
+          "max_providers": {
+            "title": "Max Providers",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "assessment_id",
+          "consent",
+          "categories",
+          "max_providers",
+          "contact",
+          "location"
+        ],
+        "title": "ReferralOptionsOut",
+        "type": "object"
+      },
+      "ReferralOut": {
+        "properties": {
+          "assessment_id": {
+            "format": "uuid",
+            "title": "Assessment Id",
+            "type": "string"
+          },
+          "categories": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Categories",
+            "type": "array"
+          },
+          "consent_version": {
+            "title": "Consent Version",
+            "type": "integer"
+          },
+          "contact": {
+            "additionalProperties": true,
+            "title": "Contact",
+            "type": "object"
+          },
+          "fields_released": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Fields Released",
+            "type": "array"
+          },
+          "granted_at": {
+            "format": "date-time",
+            "title": "Granted At",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "leads": {
+            "items": {
+              "$ref": "#/components/schemas/CustomerLeadOut"
+            },
+            "title": "Leads",
+            "type": "array"
+          },
+          "lga": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lga"
+          },
+          "max_providers": {
+            "title": "Max Providers",
+            "type": "integer"
+          },
+          "postcode": {
+            "title": "Postcode",
+            "type": "string"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "state": {
+            "title": "State",
+            "type": "string"
+          },
+          "suburb": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suburb"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary"
+          },
+          "timing": {
+            "$ref": "#/components/schemas/Timing"
+          },
+          "withdrawn_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Withdrawn At"
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "assessment_id",
+          "consent_version",
+          "categories",
+          "max_providers",
+          "fields_released",
+          "contact",
+          "suburb",
+          "lga",
+          "state",
+          "postcode",
+          "timing",
+          "summary",
+          "granted_at",
+          "withdrawn_at",
+          "leads"
+        ],
+        "title": "ReferralOut",
+        "type": "object"
+      },
+      "RefundIn": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "maxLength": 300,
+            "minLength": 5,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "note"
+        ],
+        "title": "RefundIn",
+        "type": "object"
+      },
       "RegisterRequest": {
         "properties": {
           "display_name": {
@@ -10123,6 +11418,16 @@
         ],
         "title": "RegisterRequest",
         "type": "object"
+      },
+      "ReleasableField": {
+        "enum": [
+          "name",
+          "email",
+          "phone",
+          "site_address"
+        ],
+        "title": "ReleasableField",
+        "type": "string"
       },
       "ReminderChannel": {
         "enum": [
@@ -12491,6 +13796,34 @@
         "title": "ScanStatus",
         "type": "string"
       },
+      "ScoreFactorOut": {
+        "properties": {
+          "factor": {
+            "title": "Factor",
+            "type": "string"
+          },
+          "max": {
+            "title": "Max",
+            "type": "integer"
+          },
+          "points": {
+            "title": "Points",
+            "type": "integer"
+          },
+          "why": {
+            "title": "Why",
+            "type": "string"
+          }
+        },
+        "required": [
+          "factor",
+          "points",
+          "max",
+          "why"
+        ],
+        "title": "ScoreFactorOut",
+        "type": "object"
+      },
       "SectionOut": {
         "properties": {
           "questions": {
@@ -13913,6 +15246,226 @@
         ],
         "title": "SourceType",
         "type": "string"
+      },
+      "StaffLeadOut": {
+        "properties": {
+          "category_key": {
+            "title": "Category Key",
+            "type": "string"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "claimed_count": {
+            "title": "Claimed Count",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "expires_at": {
+            "format": "date-time",
+            "title": "Expires At",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "lga": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lga"
+          },
+          "matches": {
+            "items": {
+              "$ref": "#/components/schemas/StaffMatchOut"
+            },
+            "title": "Matches",
+            "type": "array"
+          },
+          "max_claims": {
+            "title": "Max Claims",
+            "type": "integer"
+          },
+          "postcode": {
+            "title": "Postcode",
+            "type": "string"
+          },
+          "state": {
+            "title": "State",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/LeadStatus"
+          },
+          "suburb": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suburb"
+          },
+          "vertical": {
+            "title": "Vertical",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "category_key",
+          "category_label",
+          "vertical",
+          "suburb",
+          "lga",
+          "state",
+          "postcode",
+          "status",
+          "max_claims",
+          "claimed_count",
+          "expires_at",
+          "matches"
+        ],
+        "title": "StaffLeadOut",
+        "type": "object"
+      },
+      "StaffMatchOut": {
+        "properties": {
+          "claim_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Claim Id"
+          },
+          "claim_refunded_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Claim Refunded At"
+          },
+          "fee_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fee Cents"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "included": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Included"
+          },
+          "offered_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offered At"
+          },
+          "partner_id": {
+            "format": "uuid",
+            "title": "Partner Id",
+            "type": "string"
+          },
+          "partner_name": {
+            "title": "Partner Name",
+            "type": "string"
+          },
+          "rank": {
+            "title": "Rank",
+            "type": "integer"
+          },
+          "responded_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Responded At"
+          },
+          "score": {
+            "title": "Score",
+            "type": "number"
+          },
+          "score_breakdown": {
+            "items": {
+              "$ref": "#/components/schemas/ScoreFactorOut"
+            },
+            "title": "Score Breakdown",
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/LeadMatchStatus"
+          }
+        },
+        "required": [
+          "id",
+          "claim_id",
+          "partner_id",
+          "partner_name",
+          "rank",
+          "score",
+          "score_breakdown",
+          "status",
+          "offered_at",
+          "responded_at",
+          "fee_cents",
+          "included",
+          "claim_refunded_at"
+        ],
+        "title": "StaffMatchOut",
+        "type": "object"
       },
       "StaffPartnerOut": {
         "properties": {
@@ -15377,6 +16930,16 @@
         "title": "TestCaseResultOut",
         "type": "object"
       },
+      "Timing": {
+        "enum": [
+          "ASAP",
+          "WITHIN_3_MONTHS",
+          "LATER",
+          "RESEARCHING"
+        ],
+        "title": "Timing",
+        "type": "string"
+      },
       "TokenRequest": {
         "properties": {
           "token": {
@@ -16784,6 +18347,335 @@
         "summary": "Update Round",
         "tags": [
           "admin: grants"
+        ]
+      }
+    },
+    "/v1/admin/leads": {
+      "get": {
+        "description": "Recent leads with every match, its score and outcome (never contact details).",
+        "operationId": "staff_list_v1_admin_leads_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/LeadStatus"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/StaffLeadOut"
+                  },
+                  "title": "Response Staff List V1 Admin Leads Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Staff List",
+        "tags": [
+          "admin: leads"
+        ]
+      }
+    },
+    "/v1/admin/leads/claims/{claim_id}/refund": {
+      "post": {
+        "description": "Give a claimed referral's fee back as credit.",
+        "operationId": "refund_claim_v1_admin_leads_claims__claim_id__refund_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "claim_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Claim Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefundIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditStaffOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Refund Claim",
+        "tags": [
+          "admin: leads"
+        ]
+      }
+    },
+    "/v1/admin/leads/partners/{partner_id}/credits": {
+      "get": {
+        "operationId": "staff_credits_v1_admin_leads_partners__partner_id__credits_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partner_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Partner Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditStaffOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Staff Credits",
+        "tags": [
+          "admin: leads"
+        ]
+      },
+      "post": {
+        "description": "Give promotional credit or correct a partner's balance.",
+        "operationId": "adjust_credits_v1_admin_leads_partners__partner_id__credits_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partner_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Partner Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreditAdjustIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditStaffOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Adjust Credits",
+        "tags": [
+          "admin: leads"
+        ]
+      }
+    },
+    "/v1/admin/leads/prices": {
+      "get": {
+        "description": "Lead fee per category (charged beyond a partner's included referrals).",
+        "operationId": "list_prices_v1_admin_leads_prices_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/LeadPriceOut"
+                  },
+                  "title": "Response List Prices V1 Admin Leads Prices Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Prices",
+        "tags": [
+          "admin: leads"
+        ]
+      }
+    },
+    "/v1/admin/leads/prices/{category_key}": {
+      "delete": {
+        "operationId": "remove_price_v1_admin_leads_prices__category_key__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_key",
+            "required": true,
+            "schema": {
+              "title": "Category Key",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/LeadPriceOut"
+                  },
+                  "title": "Response Remove Price V1 Admin Leads Prices  Category Key  Delete",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Remove Price",
+        "tags": [
+          "admin: leads"
+        ]
+      },
+      "put": {
+        "operationId": "set_price_v1_admin_leads_prices__category_key__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "category_key",
+            "required": true,
+            "schema": {
+              "title": "Category Key",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadPriceIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/LeadPriceOut"
+                  },
+                  "title": "Response Set Price V1 Admin Leads Prices  Category Key  Put",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Price",
+        "tags": [
+          "admin: leads"
         ]
       }
     },
@@ -22529,6 +24421,491 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/partner/credits": {
+      "get": {
+        "description": "The partner's credit balance, this month's included referrals and the ledger.",
+        "operationId": "get_credits_v1_organisations__organisation_id__partner_credits_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreditsOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Credits",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/credits/checkout": {
+      "post": {
+        "description": "A Stripe Checkout page for a credit pack. Credit is added when Stripe confirms.",
+        "operationId": "buy_credits_v1_organisations__organisation_id__partner_credits_checkout_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RedirectOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Buy Credits",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/lead-preferences": {
+      "get": {
+        "operationId": "get_preferences_v1_organisations__organisation_id__partner_lead_preferences_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadPreferencesOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Preferences",
+        "tags": [
+          "leads"
+        ]
+      },
+      "patch": {
+        "description": "Pause new referrals, or cap how many accepted referrals can be in progress.",
+        "operationId": "set_preferences_v1_organisations__organisation_id__partner_lead_preferences_patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadPreferencesIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadPreferencesOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Preferences",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/leads": {
+      "get": {
+        "description": "Referrals offered to this partner, newest first.",
+        "operationId": "list_leads_v1_organisations__organisation_id__partner_leads_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "items": {
+                    "$ref": "#/components/schemas/LeadMatchStatus"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/LeadOfferOut"
+                  },
+                  "title": "Response List Leads V1 Organisations  Organisation Id  Partner Leads Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Leads",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}": {
+      "get": {
+        "description": "One referral (opening it marks it viewed).",
+        "operationId": "get_lead_v1_organisations__organisation_id__partner_leads__match_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadOfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Lead",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/claim": {
+      "post": {
+        "description": "Accept a referral: any fee is charged and the customer's chosen contact details are\nreleased to you.",
+        "operationId": "claim_lead_v1_organisations__organisation_id__partner_leads__match_id__claim_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadOfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Claim Lead",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/decline": {
+      "post": {
+        "operationId": "decline_lead_v1_organisations__organisation_id__partner_leads__match_id__decline_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadDeclineIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadOfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Decline Lead",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/outcome": {
+      "post": {
+        "description": "Record what happened after accepting: contacted, quoted, won or lost.",
+        "operationId": "record_outcome_v1_organisations__organisation_id__partner_leads__match_id__outcome_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadOutcomeIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadOfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Record Outcome",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/partner/resubmit": {
       "post": {
         "description": "Send an application that wasn't approved back to our team, after fixing it.",
@@ -23362,6 +25739,261 @@
         "summary": "List Generated",
         "tags": [
           "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/referrals": {
+      "get": {
+        "operationId": "list_referrals_v1_organisations__organisation_id__projects__project_id__referrals_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ReferralOut"
+                  },
+                  "title": "Response List Referrals V1 Organisations  Organisation Id  Projects  Project Id  Referrals Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Referrals",
+        "tags": [
+          "referrals"
+        ]
+      },
+      "post": {
+        "description": "Agree to be introduced. Partners are matched straight after.",
+        "operationId": "create_referral_v1_organisations__organisation_id__projects__project_id__referrals_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReferralIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ReferralOut"
+                  },
+                  "title": "Response Create Referral V1 Organisations  Organisation Id  Projects  Project Id  Referrals Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Referral",
+        "tags": [
+          "referrals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/referrals/options": {
+      "get": {
+        "description": "What the introduction form offers: the assessment's \"who can help\" categories, the\nconsent text to agree to, and suggested contact details and location.",
+        "operationId": "referral_options_v1_organisations__organisation_id__projects__project_id__referrals_options_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "assessment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Assessment Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReferralOptionsOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Referral Options",
+        "tags": [
+          "referrals"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/referrals/{consent_id}/withdraw": {
+      "post": {
+        "description": "Stop the introduction: partners who haven't accepted no longer see it.",
+        "operationId": "withdraw_referral_v1_organisations__organisation_id__projects__project_id__referrals__consent_id__withdraw_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "consent_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Consent Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ReferralOut"
+                  },
+                  "title": "Response Withdraw Referral V1 Organisations  Organisation Id  Projects  Project Id  Referrals  Consent Id  Withdraw Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Withdraw Referral",
+        "tags": [
+          "referrals"
         ]
       }
     },

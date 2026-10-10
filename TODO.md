@@ -144,13 +144,14 @@ tests and updated docs before the next starts.
 - [x] Partner application + staff verification, categories, service areas, credentials (`VERIFIED` folded into `ACTIVE`; see ARCHITECTURE §6)
 - [x] Plans/features (data), Stripe partner subscriptions, PAST_DUE grace logic: partner plans are `PARTNER_PLAN` catalogue products on the Milestone 13 billing; categories and areas are soft limits, members a hard limit. Limit numbers are first guesses for Jules to confirm
 - [x] Partner portal surface on `partners.` host (`/partner`, any host; `partners.` redirects `/` there)
-- [ ] Next: lead preferences and matching (Milestone 15); `RADIUS` service areas; credential evidence uploads; public provider profile; `paused` / `max_open_leads`; automated ABN and licence register checks; credential expiry reminders
+- [ ] Next: `RADIUS` service areas; credential evidence uploads; public provider profile; automated ABN and licence register checks; credential expiry reminders
 
 ## Milestone 15 — Lead engine
-- [ ] Referral consent (versioned text, fields released)
-- [ ] Matching (hard filters + explainable ranking), release policy, claiming with row locks
-- [ ] Contact locking/release, lead fees + credits ledger, outcomes
-- [ ] Partner E2E Playwright test (16 steps) + negative cases
+- [x] Referral consent (versioned text, fields released)
+- [x] Matching (hard filters + explainable ranking), release policy, claiming with row locks
+- [x] Contact locking/release, lead fees + credits ledger, outcomes
+- [x] Partner E2E test (16 steps, API level) + negative cases
+- [ ] Next: confirm the placeholder numbers (included referrals 3/15/50 a month, 14-day expiry, waves of 5 then 3 a day), set lead fees and a credit pack price; per-category lead preferences; quotes; sponsored placement; claw back credit when a credit-pack payment is refunded
 
 ## Milestone 16 — Marketplace analytics
 - [ ] Per-partner analytics; k-anonymous aggregates only
@@ -160,6 +161,7 @@ tests and updated docs before the next starts.
 - [ ] Monitoring (uptime, logs, metrics, error tracking), alerting
 - [ ] Security testing (ZAP baseline, dependency audit), CSP tightening (hash-based CSP for static pages)
 - [ ] Kamatera go-live
+- [ ] Browser (Playwright) end-to-end tests, starting with the partner journey from Milestone 15
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)

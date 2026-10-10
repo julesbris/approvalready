@@ -40,6 +40,9 @@ from app.modules.tenancy.models import MemberStatus, OrganisationMember
 CATEGORIES_FEATURE = "partner.categories.max"
 SERVICE_AREAS_FEATURE = "partner.service_areas.max"
 MEMBERS_FEATURE = "partner.members.max"
+# Referrals a month without a lead fee (Milestone 15). Applies whether or not a plan is on
+# sale: buying credit is always the way past it.
+LEADS_FEATURE = "partner.leads.included"
 
 
 class Action(StrEnum):
@@ -170,12 +173,22 @@ async def areas_in_use(db: AsyncSession, organisation_id: uuid.UUID) -> int:
     )
 
 
+async def leads_included_this_month(db: AsyncSession, organisation_id: uuid.UUID) -> int:
+    from app.modules.leads import service as leads
+
+    partner = await _partner_of(db, organisation_id)
+    if partner is None:
+        return 0
+    return await leads.included_used(db, partner.id, leads.utcnow())
+
+
 # Feature key -> how much of it the partner organisation uses now (also shown on the
 # organisation's billing page).
 USAGE = {
     CATEGORIES_FEATURE: categories_in_use,
     SERVICE_AREAS_FEATURE: areas_in_use,
     MEMBERS_FEATURE: members_in_use,
+    LEADS_FEATURE: leads_included_this_month,
 }
 
 
@@ -185,7 +198,7 @@ async def plan(db: AsyncSession, organisation_id: uuid.UUID) -> Plan:
     limits: list[Limit] = []
     for key, used in USAGE.items():
         a = await billing.allowance(db, organisation_id, key)
-        limit = a.limit if a.enforced else None
+        limit = a.limit if a.enforced or key == LEADS_FEATURE else None
         limits.append(Limit(key, a.description, limit, await used(db, organisation_id)))
     sub = await billing.live_subscription(db, organisation_id)
     name = None

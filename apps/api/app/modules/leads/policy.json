@@ -1,0 +1,11 @@
+{
+  "notes": "How each lead is released to partners. A lead keeps the policy it was made with. 'default' applies to every category unless 'categories' overrides some of its values. max_providers caps what a customer can choose (1 to 3); first_wave partners are offered the lead at once, wave_size more every wave_hours while it has room, and it expires after expires_after_days. The consent text tells customers 14 days: change both together.",
+  "default": {
+    "max_providers": 3,
+    "first_wave": 5,
+    "wave_size": 3,
+    "wave_hours": 24,
+    "expires_after_days": 14
+  },
+  "categories": {}
+}

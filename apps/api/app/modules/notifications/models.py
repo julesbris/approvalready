@@ -23,6 +23,8 @@ class NotificationKind(StrEnum):
     REMINDER = "REMINDER"  # a project or system reminder fell due
     GRANT_ROUND = "GRANT_ROUND"  # a round of a program the project matched opens or closes
     SOURCES_DUE = "SOURCES_DUE"  # staff: source references due for review
+    LEAD_OFFERED = "LEAD_OFFERED"  # partner: a referral was offered to them
+    LEAD_CLAIMED = "LEAD_CLAIMED"  # customer: a partner accepted their referral
 
 
 class EmailStatus(StrEnum):

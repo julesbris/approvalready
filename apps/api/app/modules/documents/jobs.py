@@ -21,6 +21,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 from sqlalchemy.pool import NullPool
 
 from app.core.config import JobsMode, Settings
+from app.core.email import EmailProvider
 from app.core.errors import ApiError
 from app.db.tenant import bind_tenant
 from app.modules.audit import service as audit
@@ -42,6 +43,7 @@ SCAN_TASK = "documents.scan"
 GENERATE_TASK = "documents.generate"
 AI_TASK = "ai.run"
 BILLING_EVENT_TASK = "billing.process_event"
+LEAD_MATCH_TASK = "leads.match"
 
 
 def _disabled_ai() -> AIProvider:
@@ -63,6 +65,9 @@ class JobContext:
     scanner: MalwareScanner
     ai: AIProvider = field(default_factory=_disabled_ai)
     ai_prices: Prices = field(default_factory=_no_prices)
+    # For jobs that notify people (lead matching).
+    email: EmailProvider | None = None
+    settings: Settings | None = None
 
 
 class RetryLater(Exception):
@@ -193,6 +198,7 @@ def create_job_context(
     settings: Settings,
     session_factory: async_sessionmaker[AsyncSession],
     storage: ObjectStorage,
+    email: EmailProvider | None = None,
 ) -> JobContext:
     from app.modules.ai.provider import create_provider
     from app.modules.ai.service import Prices
@@ -205,6 +211,8 @@ def create_job_context(
         ai_prices=Prices(
             settings.ai_input_price_per_mtok_usd, settings.ai_output_price_per_mtok_usd
         ),
+        email=email,
+        settings=settings,
     )
 
 
@@ -265,6 +273,8 @@ class JobRunner(Protocol):
 
     async def billing_event(self, event_id: uuid.UUID) -> None: ...
 
+    async def lead_match(self, lead_id: uuid.UUID) -> None: ...
+
 
 class CeleryJobs:
     async def _send(self, name: str, *args: str) -> None:
@@ -283,6 +293,9 @@ class CeleryJobs:
 
     async def billing_event(self, event_id: uuid.UUID) -> None:
         await self._send(BILLING_EVENT_TASK, str(event_id))
+
+    async def lead_match(self, lead_id: uuid.UUID) -> None:
+        await self._send(LEAD_MATCH_TASK, str(lead_id))
 
 
 class InlineJobs:
@@ -303,6 +316,11 @@ class InlineJobs:
             await billing_event_job(self.ctx, event_id)
         except RetryLater:
             log.warning("stripe event failed", extra={"event_id": str(event_id)})
+
+    async def lead_match(self, lead_id: uuid.UUID) -> None:
+        from app.modules.leads import jobs as leads
+
+        await leads.match_lead(self.ctx.session_factory, self.ctx.email, self.ctx.settings, lead_id)
 
 
 def create_job_runner(settings: Settings, ctx: JobContext) -> JobRunner:
