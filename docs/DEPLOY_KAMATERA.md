@@ -188,7 +188,9 @@ BusinessReady rules for Queensland and Cairns) and `vessel_au_qld` (Milestone 9,
 rules for domestic commercial vessels from AMSA, and Queensland recreational registration
 and licences) and `grants_au_qld` (Milestone 10, GrantReady: three grant programs with their
 eligibility rules and first rounds; keep rounds current at `/admin/grants`) and `property_qld`
-(Milestone 11, SellReady seller disclosure and RentReady tenancy rules for Queensland).
+(Milestone 11, SellReady seller disclosure and RentReady tenancy rules for Queensland) and `trade_au`
+(Milestone 25, TradeReady: import declarations, biosecurity, regulated imports and export
+controls for businesses importing into or exporting from Australia).
 
 From Milestone 11 the `scheduler` service sends reminders and notifications (every 5 minutes)
 and daily alerts (07:30 Brisbane). It must be running for reminders to arrive; check it with

@@ -26,7 +26,7 @@ export const defaultBrand: Brand = {
   productName: "ApprovalReady",
   tagline: "Know which approvals apply, and see the sources behind every answer.",
   description:
-    "ApprovalReady helps Australian property owners, businesses and vessel operators work out which approvals, licences and grants apply to them, prepare the evidence, and get professional help when they need it.",
+    "ApprovalReady helps Australian property owners, businesses, importers, exporters and vessel operators work out which approvals, licences and grants apply to them, prepare the evidence, and get professional help when they need it.",
   products: [
     {
       key: "PLANNING",
@@ -63,6 +63,12 @@ export const defaultBrand: Brand = {
       name: "RentReady",
       path: "/property/rent",
       question: "How do I prepare and self-manage a residential rental?",
+    },
+    {
+      key: "TRADE",
+      name: "TradeReady",
+      path: "/trade",
+      question: "What do I need to import or export these goods?",
     },
   ],
 };

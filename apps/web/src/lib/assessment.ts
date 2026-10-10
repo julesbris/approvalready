@@ -11,7 +11,7 @@ import type {
 } from "@approvalready/shared-types";
 
 /** Projects whose assessment shows the approval map (one row per approval, by certainty). */
-export const MAP_VERTICALS: ReadonlySet<string> = new Set(["BUSINESS", "VESSEL"]);
+export const MAP_VERTICALS: ReadonlySet<string> = new Set(["BUSINESS", "VESSEL", "TRADE"]);
 
 export const CONFIDENCE_LABELS: Record<Confidence, string> = {
   VERIFIED: "Verified",

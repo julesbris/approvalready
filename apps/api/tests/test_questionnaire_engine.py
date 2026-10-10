@@ -63,6 +63,7 @@ def test_bundled_definitions_are_valid_and_cover_every_vertical() -> None:
         "GRANT",
         "SELL",
         "RENT",
+        "TRADE",
     }
     for d in bundled:
         spec = spec_from_definition(d)

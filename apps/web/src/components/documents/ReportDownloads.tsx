@@ -33,6 +33,15 @@ export const REPORT_TEMPLATES: Record<string, ReportTemplate[]> = {
         "their sources, the answers it relies on, missing information and review status.",
     },
   ],
+  TRADE: [
+    {
+      key: "TRADE_APPROVAL_MAP",
+      title: "Import and export approval map",
+      description:
+        "Each declaration, permit and registration we checked, by how sure we are it applies, " +
+        "who can help, the answers it relies on, missing information and sources.",
+    },
+  ],
   VESSEL: [
     {
       key: "VESSEL_PATHWAY",

@@ -3,7 +3,7 @@ import { render, screen, within } from "@testing-library/react";
 import HomePage from "./page";
 
 describe("HomePage", () => {
-  it("presents all six product areas as one platform", () => {
+  it("presents all seven product areas as one platform", () => {
     render(<HomePage />);
     const list = screen.getByRole("list", { name: "Product areas" });
     const names = within(list)
@@ -16,6 +16,7 @@ describe("HomePage", () => {
       "GrantReady",
       "SellReady",
       "RentReady",
+      "TradeReady",
     ]);
   });
 

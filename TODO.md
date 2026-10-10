@@ -238,6 +238,13 @@ tests and updated docs before the next starts.
 - [x] Safeguards: no actions on your own account, only a super administrator can change a staff member's account, closed accounts are read-only, every view and action audited
 - [ ] Next: change staff roles from the page; suspend a business organisation; staff notes on an account
 
+## Milestone 25 — TradeReady: importing and exporting goods ✅
+- [x] `TRADE` vertical (migration 0027), `trade.general` questionnaire, business profile prefill
+- [~] Content pack `trade_au` (4 rule sets, 21 rules, 16 references): import declarations, ICS registration, GST and deferred GST, biosecurity permits, imported food inspection, stink bug season, vehicles, AICIS, ARTG, refrigerant equipment, EESS, firearms, tobacco, wildlife, export declarations, prescribed goods, Defence export permits. Every reference is an **unverified summary**: capture and verify in `/admin/sources`
+- [x] Marketplace categories for import and logistics companies: customs brokers, freight forwarders, logistics and warehousing providers, import and export compliance consultants; `review.trade` product
+- [x] Import and export approval map report; guides for importing and exporting
+- [ ] Next: tariff classification help; BICON look-up links per commodity; MICoR for exports; freight quote requests through the existing quotes feature
+
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
 - [x] Fetch source documents automatically for snapshots (built in Milestone 24; PDFs still pasted by hand)
