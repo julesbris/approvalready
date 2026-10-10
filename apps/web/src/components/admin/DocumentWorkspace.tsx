@@ -4,6 +4,7 @@ import type {
   ReviewEventOut,
   SnapshotCaptured,
   SnapshotSummary,
+  SourceCheckOut,
   SourceDocumentOut,
   SourceReferenceOut,
 } from "@approvalready/shared-types";
@@ -33,6 +34,21 @@ const EVENT_LABELS: Record<string, string> = {
   SUPERSEDED: "Superseded",
   REOPENED: "Reopened",
 };
+
+const CHECK_NOTICES: Record<string, string> = {
+  SAVED: "The app read the page and saved it as a snapshot.",
+  CHANGED: "The page has changed. A new snapshot was saved and verified references need checking.",
+  UNCHANGED: "The page hasn't changed since the latest snapshot.",
+  FILE_SEEN: "This is a file the app can't read as text. Paste its text below.",
+  FILE_CHANGED: "The file has changed. Paste its new text below and check the references.",
+  FILE_UNCHANGED: "The file hasn't changed since the last check.",
+};
+
+function checkLine(c: SourceCheckOut): string {
+  const by = c.trigger === "SCHEDULED" ? "Weekly check" : "Checked by staff";
+  const why = c.error ? `: ${c.error}` : "";
+  return `${by}, ${formatDateTime(c.checked_at)}: ${c.outcome_label}${why}`;
+}
 
 function text(form: FormData, name: string): string | null {
   const value = String(form.get(name) ?? "").trim();
@@ -246,18 +262,45 @@ function Reference({
 export function DocumentWorkspace({
   document,
   snapshots,
+  checks,
   references,
   canVerify,
 }: {
   document: SourceDocumentOut;
   snapshots: SnapshotSummary[];
+  checks: SourceCheckOut[];
   references: SourceReferenceOut[];
   canVerify: boolean;
 }) {
   const router = useRouter();
   const capture = useAction();
+  const fetchNow = useAction();
   const add = useAction();
   const [captured, setCaptured] = useState<string | null>(null);
+
+  async function checkNow() {
+    setCaptured(null);
+    const result = await fetchNow.run(() =>
+      apiRequest<SourceCheckOut>("POST", `/admin/source-documents/${document.id}/check`),
+    );
+    if (result) {
+      if (result.outcome === "FAILED") {
+        fetchNow.setError(`The page couldn't be read: ${result.error ?? "unknown error"}`);
+      } else {
+        setCaptured(CHECK_NOTICES[result.outcome] ?? result.outcome_label);
+      }
+      router.refresh();
+    }
+  }
+
+  async function setAutoCheck(on: boolean) {
+    const saved = await fetchNow.run(() =>
+      apiRequest<SourceDocumentOut>("PATCH", `/admin/source-documents/${document.id}`, {
+        auto_check: on,
+      }),
+    );
+    if (saved) router.refresh();
+  }
 
   async function captureSnapshot(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -338,15 +381,18 @@ export function DocumentWorkspace({
           Snapshots
         </h2>
         <p className="muted">
-          Paste the document&apos;s text as you retrieved it. References are verified against the
-          latest snapshot, and a changed snapshot flags them for review.
+          The app can read the official address for you, or you can paste the document&apos;s
+          text as you retrieved it. References are verified against the latest snapshot, and a
+          changed snapshot flags them for review.
         </p>
         {snapshots.length > 0 ? (
           <ul aria-label="Snapshots">
             {snapshots.map((s) => (
               <li key={s.id}>
-                Retrieved {formatDateTime(s.retrieved_at)} · {s.characters.toLocaleString()}{" "}
-                characters · <code>{s.content_hash.slice(0, 12)}</code>
+                Retrieved {formatDateTime(s.retrieved_at)} ·{" "}
+                {s.capture_method === "FETCHED" ? "read by the app" : "pasted"} ·{" "}
+                {s.characters.toLocaleString()} characters ·{" "}
+                <code>{s.content_hash.slice(0, 12)}</code>
               </li>
             ))}
           </ul>
@@ -354,6 +400,31 @@ export function DocumentWorkspace({
           <p>No snapshot yet.</p>
         )}
         {captured ? <FormNotice>{captured}</FormNotice> : null}
+        <FormError message={fetchNow.error} />
+        <div className="button-row">
+          <button type="button" className="button" onClick={checkNow} disabled={fetchNow.busy}>
+            {fetchNow.busy ? "Reading the page…" : "Check the official page now"}
+          </button>
+          <label className="option">
+            <input
+              type="checkbox"
+              checked={document.auto_check}
+              disabled={fetchNow.busy}
+              onChange={(e) => setAutoCheck(e.target.checked)}
+            />
+            Check every week
+          </label>
+        </div>
+        {checks.length > 0 ? (
+          <details>
+            <summary>Recent checks</summary>
+            <ul className="history" aria-label="Recent checks">
+              {checks.map((c) => (
+                <li key={c.id}>{checkLine(c)}</li>
+              ))}
+            </ul>
+          </details>
+        ) : null}
         <form
           method="post"
           className="form"

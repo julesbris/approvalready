@@ -167,9 +167,17 @@ tests and updated docs before the next starts.
 - [x] Browser (Playwright) end-to-end tests: the partner journey from Milestone 15, and a CSP check
 - [ ] Next: choose the backup bucket (see backlog: object storage vendor) and set `BACKUP_S3_*`; set `OPS_ALERT_EMAILS` and an external uptime monitor; WAL archiving for point-in-time recovery once a day's loss matters; more browser journeys (customer questionnaire, professional review, billing)
 
+## Milestone 24 — Automatic source checks ✅
+- [x] "Check the official page now" on each source document: the app reads the official address and saves a snapshot when the wording changes (marked "read by the app"), or says why it couldn't
+- [x] Weekly check (Mondays 6 am Brisbane) of every source document that is in force, not superseded and set to "Check every week"; one notification and email to source staff listing what changed and what couldn't be read
+- [x] Safe fetching: https only, allowed domains (`SOURCE_FETCH_ALLOWED_DOMAINS`, government by default), public addresses only, every redirect re-checked, size and time limits
+- [x] Page text keeps the wording only (main content, no scripts, menus, headers or footers) so banners and scripts don't count as changes; PDFs are compared by their bytes and flagged for pasting by hand
+- [x] `source_check` history (append-only), `python -m app.cli sources check` to run it at once
+- [ ] Next: read PDF text (needs a PDF library); show a word-level diff between snapshots; per-document check frequency; a public "last checked" date on guide pages
+
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
-- [ ] Fetch source documents automatically for snapshots (manual capture only for now; no claims of live integration)
+- [x] Fetch source documents automatically for snapshots (built in Milestone 24; PDFs still pasted by hand)
 - [ ] Generic per-user/per-IP rate limiting for all API routes (auth routes already limited)
 - [ ] Breached-password check (HIBP k-anonymity range API) at registration and reset
 - [ ] MFA (TOTP) and passkeys via `auth_identity`; Google/Microsoft OIDC

@@ -252,6 +252,19 @@ class Settings(BaseSettings):
     # Error tracking (Sentry or a compatible service such as GlitchTip). Off when unset.
     sentry_dsn: SecretStr | None = None
 
+    # --- Source checks (Milestone 24, app/modules/regulatory/fetch.py) ---
+    # Every week the worker reads each source document from its official address and keeps
+    # a snapshot when the text changes. Only https addresses on these domains (and their
+    # subdomains) that resolve to public internet addresses are ever read.
+    source_checks_enabled: bool = True
+    source_fetch_allowed_domains: Annotated[list[str], NoDecode] = Field(
+        default_factory=lambda: ["gov.au", "workcoverqld.com.au"]
+    )
+    source_fetch_timeout_seconds: float = Field(default=30.0, gt=0, le=120)
+    source_fetch_max_mb: int = Field(default=10, ge=1, le=50)
+    # Pause between documents in the weekly check, to be polite to government websites.
+    source_fetch_delay_seconds: float = Field(default=2.0, ge=0, le=60)
+
     @field_validator(
         "storage_s3_bucket",
         "storage_s3_region",
@@ -276,11 +289,25 @@ class Settings(BaseSettings):
         return None if value == "" else value
 
     @field_validator(
-        "cors_origins", "allowed_hosts", "internal_hosts", "ops_alert_emails", mode="before"
+        "cors_origins",
+        "allowed_hosts",
+        "internal_hosts",
+        "ops_alert_emails",
+        "source_fetch_allowed_domains",
+        mode="before",
     )
     @classmethod
     def _parse_csv(cls, value: object) -> object:
         return _split_csv(value)
+
+    @field_validator("source_fetch_allowed_domains")
+    @classmethod
+    def _domains(cls, value: list[str]) -> list[str]:
+        domains = [d.lower().strip(".") for d in value]
+        for d in domains:
+            if "." not in d or "/" in d or ":" in d:
+                raise ValueError(f"{d!r} is not a domain name such as gov.au")
+        return domains
 
     @property
     def is_production(self) -> bool:

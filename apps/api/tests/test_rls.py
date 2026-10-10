@@ -64,6 +64,7 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "source_snapshot": APPEND,
     "source_reference": WRITE,
     "source_review_event": APPEND,
+    "source_check": APPEND,
     "rule_set": WRITE,
     "rule": WRITE,
     "rule_version": CRUD,

@@ -9,6 +9,9 @@ from pydantic import BaseModel, ConfigDict, Field, StringConstraints, field_vali
 from app.modules.regulatory.models import (
     JURISDICTION_PATTERN,
     MAX_SNAPSHOT_CHARS,
+    CaptureMethod,
+    CheckOutcome,
+    CheckTrigger,
     ReviewAction,
     SourceOrganisationKind,
     SourceType,
@@ -88,6 +91,9 @@ class SourceDocumentCreate(_In):
     effective_to: date | None = None
     licence: Text200 | None = None
     supersedes_id: uuid.UUID | None = None
+    auto_check: bool = Field(
+        default=True, description="Read the official address every week for changes."
+    )
 
     _blank = field_validator("version_label", "licence", mode="before")(_blank_to_none)
 
@@ -102,6 +108,7 @@ class SourceDocumentUpdate(_In):
     effective_to: date | None = None
     licence: Text200 | None = None
     supersedes_id: uuid.UUID | None = None
+    auto_check: bool | None = None
 
     _blank = field_validator("version_label", "licence", mode="before")(_blank_to_none)
 
@@ -112,6 +119,24 @@ class SnapshotSummary(BaseModel):
     captured_at: datetime
     content_hash: str = Field(description="SHA-256 of the captured text, hex.")
     characters: int
+    capture_method: CaptureMethod = Field(
+        description="MANUAL: pasted by staff. FETCHED: read from the official address."
+    )
+
+
+class SourceCheckOut(BaseModel):
+    id: uuid.UUID
+    checked_at: datetime
+    trigger: CheckTrigger
+    outcome: CheckOutcome
+    outcome_label: str
+    url: str
+    final_url: str | None
+    http_status: int | None
+    content_type: str | None
+    size_bytes: int | None
+    snapshot_id: uuid.UUID | None
+    error: str | None
 
 
 class SourceDocumentOut(BaseModel):
@@ -128,6 +153,8 @@ class SourceDocumentOut(BaseModel):
     licence: str | None
     supersedes_id: uuid.UUID | None
     latest_snapshot: SnapshotSummary | None
+    auto_check: bool
+    last_check: SourceCheckOut | None
     reference_counts: dict[str, int] = Field(description="References by verification status.")
     created_at: datetime
     updated_at: datetime

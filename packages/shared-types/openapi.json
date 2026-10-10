@@ -2297,6 +2297,14 @@
         "title": "BusinessUpdate",
         "type": "object"
       },
+      "CaptureMethod": {
+        "enum": [
+          "MANUAL",
+          "FETCHED"
+        ],
+        "title": "CaptureMethod",
+        "type": "string"
+      },
       "CatalogueOut": {
         "properties": {
           "enabled": {
@@ -2831,6 +2839,19 @@
         "title": "CheckOut",
         "type": "object"
       },
+      "CheckOutcome": {
+        "enum": [
+          "SAVED",
+          "CHANGED",
+          "UNCHANGED",
+          "FILE_SEEN",
+          "FILE_CHANGED",
+          "FILE_UNCHANGED",
+          "FAILED"
+        ],
+        "title": "CheckOutcome",
+        "type": "string"
+      },
       "CheckState": {
         "enum": [
           "OK",
@@ -2838,6 +2859,14 @@
           "FAILING"
         ],
         "title": "CheckState",
+        "type": "string"
+      },
+      "CheckTrigger": {
+        "enum": [
+          "SCHEDULED",
+          "MANUAL"
+        ],
+        "title": "CheckTrigger",
         "type": "string"
       },
       "ChecklistAddIn": {
@@ -15684,6 +15713,10 @@
       },
       "SnapshotCaptured": {
         "properties": {
+          "capture_method": {
+            "$ref": "#/components/schemas/CaptureMethod",
+            "description": "MANUAL: pasted by staff. FETCHED: read from the official address."
+          },
           "captured_at": {
             "format": "date-time",
             "title": "Captured At",
@@ -15724,6 +15757,7 @@
           "captured_at",
           "content_hash",
           "characters",
+          "capture_method",
           "content_text",
           "changed"
         ],
@@ -15755,6 +15789,10 @@
       },
       "SnapshotOut": {
         "properties": {
+          "capture_method": {
+            "$ref": "#/components/schemas/CaptureMethod",
+            "description": "MANUAL: pasted by staff. FETCHED: read from the official address."
+          },
           "captured_at": {
             "format": "date-time",
             "title": "Captured At",
@@ -15790,6 +15828,7 @@
           "captured_at",
           "content_hash",
           "characters",
+          "capture_method",
           "content_text"
         ],
         "title": "SnapshotOut",
@@ -15797,6 +15836,10 @@
       },
       "SnapshotSummary": {
         "properties": {
+          "capture_method": {
+            "$ref": "#/components/schemas/CaptureMethod",
+            "description": "MANUAL: pasted by staff. FETCHED: read from the official address."
+          },
           "captured_at": {
             "format": "date-time",
             "title": "Captured At",
@@ -15827,14 +15870,132 @@
           "retrieved_at",
           "captured_at",
           "content_hash",
-          "characters"
+          "characters",
+          "capture_method"
         ],
         "title": "SnapshotSummary",
+        "type": "object"
+      },
+      "SourceCheckOut": {
+        "properties": {
+          "checked_at": {
+            "format": "date-time",
+            "title": "Checked At",
+            "type": "string"
+          },
+          "content_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Type"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "final_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Final Url"
+          },
+          "http_status": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Http Status"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "outcome": {
+            "$ref": "#/components/schemas/CheckOutcome"
+          },
+          "outcome_label": {
+            "title": "Outcome Label",
+            "type": "string"
+          },
+          "size_bytes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size Bytes"
+          },
+          "snapshot_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Snapshot Id"
+          },
+          "trigger": {
+            "$ref": "#/components/schemas/CheckTrigger"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "checked_at",
+          "trigger",
+          "outcome",
+          "outcome_label",
+          "url",
+          "final_url",
+          "http_status",
+          "content_type",
+          "size_bytes",
+          "snapshot_id",
+          "error"
+        ],
+        "title": "SourceCheckOut",
         "type": "object"
       },
       "SourceDocumentCreate": {
         "additionalProperties": false,
         "properties": {
+          "auto_check": {
+            "default": true,
+            "description": "Read the official address every week for changes.",
+            "title": "Auto Check",
+            "type": "boolean"
+          },
           "effective_from": {
             "anyOf": [
               {
@@ -15935,6 +16096,10 @@
       },
       "SourceDocumentOut": {
         "properties": {
+          "auto_check": {
+            "title": "Auto Check",
+            "type": "boolean"
+          },
           "created_at": {
             "format": "date-time",
             "title": "Created At",
@@ -15972,6 +16137,16 @@
           "jurisdiction": {
             "title": "Jurisdiction",
             "type": "string"
+          },
+          "last_check": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SourceCheckOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "latest_snapshot": {
             "anyOf": [
@@ -16065,6 +16240,8 @@
           "licence",
           "supersedes_id",
           "latest_snapshot",
+          "auto_check",
+          "last_check",
           "reference_counts",
           "created_at",
           "updated_at"
@@ -16075,6 +16252,17 @@
       "SourceDocumentUpdate": {
         "additionalProperties": false,
         "properties": {
+          "auto_check": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Auto Check"
+          },
           "effective_from": {
             "anyOf": [
               {
@@ -21850,6 +22038,98 @@
           }
         },
         "summary": "Update Source Document",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-documents/{document_id}/check": {
+      "post": {
+        "description": "Read the document from its official address now. A changed text is stored as a new\nsnapshot; a failure is recorded with the reason.",
+        "operationId": "check_source_document_v1_admin_source_documents__document_id__check_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceCheckOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Check Source Document",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-documents/{document_id}/checks": {
+      "get": {
+        "description": "The latest automatic and manual checks of the document, newest first.",
+        "operationId": "list_source_checks_v1_admin_source_documents__document_id__checks_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "document_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Document Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SourceCheckOut"
+                  },
+                  "title": "Response List Source Checks V1 Admin Source Documents  Document Id  Checks Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Source Checks",
         "tags": [
           "admin: sources"
         ]

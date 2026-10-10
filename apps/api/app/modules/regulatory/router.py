@@ -9,13 +9,17 @@ from __future__ import annotations
 import uuid
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Query, status
+from fastapi import APIRouter, Depends, Query, Request, status
 from sqlalchemy import select
 
 from app.api.deps import DbDep, MetaDep, OrgContext, require_platform_permission
 from app.modules.identity.models import AppUser
-from app.modules.regulatory import service
+from app.modules.regulatory import checks, service
+from app.modules.regulatory.fetch import SourceFetcher
 from app.modules.regulatory.models import (
+    CheckOutcome,
+    CheckTrigger,
+    SourceCheck,
     SourceDocument,
     SourceOrganisation,
     SourceSnapshot,
@@ -27,6 +31,7 @@ from app.modules.regulatory.schemas import (
     SnapshotCreate,
     SnapshotOut,
     SnapshotSummary,
+    SourceCheckOut,
     SourceDocumentCreate,
     SourceDocumentOut,
     SourceDocumentUpdate,
@@ -57,6 +62,24 @@ def _snapshot_summary(s: SourceSnapshot) -> SnapshotSummary:
         captured_at=s.captured_at,
         content_hash=s.content_hash.hex(),
         characters=len(s.content_text),
+        capture_method=s.capture_method,
+    )
+
+
+def _check_out(c: SourceCheck) -> SourceCheckOut:
+    return SourceCheckOut(
+        id=c.id,
+        checked_at=c.checked_at,
+        trigger=c.trigger,
+        outcome=c.outcome,
+        outcome_label=checks.OUTCOME_LABELS[CheckOutcome(c.outcome)],
+        url=c.url,
+        final_url=c.final_url,
+        http_status=c.http_status,
+        content_type=c.content_type,
+        size_bytes=c.size_bytes,
+        snapshot_id=c.snapshot_id,
+        error=c.error,
     )
 
 
@@ -66,6 +89,7 @@ async def _documents_out(
     ids = [d.id for d, _ in rows]
     snapshots = await service.latest_snapshots(db, ids)
     counts = await service.reference_counts(db, ids)
+    last = await checks.latest_checks(db, ids)
     return [
         SourceDocumentOut(
             id=d.id,
@@ -81,6 +105,8 @@ async def _documents_out(
             licence=d.licence,
             supersedes_id=d.supersedes_id,
             latest_snapshot=_snapshot_summary(snapshots[d.id]) if d.id in snapshots else None,
+            auto_check=d.auto_check,
+            last_check=_check_out(last[d.id]) if d.id in last else None,
             reference_counts=counts.get(d.id, {}),
             created_at=d.created_at,
             updated_at=d.updated_at,
@@ -221,6 +247,40 @@ async def capture_document_snapshot(
         changed=changed,
         content_text=snapshot.content_text,
     )
+
+
+@router.post(
+    "/source-documents/{document_id}/check",
+    status_code=status.HTTP_201_CREATED,
+    response_model=SourceCheckOut,
+)
+async def check_source_document(
+    document_id: uuid.UUID, request: Request, ctx: Manage, db: DbDep, meta: MetaDep
+) -> SourceCheckOut:
+    """Read the document from its official address now. A changed text is stored as a new
+    snapshot; a failure is recorded with the reason."""
+    document, _ = await service.get_document(db, document_id)
+    fetcher: SourceFetcher = request.app.state.source_fetcher
+    check = await checks.check_document(
+        db,
+        fetcher,
+        document,
+        trigger=CheckTrigger.MANUAL,
+        requested_by=ctx.auth.user.id,
+        organisation_id=ctx.organisation.id,
+        meta=meta,
+    )
+    await db.commit()
+    return _check_out(check)
+
+
+@router.get("/source-documents/{document_id}/checks", response_model=list[SourceCheckOut])
+async def list_source_checks(
+    document_id: uuid.UUID, ctx: Manage, db: DbDep
+) -> list[SourceCheckOut]:
+    """The latest automatic and manual checks of the document, newest first."""
+    document, _ = await service.get_document(db, document_id)
+    return [_check_out(c) for c in await checks.list_checks(db, document)]
 
 
 @router.get("/source-documents/{document_id}/snapshots/{snapshot_id}", response_model=SnapshotOut)

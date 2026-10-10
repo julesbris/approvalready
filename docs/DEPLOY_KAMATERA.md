@@ -384,6 +384,17 @@ admins get a notification and an email, as do the addresses in `OPS_ALERT_EMAILS
 recovery is announced once. Warnings (no off-site copy yet, disk over 80 % full) are shown on
 the page only.
 
+**Source checks (Milestone 24).** Every Monday at 6 am (Brisbane) the worker reads each source
+document from its official address, two seconds apart, and saves a snapshot when the wording
+changes. Staff with `source.manage` get one notification and email listing what changed and what
+couldn't be read. Only `https` addresses on `SOURCE_FETCH_ALLOWED_DOMAINS` (default `gov.au` and
+`workcoverqld.com.au`) are ever read. To run it straight away (documents checked in the last six
+days are skipped):
+
+```bash
+docker compose -f docker-compose.prod.yml --env-file .env exec api python -m app.cli sources check
+```
+
 **Outside the app.** The checks above run on the worker, so they can't report the worker or the
 whole server being down. Add a free external monitor (UptimeRobot or Better Stack, checking
 every 5 minutes, alerting your email or phone) on:

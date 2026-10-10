@@ -49,6 +49,7 @@ from app.modules.partners.router import apply_router as partners_apply_router
 from app.modules.partners.router import router as partners_router
 from app.modules.projects.router import router as projects_router
 from app.modules.questionnaires.router import router as questionnaires_router
+from app.modules.regulatory.fetch import Resolver, SourceFetcher
 from app.modules.regulatory.router import router as sources_router
 from app.modules.rentals.router import router as rentals_router
 from app.modules.review.router import admin_router as review_admin_router
@@ -64,6 +65,8 @@ def create_app(
     settings: Settings | None = None,
     lookup_transport: httpx.AsyncBaseTransport | None = None,
     stripe_transport: httpx.AsyncBaseTransport | None = None,
+    source_fetch_transport: httpx.AsyncBaseTransport | None = None,
+    source_fetch_resolver: Resolver | None = None,
 ) -> FastAPI:
     settings = settings or get_settings()
     configure_logging(settings.log_level)
@@ -73,6 +76,9 @@ def create_app(
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
         app.state.resources = create_resources(settings)
         app.state.lookups = Lookups(settings, lookup_transport)
+        app.state.source_fetcher = SourceFetcher(
+            settings, source_fetch_transport, source_fetch_resolver
+        )
         app.state.stripe = (
             StripeClient(settings, stripe_transport) if settings.payments_enabled else None
         )

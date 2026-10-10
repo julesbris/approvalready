@@ -904,6 +904,47 @@ export interface paths {
         patch: operations["update_source_document_v1_admin_source_documents__document_id__patch"];
         trace?: never;
     };
+    "/v1/admin/source-documents/{document_id}/check": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Check Source Document
+         * @description Read the document from its official address now. A changed text is stored as a new
+         *     snapshot; a failure is recorded with the reason.
+         */
+        post: operations["check_source_document_v1_admin_source_documents__document_id__check_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/source-documents/{document_id}/checks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Source Checks
+         * @description The latest automatic and manual checks of the document, newest first.
+         */
+        get: operations["list_source_checks_v1_admin_source_documents__document_id__checks_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/source-documents/{document_id}/references": {
         parameters: {
             query?: never;
@@ -4577,6 +4618,11 @@ export interface components {
             trading_name?: string | null;
             turnover_band?: components["schemas"]["TurnoverBand"] | null;
         };
+        /**
+         * CaptureMethod
+         * @enum {string}
+         */
+        CaptureMethod: "MANUAL" | "FETCHED";
         /** CatalogueOut */
         CatalogueOut: {
             /**
@@ -4739,10 +4785,20 @@ export interface components {
             state: components["schemas"]["CheckState"];
         };
         /**
+         * CheckOutcome
+         * @enum {string}
+         */
+        CheckOutcome: "SAVED" | "CHANGED" | "UNCHANGED" | "FILE_SEEN" | "FILE_CHANGED" | "FILE_UNCHANGED" | "FAILED";
+        /**
          * CheckState
          * @enum {string}
          */
         CheckState: "OK" | "WARNING" | "FAILING";
+        /**
+         * CheckTrigger
+         * @enum {string}
+         */
+        CheckTrigger: "SCHEDULED" | "MANUAL";
         /** ChecklistAddIn */
         ChecklistAddIn: {
             /** Key */
@@ -9232,6 +9288,8 @@ export interface components {
         };
         /** SnapshotCaptured */
         SnapshotCaptured: {
+            /** @description MANUAL: pasted by staff. FETCHED: read from the official address. */
+            capture_method: components["schemas"]["CaptureMethod"];
             /**
              * Captured At
              * Format: date-time
@@ -9275,6 +9333,8 @@ export interface components {
         };
         /** SnapshotOut */
         SnapshotOut: {
+            /** @description MANUAL: pasted by staff. FETCHED: read from the official address. */
+            capture_method: components["schemas"]["CaptureMethod"];
             /**
              * Captured At
              * Format: date-time
@@ -9302,6 +9362,8 @@ export interface components {
         };
         /** SnapshotSummary */
         SnapshotSummary: {
+            /** @description MANUAL: pasted by staff. FETCHED: read from the official address. */
+            capture_method: components["schemas"]["CaptureMethod"];
             /**
              * Captured At
              * Format: date-time
@@ -9325,8 +9387,45 @@ export interface components {
              */
             retrieved_at: string;
         };
+        /** SourceCheckOut */
+        SourceCheckOut: {
+            /**
+             * Checked At
+             * Format: date-time
+             */
+            checked_at: string;
+            /** Content Type */
+            content_type: string | null;
+            /** Error */
+            error: string | null;
+            /** Final Url */
+            final_url: string | null;
+            /** Http Status */
+            http_status: number | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            outcome: components["schemas"]["CheckOutcome"];
+            /** Outcome Label */
+            outcome_label: string;
+            /** Size Bytes */
+            size_bytes: number | null;
+            /** Snapshot Id */
+            snapshot_id: string | null;
+            trigger: components["schemas"]["CheckTrigger"];
+            /** Url */
+            url: string;
+        };
         /** SourceDocumentCreate */
         SourceDocumentCreate: {
+            /**
+             * Auto Check
+             * @description Read the official address every week for changes.
+             * @default true
+             */
+            auto_check: boolean;
             /** Effective From */
             effective_from?: string | null;
             /** Effective To */
@@ -9352,6 +9451,8 @@ export interface components {
         };
         /** SourceDocumentOut */
         SourceDocumentOut: {
+            /** Auto Check */
+            auto_check: boolean;
             /**
              * Created At
              * Format: date-time
@@ -9368,6 +9469,7 @@ export interface components {
             id: string;
             /** Jurisdiction */
             jurisdiction: string;
+            last_check: components["schemas"]["SourceCheckOut"] | null;
             latest_snapshot: components["schemas"]["SnapshotSummary"] | null;
             /** Licence */
             licence: string | null;
@@ -9402,6 +9504,8 @@ export interface components {
         };
         /** SourceDocumentUpdate */
         SourceDocumentUpdate: {
+            /** Auto Check */
+            auto_check?: boolean | null;
             /** Effective From */
             effective_from?: string | null;
             /** Effective To */
@@ -12145,6 +12249,68 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SourceDocumentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    check_source_document_v1_admin_source_documents__document_id__check_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceCheckOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_source_checks_v1_admin_source_documents__document_id__checks_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SourceCheckOut"][];
                 };
             };
             /** @description Validation Error */
