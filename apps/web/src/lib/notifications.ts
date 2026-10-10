@@ -17,7 +17,8 @@ export const CATEGORY_LABELS: Record<NotificationCategory, { title: string; deta
   },
   REFERRALS: {
     title: "Referrals",
-    detail: "Requests offered to your business, and when a professional accepts your request.",
+    detail:
+      "Requests offered to your business, when a professional accepts your request, and quotes.",
   },
   SOURCE_REVIEWS: {
     title: "Source reviews (staff)",

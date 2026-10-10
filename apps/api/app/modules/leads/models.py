@@ -23,6 +23,9 @@ release. Then:
   leads, set by staff. Never changed: a new price replaces the old one.
 * ``credit_ledger_entry`` (tenant row of the partner, append-only): credits bought, given,
   charged for leads and refunded, with the running balance.
+* ``lead_quote`` (platform, Milestone 23): a written quote a partner who accepted the lead
+  sends the customer. Its content never changes once sent; a revision is a new version and
+  the old one is superseded. The customer accepts or declines it.
 
 Leads are platform rows guarded by the API (partners match across customers), like the
 partner tables; the customer's consent and the partner's credits are tenant rows with RLS.
@@ -31,7 +34,7 @@ partner tables; the customer's consent and the partner's credits are tenant rows
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
+from datetime import date, datetime
 from enum import StrEnum
 from typing import Any
 
@@ -39,6 +42,7 @@ from sqlalchemy import (
     BigInteger,
     Boolean,
     CheckConstraint,
+    Date,
     DateTime,
     ForeignKey,
     Index,
@@ -106,6 +110,20 @@ class LeadMatchStatus(StrEnum):
 OPEN_MATCH = (LeadMatchStatus.MATCHED, LeadMatchStatus.VIEWED)
 # Claimed and not finished: counts towards ``max_open_leads``.
 WORKING = (LeadMatchStatus.CLAIMED, LeadMatchStatus.CONTACTED, LeadMatchStatus.QUOTED)
+
+
+class QuoteStatus(StrEnum):
+    SENT = "SENT"  # waiting for the customer (expired once ``valid_until`` has passed)
+    SUPERSEDED = "SUPERSEDED"  # the partner sent a revised version
+    WITHDRAWN = "WITHDRAWN"  # the partner took it back
+    ACCEPTED = "ACCEPTED"
+    DECLINED = "DECLINED"
+
+
+class GstTreatment(StrEnum):
+    INCLUDED = "INCLUDED"  # the prices include GST
+    EXCLUDED = "EXCLUDED"  # GST is added on top
+    NOT_REGISTERED = "NOT_REGISTERED"  # the partner isn't registered for GST
 
 
 class CreditKind(StrEnum):
@@ -393,3 +411,58 @@ class CreditLedgerEntry(UUIDPrimaryKeyMixin, CreatedByMixin, TenantMixin, Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), nullable=False
     )
+
+
+class LeadQuote(UUIDPrimaryKeyMixin, Base):
+    __tablename__ = "lead_quote"
+    __table_args__ = (
+        UniqueConstraint("lead_match_id", "version"),
+        enum_check("status", QuoteStatus),
+        enum_check("gst", GstTreatment),
+        CheckConstraint("version > 0", name="version_positive"),
+        CheckConstraint("total_cents >= 0", name="total_not_negative"),
+        CheckConstraint("status = 'SENT' OR responded_at IS NOT NULL", name="answered_has_time"),
+        # One quote waiting for the customer per partner and lead.
+        Index(
+            "uq_lead_quote_sent_match",
+            "lead_match_id",
+            unique=True,
+            postgresql_where=text("status = 'SENT'"),
+        ),
+        Index("ix_lead_quote_lead", "lead_id", "created_at"),
+    )
+
+    lead_match_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("lead_match.id", ondelete="CASCADE"), nullable=False
+    )
+    lead_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("lead.id", ondelete="CASCADE"), nullable=False
+    )
+    partner_organisation_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True),
+        ForeignKey("partner_organisation.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    version: Mapped[int] = mapped_column(Integer, nullable=False)
+    status: Mapped[str] = mapped_column(Text, nullable=False, server_default=QuoteStatus.SENT)
+    title: Mapped[str] = mapped_column(String(200), nullable=False)
+    scope: Mapped[str] = mapped_column(Text, nullable=False)
+    # [{"description", "amount_cents"}], in the partner's order.
+    line_items: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)
+    total_cents: Mapped[int] = mapped_column(BigInteger, nullable=False)
+    gst: Mapped[str] = mapped_column(Text, nullable=False)
+    valid_until: Mapped[date] = mapped_column(Date, nullable=False)
+    start_estimate: Mapped[str | None] = mapped_column(String(200))
+    terms: Mapped[str | None] = mapped_column(Text)
+    sent_by: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="SET NULL")
+    )
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+    # When it stopped waiting: superseded, withdrawn, accepted or declined.
+    responded_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    responded_by: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("app_user.id", ondelete="SET NULL")
+    )
+    response_note: Mapped[str | None] = mapped_column(String(500))

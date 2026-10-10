@@ -4016,6 +4016,156 @@
         "title": "CustomerLeadOut",
         "type": "object"
       },
+      "CustomerQuoteOut": {
+        "description": "A quote as the customer sees it, with the partner's public business details.",
+        "properties": {
+          "category_key": {
+            "title": "Category Key",
+            "type": "string"
+          },
+          "category_label": {
+            "title": "Category Label",
+            "type": "string"
+          },
+          "expired": {
+            "description": "Still waiting, but its valid-until date has passed.",
+            "title": "Expired",
+            "type": "boolean"
+          },
+          "gst": {
+            "$ref": "#/components/schemas/GstTreatment"
+          },
+          "gst_cents": {
+            "title": "Gst Cents",
+            "type": "integer"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "lead_id": {
+            "format": "uuid",
+            "title": "Lead Id",
+            "type": "string"
+          },
+          "line_items": {
+            "items": {
+              "$ref": "#/components/schemas/QuoteLineOut"
+            },
+            "title": "Line Items",
+            "type": "array"
+          },
+          "partner": {
+            "$ref": "#/components/schemas/QuotedPartnerOut"
+          },
+          "responded_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Responded At"
+          },
+          "response_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Note"
+          },
+          "scope": {
+            "title": "Scope",
+            "type": "string"
+          },
+          "sent_at": {
+            "format": "date-time",
+            "title": "Sent At",
+            "type": "string"
+          },
+          "start_estimate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Estimate"
+          },
+          "status": {
+            "$ref": "#/components/schemas/QuoteStatus"
+          },
+          "terms": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terms"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "total_cents": {
+            "description": "The sum of the line items, as entered.",
+            "title": "Total Cents",
+            "type": "integer"
+          },
+          "total_inc_gst_cents": {
+            "description": "What the customer would pay, with any GST.",
+            "title": "Total Inc Gst Cents",
+            "type": "integer"
+          },
+          "valid_until": {
+            "format": "date",
+            "title": "Valid Until",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "lead_id",
+          "version",
+          "status",
+          "expired",
+          "title",
+          "scope",
+          "line_items",
+          "total_cents",
+          "gst",
+          "gst_cents",
+          "total_inc_gst_cents",
+          "valid_until",
+          "start_estimate",
+          "terms",
+          "sent_at",
+          "responded_at",
+          "response_note",
+          "category_key",
+          "category_label",
+          "partner"
+        ],
+        "title": "CustomerQuoteOut",
+        "type": "object"
+      },
       "Decision": {
         "enum": [
           "CHANGES_REQUIRED",
@@ -6109,6 +6259,15 @@
         "title": "GrantRoundUpdate",
         "type": "object"
       },
+      "GstTreatment": {
+        "enum": [
+          "INCLUDED",
+          "EXCLUDED",
+          "NOT_REGISTERED"
+        ],
+        "title": "GstTreatment",
+        "type": "string"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -6821,6 +6980,14 @@
           },
           "lead": {
             "$ref": "#/components/schemas/LeadPublicView"
+          },
+          "quotes": {
+            "description": "Quotes this partner sent for it, newest first.",
+            "items": {
+              "$ref": "#/components/schemas/QuoteOut"
+            },
+            "title": "Quotes",
+            "type": "array"
           }
         },
         "required": [
@@ -8715,7 +8882,9 @@
           "SOURCES_DUE",
           "LEAD_OFFERED",
           "LEAD_CLAIMED",
-          "OPS_ALERT"
+          "OPS_ALERT",
+          "QUOTE_RECEIVED",
+          "QUOTE_ANSWERED"
         ],
         "title": "NotificationKind",
         "type": "string"
@@ -12929,6 +13098,363 @@
           "due_on"
         ],
         "title": "QueueItemOut",
+        "type": "object"
+      },
+      "QuoteAcceptIn": {
+        "additionalProperties": false,
+        "properties": {
+          "decline_others": {
+            "default": false,
+            "description": "Also decline the other quotes waiting for this job and tell those partners.",
+            "title": "Decline Others",
+            "type": "boolean"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "title": "QuoteAcceptIn",
+        "type": "object"
+      },
+      "QuoteDeclineIn": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Shown to the partner.",
+            "title": "Note"
+          }
+        },
+        "title": "QuoteDeclineIn",
+        "type": "object"
+      },
+      "QuoteIn": {
+        "additionalProperties": false,
+        "description": "A written quote for the job. Sending a new one replaces the one waiting.",
+        "properties": {
+          "gst": {
+            "$ref": "#/components/schemas/GstTreatment",
+            "description": "INCLUDED: the amounts include GST. EXCLUDED: GST is added on top. NOT_REGISTERED: no GST applies."
+          },
+          "line_items": {
+            "items": {
+              "$ref": "#/components/schemas/QuoteLineIn"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Line Items",
+            "type": "array"
+          },
+          "scope": {
+            "description": "What the work includes (and what it doesn't).",
+            "maxLength": 4000,
+            "minLength": 10,
+            "title": "Scope",
+            "type": "string"
+          },
+          "start_estimate": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "When work could start.",
+            "title": "Start Estimate"
+          },
+          "terms": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Deposit, payment and other terms.",
+            "title": "Terms"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 3,
+            "title": "Title",
+            "type": "string"
+          },
+          "valid_until": {
+            "format": "date",
+            "title": "Valid Until",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "scope",
+          "line_items",
+          "gst",
+          "valid_until"
+        ],
+        "title": "QuoteIn",
+        "type": "object"
+      },
+      "QuoteLineIn": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_cents": {
+            "maximum": 100000000.0,
+            "minimum": 0.0,
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "description": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Description",
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "amount_cents"
+        ],
+        "title": "QuoteLineIn",
+        "type": "object"
+      },
+      "QuoteLineOut": {
+        "properties": {
+          "amount_cents": {
+            "title": "Amount Cents",
+            "type": "integer"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "amount_cents"
+        ],
+        "title": "QuoteLineOut",
+        "type": "object"
+      },
+      "QuoteOut": {
+        "properties": {
+          "expired": {
+            "description": "Still waiting, but its valid-until date has passed.",
+            "title": "Expired",
+            "type": "boolean"
+          },
+          "gst": {
+            "$ref": "#/components/schemas/GstTreatment"
+          },
+          "gst_cents": {
+            "title": "Gst Cents",
+            "type": "integer"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "lead_id": {
+            "format": "uuid",
+            "title": "Lead Id",
+            "type": "string"
+          },
+          "line_items": {
+            "items": {
+              "$ref": "#/components/schemas/QuoteLineOut"
+            },
+            "title": "Line Items",
+            "type": "array"
+          },
+          "responded_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Responded At"
+          },
+          "response_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Response Note"
+          },
+          "scope": {
+            "title": "Scope",
+            "type": "string"
+          },
+          "sent_at": {
+            "format": "date-time",
+            "title": "Sent At",
+            "type": "string"
+          },
+          "start_estimate": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Estimate"
+          },
+          "status": {
+            "$ref": "#/components/schemas/QuoteStatus"
+          },
+          "terms": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terms"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "total_cents": {
+            "description": "The sum of the line items, as entered.",
+            "title": "Total Cents",
+            "type": "integer"
+          },
+          "total_inc_gst_cents": {
+            "description": "What the customer would pay, with any GST.",
+            "title": "Total Inc Gst Cents",
+            "type": "integer"
+          },
+          "valid_until": {
+            "format": "date",
+            "title": "Valid Until",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "lead_id",
+          "version",
+          "status",
+          "expired",
+          "title",
+          "scope",
+          "line_items",
+          "total_cents",
+          "gst",
+          "gst_cents",
+          "total_inc_gst_cents",
+          "valid_until",
+          "start_estimate",
+          "terms",
+          "sent_at",
+          "responded_at",
+          "response_note"
+        ],
+        "title": "QuoteOut",
+        "type": "object"
+      },
+      "QuoteStatus": {
+        "enum": [
+          "SENT",
+          "SUPERSEDED",
+          "WITHDRAWN",
+          "ACCEPTED",
+          "DECLINED"
+        ],
+        "title": "QuoteStatus",
+        "type": "string"
+      },
+      "QuotedPartnerOut": {
+        "properties": {
+          "contact_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contact Email"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "required": [
+          "name",
+          "phone",
+          "contact_email",
+          "website"
+        ],
+        "title": "QuotedPartnerOut",
         "type": "object"
       },
       "ReadyResponse": {
@@ -28102,6 +28628,134 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/quotes": {
+      "post": {
+        "description": "Send the customer a written quote. A quote already waiting is replaced by this one.",
+        "operationId": "send_quote_v1_organisations__organisation_id__partner_leads__match_id__quotes_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadOfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Send Quote",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/quotes/{quote_id}/withdraw": {
+      "post": {
+        "description": "Take back a quote the customer hasn't answered.",
+        "operationId": "withdraw_quote_v1_organisations__organisation_id__partner_leads__match_id__quotes__quote_id__withdraw_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "quote_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Quote Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadOfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Withdraw Quote",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/partner/resubmit": {
       "post": {
         "description": "Send an application that wasn't approved back to our team, after fixing it.",
@@ -28935,6 +29589,219 @@
         "summary": "List Generated",
         "tags": [
           "documents"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/quotes": {
+      "get": {
+        "description": "Quotes partners sent for this project's introductions, newest first (earlier\nversions of a revised quote are left out).",
+        "operationId": "list_quotes_v1_organisations__organisation_id__projects__project_id__quotes_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerQuoteOut"
+                  },
+                  "title": "Response List Quotes V1 Organisations  Organisation Id  Projects  Project Id  Quotes Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Quotes",
+        "tags": [
+          "quotes"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/quotes/{quote_id}/accept": {
+      "post": {
+        "description": "Tell the partner you want to go ahead. The agreement for the work is between you and\nthem.",
+        "operationId": "accept_quote_v1_organisations__organisation_id__projects__project_id__quotes__quote_id__accept_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "quote_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Quote Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteAcceptIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerQuoteOut"
+                  },
+                  "title": "Response Accept Quote V1 Organisations  Organisation Id  Projects  Project Id  Quotes  Quote Id  Accept Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Accept Quote",
+        "tags": [
+          "quotes"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/quotes/{quote_id}/decline": {
+      "post": {
+        "operationId": "decline_quote_v1_organisations__organisation_id__projects__project_id__quotes__quote_id__decline_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "quote_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Quote Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuoteDeclineIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerQuoteOut"
+                  },
+                  "title": "Response Decline Quote V1 Organisations  Organisation Id  Projects  Project Id  Quotes  Quote Id  Decline Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Decline Quote",
+        "tags": [
+          "quotes"
         ]
       }
     },

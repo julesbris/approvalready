@@ -5,6 +5,9 @@
 * ``/v1/organisations/{id}/partner/leads...``: the partner's referrals. ``lead.read`` sees
   the public view; ``lead.claim`` accepts, declines and records outcomes. Credits: balance
   with ``lead.read``, buying with ``billing.manage``. Lead preferences: ``partner.manage``.
+* ``/v1/organisations/{id}/projects/{pid}/quotes...`` (Milestone 23): the customer's quotes
+  (``project.read``), accepting and declining them (``project.write``). Partners send and
+  withdraw quotes under ``partner/leads/{match_id}/quotes`` with ``lead.claim``.
 * ``/v1/admin/leads...``: staff (``lead.manage``): leads with their matches and scores (never
   contact details), lead prices, credit adjustments and fee refunds.
 """
@@ -33,7 +36,7 @@ from app.modules.billing import service as billing
 from app.modules.billing.models import PaymentPurpose, Price, PriceInterval, Product, ProductKind
 from app.modules.billing.router import StripeDep, _require
 from app.modules.billing.schemas import RedirectOut
-from app.modules.leads import consent, jobs, service
+from app.modules.leads import consent, jobs, quotes, service
 from app.modules.leads.models import (
     OPEN_MATCH,
     CreditLedgerEntry,
@@ -49,6 +52,7 @@ from app.modules.leads.schemas import (
     CreditsOut,
     CreditStaffOut,
     CustomerLeadOut,
+    CustomerQuoteOut,
     LeadDeclineIn,
     LeadOfferOut,
     LeadOutcomeIn,
@@ -56,6 +60,9 @@ from app.modules.leads.schemas import (
     LeadPreferencesOut,
     LeadPriceIn,
     LeadPriceOut,
+    QuoteAcceptIn,
+    QuoteDeclineIn,
+    QuoteIn,
     ReferralCategoryOptionOut,
     ReferralIn,
     ReferralOptionsOut,
@@ -77,6 +84,9 @@ customer_router = APIRouter(
     tags=["referrals"],
 )
 partner_router = APIRouter(prefix="/v1/organisations/{organisation_id}/partner", tags=["leads"])
+quotes_router = APIRouter(
+    prefix="/v1/organisations/{organisation_id}/projects/{project_id}/quotes", tags=["quotes"]
+)
 admin_router = APIRouter(prefix="/v1/admin/leads", tags=["admin: leads"])
 
 ProjectRead = Annotated[OrgContext, Depends(require_org_permission(Perm.PROJECT_READ))]
@@ -215,6 +225,82 @@ async def withdraw_referral(
     return await _referrals(db, project)
 
 
+# --- Customer: quotes ------------------------------------------------------------------
+
+
+async def _quotes(db: DbDep, project: Project) -> list[CustomerQuoteOut]:
+    today = assessment_date(service.utcnow())
+    return [q.out(today) for q in await quotes.for_project(db, project)]
+
+
+async def _answered(
+    db: DbDep,
+    ctx: OrgContext,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+    answered: list[quotes.Answered],
+) -> None:
+    await db.commit()
+    pending = await jobs.notify_quote_answered(db, [(a.quote, a.accepted) for a in answered])
+    await db.commit()
+    await _send(db, resources, settings, pending)
+    await bind_tenant(db, ctx.organisation.id)
+
+
+@quotes_router.get("", response_model=list[CustomerQuoteOut])
+async def list_quotes(project_id: uuid.UUID, ctx: ProjectRead, db: DbDep) -> list[CustomerQuoteOut]:
+    """Quotes partners sent for this project's introductions, newest first (earlier
+    versions of a revised quote are left out)."""
+    project = await projects.get_project(db, ctx.organisation.id, project_id)
+    return await _quotes(db, project)
+
+
+@quotes_router.post("/{quote_id}/accept", response_model=list[CustomerQuoteOut])
+async def accept_quote(
+    project_id: uuid.UUID,
+    quote_id: uuid.UUID,
+    body: QuoteAcceptIn,
+    ctx: ProjectWrite,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+) -> list[CustomerQuoteOut]:
+    """Tell the partner you want to go ahead. The agreement for the work is between you and
+    them."""
+    project = await projects.get_project(db, ctx.organisation.id, project_id)
+    answered = await quotes.accept(
+        db, project, quote_id, body, actor_id=ctx.auth.user.id, meta=meta, now=service.utcnow()
+    )
+    await _answered(db, ctx, resources, settings, answered)
+    return await _quotes(db, project)
+
+
+@quotes_router.post("/{quote_id}/decline", response_model=list[CustomerQuoteOut])
+async def decline_quote(
+    project_id: uuid.UUID,
+    quote_id: uuid.UUID,
+    body: QuoteDeclineIn,
+    ctx: ProjectWrite,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+) -> list[CustomerQuoteOut]:
+    project = await projects.get_project(db, ctx.organisation.id, project_id)
+    answered = await quotes.decline(
+        db,
+        project,
+        quote_id,
+        body.note,
+        actor_id=ctx.auth.user.id,
+        meta=meta,
+        now=service.utcnow(),
+    )
+    await _answered(db, ctx, resources, settings, answered)
+    return await _quotes(db, project)
+
+
 # --- Partner -----------------------------------------------------------------------------
 
 
@@ -236,6 +322,12 @@ async def _offer_out(
         claim=service.claim_out(offer.match, offer.lead, offer.category, offer.claim)
         if offer.claim
         else None,
+        quotes=[
+            quotes.quote_out(q, assessment_date(service.utcnow()))
+            for q in await quotes.for_match(db, offer.match.id)
+        ]
+        if offer.claim
+        else [],
     )
 
 
@@ -335,6 +427,50 @@ async def record_outcome(
     partner = await _partner(ctx, db)
     offer = await service.record_outcome(
         db, partner, match_id, body.status, body.note, actor_id=ctx.auth.user.id, meta=meta
+    )
+    await db.commit()
+    offer = await service.get_offer(db, partner, match_id)
+    return await _offer_out(db, partner, offer, fee=False)
+
+
+@partner_router.post("/leads/{match_id}/quotes", response_model=LeadOfferOut, status_code=201)
+async def send_quote(
+    match_id: uuid.UUID,
+    body: QuoteIn,
+    ctx: LeadClaimCtx,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+) -> LeadOfferOut:
+    """Send the customer a written quote. A quote already waiting is replaced by this one."""
+    partner = await _partner(ctx, db)
+    offer, quote = await quotes.send(
+        db, partner, match_id, body, actor_id=ctx.auth.user.id, meta=meta, now=service.utcnow()
+    )
+    await db.commit()
+    pending = await jobs.notify_quote_received(db, offer.lead, ctx.organisation.name, quote)
+    await db.commit()
+    await _send(db, resources, settings, pending)
+    await bind_tenant(db, ctx.organisation.id)
+    offer = await service.get_offer(db, partner, match_id)
+    return await _offer_out(db, partner, offer, fee=False)
+
+
+@partner_router.post("/leads/{match_id}/quotes/{quote_id}/withdraw", response_model=LeadOfferOut)
+async def withdraw_quote(
+    match_id: uuid.UUID, quote_id: uuid.UUID, ctx: LeadClaimCtx, db: DbDep, meta: MetaDep
+) -> LeadOfferOut:
+    """Take back a quote the customer hasn't answered."""
+    partner = await _partner(ctx, db)
+    await quotes.withdraw(
+        db,
+        partner,
+        match_id,
+        quote_id,
+        actor_id=ctx.auth.user.id,
+        meta=meta,
+        now=service.utcnow(),
     )
     await db.commit()
     offer = await service.get_offer(db, partner, match_id)

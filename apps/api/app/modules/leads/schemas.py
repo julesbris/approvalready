@@ -9,7 +9,7 @@ the partner's own claimed referrals), and only the fields the customer released.
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
+from datetime import date, datetime
 from typing import Annotated, Any
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, StringConstraints, model_validator
@@ -17,8 +17,10 @@ from pydantic import BaseModel, ConfigDict, EmailStr, Field, StringConstraints, 
 from app.modules.entities.models import AustralianState
 from app.modules.leads.models import (
     CreditKind,
+    GstTreatment,
     LeadMatchStatus,
     LeadStatus,
+    QuoteStatus,
     ReleasableField,
     Timing,
 )
@@ -226,10 +228,94 @@ class ClaimOut(BaseModel):
     contact: dict[str, Any]
 
 
+# --- Quotes (Milestone 23) --------------------------------------------------------------
+
+LineText = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=200)]
+QuoteTitle = Annotated[str, StringConstraints(strip_whitespace=True, min_length=3, max_length=200)]
+Scope = Annotated[str, StringConstraints(strip_whitespace=True, min_length=10, max_length=4000)]
+Terms = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=2000)]
+
+
+class QuoteLineIn(_In):
+    description: LineText
+    amount_cents: int = Field(ge=0, le=100_000_000)
+
+
+class QuoteIn(_In):
+    """A written quote for the job. Sending a new one replaces the one waiting."""
+
+    title: QuoteTitle
+    scope: Scope = Field(description="What the work includes (and what it doesn't).")
+    line_items: list[QuoteLineIn] = Field(min_length=1, max_length=20)
+    gst: GstTreatment = Field(
+        description="INCLUDED: the amounts include GST. EXCLUDED: GST is added on top. "
+        "NOT_REGISTERED: no GST applies."
+    )
+    valid_until: date
+    start_estimate: LineText | None = Field(default=None, description="When work could start.")
+    terms: Terms | None = Field(default=None, description="Deposit, payment and other terms.")
+
+
+class QuoteLineOut(BaseModel):
+    description: str
+    amount_cents: int
+
+
+class QuoteOut(BaseModel):
+    id: uuid.UUID
+    lead_id: uuid.UUID
+    version: int
+    status: QuoteStatus
+    expired: bool = Field(description="Still waiting, but its valid-until date has passed.")
+    title: str
+    scope: str
+    line_items: list[QuoteLineOut]
+    total_cents: int = Field(description="The sum of the line items, as entered.")
+    gst: GstTreatment
+    gst_cents: int
+    total_inc_gst_cents: int = Field(description="What the customer would pay, with any GST.")
+    valid_until: date
+    start_estimate: str | None
+    terms: str | None
+    sent_at: datetime
+    responded_at: datetime | None
+    response_note: str | None
+
+
+class QuotedPartnerOut(BaseModel):
+    name: str
+    phone: str | None
+    contact_email: str | None
+    website: str | None
+
+
+class CustomerQuoteOut(QuoteOut):
+    """A quote as the customer sees it, with the partner's public business details."""
+
+    category_key: str
+    category_label: str
+    partner: QuotedPartnerOut
+
+
+class QuoteAcceptIn(_In):
+    decline_others: bool = Field(
+        default=False,
+        description="Also decline the other quotes waiting for this job and tell those partners.",
+    )
+    note: Note | None = None
+
+
+class QuoteDeclineIn(_In):
+    note: Note | None = Field(default=None, description="Shown to the partner.")
+
+
 class LeadOfferOut(BaseModel):
     lead: LeadPublicView
     fee: FeeOut | None = Field(description="What accepting would cost (open offers only).")
     claim: ClaimOut | None
+    quotes: list[QuoteOut] = Field(
+        default_factory=list, description="Quotes this partner sent for it, newest first."
+    )
 
 
 class LeadDeclineIn(_In):

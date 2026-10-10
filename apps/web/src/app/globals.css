@@ -1163,4 +1163,36 @@ fieldset.question {
 
 .privacy-overdue {
   border-color: var(--ar-danger, #b42318);
+
+/* --- Quotes (Milestone 23) --- */
+
+.quote-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.quote-line label:first-child {
+  flex: 1 1 240px;
+}
+
+.quote-scope {
+  white-space: pre-wrap;
+}
+
+.usage-table .amount {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.status-accepted {
+  border-color: var(--ar-success, #067647);
+}
+
+.status-expired,
+.status-withdrawn,
+.status-declined,
+.status-superseded {
+  color: var(--ar-ink-muted);
 }

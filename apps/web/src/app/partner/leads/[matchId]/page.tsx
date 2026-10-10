@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 
 import { NoAccess } from "@/components/app/AppShell";
 import { OfferActions, OutcomeActions } from "@/components/leads/LeadActions";
+import { PartnerQuotes, QuoteForm } from "@/components/leads/QuoteActions";
 import { PartnerShell } from "@/components/partners/PartnerShell";
 import { formatDateTime } from "@/lib/labels";
 import {
@@ -13,6 +14,7 @@ import {
   MATCH_STATUS_LABELS,
   OPEN_MATCH,
   TIMING_LABELS,
+  WORKING,
   leadPlace,
   money,
 } from "@/lib/leads";
@@ -41,6 +43,7 @@ export default async function PartnerLeadPage({ params }: Props) {
     ),
   );
   const { lead, fee, claim } = offer;
+  const quotes = offer.quotes ?? [];
   const canClaim = session.permissions.includes("lead.claim");
   const isOpen = OPEN_MATCH.includes(lead.status) && lead.lead_status === "OPEN";
   return (
@@ -122,6 +125,27 @@ export default async function PartnerLeadPage({ params }: Props) {
           fee={fee}
           canClaim={canClaim}
         />
+      ) : null}
+      {claim && (quotes.length > 0 || (canClaim && WORKING.includes(lead.status))) ? (
+        <section className="panel" aria-labelledby="quote-title">
+          <h2 id="quote-title" className="section-title">
+            Your quote
+          </h2>
+          <PartnerQuotes
+            organisationId={active.organisation_id}
+            matchId={lead.match_id}
+            quotes={quotes}
+            canClaim={canClaim}
+          />
+          {canClaim && WORKING.includes(lead.status) ? (
+            <QuoteForm
+              key={quotes[0]?.id ?? "new"}
+              organisationId={active.organisation_id}
+              matchId={lead.match_id}
+              revising={quotes[0]?.status === "SENT" ? quotes[0] : null}
+            />
+          ) : null}
+        </section>
       ) : null}
       {claim ? (
         <OutcomeActions

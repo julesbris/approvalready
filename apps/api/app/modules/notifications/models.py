@@ -35,6 +35,8 @@ class NotificationKind(StrEnum):
     LEAD_OFFERED = "LEAD_OFFERED"  # partner: a referral was offered to them
     LEAD_CLAIMED = "LEAD_CLAIMED"  # customer: a partner accepted their referral
     OPS_ALERT = "OPS_ALERT"  # platform admins: backups, background jobs or disk need attention
+    QUOTE_RECEIVED = "QUOTE_RECEIVED"  # customer: a partner sent them a quote
+    QUOTE_ANSWERED = "QUOTE_ANSWERED"  # partner: the customer accepted or declined a quote
 
 
 class NotificationCategory(StrEnum):
@@ -53,6 +55,8 @@ CATEGORY_OF: dict[NotificationKind, NotificationCategory] = {
     NotificationKind.GRANT_ROUND: NotificationCategory.GRANT_ROUNDS,
     NotificationKind.LEAD_OFFERED: NotificationCategory.REFERRALS,
     NotificationKind.LEAD_CLAIMED: NotificationCategory.REFERRALS,
+    NotificationKind.QUOTE_RECEIVED: NotificationCategory.REFERRALS,
+    NotificationKind.QUOTE_ANSWERED: NotificationCategory.REFERRALS,
     NotificationKind.SOURCES_DUE: NotificationCategory.SOURCE_REVIEWS,
 }
 
