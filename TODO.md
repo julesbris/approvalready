@@ -33,7 +33,7 @@ tests and updated docs before the next starts.
 - [x] Web: BFF proxy, sign in, register, verify email, forgot/reset password, accept invitation, account page
 - [x] Tests: auth flows, throttling, expiry/rotation, CSRF/origin, tenant isolation, privilege rules, audit tamper detection
 - [x] Moved to Milestone 3 (done there): RLS policies + `SET LOCAL app.current_org` with a dedicated non-superuser app DB role (needs the first tenant-owned tables to be meaningful)
-- [ ] Moved to backlog: generic API-wide rate-limiting middleware (auth endpoints are limited now)
+- [x] Moved to backlog, built in Milestone 18: generic API-wide rate-limiting middleware
 
 ## Milestone 3 — Projects, questionnaires ✅
 - [x] Separate app DB role (non-owner, no BYPASSRLS); migrations keep the owner role (`provision-db-role` CLI, readiness check in production)
@@ -167,12 +167,20 @@ tests and updated docs before the next starts.
 - [x] Browser (Playwright) end-to-end tests: the partner journey from Milestone 15, and a CSP check
 - [ ] Next: choose the backup bucket (see backlog: object storage vendor) and set `BACKUP_S3_*`; set `OPS_ALERT_EMAILS` and an external uptime monitor; WAL archiving for point-in-time recovery once a day's loss matters; more browser journeys (customer questionnaire, professional review, billing)
 
+## Milestone 18 — Account security ✅
+- [x] Two-step sign-in with an authenticator app (TOTP) and single-use recovery codes; set up, turn off and new codes from Account; secrets encrypted at rest
+- [x] Required for platform staff before staff pages and routes work (`STAFF_MFA_REQUIRED`); operator reset `python -m app.cli auth reset-mfa`
+- [x] Breached-password check (Have I Been Pwned range API, k-anonymity, fail open) at registration, reset and change (moved from backlog)
+- [x] Per-IP rate limits on every API route (moved from backlog)
+- [x] Change password on the account page
+- [ ] Next: passkeys and Google/Microsoft sign-in; optional "require two-step sign-in" for business and partner organisations; per-user API limits
+
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
 - [ ] Fetch source documents automatically for snapshots (manual capture only for now; no claims of live integration)
-- [ ] Generic per-user/per-IP rate limiting for all API routes (auth routes already limited)
-- [ ] Breached-password check (HIBP k-anonymity range API) at registration and reset
-- [ ] MFA (TOTP) and passkeys via `auth_identity`; Google/Microsoft OIDC
+- [x] Generic per-IP rate limiting for all API routes (Milestone 18; per-user limits still open)
+- [x] Breached-password check (HIBP k-anonymity range API) at registration and reset (Milestone 18)
+- [~] MFA (TOTP) built in Milestone 18; passkeys via `auth_identity` and Google/Microsoft OIDC still open
 - [ ] Send transactional email from the worker (outbox) instead of in-request
 - [ ] `npm audit` flags `braces` (high) via `eslint-config-next` → `fast-glob`; dev-only lint tooling, not shipped in images. Re-check on next eslint-config-next release
 - [ ] Brand/domain tables + Next.js host middleware (not needed until a second brand or partner surface; Milestone 14)
