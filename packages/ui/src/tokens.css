@@ -1,23 +1,64 @@
+/*
+ * Design tokens (see index.ts). Clean, confident and trustworthy: near-black ink, soft grey
+ * canvases, white cards with generous radius, pill buttons and one accent per brand.
+ */
 :root {
-  --ar-ink: #14181f;
-  --ar-ink-muted: #4a5361;
+  --ar-ink: #0d1321;
+  --ar-ink-muted: #545e6f;
+  --ar-ink-subtle: #7a8394;
   --ar-surface: #ffffff;
-  --ar-surface-subtle: #f5f6f8;
-  --ar-border: #dde1e7;
-  --ar-accent: #1f4e79;
+  --ar-surface-subtle: #f3f5f9;
+  --ar-surface-sunken: #e9edf3;
+  --ar-border: #e1e5ec;
+  --ar-border-strong: #c9d0db;
+  --ar-accent: #2e46d1;
+  --ar-accent-hover: #2235ad;
+  --ar-accent-soft: #ebeefd;
   --ar-accent-ink: #ffffff;
-  --ar-radius: 6px;
-  --ar-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ar-success: #11743f;
+  --ar-success-soft: #e5f5ec;
+  --ar-warning: #9a5800;
+  --ar-warning-soft: #fdf2df;
+  --ar-danger: #c0262d;
+  --ar-danger-soft: #fdecec;
+  --ar-invert: #0d1321;
+  --ar-invert-ink: #ffffff;
+  --ar-radius-sm: 8px;
+  --ar-radius: 12px;
+  --ar-radius-lg: 20px;
+  --ar-radius-xl: 32px;
+  --ar-shadow-sm: 0 1px 2px rgb(13 19 33 / 0.05);
+  --ar-shadow: 0 1px 2px rgb(13 19 33 / 0.04), 0 8px 24px rgb(13 19 33 / 0.06);
+  --ar-shadow-lg: 0 2px 6px rgb(13 19 33 / 0.05), 0 24px 48px rgb(13 19 33 / 0.1);
+  --ar-font-sans:
+    var(--ar-font-inter), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ar-ink: #e8ebef;
-    --ar-ink-muted: #a3acb9;
-    --ar-surface: #11151b;
-    --ar-surface-subtle: #181d24;
-    --ar-border: #2a313b;
-    --ar-accent: #7fb0dd;
-    --ar-accent-ink: #0b1118;
+    --ar-ink: #eef1f6;
+    --ar-ink-muted: #a6aebb;
+    --ar-ink-subtle: #7f8897;
+    --ar-surface: #141922;
+    --ar-surface-subtle: #0c1017;
+    --ar-surface-sunken: #1c222d;
+    --ar-border: #262d39;
+    --ar-border-strong: #384151;
+    --ar-accent: #8ea0ff;
+    --ar-accent-hover: #aab8ff;
+    --ar-accent-soft: #1d2445;
+    --ar-accent-ink: #0b1020;
+    --ar-success: #5fd394;
+    --ar-success-soft: #12301f;
+    --ar-warning: #f0b45a;
+    --ar-warning-soft: #33250f;
+    --ar-danger: #ff8a8f;
+    --ar-danger-soft: #3a1618;
+    --ar-invert: #1c2333;
+    --ar-invert-ink: #ffffff;
+    --ar-shadow-sm: none;
+    --ar-shadow: 0 0 0 1px rgb(255 255 255 / 0.02);
+    --ar-shadow-lg: 0 24px 48px rgb(0 0 0 / 0.4);
   }
 }

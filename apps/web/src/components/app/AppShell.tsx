@@ -2,8 +2,10 @@ import type { SessionOut } from "@approvalready/shared-types";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { AppNavLink } from "@/components/app/AppNav";
 import { OrgSwitcher } from "@/components/app/OrgSwitcher";
 import { SwitchOrganisationButton } from "@/components/app/SwitchOrganisationButton";
+import { Wordmark } from "@/components/brand/Wordmark";
 import { PolicyNotice } from "@/components/legal/PolicyNotice";
 import { NotificationBell } from "@/components/notifications/NotificationBell";
 import { SiteFooter } from "@/components/public/SiteFooter";
@@ -34,19 +36,17 @@ export function AppShell({
     <>
       <header className="site-header">
         <div className="container app-header">
-          <Link className="wordmark" href="/projects">
-            {defaultBrand.productName}
-          </Link>
+          <Wordmark href="/projects" />
           <nav aria-label="Main" className="app-nav">
-            <Link href="/projects">Projects</Link>
+            <AppNavLink href="/projects">Projects</AppNavLink>
             {session.permissions.includes("review.perform") ? (
-              <Link href="/review">Reviews</Link>
+              <AppNavLink href="/review">Reviews</AppNavLink>
             ) : null}
             {session.active_organisation_id ? (
               <NotificationBell organisationId={session.active_organisation_id} />
             ) : null}
-            <Link href="/account">Account</Link>
-            {isStaff(session) ? <Link href="/admin">Admin</Link> : null}
+            <AppNavLink href="/account">Account</AppNavLink>
+            {isStaff(session) ? <AppNavLink href="/admin">Admin</AppNavLink> : null}
           </nav>
           <OrgSwitcher
             organisations={session.organisations}
@@ -54,19 +54,21 @@ export function AppShell({
           />
         </div>
       </header>
-      <main className="container app-main">
-        {session.staff_mfa_required ? (
-          <p className="notice notice-warning" role="status">
-            Staff pages need two-step sign-in.{" "}
-            <Link href="/account#security">Turn it on in your account</Link> to use the admin
-            area.
-          </p>
-        ) : null}
-        {session.policies_to_accept?.length ? (
-          <PolicyNotice policies={session.policies_to_accept} />
-        ) : null}
-        {children}
-      </main>
+      <div className="app-canvas">
+        <main className="container app-main">
+          {session.staff_mfa_required ? (
+            <p className="notice notice-warning" role="status">
+              Staff pages need two-step sign-in.{" "}
+              <Link href="/account#security">Turn it on in your account</Link> to use the admin
+              area.
+            </p>
+          ) : null}
+          {session.policies_to_accept?.length ? (
+            <PolicyNotice policies={session.policies_to_accept} />
+          ) : null}
+          {children}
+        </main>
+      </div>
       <SiteFooter />
     </>
   );

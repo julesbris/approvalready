@@ -1,21 +1,23 @@
 /**
- * Design tokens. Restrained and trustworthy: neutral surfaces, one accent per brand,
- * no gradients, minimal motion. Brand accents are overridden at runtime from brand config.
+ * Design tokens, mirrored in tokens.css. Clean and trustworthy: near-black ink, soft grey
+ * canvases, white rounded cards, pill buttons, one accent per brand, no gradients and minimal
+ * motion. Brand accents are overridden at runtime from brand config.
  */
 export const tokens = {
   color: {
-    ink: "#14181f",
-    inkMuted: "#4a5361",
+    ink: "#0d1321",
+    inkMuted: "#545e6f",
     surface: "#ffffff",
-    surfaceSubtle: "#f5f6f8",
-    border: "#dde1e7",
-    accent: "#1f4e79",
+    surfaceSubtle: "#f3f5f9",
+    border: "#e1e5ec",
+    accent: "#2e46d1",
+    accentSoft: "#ebeefd",
     accentInk: "#ffffff",
-    success: "#1e6b3a",
-    warning: "#8a5a00",
-    danger: "#a1262b",
+    success: "#11743f",
+    warning: "#9a5800",
+    danger: "#c0262d",
   },
-  radius: { sm: "4px", md: "6px", lg: "10px" },
+  radius: { sm: "8px", md: "12px", lg: "20px", xl: "32px", pill: "999px" },
   space: { xs: "4px", sm: "8px", md: "16px", lg: "24px", xl: "40px", xxl: "64px" },
   font: {
     sans: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
