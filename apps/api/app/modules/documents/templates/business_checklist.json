@@ -1,0 +1,12 @@
+{
+  "key": "BUSINESS_CHECKLIST",
+  "title": "Business approvals checklist",
+  "vertical": "BUSINESS",
+  "engine": "JINJA_HTML",
+  "body": "checklist.html.j2",
+  "output_formats": [
+    "PDF",
+    "DOCX",
+    "HTML"
+  ]
+}

@@ -41,8 +41,46 @@ type SaveState = "idle" | "saving" | "saved" | "unsaved";
 
 const COUNCIL_KEY = "property.lga";
 const LOT_PLAN_KEY = "property.lot_plan";
+const ADDRESS_KEY = "property.address";
 /** Answers that change what we can look up about the site. */
-const SITE_KEYS = new Set(["property.address", COUNCIL_KEY, LOT_PLAN_KEY]);
+const SITE_KEYS = new Set([ADDRESS_KEY, COUNCIL_KEY, LOT_PLAN_KEY]);
+
+/** An answer we filled in for the person, and what it was before, so it can be undone. */
+type Filled = { suggestion: PrefillSuggestion; previous: unknown };
+
+/** Facts about the site itself, as opposed to the business or vessel. */
+function aboutTheSite(key: string): boolean {
+  return key.startsWith("property.") || key === "planning.known_constraints";
+}
+
+/**
+ * Which suggestions to fill in now. Never one the person declined or changed themselves; and
+ * if they chose a different address from the one we'd suggest, nothing else about the site
+ * either, because those facts would be about the other address.
+ */
+function usable(
+  list: PrefillSuggestion[],
+  skip: Set<string>,
+  answers: Answers,
+): PrefillSuggestion[] {
+  const otherSite = list.some((s) => s.key === ADDRESS_KEY && skip.has(ADDRESS_KEY));
+  return list.filter(
+    (s) =>
+      !skip.has(s.key) &&
+      !(otherSite && aboutTheSite(s.key)) &&
+      JSON.stringify(answers[s.key]) !== JSON.stringify(s.value),
+  );
+}
+
+function fill(answers: Answers, list: PrefillSuggestion[]): { answers: Answers; filled: Filled[] } {
+  const next = { ...answers };
+  const filled: Filled[] = [];
+  for (const suggestion of list) {
+    filled.push({ suggestion, previous: answers[suggestion.key] });
+    next[suggestion.key] = suggestion.value;
+  }
+  return { answers: next, filled };
+}
 
 function without<T>(record: Record<string, T>, key: string): Record<string, T> {
   const copy = { ...record };
@@ -50,10 +88,13 @@ function without<T>(record: Record<string, T>, key: string): Record<string, T> {
   return copy;
 }
 
-function initialTexts(submission: SubmissionOut): Record<string, string | undefined> {
+function initialTexts(
+  submission: SubmissionOut,
+  answers: Answers = submission.answers,
+): Record<string, string | undefined> {
   const texts: Record<string, string | undefined> = {};
   for (const question of allQuestions(submission.questionnaire)) {
-    texts[question.key] = textFor(question, submission.answers[question.key]);
+    texts[question.key] = textFor(question, answers[question.key]);
   }
   return texts;
 }
@@ -62,9 +103,10 @@ function initialTexts(submission: SubmissionOut): Record<string, string | undefi
  * Guided questionnaire: one section at a time, with questions appearing and disappearing as
  * answers change, then a review step before submitting. Answers save automatically a moment
  * after each change (and again on "Save and continue"), so people can leave and come back.
- * Picking a Queensland address fills in its council and lot and plan, and once the site is
- * saved we offer whatever else we can look up about it. For a council in our directory, the
- * review step shows how to apply to it.
+ * Picking a Queensland address fills in its postcode, council and lot and plan, and once the
+ * site is saved we fill in whatever else we can look up about it (land area, mapped
+ * constraints, or the project's saved property), say where each came from, and let the
+ * person undo it. For a council in our directory, the review step shows how to apply to it.
  */
 export function QuestionnaireRunner({
   organisationId,
@@ -74,21 +116,28 @@ export function QuestionnaireRunner({
   suggestions: initialSuggestions = [],
   autosaveDelayMs = 1200,
 }: Props) {
+  // What we can look up is filled in straight away (and saved by the autosave below).
+  const [start] = useState(() =>
+    canWrite && initial.status !== "SUBMITTED"
+      ? fill(initial.answers, usable(initialSuggestions, new Set(), initial.answers))
+      : { answers: initial.answers, filled: [] },
+  );
   const [submission, setSubmission] = useState(initial);
-  const [draft, setDraft] = useState<Answers>(initial.answers);
-  const [texts, setTexts] = useState(() => initialTexts(initial));
+  const [draft, setDraft] = useState<Answers>(start.answers);
+  const [texts, setTexts] = useState(() => initialTexts(initial, start.answers));
   const [textErrors, setTextErrors] = useState<Record<string, string>>({});
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [showTextErrors, setShowTextErrors] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [suggestions, setSuggestions] = useState(initialSuggestions);
+  const [filled, setFilled] = useState<Filled[]>(start.filled);
   const [saveState, setSaveState] = useState<SaveState>("idle");
   const [council, setCouncil] = useState<CouncilOut | null>(null);
   // Keys changed since they were last saved, and the save queue (one request at a time).
-  const dirty = useRef(new Set<string>());
+  const dirty = useRef(new Set(start.filled.map((f) => f.suggestion.key)));
   const queue = useRef<Promise<void>>(Promise.resolve());
+  // Answers the person undid or set themselves: we don't fill those in over them.
   const declined = useRef(new Set<string>());
   // The latest answers, for a save that runs after later changes were made.
   const latest = useRef({ draft, textErrors });
@@ -116,16 +165,37 @@ export function QuestionnaireRunner({
 
   function setValue(question: QuestionOut, value: unknown) {
     dirty.current.add(question.key);
+    declined.current.add(question.key);
     setDraft((d) => ({ ...d, [question.key]: value }));
     setFieldErrors((e) => without(e, question.key));
   }
 
+  // Fill in what we can now look up about the site, and save it.
   const refreshSuggestions = useCallback(async () => {
     const result = await apiRequest<PrefillOut>("GET", `${url}/prefill`);
-    if (result.ok) {
-      setSuggestions(result.data.suggestions.filter((s) => !declined.current.has(s.key)));
-    }
-  }, [url]);
+    if (!result.ok) return;
+    const list = usable(result.data.suggestions, declined.current, latest.current.draft);
+    if (list.length === 0) return;
+    const questions = allQuestions(questionnaire);
+    const done = fill(latest.current.draft, list);
+    for (const f of done.filled) dirty.current.add(f.suggestion.key);
+    setDraft((d) => ({ ...d, ...Object.fromEntries(list.map((s) => [s.key, s.value])) }));
+    setTexts((t) => {
+      const next = { ...t };
+      for (const s of list) {
+        const question = questions.find((q) => q.key === s.key);
+        if (question) next[s.key] = textFor(question, s.value);
+      }
+      return next;
+    });
+    setFilled((before) => [
+      ...before.filter((f) => !list.some((s) => s.key === f.suggestion.key)),
+      ...done.filled.map((f) => ({
+        ...f,
+        previous: before.find((b) => b.suggestion.key === f.suggestion.key)?.previous ?? f.previous,
+      })),
+    ]);
+  }, [url, questionnaire]);
 
   // Save changed answers a moment after the last change. Only answers that parse are sent;
   // the rest wait until they do (or until "Save and continue" shows what's wrong).
@@ -191,7 +261,10 @@ export function QuestionnaireRunner({
       filled.push("lot and plan");
     }
     if (filled.length === 0) return;
-    for (const key of Object.keys(updates)) dirty.current.add(key);
+    for (const key of Object.keys(updates)) {
+      dirty.current.add(key);
+      declined.current.add(key); // they're for the address just picked
+    }
     setDraft((d) => ({ ...d, ...updates }));
     setFieldErrors((e) => {
       let rest = e;
@@ -199,12 +272,13 @@ export function QuestionnaireRunner({
       return rest;
     });
     setNotice(
-      `We filled in the ${filled.join(" and ")} from Queensland Government address data. ` +
-        "Check them before you continue.",
+      `We filled in the ${match.postcode ? "postcode, " : ""}${filled.join(" and ")} from ` +
+        "government address data. Anything else we can look up follows in a moment.",
     );
   }
 
   function setText(question: QuestionOut, text: string) {
+    declined.current.add(question.key);
     setTexts((t) => ({ ...t, [question.key]: text }));
     const parsed = parseText(question, text);
     if ("error" in parsed) {
@@ -259,21 +333,24 @@ export function QuestionnaireRunner({
     return true;
   }
 
-  async function applySuggestions() {
-    const answers: Answers = {};
-    for (const s of suggestions) answers[s.key] = s.value;
-    setBusy(true);
-    setError(null);
-    setNotice(null);
-    const result = await apiRequest<SubmissionOut>("PUT", `${url}/answers`, { answers });
-    setBusy(false);
-    if (!result.ok) {
-      setError(result.message);
-      return;
+  function undoFilled() {
+    const questions = allQuestions(questionnaire);
+    const previous = Object.fromEntries(filled.map((f) => [f.suggestion.key, f.previous]));
+    for (const key of Object.keys(previous)) {
+      dirty.current.add(key);
+      declined.current.add(key);
     }
-    applySaved(result.data);
-    setSuggestions([]);
-    setNotice("Filled in from your site details. Check them as you go.");
+    setDraft((d) => ({ ...d, ...previous }));
+    setTexts((t) => {
+      const next = { ...t };
+      for (const [key, value] of Object.entries(previous)) {
+        const question = questions.find((q) => q.key === key);
+        if (question) next[key] = textFor(question, value);
+      }
+      return next;
+    });
+    setFilled([]);
+    setNotice("We put back the answers you had before.");
   }
 
   function nextStep(after: number): number {
@@ -369,14 +446,17 @@ export function QuestionnaireRunner({
         ) : null}
       </nav>
 
-      {editable && suggestions.length > 0 ? (
+      {editable && filled.length > 0 ? (
         <section className="panel" aria-labelledby="prefill-title">
           <h2 id="prefill-title" className="section-title">
-            We can fill in {suggestions.length === 1 ? "an answer" : `${suggestions.length} answers`}{" "}
-            for you
+            We filled in {filled.length === 1 ? "an answer" : `${filled.length} answers`} for you
           </h2>
+          <p className="muted">
+            Looked up from the sources shown and saved. Check them, and change anything that
+            isn&apos;t right.
+          </p>
           <dl className="review-list">
-            {suggestions.map((s) => {
+            {filled.map(({ suggestion: s }) => {
               const question = allQuestions(questionnaire).find((q) => q.key === s.key);
               return (
                 <div key={s.key}>
@@ -393,19 +473,16 @@ export function QuestionnaireRunner({
             })}
           </dl>
           <div className="button-row tight">
-            <button type="button" className="button" disabled={busy} onClick={applySuggestions}>
-              Use these answers
-            </button>
             <button
               type="button"
               className="button button-secondary"
               disabled={busy}
-              onClick={() => {
-                for (const s of suggestions) declined.current.add(s.key);
-                setSuggestions([]);
-              }}
+              onClick={undoFilled}
             >
-              No thanks
+              Undo these
+            </button>
+            <button type="button" className="button-link" onClick={() => setFilled([])}>
+              Hide
             </button>
           </div>
         </section>

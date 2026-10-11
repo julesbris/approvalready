@@ -3240,6 +3240,151 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/plan": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Plan */
+        get: operations["get_plan_v1_organisations__organisation_id__projects__project_id__plan_get"];
+        put?: never;
+        /**
+         * Start Plan
+         * @description Start a plan from the latest assessment. When it is on sale this returns a checkout
+         *     page, and the plan starts once Stripe confirms payment; otherwise it starts now.
+         */
+        post: operations["start_plan_v1_organisations__organisation_id__projects__project_id__plan_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/plan/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Cancel Plan
+         * @description Give up on a plan that hasn't been paid for.
+         */
+        post: operations["cancel_plan_v1_organisations__organisation_id__projects__project_id__plan_cancel_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/plan/checkout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Plan Checkout
+         * @description A checkout page for a plan waiting for payment.
+         */
+        post: operations["plan_checkout_v1_organisations__organisation_id__projects__project_id__plan_checkout_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/plan/follow-ups": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Add Follow Up
+         * @description Add a step to call a partner, with their contact details and (by default) an email
+         *     reminder on the morning it is due.
+         */
+        post: operations["add_follow_up_v1_organisations__organisation_id__projects__project_id__plan_follow_ups_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/plan/refresh": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Refresh Plan
+         * @description Add the steps a newer assessment found; nothing is removed or reopened.
+         */
+        post: operations["refresh_plan_v1_organisations__organisation_id__projects__project_id__plan_refresh_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/plan/steps": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add Step */
+        post: operations["add_step_v1_organisations__organisation_id__projects__project_id__plan_steps_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/plan/steps/{step_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /**
+         * Delete Step
+         * @description Remove one of your own steps or follow-ups.
+         */
+        delete: operations["delete_step_v1_organisations__organisation_id__projects__project_id__plan_steps__step_id__delete"];
+        options?: never;
+        head?: never;
+        /**
+         * Update Step
+         * @description Tick, untick or mark a step as not applying; change its date, owner or note; attach
+         *     files from the project's uploads. Send only what changes.
+         */
+        patch: operations["update_step_v1_organisations__organisation_id__projects__project_id__plan_steps__step_id__patch"];
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/projects/{project_id}/quotes": {
         parameters: {
             query?: never;
@@ -4908,6 +5053,11 @@ export interface components {
              * @description e.g. 'Lot 2 on RP53576'.
              */
             lot_plan_label: string | null;
+            /**
+             * Postcode
+             * @description From the ABS postal area containing the address (check it).
+             */
+            postcode: string | null;
             /** State */
             state: string;
             /** Suburb */
@@ -6911,6 +7061,27 @@ export interface components {
             url: string;
             /** Verification Status */
             verification_status: string;
+        };
+        /** FollowUpCreate */
+        FollowUpCreate: {
+            /**
+             * Due On
+             * @description Defaults to three days from today.
+             */
+            due_on?: string | null;
+            /**
+             * Partner Id
+             * Format: uuid
+             */
+            partner_id: string;
+            /**
+             * Remind
+             * @description Email a reminder that morning.
+             * @default true
+             */
+            remind: boolean;
+            /** Section Key */
+            section_key?: string | null;
         };
         /** FunnelOut */
         FunnelOut: {
@@ -9071,6 +9242,277 @@ export interface components {
              */
             price_id: string;
         };
+        /** PlanCheckoutOut */
+        PlanCheckoutOut: {
+            /** Url */
+            url: string;
+        };
+        /** PlanContactOut */
+        PlanContactOut: {
+            /** Email */
+            email?: string | null;
+            /** Hours */
+            hours?: string | null;
+            /** Name */
+            name: string;
+            /** Note */
+            note?: string | null;
+            /** Phone */
+            phone?: string | null;
+            /** Url */
+            url?: string | null;
+        };
+        /** PlanDocumentOut */
+        PlanDocumentOut: {
+            /** Filename */
+            filename: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+        };
+        /** PlanFeeOut */
+        PlanFeeOut: {
+            /** Amount */
+            amount: string;
+            /** Label */
+            label: string;
+            /** Note */
+            note?: string | null;
+        };
+        /** PlanHelpOut */
+        PlanHelpOut: {
+            /** Description */
+            description: string;
+            /**
+             * Introduction Open
+             * @description An introduction request for this kind of help is in progress.
+             */
+            introduction_open: boolean;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /** Partners */
+            partners: components["schemas"]["SuggestedPartnerOut"][];
+        };
+        /**
+         * PlanItemStatus
+         * @enum {string}
+         */
+        PlanItemStatus: "OPEN" | "DONE" | "NOT_APPLICABLE";
+        /** PlanOfferOut */
+        PlanOfferOut: {
+            /** Currency */
+            currency: string | null;
+            /**
+             * On Sale
+             * @description A price is set and payments are on: starting it charges.
+             */
+            on_sale: boolean;
+            /** Price Cents */
+            price_cents: number | null;
+            /** Product Description */
+            product_description: string;
+            /** Product Name */
+            product_name: string;
+        };
+        /** PlanPartnerOut */
+        PlanPartnerOut: {
+            /** Email */
+            email: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Name */
+            name: string;
+            /** Phone */
+            phone: string | null;
+            /** Website */
+            website: string | null;
+        };
+        /** PlanProgressOut */
+        PlanProgressOut: {
+            /** Done */
+            done: number;
+            /** Due This Week */
+            due_this_week: number;
+            /** Finish On */
+            finish_on: string | null;
+            /** Next Item Id */
+            next_item_id: string | null;
+            /** Overdue */
+            overdue: number;
+            /** Percent */
+            percent: number;
+            /** Total */
+            total: number;
+        };
+        /** PlanSectionOut */
+        PlanSectionOut: {
+            /** Authority */
+            authority?: string | null;
+            /** Certainty Label */
+            certainty_label?: string | null;
+            /** Checked On */
+            checked_on?: string | null;
+            /**
+             * Contacts
+             * @default []
+             */
+            contacts: components["schemas"]["PlanContactOut"][];
+            /** Cost Summary */
+            cost_summary?: string | null;
+            /** Done */
+            done: number;
+            /** Ends On */
+            ends_on: string | null;
+            /**
+             * Fees
+             * @default []
+             */
+            fees: components["schemas"]["PlanFeeOut"][];
+            /**
+             * Gaps
+             * @default []
+             */
+            gaps: string[];
+            /**
+             * Help
+             * @description Who can help, with partners.
+             * @default []
+             */
+            help: components["schemas"]["PlanHelpOut"][];
+            /** Key */
+            key: string;
+            /** Kind */
+            kind: string;
+            /**
+             * Sources
+             * @default []
+             */
+            sources: components["schemas"]["PlanSourceOut"][];
+            /** Starts On */
+            starts_on: string | null;
+            /** Steps */
+            steps: components["schemas"]["PlanStepOut"][];
+            /** Summary */
+            summary?: string | null;
+            /** Timeframe */
+            timeframe?: string | null;
+            /** Title */
+            title: string;
+            /** Total */
+            total: number;
+            /**
+             * Verified
+             * @default false
+             */
+            verified: boolean;
+            /**
+             * Watch Out
+             * @default []
+             */
+            watch_out: string[];
+        };
+        /** PlanSourceOut */
+        PlanSourceOut: {
+            /** Title */
+            title: string;
+            /** Url */
+            url: string;
+        };
+        /** PlanStartOut */
+        PlanStartOut: {
+            /**
+             * Checkout Url
+             * @description Pay here; the plan starts once paid.
+             */
+            checkout_url: string | null;
+            plan: components["schemas"]["ProjectPlanOut"];
+        };
+        /** PlanStepCreate */
+        PlanStepCreate: {
+            /** Assignee User Id */
+            assignee_user_id?: string | null;
+            /** Detail */
+            detail?: string | null;
+            /** Due On */
+            due_on?: string | null;
+            /** Owner */
+            owner?: string | null;
+            /**
+             * Section Key
+             * @description A part of the plan; defaults to your own steps.
+             */
+            section_key?: string | null;
+            /** Title */
+            title: string;
+        };
+        /** PlanStepOut */
+        PlanStepOut: {
+            /** Assignee User Id */
+            assignee_user_id: string | null;
+            /** Completed At */
+            completed_at: string | null;
+            /** Cost */
+            cost: string | null;
+            /** Detail */
+            detail: string | null;
+            /** Documents */
+            documents: components["schemas"]["PlanDocumentOut"][];
+            /** Due On */
+            due_on: string | null;
+            /**
+             * Editable
+             * @description One of the customer's own steps (rename or delete).
+             */
+            editable: boolean;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Kind */
+            kind: string;
+            /** Link Label */
+            link_label: string | null;
+            /** Link Url */
+            link_url: string | null;
+            /** Note */
+            note: string | null;
+            /** Owner */
+            owner: string | null;
+            partner: components["schemas"]["PlanPartnerOut"] | null;
+            /** Position */
+            position: number;
+            /** Section Key */
+            section_key: string;
+            status: components["schemas"]["PlanItemStatus"];
+            /** Timeframe */
+            timeframe: string | null;
+            /** Title */
+            title: string;
+        };
+        /** PlanStepUpdate */
+        PlanStepUpdate: {
+            /** Assignee User Id */
+            assignee_user_id?: string | null;
+            /** Document Ids */
+            document_ids?: string[] | null;
+            /** Due On */
+            due_on?: string | null;
+            /** Note */
+            note?: string | null;
+            /** Owner */
+            owner?: string | null;
+            status?: components["schemas"]["PlanItemStatus"] | null;
+            /** Title */
+            title?: string | null;
+        };
         /**
          * PolicyDocument
          * @enum {string}
@@ -9303,6 +9745,11 @@ export interface components {
              * @description Prices on sale (staff also see past prices).
              */
             prices: components["schemas"]["PriceOut"][];
+            /**
+             * Suggested Price Cents
+             * @description A placeholder starting price from the catalogue file. Never charged: only a price staff set is on sale.
+             */
+            suggested_price_cents?: number | null;
             vertical: components["schemas"]["Vertical"] | null;
         };
         /** ProfessionalOut */
@@ -9502,6 +9949,34 @@ export interface components {
             vertical: components["schemas"]["Vertical"];
             /** Vessel Id */
             vessel_id: string | null;
+        };
+        /** ProjectPlanOut */
+        ProjectPlanOut: {
+            /** Activated At */
+            activated_at?: string | null;
+            /** Assessment Id */
+            assessment_id?: string | null;
+            /**
+             * Complimentary
+             * @default false
+             */
+            complimentary: boolean;
+            /** Id */
+            id?: string | null;
+            offer: components["schemas"]["PlanOfferOut"];
+            progress?: components["schemas"]["PlanProgressOut"] | null;
+            /**
+             * Sections
+             * @default []
+             */
+            sections: components["schemas"]["PlanSectionOut"][];
+            /** Starts On */
+            starts_on?: string | null;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "NONE" | "PAYMENT_PENDING" | "ACTIVE";
         };
         /**
          * ProjectStatus
@@ -11825,6 +12300,31 @@ export interface components {
          * @enum {string}
          */
         SubscriptionStatus: "INCOMPLETE" | "INCOMPLETE_EXPIRED" | "TRIALING" | "ACTIVE" | "PAST_DUE" | "CANCELED" | "UNPAID" | "PAUSED";
+        /** SuggestedPartnerOut */
+        SuggestedPartnerOut: {
+            /** Description */
+            description: string | null;
+            /** Email */
+            email: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Introduced
+             * @description Accepted the customer's introduction request.
+             */
+            introduced: boolean;
+            /** Name */
+            name: string;
+            /** Phone */
+            phone: string | null;
+            /** Website */
+            website: string | null;
+            /** Why */
+            why: string;
+        };
         /** SwitchOrganisationRequest */
         SwitchOrganisationRequest: {
             /**
@@ -18884,6 +19384,306 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["GeneratedDocumentOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_plan_v1_organisations__organisation_id__projects__project_id__plan_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProjectPlanOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    start_plan_v1_organisations__organisation_id__projects__project_id__plan_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanStartOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cancel_plan_v1_organisations__organisation_id__projects__project_id__plan_cancel_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProjectPlanOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    plan_checkout_v1_organisations__organisation_id__projects__project_id__plan_checkout_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanCheckoutOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_follow_up_v1_organisations__organisation_id__projects__project_id__plan_follow_ups_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["FollowUpCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanStepOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    refresh_plan_v1_organisations__organisation_id__projects__project_id__plan_refresh_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProjectPlanOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_step_v1_organisations__organisation_id__projects__project_id__plan_steps_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PlanStepCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanStepOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_step_v1_organisations__organisation_id__projects__project_id__plan_steps__step_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                step_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_step_v1_organisations__organisation_id__projects__project_id__plan_steps__step_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                step_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PlanStepUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanStepOut"];
                 };
             };
             /** @description Validation Error */

@@ -2628,3 +2628,237 @@ a.card-title:hover {
   color: var(--ar-link);
   font-weight: 600;
 }
+
+/* --- Project plan --- */
+
+.plan {
+  display: grid;
+  gap: 16px;
+}
+
+.plan-summary-head,
+.plan-part-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.plan-part-head {
+  justify-content: flex-start;
+}
+
+.plan-part-heading {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.plan-part-heading .section-title {
+  margin-bottom: 2px;
+}
+
+.plan-meter {
+  height: 10px;
+  margin: 16px 0 8px;
+  border-radius: var(--ar-radius-pill);
+  background: var(--ar-surface-sunk);
+  box-shadow: inset 0 0 0 1px var(--ar-border);
+  overflow: hidden;
+}
+
+.plan-meter > span {
+  display: block;
+  height: 100%;
+  background: var(--ar-accent);
+}
+
+.plan-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.plan-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.plan-timeline > li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.plan-timeline-title {
+  font-weight: 600;
+}
+
+.plan-subtitle {
+  font-size: 1rem;
+  margin: 16px 0 8px;
+}
+
+.plan-help {
+  margin: 12px 0;
+  padding: 12px 16px;
+  border: 1px solid var(--ar-border);
+  border-radius: 16px;
+  background: var(--ar-surface-sunk);
+}
+
+.plan-help .plan-subtitle {
+  margin-top: 0;
+}
+
+.plan-help-group + .plan-help-group {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ar-border);
+}
+
+.plan-help-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+}
+
+.plan-partners {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 12px;
+}
+
+.plan-partner {
+  padding: 12px 14px;
+  border: 1px solid var(--ar-border);
+  border-radius: 16px;
+  background: var(--ar-surface);
+  overflow-wrap: anywhere;
+}
+
+.plan-partner p {
+  margin: 4px 0;
+}
+
+.plan-partner-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.plan-partner-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.plan-steps {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+}
+
+.plan-step {
+  padding: 12px 0;
+  border-top: 1px solid var(--ar-border);
+}
+
+.plan-step-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.plan-step-main > input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--ar-accent);
+}
+
+.plan-step-title {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.plan-step.is-done .plan-step-title,
+.plan-step.is-skipped .plan-step-title {
+  color: var(--ar-ink-muted);
+  text-decoration: line-through;
+}
+
+.plan-step-body {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.plan-step-body p {
+  margin: 4px 0 0;
+}
+
+.plan-step-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  margin-top: 4px;
+  font-size: 0.875rem;
+}
+
+.plan-overdue {
+  color: var(--ar-danger);
+  font-weight: 600;
+}
+
+.plan-step-edit {
+  margin-top: 8px;
+}
+
+.plan-step-edit > summary {
+  cursor: pointer;
+  color: var(--ar-link);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.plan-step-form {
+  margin-top: 12px;
+  gap: 12px;
+}
+
+.plan-benefits {
+  display: grid;
+  gap: 4px;
+  padding-left: 1.2em;
+}
+
+.plan-price {
+  font-size: 1.0625rem;
+}
+
+@media print {
+  .no-print,
+  .app-nav,
+  .site-header,
+  .breadcrumb {
+    display: none !important;
+  }
+
+  .plan-part {
+    break-inside: avoid-page;
+  }
+}

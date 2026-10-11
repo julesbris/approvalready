@@ -29,6 +29,7 @@ from app.modules.documents.models import (
 from app.modules.documents.service import list_evidence
 from app.modules.grants import service as grants
 from app.modules.marketplace import service as marketplace
+from app.modules.plans import checklist as checklist_builder
 from app.modules.projects.models import Project
 from app.modules.questionnaires import service as questionnaires
 from app.modules.review import professionals
@@ -275,6 +276,9 @@ async def build_context(
         for v in await checklists.list_for_project(db, project)
     ]
     return {
+        "checklist": await _checklist_context(db, assessment, project, findings)
+        if template.key.endswith("_CHECKLIST")
+        else None,
         "meta": {
             "title": template.title,
             "project_title": project.title,
@@ -352,6 +356,46 @@ async def build_context(
         if template.key == "GRANT_ELIGIBILITY"
         else [],
     }
+
+
+BOX = {True: "\u2611", False: "\u2610"}  # ballot box with and without a tick
+
+
+async def _checklist_context(
+    db: AsyncSession, assessment: Any, project: Project, findings: list[AssessmentFinding]
+) -> dict[str, Any]:
+    built = await checklist_builder.build(db, assessment, project, findings)
+    labels = await marketplace.labels(db, built.category_keys)
+    sections = []
+    for s in built.sections:
+        steps = [
+            {
+                "box": BOX[st.done or st.not_applicable],
+                "title": st.title,
+                "detail": st.detail,
+                "timeframe": st.timeframe,
+                "cost": st.cost,
+                "link_url": st.link_url,
+                "link_label": st.link_label,
+                "not_applicable": st.not_applicable,
+                "kind": st.kind,
+            }
+            for st in s.steps
+        ]
+        counted = [st for st in s.steps if not st.not_applicable]
+        checked_on = date.fromisoformat(s.checked_on) if s.checked_on else None
+        sections.append(
+            s.summary_dict()
+            | {
+                "prepare": [st for st in steps if st["kind"] == checklist_builder.StepKind.PREPARE],
+                "steps": [st for st in steps if st["kind"] != checklist_builder.StepKind.PREPARE],
+                "total": len(counted),
+                "open": sum(1 for st in counted if not st.done),
+                "helpers": [labels[k] for k in s.category_keys],
+                "checked_on": _date(checked_on),
+            }
+        )
+    return {"sections": sections, "total": built.total, "done": built.done}
 
 
 def _date(value: date | None) -> str | None:

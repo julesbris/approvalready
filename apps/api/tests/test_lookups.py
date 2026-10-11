@@ -114,13 +114,27 @@ def fake_government(overlay_counts: dict[tuple[str, int], int] | None = None, fa
             return httpx.Response(
                 200, text='<a href="/sites/default/files/dcv-vessels-aug26.xlsx">Download</a>'
             )
+        if "/ASGS2021/POA/MapServer/0/query" in url:
+            assert request.url.params["geometry"] == "145.7,-17.0"
+            return httpx.Response(
+                200, json={"features": [{"attributes": {"poa_code_2021": "4869"}}]}
+            )
+        if "/Location/QldLocator/GeocodeServer/suggest" in url:
+            if fail == "suggest":
+                return httpx.Response(503)
+            assert request.url.params["text"]
+            texts = ["34 Gilmore Street, Bentley Park, Queensland", "34 Gilmore Street, Tweed, NSW"]
+            return httpx.Response(200, json={"suggestions": [{"text": t} for t in texts]})
         if url.endswith(".xlsx"):
             return httpx.Response(200, content=xlsx(VESSEL_ROWS))
         if fail and fail in url:
             return httpx.Response(200, json={"error": {"code": 500, "message": "boom"}})
         form = {k: v[0] for k, v in parse_qs(request.content.decode()).items()}
         if "LandParcelPropertyFramework/MapServer/0/query" in url:
-            assert form["where"].startswith("upper(address) LIKE '34%GILMORE%STREET%")
+            assert form["where"] in (
+                "address IN ('34 Gilmore Street Bentley Park QLD')",
+                "upper(address) LIKE '34%GILMORE%STREET%BENTLEY%PARK%'",
+            ), form["where"]
             return httpx.Response(200, json={"features": [{"attributes": ADDRESS}]})
         if "LandParcelPropertyFramework/MapServer/4/query" in url:
             if form["where"] != "lotplan = '1RP731159'":
@@ -131,6 +145,8 @@ def fake_government(overlay_counts: dict[tuple[str, int], int] | None = None, fa
         for (service, layer), count in counts.items():
             if f"{service}/MapServer/{layer}/query" in url:
                 assert json.loads(form["geometry"])["rings"] == RINGS
+                if form.get("where", "").startswith("name <>"):
+                    count = 0  # only the Wet Tropics, not another World Heritage Area
                 return httpx.Response(200, json={"count": count})
         return httpx.Response(200, json={"count": 0})
 
@@ -138,6 +154,7 @@ def fake_government(overlay_counts: dict[tuple[str, int], int] | None = None, fa
 
 
 OVERLAYS = {("PlanningCadastre/CoastalManagement", 11): 1, ("Biota/VegetationManagement", 103): 2}
+WET_TROPICS = {("Environment/EnvironmentallySensitiveAreasCategoryB", 240): 1}
 
 
 def test_address_pattern() -> None:
@@ -183,8 +200,34 @@ async def test_parcel_report_with_overlays_and_a_failed_service() -> None:
     assert [o.key for o in report.overlays] == ["storm_tide_high", "remnant_vegetation"]
     assert report.constraints == ["flooding", "vegetation"]
     assert report.overlays_failed == ["State coastal hazard mapping"]
-    assert report.overlays_checked == ["State vegetation management mapping"]
+    assert report.overlays_checked == [
+        "State vegetation management mapping",
+        "State World Heritage and heritage register mapping",
+    ]
     assert any("Zone" in n.label for n in report.not_checked)
+    assert not any("Wet Tropics" in n.label for n in report.not_checked)
+
+
+async def test_wet_tropics_world_heritage_area_is_found() -> None:
+    transport, _ = fake_government(WET_TROPICS)
+    async with httpx.AsyncClient(transport=transport) as http:
+        report = await QldSpatial(http, BASE).parcel("1RP731159")
+    assert report is not None
+    assert [o.key for o in report.overlays] == ["wet_tropics_world_heritage"]
+    assert report.constraints == ["heritage"]
+    assert report.not_checked[0].label == "Wet Tropics zoning and permits"
+
+
+async def test_address_search_uses_the_locator_and_falls_back() -> None:
+    transport, calls = fake_government()
+    async with httpx.AsyncClient(transport=transport) as http:
+        [match] = await QldSpatial(http, BASE).search_addresses("34 Gilmore St Bentley Park")
+    assert match.lot_plan == "1RP731159"
+    assert not any("LIKE" in c for c in calls)  # the fast path only
+    transport, calls = fake_government(fail="suggest")
+    async with httpx.AsyncClient(transport=transport) as http:
+        [match] = await QldSpatial(http, BASE).search_addresses("34 Gilmore St Bentley Park")
+    assert match.lot_plan == "1RP731159"
 
 
 async def test_amsa_list_is_found_on_the_page_and_cached() -> None:
@@ -207,6 +250,7 @@ async def test_amsa_list_is_found_on_the_page_and_cached() -> None:
 def settings() -> Settings:
     return make_settings(
         qld_spatial_base_url=BASE,
+        abs_geo_base_url="https://abs.example/arcgis/rest/services",
         amsa_vessel_list_page_url=AMSA_PAGE,
         property_facts_provider=PropertyFactsProviderKind.QLD_SPATIAL,
     )
@@ -231,6 +275,7 @@ async def test_lookup_endpoints(api: ApiHarness) -> None:
     assert match["lot_plan"] == "1RP731159"
     assert match["lot_plan_label"] == "Lot 1 on RP731159"
     assert match["lga"] == "cairns"
+    assert match["postcode"] == "4869"
 
     r = await user.get(f"{base}/parcels/Lot 1 on RP731159")
     assert r.status_code == 200, r.text
@@ -271,7 +316,8 @@ async def test_prefill_from_queensland_data(api: ApiHarness) -> None:
                     "suburb": "Bentley Park",
                     "state": "QLD",
                     "postcode": "4869",
-                }
+                },
+                "planning.known_constraints": ["heritage"],
             }
         },
     )
@@ -283,6 +329,7 @@ async def test_prefill_from_queensland_data(api: ApiHarness) -> None:
     assert found["property.lga"]["value"] == "cairns"
     assert found["property.lot_plan"]["value"] == "Lot 1 on RP731159"
     assert found["property.land_area_m2"]["value"] == "774"
-    assert found["planning.known_constraints"]["value"] == ["flooding", "vegetation"]
+    # Mapped constraints add to the ones ticked; nothing ticked is taken away.
+    assert found["planning.known_constraints"]["value"] == ["flooding", "heritage", "vegetation"]
     assert "Storm tide" in found["planning.known_constraints"]["source"]
     assert not any(s["is_mock"] for s in body["suggestions"])

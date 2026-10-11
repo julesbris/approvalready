@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+from functools import cache
 from pathlib import Path
 from typing import Annotated
 
@@ -43,6 +44,9 @@ class ProductDef(BaseModel):
     description: str = Field(min_length=1, max_length=500)
     # Feature key -> the limit this product gives (null: unlimited).
     features: dict[str, int | None] = Field(default_factory=dict)
+    # A placeholder price shown to staff at /admin/billing as a starting point. It is never
+    # charged: nothing is on sale until staff set a real price there.
+    suggested_price_cents: int | None = Field(default=None, gt=0)
 
     @model_validator(mode="after")
     def _shape(self) -> ProductDef:
@@ -85,6 +89,16 @@ class CatalogueFile(BaseModel):
 
 def load_bundled(path: Path = CATALOGUE_FILE) -> CatalogueFile:
     return CatalogueFile.model_validate(json.loads(path.read_text(encoding="utf-8")))
+
+
+@cache
+def suggested_prices() -> dict[str, int]:
+    """Placeholder prices from the file, by product key (shown to staff, never charged)."""
+    return {
+        p.key: p.suggested_price_cents
+        for p in load_bundled().products
+        if p.suggested_price_cents is not None
+    }
 
 
 @dataclass(frozen=True)

@@ -23,7 +23,42 @@ export type ReportTemplate = { key: string; title: string; description: string }
 const FORMATS: OutputFormat[] = ["PDF", "DOCX", "HTML"];
 
 /** The reports each kind of project can make (the API lists the same per vertical). */
+const CHECKLIST: ReportTemplate = {
+  key: "",
+  title: "Checklist",
+  description:
+    "Every approval broken into what to have ready and each step in order, with forms, costs, " +
+    "timeframes, fees, contacts, what to watch out for and the documents to gather, with tick " +
+    "boxes. Print it and work through it.",
+};
+
+function checklist(vertical: string): ReportTemplate {
+  return { ...CHECKLIST, key: `${vertical}_CHECKLIST` };
+}
+
 export const REPORT_TEMPLATES: Record<string, ReportTemplate[]> = {
+  PLANNING: [
+    {
+      key: "PLANNING_ASSESSMENT",
+      title: "Assessment report",
+      description:
+        "The approvals we found, what you will need to show, the answers it relies on, missing " +
+        "information, sources and review status.",
+    },
+    checklist("PLANNING"),
+  ],
+  BUSINESS: [
+    {
+      key: "BUSINESS_APPROVAL_MAP",
+      title: "Business approval map",
+      description:
+        "Each licence, permit and registration we checked, by how sure we are it applies, who " +
+        "can help, the answers it relies on, missing information and sources.",
+    },
+    checklist("BUSINESS"),
+  ],
+  SELL: [checklist("SELL")],
+  RENT: [checklist("RENT")],
   GRANT: [
     {
       key: "GRANT_ELIGIBILITY",
@@ -32,6 +67,7 @@ export const REPORT_TEMPLATES: Record<string, ReportTemplate[]> = {
         "Each program we checked, the criteria you meet or don't, its rounds and dates with " +
         "their sources, the answers it relies on, missing information and review status.",
     },
+    checklist("GRANT"),
   ],
   TRADE: [
     {
@@ -41,6 +77,7 @@ export const REPORT_TEMPLATES: Record<string, ReportTemplate[]> = {
         "Each declaration, permit and registration we checked, by how sure we are it applies, " +
         "who can help, the answers it relies on, missing information and sources.",
     },
+    checklist("TRADE"),
   ],
   VESSEL: [
     {
@@ -50,6 +87,7 @@ export const REPORT_TEMPLATES: Record<string, ReportTemplate[]> = {
         "The certificates and approvals we found, your checklists, who can help, the answers it " +
         "relies on, missing information, sources and review status.",
     },
+    checklist("VESSEL"),
     {
       key: "SMS",
       title: "Safety management system (draft)",
