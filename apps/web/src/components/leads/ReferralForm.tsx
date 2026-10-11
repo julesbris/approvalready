@@ -23,16 +23,23 @@ export function ReferralForm({
   organisationId,
   projectId,
   options,
+  preselect,
 }: {
   organisationId: string;
   projectId: string;
   options: ReferralOptionsOut;
+  /** A kind of help to tick to start with (from the project plan's "who to call"). */
+  preselect?: string | null;
 }) {
   const router = useRouter();
   const { busy, error, run } = useAction();
   const available = options.categories.filter((c) => !c.open_request);
   const [categories, setCategories] = useState<string[]>(
-    available.length === 1 ? [available[0]!.key] : [],
+    preselect && available.some((c) => c.key === preselect)
+      ? [preselect]
+      : available.length === 1
+        ? [available[0]!.key]
+        : [],
   );
   const [maxProviders, setMaxProviders] = useState(Math.min(2, options.max_providers));
   const [fields, setFields] = useState<ReleasableField[]>(["name", "phone"]);

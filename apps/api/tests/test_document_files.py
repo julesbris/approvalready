@@ -29,6 +29,7 @@ from app.modules.documents.storage import (
     content_disposition,
 )
 from app.modules.documents.templates import load_bundled
+from app.modules.projects.models import Vertical
 from tests.conftest import make_settings
 
 PDF = b"%PDF-1.7\n1 0 obj\n<<>>\nendobj\ntrailer\n<<>>\n%%EOF\n"
@@ -354,14 +355,22 @@ def test_pdf_rendering_never_fetches_resources(tmp_path: Path) -> None:
 
 def test_bundled_templates_load() -> None:
     templates = {t.key: t for t in load_bundled()}
-    assert set(templates) == {
-        "BUSINESS_APPROVAL_MAP",
-        "GRANT_ELIGIBILITY",
-        "PLANNING_ASSESSMENT",
-        "SMS",
-        "TRADE_APPROVAL_MAP",
-        "VESSEL_PATHWAY",
-    }
+    checklists = {f"{v}_CHECKLIST" for v in Vertical}
+    assert (
+        set(templates)
+        == {
+            "BUSINESS_APPROVAL_MAP",
+            "GRANT_ELIGIBILITY",
+            "PLANNING_ASSESSMENT",
+            "SMS",
+            "TRADE_APPROVAL_MAP",
+            "VESSEL_PATHWAY",
+        }
+        | checklists
+    )
+    for key in checklists:  # one shared body, one template per product
+        assert templates[key].vertical == key.removesuffix("_CHECKLIST")
+        assert templates[key].body == templates["PLANNING_CHECKLIST"].body
     for template in templates.values():
         assert {str(f) for f in template.output_formats} == {"PDF", "DOCX", "HTML"}
     assert templates["BUSINESS_APPROVAL_MAP"].vertical == "BUSINESS"

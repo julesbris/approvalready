@@ -1,0 +1,12 @@
+{
+  "key": "SELL_CHECKLIST",
+  "title": "Selling checklist",
+  "vertical": "SELL",
+  "engine": "JINJA_HTML",
+  "body": "checklist.html.j2",
+  "output_formats": [
+    "PDF",
+    "DOCX",
+    "HTML"
+  ]
+}

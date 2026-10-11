@@ -15,6 +15,7 @@ import type {
   ReminderOut,
   TaskOut,
   VesselOut,
+  ProjectPlanOut,
   WhatsLeftOut,
 } from "@approvalready/shared-types";
 import Link from "next/link";
@@ -55,6 +56,8 @@ type Props = {
   /** For a planning project in a council we know: how to apply to it. */
   council?: CouncilOut;
   whatsLeft?: WhatsLeftOut;
+  /** The project plan's state (undefined when it couldn't be read). */
+  plan?: ProjectPlanOut;
   currentUserId: string;
   canWrite: boolean;
 };
@@ -320,6 +323,8 @@ export function ProjectWorkspace(props: Props) {
         ) : null}
       </section>
 
+      {latest && props.plan ? <PlanPanel projectId={project.id} plan={props.plan} /> : null}
+
       {props.council ? <CouncilGuide council={props.council} /> : null}
 
       {project.vertical === "SELL" ? (
@@ -547,5 +552,56 @@ export function ProjectWorkspace(props: Props) {
         ) : null}
       </section>
     </div>
+  );
+}
+
+/** The project plan: its progress when there is one, or what it offers. */
+function PlanPanel({ projectId, plan }: { projectId: string; plan: ProjectPlanOut }) {
+  const href = `/projects/${projectId}/plan`;
+  return (
+    <section className="panel" aria-labelledby="plan-panel-title">
+      <h2 id="plan-panel-title" className="section-title">
+        Project plan
+      </h2>
+      {plan.status === "ACTIVE" && plan.progress ? (
+        <>
+          <p>
+            <strong>
+              {plan.progress.done} of {plan.progress.total} steps done
+            </strong>
+            {plan.progress.overdue ? (
+              <>
+                {" "}
+                <span className="status status-failed">{plan.progress.overdue} overdue</span>
+              </>
+            ) : null}
+            {plan.progress.finish_on ? (
+              <span className="muted"> · finish by {formatDate(plan.progress.finish_on)}</span>
+            ) : null}
+          </p>
+          <Link className="button" href={href}>
+            Open your project plan
+          </Link>
+        </>
+      ) : plan.status === "PAYMENT_PENDING" ? (
+        <>
+          <p className="muted">Your project plan is waiting for payment.</p>
+          <Link className="button" href={href}>
+            Finish starting your plan
+          </Link>
+        </>
+      ) : (
+        <>
+          <p className="muted">
+            Manage this project online: every step from your checklist on a timeline with due
+            dates, owners and your files, follow-up reminders, and checked partners in your area
+            to call for each part.
+          </p>
+          <Link className="button button-secondary" href={href}>
+            See the project plan
+          </Link>
+        </>
+      )}
+    </section>
   );
 }

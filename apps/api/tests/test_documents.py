@@ -484,6 +484,54 @@ async def test_reports_in_every_format_carry_the_required_metadata(api: ApiHarne
     assert r.status_code == 404
 
 
+async def test_every_product_has_a_checklist_report(api: ApiHarness) -> None:
+    from app.modules.documents.service import ASSESSMENT_TEMPLATES
+
+    assert all(f"{v}_CHECKLIST" in keys for v, keys in ASSESSMENT_TEMPLATES.items())
+    assert set(ASSESSMENT_TEMPLATES) == {
+        "PLANNING", "BUSINESS", "VESSEL", "GRANT", "SELL", "RENT", "TRADE"
+    }  # fmt: skip
+
+    customer, _, assessment = await _assessed(api)
+    org = org_url(customer)
+    outputs: dict[str, bytes] = {}
+    for fmt in ("HTML", "DOCX", "PDF"):
+        r = await customer.post(
+            f"{org}/assessments/{assessment['id']}/documents",
+            json={"format": fmt, "template": "PLANNING_CHECKLIST"},
+        )
+        assert r.status_code == 202, r.text
+        assert "-checklist-" in r.json()["filename"]
+        r = await customer.get(f"{org}/generated-documents/{r.json()['id']}/content")
+        assert r.status_code == 200
+        outputs[fmt] = r.content
+    html = outputs["HTML"].decode()
+    for expected in (
+        "Your checklist",
+        "\u2610",  # an empty tick box
+        "A development application is likely",  # the approval, as its own part
+        "Who decides:</strong> Test Council",
+        "Confirm with Test Council that this applies",
+        "Documents to gather",
+        "Site plan",
+        "Book a pre-lodgement meeting",  # the finding's task
+        "Town planner",  # who can help
+        "Manage it online",
+        "Assumptions",
+        "not legal or planning advice",
+    ):
+        assert expected in html, expected
+    assert outputs["PDF"].startswith(b"%PDF-")
+    with zipfile.ZipFile(io.BytesIO(outputs["DOCX"])) as z:
+        assert "Documents to gather" in z.read("word/document.xml").decode()
+
+    r = await customer.post(
+        f"{org}/assessments/{assessment['id']}/documents",
+        json={"format": "HTML", "template": "TRADE_CHECKLIST"},
+    )
+    assert r.status_code == 409
+
+
 async def test_reports_wait_until_generated(api: ApiHarness) -> None:
     customer, _, assessment = await _assessed(api)
     api.app.state.resources.jobs = NoJobs()

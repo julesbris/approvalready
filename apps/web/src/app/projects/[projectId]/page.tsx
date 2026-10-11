@@ -6,6 +6,7 @@ import type {
   DocumentOut,
   MemberOut,
   ProjectDetailOut,
+  ProjectPlanOut,
   PropertyOut,
   ReminderOut,
   SubmissionOut,
@@ -48,6 +49,7 @@ export default async function ProjectPage({ params }: Props) {
     vessels,
     checklists,
     whatsLeft,
+    plan,
   ] = await Promise.all([
     serverGet<ProjectDetailOut>(`${base}/projects/${projectId}`),
     serverGet<TaskOut[]>(`${base}/projects/${projectId}/tasks`),
@@ -59,6 +61,7 @@ export default async function ProjectPage({ params }: Props) {
     serverGet<VesselOut[]>(`${base}/vessels`),
     serverGet<ChecklistOut[]>(`${base}/projects/${projectId}/checklists`),
     serverGet<WhatsLeftOut>(`${base}/projects/${projectId}/whats-left`),
+    serverGet<ProjectPlanOut>(`${base}/projects/${projectId}/plan`),
   ]);
   const found = orNotFound(project);
   const definitions = await serverGet<ChecklistDefinitionOut[]>(
@@ -92,6 +95,7 @@ export default async function ProjectPage({ params }: Props) {
         documents={orNotFound(documents)}
         council={council}
         whatsLeft={whatsLeft.ok ? whatsLeft.data : undefined}
+        plan={plan.ok ? plan.data : undefined}
         currentUserId={session.user.id}
         canWrite={session.permissions.includes("project.write")}
       />

@@ -15,6 +15,7 @@ from app.modules.notifications import models as notifications_models  # noqa: F4
 from app.modules.ops import models as ops_models  # noqa: F401
 from app.modules.outbox import models as outbox_models  # noqa: F401
 from app.modules.partners import models as partners_models  # noqa: F401
+from app.modules.plans import models as plans_models  # noqa: F401
 from app.modules.privacy import models as privacy_models  # noqa: F401
 from app.modules.projects import models as projects_models  # noqa: F401
 from app.modules.questionnaires import models as questionnaires_models  # noqa: F401

@@ -10,7 +10,7 @@ import { type FormEvent, useState } from "react";
 
 import { useAction } from "@/components/admin/useAction";
 import { FormError } from "@/components/auth/FormStatus";
-import { limitLabel, parseDollars, priceLabel } from "@/lib/billing";
+import { formatMoney, limitLabel, parseDollars, priceLabel } from "@/lib/billing";
 import { apiRequest } from "@/lib/client-api";
 import { formatDateTime } from "@/lib/labels";
 
@@ -136,7 +136,19 @@ export function BillingAdmin({ status, products: initial, events: initialEvents 
                 {f.description}: {limitLabel(f.limit)}
               </p>
             ))}
-            {onSale.length === 0 ? <p>Not on sale.</p> : null}
+            {onSale.length === 0 ? (
+              <p>
+                Not on sale.
+                {product.suggested_price_cents ? (
+                  <>
+                    {" "}
+                    <span className="status confidence-review_required">Placeholder</span>{" "}
+                    Suggested starting price {formatMoney(product.suggested_price_cents)} (not
+                    charged until you set a price here).
+                  </>
+                ) : null}
+              </p>
+            ) : null}
             <ul className="task-list" aria-label={`${product.name} prices`}>
               {onSale.map((price) => (
                 <li key={price.id} className="task">

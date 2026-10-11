@@ -1,0 +1,12 @@
+{
+  "key": "VESSEL_CHECKLIST",
+  "title": "Vessel approvals checklist",
+  "vertical": "VESSEL",
+  "engine": "JINJA_HTML",
+  "body": "checklist.html.j2",
+  "output_formats": [
+    "PDF",
+    "DOCX",
+    "HTML"
+  ]
+}

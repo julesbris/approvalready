@@ -49,6 +49,11 @@ class ProductOut(BaseModel):
     active: bool
     features: list[FeatureLimitOut]
     prices: list[PriceOut] = Field(description="Prices on sale (staff also see past prices).")
+    suggested_price_cents: int | None = Field(
+        default=None,
+        description="A placeholder starting price from the catalogue file. Never charged: "
+        "only a price staff set is on sale.",
+    )
 
 
 class CatalogueOut(BaseModel):
