@@ -1,8 +1,7 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { Wordmark } from "@/components/brand/Wordmark";
 import { SiteFooter } from "@/components/public/SiteFooter";
-import { defaultBrand } from "@/lib/brand";
 
 export function AuthShell({
   title,
@@ -19,12 +18,10 @@ export function AuthShell({
     <>
       <header className="site-header">
         <div className="container">
-          <Link className="wordmark" href="/">
-            {defaultBrand.productName}
-          </Link>
+          <Wordmark />
         </div>
       </header>
-      <main className="container">
+      <main className="container auth-main">
         <section className="auth-card" aria-labelledby="auth-title">
           <h1 id="auth-title">{title}</h1>
           {intro ? <div className="auth-intro">{intro}</div> : null}

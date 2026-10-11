@@ -7,7 +7,7 @@ describe("HomePage", () => {
     render(<HomePage />);
     const list = screen.getByRole("list", { name: "Product areas" });
     const names = within(list)
-      .getAllByRole("heading", { level: 2 })
+      .getAllByRole("heading", { level: 3 })
       .map((h) => h.textContent);
     expect(names).toEqual([
       "PlanningReady",

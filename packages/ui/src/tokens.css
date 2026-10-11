@@ -1,23 +1,78 @@
+/*
+ * Design tokens from the ApprovalReady.au design system (see index.ts). Navy and white lead;
+ * teal is the reward, kept for what is done, ready or approved.
+ */
 :root {
-  --ar-ink: #14181f;
-  --ar-ink-muted: #4a5361;
+  --ar-brand-navy: #012455;
+  --ar-brand-blue: #01387f;
+  --ar-brand-teal: #00cab5;
+  --ar-brand-teal-deep: #00776b;
+  --ar-brand-mist: #e6faf7;
   --ar-surface: #ffffff;
-  --ar-surface-subtle: #f5f6f8;
-  --ar-border: #dde1e7;
-  --ar-accent: #1f4e79;
-  --ar-accent-ink: #ffffff;
-  --ar-radius: 6px;
-  --ar-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ar-surface-sunk: #f2f5f9;
+  --ar-surface-raised: #ffffff;
+  --ar-surface-inverse: #012455;
+  --ar-ink: #0a1a33;
+  --ar-ink-muted: #4b5b74;
+  --ar-ink-inverse: #ffffff;
+  --ar-heading: #012455;
+  --ar-border: #d7dfea;
+  --ar-border-strong: #7f90a9;
+  --ar-primary: #012455;
+  --ar-primary-hover: #01387f;
+  --ar-on-primary: #ffffff;
+  --ar-accent: #00cab5;
+  --ar-on-accent: #012455;
+  --ar-link: #00776b;
+  --ar-focus: #01387f;
+  --ar-success: #00695f;
+  --ar-success-bg: #e3f8f5;
+  --ar-warning: #9a4a00;
+  --ar-warning-bg: #fff3e2;
+  --ar-danger: #b3261e;
+  --ar-danger-bg: #fdecea;
+  --ar-info: #01387f;
+  --ar-info-bg: #e7eef8;
+  --ar-radius-sm: 6px;
+  --ar-radius: 10px;
+  --ar-radius-lg: 16px;
+  --ar-radius-xl: 24px;
+  --ar-radius-pill: 999px;
+  --ar-shadow-sm: 0 1px 2px rgba(1, 36, 85, 0.08), 0 1px 1px rgba(1, 36, 85, 0.04);
+  --ar-shadow: 0 8px 24px rgba(1, 36, 85, 0.1), 0 2px 6px rgba(1, 36, 85, 0.06);
+  --ar-font-display: var(--ar-font-outfit), var(--ar-font-figtree), system-ui, sans-serif;
+  --ar-font-sans:
+    var(--ar-font-figtree), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --ar-font-mono: var(--ar-font-jetbrains), ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ar-ink: #e8ebef;
-    --ar-ink-muted: #a3acb9;
-    --ar-surface: #11151b;
-    --ar-surface-subtle: #181d24;
-    --ar-border: #2a313b;
-    --ar-accent: #7fb0dd;
-    --ar-accent-ink: #0b1118;
+    --ar-brand-teal-deep: #4be3d2;
+    --ar-surface: #061631;
+    --ar-surface-sunk: #040f24;
+    --ar-surface-raised: #0c2147;
+    --ar-surface-inverse: #eef3fa;
+    --ar-ink: #eef3fa;
+    --ar-ink-muted: #a6b4c8;
+    --ar-ink-inverse: #012455;
+    --ar-heading: #eef3fa;
+    --ar-border: #1e345c;
+    --ar-border-strong: #5a6f93;
+    --ar-primary: #00cab5;
+    --ar-primary-hover: #3ddcc9;
+    --ar-on-primary: #012455;
+    --ar-link: #4be3d2;
+    --ar-focus: #4be3d2;
+    --ar-success: #4be3d2;
+    --ar-success-bg: #0a3a3d;
+    --ar-warning: #ffb55c;
+    --ar-warning-bg: #3a2508;
+    --ar-danger: #ff8a80;
+    --ar-danger-bg: #3d1414;
+    --ar-info: #8db8ff;
+    --ar-info-bg: #11284f;
+    --ar-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --ar-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   }
 }

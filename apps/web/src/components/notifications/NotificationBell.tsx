@@ -2,6 +2,7 @@
 
 import type { NotificationListOut } from "@approvalready/shared-types";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { apiRequest } from "@/lib/client-api";
@@ -9,6 +10,7 @@ import { apiRequest } from "@/lib/client-api";
 /** "Notifications" in the header, with the unread count for the active organisation. */
 export function NotificationBell({ organisationId }: { organisationId: string }) {
   const [unread, setUnread] = useState(0);
+  const current = (usePathname() ?? "").startsWith("/notifications");
 
   useEffect(() => {
     let cancelled = false;
@@ -24,7 +26,11 @@ export function NotificationBell({ organisationId }: { organisationId: string })
   }, [organisationId]);
 
   return (
-    <Link href="/notifications" aria-label={unread ? `Notifications, ${unread} unread` : undefined}>
+    <Link
+      href="/notifications"
+      aria-current={current ? "page" : undefined}
+      aria-label={unread ? `Notifications, ${unread} unread` : undefined}
+    >
       Notifications
       {unread ? (
         <span className="badge" aria-hidden="true">
