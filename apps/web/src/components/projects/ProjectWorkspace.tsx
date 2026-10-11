@@ -14,6 +14,7 @@ import type {
   ReminderOut,
   TaskOut,
   VesselOut,
+  WhatsLeftOut,
 } from "@approvalready/shared-types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -25,6 +26,7 @@ import { BusinessPanel } from "@/components/projects/BusinessPanel";
 import { ChecklistsPanel } from "@/components/projects/ChecklistsPanel";
 import { SitePanel } from "@/components/projects/SitePanel";
 import { VesselPanel } from "@/components/projects/VesselPanel";
+import { WhatsLeft } from "@/components/projects/WhatsLeft";
 import { CONFIDENCE_LABELS } from "@/lib/assessment";
 import { apiRequest } from "@/lib/client-api";
 import {
@@ -48,6 +50,7 @@ type Props = {
   checklists?: ChecklistOut[];
   checklistDefinitions?: ChecklistDefinitionOut[];
   documents?: DocumentOut[];
+  whatsLeft?: WhatsLeftOut;
   currentUserId: string;
   canWrite: boolean;
 };
@@ -192,6 +195,10 @@ export function ProjectWorkspace(props: Props) {
       </section>
 
       <FormError message={error} />
+
+      {props.whatsLeft && !["COMPLETED", "ARCHIVED"].includes(project.status) ? (
+        <WhatsLeft left={props.whatsLeft} />
+      ) : null}
 
       {canWrite && statusChanges.length > 0 ? (
         <div className="button-row tight" aria-label="Change status">

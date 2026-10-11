@@ -38,6 +38,7 @@ class NotificationKind(StrEnum):
     QUOTE_RECEIVED = "QUOTE_RECEIVED"  # customer: a partner sent them a quote
     QUOTE_ANSWERED = "QUOTE_ANSWERED"  # partner: the customer accepted or declined a quote
     MESSAGE_RECEIVED = "MESSAGE_RECEIVED"  # customer or partner: a message about a referral
+    KEEP_GOING = "KEEP_GOING"  # customer: a project went quiet with things still to do
 
 
 class NotificationCategory(StrEnum):
@@ -47,6 +48,7 @@ class NotificationCategory(StrEnum):
     GRANT_ROUNDS = "GRANT_ROUNDS"
     REFERRALS = "REFERRALS"
     SOURCE_REVIEWS = "SOURCE_REVIEWS"  # staff only
+    PROGRESS = "PROGRESS"  # nudges to finish a project that went quiet
 
 
 # Kinds missing here (ops alerts) can't be turned off: they are how platform admins hear
@@ -60,6 +62,7 @@ CATEGORY_OF: dict[NotificationKind, NotificationCategory] = {
     NotificationKind.QUOTE_ANSWERED: NotificationCategory.REFERRALS,
     NotificationKind.MESSAGE_RECEIVED: NotificationCategory.REFERRALS,
     NotificationKind.SOURCES_DUE: NotificationCategory.SOURCE_REVIEWS,
+    NotificationKind.KEEP_GOING: NotificationCategory.PROGRESS,
 }
 
 
@@ -91,6 +94,13 @@ class Notification(UUIDPrimaryKeyMixin, TenantMixin, Base):
             "dedupe_key",
             unique=True,
             postgresql_where=text("dedupe_key IS NOT NULL"),
+        ),
+        # Counting the nudges a quiet project has had (``quiet_projects``, migration 0030).
+        Index(
+            "ix_notification_keep_going",
+            "project_id",
+            "created_at",
+            postgresql_where=text("kind = 'KEEP_GOING'"),
         ),
     )
 

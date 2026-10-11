@@ -729,6 +729,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/progress/quiet": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Quiet Projects */
+        get: operations["quiet_projects_v1_admin_progress_quiet_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/reviews": {
         parameters: {
             query?: never;
@@ -3683,6 +3700,23 @@ export interface paths {
         head?: never;
         /** Update Task */
         patch: operations["update_task_v1_organisations__organisation_id__projects__project_id__tasks__task_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/whats-left": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Whats Left */
+        get: operations["get_whats_left_v1_organisations__organisation_id__projects__project_id__whats_left_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/v1/organisations/{organisation_id}/properties": {
@@ -7326,6 +7360,18 @@ export interface components {
          * @enum {string}
          */
         LeadStatus: "OPEN" | "FILLED" | "EXPIRED" | "WITHDRAWN";
+        /** LeftItemOut */
+        LeftItemOut: {
+            /** Count */
+            count: number;
+            /** Details */
+            details: string[];
+            /** Link Path */
+            link_path: string;
+            step: components["schemas"]["ProgressStep"];
+            /** Title */
+            title: string;
+        };
         /**
          * ListingStatus
          * @enum {string}
@@ -7891,7 +7937,7 @@ export interface components {
          * @description What a member chooses about (Milestone 21): one or more notification kinds.
          * @enum {string}
          */
-        NotificationCategory: "REMINDERS" | "GRANT_ROUNDS" | "REFERRALS" | "SOURCE_REVIEWS";
+        NotificationCategory: "REMINDERS" | "GRANT_ROUNDS" | "REFERRALS" | "SOURCE_REVIEWS" | "PROGRESS";
         /**
          * NotificationChannel
          * @enum {string}
@@ -7901,7 +7947,7 @@ export interface components {
          * NotificationKind
          * @enum {string}
          */
-        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE" | "LEAD_OFFERED" | "LEAD_CLAIMED" | "OPS_ALERT" | "QUOTE_RECEIVED" | "QUOTE_ANSWERED" | "MESSAGE_RECEIVED";
+        NotificationKind: "REMINDER" | "GRANT_ROUND" | "SOURCES_DUE" | "LEAD_OFFERED" | "LEAD_CLAIMED" | "OPS_ALERT" | "QUOTE_RECEIVED" | "QUOTE_ANSWERED" | "MESSAGE_RECEIVED" | "KEEP_GOING";
         /** NotificationListOut */
         NotificationListOut: {
             /** Items */
@@ -9082,6 +9128,11 @@ export interface components {
             /** Visible */
             visible: number;
         };
+        /**
+         * ProgressStep
+         * @enum {string}
+         */
+        ProgressStep: "START" | "QUESTIONS" | "SUBMIT" | "RESULTS" | "DOCUMENTS" | "TASKS" | "CHECKLIST";
         /** ProjectCreate */
         ProjectCreate: {
             /** Business Profile Id */
@@ -9393,6 +9444,53 @@ export interface components {
             project_title: string;
             status: components["schemas"]["ReviewRequestStatus"];
             vertical: components["schemas"]["Vertical"];
+        };
+        /**
+         * QuietProjectOut
+         * @description A project that went quiet partway through (staff view): stage and counts only.
+         */
+        QuietProjectOut: {
+            /** Checklist Open */
+            checklist_open: number;
+            /** Documents Missing */
+            documents_missing: number;
+            /**
+             * Last Activity At
+             * Format: date-time
+             */
+            last_activity_at: string;
+            /** Last Nudged At */
+            last_nudged_at: string | null;
+            /** Nudges Sent */
+            nudges_sent: number;
+            /** Open Tasks */
+            open_tasks: number;
+            /**
+             * Organisation Id
+             * Format: uuid
+             */
+            organisation_id: string;
+            /** Organisation Name */
+            organisation_name: string;
+            /** Owner Email */
+            owner_email: string | null;
+            /** Owner Name */
+            owner_name: string | null;
+            /** Owner User Id */
+            owner_user_id: string | null;
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /** Reference Code */
+            reference_code: string;
+            /** Stage */
+            stage: string;
+            /** Status */
+            status: string;
+            /** Vertical */
+            vertical: string;
         };
         /** QuoteAcceptIn */
         QuoteAcceptIn: {
@@ -11916,6 +12014,13 @@ export interface components {
             uvi?: string | null;
             vessel_type?: components["schemas"]["VesselType"] | null;
         };
+        /** WhatsLeftOut */
+        WhatsLeftOut: {
+            /** Done */
+            done: boolean;
+            /** Items */
+            items: components["schemas"]["LeftItemOut"][];
+        };
         /** RefundIn */
         app__modules__leads__schemas__RefundIn: {
             /** Note */
@@ -13224,6 +13329,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ProfessionalOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    quiet_projects_v1_admin_progress_quiet_get: {
+        parameters: {
+            query?: {
+                days?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QuietProjectOut"][];
                 };
             };
             /** @description Validation Error */
@@ -19833,6 +19969,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["TaskOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_whats_left_v1_organisations__organisation_id__projects__project_id__whats_left_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["WhatsLeftOut"];
                 };
             };
             /** @description Validation Error */

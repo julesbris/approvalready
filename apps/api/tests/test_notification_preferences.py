@@ -213,6 +213,7 @@ async def test_unsubscribe_link_stops_emails_without_signing_in(
         "GRANT_ROUNDS": "IN_APP",
         "REFERRALS": "OFF",
         "SOURCE_REVIEWS": "IN_APP",
+        "PROGRESS": "IN_APP",
     }
 
 

@@ -18,6 +18,7 @@ export function AdminNav({
     | "billing"
     | "privacy"
     | "accounts"
+    | "progress"
     | "ops";
 }) {
   const links = [
@@ -34,6 +35,7 @@ export function AdminNav({
     ["billing", "/admin/billing", "Billing"],
     ["privacy", "/admin/privacy", "Privacy"],
     ["accounts", "/admin/accounts", "Accounts"],
+    ["progress", "/admin/progress", "Stuck projects"],
     ["ops", "/admin/ops", "Operations"],
   ] as const;
   return (
