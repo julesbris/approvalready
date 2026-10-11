@@ -583,6 +583,32 @@
         "title": "AccountMembership",
         "type": "object"
       },
+      "AccountNewsletterIn": {
+        "properties": {
+          "subscribed": {
+            "title": "Subscribed",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "subscribed"
+        ],
+        "title": "AccountNewsletterIn",
+        "type": "object"
+      },
+      "AccountNewsletterOut": {
+        "properties": {
+          "subscribed": {
+            "title": "Subscribed",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "subscribed"
+        ],
+        "title": "AccountNewsletterOut",
+        "type": "object"
+      },
       "AccountSearch": {
         "description": "Search by email, name, business name or ABN. Sent in the body, not the address, so\ncustomers' email addresses stay out of logs.",
         "properties": {
@@ -2237,6 +2263,119 @@
         "title": "AuthorRole",
         "type": "string"
       },
+      "AutopostIn": {
+        "properties": {
+          "channels": {
+            "items": {
+              "$ref": "#/components/schemas/Channel"
+            },
+            "maxItems": 3,
+            "title": "Channels",
+            "type": "array"
+          },
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "post_at": {
+            "format": "time",
+            "title": "Post At",
+            "type": "string"
+          },
+          "skip_guides": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 200,
+            "title": "Skip Guides",
+            "type": "array"
+          },
+          "weekdays": {
+            "items": {
+              "type": "integer"
+            },
+            "maxItems": 7,
+            "title": "Weekdays",
+            "type": "array"
+          }
+        },
+        "required": [
+          "enabled",
+          "channels",
+          "weekdays",
+          "post_at"
+        ],
+        "title": "AutopostIn",
+        "type": "object"
+      },
+      "AutopostOut": {
+        "properties": {
+          "channels": {
+            "items": {
+              "$ref": "#/components/schemas/Channel"
+            },
+            "title": "Channels",
+            "type": "array"
+          },
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "next_guide_ref": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Guide Ref"
+          },
+          "next_run": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Run"
+          },
+          "post_at": {
+            "format": "time",
+            "title": "Post At",
+            "type": "string"
+          },
+          "skip_guides": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Skip Guides",
+            "type": "array"
+          },
+          "weekdays": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Weekdays",
+            "type": "array"
+          }
+        },
+        "required": [
+          "enabled",
+          "channels",
+          "weekdays",
+          "post_at",
+          "skip_guides",
+          "next_guide_ref",
+          "next_run"
+        ],
+        "title": "AutopostOut",
+        "type": "object"
+      },
       "BackupRunOut": {
         "properties": {
           "database_bytes": {
@@ -3475,6 +3614,56 @@
           }
         },
         "title": "CertificateUpdate",
+        "type": "object"
+      },
+      "Channel": {
+        "enum": [
+          "FACEBOOK",
+          "INSTAGRAM",
+          "EMAIL"
+        ],
+        "title": "Channel",
+        "type": "string"
+      },
+      "ChannelOut": {
+        "properties": {
+          "channel": {
+            "$ref": "#/components/schemas/Channel"
+          },
+          "configured": {
+            "title": "Configured",
+            "type": "boolean"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          }
+        },
+        "required": [
+          "channel",
+          "configured",
+          "name",
+          "error"
+        ],
+        "title": "ChannelOut",
         "type": "object"
       },
       "CheckOut": {
@@ -5739,6 +5928,35 @@
         "title": "DocumentUpdateIn",
         "type": "object"
       },
+      "DraftOut": {
+        "properties": {
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/Channel"
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject"
+          }
+        },
+        "required": [
+          "channel",
+          "subject",
+          "body"
+        ],
+        "title": "DraftOut",
+        "type": "object"
+      },
       "DraftSection": {
         "additionalProperties": false,
         "properties": {
@@ -7693,6 +7911,26 @@
         "title": "GuideContact",
         "type": "object"
       },
+      "GuideDraftsOut": {
+        "properties": {
+          "drafts": {
+            "items": {
+              "$ref": "#/components/schemas/DraftOut"
+            },
+            "title": "Drafts",
+            "type": "array"
+          },
+          "guide": {
+            "$ref": "#/components/schemas/GuideOut"
+          }
+        },
+        "required": [
+          "guide",
+          "drafts"
+        ],
+        "title": "GuideDraftsOut",
+        "type": "object"
+      },
       "GuideFee": {
         "additionalProperties": false,
         "properties": {
@@ -7751,6 +7989,62 @@
           "url"
         ],
         "title": "GuideLink",
+        "type": "object"
+      },
+      "GuideOut": {
+        "properties": {
+          "card_path": {
+            "title": "Card Path",
+            "type": "string"
+          },
+          "last_posted_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Posted At"
+          },
+          "link_path": {
+            "title": "Link Path",
+            "type": "string"
+          },
+          "product": {
+            "title": "Product",
+            "type": "string"
+          },
+          "ref": {
+            "title": "Ref",
+            "type": "string"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "vertical": {
+            "title": "Vertical",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ref",
+          "title",
+          "summary",
+          "vertical",
+          "product",
+          "link_path",
+          "card_path",
+          "last_posted_at"
+        ],
+        "title": "GuideOut",
         "type": "object"
       },
       "GuideSource": {
@@ -10523,6 +10817,23 @@
         "title": "MonthFunnelOut",
         "type": "object"
       },
+      "NewsletterStateOut": {
+        "properties": {
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SubscriberStatus"
+          }
+        },
+        "required": [
+          "email",
+          "status"
+        ],
+        "title": "NewsletterStateOut",
+        "type": "object"
+      },
       "NotCheckedOut": {
         "properties": {
           "label": {
@@ -11560,6 +11871,35 @@
           "verification_status"
         ],
         "title": "OverrideSourceOut",
+        "type": "object"
+      },
+      "OverviewOut": {
+        "properties": {
+          "autopost": {
+            "$ref": "#/components/schemas/AutopostOut"
+          },
+          "channels": {
+            "items": {
+              "$ref": "#/components/schemas/ChannelOut"
+            },
+            "title": "Channels",
+            "type": "array"
+          },
+          "newsletter_daily_limit": {
+            "title": "Newsletter Daily Limit",
+            "type": "integer"
+          },
+          "subscribers": {
+            "$ref": "#/components/schemas/SubscriberCountsOut"
+          }
+        },
+        "required": [
+          "channels",
+          "autopost",
+          "subscribers",
+          "newsletter_daily_limit"
+        ],
+        "title": "OverviewOut",
         "type": "object"
       },
       "OwnershipRole": {
@@ -13090,6 +13430,255 @@
           "version"
         ],
         "title": "PolicyOut",
+        "type": "object"
+      },
+      "PostEditIn": {
+        "properties": {
+          "body": {
+            "anyOf": [
+              {
+                "maxLength": 20000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Body"
+          },
+          "scheduled_for": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheduled For"
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject"
+          }
+        },
+        "title": "PostEditIn",
+        "type": "object"
+      },
+      "PostIn": {
+        "properties": {
+          "body": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Body",
+            "type": "string"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/Channel"
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject"
+          }
+        },
+        "required": [
+          "channel",
+          "body"
+        ],
+        "title": "PostIn",
+        "type": "object"
+      },
+      "PostOrigin": {
+        "enum": [
+          "MANUAL",
+          "AUTO"
+        ],
+        "title": "PostOrigin",
+        "type": "string"
+      },
+      "PostOut": {
+        "properties": {
+          "attempts": {
+            "title": "Attempts",
+            "type": "integer"
+          },
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/Channel"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "external_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Url"
+          },
+          "guide_ref": {
+            "title": "Guide Ref",
+            "type": "string"
+          },
+          "guide_title": {
+            "title": "Guide Title",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "link_url": {
+            "title": "Link Url",
+            "type": "string"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/PostOrigin"
+          },
+          "posted_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Posted At"
+          },
+          "scheduled_for": {
+            "format": "date-time",
+            "title": "Scheduled For",
+            "type": "string"
+          },
+          "sent_count": {
+            "title": "Sent Count",
+            "type": "integer"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PostStatus"
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject"
+          }
+        },
+        "required": [
+          "id",
+          "guide_ref",
+          "guide_title",
+          "channel",
+          "origin",
+          "status",
+          "subject",
+          "body",
+          "link_url",
+          "scheduled_for",
+          "attempts",
+          "error",
+          "posted_at",
+          "external_url",
+          "sent_count",
+          "created_at"
+        ],
+        "title": "PostOut",
+        "type": "object"
+      },
+      "PostStatus": {
+        "enum": [
+          "SCHEDULED",
+          "PUBLISHING",
+          "POSTED",
+          "FAILED",
+          "CANCELLED"
+        ],
+        "title": "PostStatus",
+        "type": "string"
+      },
+      "PostsIn": {
+        "properties": {
+          "guide_ref": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Guide Ref",
+            "type": "string"
+          },
+          "posts": {
+            "items": {
+              "$ref": "#/components/schemas/PostIn"
+            },
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Posts",
+            "type": "array"
+          },
+          "scheduled_for": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheduled For"
+          }
+        },
+        "required": [
+          "guide_ref",
+          "posts"
+        ],
+        "title": "PostsIn",
         "type": "object"
       },
       "PreferenceOut": {
@@ -18447,6 +19036,33 @@
         "title": "SessionOut",
         "type": "object"
       },
+      "SignUpIn": {
+        "properties": {
+          "email": {
+            "format": "email",
+            "title": "Email",
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "title": "SignUpIn",
+        "type": "object"
+      },
+      "SignUpOut": {
+        "properties": {
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ],
+        "title": "SignUpOut",
+        "type": "object"
+      },
       "SmsElementOut": {
         "properties": {
           "guidance": {
@@ -20763,6 +21379,125 @@
         "title": "SubmissionSummary",
         "type": "object"
       },
+      "SubscriberCountsOut": {
+        "properties": {
+          "pending": {
+            "title": "Pending",
+            "type": "integer"
+          },
+          "subscribed": {
+            "title": "Subscribed",
+            "type": "integer"
+          },
+          "unsubscribed": {
+            "title": "Unsubscribed",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "pending",
+          "subscribed",
+          "unsubscribed"
+        ],
+        "title": "SubscriberCountsOut",
+        "type": "object"
+      },
+      "SubscriberOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "has_account": {
+            "title": "Has Account",
+            "type": "boolean"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/SubscriberStatus"
+          },
+          "subscribed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subscribed At"
+          },
+          "unsubscribed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unsubscribed At"
+          }
+        },
+        "required": [
+          "id",
+          "email",
+          "status",
+          "source",
+          "has_account",
+          "subscribed_at",
+          "unsubscribed_at",
+          "created_at"
+        ],
+        "title": "SubscriberOut",
+        "type": "object"
+      },
+      "SubscriberSearchIn": {
+        "properties": {
+          "query": {
+            "default": "",
+            "maxLength": 320,
+            "title": "Query",
+            "type": "string"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SubscriberStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "title": "SubscriberSearchIn",
+        "type": "object"
+      },
+      "SubscriberStatus": {
+        "enum": [
+          "PENDING",
+          "SUBSCRIBED",
+          "UNSUBSCRIBED"
+        ],
+        "title": "SubscriberStatus",
+        "type": "string"
+      },
       "SubscriptionOut": {
         "properties": {
           "amount_cents": {
@@ -21713,6 +22448,21 @@
         ],
         "title": "Timing",
         "type": "string"
+      },
+      "TokenIn": {
+        "properties": {
+          "token": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Token",
+            "type": "string"
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "title": "TokenIn",
+        "type": "object"
       },
       "TokenRequest": {
         "properties": {
@@ -23807,6 +24557,458 @@
         "summary": "Set Price",
         "tags": [
           "admin: leads"
+        ]
+      }
+    },
+    "/v1/admin/marketing/autopost": {
+      "put": {
+        "operationId": "put_autopost_v1_admin_marketing_autopost_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutopostIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AutopostOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Autopost",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/guides": {
+      "get": {
+        "operationId": "list_guides_v1_admin_marketing_guides_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/GuideOut"
+                  },
+                  "title": "Response List Guides V1 Admin Marketing Guides Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Guides",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/guides/{ref}/drafts": {
+      "get": {
+        "operationId": "guide_drafts_v1_admin_marketing_guides__ref__drafts_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ref",
+            "required": true,
+            "schema": {
+              "title": "Ref",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuideDraftsOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Guide Drafts",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/overview": {
+      "get": {
+        "operationId": "overview_v1_admin_marketing_overview_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OverviewOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Overview",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/posts": {
+      "get": {
+        "operationId": "list_posts_v1_admin_marketing_posts_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PostOut"
+                  },
+                  "title": "Response List Posts V1 Admin Marketing Posts Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Posts",
+        "tags": [
+          "admin: marketing"
+        ]
+      },
+      "post": {
+        "operationId": "create_posts_v1_admin_marketing_posts_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostsIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PostOut"
+                  },
+                  "title": "Response Create Posts V1 Admin Marketing Posts Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Posts",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/posts/{post_id}": {
+      "patch": {
+        "operationId": "edit_post_v1_admin_marketing_posts__post_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "post_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Post Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostEditIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Edit Post",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/posts/{post_id}/cancel": {
+      "post": {
+        "operationId": "cancel_post_v1_admin_marketing_posts__post_id__cancel_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "post_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Post Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Cancel Post",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/posts/{post_id}/retry": {
+      "post": {
+        "operationId": "retry_post_v1_admin_marketing_posts__post_id__retry_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "post_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Post Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Retry Post",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/subscribers": {
+      "get": {
+        "description": "The newest people on the list.",
+        "operationId": "list_subscribers_v1_admin_marketing_subscribers_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SubscriberOut"
+                  },
+                  "title": "Response List Subscribers V1 Admin Marketing Subscribers Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Subscribers",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/subscribers/search": {
+      "post": {
+        "description": "Posted, so email addresses never end up in a page address or server log.",
+        "operationId": "search_subscribers_v1_admin_marketing_subscribers_search_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubscriberSearchIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SubscriberOut"
+                  },
+                  "title": "Response Search Subscribers V1 Admin Marketing Subscribers Search Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Search Subscribers",
+        "tags": [
+          "admin: marketing"
+        ]
+      }
+    },
+    "/v1/admin/marketing/subscribers/{subscriber_id}/unsubscribe": {
+      "post": {
+        "description": "Take someone off the list (they asked by phone or reply).",
+        "operationId": "staff_unsubscribe_v1_admin_marketing_subscribers__subscriber_id__unsubscribe_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subscriber_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Subscriber Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubscriberOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Staff Unsubscribe",
+        "tags": [
+          "admin: marketing"
         ]
       }
     },
@@ -26859,6 +28061,66 @@
         ]
       }
     },
+    "/v1/auth/newsletter": {
+      "get": {
+        "operationId": "get_account_newsletter_v1_auth_newsletter_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountNewsletterOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get Account Newsletter",
+        "tags": [
+          "marketing"
+        ]
+      },
+      "put": {
+        "operationId": "put_account_newsletter_v1_auth_newsletter_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountNewsletterIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountNewsletterOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Account Newsletter",
+        "tags": [
+          "marketing"
+        ]
+      }
+    },
     "/v1/auth/notification-preferences": {
       "get": {
         "description": "Every category with the signed-in person's choice (``ALL`` until they choose).",
@@ -27613,6 +28875,257 @@
         "summary": "Accept Invitation",
         "tags": [
           "organisations"
+        ]
+      }
+    },
+    "/v1/marketing/cards/{ref}.jpg": {
+      "get": {
+        "operationId": "guide_card_v1_marketing_cards__ref__jpg_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ref",
+            "required": true,
+            "schema": {
+              "title": "Ref",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Guide Card",
+        "tags": [
+          "marketing"
+        ]
+      }
+    },
+    "/v1/marketing/confirm": {
+      "get": {
+        "operationId": "confirm_info_v1_marketing_confirm_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "title": "Token",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsletterStateOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Confirm Info",
+        "tags": [
+          "marketing"
+        ]
+      },
+      "post": {
+        "operationId": "confirm_v1_marketing_confirm_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsletterStateOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Confirm",
+        "tags": [
+          "marketing"
+        ]
+      }
+    },
+    "/v1/marketing/subscribe": {
+      "post": {
+        "operationId": "subscribe_v1_marketing_subscribe_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignUpIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignUpOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Subscribe",
+        "tags": [
+          "marketing"
+        ]
+      }
+    },
+    "/v1/marketing/unsubscribe": {
+      "get": {
+        "operationId": "unsubscribe_info_v1_marketing_unsubscribe_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "title": "Token",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsletterStateOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Unsubscribe Info",
+        "tags": [
+          "marketing"
+        ]
+      },
+      "post": {
+        "description": "Leave the list. The token is in the address and any body is ignored, as RFC 8058's\none-click unsubscribe posts ``List-Unsubscribe=One-Click`` there.",
+        "operationId": "unsubscribe_v1_marketing_unsubscribe_post",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "maxLength": 200,
+              "minLength": 1,
+              "title": "Token",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewsletterStateOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Unsubscribe",
+        "tags": [
+          "marketing"
         ]
       }
     },

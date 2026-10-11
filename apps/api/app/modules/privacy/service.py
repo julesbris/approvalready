@@ -48,6 +48,7 @@ from app.modules.identity.models import (
 )
 from app.modules.leads import service as leads
 from app.modules.leads.models import ReferralConsent
+from app.modules.marketing import newsletter
 from app.modules.notifications import preferences as notification_preferences
 from app.modules.notifications.models import NotificationPreference
 from app.modules.privacy import emails
@@ -201,6 +202,7 @@ async def export_data(db: AsyncSession, user: AppUser) -> dict[str, Any]:
             category.value: channel.value
             for category, channel in (await notification_preferences.choices(db, user.id)).items()
         },
+        "guides_email_list": await newsletter.export(db, user),
         "organisations": [
             {
                 "id": str(m.organisation.id),
@@ -364,6 +366,7 @@ async def close_account(
         if org is not None:
             org.name = "Closed account"
             org.deleted_at = now
+    await newsletter.forget_account(db, user.id, old_email)
     for model in (PasswordCredential, AuthIdentity, OneTimeToken, NotificationPreference):
         await db.execute(delete(model).where(model.user_id == user.id))
     await mfa.remove(db, user.id)

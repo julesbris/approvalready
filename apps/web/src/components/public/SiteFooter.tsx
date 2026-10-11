@@ -33,6 +33,9 @@ export function SiteFooter() {
                 <Link href="/guides">Guides</Link>
               </li>
               <li>
+                <Link href="/newsletter">Guides by email</Link>
+              </li>
+              <li>
                 <Link href="/terms">Terms of Use</Link>
               </li>
               <li>

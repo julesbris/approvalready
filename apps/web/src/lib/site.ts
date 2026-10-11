@@ -16,6 +16,7 @@ export function sitemapPaths(): string[] {
     "/",
     "/guides",
     ...GUIDES.filter((g) => g.verification === "VERIFIED").map((g) => `/guides/${g.slug}`),
+    "/newsletter",
     "/contact",
     "/privacy",
     "/terms",

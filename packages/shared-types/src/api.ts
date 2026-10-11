@@ -485,6 +485,203 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/marketing/autopost": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Put Autopost */
+        put: operations["put_autopost_v1_admin_marketing_autopost_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/marketing/guides": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Guides */
+        get: operations["list_guides_v1_admin_marketing_guides_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/marketing/guides/{ref}/drafts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Guide Drafts */
+        get: operations["guide_drafts_v1_admin_marketing_guides__ref__drafts_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/marketing/overview": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Overview */
+        get: operations["overview_v1_admin_marketing_overview_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/marketing/posts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Posts */
+        get: operations["list_posts_v1_admin_marketing_posts_get"];
+        put?: never;
+        /** Create Posts */
+        post: operations["create_posts_v1_admin_marketing_posts_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/marketing/posts/{post_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Edit Post */
+        patch: operations["edit_post_v1_admin_marketing_posts__post_id__patch"];
+        trace?: never;
+    };
+    "/v1/admin/marketing/posts/{post_id}/cancel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Cancel Post */
+        post: operations["cancel_post_v1_admin_marketing_posts__post_id__cancel_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/marketing/posts/{post_id}/retry": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Retry Post */
+        post: operations["retry_post_v1_admin_marketing_posts__post_id__retry_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/marketing/subscribers": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Subscribers
+         * @description The newest people on the list.
+         */
+        get: operations["list_subscribers_v1_admin_marketing_subscribers_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/marketing/subscribers/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Search Subscribers
+         * @description Posted, so email addresses never end up in a page address or server log.
+         */
+        post: operations["search_subscribers_v1_admin_marketing_subscribers_search_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/marketing/subscribers/{subscriber_id}/unsubscribe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Staff Unsubscribe
+         * @description Take someone off the list (they asked by phone or reply).
+         */
+        post: operations["staff_unsubscribe_v1_admin_marketing_subscribers__subscriber_id__unsubscribe_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/ops": {
         parameters: {
             query?: never;
@@ -1552,6 +1749,24 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/auth/newsletter": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Account Newsletter */
+        get: operations["get_account_newsletter_v1_auth_newsletter_get"];
+        /** Put Account Newsletter */
+        put: operations["put_account_newsletter_v1_auth_newsletter_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/auth/notification-preferences": {
         parameters: {
             query?: never;
@@ -1856,6 +2071,80 @@ export interface paths {
         put?: never;
         /** Accept Invitation */
         post: operations["accept_invitation_v1_invitations_accept_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/marketing/cards/{ref}.jpg": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Guide Card */
+        get: operations["guide_card_v1_marketing_cards__ref__jpg_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/marketing/confirm": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Confirm Info */
+        get: operations["confirm_info_v1_marketing_confirm_get"];
+        put?: never;
+        /** Confirm */
+        post: operations["confirm_v1_marketing_confirm_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/marketing/subscribe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Subscribe */
+        post: operations["subscribe_v1_marketing_subscribe_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/marketing/unsubscribe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Unsubscribe Info */
+        get: operations["unsubscribe_info_v1_marketing_unsubscribe_get"];
+        put?: never;
+        /**
+         * Unsubscribe
+         * @description Leave the list. The token is in the address and any body is ignored, as RFC 8058's
+         *     one-click unsubscribe posts ``List-Unsubscribe=One-Click`` there.
+         */
+        post: operations["unsubscribe_v1_marketing_unsubscribe_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -4787,6 +5076,16 @@ export interface components {
             /** Roles */
             roles: string[];
         };
+        /** AccountNewsletterIn */
+        AccountNewsletterIn: {
+            /** Subscribed */
+            subscribed: boolean;
+        };
+        /** AccountNewsletterOut */
+        AccountNewsletterOut: {
+            /** Subscribed */
+            subscribed: boolean;
+        };
         /**
          * AccountSearch
          * @description Search by email, name, business name or ABN. Sent in the body, not the address, so
@@ -5403,6 +5702,42 @@ export interface components {
          * @enum {string}
          */
         AuthorRole: "CUSTOMER" | "REVIEWER";
+        /** AutopostIn */
+        AutopostIn: {
+            /** Channels */
+            channels: components["schemas"]["Channel"][];
+            /** Enabled */
+            enabled: boolean;
+            /**
+             * Post At
+             * Format: time
+             */
+            post_at: string;
+            /** Skip Guides */
+            skip_guides?: string[];
+            /** Weekdays */
+            weekdays: number[];
+        };
+        /** AutopostOut */
+        AutopostOut: {
+            /** Channels */
+            channels: components["schemas"]["Channel"][];
+            /** Enabled */
+            enabled: boolean;
+            /** Next Guide Ref */
+            next_guide_ref: string | null;
+            /** Next Run */
+            next_run: string | null;
+            /**
+             * Post At
+             * Format: time
+             */
+            post_at: string;
+            /** Skip Guides */
+            skip_guides: string[];
+            /** Weekdays */
+            weekdays: number[];
+        };
         /** BackupRunOut */
         BackupRunOut: {
             /** Database Bytes */
@@ -5749,6 +6084,21 @@ export interface components {
              * @description A clean upload holding a copy of the certificate.
              */
             uploaded_document_id?: string | null;
+        };
+        /**
+         * Channel
+         * @enum {string}
+         */
+        Channel: "FACEBOOK" | "INSTAGRAM" | "EMAIL";
+        /** ChannelOut */
+        ChannelOut: {
+            channel: components["schemas"]["Channel"];
+            /** Configured */
+            configured: boolean;
+            /** Error */
+            error: string | null;
+            /** Name */
+            name: string | null;
         };
         /** CheckOut */
         CheckOut: {
@@ -6561,6 +6911,14 @@ export interface components {
         DocumentUpdateIn: {
             classification: components["schemas"]["Classification"];
         };
+        /** DraftOut */
+        DraftOut: {
+            /** Body */
+            body: string;
+            channel: components["schemas"]["Channel"];
+            /** Subject */
+            subject: string | null;
+        };
         /** DraftSection */
         DraftSection: {
             /**
@@ -7226,6 +7584,12 @@ export interface components {
             /** Url */
             url: string | null;
         };
+        /** GuideDraftsOut */
+        GuideDraftsOut: {
+            /** Drafts */
+            drafts: components["schemas"]["DraftOut"][];
+            guide: components["schemas"]["GuideOut"];
+        };
         /** GuideFee */
         GuideFee: {
             /** Amount */
@@ -7241,6 +7605,25 @@ export interface components {
             name: string;
             /** Url */
             url: string;
+        };
+        /** GuideOut */
+        GuideOut: {
+            /** Card Path */
+            card_path: string;
+            /** Last Posted At */
+            last_posted_at: string | null;
+            /** Link Path */
+            link_path: string;
+            /** Product */
+            product: string;
+            /** Ref */
+            ref: string;
+            /** Summary */
+            summary: string;
+            /** Title */
+            title: string;
+            /** Vertical */
+            vertical: string;
         };
         /** GuideSource */
         GuideSource: {
@@ -8196,6 +8579,12 @@ export interface components {
             /** Won */
             won: number;
         };
+        /** NewsletterStateOut */
+        NewsletterStateOut: {
+            /** Email */
+            email: string;
+            status: components["schemas"]["SubscriberStatus"];
+        };
         /** NotCheckedOut */
         NotCheckedOut: {
             /** Label */
@@ -8541,6 +8930,15 @@ export interface components {
             id: string;
             /** Verification Status */
             verification_status: string;
+        };
+        /** OverviewOut */
+        OverviewOut: {
+            autopost: components["schemas"]["AutopostOut"];
+            /** Channels */
+            channels: components["schemas"]["ChannelOut"][];
+            /** Newsletter Daily Limit */
+            newsletter_daily_limit: number;
+            subscribers: components["schemas"]["SubscriberCountsOut"];
         };
         /**
          * OwnershipRole
@@ -9085,6 +9483,83 @@ export interface components {
             title: string;
             /** Version */
             version: string;
+        };
+        /** PostEditIn */
+        PostEditIn: {
+            /** Body */
+            body?: string | null;
+            /** Scheduled For */
+            scheduled_for?: string | null;
+            /** Subject */
+            subject?: string | null;
+        };
+        /** PostIn */
+        PostIn: {
+            /** Body */
+            body: string;
+            channel: components["schemas"]["Channel"];
+            /** Subject */
+            subject?: string | null;
+        };
+        /**
+         * PostOrigin
+         * @enum {string}
+         */
+        PostOrigin: "MANUAL" | "AUTO";
+        /** PostOut */
+        PostOut: {
+            /** Attempts */
+            attempts: number;
+            /** Body */
+            body: string;
+            channel: components["schemas"]["Channel"];
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Error */
+            error: string | null;
+            /** External Url */
+            external_url: string | null;
+            /** Guide Ref */
+            guide_ref: string;
+            /** Guide Title */
+            guide_title: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Link Url */
+            link_url: string;
+            origin: components["schemas"]["PostOrigin"];
+            /** Posted At */
+            posted_at: string | null;
+            /**
+             * Scheduled For
+             * Format: date-time
+             */
+            scheduled_for: string;
+            /** Sent Count */
+            sent_count: number;
+            status: components["schemas"]["PostStatus"];
+            /** Subject */
+            subject: string | null;
+        };
+        /**
+         * PostStatus
+         * @enum {string}
+         */
+        PostStatus: "SCHEDULED" | "PUBLISHING" | "POSTED" | "FAILED" | "CANCELLED";
+        /** PostsIn */
+        PostsIn: {
+            /** Guide Ref */
+            guide_ref: string;
+            /** Posts */
+            posts: components["schemas"]["PostIn"][];
+            /** Scheduled For */
+            scheduled_for?: string | null;
         };
         /** PreferenceOut */
         PreferenceOut: {
@@ -10990,6 +11465,19 @@ export interface components {
             staff_mfa_required: boolean;
             user: components["schemas"]["UserOut"];
         };
+        /** SignUpIn */
+        SignUpIn: {
+            /**
+             * Email
+             * Format: email
+             */
+            email: string;
+        };
+        /** SignUpOut */
+        SignUpOut: {
+            /** Message */
+            message: string;
+        };
         /** SmsElementOut */
         SmsElementOut: {
             /** Guidance */
@@ -11783,6 +12271,53 @@ export interface components {
             /** Version */
             version: number;
         };
+        /** SubscriberCountsOut */
+        SubscriberCountsOut: {
+            /** Pending */
+            pending: number;
+            /** Subscribed */
+            subscribed: number;
+            /** Unsubscribed */
+            unsubscribed: number;
+        };
+        /** SubscriberOut */
+        SubscriberOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Email */
+            email: string;
+            /** Has Account */
+            has_account: boolean;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Source */
+            source: string;
+            status: components["schemas"]["SubscriberStatus"];
+            /** Subscribed At */
+            subscribed_at: string | null;
+            /** Unsubscribed At */
+            unsubscribed_at: string | null;
+        };
+        /** SubscriberSearchIn */
+        SubscriberSearchIn: {
+            /**
+             * Query
+             * @default
+             */
+            query: string;
+            status?: components["schemas"]["SubscriberStatus"] | null;
+        };
+        /**
+         * SubscriberStatus
+         * @enum {string}
+         */
+        SubscriberStatus: "PENDING" | "SUBSCRIBED" | "UNSUBSCRIBED";
         /** SubscriptionOut */
         SubscriptionOut: {
             /** Amount Cents */
@@ -12063,6 +12598,11 @@ export interface components {
          * @enum {string}
          */
         Timing: "ASAP" | "WITHIN_3_MONTHS" | "LATER" | "RESEARCHING";
+        /** TokenIn */
+        TokenIn: {
+            /** Token */
+            token: string;
+        };
         /** TokenRequest */
         TokenRequest: {
             /** Token */
@@ -13183,6 +13723,344 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["LeadPriceOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    put_autopost_v1_admin_marketing_autopost_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AutopostIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AutopostOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_guides_v1_admin_marketing_guides_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GuideOut"][];
+                };
+            };
+        };
+    };
+    guide_drafts_v1_admin_marketing_guides__ref__drafts_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                ref: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GuideDraftsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    overview_v1_admin_marketing_overview_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OverviewOut"];
+                };
+            };
+        };
+    };
+    list_posts_v1_admin_marketing_posts_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PostOut"][];
+                };
+            };
+        };
+    };
+    create_posts_v1_admin_marketing_posts_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PostsIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PostOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    edit_post_v1_admin_marketing_posts__post_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                post_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PostEditIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PostOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cancel_post_v1_admin_marketing_posts__post_id__cancel_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                post_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PostOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    retry_post_v1_admin_marketing_posts__post_id__retry_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                post_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PostOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_subscribers_v1_admin_marketing_subscribers_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubscriberOut"][];
+                };
+            };
+        };
+    };
+    search_subscribers_v1_admin_marketing_subscribers_search_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SubscriberSearchIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubscriberOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    staff_unsubscribe_v1_admin_marketing_subscribers__subscriber_id__unsubscribe_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                subscriber_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SubscriberOut"];
                 };
             };
             /** @description Validation Error */
@@ -15307,6 +16185,59 @@ export interface operations {
             };
         };
     };
+    get_account_newsletter_v1_auth_newsletter_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountNewsletterOut"];
+                };
+            };
+        };
+    };
+    put_account_newsletter_v1_auth_newsletter_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AccountNewsletterIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountNewsletterOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     get_preferences_v1_auth_notification_preferences_get: {
         parameters: {
             query?: never;
@@ -15841,6 +16772,196 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["OrganisationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    guide_card_v1_marketing_cards__ref__jpg_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                ref: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    confirm_info_v1_marketing_confirm_get: {
+        parameters: {
+            query: {
+                token: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NewsletterStateOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    confirm_v1_marketing_confirm_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TokenIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NewsletterStateOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    subscribe_v1_marketing_subscribe_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SignUpIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SignUpOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    unsubscribe_info_v1_marketing_unsubscribe_get: {
+        parameters: {
+            query: {
+                token: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NewsletterStateOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    unsubscribe_v1_marketing_unsubscribe_post: {
+        parameters: {
+            query: {
+                token: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NewsletterStateOut"];
                 };
             };
             /** @description Validation Error */

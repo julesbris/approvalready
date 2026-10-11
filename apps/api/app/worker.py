@@ -72,6 +72,7 @@ celery_app.conf.update(
             "task": "progress.nudge",
             "schedule": crontab(hour=10, minute=0),
         },
+        "marketing-publish-due": {"task": "marketing.publish_due", "schedule": 120.0},
         "privacy-delete-closed-workspaces": {
             "task": "privacy.delete_closed_workspaces",
             "schedule": crontab(hour=3, minute=20),
@@ -359,3 +360,18 @@ def progress_nudge() -> int:
     from app.modules.progress import nudges
 
     return asyncio.run(_with_own_engine(nudges.send_nudges))
+
+
+# --- Marketing ----------------------------------------------------------------------------
+
+
+@celery_app.task(name="marketing.publish_due")
+def marketing_publish_due() -> int:
+    """Auto posts, then guide posts due to Facebook, Instagram and the email list (every 2
+    minutes, and straight after staff press "Post now")."""
+    from app.modules.marketing import service as marketing
+
+    async def job(factory: Any, email: Any, s: Any) -> int:
+        return await marketing.publish_due(factory, email, s)
+
+    return asyncio.run(_with_own_engine(job))

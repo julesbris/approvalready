@@ -12,7 +12,7 @@
 
 export const POLICY_VERSIONS = {
   terms: "2026-10-10",
-  privacy: "2026-10-10",
+  privacy: "2026-10-11",
 } as const;
 
 /** Who runs the service and how to reach us. Add the legal entity's name and ABN here. */

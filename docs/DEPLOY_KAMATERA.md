@@ -297,6 +297,35 @@ For a closed account, delete the personal workspace's projects and files (keep p
 records), email the person at the address shown, and mark the request done. Existing users are
 asked once to agree to the Terms and Privacy Policy when they next use the app.
 
+### Marketing: Facebook, Instagram and the guides email list
+
+Staff with `marketing.manage` (admins) post guides at `/admin/marketing`: pick a guide, edit
+the drafted posts, post now or schedule, or turn on auto-posting. The email list works at
+once (people join at `/newsletter` or from their account). Facebook and Instagram stay off
+until the server has a Page access token:
+
+1. The Instagram account must be a professional (business or creator) account linked to the
+   Facebook Page (Page settings, Linked accounts, Instagram).
+2. At developers.facebook.com, create an app of type **Business** and add yourself as its
+   admin. Give it the privacy policy address `https://approvalready.au/privacy`.
+3. In the **Graph API Explorer**, choose the app, then **Get User Access Token** with
+   `pages_show_list`, `pages_read_engagement`, `pages_manage_posts`, `business_management`,
+   `instagram_basic` and `instagram_content_publish`. Approve the Page and Instagram account.
+4. In the **Access Token Debugger**, paste that token and press **Extend Access Token**
+   (a long-lived user token).
+5. Back in the Explorer, paste the long-lived token and run `me/accounts`. The Page's `id` is
+   `META_PAGE_ID` and its `access_token` is `META_PAGE_ACCESS_TOKEN` (a Page token made from a
+   long-lived user token does not expire). Then run
+   `<page id>?fields=instagram_business_account`: that `id` is `META_INSTAGRAM_ACCOUNT_ID`.
+6. Switch the app to **Live** so posts are public.
+7. Add the three lines to `.env` and redeploy. `/admin/marketing` shows "Posts as <Page>" and
+   "Posts as @<account>" when they work, or Facebook's own message when they don't.
+
+Facebook and Instagram fetch each post's image card from
+`https://app.<PRIMARY_DOMAIN>/guide-cards/<guide>.jpg`. A failed post says why on the admin
+page; an expired or revoked token needs a new one (steps 3 to 5). Guide emails are capped at
+`NEWSLETTER_DAILY_LIMIT` a day (default 1,500) so sign-in emails still get through.
+
 ## 8. Persistent volumes
 
 | Volume | Contents | Backed up |

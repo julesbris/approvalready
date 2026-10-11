@@ -100,7 +100,10 @@ export default function PrivacyPage() {
           </ul>
           <p>
             We don&apos;t sell personal information, and we don&apos;t use it for advertising.
-            We only send emails about your account and projects; there is no marketing list.
+            We send emails about your account and projects. We send our guides by email only to
+            people who ask for them, on our <Link href="/newsletter">guides by email</Link> page
+            (confirmed by email first) or in their account; every guide email has a one-click
+            unsubscribe link, and we never share the list.
           </p>
         </section>
 

@@ -160,6 +160,11 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "inspection_item": CRUD,
     "maintenance_item": WRITE,
     "notification": WRITE,
+    # Marketing: people leave the list (unconfirmed sign-ups are deleted); posts and the
+    # auto-post settings are kept as the posting history.
+    "newsletter_subscriber": CRUD,
+    "marketing_post": WRITE,
+    "marketing_autopost": WRITE,
 }
 
 TENANT_TABLES = sorted(

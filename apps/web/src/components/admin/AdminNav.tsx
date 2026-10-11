@@ -19,6 +19,7 @@ export function AdminNav({
     | "privacy"
     | "accounts"
     | "progress"
+    | "marketing"
     | "ops";
 }) {
   const links = [
@@ -36,6 +37,7 @@ export function AdminNav({
     ["privacy", "/admin/privacy", "Privacy"],
     ["accounts", "/admin/accounts", "Accounts"],
     ["progress", "/admin/progress", "Stuck projects"],
+    ["marketing", "/admin/marketing", "Marketing"],
     ["ops", "/admin/ops", "Operations"],
   ] as const;
   return (
