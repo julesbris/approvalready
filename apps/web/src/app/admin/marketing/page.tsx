@@ -61,7 +61,9 @@ export default async function MarketingPage() {
                   : c.error
                     ? c.error
                     : c.name
-                      ? `Posts as ${c.name}.`
+                      ? c.channel === "EMAIL"
+                        ? `Sends to ${c.name}.`
+                        : `Posts as ${c.name}.`
                       : ""}
               </div>
             </li>
