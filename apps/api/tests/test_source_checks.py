@@ -21,10 +21,12 @@ from app.main import create_app
 from app.modules.notifications.models import Notification
 from app.modules.regulatory import checks
 from app.modules.regulatory.fetch import (
+    BROWSER_HEADERS,
     FetchRefused,
     SourceFetcher,
     check_url,
     html_to_text,
+    pdf_text,
 )
 from app.modules.regulatory.models import SourceCheck, SourceDocument
 from tests.conftest import make_settings
@@ -44,12 +46,51 @@ def page(body: str, *, main: bool = True) -> str:
     )
 
 
+def make_pdf(*lines: str) -> bytes:
+    """A small, valid PDF whose one page shows ``lines``."""
+    stream = (
+        "BT /F1 11 Tf 50 750 Td 14 TL "
+        + " ".join(f"({line.replace('(', '[').replace(')', ']')}) '" for line in lines)
+        + " ET"
+    )
+    objects = [
+        "<< /Type /Catalog /Pages 2 0 R >>",
+        "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] "
+        "/Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>",
+        "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+        f"<< /Length {len(stream)} >>\nstream\n{stream}\nendstream",
+    ]
+    out = b"%PDF-1.4\n"
+    offsets = []
+    for number, body in enumerate(objects, 1):
+        offsets.append(len(out))
+        out += f"{number} 0 obj\n{body}\nendobj\n".encode()
+    xref = len(out)
+    out += f"xref\n0 {len(objects) + 1}\n0000000000 65535 f \n".encode()
+    out += "".join(f"{o:010d} 00000 n \n" for o in offsets).encode()
+    out += (
+        f"trailer\n<< /Size {len(objects) + 1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n"
+    ).encode()
+    return out
+
+
+FEES_PDF = make_pdf(
+    "Schedule of fees and charges 2026-27",
+    "Material change of use, dwelling house: $1,250 per application.",
+    "Operational works, minor: $640 per application, payable at lodgement.",
+)
+
+
 @dataclass
 class FakeSite:
-    """URL → (status, headers, body). Unknown URLs answer 404."""
+    """URL → (status, headers, body). Unknown URLs answer 404. ``browser_only`` pages answer
+    403 (or ``blocked``) unless asked the way a browser asks."""
 
     pages: dict[str, tuple[int, dict[str, str], bytes]] = field(default_factory=dict)
     calls: list[str] = field(default_factory=list)
+    agents: list[str] = field(default_factory=list)
+    browser_only: dict[str, tuple[int, dict[str, str], bytes]] = field(default_factory=dict)
 
     def html(self, url: str, html: str, status: int = 200) -> None:
         self.pages[url] = (status, {"content-type": "text/html; charset=utf-8"}, html.encode())
@@ -57,6 +98,11 @@ class FakeSite:
     def handle(self, request: httpx.Request) -> httpx.Response:
         url = str(request.url)
         self.calls.append(url)
+        agent = request.headers.get("user-agent", "")
+        self.agents.append(agent)
+        if url in self.browser_only and agent != BROWSER_HEADERS["user-agent"]:
+            status, headers, body = self.browser_only[url]
+            return httpx.Response(status, headers=headers, content=body)
         status, headers, body = self.pages.get(url, (404, {}, b"not found"))
         return httpx.Response(status, headers=headers, content=body)
 
@@ -64,7 +110,10 @@ class FakeSite:
         async def resolve(host: str) -> list[str]:
             return [ip]
 
-        return SourceFetcher(settings, httpx.MockTransport(self.handle), resolve)
+        async def no_wait(seconds: float) -> None:
+            pass
+
+        return SourceFetcher(settings, httpx.MockTransport(self.handle), resolve, no_wait)
 
 
 def unique_url(path: str = "page") -> str:
@@ -169,6 +218,93 @@ async def test_large_files_and_errors_are_refused() -> None:
     with pytest.raises(FetchRefused) as refused:
         await site.fetcher(settings).fetch(url)
     assert refused.value.http_status == 403
+
+
+# --- Hard-to-read documents ------------------------------------------------------------
+
+
+def test_pdf_text() -> None:
+    text = pdf_text(FEES_PDF)
+    assert text is not None
+    assert "Schedule of fees and charges 2026-27" in text
+    assert "Operational works, minor: $640 per application" in text
+    assert pdf_text(FEES_PDF) == text  # the same file always gives the same text
+    assert pdf_text(b"%PDF-1.7 not really a pdf") is None
+    assert pdf_text(make_pdf("Too short.")) is None  # a scanned page has (almost) no text
+
+
+async def test_pdfs_are_read_as_text_whatever_their_declared_type() -> None:
+    site = FakeSite()
+    url = "https://www.council.test.gov.au/fees.pdf"
+    for content_type in ("application/pdf", "application/octet-stream"):
+        site.pages[url] = (200, {"content-type": content_type}, FEES_PDF)
+        _, text = await site.fetcher(make_settings()).read(url)
+        assert text is not None and "$1,250 per application" in text
+
+
+async def test_a_site_that_turns_bots_away_is_asked_again_as_a_browser() -> None:
+    site = FakeSite()
+    url = "https://www.agency.test.gov.au/import"
+    site.html(url, page(FILLER))
+    site.browser_only[url] = (403, {}, b"Access denied")
+    _, text = await site.fetcher(make_settings()).read(url)
+    assert text is not None and text.startswith("Secondary dwellings")
+    assert site.agents[0].startswith("Mozilla/5.0 (compatible; ApprovalReady")
+    assert site.agents[1] == BROWSER_HEADERS["user-agent"]
+
+
+async def test_a_browser_check_page_is_asked_again_as_a_browser() -> None:
+    site = FakeSite()
+    url = "https://www.agency.test.gov.au/rules"
+    site.html(url, page(FILLER))
+    challenge = "<html><body><p>Just a moment...</p><script>check()</script></body></html>"
+    site.browser_only[url] = (200, {"content-type": "text/html"}, challenge.encode())
+    _, text = await site.fetcher(make_settings()).read(url)
+    assert text is not None and "applicant must lodge" in text
+    assert len(site.calls) == 2
+
+
+async def test_asking_again_happens_once_and_only_when_it_can_help() -> None:
+    site = FakeSite()
+    url = "https://www.agency.test.gov.au/blocked"
+    site.pages[url] = (403, {}, b"Access denied")
+    with pytest.raises(FetchRefused, match="even when asked the way a browser asks") as refused:
+        await site.fetcher(make_settings()).read(url)
+    assert refused.value.http_status == 403 and len(site.calls) == 2
+
+    site.calls.clear()
+    with pytest.raises(FetchRefused, match="answered 404"):
+        await site.fetcher(make_settings()).read("https://www.agency.test.gov.au/gone")
+    assert len(site.calls) == 1
+
+    waits: list[float] = []
+
+    async def wait(seconds: float) -> None:
+        waits.append(seconds)
+
+    async def resolve(host: str) -> list[str]:
+        return [PUBLIC_IP]
+
+    site.pages[url] = (429, {}, b"slow down")
+    fetcher = SourceFetcher(
+        make_settings(source_fetch_retry_seconds=7), httpx.MockTransport(site.handle), resolve, wait
+    )
+    with pytest.raises(FetchRefused, match="slow down"):
+        await fetcher.read(url)
+    assert waits == [7]
+
+
+def test_official_sources_off_gov_au_are_allowed() -> None:
+    allowed = make_settings().source_fetch_allowed_domains
+    for url in (
+        "https://www.weipatownauthority.com.au/town-planning",
+        "https://assets-au-scc.kc-usercontent.com:443/x/fees.pdf",
+        "https://images.impartmedia.com/richmond.qld.gov.au/FeesCharges/fees.pdf",
+        "https://gatekeeper.digicert.com/customs",
+    ):
+        check_url(url, allowed)
+    with pytest.raises(FetchRefused):
+        check_url("https://other.kc-usercontent.com/x.pdf", allowed)
 
 
 # --- Through the API -------------------------------------------------------------------
@@ -289,6 +425,65 @@ async def test_failures_and_files_are_recorded(api: ApiHarness, site: FakeSite) 
     assert (await staff.get(f"{ADMIN}/source-documents/{pdf['id']}")).json()[
         "latest_snapshot"
     ] is None
+
+
+@pytest.mark.integration
+async def test_pdfs_get_text_snapshots(api: ApiHarness, site: FakeSite) -> None:
+    staff = await platform_user(api, "STAFF")
+    url = unique_url("fees.pdf")
+    document = await source_document(staff, url=url)
+    site.pages[url] = (200, {"content-type": "application/pdf"}, FEES_PDF)
+    r = await staff.post(f"{ADMIN}/source-documents/{document['id']}/check")
+    assert r.json()["outcome"] == "SAVED", r.text
+    snapshot = (
+        await staff.get(
+            f"{ADMIN}/source-documents/{document['id']}/snapshots/{r.json()['snapshot_id']}"
+        )
+    ).json()
+    assert "Material change of use, dwelling house: $1,250" in snapshot["content_text"]
+    assert snapshot["capture_method"] == "FETCHED"
+
+
+@pytest.mark.integration
+async def test_unreadable_sources_can_be_read_again(
+    api: ApiHarness, site: FakeSite, owner_sessions: object
+) -> None:
+    staff = await platform_user(api, "STAFF")
+    blocked_url, file_url, fine_url = unique_url(), unique_url("fees.pdf"), unique_url()
+    blocked = await source_document(staff, url=blocked_url)
+    file = await source_document(staff, url=file_url)
+    fine = await source_document(staff, url=fine_url)
+    ours = {blocked["id"], file["id"], fine["id"]}
+    async with owner_sessions() as db:  # type: ignore[operator]
+        await db.execute(
+            update(SourceDocument).where(SourceDocument.id.not_in(ours)).values(auto_check=False)
+        )
+        await db.commit()
+
+    # Last week: one site was down, one file had no text, one page was read.
+    site.pages[blocked_url] = (500, {}, b"error")
+    site.pages[file_url] = (200, {"content-type": "application/pdf"}, b"%PDF-1.7 scanned")
+    site.html(fine_url, page(FILLER))
+    for d in (blocked, file, fine):
+        await staff.post(f"{ADMIN}/source-documents/{d['id']}/check")
+
+    # Now both can be read; only those two are read again, though all were just checked.
+    site.html(blocked_url, page(FILLER))
+    site.pages[file_url] = (200, {"content-type": "application/pdf"}, FEES_PDF)
+    site.calls.clear()
+    r = await staff.post(f"{ADMIN}/source-documents/reread-unreadable")
+    assert r.status_code == 202, r.text
+    assert r.json() == {"queued": 2}
+    assert sorted(site.calls) == sorted([blocked_url, file_url])
+    for d in (blocked, file):
+        listed = (await staff.get(f"{ADMIN}/source-documents/{d['id']}")).json()
+        assert listed["last_check"]["outcome"] == "SAVED"
+
+    r = await staff.post(f"{ADMIN}/source-documents/reread-unreadable")
+    assert r.json() == {"queued": 0}
+    customer = await api.user()
+    r = await customer.post(f"{ADMIN}/source-documents/reread-unreadable")
+    assert r.status_code == 403
 
 
 @pytest.mark.integration

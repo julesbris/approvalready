@@ -139,6 +139,11 @@ class SourceCheckOut(BaseModel):
     error: str | None
 
 
+class RereadOut(BaseModel):
+    # How many documents will be read again (in the background).
+    queued: int
+
+
 class SourceDocumentOut(BaseModel):
     id: uuid.UUID
     source_organisation_id: uuid.UUID

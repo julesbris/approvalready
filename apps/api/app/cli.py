@@ -445,8 +445,9 @@ async def load_pack(
     return 0
 
 
-async def check_sources(settings: Settings) -> int:
-    """Run the weekly source check now (documents checked in the last 6 days are skipped)."""
+async def check_sources(settings: Settings, unreadable: bool = False) -> int:
+    """Run the weekly source check now (documents checked in the last 6 days are skipped), or
+    with ``unreadable`` read again every document the last check couldn't read."""
     from app.core.email import create_email_provider
     from app.modules.regulatory import checks
     from app.modules.regulatory.fetch import SourceFetcher
@@ -459,6 +460,7 @@ async def check_sources(settings: Settings) -> int:
             create_email_provider(settings),
             settings,
             SourceFetcher(settings),
+            unreadable_only=unreadable,
         )
     finally:
         await resources.close()
@@ -529,6 +531,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     sc = sub.add_parser("sources", help="Regulatory sources")
     sc.add_argument("action", choices=["check"], help="Run the weekly source check now")
+    sc.add_argument(
+        "--unreadable",
+        action="store_true",
+        help="Only read again the documents the last check couldn't read, however recent",
+    )
     pv = sub.add_parser("privacy", help="Closed accounts")
     pv.add_argument(
         "action",
@@ -557,7 +564,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "leads":
         return asyncio.run(sync_consent(get_settings()))
     if args.command == "sources":
-        return asyncio.run(check_sources(get_settings()))
+        return asyncio.run(check_sources(get_settings(), args.unreadable))
     if args.command == "privacy":
         return asyncio.run(delete_closed_workspaces(get_settings()))
     if args.command == "rules":
