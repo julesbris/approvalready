@@ -516,3 +516,43 @@ pages (home, guides, not-found) allow only the inline scripts hashed at build ti
 (`apps/web/scripts/csp-hashes.mjs`), so neither allows `'unsafe-inline'` scripts. Forms post
 (`method="post"`), so nothing typed into a form can land in a URL or a log before the page's
 scripts load.
+
+## 16. Automatic deploys
+
+Every push to `main` deploys itself once CI passes on it: the **Deploy** workflow
+(`.github/workflows/deploy.yml`) connects to the server over SSH and runs
+`scripts/deploy.sh`, which
+
+1. waits if another deploy is running (one at a time, on the server and in GitHub);
+2. refuses to go on if files in `/srv/approvalready` were edited by hand or `main` can't be
+   fast-forwarded, then pulls `main`;
+3. checks `.env` (`docker compose config`): a missing required setting stops the deploy
+   before anything restarts. It never edits `.env`; new settings are still added by hand;
+4. rebuilds and restarts (`up -d --build --wait`, with `GIT_SHA` set so `/version` shows the
+   commit); `migrate` runs the database updates first;
+5. loads every rule content pack in `apps/api/app/modules/rules/packs/` with
+   `--publish --update` as `team@approvalready.au` (`DEPLOY_PACK_EMAIL`), which changes only
+   what is new or changed in a pack;
+6. removes unused images.
+
+The workflow then checks that `https://api.<domain>/version` shows the new commit and that
+`/health/ready` and the web's `/api/health` pass. A failed deploy opens a GitHub issue
+"Automatic deploy failed" with the end of the log (GitHub emails it to the repository's
+watchers); the next successful deploy closes it. To deploy without a new commit, open
+**Actions > Deploy > Run workflow**. On the server, `scripts/deploy.sh` does the same by hand.
+
+**One-time setup.** On the server, as `deploy`, after a `git pull` that brings this script:
+
+```bash
+bash /srv/approvalready/scripts/setup-auto-deploy.sh
+```
+
+It makes an SSH key that may only run `scripts/deploy.sh` (`command=...,restrict` in
+`authorized_keys`) and prints it with the server's host key. Add both as repository secrets
+(**Settings > Secrets and variables > Actions**): `DEPLOY_SSH_KEY` and `DEPLOY_KNOWN_HOSTS`.
+Until they exist the workflow only notes that deploys aren't set up. The host, user and domain
+default to `45.151.154.206`, `deploy` and `approvalready.au`; repository variables
+`DEPLOY_HOST`, `DEPLOY_USER` and `SITE_DOMAIN` override them. GitHub's runners connect from
+changing addresses, so port 22 must be open to them (§3: `ufw allow 22/tcp`; password logins
+are already off, and fail2ban limits guessing). To stop automatic deploys, delete the
+`DEPLOY_SSH_KEY` secret, or disable the workflow on the Actions tab.
