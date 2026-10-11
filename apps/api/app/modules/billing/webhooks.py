@@ -160,6 +160,10 @@ async def mark_paid(
         and payment.subject_type == leads.CREDIT_PACK_SUBJECT
     ):
         await leads.credits_purchased(db, payment)
+    from app.modules.plans import service as plans
+
+    if payment.purpose == PaymentPurpose.PRODUCT and payment.subject_type == plans.PAYMENT_SUBJECT:
+        await plans.payment_received(db, payment)
 
 
 async def _checkout_paid(

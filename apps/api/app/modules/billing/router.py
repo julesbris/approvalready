@@ -32,6 +32,7 @@ from app.api.deps import (
 from app.core.config import Settings
 from app.core.errors import ApiError, not_found
 from app.modules.billing import service, webhooks
+from app.modules.billing.catalogue import suggested_prices
 from app.modules.billing.models import (
     EventStatus,
     InvoiceReference,
@@ -136,6 +137,7 @@ def product_out(v: service.ProductView) -> ProductOut:
             FeatureLimitOut(key=f.key, description=f.description, limit=f.limit) for f in v.features
         ],
         prices=[price_out(p) for p in v.prices],
+        suggested_price_cents=suggested_prices().get(v.product.key),
     )
 
 
