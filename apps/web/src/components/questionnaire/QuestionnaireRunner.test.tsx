@@ -1,4 +1,4 @@
-import type { CouncilOut, SubmissionOut } from "@approvalready/shared-types";
+import type { AssessmentOut, CouncilOut, SubmissionOut } from "@approvalready/shared-types";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import { QuestionnaireRunner } from "./QuestionnaireRunner";
@@ -73,6 +73,38 @@ function submission(overrides: Partial<SubmissionOut> = {}): SubmissionOut {
   };
 }
 
+const ASSESSMENT: AssessmentOut = {
+  id: "a1",
+  project_id: "p1",
+  submission_id: "s1",
+  assessed_on: "2026-10-11",
+  created_at: "2026-10-11T01:00:00Z",
+  engine_version: "rules-engine/1",
+  facts: {},
+  facts_hash: "abcdef0123456789",
+  fact_labels: {},
+  status: "COMPLETED",
+  overall_confidence: "LIKELY",
+  findings: 0,
+  rule_sets: [],
+  approval_requirements: [
+    {
+      id: "r1",
+      kind: "development_permit",
+      title: "Development permit",
+      authority: "Cairns Regional Council",
+      certainty: "REQUIRED",
+      confidence: "LIKELY",
+      pathway: "Code assessment",
+    },
+  ] as AssessmentOut["approval_requirements"],
+  approval_map: [],
+  evidence_requirements: [],
+  referral_categories: [],
+  limitations: [],
+  finding_list: [],
+};
+
 function renderRunner(initial = submission()) {
   return render(
     <QuestionnaireRunner organisationId="o1" projectId="p1" submission={initial} canWrite />,
@@ -106,7 +138,7 @@ describe("QuestionnaireRunner", () => {
     renderRunner();
     fireEvent.click(screen.getByLabelText("Subdividing"));
     fireEvent.change(screen.getByLabelText("How many lots?"), { target: { value: "3" } });
-    fireEvent.click(screen.getByRole("button", { name: "Save and continue" }));
+    fireEvent.click(screen.getByRole("button", { name: "Continue" }));
     expect(await screen.findByLabelText(/Budget/)).toBeInTheDocument();
     const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
     expect(url).toBe("/api/v1/organisations/o1/submissions/s1/answers");
@@ -120,7 +152,7 @@ describe("QuestionnaireRunner", () => {
     renderRunner();
     fireEvent.click(screen.getByLabelText("Subdividing"));
     fireEvent.change(screen.getByLabelText("How many lots?"), { target: { value: "3.5" } });
-    fireEvent.click(screen.getByRole("button", { name: "Save and continue" }));
+    fireEvent.click(screen.getByRole("button", { name: "Continue" }));
     expect(screen.getByText("Enter a whole number.")).toBeInTheDocument();
     expect(fetchMock).not.toHaveBeenCalled();
   });
@@ -133,35 +165,103 @@ describe("QuestionnaireRunner", () => {
     renderRunner();
     fireEvent.click(screen.getByLabelText("Subdividing"));
     fireEvent.change(screen.getByLabelText("How many lots?"), { target: { value: "1" } });
-    fireEvent.click(screen.getByRole("button", { name: "Save and continue" }));
+    fireEvent.click(screen.getByRole("button", { name: "Continue" }));
     expect(await screen.findByText("Enter 2 or more.")).toBeInTheDocument();
     expect(screen.getByLabelText("How many lots?")).toHaveAttribute("aria-invalid", "true");
   });
 
-  it("won't submit while required answers are missing", async () => {
+  it("shows the result right under the answers once the last section is done", async () => {
+    const saved = submission({
+      answers: { kind: "ext" },
+      visible: ["kind", "budget"],
+      missing_required: [],
+      progress: { answered: 1, visible: 2, required_remaining: 0 },
+    });
+    const submitted = { ...saved, status: "SUBMITTED", submitted_at: "2026-10-11T01:00:00Z" };
+    const fetchMock = vi.fn((url: string) =>
+      Promise.resolve(
+        url.endsWith("/result")
+          ? Response.json({ submission: submitted, assessment: ASSESSMENT })
+          : url.includes("/guidance/approvals")
+            ? Response.json([])
+            : Response.json(saved),
+      ),
+    );
+    vi.stubGlobal("fetch", fetchMock);
     renderRunner();
-    fireEvent.click(screen.getByRole("button", { name: "Review" }));
-    expect(screen.getByText("Required: not answered yet")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Submit answers" })).toBeDisabled();
+    expect(screen.getByText(/Step 1 of 2/)).toBeInTheDocument();
+    fireEvent.click(screen.getByLabelText("Extending"));
+    fireEvent.click(screen.getByRole("button", { name: "Continue" }));
+    expect(await screen.findByText(/Step 2 of 2/)).toBeInTheDocument();
+    // The last section's one button submits and assesses in one go.
+    fireEvent.click(screen.getByRole("button", { name: "See my result" }));
+    expect(await screen.findByRole("heading", { name: "1 approval found" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "Your result" })).toBeInTheDocument();
+    expect(screen.getByText("Development permit")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Open your full report" })).toHaveAttribute(
+      "href",
+      "/projects/p1/assessments/a1",
+    );
+    const urls = fetchMock.mock.calls.map(([url]) => String(url));
+    expect(urls).toContain("/api/v1/organisations/o1/submissions/s1/result");
+    expect(urls.some((url) => url.includes("/guidance/approvals?kind=development_permit"))).toBe(
+      true,
+    );
   });
 
-  it("opens submitted answers on the review and can reopen them", async () => {
-    const reopened = submission({ answers: { kind: "ext" }, missing_required: [] });
-    const fetchMock = vi.fn().mockResolvedValue(Response.json(reopened));
-    vi.stubGlobal("fetch", fetchMock);
-    renderRunner(
-      submission({
-        status: "SUBMITTED",
-        submitted_at: "2026-10-04T00:00:00Z",
-        answers: { kind: "ext" },
-        missing_required: [],
-      }),
+  it("takes people back to what's still unanswered instead of showing a result", async () => {
+    const body = {
+      detail: {
+        code: "answers_incomplete",
+        message: "Answer the remaining required questions before submitting.",
+        fields: { kind: "This question needs an answer." },
+      },
+    };
+    const fetchMock = vi.fn((url: string) =>
+      Promise.resolve(
+        url.endsWith("/result")
+          ? Response.json(body, { status: 422 })
+          : Response.json(submission({ visible: ["kind", "budget"] })),
+      ),
     );
+    vi.stubGlobal("fetch", fetchMock);
+    // Submitted answers whose result was never worked out open on the result step.
+    renderRunner(
+      submission({ status: "SUBMITTED", submitted_at: "2026-10-04T00:00:00Z", missing_required: [] }),
+    );
+    fireEvent.click(screen.getByRole("button", { name: "See my result" }));
+    expect(await screen.findByText("This question needs an answer.")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "Plans" })).toBeInTheDocument();
+    expect(screen.getByText("Answer the highlighted questions to see your result.")).toBeInTheDocument();
+  });
+
+  it("opens submitted answers with their result, and reopens them to change one", async () => {
+    const reopened = submission({ answers: { kind: "ext" }, missing_required: [] });
+    const fetchMock = vi.fn(() => Promise.resolve(Response.json(reopened)));
+    vi.stubGlobal("fetch", fetchMock);
+    render(
+      <QuestionnaireRunner
+        organisationId="o1"
+        projectId="p1"
+        canWrite
+        assessment={ASSESSMENT}
+        submission={submission({
+          status: "SUBMITTED",
+          submitted_at: "2026-10-04T00:00:00Z",
+          answers: { kind: "ext" },
+          missing_required: [],
+        })}
+      />,
+    );
+    expect(screen.getByRole("heading", { name: "1 approval found" })).toBeInTheDocument();
     expect(screen.getByText("Extending")).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "Submit answers" })).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Change answers" }));
+    expect(screen.queryByRole("button", { name: "See my result" })).not.toBeInTheDocument();
+    fireEvent.click(screen.getAllByRole("button", { name: "Change" })[0]!);
     await waitFor(() => expect(screen.getByLabelText("Extending")).toBeChecked());
-    expect((fetchMock.mock.calls[0] as [string])[0]).toBe("/api/v1/organisations/o1/submissions/s1/reopen");
+    expect((fetchMock.mock.calls[0] as unknown as [string])[0]).toBe("/api/v1/organisations/o1/submissions/s1/reopen");
+    // Finishing again updates the result rather than starting over.
+    fireEvent.click(screen.getByRole("button", { name: "Continue" }));
+    expect(await screen.findByRole("button", { name: "Update my result" })).toBeInTheDocument();
   });
 
   it("fills in answers from the site, saves them, and can undo them", async () => {
@@ -224,9 +324,9 @@ describe("QuestionnaireRunner", () => {
         autosaveDelayMs={5}
       />,
     );
-    expect(screen.getByText("Your answers save as you go.")).toBeInTheDocument();
+    expect(screen.getByText("Saves as you go")).toBeInTheDocument();
     fireEvent.click(screen.getByLabelText("Extending"));
-    expect(await screen.findByText(/All changes saved/)).toBeInTheDocument();
+    expect(await screen.findByText("Saved")).toBeInTheDocument();
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
     expect(url).toBe("/api/v1/organisations/o1/submissions/s1/answers");

@@ -7,15 +7,18 @@ import { loadSeed, signIn } from "./support";
  * first, and the link takes the customer straight to it. The reminder emails and the staff
  * Stuck projects page are covered by the API tests (they depend on days passing).
  */
-test("a new project shows what's left and links straight to it", async ({ browser }) => {
+test("a new project goes into its questions, and shows what's left", async ({ browser }) => {
   const seed = loadSeed();
   const page = await signIn(browser, seed.customer.email, seed.password, "/projects/new?vertical=PLANNING");
-  await page.getByLabel("Project name").fill(`Shed ${seed.runId}`);
-  await page.getByRole("button", { name: "Create project" }).click();
+  await page.getByLabel(/Project name/).fill(`Shed ${seed.runId}`);
+  await page.getByRole("button", { name: "Continue" }).click();
+  // A new project goes straight into its questions; the project page shows what's left.
+  await expect(page).toHaveURL(/\/projects\/[0-9a-f-]+\/questionnaire$/);
+  await page.getByRole("link", { name: `Shed ${seed.runId}` }).click();
   await expect(page).toHaveURL(/\/projects\/[0-9a-f-]+$/);
 
   const panel = page.getByRole("region", { name: "What's left" });
-  const first = panel.getByRole("link", { name: "Answer the questions about your project" });
+  const first = panel.getByRole("link", { name: /^Answer \d+ more questions?$/ });
   await expect(first).toBeVisible();
   await panel.getByRole("link", { name: "Pick up where you left off" }).click();
   await expect(page).toHaveURL(/\/projects\/[0-9a-f-]+\/questionnaire$/);

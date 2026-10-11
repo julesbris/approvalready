@@ -163,6 +163,53 @@ async def test_assessment_needs_submitted_answers(api: ApiHarness) -> None:
     assert r.status_code == 409 and r.json()["detail"]["code"] == "project_archived"
 
 
+async def test_result_submits_and_assesses_in_one_step(api: ApiHarness) -> None:
+    customer = await api.user()
+    org = org_url(customer)
+    project = (
+        await customer.post(f"{org}/projects", json={"vertical": "PLANNING", "title": "Deck"})
+    ).json()
+    submission = (
+        await customer.post(f"{org}/projects/{project['id']}/submissions", json={})
+    ).json()
+    url = f"{org}/submissions/{submission['id']}"
+
+    # Unanswered required questions: nothing is submitted and nothing is assessed.
+    r = await customer.post(f"{url}/result")
+    assert r.status_code == 422 and r.json()["detail"]["code"] == "answers_incomplete"
+    assert (await run_list(customer, project["id"])) == []
+
+    answers = {
+        "property.address": ADDRESS,
+        "property.lot_plan": unique("LOT"),
+        "property.land_area_m2": 700,
+        "property.has_existing_dwelling": True,
+        "planning.development_type": "secondary_dwelling",
+        "planning.secondary_dwelling_bedrooms": 1,
+        "planning.secondary_dwelling_floor_area_m2": 60,
+        "planning.storeys": 1,
+    }
+    r = await customer.put(f"{url}/answers", json={"answers": answers})
+    assert r.status_code == 200, r.text
+    r = await customer.post(f"{url}/result")
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["submission"]["status"] == "SUBMITTED"
+    assert body["assessment"]["project_id"] == project["id"]
+    assert body["assessment"]["facts"]["planning.storeys"] == 1
+
+    # Already submitted: asking again assesses again without reopening the answers.
+    r = await customer.post(f"{url}/result")
+    assert r.status_code == 200, r.text
+    assert len(await run_list(customer, project["id"])) == 2
+
+
+async def run_list(user: User, project_id: str) -> list[dict[str, Any]]:
+    r = await user.get(f"{org_url(user)}/projects/{project_id}/assessments")
+    assert r.status_code == 200, r.text
+    return r.json()
+
+
 async def test_versions_are_pinned_and_source_changes_only_affect_new_runs(
     api: ApiHarness,
 ) -> None:

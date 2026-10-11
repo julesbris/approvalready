@@ -1,7 +1,6 @@
 "use client";
 
 import type {
-  AssessmentOut,
   BusinessProfileOut,
   ChecklistDefinitionOut,
   ChecklistOut,
@@ -109,11 +108,6 @@ export function ProjectWorkspace(props: Props) {
     if (started) router.push(`/projects/${project.id}/questionnaire`);
   }
 
-  async function runAssessment() {
-    const assessment = await run(() => apiRequest<AssessmentOut>("POST", `${base}/assessments`));
-    if (assessment) router.push(`/projects/${project.id}/assessments/${assessment.data.id}`);
-  }
-
   async function addTask(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formElement = event.currentTarget;
@@ -180,8 +174,16 @@ export function ProjectWorkspace(props: Props) {
   }
 
   const statusChanges = project.allowed_status_changes as ProjectStatus[];
-  const submitted = project.submissions.some((s) => s.status === "SUBMITTED");
   const latest = project.latest_assessment;
+  // One questionnaire per project today: the most recently saved answers.
+  const answers = [...project.submissions].sort((a, b) =>
+    b.updated_at.localeCompare(a.updated_at),
+  )[0];
+  // Whether the latest result is of the answers as they are now.
+  const assessed = Boolean(
+    latest && answers && latest.submission_id === answers.id && answers.status === "SUBMITTED",
+  );
+  const questionsHref = `/projects/${project.id}/questionnaire`;
   const scheduled = reminders.filter((r) => r.status === "SCHEDULED");
 
   return (
@@ -255,42 +257,7 @@ export function ProjectWorkspace(props: Props) {
 
       <section className="panel" aria-labelledby="questions-title">
         <h2 id="questions-title" className="section-title">
-          Questionnaire
-        </h2>
-        <p className="muted">
-          Your answers describe your situation. They are the facts an assessment will use, not an
-          assessment themselves.
-        </p>
-        {project.submissions.length === 0 ? (
-          canWrite ? (
-            <button type="button" className="button" disabled={busy} onClick={startQuestionnaire}>
-              Answer the questions
-            </button>
-          ) : (
-            <p>No answers yet.</p>
-          )
-        ) : (
-          <ul className="plain-list">
-            {project.submissions.map((submission) => (
-              <li key={submission.id}>
-                <Link href={`/projects/${project.id}/questionnaire`}>
-                  {submission.questionnaire_title}
-                </Link>{" "}
-                <span className="badge">
-                  {SUBMISSION_LABELS[submission.status] ?? submission.status}
-                </span>
-                <div className="muted">
-                  Version {submission.version} · Last saved {formatDateTime(submission.updated_at)}
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
-
-      <section className="panel" aria-labelledby="assessment-title">
-        <h2 id="assessment-title" className="section-title">
-          Assessment
+          Your assessment
         </h2>
         {latest ? (
           <p>
@@ -304,23 +271,34 @@ export function ProjectWorkspace(props: Props) {
           </p>
         ) : (
           <p className="muted">
-            An assessment checks your submitted answers against the rules our team has sourced and
-            reviewed, and shows how confident we are in each result.
+            Answer a few questions about your situation and your result appears straight
+            underneath: the approvals you need, how sure we are and how to apply.
           </p>
         )}
-        {canWrite ? (
-          <>
-            <button
-              type="button"
-              className={latest ? "button button-secondary" : "button"}
-              disabled={busy || !submitted || project.status === "ARCHIVED"}
-              onClick={runAssessment}
-            >
-              {latest ? "Run a new assessment" : "Run assessment"}
-            </button>
-            {!submitted ? <p className="hint">Submit your answers first.</p> : null}
-          </>
+        {answers ? (
+          <p className="muted">
+            {SUBMISSION_LABELS[answers.status] ?? answers.status} · Last saved{" "}
+            {formatDateTime(answers.updated_at)}
+            {latest && !assessed ? " · changed since the last result" : ""}
+          </p>
         ) : null}
+        {!answers ? (
+          canWrite ? (
+            <button type="button" className="button" disabled={busy} onClick={startQuestionnaire}>
+              Answer the questions
+            </button>
+          ) : (
+            <p>No answers yet.</p>
+          )
+        ) : canWrite && answers.status !== "SUBMITTED" ? (
+          <Link className="button" href={questionsHref}>
+            {latest ? "Finish and update my result" : "Continue answering"}
+          </Link>
+        ) : (
+          <Link className={canWrite ? "button" : "button button-secondary"} href={questionsHref}>
+            {assessed || !canWrite ? "See answers and result" : "See my result"}
+          </Link>
+        )}
       </section>
 
       {latest && props.plan ? <PlanPanel projectId={project.id} plan={props.plan} /> : null}

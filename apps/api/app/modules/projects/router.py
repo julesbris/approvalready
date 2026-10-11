@@ -11,10 +11,11 @@ from sqlalchemy import select
 
 from app.api.deps import DbDep, MetaDep, OrgContext, SettingsDep, require_org_permission
 from app.modules.assessments import service as assessments
-from app.modules.assessments.router import summary_out
+from app.modules.assessments.router import assessment_detail, summary_out
 from app.modules.projects import service
 from app.modules.projects.models import Project, Reminder, Task, Vertical
 from app.modules.projects.schemas import (
+    AnswersResultOut,
     ProjectCreate,
     ProjectDetailOut,
     ProjectOut,
@@ -35,6 +36,7 @@ from app.modules.questionnaires.models import (
     Questionnaire,
     QuestionnaireSubmission,
     QuestionnaireVersion,
+    SubmissionStatus,
 )
 from app.modules.questionnaires.schemas import (
     AnswersUpdate,
@@ -356,6 +358,25 @@ async def submit_answers(
     result = await questionnaires.submit(db, submission, actor_id=ctx.auth.user.id, meta=meta)
     await db.commit()
     return _submission_out(result)
+
+
+@router.post("/submissions/{submission_id}/result", response_model=AnswersResultOut)
+async def answers_result(
+    submission_id: uuid.UUID, ctx: Write, db: DbDep, meta: MetaDep
+) -> AnswersResultOut:
+    """Submit the answers (if they aren't already) and assess them straight away, so the
+    result can be shown right under the questions. Both happen or neither does."""
+    submission = await questionnaires.get_submission(db, ctx.organisation.id, submission_id)
+    project = await service.get_project(db, ctx.organisation.id, submission.project_id)
+    if submission.status != SubmissionStatus.SUBMITTED:
+        await questionnaires.submit(db, submission, actor_id=ctx.auth.user.id, meta=meta)
+    assessment = await assessments.run(db, project, actor_id=ctx.auth.user.id, meta=meta)
+    await db.commit()
+    a, p, findings = await assessments.get(db, ctx.organisation.id, assessment.id)
+    return AnswersResultOut(
+        submission=_submission_out(await questionnaires.view(db, submission)),
+        assessment=await assessment_detail(db, a, p, findings),
+    )
 
 
 @router.post("/submissions/{submission_id}/reopen", response_model=SubmissionOut)

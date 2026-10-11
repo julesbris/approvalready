@@ -252,6 +252,7 @@ export function AssessmentReport({
   helpAction,
   approvalMap = false,
   guides = [],
+  embedded = false,
   children,
 }: {
   assessment: AssessmentOut;
@@ -271,6 +272,11 @@ export function AssessmentReport({
   guides?: ApprovalGuideOut[];
   /** Interactive panels (evidence, report downloads) shown after the requirements. */
   children?: ReactNode;
+  /**
+   * Shown under the questions as their result: the page above already gives the heading,
+   * the overall confidence and the way back to the answers, so those are left out here.
+   */
+  embedded?: boolean;
 }) {
   const reviewed = applyOverrides(assessment.finding_list, overrides);
   const groups = groupFindings(reviewed);
@@ -279,17 +285,20 @@ export function AssessmentReport({
   const sources = uniqueSources(assessment.finding_list);
   return (
     <div className="assessment">
-      <section className="page-head" aria-labelledby="assessment-title">
-        <div>
-          <h1 id="assessment-title" className="page-title">
-            Assessment
-          </h1>
-          <p className="muted">
-            As at {formatDate(assessment.assessed_on)} · Run {formatDateTime(assessment.created_at)}
-          </p>
-        </div>
-        <ConfidenceBadge level={assessment.overall_confidence} />
-      </section>
+      {embedded ? null : (
+        <section className="page-head" aria-labelledby="assessment-title">
+          <div>
+            <h1 id="assessment-title" className="page-title">
+              Assessment
+            </h1>
+            <p className="muted">
+              As at {formatDate(assessment.assessed_on)} · Run{" "}
+              {formatDateTime(assessment.created_at)}
+            </p>
+          </div>
+          <ConfidenceBadge level={assessment.overall_confidence} />
+        </section>
+      )}
 
       <p className="notice">
         This is general information worked out from your answers and the sources listed, not legal
@@ -299,7 +308,7 @@ export function AssessmentReport({
 
       {intro}
 
-      {assessment.status === "NO_APPLICABLE_RULES" ? (
+      {embedded ? null : assessment.status === "NO_APPLICABLE_RULES" ? (
         <section className="panel">
           <p>
             We don&apos;t have reviewed rules that cover your situation yet, so we can&apos;t say
@@ -447,10 +456,10 @@ export function AssessmentReport({
         </section>
       ) : null}
 
-      {projectId && (groups.missing.length > 0 || needsInfo.length > 0) ? (
+      {projectId && !embedded && (groups.missing.length > 0 || needsInfo.length > 0) ? (
         <p>
-          <Link href={`/projects/${projectId}/questionnaire`}>Update your answers</Link>, submit
-          them again and run a new assessment.
+          <Link href={`/projects/${projectId}/questionnaire`}>Update your answers</Link> and your
+          result is worked out again.
         </p>
       ) : null}
 

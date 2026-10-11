@@ -13,6 +13,7 @@ const PROXIED_ROOTS = new Set([
   "privacy",
   "councils",
   "marketing",
+  "guidance",
 ]);
 
 /** Request headers forwarded to the API. Anything else (e.g. Authorization) is dropped. */

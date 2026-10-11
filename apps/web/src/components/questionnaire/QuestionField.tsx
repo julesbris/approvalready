@@ -1,7 +1,7 @@
 "use client";
 
 import type { AddressMatchOut, QuestionOut } from "@approvalready/shared-types";
-import type { ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 
 import { AddressSearch } from "@/components/lookups/AddressSearch";
 import { type FileContext, FileAnswer } from "@/components/questionnaire/FileAnswer";
@@ -36,6 +36,8 @@ type Props = {
 /** One question, rendered for its type, with its label, help text and error. */
 export function QuestionField(props: Props) {
   const { question, value, text, error, disabled, onValue, onText, files, onAddressPick } = props;
+  // With the address search on offer, the typed-in address fields wait until they're wanted.
+  const [typingAddress, setTypingAddress] = useState(false);
   const id = `q-${question.key.replace(/[^a-z0-9_-]/gi, "-")}`;
   const helpId = question.help_text ? `${id}-help` : undefined;
   const errorId = error ? `${id}-error` : undefined;
@@ -211,9 +213,12 @@ export function QuestionField(props: Props) {
     case "ADDRESS": {
       const address = (value && typeof value === "object" ? value : {}) as Record<string, string>;
       const set = (field: string, fieldValue: string) => onValue({ ...address, [field]: fieldValue });
+      const searching = Boolean(files && !disabled);
+      const showFields =
+        !searching || typingAddress || Boolean(error) || Object.values(address).some(Boolean);
       return group(
         <div className="address-fields">
-          {files && !disabled ? (
+          {searching && files ? (
             <AddressSearch
               organisationId={files.organisationId}
               onPick={(m) => {
@@ -229,54 +234,66 @@ export function QuestionField(props: Props) {
               }}
             />
           ) : null}
-          <label>
-            Street address
-            <input
-              autoComplete="address-line1"
-              value={address.line1 ?? ""}
-              onChange={(e) => set("line1", e.target.value)}
-            />
-          </label>
-          <label>
-            Address line 2 <span className="optional">(optional)</span>
-            <input
-              autoComplete="address-line2"
-              value={address.line2 ?? ""}
-              onChange={(e) => set("line2", e.target.value)}
-            />
-          </label>
-          <div className="address-row">
-            <label>
-              Suburb or town
-              <input
-                autoComplete="address-level2"
-                value={address.suburb ?? ""}
-                onChange={(e) => set("suburb", e.target.value)}
-              />
-            </label>
-            <label>
-              State
-              <select value={address.state ?? ""} onChange={(e) => set("state", e.target.value)}>
-                <option value="">Choose…</option>
-                {AU_STATES.map(([code, name]) => (
-                  <option key={code} value={code}>
-                    {name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Postcode
-              <input
-                className="input-short"
-                inputMode="numeric"
-                autoComplete="postal-code"
-                maxLength={4}
-                value={address.postcode ?? ""}
-                onChange={(e) => set("postcode", e.target.value)}
-              />
-            </label>
-          </div>
+          {showFields ? null : (
+            <button type="button" className="button-link" onClick={() => setTypingAddress(true)}>
+              Can&apos;t find it? Type the address in
+            </button>
+          )}
+          {showFields ? (
+            <>
+              <label>
+                Street address
+                <input
+                  autoComplete="address-line1"
+                  value={address.line1 ?? ""}
+                  onChange={(e) => set("line1", e.target.value)}
+                />
+              </label>
+              <label>
+                Address line 2 <span className="optional">(optional)</span>
+                <input
+                  autoComplete="address-line2"
+                  value={address.line2 ?? ""}
+                  onChange={(e) => set("line2", e.target.value)}
+                />
+              </label>
+              <div className="address-row">
+                <label>
+                  Suburb or town
+                  <input
+                    autoComplete="address-level2"
+                    value={address.suburb ?? ""}
+                    onChange={(e) => set("suburb", e.target.value)}
+                  />
+                </label>
+                <label>
+                  State
+                  <select
+                    value={address.state ?? ""}
+                    onChange={(e) => set("state", e.target.value)}
+                  >
+                    <option value="">Choose…</option>
+                    {AU_STATES.map(([code, name]) => (
+                      <option key={code} value={code}>
+                        {name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Postcode
+                  <input
+                    className="input-short"
+                    inputMode="numeric"
+                    autoComplete="postal-code"
+                    maxLength={4}
+                    value={address.postcode ?? ""}
+                    onChange={(e) => set("postcode", e.target.value)}
+                  />
+                </label>
+              </div>
+            </>
+          ) : null}
         </div>,
       );
     }

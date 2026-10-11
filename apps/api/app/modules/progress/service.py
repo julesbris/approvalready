@@ -89,7 +89,7 @@ async def _answers_items(
     view = await questionnaires.view(db, submission)
     missing = view.state.missing_required
     if not missing:
-        return [Item(ProgressStep.SUBMIT, "Check and submit your answers", 1, questions)]
+        return [Item(ProgressStep.SUBMIT, "Finish your answers to see your result", 1, questions)]
     labels = [view.spec.by_key[k].label for k in missing[:DETAIL_LIMIT]]
     title = f"Answer {_plural(len(missing), 'more question', 'more questions')}"
     return [Item(ProgressStep.QUESTIONS, title, len(missing), questions, labels)]
@@ -113,9 +113,9 @@ async def _assessment_items(
         return [
             Item(
                 ProgressStep.RESULTS,
-                "Run the assessment to see what approvals you need",
+                "See your result: the approvals you need",
                 1,
-                f"/projects/{project.id}#assessment-title",
+                f"/projects/{project.id}/questionnaire",
             )
         ]
     offered = exists().where(

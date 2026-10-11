@@ -4470,6 +4470,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/submissions/{submission_id}/result": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Answers Result
+         * @description Submit the answers (if they aren't already) and assess them straight away, so the
+         *     result can be shown right under the questions. Both happen or neither does.
+         */
+        post: operations["answers_result_v1_organisations__organisation_id__submissions__submission_id__result_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/submissions/{submission_id}/submit": {
         parameters: {
             query?: never;
@@ -5419,6 +5440,14 @@ export interface components {
              * @description The plan it comes from; null for the free allowance.
              */
             plan: string | null;
+        };
+        /**
+         * AnswersResultOut
+         * @description The submitted answers and the assessment worked out from them, in one go.
+         */
+        AnswersResultOut: {
+            assessment: components["schemas"]["AssessmentOut"];
+            submission: components["schemas"]["SubmissionOut"];
         };
         /** AnswersUpdate */
         AnswersUpdate: {
@@ -22880,6 +22909,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SubmissionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    answers_result_v1_organisations__organisation_id__submissions__submission_id__result_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                submission_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AnswersResultOut"];
                 };
             };
             /** @description Validation Error */

@@ -2442,8 +2442,107 @@ a.card-title:hover {
 }
 
 .save-state {
-  margin-top: 4px;
   font-size: 0.875rem;
+}
+
+/*
+ * Questions to result, one step at a time: a narrow column, a progress bar on top, one main
+ * button, and the result straight under the answers.
+ */
+.flow {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.flow-head {
+  margin-bottom: 16px;
+}
+
+.flow-kicker {
+  margin: 0 0 10px;
+  color: var(--ar-ink-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.flow-meter {
+  height: 6px;
+  border-radius: var(--ar-radius-pill);
+  background: var(--ar-border);
+  overflow: hidden;
+}
+
+.flow-meter > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ar-primary);
+  transition: width 0.3s ease;
+}
+
+.flow-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin-top: 8px;
+  color: var(--ar-ink-muted);
+  font-size: 0.875rem;
+}
+
+.flow-back {
+  margin-bottom: 12px;
+  font-size: 0.9375rem;
+}
+
+.flow-title {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+}
+
+.flow-actions {
+  margin-top: 28px;
+}
+
+.flow-primary {
+  min-width: 220px;
+}
+
+.answers-summary > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ar-heading);
+}
+
+.answers-summary[open] > summary {
+  margin-bottom: 16px;
+}
+
+.result-summary .hint {
+  margin-top: 10px;
+}
+
+.flow-result {
+  scroll-margin-top: 16px;
+}
+
+.form-more > summary {
+  cursor: pointer;
+  color: var(--ar-link);
+  font-weight: 500;
+}
+
+.form-more[open] > summary {
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .flow-title {
+    font-size: 1.5rem;
+  }
+  .flow-primary {
+    width: 100%;
+  }
 }
 
 /* --- What's left on a project (keep going) --- */
