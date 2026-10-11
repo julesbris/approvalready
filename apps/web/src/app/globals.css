@@ -2376,6 +2376,36 @@ a.card-title:hover {
 
 .whats-left-steps > li::before {
   content: counter(left);
+
+/* --- Approval guides: the step-by-step plan under an assessment --- */
+
+.guide-stack {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.guide {
+  border: 1px solid var(--ar-border);
+  border-radius: 16px;
+  background: var(--ar-surface);
+}
+
+.guide > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.guide > summary::-webkit-details-marker {
+  display: none;
+}
+
+.guide-number {
+  flex: none;
   display: inline-grid;
   place-items: center;
   width: 28px;
@@ -2400,4 +2430,110 @@ a.card-title:hover {
 
 .whats-left-details li + li {
   margin-top: 2px;
+
+  border-radius: 999px;
+  background: var(--ar-primary);
+  color: var(--ar-on-primary);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.guide-summary {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.guide-title {
+  font-weight: 700;
+  color: var(--ar-ink);
+}
+
+.guide-body {
+  padding: 0 16px 16px;
+  overflow-wrap: anywhere;
+}
+
+.guide-head {
+  margin-bottom: 8px;
+}
+
+.guide-list {
+  margin: 0 0 12px;
+  padding-left: 1.2em;
+  display: grid;
+  gap: 4px;
+}
+
+.guide-steps {
+  margin: 0 0 12px;
+  padding-left: 1.4em;
+  display: grid;
+  gap: 12px;
+}
+
+.guide-steps p {
+  margin: 0;
+}
+
+.guide-step-title {
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.guide-step-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 4px;
+  font-size: 0.875rem;
+}
+
+.guide-contacts {
+  margin: 0 0 12px;
+  padding-left: 1.2em;
+  display: grid;
+  gap: 6px;
+}
+
+.guide-fees {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 12px;
+}
+
+.guide-fees caption {
+  caption-side: bottom;
+  text-align: left;
+  padding-top: 8px;
+  font-size: 0.875rem;
+}
+
+.guide-fees th,
+.guide-fees td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px 12px 8px 0;
+  border-top: 1px solid var(--ar-border);
+}
+
+.guide-fees th {
+  color: var(--ar-ink-muted);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.guide-amount {
+  font-weight: 600;
+  text-align: right;
+}
+
+.guide-more {
+  margin: 12px 0 0;
+}
+
+.guide-more summary {
+  cursor: pointer;
+  color: var(--ar-link);
+  font-weight: 600;
 }

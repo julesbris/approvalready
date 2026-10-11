@@ -72,6 +72,27 @@
       "kind": "COUNCIL",
       "jurisdiction": "LGA:QLD_CAIRNS",
       "website": "https://www.cairns.qld.gov.au"
+    },
+    {
+      "ref": "abr",
+      "name": "Australian Business Register",
+      "kind": "CTH_AGENCY",
+      "jurisdiction": "CTH",
+      "website": "https://www.abr.gov.au"
+    },
+    {
+      "ref": "business_gov",
+      "name": "business.gov.au (including ABLIS)",
+      "kind": "CTH_AGENCY",
+      "jurisdiction": "CTH",
+      "website": "https://business.gov.au"
+    },
+    {
+      "ref": "asic",
+      "name": "Australian Securities and Investments Commission",
+      "kind": "REGULATOR",
+      "jurisdiction": "CTH",
+      "website": "https://www.asic.gov.au"
     }
   ],
   "documents": [
@@ -186,6 +207,30 @@
       "title": "Home based business",
       "url": "https://www.cairns.qld.gov.au/property-and-business/business/regulations-permits/home-based",
       "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "abr_entitlement",
+      "organisation": "abr",
+      "jurisdiction": "CTH",
+      "title": "ABN entitlement",
+      "url": "https://www.abr.gov.au/business-super-funds-charities/applying-abn/abn-entitlement",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "bga_business_name",
+      "organisation": "business_gov",
+      "jurisdiction": "CTH",
+      "title": "Register your business name",
+      "url": "https://business.gov.au/registrations/register-your-business-name",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "bga_company",
+      "organisation": "business_gov",
+      "jurisdiction": "CTH",
+      "title": "Register a company",
+      "url": "https://business.gov.au/registrations/register-a-company",
+      "source_type": "WEBPAGE"
     }
   ],
   "references": [
@@ -286,9 +331,247 @@
       "section": "Home based business",
       "extracted_text": "[Summary, not the source's wording] Some kinds of home based business are accepted development if they meet all the accepted development requirements; otherwise, or where Part 5.5 of CairnsPlan 2016 lists the business for code or impact assessment, a development application is needed. A home based business should be small in scale, generally with no more than one employee who doesn't live there.",
       "interpretation": "A home based business in Cairns may need a development application, depending on the kind of business and whether it meets the accepted development requirements. Captured on 2026-10-09 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "abn_entitlement",
+      "document": "abr_entitlement",
+      "section": "ABN entitlement",
+      "extracted_text": "[Summary, not the source's wording] You are entitled to an ABN if you are carrying on, or starting to carry on, an enterprise in Australia, or are a company registered under the Corporations Act. Applying is free through the Business Registration Service. Without an ABN, businesses you supply may withhold tax from payments to you, and you can't register for GST.",
+      "interpretation": "A business that doesn't have an ABN yet should apply for one. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "business_name_required",
+      "document": "bga_business_name",
+      "section": "When you need to register a business name",
+      "extracted_text": "[Summary, not the source's wording] You must register a business name with ASIC if you trade under a name other than your own name (for a sole trader), the partners' names, or the company's exact name. Registration costs A$47 for 1 year or A$108 for 3 years from 1 July 2026, and you need an ABN first.",
+      "interpretation": "Trading under any other name needs a registered business name. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "company_registration",
+      "document": "bga_company",
+      "section": "Registering a company",
+      "extracted_text": "[Summary, not the source's wording] A company must be registered with ASIC, which gives it an Australian Company Number, before it can trade. Every director needs a director ID before being appointed. Registering a proprietary company costs A$636 and the annual review fee is A$342 from 1 July 2026. After registration the company applies for its own ABN.",
+      "interpretation": "A company structure needs ASIC registration and director IDs before it can get an ABN. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
     }
   ],
   "rule_sets": [
+    {
+      "key": "business.au.registrations",
+      "vertical": "BUSINESS",
+      "jurisdiction": "CTH",
+      "title": "Australia: setting up the business (ABN, business name, company)",
+      "description": "ABN, business name and company registration, from Australian Business Register, ASIC and business.gov.au guidance.",
+      "limitations": [
+        "Built from Australian Business Register, ASIC and business.gov.au guidance, not from the Corporations Act 2001 or the Business Names Registration Act 2011.",
+        "Doesn't check whether a business name is available or could infringe a trade mark.",
+        "Not legal or tax advice. Check with an accountant, a registered tax agent or a lawyer."
+      ],
+      "rules": [
+        {
+          "key": "abn",
+          "title": "Australian Business Number (ABN)",
+          "condition": {
+            "fact": "business.has_abn",
+            "op": "equals",
+            "value": false
+          },
+          "effective_from": "2026-10-11",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Apply for an ABN (it's free)",
+              "detail": "You'll need an Australian Business Number before you register a business name or for GST, and to invoice without tax being withheld. Apply free through the Business Registration Service; many applications are approved straight away, others within 20 business days.",
+              "payload": {
+                "approval": {
+                  "kind": "ABN_REGISTRATION",
+                  "authority": "Australian Business Register",
+                  "pathway": "Apply free through the Business Registration Service"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Apply for an ABN"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "You already have an ABN",
+              "detail": "Keep your ABN details up to date within 28 days of any change.",
+              "payload": {
+                "approval": {
+                  "kind": "ABN_REGISTRATION",
+                  "authority": "Australian Business Register",
+                  "pathway": "Already registered"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "abn_entitlement",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "No ABN",
+              "facts": {
+                "business.has_abn": false
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Has ABN",
+              "facts": {
+                "business.has_abn": true
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "business_name",
+          "title": "Business name registration",
+          "condition": {
+            "fact": "business.trading_name",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-11",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register your business name with ASIC",
+              "detail": "Because you'll trade under a name other than your own (or the company's exact name), you must register it as a business name with ASIC before you use it: A$47 for 1 year or A$108 for 3 years. You need an ABN first. Registration doesn't give you trade mark rights.",
+              "payload": {
+                "approval": {
+                  "kind": "BUSINESS_NAME_REGISTRATION",
+                  "authority": "Australian Securities and Investments Commission",
+                  "pathway": "Register online after you have an ABN"
+                },
+                "task": "Register the business name with ASIC"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "No business name registration needed",
+              "detail": "Trading under your own name, or the company's exact name, doesn't need a registered business name.",
+              "payload": {
+                "approval": {
+                  "kind": "BUSINESS_NAME_REGISTRATION",
+                  "authority": "Australian Securities and Investments Commission",
+                  "pathway": "Not needed for your own name"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "business_name_required",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Other name",
+              "facts": {
+                "business.trading_name": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Own name",
+              "facts": {
+                "business.trading_name": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+        },
+        {
+          "key": "company",
+          "title": "Company registration and director IDs",
+          "condition": {
+            "all": [
+              {
+                "fact": "business.entity_type",
+                "op": "equals",
+                "value": "COMPANY"
+              },
+              {
+                "fact": "business.has_abn",
+                "op": "equals",
+                "value": false
+              }
+            ]
+          },
+          "effective_from": "2026-10-11",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register the company with ASIC, after every director has a director ID",
+              "detail": "A company has to be registered with ASIC before it can get an ABN or trade (A$636, then a A$342 annual review fee). Every director needs a director ID before being appointed; it's free but applying online needs a myID. An accountant or lawyer can set up the company for you.",
+              "payload": {
+                "approval": {
+                  "kind": "COMPANY_REGISTRATION",
+                  "authority": "Australian Securities and Investments Commission",
+                  "pathway": "Director IDs first, then register online with ASIC"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Get director IDs and register the company"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "company_registration",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "New company",
+              "facts": {
+                "business.entity_type": "COMPANY",
+                "business.has_abn": false
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Sole trader",
+              "facts": {
+                "business.entity_type": "SOLE_TRADER",
+                "business.has_abn": false
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ],
+          "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+        }
+      ]
+    },
     {
       "key": "business.cth.tax_registrations",
       "vertical": "BUSINESS",

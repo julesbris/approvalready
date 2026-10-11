@@ -168,7 +168,7 @@ async def test_rules_may_only_name_marketplace_categories(api: ApiHarness) -> No
 
 def test_pack_rules_pass_their_own_test_cases() -> None:
     pack = packs.load_file(PACK)
-    assert len(pack.rule_sets) == 8
+    assert len(pack.rule_sets) == 9
     for rs in pack.rule_sets:
         assert rs.vertical == "BUSINESS"
         assert rs.limitations, f"{rs.key} must say what it doesn't check"
@@ -260,6 +260,7 @@ async def _business_project(user: User, description: str, **answers: Any) -> dic
         "business.description": description,
         "business.has_abn": False,
         "business.entity_type": "SOLE_TRADER",
+        "business.trading_name": True,
         "business.state": "QLD",
         "business.lga": "cairns",
         "business.premises_type": "leased_commercial",

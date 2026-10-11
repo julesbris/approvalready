@@ -39,6 +39,7 @@ from app.modules.councils.router import router as councils_router
 from app.modules.documents.router import router as documents_router
 from app.modules.entities.router import router as entities_router
 from app.modules.grants.router import router as grants_router
+from app.modules.guidance.router import router as guidance_router
 from app.modules.identity.router import router as auth_router
 from app.modules.leads.router import admin_router as leads_admin_router
 from app.modules.leads.router import conversations_router as leads_conversations_router
@@ -159,6 +160,7 @@ def create_app(
     app.include_router(grants_router)
     app.include_router(lookups_router)
     app.include_router(councils_router)
+    app.include_router(guidance_router)
     app.include_router(sales_router)
     app.include_router(rentals_router)
     app.include_router(notifications_router)

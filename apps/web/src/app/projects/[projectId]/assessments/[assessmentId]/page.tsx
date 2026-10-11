@@ -1,5 +1,6 @@
 import type {
   AIJobOut,
+  ApprovalGuideOut,
   AIStatusOut,
   AssessmentOut,
   AssessmentReviewOut,
@@ -24,6 +25,7 @@ import { EvidencePanel } from "@/components/documents/EvidencePanel";
 import { REPORT_TEMPLATES, ReportDownloads } from "@/components/documents/ReportDownloads";
 import { ReviewPanel } from "@/components/review/ReviewPanel";
 import { MAP_VERTICALS } from "@/lib/assessment";
+import { guideKinds, guideQuery } from "@/lib/approvalGuides";
 import { reviewPrice } from "@/lib/billing";
 import { councilKey } from "@/lib/councils";
 import { firstParam } from "@/lib/redirect";
@@ -79,6 +81,13 @@ export default async function AssessmentPage({ params, searchParams }: Props) {
   if (assessment.project_id !== projectId) {
     orNotFound({ ok: false, status: 404 });
   }
+  // Step-by-step guides for the approvals found, in the order to do them.
+  const kinds = guideKinds(assessment);
+  const vertical = project.ok ? project.data.vertical : undefined;
+  const guides =
+    kinds.length > 0
+      ? await serverGet<ApprovalGuideOut[]>(`/guidance/approvals?${guideQuery(kinds, vertical)}`)
+      : null;
   const canWrite = session.permissions.includes("project.write");
   const review = reviewState.ok ? reviewState.data : null;
   const openReview = (reviews.ok ? reviews.data : []).find((r) => isOpen(r.status)) ?? null;
@@ -99,6 +108,7 @@ export default async function AssessmentPage({ params, searchParams }: Props) {
         projectId={projectId}
         overrides={review?.overrides}
         approvalMap={project.ok && MAP_VERTICALS.has(project.data.vertical)}
+        guides={guides?.ok ? guides.data : []}
         helpAction={
           <div className="button-row">
             {canWrite && latestId === assessment.id ? (
