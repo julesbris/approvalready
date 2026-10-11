@@ -34,6 +34,8 @@ ENV NODE_ENV=production \
 RUN addgroup -S -g 10001 app && adduser -S -u 10001 -G app -h /app app
 COPY --from=build --chown=app:app /repo/apps/web/.next/standalone ./
 COPY --from=build --chown=app:app /repo/apps/web/.next/static ./apps/web/.next/static
+# The standalone build leaves out public/ (the logo lockups and other static files).
+COPY --from=build --chown=app:app /repo/apps/web/public ./apps/web/public
 USER app
 EXPOSE 3000
 HEALTHCHECK --interval=15s --timeout=3s --start-period=15s --retries=3 \

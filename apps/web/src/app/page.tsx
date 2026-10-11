@@ -101,9 +101,12 @@ export default function HomePage() {
             <ul className="products" aria-label="Product areas">
               {brand.products.map((product) => (
                 <li key={product.key} className="product">
-                  <ProductIcon vertical={product.key} />
-                  <h3>{product.name}</h3>
-                  <p>{product.question}</p>
+                  <Link href={`/projects/new?vertical=${product.key}`}>
+                    <ProductIcon vertical={product.key} />
+                    <h3>{product.name}</h3>
+                    <p>{product.question}</p>
+                    <span className="product-cta">Start a project</span>
+                  </Link>
                 </li>
               ))}
             </ul>

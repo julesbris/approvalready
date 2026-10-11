@@ -90,6 +90,7 @@ samp {
 }
 
 .site-header .container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -157,8 +158,116 @@ samp {
   color: var(--ar-brand-navy);
 }
 
-.public-nav .button {
-  margin-left: 8px;
+.public-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* The small-screen menu (MenuDisclosure): a square button that opens a panel under the header. */
+.menu-disclosure {
+  display: none;
+}
+
+.menu-disclosure summary {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 40px;
+  border: 1px solid var(--ar-border-strong);
+  border-radius: var(--ar-radius);
+  background: var(--ar-surface);
+  color: var(--ar-ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.menu-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu-disclosure summary:focus-visible {
+  outline: 3px solid var(--ar-focus);
+  outline-offset: 2px;
+}
+
+/* Three bars, crossed out while the menu is open. */
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  transition: transform 0.15s ease;
+}
+
+.menu-icon {
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-icon::before {
+  top: -6px;
+}
+
+.menu-icon::after {
+  top: 6px;
+}
+
+.menu-disclosure[open] .menu-icon {
+  background: transparent;
+}
+
+.menu-disclosure[open] .menu-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-disclosure[open] .menu-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.menu-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: grid;
+  padding: 8px 16px 16px;
+  border-bottom: 1px solid var(--ar-border);
+  background: var(--ar-surface);
+  box-shadow: var(--ar-shadow);
+}
+
+.menu-panel a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 12px;
+  border-radius: var(--ar-radius);
+  color: var(--ar-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu-panel a:hover {
+  background: var(--ar-surface-sunk);
+}
+
+@media (max-width: 640px) {
+  .public-nav {
+    display: none;
+  }
+  .menu-disclosure {
+    display: block;
+  }
 }
 
 .app-header {
@@ -199,28 +308,22 @@ samp {
     min-height: 0;
     padding-top: 10px;
   }
+  /* The links take their own row under the logo and wrap, so every one stays in view. */
   .app-nav {
     order: 3;
     flex: 1 0 100%;
-    margin: 0 -16px;
-    padding: 6px 12px 8px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .app-nav::-webkit-scrollbar {
-    display: none;
+    flex-wrap: wrap;
+    margin: 0 -12px;
+    padding: 6px 0 8px;
   }
 }
 
 @media (max-width: 600px) {
-  .public-nav a[href="/guides"] {
-    display: none;
-  }
   .site-header .container {
     min-height: 64px;
   }
   .wordmark-logo {
-    height: 30px;
+    height: 28px;
   }
 }
 
@@ -367,11 +470,13 @@ samp {
 
 .form {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
 }
 
 .form label {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
   font-weight: 600;
   font-size: 0.9375rem;
@@ -381,6 +486,8 @@ samp {
 .form textarea,
 .form select,
 .org-switcher select {
+  min-width: 0;
+  max-width: 100%;
   font: inherit;
   font-weight: 400;
   min-height: 48px;
@@ -404,6 +511,9 @@ samp {
 }
 
 .form input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   padding: 10px;
   border-style: dashed;
   background: var(--ar-surface-sunk);
@@ -988,11 +1098,58 @@ fieldset.question {
 }
 
 .product {
+  display: flex;
+}
+
+.product a {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 24px;
   border: 1px solid var(--ar-border);
   border-radius: var(--ar-radius-lg);
   background: var(--ar-surface-raised);
   box-shadow: var(--ar-shadow-sm);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.product a:hover {
+  border-color: var(--ar-border-strong);
+  box-shadow: var(--ar-shadow);
+}
+
+.product-cta {
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--ar-link);
+  font-weight: 600;
+}
+
+.product a:hover .product-cta {
+  text-decoration: underline;
+}
+
+/* Phones: icon beside the text, so the seven areas don't each take a screen. */
+@media (max-width: 600px) {
+  .product a {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    column-gap: 16px;
+    padding: 20px;
+  }
+  .product .product-icon {
+    grid-row: span 3;
+  }
+  .product h3 {
+    margin-top: 0;
+  }
+  .product-cta {
+    padding-top: 8px;
+  }
 }
 
 .product h3 {
@@ -1611,12 +1768,7 @@ a.card-title:hover {
   border: 1px solid var(--ar-border);
   border-radius: var(--ar-radius);
   background: var(--ar-surface-raised);
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.admin-nav::-webkit-scrollbar {
-  display: none;
+  flex-wrap: wrap;
 }
 
 .admin-nav a {
