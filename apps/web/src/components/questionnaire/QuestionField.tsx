@@ -1,6 +1,6 @@
 "use client";
 
-import type { QuestionOut } from "@approvalready/shared-types";
+import type { AddressMatchOut, QuestionOut } from "@approvalready/shared-types";
 import type { ReactNode } from "react";
 
 import { AddressSearch } from "@/components/lookups/AddressSearch";
@@ -29,11 +29,13 @@ type Props = {
   onText: (text: string) => void;
   /** Where FILE answers upload to. Without it a FILE question is shown read-only. */
   files?: FileContext;
+  /** Called when a Queensland address is picked from the search, after its value is set. */
+  onAddressPick?: (match: AddressMatchOut) => void;
 };
 
 /** One question, rendered for its type, with its label, help text and error. */
 export function QuestionField(props: Props) {
-  const { question, value, text, error, disabled, onValue, onText, files } = props;
+  const { question, value, text, error, disabled, onValue, onText, files, onAddressPick } = props;
   const id = `q-${question.key.replace(/[^a-z0-9_-]/gi, "-")}`;
   const helpId = question.help_text ? `${id}-help` : undefined;
   const errorId = error ? `${id}-error` : undefined;
@@ -214,9 +216,10 @@ export function QuestionField(props: Props) {
           {files && !disabled ? (
             <AddressSearch
               organisationId={files.organisationId}
-              onPick={(m) =>
-                onValue({ ...address, line1: m.line1, line2: "", suburb: m.suburb, state: m.state })
-              }
+              onPick={(m) => {
+                onValue({ ...address, line1: m.line1, line2: "", suburb: m.suburb, state: m.state });
+                onAddressPick?.(m);
+              }}
             />
           ) : null}
           <label>

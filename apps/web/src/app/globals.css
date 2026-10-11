@@ -2261,6 +2261,100 @@ a.card-title:hover {
   overflow-wrap: anywhere;
 }
 
+/* --- Council directory: how to apply to a council --- */
+
+.council-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 8px;
+}
+
+.council-head .section-title {
+  margin: 0;
+}
+
+.council-list li {
+  overflow-wrap: anywhere;
+}
+
+.council-method {
+  margin-left: 0;
+  min-width: 72px;
+  text-align: center;
+}
+
+.council-steps {
+  margin: 0 0 12px;
+  padding-left: 1.4em;
+  display: grid;
+  gap: 6px;
+}
+
+.council-more {
+  margin: 12px 0;
+}
+
+.council-more summary {
+  cursor: pointer;
+  color: var(--ar-link);
+  font-weight: 600;
+}
+
+.council-more ul,
+.council-more ol {
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+}
+
+.council-fees {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 12px;
+}
+
+.council-fees caption {
+  caption-side: bottom;
+  text-align: left;
+  padding-top: 8px;
+  font-size: 0.875rem;
+}
+
+.council-fees th,
+.council-fees td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px 12px 8px 0;
+  border-top: 1px solid var(--ar-border);
+}
+
+.council-fees th {
+  color: var(--ar-ink-muted);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.council-amount {
+  white-space: nowrap;
+  font-weight: 600;
+  text-align: right;
+}
+
+.council-fees th:last-child {
+  text-align: right;
+}
+
+.council-found {
+  margin: 4px 0 0;
+}
+
+.save-state {
+  margin-top: 4px;
+  font-size: 0.875rem;
+}
+
 /* --- What's left on a project (keep going) --- */
 
 .whats-left-steps {

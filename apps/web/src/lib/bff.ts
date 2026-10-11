@@ -11,6 +11,7 @@ const PROXIED_ROOTS = new Set([
   "ai",
   "partners",
   "privacy",
+  "councils",
 ]);
 
 /** Request headers forwarded to the API. Anything else (e.g. Authorization) is dropped. */

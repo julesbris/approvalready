@@ -142,6 +142,8 @@ export type MatchStatus = GrantMatchOut["status"];
 export type RoundStatus = GrantRoundOut["state"];
 
 export type AddressMatchOut = Schemas["AddressMatchOut"];
+export type CouncilOut = Schemas["CouncilOut"];
+export type CouncilSummary = Schemas["CouncilSummary"];
 export type AddressSearchOut = Schemas["AddressSearchOut"];
 export type ParcelOut = Schemas["ParcelOut"];
 export type VesselLookupOut = Schemas["VesselLookupOut"];

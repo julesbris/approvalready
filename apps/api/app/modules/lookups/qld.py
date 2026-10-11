@@ -28,6 +28,7 @@ from typing import Any
 
 import httpx
 
+from app.modules.councils.directory import for_local_authority
 from app.modules.lookups.client import LookupUnavailable, TtlCache
 
 ADDRESS_SERVICE = "PlanningCadastre/LandParcelPropertyFramework/MapServer"
@@ -104,10 +105,10 @@ def parse_lot_plan(text: str) -> str | None:
 
 
 def lga_answer(local_authority: str | None) -> str | None:
-    """The planning questionnaire's ``property.lga`` value for a council name."""
-    if not local_authority:
-        return None
-    return "cairns" if local_authority.strip().lower().startswith("cairns") else "other"
+    """The planning questionnaire's ``property.lga`` value (the council directory's key)
+    for a council name in the address data, or None when it isn't a known council."""
+    council = for_local_authority(local_authority)
+    return council.key if council else None
 
 
 @dataclass(frozen=True)
@@ -216,7 +217,9 @@ CAIRNS_PLAN_URL = "https://www.cairns.qld.gov.au/property-and-business/planning-
 
 
 def not_checked(local_authority: str | None) -> list[NotChecked]:
-    cairns = lga_answer(local_authority) == "cairns"
+    council = for_local_authority(local_authority)
+    cairns = council is not None and council.key == "cairns"
+    scheme = council.planning_scheme if council else None
     return [
         NotChecked(
             "Zone and local overlays under the council's planning scheme",
@@ -224,7 +227,7 @@ def not_checked(local_authority: str | None) -> list[NotChecked]:
             "service we can read."
             if cairns
             else "Councils publish their own planning scheme mapping; we don't read it yet.",
-            CAIRNS_PLAN_URL if cairns else None,
+            CAIRNS_PLAN_URL if cairns else (scheme.url if scheme else None),
         ),
         NotChecked(
             "Bushfire prone area",

@@ -1,4 +1,4 @@
-import type { SubmissionOut } from "@approvalready/shared-types";
+import type { CouncilOut, SubmissionOut } from "@approvalready/shared-types";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import { QuestionnaireRunner } from "./QuestionnaireRunner";
@@ -198,5 +198,158 @@ describe("QuestionnaireRunner", () => {
     expect(screen.queryByRole("region", { name: /We can fill in/ })).not.toBeInTheDocument();
     const [, init] = fetchMock.mock.calls[0] as [string, RequestInit];
     expect(JSON.parse(init.body as string)).toEqual({ answers: { kind: "sub" } });
+  });
+
+  it("saves answers automatically a moment after they change", async () => {
+    const saved = submission({
+      answers: { kind: "ext" },
+      missing_required: [],
+      progress: { answered: 1, visible: 1, required_remaining: 0 },
+    });
+    const fetchMock = vi.fn().mockResolvedValue(Response.json(saved));
+    vi.stubGlobal("fetch", fetchMock);
+    render(
+      <QuestionnaireRunner
+        organisationId="o1"
+        projectId="p1"
+        submission={submission()}
+        canWrite
+        autosaveDelayMs={5}
+      />,
+    );
+    expect(screen.getByText("Your answers save as you go.")).toBeInTheDocument();
+    fireEvent.click(screen.getByLabelText("Extending"));
+    expect(await screen.findByText(/All changes saved/)).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(url).toBe("/api/v1/organisations/o1/submissions/s1/answers");
+    expect(JSON.parse(init.body as string)).toEqual({ answers: { kind: "ext" } });
+    // Still on the same section: saving in the background doesn't move people on.
+    expect(screen.getByLabelText("Extending")).toBeChecked();
+  });
+
+  it("fills in the council and lot from a picked address and shows how to apply", async () => {
+    const site = submission({
+      visible: ["property.address", "property.lga", "property.lot_plan"],
+      missing_required: [],
+      progress: { answered: 0, visible: 3, required_remaining: 0 },
+      questionnaire: {
+        ...submission().questionnaire,
+        sections: [
+          {
+            title: "The site",
+            questions: [
+              {
+                key: "property.address",
+                type: "ADDRESS",
+                label: "Site address",
+                help_text: null,
+                required: false,
+                options: [],
+                validation: {},
+                visible_when: null,
+              },
+              {
+                key: "property.lga",
+                type: "SELECT",
+                label: "Which council area is the site in?",
+                help_text: null,
+                required: false,
+                options: [
+                  { value: "brisbane", label: "Brisbane City Council" },
+                  { value: "cairns", label: "Cairns Regional Council" },
+                  { value: "other", label: "A council outside Queensland" },
+                ],
+                validation: {},
+                visible_when: null,
+              },
+              {
+                key: "property.lot_plan",
+                type: "TEXT",
+                label: "Lot and plan",
+                help_text: null,
+                required: false,
+                options: [],
+                validation: {},
+                visible_when: null,
+              },
+            ],
+          },
+        ],
+      },
+    });
+    const council = {
+      key: "cairns",
+      name: "Cairns Regional Council",
+      checked_on: "2026-10-11",
+      checked: { verified: false, verified_at: null },
+      lodgement: [],
+      steps: ["Lodge online."],
+      general_steps: ["Check the planning scheme."],
+      general_source: { url: "https://planning.example/process", title: "Process" },
+      contact: { phone: "07 4044 3044", email: null, address: null, hours: null },
+      fees: null,
+      sources: [{ url: "https://cairns.example/da", title: "Development applications" }],
+      gaps: [],
+    } as unknown as CouncilOut;
+    const fetchMock = vi.fn((url: string) => {
+      if (url.includes("/lookups/addresses")) {
+        return Promise.resolve(
+          Response.json({
+            matches: [
+              {
+                address_pid: 1,
+                label: "34 Gilmore Street, Bentley Park QLD",
+                line1: "34 Gilmore Street",
+                suburb: "Bentley Park",
+                state: "QLD",
+                lot_plan: "1RP731159",
+                lot_plan_label: "Lot 1 on RP731159",
+                local_authority: "Cairns Regional",
+                lga: "cairns",
+              },
+            ],
+            note: "",
+            source: "",
+          }),
+        );
+      }
+      if (url.includes("/councils/cairns")) return Promise.resolve(Response.json(council));
+      if (url.includes("/prefill")) {
+        return Promise.resolve(Response.json({ provider: "none", suggestions: [] }));
+      }
+      return Promise.resolve(Response.json(site));
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    render(
+      <QuestionnaireRunner
+        organisationId="o1"
+        projectId="p1"
+        submission={site}
+        canWrite
+        autosaveDelayMs={5}
+      />,
+    );
+    fireEvent.change(screen.getByLabelText("Find a Queensland address"), {
+      target: { value: "34 Gilmore St" },
+    });
+    fireEvent.click(await screen.findByRole("button", { name: /34 Gilmore Street/ }));
+    expect(screen.getByLabelText("Cairns Regional Council")).toBeChecked();
+    expect(screen.getByLabelText(/Lot and plan/)).toHaveValue("Lot 1 on RP731159");
+    expect(screen.getByText(/We filled in the council and lot and plan/)).toBeInTheDocument();
+    expect(
+      await screen.findByText(/Development applications for this site go to Cairns Regional/),
+    ).toBeInTheDocument();
+    await waitFor(() =>
+      expect(fetchMock.mock.calls.some(([url]) => String(url).endsWith("/answers"))).toBe(true),
+    );
+    const save = fetchMock.mock.calls.find(([url]) => String(url).endsWith("/answers")) as unknown as [
+      string,
+      RequestInit,
+    ];
+    expect(JSON.parse(save[1].body as string).answers).toMatchObject({
+      "property.lga": "cairns",
+      "property.lot_plan": "Lot 1 on RP731159",
+    });
   });
 });

@@ -5,6 +5,7 @@ import type {
   BusinessProfileOut,
   ChecklistDefinitionOut,
   ChecklistOut,
+  CouncilOut,
   DocumentOut,
   MemberOut,
   ProjectDetailOut,
@@ -21,6 +22,7 @@ import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
+import { CouncilGuide } from "@/components/councils/CouncilGuide";
 import { DocumentsPanel } from "@/components/documents/DocumentsPanel";
 import { BusinessPanel } from "@/components/projects/BusinessPanel";
 import { ChecklistsPanel } from "@/components/projects/ChecklistsPanel";
@@ -50,6 +52,8 @@ type Props = {
   checklists?: ChecklistOut[];
   checklistDefinitions?: ChecklistDefinitionOut[];
   documents?: DocumentOut[];
+  /** For a planning project in a council we know: how to apply to it. */
+  council?: CouncilOut;
   whatsLeft?: WhatsLeftOut;
   currentUserId: string;
   canWrite: boolean;
@@ -315,6 +319,8 @@ export function ProjectWorkspace(props: Props) {
           </>
         ) : null}
       </section>
+
+      {props.council ? <CouncilGuide council={props.council} /> : null}
 
       {project.vertical === "SELL" ? (
         <section className="panel" aria-labelledby="sale-panel-title">
