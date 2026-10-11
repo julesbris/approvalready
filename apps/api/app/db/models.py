@@ -10,6 +10,7 @@ from app.modules.entities import models as entities_models  # noqa: F401
 from app.modules.grants import models as grants_models  # noqa: F401
 from app.modules.identity import models as identity_models  # noqa: F401
 from app.modules.leads import models as leads_models  # noqa: F401
+from app.modules.marketing import models as marketing_models  # noqa: F401
 from app.modules.marketplace import models as marketplace_models  # noqa: F401
 from app.modules.notifications import models as notifications_models  # noqa: F401
 from app.modules.ops import models as ops_models  # noqa: F401

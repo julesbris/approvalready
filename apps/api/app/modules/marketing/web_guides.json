@@ -1,0 +1,33 @@
+{
+  "comment": "The public guide pages of the web app (apps/web/src/lib/guides.ts). A web test checks this list matches them.",
+  "guides": [
+    {
+      "slug": "cairns-secondary-dwellings",
+      "title": "Secondary dwellings (granny flats) in Cairns",
+      "description": "When a granny flat in the Cairns Regional Council area needs planning or building approval, how big it can be, parking, and who can live in it, with the sources for each point.",
+      "area": "Cairns Regional Council, Queensland",
+      "vertical": "PLANNING"
+    },
+    {
+      "slug": "cairns-subdivision",
+      "title": "Subdividing land in Cairns",
+      "description": "What reconfiguring a lot means in the Cairns Regional Council area, when a development permit is needed, minimum lot sizes in the residential zones, and the costs to expect, with sources.",
+      "area": "Cairns Regional Council, Queensland",
+      "vertical": "PLANNING"
+    },
+    {
+      "slug": "importing-goods-into-australia",
+      "title": "Importing goods into Australia for your business",
+      "description": "When you need a full import declaration, who can lodge it, GST and duty, biosecurity permits and stink bug season, and goods that need permission first, with the sources for each point.",
+      "area": "Australia",
+      "vertical": "TRADE"
+    },
+    {
+      "slug": "exporting-goods-from-australia",
+      "title": "Exporting goods from Australia",
+      "description": "When you need an export declaration, export controls on food, plant and animal goods, Defence export permits and export grants, with the sources for each point.",
+      "area": "Australia",
+      "vertical": "TRADE"
+    }
+  ]
+}

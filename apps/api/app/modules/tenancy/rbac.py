@@ -58,6 +58,7 @@ class Perm(StrEnum):
     PLATFORM_ORGANISATIONS_READ = "platform.organisations.read"
     PLATFORM_AUDIT_READ = "platform.audit.read"
     PLATFORM_ROLES_MANAGE = "platform.roles.manage"
+    MARKETING_MANAGE = "marketing.manage"
 
 
 PERMISSION_DESCRIPTIONS: dict[Perm, str] = {
@@ -93,6 +94,7 @@ PERMISSION_DESCRIPTIONS: dict[Perm, str] = {
     Perm.PLATFORM_ORGANISATIONS_READ: "View any organisation (staff)",
     Perm.PLATFORM_AUDIT_READ: "View and verify the platform audit log",
     Perm.PLATFORM_ROLES_MANAGE: "Grant platform roles",
+    Perm.MARKETING_MANAGE: "Post guides to Facebook, Instagram and the email list (staff)",
 }
 
 _ORG_ADMIN = {
@@ -128,6 +130,7 @@ _ADMIN = (
         Perm.PRIVACY_MANAGE,
         Perm.BILLING_REFUND,
         Perm.PLATFORM_USERS_MANAGE,
+        Perm.MARKETING_MANAGE,
     }
 )
 

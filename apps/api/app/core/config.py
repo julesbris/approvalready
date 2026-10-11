@@ -298,6 +298,22 @@ class Settings(BaseSettings):
     # declining the deletion request with a reason.
     privacy_purge_after_days: int = Field(default=7, ge=0, le=25)
 
+    # --- Marketing (app/modules/marketing) ---
+    # Guide posts to a Facebook Page and its linked Instagram professional account, through
+    # Meta's Graph API. Each channel is off until its settings are present (DEPLOY_KAMATERA.md
+    # "Marketing" says how to get them): the Page's id, the Instagram account's id and a
+    # long-lived Page access token with pages_manage_posts and instagram_content_publish.
+    meta_page_id: str | None = Field(default=None, pattern=r"^[0-9]{1,30}$")
+    meta_instagram_account_id: str | None = Field(default=None, pattern=r"^[0-9]{1,30}$")
+    meta_page_access_token: SecretStr | None = None
+    meta_graph_version: str = Field(default="v23.0", pattern=r"^v[0-9]{1,3}\.[0-9]$")
+    meta_graph_base: str = "https://graph.facebook.com"
+    meta_timeout_seconds: float = Field(default=30.0, gt=0, le=120)
+    # Guide emails to the list share the mailbox's daily sending limit with sign-in and
+    # account emails (Google Workspace: 2,000 a day), so at most this many go out in any 24
+    # hours; the rest follow the next day.
+    newsletter_daily_limit: int = Field(default=1500, ge=0, le=100_000)
+
     @field_validator(
         "storage_s3_bucket",
         "storage_s3_region",
@@ -314,6 +330,9 @@ class Settings(BaseSettings):
         "backup_s3_access_key_id",
         "backup_s3_secret_access_key",
         "sentry_dsn",
+        "meta_page_id",
+        "meta_instagram_account_id",
+        "meta_page_access_token",
         mode="before",
     )
     @classmethod

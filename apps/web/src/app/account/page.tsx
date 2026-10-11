@@ -1,9 +1,15 @@
-import type { EmailChangeOut, MfaStatusOut, PreferencesOut } from "@approvalready/shared-types";
+import type {
+  AccountNewsletterOut,
+  EmailChangeOut,
+  MfaStatusOut,
+  PreferencesOut,
+} from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ChangeEmailForm } from "@/components/account/ChangeEmailForm";
 import { ChangePasswordForm } from "@/components/account/ChangePasswordForm";
+import { GuidesByEmail } from "@/components/account/GuidesByEmail";
 import { NotificationPreferences } from "@/components/account/NotificationPreferences";
 import { TwoStepSignIn } from "@/components/account/TwoStepSignIn";
 import { YourData } from "@/components/account/YourData";
@@ -23,6 +29,7 @@ export default async function AccountPage() {
   const preferences = orNotFound(
     await serverGet<PreferencesOut>("/auth/notification-preferences"),
   );
+  const guides = orNotFound(await serverGet<AccountNewsletterOut>("/auth/newsletter"));
   const isStaff = session.organisations.some((o) => o.kind === "PLATFORM_ADMIN");
   return (
     <AppShell session={session}>
@@ -92,6 +99,8 @@ export default async function AccountPage() {
           organisation you belong to.
         </p>
         <NotificationPreferences initial={preferences} isStaff={isStaff} />
+        <h3 className="subsection-title">Guides by email</h3>
+        <GuidesByEmail initial={guides.subscribed} />
       </section>
 
       <section className="panel" id="your-data" aria-labelledby="your-data-title">

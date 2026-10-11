@@ -88,6 +88,12 @@ x-api-env: &api-env
   # Closed accounts (Milestone 29): the personal workspace is deleted this many days after
   # the account closes (the Privacy Policy promises within 30).
   PRIVACY_PURGE_AFTER_DAYS: ${PRIVACY_PURGE_AFTER_DAYS:-7}
+  # Marketing: guide posts to a Facebook Page and its Instagram account. Each is off until
+  # its settings are set (DEPLOY_KAMATERA.md, "Marketing").
+  META_PAGE_ID: ${META_PAGE_ID:-}
+  META_INSTAGRAM_ACCOUNT_ID: ${META_INSTAGRAM_ACCOUNT_ID:-}
+  META_PAGE_ACCESS_TOKEN: ${META_PAGE_ACCESS_TOKEN:-}
+  NEWSLETTER_DAILY_LIMIT: ${NEWSLETTER_DAILY_LIMIT:-1500}
 
 x-api-image: &api-image
   image: ${IMAGE_PREFIX:-approvalready}/api:${IMAGE_TAG:-latest}

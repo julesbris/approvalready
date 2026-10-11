@@ -48,6 +48,9 @@ from app.modules.leads.router import partner_router as leads_partner_router
 from app.modules.leads.router import quotes_router as leads_quotes_router
 from app.modules.lookups.router import router as lookups_router
 from app.modules.lookups.service import Lookups
+from app.modules.marketing.router import account_router as marketing_account_router
+from app.modules.marketing.router import admin_router as marketing_admin_router
+from app.modules.marketing.router import public_router as marketing_public_router
 from app.modules.marketplace.router import router as marketplace_router
 from app.modules.notifications.router import preferences_router as notification_prefs_router
 from app.modules.notifications.router import router as notifications_router
@@ -189,6 +192,9 @@ def create_app(
     app.include_router(progress_router)
     app.include_router(plans_router)
     app.include_router(progress_admin_router)
+    app.include_router(marketing_public_router)
+    app.include_router(marketing_account_router)
+    app.include_router(marketing_admin_router)
     return app
 
 
