@@ -31,6 +31,7 @@ export default async function ReferralsPage({ params, searchParams }: Props) {
   const query = await searchParams;
   const assessmentId = firstParam(query.assessment) ?? null;
   const sent = firstParam(query.sent) === "1";
+  const preselect = firstParam(query.category) ?? null;
   const session = await requireSession(`/projects/${projectId}/referrals`);
   const orgId = session.active_organisation_id;
   if (!orgId || !session.permissions.includes("project.read")) {
@@ -68,7 +69,12 @@ export default async function ReferralsPage({ params, searchParams }: Props) {
         </FormNotice>
       ) : null}
       {options && options.ok ? (
-        <ReferralForm organisationId={orgId} projectId={projectId} options={options.data} />
+        <ReferralForm
+          organisationId={orgId}
+          projectId={projectId}
+          options={options.data}
+          preselect={preselect}
+        />
       ) : options ? (
         <p className="muted">We couldn&apos;t load that assessment.</p>
       ) : null}

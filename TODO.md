@@ -209,6 +209,13 @@ tests and updated docs before the next starts.
 - [x] In-app and email notifications both ways; audit events; analytics unchanged (status events)
 - [ ] Next: PDF quotes; reminders before a quote expires; quote templates per partner; ~~messages between customer and partner~~ (Milestone 26)
 
+## Checklist reports and project plans ✅
+- [x] Every product's assessment downloads as a printable checklist (PDF, Word, HTML): each approval's things to have ready and steps in order, with forms, costs, timeframes, fees, contacts, what to watch out for, documents and tasks, with tick boxes
+- [x] Paid project plan per project (placeholder A$149, set the real price at /admin/billing; free while it isn't on sale): timeline, due dates, owners, notes and files on every step, progress, print
+- [x] Checked partners in the area suggested for each part with their phone, email and website; one-click follow-up call with an email reminder; ask for introductions with that kind of help ticked
+- [x] Migration 0031: `project_plan`, `project_plan_item`
+- [ ] Next: confirm the plan price; plan steps in the keep-going nudges; assign steps to members; record call outcomes
+
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
 - [ ] Fetch source documents automatically for snapshots (manual capture only for now; no claims of live integration)
