@@ -144,7 +144,7 @@ async def _nudge(
         if left.done:
             return False
         title, body = message(project.title, left, step)
-        quiet_since = int(q.last_activity_at.timestamp())
+        quiet_since = int(q.last_activity_at.timestamp() * 1_000_000)
         nid = await notifications.create(
             db,
             organisation_id=q.organisation_id,
@@ -154,7 +154,7 @@ async def _nudge(
             body=body,
             link_path=left.items[0].link_path,
             project_id=project.id,
-            dedupe_key=f"keep_going:{project.id}:{quiet_since}:{step}",
+            dedupe_key=f"keep_going:{project.id}:{quiet_since}:{step}",  # microseconds
         )
         await db.commit()
         if nid is None:
