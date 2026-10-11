@@ -6,14 +6,24 @@ supersedes and reopens references.
 
 from __future__ import annotations
 
+import asyncio
 import uuid
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query, Request, status
 from sqlalchemy import select
 
-from app.api.deps import DbDep, MetaDep, OrgContext, require_platform_permission
+from app.api.deps import (
+    DbDep,
+    MetaDep,
+    OrgContext,
+    SettingsDep,
+    require_platform_permission,
+)
+from app.core.config import JobsMode
+from app.core.errors import ApiError
 from app.modules.identity.models import AppUser
+from app.modules.notifications.reminders import local_today
 from app.modules.regulatory import checks, service
 from app.modules.regulatory.fetch import SourceFetcher
 from app.modules.regulatory.models import (
@@ -26,6 +36,7 @@ from app.modules.regulatory.models import (
     VerificationStatus,
 )
 from app.modules.regulatory.schemas import (
+    RereadOut,
     ReviewEventOut,
     SnapshotCaptured,
     SnapshotCreate,
@@ -272,6 +283,40 @@ async def check_source_document(
     )
     await db.commit()
     return _check_out(check)
+
+
+@router.post(
+    "/source-documents/reread-unreadable",
+    status_code=status.HTTP_202_ACCEPTED,
+    response_model=RereadOut,
+)
+async def reread_unreadable(
+    request: Request, ctx: Manage, db: DbDep, settings: SettingsDep
+) -> RereadOut:
+    """Read again, in the background, every document whose last check couldn't read its
+    wording (one at a time, politely). Staff get the usual notice when it finishes."""
+    ids = await checks.due_documents(db, local_today(), checks.utcnow(), unreadable_only=True)
+    if not ids:
+        return RereadOut(queued=0)
+    if settings.jobs_mode == JobsMode.CELERY:
+        from app.worker import celery_app
+
+        try:
+            await asyncio.to_thread(celery_app.send_task, checks.REREAD_UNREADABLE_TASK)
+        except Exception as exc:
+            raise ApiError(
+                503, "queue_unavailable", "The background worker isn't reachable. Try again soon."
+            ) from exc
+    else:
+        resources = request.app.state.resources
+        await checks.run_weekly(
+            resources.session_factory,
+            resources.email,
+            settings,
+            request.app.state.source_fetcher,
+            unreadable_only=True,
+        )
+    return RereadOut(queued=len(ids))
 
 
 @router.get("/source-documents/{document_id}/checks", response_model=list[SourceCheckOut])

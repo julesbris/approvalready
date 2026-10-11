@@ -285,12 +285,22 @@ class Settings(BaseSettings):
     # subdomains) that resolve to public internet addresses are ever read.
     source_checks_enabled: bool = True
     source_fetch_allowed_domains: Annotated[list[str], NoDecode] = Field(
-        default_factory=lambda: ["gov.au", "workcoverqld.com.au"]
+        default_factory=lambda: [
+            "gov.au",
+            "workcoverqld.com.au",
+            # Councils and agencies whose official pages or files live off gov.au.
+            "weipatownauthority.com.au",
+            "gatekeeper.digicert.com",
+            "assets-au-scc.kc-usercontent.com",  # Sunshine Coast Council's files
+            "images.impartmedia.com",  # Richmond Shire Council's files
+        ]
     )
     source_fetch_timeout_seconds: float = Field(default=30.0, gt=0, le=120)
     source_fetch_max_mb: int = Field(default=10, ge=1, le=50)
     # Pause between documents in the weekly check, to be polite to government websites.
     source_fetch_delay_seconds: float = Field(default=2.0, ge=0, le=60)
+    # Wait before asking a site a second time (as a browser) after it turned the app away.
+    source_fetch_retry_seconds: float = Field(default=5.0, ge=0, le=60)
 
     # --- Closed accounts (Milestone 29, app/modules/privacy/purge.py) ---
     # A closed account's personal workspace is deleted this many days after closing (the

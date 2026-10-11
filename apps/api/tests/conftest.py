@@ -50,6 +50,8 @@ def make_settings(**overrides: object) -> Settings:
         "jobs_mode": JobsMode.INLINE,
         # No calls to Have I Been Pwned from tests (test_account_security.py stubs it).
         "password_breach_check": False,
+        # A site that turns the app away is asked again at once.
+        "source_fetch_retry_seconds": 0.0,
         "_env_file": None,
     }
     if overrides.get("app_env") in (Environment.PRODUCTION, Environment.STAGING):

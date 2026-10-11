@@ -26,6 +26,7 @@ from app.modules.documents import jobs
 from app.modules.notifications import delivery
 from app.modules.outbox import service as outbox
 from app.modules.outbox.models import OutboxStatus
+from app.modules.regulatory.checks import REREAD_UNREADABLE_TASK
 
 settings = get_settings()
 init_error_tracking(settings, "worker")
@@ -330,6 +331,19 @@ def sources_weekly_check() -> int:
 
     async def job(factory: Any, email: Any, s: Any) -> int:
         result = await checks.run_weekly(factory, email, s, SourceFetcher(s))
+        return result.checked
+
+    return asyncio.run(_with_own_engine(job))
+
+
+@celery_app.task(name=REREAD_UNREADABLE_TASK)
+def sources_reread_unreadable() -> int:
+    """Read again every source document the last check couldn't read (staff ask for it)."""
+    from app.modules.regulatory import checks
+    from app.modules.regulatory.fetch import SourceFetcher
+
+    async def job(factory: Any, email: Any, s: Any) -> int:
+        result = await checks.run_weekly(factory, email, s, SourceFetcher(s), unreadable_only=True)
         return result.checked
 
     return asyncio.run(_with_own_engine(job))

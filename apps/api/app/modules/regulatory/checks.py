@@ -3,6 +3,9 @@ address, keep a snapshot when its text changes, and tell staff what changed or c
 read.
 
 * Staff press "Check now" on a document (``check_document`` with trigger ``MANUAL``).
+* Staff press "Read unreadable sources again" (or run ``python -m app.cli sources check
+  --unreadable``) to re-read, straight away, every document whose last check failed or found
+  a file without text (``run_weekly`` with ``unreadable_only``).
 * Every Monday morning the worker checks every document that is in force, not superseded,
   has ``auto_check`` on and wasn't checked in the last few days (``run_weekly``), one at a
   time with a pause between them. Staff with ``source.manage`` get one notification (and
@@ -37,7 +40,6 @@ from app.modules.regulatory.fetch import (
     MIN_TEXT_CHARS,
     FetchRefused,
     SourceFetcher,
-    readable_text,
 )
 from app.modules.regulatory.models import (
     MAX_SNAPSHOT_CHARS,
@@ -61,7 +63,15 @@ Factory = async_sessionmaker[AsyncSession]
 RECHECK_AFTER = timedelta(days=6)
 # Outcomes staff are told about.
 NEWS = (CheckOutcome.CHANGED, CheckOutcome.FILE_CHANGED, CheckOutcome.FAILED)
+# Last outcomes that leave a document's wording unknown to the app.
+UNREADABLE = (
+    CheckOutcome.FAILED,
+    CheckOutcome.FILE_SEEN,
+    CheckOutcome.FILE_CHANGED,
+    CheckOutcome.FILE_UNCHANGED,
+)
 LISTED_IN_NOTICE = 10
+REREAD_UNREADABLE_TASK = "sources.reread_unreadable"
 
 OUTCOME_LABELS = {
     CheckOutcome.SAVED: "first reading saved",
@@ -128,7 +138,7 @@ async def check_document(
     )
     retrieved_at = utcnow()
     try:
-        fetched = await fetcher.fetch(document.url)
+        fetched, text = await fetcher.read(document.url)
     except FetchRefused as exc:
         check.outcome = CheckOutcome.FAILED
         check.error = exc.message[:500]
@@ -139,7 +149,6 @@ async def check_document(
         check.content_type = fetched.content_type[:200] or None
         check.size_bytes = len(fetched.body)
         check.body_sha256 = fetched.sha256
-        text = readable_text(fetched)
         if text is None:
             previous = await _last_file_hash(db, document.id)
             check.outcome = (
@@ -219,28 +228,31 @@ async def latest_checks(
 # --- Weekly run ------------------------------------------------------------------------
 
 
-async def due_documents(db: AsyncSession, today: date, now: datetime) -> list[uuid.UUID]:
+async def due_documents(
+    db: AsyncSession, today: date, now: datetime, *, unreadable_only: bool = False
+) -> list[uuid.UUID]:
     """Documents the weekly run reads: checked automatically, in force, not superseded by
-    another document, and not checked recently."""
+    another document, and not checked recently. With ``unreadable_only``: those whose last
+    check couldn't read their wording, however recent."""
     newer = aliased(SourceDocument)
     recent = select(SourceCheck.id).where(
         SourceCheck.source_document_id == SourceDocument.id,
         SourceCheck.checked_at > now - RECHECK_AFTER,
     )
-    return list(
-        (
-            await db.execute(
-                select(SourceDocument.id)
-                .where(
-                    SourceDocument.auto_check.is_(True),
-                    (SourceDocument.effective_to.is_(None)) | (SourceDocument.effective_to > today),
-                    ~exists().where(newer.supersedes_id == SourceDocument.id),
-                    ~recent.exists(),
-                )
-                .order_by(SourceDocument.url, SourceDocument.id)
-            )
-        ).scalars()
+    query = (
+        select(SourceDocument.id)
+        .where(
+            SourceDocument.auto_check.is_(True),
+            (SourceDocument.effective_to.is_(None)) | (SourceDocument.effective_to > today),
+            ~exists().where(newer.supersedes_id == SourceDocument.id),
+        )
+        .order_by(SourceDocument.url, SourceDocument.id)
     )
+    if not unreadable_only:
+        return list((await db.execute(query.where(~recent.exists()))).scalars())
+    ids = list((await db.execute(query)).scalars())
+    last = await latest_checks(db, ids)
+    return [i for i in ids if i in last and last[i].outcome in UNREADABLE]
 
 
 @dataclass
@@ -342,6 +354,7 @@ async def run_weekly(
     now: datetime | None = None,
     today: date | None = None,
     sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
+    unreadable_only: bool = False,
 ) -> WeeklyResult:
     now = now or utcnow()
     today = today or local_today()
@@ -350,7 +363,7 @@ async def run_weekly(
         return result
     org_id = await _platform_org(factory)
     async with factory() as db:
-        ids = await due_documents(db, today, now)
+        ids = await due_documents(db, today, now, unreadable_only=unreadable_only)
         await db.commit()
     for index, document_id in enumerate(ids):
         if index:

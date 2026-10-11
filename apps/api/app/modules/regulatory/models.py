@@ -99,7 +99,7 @@ class CheckOutcome(StrEnum):
     SAVED = "SAVED"
     CHANGED = "CHANGED"  # the text differs from the latest snapshot: a new snapshot
     UNCHANGED = "UNCHANGED"
-    # A file whose text the app doesn't read (a PDF): only whether its bytes changed.
+    # A file without text the app can read (a scanned PDF): only whether its bytes changed.
     FILE_SEEN = "FILE_SEEN"  # first reading of the file
     FILE_CHANGED = "FILE_CHANGED"
     FILE_UNCHANGED = "FILE_UNCHANGED"
@@ -196,7 +196,7 @@ class SourceSnapshot(UUIDPrimaryKeyMixin, Base):
 
 class SourceCheck(UUIDPrimaryKeyMixin, Base):
     """One attempt by the app to read a document from its official address (append-only).
-    A changed text becomes a new snapshot; files the app can't read as text (PDFs) are
+    A changed text becomes a new snapshot; files the app can't read as text (scanned PDFs) are
     compared by their bytes so staff know to capture them by hand."""
 
     __tablename__ = "source_check"

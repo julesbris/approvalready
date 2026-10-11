@@ -18080,6 +18080,19 @@
         "title": "RentalUpdate",
         "type": "object"
       },
+      "RereadOut": {
+        "properties": {
+          "queued": {
+            "title": "Queued",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "queued"
+        ],
+        "title": "RereadOut",
+        "type": "object"
+      },
       "ResubmitIn": {
         "properties": {
           "assessment_id": {
@@ -27950,6 +27963,28 @@
           }
         },
         "summary": "Create Source Document",
+        "tags": [
+          "admin: sources"
+        ]
+      }
+    },
+    "/v1/admin/source-documents/reread-unreadable": {
+      "post": {
+        "description": "Read again, in the background, every document whose last check couldn't read its\nwording (one at a time, politely). Staff get the usual notice when it finishes.",
+        "operationId": "reread_unreadable_v1_admin_source_documents_reread_unreadable_post",
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RereadOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Reread Unreadable",
         "tags": [
           "admin: sources"
         ]

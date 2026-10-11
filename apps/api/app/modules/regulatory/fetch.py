@@ -7,15 +7,23 @@ followed by hand so each hop passes the same checks. Responses are capped in siz
 
 Web pages become plain text (the page's main content when it marks one, without scripts,
 menus, headers and footers) so a snapshot changes when the wording changes, not when a
-banner or a script does. Other files (PDFs) are not read as text: their bytes are hashed so
-staff know when to capture them by hand.
+banner or a script does. PDFs become the text of their pages. Files without text (a scanned
+PDF, a spreadsheet) are not read: their bytes are hashed so staff know when to capture them
+by hand.
+
+Some government sites sit behind a firewall that turns away, slows down or shows a
+"checking your browser" page to anything that doesn't ask the way a browser does. When the
+first reading is refused like that (or comes back with no readable text), the app waits a
+moment and asks once more with a browser's headers (``SourceFetcher.read``).
 """
 
 from __future__ import annotations
 
 import asyncio
 import hashlib
+import io
 import ipaddress
+import logging
 import re
 import socket
 from collections.abc import Awaitable, Callable
@@ -24,10 +32,39 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
 
 import httpx
+from pypdf import PdfReader
 
 from app.core.config import Settings
 
-USER_AGENT = "ApprovalReady source check/1.0 (+https://approvalready.au; team@approvalready.au)"
+logger = logging.getLogger(__name__)
+
+USER_AGENT = (
+    "Mozilla/5.0 (compatible; ApprovalReady source check/1.1; +https://approvalready.au; "
+    "team@approvalready.au)"
+)
+HEADERS = {
+    "user-agent": USER_AGENT,
+    "accept": (
+        "text/html,application/xhtml+xml,application/xml;q=0.9,application/pdf,"
+        "text/plain;q=0.8,*/*;q=0.5"
+    ),
+    "accept-language": "en-AU,en;q=0.9",
+}
+# The second try, for sites that only answer browsers.
+BROWSER_HEADERS = {
+    **HEADERS,
+    "user-agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/141.0.0.0 Safari/537.36"
+    ),
+    "upgrade-insecure-requests": "1",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "none",
+    "sec-fetch-user": "?1",
+}
+# Answers worth one more try: turned away, too many requests, or a gateway hiccup.
+RETRY_STATUSES = {403, 406, 429, 502, 503, 504}
 MAX_REDIRECTS = 5
 # Fewer characters than this after stripping a page means it shows nothing without
 # JavaScript, or is an error page dressed as a success.
@@ -40,10 +77,14 @@ class FetchRefused(Exception):
     """The address may not be read, or what came back can't be used. The message is shown
     to staff."""
 
-    def __init__(self, message: str, http_status: int | None = None) -> None:
+    def __init__(
+        self, message: str, http_status: int | None = None, *, retry: bool = False
+    ) -> None:
         super().__init__(message)
         self.message = message
         self.http_status = http_status
+        # Asking again (as a browser, a moment later) might work.
+        self.retry = retry
 
 
 @dataclass(frozen=True)
@@ -97,12 +138,15 @@ class SourceFetcher:
         settings: Settings,
         transport: httpx.AsyncBaseTransport | None = None,
         resolver: Resolver | None = None,
+        sleep: Callable[[float], Awaitable[None]] = asyncio.sleep,
     ) -> None:
         self.allowed_domains = settings.source_fetch_allowed_domains
         self.max_bytes = settings.source_fetch_max_mb * 1_000_000
         self.timeout = settings.source_fetch_timeout_seconds
+        self.retry_after = settings.source_fetch_retry_seconds
         self.transport = transport
         self.resolver = resolver or resolve_host
+        self.sleep = sleep
 
     async def _check(self, url: str) -> None:
         host = check_url(url, self.allowed_domains)
@@ -113,10 +157,38 @@ class SourceFetcher:
         if not addresses or not all(_public(a) for a in addresses):
             raise FetchRefused(f"{host} does not point to a public internet address.")
 
-    async def fetch(self, url: str) -> Fetched:
+    async def read(self, url: str) -> tuple[Fetched, str | None]:
+        """The document and its text (``None`` for a file without text). Asks a second time,
+        as a browser, when the site turns the app away or answers with an empty page."""
+        try:
+            fetched = await self.fetch(url)
+        except FetchRefused as exc:
+            if not exc.retry:
+                raise
+        else:
+            text = await asyncio.to_thread(readable_text, fetched)
+            if text is None or len(text) >= MIN_TEXT_CHARS:
+                return fetched, text
+        await self.sleep(self.retry_after)
+        try:
+            fetched = await self.fetch(url, BROWSER_HEADERS)
+        except FetchRefused as exc:
+            if exc.http_status in (401, 403):
+                message = (
+                    f"The site turned the app away ({exc.http_status}), even when asked the way "
+                    "a browser asks."
+                )
+            elif exc.http_status == 429:
+                message = "The site asked the app to slow down (429). It will try again next week."
+            else:
+                raise
+            raise FetchRefused(message, exc.http_status) from exc
+        return fetched, await asyncio.to_thread(readable_text, fetched)
+
+    async def fetch(self, url: str, headers: dict[str, str] = HEADERS) -> Fetched:
         async with httpx.AsyncClient(
             timeout=self.timeout,
-            headers={"user-agent": USER_AGENT, "accept": "text/html,text/plain,*/*;q=0.5"},
+            headers=headers,
             follow_redirects=False,
             transport=self.transport,
         ) as client:
@@ -126,10 +198,12 @@ class SourceFetcher:
                 try:
                     fetched = await self._get(client, current)
                 except httpx.TimeoutException as exc:
-                    raise FetchRefused("The site took too long to answer.") from exc
+                    raise FetchRefused("The site took too long to answer.", retry=True) from exc
                 except httpx.HTTPError as exc:
                     reason = type(exc).__name__
-                    raise FetchRefused(f"The site could not be reached ({reason}).") from exc
+                    raise FetchRefused(
+                        f"The site could not be reached ({reason}).", retry=True
+                    ) from exc
                 if isinstance(fetched, str):
                     current = urljoin(current, fetched)
                     continue
@@ -146,7 +220,9 @@ class SourceFetcher:
                 return str(location)
             if response.status_code != 200:
                 raise FetchRefused(
-                    f"The site answered {response.status_code}.", response.status_code
+                    f"The site answered {response.status_code}.",
+                    response.status_code,
+                    retry=response.status_code in RETRY_STATUSES,
                 )
             declared = response.headers.get("content-length")
             if declared and declared.isdigit() and int(declared) > self.max_bytes:
@@ -284,10 +360,37 @@ def _decode(body: bytes, charset: str | None) -> str:
 
 
 TEXT_TYPES = {"text/html", "application/xhtml+xml", "text/plain"}
+# Longer documents are read up to here: a snapshot is for noticing changes, and fee schedules
+# and guidelines are far shorter.
+MAX_PDF_PAGES = 400
+
+
+def is_pdf(fetched: Fetched) -> bool:
+    # Some sites send PDFs as application/octet-stream; the file itself says what it is.
+    return fetched.content_type in {"application/pdf", "application/x-pdf"} or (
+        b"%PDF-" in fetched.body[:1024]
+    )
+
+
+def pdf_text(body: bytes) -> str | None:
+    """The text of a PDF's pages, or ``None`` when it has none (a scanned document) or can't
+    be opened."""
+    try:
+        reader = PdfReader(io.BytesIO(body))
+        if reader.is_encrypted:
+            reader.decrypt("")  # opens files protected only against editing
+        pages = [page.extract_text() or "" for page in reader.pages[:MAX_PDF_PAGES]]
+    except Exception:  # a damaged or unusual file: compared by its bytes instead
+        logger.info("pdf_unreadable", exc_info=True)
+        return None
+    text = _tidy(["\n".join(pages)])
+    return text if len(text) >= MIN_TEXT_CHARS else None
 
 
 def readable_text(fetched: Fetched) -> str | None:
     """The document's wording, or ``None`` for a file the app doesn't read as text."""
+    if is_pdf(fetched):
+        return pdf_text(fetched.body)
     if fetched.content_type not in TEXT_TYPES:
         return None
     if fetched.content_type == "text/plain":
