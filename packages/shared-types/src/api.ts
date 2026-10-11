@@ -1824,6 +1824,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/guidance/approvals": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Approval Guides
+         * @description Guides for the approval kinds asked for (all of them when none are), in plan order,
+         *     limited to one product's guides when ``vertical`` is given.
+         */
+        get: operations["approval_guides_v1_guidance_approvals_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/invitations/accept": {
         parameters: {
             query?: never;
@@ -5051,6 +5072,49 @@ export interface components {
             notes?: string | null;
             status?: components["schemas"]["ApplicationStatus"] | null;
         };
+        /** ApprovalGuideOut */
+        ApprovalGuideOut: {
+            /** Authority */
+            authority: string;
+            /** Before You Start */
+            before_you_start: string[];
+            checked: components["schemas"]["GuideChecked"];
+            /**
+             * Checked On
+             * Format: date
+             */
+            checked_on: string;
+            /** Contacts */
+            contacts: components["schemas"]["GuideContact"][];
+            /** Cost Summary */
+            cost_summary: string | null;
+            /** Fees */
+            fees: components["schemas"]["GuideFee"][];
+            /** Gaps */
+            gaps: string[];
+            /** Jurisdiction */
+            jurisdiction: string;
+            /** Kind */
+            kind: string;
+            /** Order */
+            order: number;
+            /** Publisher */
+            publisher: string;
+            /** Sources */
+            sources: components["schemas"]["GuideSource"][];
+            /** Steps */
+            steps: components["schemas"]["GuideStep"][];
+            /** Summary */
+            summary: string;
+            /** Timeframe */
+            timeframe: string | null;
+            /** Title */
+            title: string;
+            /** Verticals */
+            verticals: components["schemas"]["Vertical"][];
+            /** Watch Out */
+            watch_out: string[];
+        };
         /** ApprovalMapEntryOut */
         ApprovalMapEntryOut: {
             /** Authority */
@@ -7145,6 +7209,65 @@ export interface components {
          * @enum {string}
          */
         GstTreatment: "INCLUDED" | "EXCLUDED" | "NOT_REGISTERED";
+        /** GuideChecked */
+        GuideChecked: {
+            /** Verified */
+            verified: boolean;
+            /** Verified At */
+            verified_at: string | null;
+        };
+        /** GuideContact */
+        GuideContact: {
+            /** Email */
+            email: string | null;
+            /** Hours */
+            hours: string | null;
+            /** Name */
+            name: string;
+            /** Note */
+            note: string | null;
+            /** Phone */
+            phone: string | null;
+            /** Url */
+            url: string | null;
+        };
+        /** GuideFee */
+        GuideFee: {
+            /** Amount */
+            amount: string;
+            /** Label */
+            label: string;
+            /** Note */
+            note: string | null;
+        };
+        /** GuideLink */
+        GuideLink: {
+            /** Name */
+            name: string;
+            /** Url */
+            url: string;
+        };
+        /** GuideSource */
+        GuideSource: {
+            /** Title */
+            title: string;
+            /** Url */
+            url: string;
+        };
+        /** GuideStep */
+        GuideStep: {
+            /** Cost */
+            cost: string | null;
+            /** Detail */
+            detail: string;
+            form: components["schemas"]["GuideLink"] | null;
+            /** Timeframe */
+            timeframe: string | null;
+            /** Title */
+            title: string;
+            /** Url */
+            url: string | null;
+        };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -15658,6 +15781,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["CouncilOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    approval_guides_v1_guidance_approvals_get: {
+        parameters: {
+            query?: {
+                kind?: string[] | null;
+                vertical?: components["schemas"]["Vertical"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ApprovalGuideOut"][];
                 };
             };
             /** @description Validation Error */

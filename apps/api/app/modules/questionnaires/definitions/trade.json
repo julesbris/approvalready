@@ -97,6 +97,96 @@
       ]
     },
     {
+      "title": "Vehicles",
+      "questions": [
+        {
+          "key": "trade.vehicle_age", "type": "SELECT", "label": "When was the vehicle built?", "required": true,
+          "help_text": "Use the build month and year on the export or deregistration certificate, or the build plate. The older vehicle rule counts 25 years back from the day you apply, and if the build month can't be shown, December of that year is assumed.",
+          "visible_when": {"all": [
+            {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+            {"fact": "trade.goods_categories", "op": "contains", "value": "vehicles"}
+          ]},
+          "options": [
+            {"value": "over_25", "label": "More than 25 years before I will apply for approval"},
+            {"value": "under_25", "label": "25 years ago or less"},
+            {"value": "unsure", "label": "I'm not sure yet"}
+          ]
+        },
+        {
+          "key": "trade.vehicle_pathway", "type": "SELECT", "label": "Which of these fits the vehicle?", "required": true,
+          "help_text": "Search the Specialist and Enthusiast Vehicles (SEVs) Register in ROVER (rover.infrastructure.gov.au) for the exact model, model code and build date range.",
+          "visible_when": {"all": [
+            {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+            {"fact": "trade.goods_categories", "op": "contains", "value": "vehicles"},
+            {"fact": "trade.vehicle_age", "op": "in", "value": ["under_25", "unsure"]}
+          ]},
+          "options": [
+            {"value": "sevs", "label": "The model and build date are on the SEVs Register"},
+            {"value": "personal_effects", "label": "I'm moving to Australia and have owned and used it overseas for 12 months or more"},
+            {"value": "not_listed", "label": "It isn't on the SEVs Register and I'm not moving here with it"},
+            {"value": "unsure", "label": "I haven't checked yet"}
+          ]
+        },
+        {
+          "key": "trade.vehicle_left_hand_drive", "type": "BOOLEAN", "label": "Is the vehicle left-hand drive?", "required": true,
+          "visible_when": {"all": [
+            {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+            {"fact": "trade.goods_categories", "op": "contains", "value": "vehicles"},
+            {"fact": "trade.vehicle_age", "op": "in", "value": ["under_25", "unsure"]}
+          ]}
+        },
+        {
+          "key": "trade.vehicle_origin", "type": "SELECT", "label": "Where was the vehicle manufactured?", "required": true,
+          "help_text": "Where it was built, not where it's shipped from. Some Japanese-market models were built in other countries.",
+          "visible_when": {"all": [
+            {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+            {"fact": "trade.goods_categories", "op": "contains", "value": "vehicles"}
+          ]},
+          "options": [
+            {"value": "japan", "label": "Japan"},
+            {"value": "elsewhere", "label": "Another country"},
+            {"value": "unsure", "label": "I'm not sure"}
+          ]
+        },
+        {
+          "key": "trade.vehicle_over_lct", "type": "BOOLEAN", "label": "Will the vehicle be worth more than A$80,809 once duty, freight and insurance are added?", "required": true,
+          "help_text": "That is the 2026-27 luxury car tax threshold (A$91,661 for cars using 3.5 litres per 100 km or less).",
+          "visible_when": {"all": [
+            {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+            {"fact": "trade.goods_categories", "op": "contains", "value": "vehicles"}
+          ]}
+        },
+        {
+          "key": "trade.vehicle_purpose", "type": "SELECT", "label": "Is the vehicle for your own use or to sell?", "required": true,
+          "visible_when": {"all": [
+            {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+            {"fact": "trade.goods_categories", "op": "contains", "value": "vehicles"}
+          ]},
+          "options": [
+            {"value": "own_use", "label": "For my own use"},
+            {"value": "sell", "label": "To sell, or as part of a business"}
+          ]
+        },
+        {
+          "key": "trade.vehicle_state", "type": "SELECT", "label": "Which state or territory will the vehicle be registered in?", "required": true,
+          "visible_when": {"all": [
+            {"fact": "trade.direction", "op": "in", "value": ["import", "both"]},
+            {"fact": "trade.goods_categories", "op": "contains", "value": "vehicles"}
+          ]},
+          "options": [
+            {"value": "QLD", "label": "Queensland"},
+            {"value": "NSW", "label": "New South Wales"},
+            {"value": "VIC", "label": "Victoria"},
+            {"value": "SA", "label": "South Australia"},
+            {"value": "WA", "label": "Western Australia"},
+            {"value": "TAS", "label": "Tasmania"},
+            {"value": "NT", "label": "Northern Territory"},
+            {"value": "ACT", "label": "Australian Capital Territory"}
+          ]
+        }
+      ]
+    },
+    {
       "title": "Exporting",
       "questions": [
         {

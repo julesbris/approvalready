@@ -63,6 +63,7 @@
             {"value": "OTHER", "label": "Other"}
           ]
         },
+        {"key": "business.trading_name", "type": "BOOLEAN", "label": "Will the business trade under a name other than your own name, or the company's exact name?", "required": true, "help_text": "For example \"Jules Smith\" trading as \"Reef Coffee Co\". Adding words such as \"and Co\" to your own name also counts as a different name."},
         {
           "key": "business.employee_band", "type": "SELECT", "label": "How many people will work in the business?",
           "options": [

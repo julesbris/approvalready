@@ -1377,6 +1377,178 @@
         "title": "ApplicationUpdate",
         "type": "object"
       },
+      "ApprovalGuideOut": {
+        "additionalProperties": false,
+        "properties": {
+          "authority": {
+            "maxLength": 600,
+            "minLength": 1,
+            "title": "Authority",
+            "type": "string"
+          },
+          "before_you_start": {
+            "items": {
+              "maxLength": 600,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 12,
+            "title": "Before You Start",
+            "type": "array"
+          },
+          "checked": {
+            "$ref": "#/components/schemas/GuideChecked"
+          },
+          "checked_on": {
+            "format": "date",
+            "title": "Checked On",
+            "type": "string"
+          },
+          "contacts": {
+            "items": {
+              "$ref": "#/components/schemas/GuideContact"
+            },
+            "maxItems": 10,
+            "title": "Contacts",
+            "type": "array"
+          },
+          "cost_summary": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost Summary"
+          },
+          "fees": {
+            "items": {
+              "$ref": "#/components/schemas/GuideFee"
+            },
+            "maxItems": 20,
+            "title": "Fees",
+            "type": "array"
+          },
+          "gaps": {
+            "items": {
+              "maxLength": 600,
+              "minLength": 1,
+              "type": "string"
+            },
+            "title": "Gaps",
+            "type": "array"
+          },
+          "jurisdiction": {
+            "pattern": "^(CTH|QLD|LGA:QLD_[A-Z_]+)$",
+            "title": "Jurisdiction",
+            "type": "string"
+          },
+          "kind": {
+            "pattern": "^[A-Z][A-Z0-9_]{1,59}$",
+            "title": "Kind",
+            "type": "string"
+          },
+          "order": {
+            "maximum": 1000.0,
+            "minimum": 0.0,
+            "title": "Order",
+            "type": "integer"
+          },
+          "publisher": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Publisher",
+            "type": "string"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/GuideSource"
+            },
+            "minItems": 1,
+            "title": "Sources",
+            "type": "array"
+          },
+          "steps": {
+            "items": {
+              "$ref": "#/components/schemas/GuideStep"
+            },
+            "maxItems": 16,
+            "minItems": 1,
+            "title": "Steps",
+            "type": "array"
+          },
+          "summary": {
+            "maxLength": 1500,
+            "minLength": 1,
+            "title": "Summary",
+            "type": "string"
+          },
+          "timeframe": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timeframe"
+          },
+          "title": {
+            "maxLength": 600,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "verticals": {
+            "items": {
+              "$ref": "#/components/schemas/Vertical"
+            },
+            "minItems": 1,
+            "title": "Verticals",
+            "type": "array"
+          },
+          "watch_out": {
+            "items": {
+              "maxLength": 600,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 12,
+            "title": "Watch Out",
+            "type": "array"
+          }
+        },
+        "required": [
+          "kind",
+          "title",
+          "summary",
+          "authority",
+          "publisher",
+          "verticals",
+          "jurisdiction",
+          "order",
+          "checked_on",
+          "timeframe",
+          "cost_summary",
+          "before_you_start",
+          "steps",
+          "fees",
+          "contacts",
+          "watch_out",
+          "sources",
+          "gaps",
+          "checked"
+        ],
+        "title": "ApprovalGuideOut",
+        "type": "object"
+      },
       "ApprovalMapEntryOut": {
         "properties": {
           "authority": {
@@ -7421,6 +7593,277 @@
         ],
         "title": "GstTreatment",
         "type": "string"
+      },
+      "GuideChecked": {
+        "properties": {
+          "verified": {
+            "title": "Verified",
+            "type": "boolean"
+          },
+          "verified_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verified At"
+          }
+        },
+        "required": [
+          "verified",
+          "verified_at"
+        ],
+        "title": "GuideChecked",
+        "type": "object"
+      },
+      "GuideContact": {
+        "additionalProperties": false,
+        "properties": {
+          "email": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "hours": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hours"
+          },
+          "name": {
+            "maxLength": 600,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://[^\\s]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          }
+        },
+        "required": [
+          "name",
+          "phone",
+          "email",
+          "url",
+          "hours",
+          "note"
+        ],
+        "title": "GuideContact",
+        "type": "object"
+      },
+      "GuideFee": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "maxLength": 600,
+            "minLength": 1,
+            "title": "Amount",
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 600,
+            "minLength": 1,
+            "title": "Label",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "required": [
+          "label",
+          "amount",
+          "note"
+        ],
+        "title": "GuideFee",
+        "type": "object"
+      },
+      "GuideLink": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "maxLength": 600,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "url": {
+            "maxLength": 2000,
+            "pattern": "^https?://[^\\s]+$",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "url"
+        ],
+        "title": "GuideLink",
+        "type": "object"
+      },
+      "GuideSource": {
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "maxLength": 600,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "maxLength": 2000,
+            "pattern": "^https?://[^\\s]+$",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url",
+          "title"
+        ],
+        "title": "GuideSource",
+        "type": "object"
+      },
+      "GuideStep": {
+        "additionalProperties": false,
+        "properties": {
+          "cost": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost"
+          },
+          "detail": {
+            "maxLength": 1500,
+            "minLength": 1,
+            "title": "Detail",
+            "type": "string"
+          },
+          "form": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GuideLink"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "timeframe": {
+            "anyOf": [
+              {
+                "maxLength": 600,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timeframe"
+          },
+          "title": {
+            "maxLength": 600,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://[^\\s]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          }
+        },
+        "required": [
+          "title",
+          "detail",
+          "timeframe",
+          "cost",
+          "form",
+          "url"
+        ],
+        "title": "GuideStep",
+        "type": "object"
       },
       "HTTPValidationError": {
         "properties": {
@@ -27068,6 +27511,80 @@
         "summary": "Get Council",
         "tags": [
           "councils"
+        ]
+      }
+    },
+    "/v1/guidance/approvals": {
+      "get": {
+        "description": "Guides for the approval kinds asked for (all of them when none are), in plan order,\nlimited to one product's guides when ``vertical`` is given.",
+        "operationId": "approval_guides_v1_guidance_approvals_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "kind",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 60,
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Kind"
+            }
+          },
+          {
+            "in": "query",
+            "name": "vertical",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vertical"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Vertical"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ApprovalGuideOut"
+                  },
+                  "title": "Response Approval Guides V1 Guidance Approvals Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Approval Guides",
+        "tags": [
+          "guidance"
         ]
       }
     },

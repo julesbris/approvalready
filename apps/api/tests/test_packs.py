@@ -109,6 +109,39 @@ async def test_load_and_publish_rolls_back_cleanly(api: ApiHarness) -> None:
 
 
 @pytest.mark.integration
+async def test_update_gives_changed_rules_a_new_version(api: ApiHarness) -> None:
+    """``--update`` brings improved wording in a pack to rules loaded from an earlier copy,
+    as a new published version; unchanged rules are left alone."""
+    admin = await platform_user(api, "ADMIN")
+    pack = packs.load_file(CAIRNS)
+    suffix = uuid.uuid4().hex[:8]
+    for rs in pack.rule_sets:
+        rs.key = f"{rs.key}_{suffix}"
+    factory = api.app.state.resources.session_factory
+    async with factory() as db:
+        org = (
+            await db.execute(select(Organisation).where(Organisation.kind == "PLATFORM_ADMIN"))
+        ).scalar_one()
+        actor = Actor(uuid.UUID(admin.id), org.id, cli.CLI_META)
+        await packs.load(db, pack, actor, publish=True)
+
+        same = await packs.load(db, pack, actor, publish=True, update=True)
+        assert same.updated == [] and same.published == []
+
+        changed = pack.rule_sets[0].rules[0]
+        changed.outcomes[0].detail = f"Clearer wording {suffix}."
+        report = await packs.load(db, pack, actor, publish=True, update=True)
+        name = f"rule {pack.rule_sets[0].key}.{changed.key}"
+        assert report.updated == [f"{name} (version 2, draft)"], report.lines()
+        assert report.published == [name]
+        # Without --update the changed wording is left alone, as before.
+        changed.outcomes[0].detail = f"Even clearer {suffix}."
+        plain = await packs.load(db, pack, actor, publish=True)
+        assert plain.updated == [] and plain.published == []
+        await db.rollback()
+
+
+@pytest.mark.integration
 async def test_cli_requires_platform_permissions(api: ApiHarness) -> None:
     customer = await api.user()
     settings = api.app.state.settings

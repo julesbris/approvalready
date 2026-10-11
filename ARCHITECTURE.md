@@ -987,7 +987,22 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Tests | `tests/test_councils.py` (every cadastre council has an entry, name matching, questionnaire options, pack in step and loads once, API and the checked flag). Web: `CouncilGuide.test.tsx`, `councils.test.ts`, runner autosave and address fill. |
 | Not built | Public council pages; reading fees from councils' LG Solutions fee portals or long PDFs (listed as gaps); council-specific rules beyond Cairns. |
 
-## 41. Site answers that follow the property, and postcodes (milestone 32)
+## 41. Approval guides (deeper business and import guidance)
+
+| Concern | Implementation |
+|---|---|
+| Scope | Jules found that a two-minute search for "importing Japanese cars" gave more than the app did. Findings said *that* an approval applies; nothing said *how* to get it. Now every approval the BusinessReady and TradeReady packs can name has a step-by-step guide, and the vehicle and business set-up questions that change what's needed are asked. No migration, no new settings. |
+| Guides | `app/modules/guidance/approval_guides.json` (42 guides, keyed by approval `kind`, validated by `guides.py`): summary, authority, plan `order`, how long and what it costs, what to have ready, ordered steps (each with timeframe, cost, form and official page), fees with the year, contacts, what goes wrong, sources and `gaps` for anything not confirmed. Gathered from official pages on 2026-10-11 by research agents; anything not read on a .gov.au page or regulator PDF is in `gaps`, labelled, never in the text. `verticals` scopes a guide to a product (the home based business check is `PLANNING_MATERIAL_CHANGE_OF_USE` in BusinessReady only). Guides live in code so they improve on any deploy without reloading a pack. |
+| Checked | Content pack `guides_au` (built from the guides by `python -m app.modules.guidance.pack`; a test keeps them in step): one source document per official page and one reference per guide, section `Approval guide: <KIND>`. A guide reads "Checked by our team" once that reference is verified in /admin/sources, like the council directory. |
+| API | `GET /v1/guidance/approvals?kind=A&kind=B&vertical=TRADE` (signed in): guides in plan order with `checked`. |
+| Web | The assessment page asks for the guides of every approval found (required, likely or may apply) and shows "Your step-by-step plan" under the approvals: an overview table (step, how long, cost) then one collapsible card per approval (`components/guidance/ApprovalPlan.tsx`). |
+| Trade rules | Rule set `trade.au.vehicles` (13 rules) and a Vehicles section in `trade.general`: build date against the rolling 25-year rule, SEVs Register and workshop compliance, personal effects, no pathway, left-hand drive in Queensland, asbestos, biosecurity cleaning, customs clearance, duty under the Japan-Australia agreement, luxury car tax, Queensland registration and the motor dealer licence for resale. The older `vehicle_import_approval` wording ("before 1989") was corrected. |
+| Business rules | Rule set `business.au.registrations`: ABN, business name (new question `business.trading_name`) and company registration with director IDs. |
+| Pack updates | `load-pack --update`: a rule already loaded whose condition or outcomes differ from the pack gets a new draft version with the pack's content, published with `--publish`; unchanged rules and rules with an open draft are left alone. Without `--update` loading is unchanged. |
+| Tests | `tests/test_guidance.py` (every approval kind in both packs has a guide, guides well formed, plan order, pack in step, API, checked once verified, pack loads once), `test_packs.py` (`--update`), trade and business pack tests; web `ApprovalPlan.test.tsx`, `approvalGuides.test.ts`. |
+| Not built | Guides in the PDF and Word reports and on the reviewer's page; guides for other states' registration and licences; liquor application fees (not published in a readable form); prices of brokers, shipping and workshops (only industry estimates, kept in gaps). |
+
+## 42. Site answers that follow the property, and postcodes (follow-up to section 40)
 
 | Concern | Implementation |
 |---|---|

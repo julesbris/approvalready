@@ -1,4 +1,5 @@
 import type {
+  ApprovalGuideOut,
   ApprovalMapEntryOut,
   AssessmentOut,
   Certainty,
@@ -22,6 +23,7 @@ import {
   uniqueSources,
 } from "@/lib/assessment";
 import { GrantMatches } from "@/components/assessments/GrantMatches";
+import { ApprovalPlan } from "@/components/guidance/ApprovalPlan";
 import { formatDateTime, verticalName } from "@/lib/labels";
 import { formatDate } from "@/lib/questionnaire";
 import { type ReviewedFinding, applyOverrides } from "@/lib/review";
@@ -249,6 +251,7 @@ export function AssessmentReport({
   intro,
   helpAction,
   approvalMap = false,
+  guides = [],
   children,
 }: {
   assessment: AssessmentOut;
@@ -264,6 +267,8 @@ export function AssessmentReport({
   helpAction?: ReactNode;
   /** Show approvals as BusinessReady's map (Required, Likely, May apply, Not identified). */
   approvalMap?: boolean;
+  /** Step-by-step guides for the approvals found, in the order to do them. */
+  guides?: ApprovalGuideOut[];
   /** Interactive panels (evidence, report downloads) shown after the requirements. */
   children?: ReactNode;
 }) {
@@ -317,6 +322,8 @@ export function AssessmentReport({
         map={approvalMap}
         changed={new Set(reviewed.filter((f) => f.override).map((f) => f.id))}
       />
+
+      <ApprovalPlan guides={guides} />
 
       {children}
 

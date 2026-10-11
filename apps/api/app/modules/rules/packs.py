@@ -8,7 +8,11 @@ under the staff member running it, exactly as if they had typed it into the admi
 Loading never changes anything that already exists: a source organisation is matched by
 name, a document by URL, a reference by document and section, a rule set by key and a rule
 by key within its set. Edits after loading happen in the admin screens (and a changed rule
-there is a new version, as always).
+there is a new version, as always). The one exception is ``--update``: a rule whose
+condition or outcomes in the pack differ from its latest version gets a new draft version
+with the pack's content (published with ``--publish``, like a new rule), so improved wording
+in a pack can reach a system that loaded an earlier copy. A rule with a draft already open
+in the admin screens is left alone.
 
 References are created ``UNVERIFIED`` and without snapshots: a person has to capture the
 source and verify each reference before any finding can be ``VERIFIED``. Rules are created
@@ -21,7 +25,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, Any
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 from sqlalchemy import select
@@ -39,7 +43,8 @@ from app.modules.regulatory.schemas import (
 )
 from app.modules.regulatory.service import Actor
 from app.modules.rules import service
-from app.modules.rules.models import Rule, RuleSet, SourceRelationship
+from app.modules.rules.models import Rule, RuleSet, RuleVersionStatus, SourceRelationship
+from app.modules.rules.payload import validate_payload
 from app.modules.rules.schemas import (
     OutcomeIn,
     RuleSetCreate,
@@ -177,12 +182,14 @@ def load_file(name: str) -> Pack:
 class LoadReport:
     created: list[str] = field(default_factory=list)
     existing: list[str] = field(default_factory=list)
+    updated: list[str] = field(default_factory=list)
     published: list[str] = field(default_factory=list)
     not_published: list[str] = field(default_factory=list)  # with the gate's reasons
     warnings: list[str] = field(default_factory=list)
 
     def lines(self) -> list[str]:
         out = [f"created: {c}" for c in self.created]
+        out += [f"updated (new version): {u}" for u in self.updated]
         out += [f"already there (left unchanged): {e}" for e in self.existing]
         out += [f"published: {p}" for p in self.published]
         out += [f"NOT published: {n}" for n in self.not_published]
@@ -190,7 +197,40 @@ class LoadReport:
         return out
 
 
-async def load(db: AsyncSession, pack: Pack, actor: Actor, *, publish: bool) -> LoadReport:
+def _same_content(view: service.VersionView, content: RuleVersionContent) -> bool:
+    """True when a stored version already says what the pack says (condition and outcomes)."""
+
+    def key(o: dict[str, Any]) -> tuple[str, str, str | None, str | None, str]:
+        payload = validate_payload(o["outcome_type"], o.get("payload"))
+        return (
+            o["on_result"],
+            o["outcome_type"],
+            o.get("title"),
+            o.get("detail"),
+            json.dumps(payload, sort_keys=True),
+        )
+
+    stored = sorted(
+        key(
+            {
+                "on_result": o.on_result,
+                "outcome_type": o.outcome_type,
+                "title": o.title,
+                "detail": o.detail,
+                "payload": o.payload,
+            }
+        )
+        for o in view.outcomes
+    )
+    wanted = sorted(key(o) for o in content.model_dump(mode="json")["outcomes"])
+    return stored == wanted and service.validated_condition(
+        content.condition
+    ) == service.validated_condition(view.version.condition)
+
+
+async def load(
+    db: AsyncSession, pack: Pack, actor: Actor, *, publish: bool, update: bool = False
+) -> LoadReport:
     report = LoadReport()
 
     org_ids = {}
@@ -267,12 +307,6 @@ async def load(db: AsyncSession, pack: Pack, actor: Actor, *, publish: bool) -> 
                     select(Rule.id).where(Rule.rule_set_id == rule_set.id, Rule.key == pr.key)
                 )
             ).first()
-            if taken:
-                report.existing.append(name)
-                continue
-            _, version = await service.create_rule(
-                db, rule_set, {"key": pr.key, "title": pr.title, "condition": pr.condition}, actor
-            )
             content = RuleVersionContent.model_validate(
                 {
                     "condition": pr.condition,
@@ -290,8 +324,31 @@ async def load(db: AsyncSession, pack: Pack, actor: Actor, *, publish: bool) -> 
                     "test_cases": [t.model_dump(mode="json") for t in pr.test_cases],
                 }
             )
-            await service.save_draft(db, version, content.model_dump(), actor)
-            report.created.append(f"{name} (draft)")
+            if taken:
+                if not update:
+                    report.existing.append(name)
+                    continue
+                rule, _ = await service.get_rule(db, taken[0])
+                versions = await service.versions_of(db, rule)
+                latest = await service.get_version(db, versions[-1].id)
+                if _same_content(latest, content):
+                    report.existing.append(name)
+                    continue
+                if latest.version.status == RuleVersionStatus.DRAFT:
+                    report.warnings.append(f"{name}: has a draft open, so it was not updated")
+                    continue
+                version = await service.new_version(db, rule, actor)
+                await service.save_draft(db, version, content.model_dump(), actor)
+                report.updated.append(f"{name} (version {version.version}, draft)")
+            else:
+                _, version = await service.create_rule(
+                    db,
+                    rule_set,
+                    {"key": pr.key, "title": pr.title, "condition": pr.condition},
+                    actor,
+                )
+                await service.save_draft(db, version, content.model_dump(), actor)
+                report.created.append(f"{name} (draft)")
             if not publish:
                 continue
             view = await service.get_version(db, version.id)
