@@ -6,7 +6,7 @@ from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
-from app.modules.assessments.schemas import AssessmentSummary
+from app.modules.assessments.schemas import AssessmentOut, AssessmentSummary
 from app.modules.projects.models import (
     ProjectStatus,
     Recurrence,
@@ -14,6 +14,7 @@ from app.modules.projects.models import (
     TaskStatus,
     Vertical,
 )
+from app.modules.questionnaires.schemas import SubmissionOut
 
 Title = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=200)]
 Notes = Annotated[str, StringConstraints(strip_whitespace=True, max_length=2000)]
@@ -143,3 +144,10 @@ class ReminderOut(BaseModel):
         "they change when that date does.",
     )
     created_at: datetime
+
+
+class AnswersResultOut(BaseModel):
+    """The submitted answers and the assessment worked out from them, in one go."""
+
+    submission: SubmissionOut
+    assessment: AssessmentOut

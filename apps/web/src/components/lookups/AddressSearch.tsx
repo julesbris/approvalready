@@ -88,7 +88,7 @@ export function AddressSearch({ organisationId, onPick, disabled, delayMs = 350 
       />
       <p id={`${id}-hint`} className="hint">
         From the Queensland Government&apos;s address and land parcel data. Outside Queensland,
-        fill in the fields below.
+        type the address in yourself.
       </p>
       {searching ? <p className="muted">Searching…</p> : null}
       {message ? <p className="muted">{message}</p> : null}

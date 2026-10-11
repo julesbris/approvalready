@@ -37,6 +37,7 @@ export type TaskOut = Schemas["TaskOut"];
 export type ReminderOut = Schemas["ReminderOut"];
 export type SubmissionSummary = Schemas["SubmissionSummary"];
 export type SubmissionOut = Schemas["SubmissionOut"];
+export type AnswersResultOut = Schemas["AnswersResultOut"];
 export type QuestionnaireOut = Schemas["QuestionnaireOut"];
 export type QuestionnaireSummary = Schemas["QuestionnaireSummary"];
 export type SectionOut = Schemas["SectionOut"];

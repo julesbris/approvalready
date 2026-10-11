@@ -99,48 +99,62 @@ describe("ProjectWorkspace", () => {
     expect(await screen.findByLabelText("Book a surveyor")).not.toBeChecked();
   });
 
-  it("runs an assessment once answers are submitted", async () => {
+  it("starts with one button that goes into the questions", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(Response.json({ id: "s1" }, { status: 201 }));
+    vi.stubGlobal("fetch", fetchMock);
     renderWorkspace();
-    expect(screen.getByRole("button", { name: "Run assessment" })).toBeDisabled();
-    expect(screen.getByText("Submit your answers first.")).toBeInTheDocument();
+    expect(screen.getByText(/your result appears straight underneath/)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Run/ })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Answer the questions" }));
+    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/projects/p1/questionnaire"));
   });
 
-  it("opens the new assessment after running it", async () => {
-    const fetchMock = vi.fn().mockResolvedValue(Response.json({ id: "a2" }, { status: 201 }));
-    vi.stubGlobal("fetch", fetchMock);
-    renderWorkspace(true, {
+  it("links to the answers and their result once assessed", () => {
+    const submitted = {
+      id: "s1",
+      questionnaire_key: "planning.general",
+      questionnaire_title: "Planning",
+      version: 1,
+      status: "SUBMITTED",
+      submitted_at: "2026-10-04T00:00:00Z",
+      updated_at: "2026-10-04T00:00:00Z",
+    };
+    const assessment = {
+      id: "a1",
+      project_id: "p1",
+      submission_id: "s1",
+      assessed_on: "2026-10-08",
+      status: "COMPLETED",
+      overall_confidence: "LIKELY",
+      findings: 2,
+      created_at: "2026-10-08T00:00:00Z",
+    } as const;
+    const { unmount } = renderWorkspace(true, {
       ...PROJECT,
       status: "ASSESSED",
-      submissions: [
-        {
-          id: "s1",
-          questionnaire_key: "planning.general",
-          questionnaire_title: "Planning",
-          version: 1,
-          status: "SUBMITTED",
-          submitted_at: "2026-10-04T00:00:00Z",
-          updated_at: "2026-10-04T00:00:00Z",
-        },
-      ],
-      latest_assessment: {
-        id: "a1",
-        project_id: "p1",
-        submission_id: "s1",
-        assessed_on: "2026-10-08",
-        status: "COMPLETED",
-        overall_confidence: "LIKELY",
-        findings: 2,
-        created_at: "2026-10-08T00:00:00Z",
-      },
+      submissions: [submitted],
+      latest_assessment: assessment,
     });
     expect(screen.getByRole("link", { name: "Assessed 8 Oct 2026" })).toHaveAttribute(
       "href",
       "/projects/p1/assessments/a1",
     );
     expect(screen.getByText(/Likely · 2 findings/)).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Run a new assessment" }));
-    await vi.waitFor(() => expect(push).toHaveBeenCalledWith("/projects/p1/assessments/a2"));
-    expect(fetchMock.mock.calls[0]?.[0]).toBe("/api/v1/organisations/o1/projects/p1/assessments");
+    expect(screen.getByRole("link", { name: "See answers and result" })).toHaveAttribute(
+      "href",
+      "/projects/p1/questionnaire",
+    );
+    unmount();
+
+    // Answers changed since: finishing them updates the result.
+    renderWorkspace(true, {
+      ...PROJECT,
+      status: "ASSESSED",
+      submissions: [{ ...submitted, status: "IN_PROGRESS", submitted_at: null }],
+      latest_assessment: assessment,
+    });
+    expect(screen.getByText(/changed since the last result/)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Finish and update my result" })).toBeInTheDocument();
   });
 
   it("is read-only without project.write", () => {

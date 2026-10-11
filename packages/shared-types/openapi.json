@@ -1101,6 +1101,23 @@
         "title": "AllowanceOut",
         "type": "object"
       },
+      "AnswersResultOut": {
+        "description": "The submitted answers and the assessment worked out from them, in one go.",
+        "properties": {
+          "assessment": {
+            "$ref": "#/components/schemas/AssessmentOut"
+          },
+          "submission": {
+            "$ref": "#/components/schemas/SubmissionOut"
+          }
+        },
+        "required": [
+          "submission",
+          "assessment"
+        ],
+        "title": "AnswersResultOut",
+        "type": "object"
+      },
       "AnswersUpdate": {
         "additionalProperties": false,
         "properties": {
@@ -39425,6 +39442,60 @@
           }
         },
         "summary": "Reopen Answers",
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/submissions/{submission_id}/result": {
+      "post": {
+        "description": "Submit the answers (if they aren't already) and assess them straight away, so the\nresult can be shown right under the questions. Both happen or neither does.",
+        "operationId": "answers_result_v1_organisations__organisation_id__submissions__submission_id__result_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "submission_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Submission Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnswersResultOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Answers Result",
         "tags": [
           "projects"
         ]

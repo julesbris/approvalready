@@ -1030,3 +1030,26 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Web | `/projects/[id]/plan`: offer (price or "Free while we launch"), then progress, timeline, each part with who to call and its steps (tick, due date, owner, notes, attach or upload files, doesn't apply), fees and sources, add your own step, print. Project page panel with progress; "Manage it as a project plan" on the assessment page; checklist downloads on every assessment. |
 | Tests | `tests/test_plans.py` (free and paid starts, cancel, timeline, sync with tasks, files, own steps, refresh, partner suggestions and follow-up reminders, isolation), `test_documents.py` (checklist report in every format); web `ProjectPlan.test.tsx`, `plans.test.ts`. |
 | Not built | Plan steps in the keep-going nudges; assigning steps to other members by account (owner is free text for now); recording call outcomes against a partner; a plan for projects without an assessment. |
+
+## 44. Answers to result on one page
+
+From Jules's ask to show the assessment right under the answers and make the flow simpler
+(Wise as the reference). No migration, no new settings.
+
+- API: `POST /v1/organisations/{org}/submissions/{id}/result` submits the answers if they are
+  still open and runs the assessment in the same transaction (both or neither), returning
+  `AnswersResultOut {submission, assessment}`. A 422 `answers_incomplete` names the questions
+  still to answer. The separate submit and run-assessment endpoints are unchanged.
+- Web: `QuestionnaireRunner` shows one section at a time with a progress bar, "Step N of M" and
+  one main button ("Continue", then "See my result" or "Update my result" on the last
+  section). The result step shows a collapsible summary of the answers with "Change" links
+  (which reopen submitted answers) and the result under it: a one-line summary card linking to
+  the full report, then `AssessmentReport embedded` with the approval guides and the council's
+  how-to-apply. The questionnaire page loads the latest assessment of these answers, so the
+  result is there on return.
+- Simplified: a new project goes straight into its questions (name optional, defaults to
+  "<Product> project"); the project page has one "Your assessment" panel with one action; the
+  typed-in address fields wait behind "Can't find it? Type the address in"; council, lot and
+  plan and land area are asked only once there is an address (they are usually filled from it).
+- The BFF now proxies `/guidance` (public, read-only) so the runner can fetch guides.
+- Before/after screenshots: docs/answers-to-result.

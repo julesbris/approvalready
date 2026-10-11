@@ -1,13 +1,20 @@
-import type { PrefillOut, ProjectDetailOut, SubmissionOut } from "@approvalready/shared-types";
+import type {
+  ApprovalGuideOut,
+  AssessmentOut,
+  PrefillOut,
+  ProjectDetailOut,
+  SubmissionOut,
+} from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AppShell, NoAccess } from "@/components/app/AppShell";
 import { StartQuestionnaire } from "@/components/questionnaire/StartQuestionnaire";
 import { QuestionnaireRunner } from "@/components/questionnaire/QuestionnaireRunner";
+import { guideKinds, guideQuery } from "@/lib/approvalGuides";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
-export const metadata: Metadata = { title: "Questionnaire", robots: { index: false } };
+export const metadata: Metadata = { title: "Your answers", robots: { index: false } };
 
 type Props = { params: Promise<{ projectId: string }> };
 
@@ -34,24 +41,42 @@ export default async function QuestionnairePage({ params }: Props) {
     submission && canWrite && submission.status === "IN_PROGRESS"
       ? await serverGet<PrefillOut>(`${base}/submissions/${submission.id}/prefill`)
       : null;
+  // The result of these answers, shown under them: the latest assessment made from them.
+  const assessed =
+    submission && project.latest_assessment?.submission_id === submission.id
+      ? await serverGet<AssessmentOut>(`${base}/assessments/${project.latest_assessment.id}`)
+      : null;
+  const assessment = assessed?.ok ? assessed.data : null;
+  const kinds = assessment ? guideKinds(assessment) : [];
+  const guides =
+    kinds.length > 0
+      ? await serverGet<ApprovalGuideOut[]>(
+          `/guidance/approvals?${guideQuery(kinds, project.vertical)}`,
+        )
+      : null;
   return (
     <AppShell session={session}>
-      <p className="breadcrumb">
-        <Link href="/projects">Projects</Link> / <Link href={`/projects/${projectId}`}>{project.title}</Link>
-      </p>
-      {submission ? (
-        <QuestionnaireRunner
-          organisationId={orgId}
-          projectId={projectId}
-          submission={submission}
-          canWrite={canWrite}
-          suggestions={prefill?.ok ? prefill.data.suggestions : []}
-        />
-      ) : canWrite ? (
-        <StartQuestionnaire organisationId={orgId} projectId={projectId} />
-      ) : (
-        <p>No answers yet.</p>
-      )}
+      <div className="flow">
+        <p className="breadcrumb">
+          <Link href="/projects">Projects</Link> /{" "}
+          <Link href={`/projects/${projectId}`}>{project.title}</Link>
+        </p>
+        {submission ? (
+          <QuestionnaireRunner
+            organisationId={orgId}
+            projectId={projectId}
+            submission={submission}
+            canWrite={canWrite}
+            suggestions={prefill?.ok ? prefill.data.suggestions : []}
+            assessment={assessment}
+            guides={guides?.ok ? guides.data : []}
+          />
+        ) : canWrite ? (
+          <StartQuestionnaire organisationId={orgId} projectId={projectId} />
+        ) : (
+          <p>No answers yet.</p>
+        )}
+      </div>
     </AppShell>
   );
 }

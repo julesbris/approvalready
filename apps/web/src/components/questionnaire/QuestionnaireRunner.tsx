@@ -2,6 +2,9 @@
 
 import type {
   AddressMatchOut,
+  AnswersResultOut,
+  ApprovalGuideOut,
+  AssessmentOut,
   CouncilOut,
   PrefillOut,
   PrefillSuggestion,
@@ -11,9 +14,12 @@ import type {
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { AssessmentReport } from "@/components/assessments/AssessmentReport";
 import { FormError } from "@/components/auth/FormStatus";
 import { CouncilGuide } from "@/components/councils/CouncilGuide";
 import { QuestionField } from "@/components/questionnaire/QuestionField";
+import { guideKinds, guideQuery } from "@/lib/approvalGuides";
+import { CONFIDENCE_HELP, CONFIDENCE_LABELS, MAP_VERTICALS } from "@/lib/assessment";
 import { apiRequest } from "@/lib/client-api";
 import { councilKey } from "@/lib/councils";
 import {
@@ -35,7 +41,14 @@ type Props = {
   suggestions?: PrefillSuggestion[];
   /** Wait this long after the last change before saving it automatically. */
   autosaveDelayMs?: number;
+  /** The latest assessment of these answers, shown as the result under them. */
+  assessment?: AssessmentOut | null;
+  /** Step-by-step guides for the approvals that assessment found. */
+  guides?: ApprovalGuideOut[];
 };
+
+/** The result under the answers, and whether answers changed since it was worked out. */
+type Result = { assessment: AssessmentOut; guides: ApprovalGuideOut[]; stale: boolean };
 
 type SaveState = "idle" | "saving" | "saved" | "unsaved";
 
@@ -44,6 +57,8 @@ const LOT_PLAN_KEY = "property.lot_plan";
 const ADDRESS_KEY = "property.address";
 /** Answers that change what we can look up about the site. */
 const SITE_KEYS = new Set([ADDRESS_KEY, COUNCIL_KEY, LOT_PLAN_KEY]);
+/** Optional site facts we look up from the address: asked only once there is one. */
+const FROM_ADDRESS = new Set([COUNCIL_KEY, LOT_PLAN_KEY, "property.land_area_m2"]);
 
 /** An answer we filled in for the person, and what it was before, so it can be undone. */
 type Filled = { suggestion: PrefillSuggestion; previous: unknown };
@@ -101,12 +116,15 @@ function initialTexts(
 
 /**
  * Guided questionnaire: one section at a time, with questions appearing and disappearing as
- * answers change, then a review step before submitting. Answers save automatically a moment
- * after each change (and again on "Save and continue"), so people can leave and come back.
+ * answers change, a progress bar at the top and one main button. The last section's button
+ * submits the answers and assesses them in one go, and the result appears right under a
+ * summary of the answers, on the same page. Answers save automatically a moment
+ * after each change (and again on "Continue"), so people can leave and come back.
  * Picking a Queensland address fills in its postcode, council and lot and plan, and once the
  * site is saved we fill in whatever else we can look up about it (land area, mapped
  * constraints, or the project's saved property), say where each came from, and let the
- * person undo it. For a council in our directory, the review step shows how to apply to it.
+ * person undo it. For a council in our directory, the result shows how to apply to it.
+ * Changing an answer after the result reopens the answers; finishing again updates it.
  */
 export function QuestionnaireRunner({
   organisationId,
@@ -115,6 +133,8 @@ export function QuestionnaireRunner({
   canWrite,
   suggestions: initialSuggestions = [],
   autosaveDelayMs = 1200,
+  assessment: initialAssessment = null,
+  guides: initialGuides = [],
 }: Props) {
   // What we can look up is filled in straight away (and saved by the autosave below).
   const [start] = useState(() =>
@@ -134,6 +154,15 @@ export function QuestionnaireRunner({
   const [filled, setFilled] = useState<Filled[]>(start.filled);
   const [saveState, setSaveState] = useState<SaveState>("idle");
   const [council, setCouncil] = useState<CouncilOut | null>(null);
+  const [result, setResult] = useState<Result | null>(() =>
+    initialAssessment
+      ? {
+          assessment: initialAssessment,
+          guides: initialGuides,
+          stale: initial.status !== "SUBMITTED",
+        }
+      : null,
+  );
   // Keys changed since they were last saved, and the save queue (one request at a time).
   const dirty = useRef(new Set(start.filled.map((f) => f.suggestion.key)));
   const queue = useRef<Promise<void>>(Promise.resolve());
@@ -198,7 +227,7 @@ export function QuestionnaireRunner({
   }, [url, questionnaire]);
 
   // Save changed answers a moment after the last change. Only answers that parse are sent;
-  // the rest wait until they do (or until "Save and continue" shows what's wrong).
+  // the rest wait until they do (or until "Continue" shows what's wrong).
   const autosave = useCallback(() => {
     queue.current = queue.current.then(async () => {
       const questions = allQuestions(questionnaire);
@@ -362,92 +391,134 @@ export function QuestionnaireRunner({
   }
 
   async function onContinue() {
-    if (await saveSection(step)) {
-      setStep(nextStep(step));
-      window.scrollTo?.({ top: 0 });
-    }
-  }
-
-  async function onSubmit() {
-    setBusy(true);
-    setError(null);
-    const result = await apiRequest<SubmissionOut>("POST", `${url}/submit`);
-    setBusy(false);
-    if (!result.ok) {
-      setFieldErrors(result.fields ?? {});
-      setError(result.message);
+    if (!(await saveSection(step))) return;
+    if (nextStep(step) >= sections.length) {
+      await showResult();
       return;
     }
-    applySaved(result.data);
-    setNotice("Your answers are submitted. You can still change them if something was wrong.");
+    setStep(nextStep(step));
+    window.scrollTo?.({ top: 0 });
   }
 
-  async function onReopen() {
+  /** Submit the answers (if they aren't already) and assess them, then show the result. */
+  async function showResult() {
     setBusy(true);
     setError(null);
-    const result = await apiRequest<SubmissionOut>("POST", `${url}/reopen`);
-    setBusy(false);
-    if (!result.ok) {
-      setError(result.message);
+    await queue.current; // let an automatic save in progress finish first
+    const outcome = await apiRequest<AnswersResultOut>("POST", `${url}/result`);
+    if (!outcome.ok) {
+      setBusy(false);
+      const fields = outcome.fields ?? {};
+      setFieldErrors(fields);
+      // Take them to the first section with something still to answer.
+      const first = steps.find((index) => shownIn(index).some((q) => fields[q.key]));
+      if (first !== undefined) {
+        setStep(first);
+        setError("Answer the highlighted questions to see your result.");
+      } else {
+        setError(outcome.message);
+      }
       return;
     }
-    applySaved(result.data);
+    const { submission: saved, assessment } = outcome.data;
+    const kinds = guideKinds(assessment);
+    const found =
+      kinds.length > 0
+        ? await apiRequest<ApprovalGuideOut[]>(
+            "GET",
+            `/guidance/approvals?${guideQuery(kinds, questionnaire.vertical)}`,
+          )
+        : null;
+    setBusy(false);
+    applySaved(saved);
+    setResult({ assessment, guides: found?.ok ? found.data : [], stale: false });
+    setStep(sections.length);
     setNotice(null);
-    setStep(steps[0] ?? 0);
+    // Bring the result into view, just under the answers.
+    window.setTimeout(() => document.getElementById("result")?.scrollIntoView?.(), 0);
   }
 
-  const onReview = step >= sections.length;
+  /** Go back to a section to change it, reopening submitted answers first. */
+  async function changeSection(index: number) {
+    if (submitted && canWrite) {
+      setBusy(true);
+      setError(null);
+      const reopened = await apiRequest<SubmissionOut>("POST", `${url}/reopen`);
+      setBusy(false);
+      if (!reopened.ok) {
+        setError(reopened.message);
+        return;
+      }
+      applySaved(reopened.data);
+      setNotice(null);
+      setResult((r) => (r ? { ...r, stale: true } : r));
+    }
+    setStep(index);
+    window.scrollTo?.({ top: 0 });
+  }
+
+  const onResult = step >= sections.length;
   const errorFor = (key: string) =>
     fieldErrors[key] ?? (showTextErrors ? textErrors[key] : undefined);
   const missing = new Set(submission.missing_required);
-  const { answered, visible: visibleCount } = submission.progress;
+  const { answered } = submission.progress;
+  const lastSection = !onResult && nextStep(step) >= sections.length;
+  const back = onResult ? undefined : previousStep(step);
+  const finishLabel = result ? "Update my result" : "See my result";
+  // The result counts as the last step of the progress bar.
+  const position = onResult ? steps.length + 1 : steps.indexOf(step) + 1;
+  const percent = Math.round(((onResult ? position : position - 1) / (steps.length + 1)) * 100);
+  const canChange = editable || (submitted && canWrite);
+  // Until there's an address, the facts we'd look up from it would only be guesses.
+  const addressAsked = shownIn(step).some((q) => q.key === ADDRESS_KEY);
+  const hasAddress = Object.values((draft[ADDRESS_KEY] ?? {}) as object).some(Boolean);
+  const waitsForAddress = (q: QuestionOut) =>
+    editable &&
+    addressAsked &&
+    !hasAddress &&
+    FROM_ADDRESS.has(q.key) &&
+    !q.required &&
+    draft[q.key] === undefined;
+  const saveText =
+    saveState === "saving"
+      ? "Saving…"
+      : saveState === "saved"
+        ? "Saved"
+        : saveState === "unsaved"
+          ? "Not saved yet"
+          : "Saves as you go";
 
   return (
-    <div className="questionnaire">
-      <header className="page-head">
-        <div>
-          <h1 className="page-title">{questionnaire.title}</h1>
-          {questionnaire.description ? <p className="muted">{questionnaire.description}</p> : null}
+    <div className="questionnaire flow">
+      <header className="flow-head">
+        <p className="flow-kicker">{questionnaire.title}</p>
+        <div
+          className="flow-meter"
+          role="progressbar"
+          aria-label="Progress"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={percent}
+        >
+          <span style={{ width: `${percent}%` }} />
+        </div>
+        <div className="flow-status">
+          <span>
+            {onResult ? "Done" : `Step ${position} of ${steps.length}`}
+            {!onResult && submission.progress.required_remaining > 0
+              ? ` · ${submission.progress.required_remaining} required still to answer`
+              : ""}
+          </span>
+          {editable ? (
+            <span className="save-state" role="status">
+              {saveText}
+            </span>
+          ) : null}
         </div>
       </header>
 
-      <nav aria-label="Questionnaire sections">
-        <ol className="steps">
-          {steps.map((index) => (
-            <li key={index} aria-current={index === step ? "step" : undefined}>
-              <button type="button" className="button-link" onClick={() => setStep(index)}>
-                {sections[index]?.title}
-              </button>
-            </li>
-          ))}
-          <li aria-current={onReview ? "step" : undefined}>
-            <button type="button" className="button-link" onClick={() => setStep(sections.length)}>
-              Review
-            </button>
-          </li>
-        </ol>
-        <p className="muted" aria-live="polite">
-          {answered} of {visibleCount} questions answered
-          {submission.progress.required_remaining > 0
-            ? `, ${submission.progress.required_remaining} required still to answer`
-            : ""}
-          .
-        </p>
-        {editable ? (
-          <p className="muted save-state" role="status">
-            {saveState === "saving"
-              ? "Saving…"
-              : saveState === "saved"
-                ? "All changes saved. You can leave and come back to this at any time."
-                : saveState === "unsaved"
-                  ? "Some answers aren't saved yet. Check them, then choose Save and continue."
-                  : "Your answers save as you go."}
-          </p>
-        ) : null}
-      </nav>
-
-      {editable && filled.length > 0 ? (
-        <section className="panel" aria-labelledby="prefill-title">
+      {editable && !onResult && filled.length > 0 ? (
+        <section className="panel flow-filled" aria-labelledby="prefill-title">
           <h2 id="prefill-title" className="section-title">
             We filled in {filled.length === 1 ? "an answer" : `${filled.length} answers`} for you
           </h2>
@@ -495,67 +566,82 @@ export function QuestionnaireRunner({
       ) : null}
       <FormError message={error} />
 
-      {onReview ? (
-        <section className="panel" aria-labelledby="review-title">
-          <h2 id="review-title" className="section-title">
-            {submitted ? "Your submitted answers" : "Check your answers"}
-          </h2>
-          {steps.map((index) => (
-            <div key={index} className="review-section">
-              <div className="review-head">
-                <h3>{sections[index]?.title}</h3>
-                {editable ? (
-                  <button type="button" className="button-link" onClick={() => setStep(index)}>
-                    Change
-                  </button>
-                ) : null}
-              </div>
-              <dl className="review-list">
-                {shownIn(index).map((question) => (
-                  <div key={question.key} className={missing.has(question.key) ? "missing" : undefined}>
-                    <dt>{question.label}</dt>
-                    <dd>
-                      {missing.has(question.key)
-                        ? "Required: not answered yet"
-                        : displayAnswer(question, submission.answers[question.key])}
-                    </dd>
+      {onResult ? (
+        <>
+          <h1 className="page-title flow-title">
+            {result && !result.stale ? "Your result" : "Your answers"}
+          </h1>
+          <section className="panel flow-card flow-answers" aria-label="Your answers">
+            <details className="answers-summary" open={!result || result.stale || undefined}>
+              <summary>
+                Your answers <span className="muted">· {answered} answered</span>
+              </summary>
+              {steps.map((index) => (
+                <div key={index} className="review-section">
+                  <div className="review-head">
+                    <h3>{sections[index]?.title}</h3>
+                    {canChange ? (
+                      <button
+                        type="button"
+                        className="button-link"
+                        disabled={busy}
+                        onClick={() => void changeSection(index)}
+                      >
+                        Change
+                      </button>
+                    ) : null}
                   </div>
-                ))}
-              </dl>
-            </div>
-          ))}
-          <p className="muted">
-            Submitting records these answers against version {questionnaire.version} of the
-            questions. It does not decide anything about approvals.
-          </p>
-          <div className="button-row">
-            {editable ? (
-              <button
-                type="button"
-                className="button"
-                disabled={busy || missing.size > 0}
-                onClick={onSubmit}
-              >
-                {busy ? "Submitting…" : "Submit answers"}
-              </button>
+                  <dl className="review-list">
+                    {shownIn(index).map((question) => (
+                      <div
+                        key={question.key}
+                        className={missing.has(question.key) ? "missing" : undefined}
+                      >
+                        <dt>{question.label}</dt>
+                        <dd>
+                          {missing.has(question.key)
+                            ? "Required: not answered yet"
+                            : displayAnswer(question, submission.answers[question.key])}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              ))}
+            </details>
+            {!result || result.stale ? (
+              canWrite ? (
+                <div className="flow-actions">
+                  <button
+                    type="button"
+                    className="button flow-primary"
+                    disabled={busy || missing.size > 0}
+                    onClick={() => void showResult()}
+                  >
+                    {busy ? "Working it out…" : finishLabel}
+                  </button>
+                </div>
+              ) : (
+                <p className="muted">No result yet.</p>
+              )
             ) : null}
-            {submitted && canWrite ? (
-              <button type="button" className="button button-secondary" disabled={busy} onClick={onReopen}>
-                Change answers
-              </button>
-            ) : null}
-            <Link className="button button-secondary" href={`/projects/${projectId}`}>
-              Back to project
-            </Link>
-          </div>
-        </section>
-      ) : null}
-      {onReview && shownCouncil ? <CouncilGuide council={shownCouncil} /> : null}
-      {onReview ? null : (
-        <section className="panel" aria-labelledby="section-title">
-          <h2 id="section-title" className="section-title">
+          </section>
+        </>
+      ) : (
+        <section className="panel flow-card" aria-labelledby="section-title">
+          {back !== undefined ? (
+            <button
+              type="button"
+              className="button-link flow-back"
+              disabled={busy}
+              onClick={() => setStep(back)}
+            >
+              Back
+            </button>
+          ) : null}
+          <h1 id="section-title" className="page-title flow-title">
             {sections[step]?.title}
-          </h2>
+          </h1>
           <form
             method="post"
             className="form"
@@ -564,7 +650,7 @@ export function QuestionnaireRunner({
               void onContinue();
             }}
           >
-            {shownIn(step).map((question) => (
+            {shownIn(step).filter((q) => !waitsForAddress(q)).map((question) => (
               <QuestionField
                 key={question.key}
                 question={question}
@@ -580,35 +666,97 @@ export function QuestionnaireRunner({
             ))}
             {shownCouncil && shownIn(step).some((q) => q.key === COUNCIL_KEY) ? (
               <p className="form-notice council-found">
-                Development applications for this site go to {shownCouncil.name}. When you
-                finish, we&apos;ll show you how to apply to them, with their contact details and
-                fees.
+                Development applications for this site go to {shownCouncil.name}. Your result
+                will show you how to apply to them, with their contact details and fees.
               </p>
             ) : null}
-            <div className="button-row">
+            <div className="flow-actions">
               {editable ? (
-                <button type="submit" className="button" disabled={busy}>
-                  {busy ? "Saving…" : "Save and continue"}
+                <button type="submit" className="button flow-primary" disabled={busy}>
+                  {busy
+                    ? lastSection
+                      ? "Working it out…"
+                      : "Saving…"
+                    : lastSection
+                      ? finishLabel
+                      : "Continue"}
                 </button>
               ) : (
-                <button type="button" className="button" onClick={() => setStep(nextStep(step))}>
-                  Next
-                </button>
-              )}
-              {previousStep(step) !== undefined ? (
                 <button
                   type="button"
-                  className="button button-secondary"
-                  disabled={busy}
-                  onClick={() => setStep(previousStep(step) ?? 0)}
+                  className="button flow-primary"
+                  onClick={() => setStep(nextStep(step))}
                 >
-                  Back
+                  {lastSection ? "See the result" : "Next"}
                 </button>
-              ) : null}
+              )}
             </div>
           </form>
         </section>
       )}
+
+      {onResult && result ? (
+        <div id="result" className="flow-result">
+          {result.stale ? (
+            <p className="notice">
+              Your answers changed since this result. Choose {finishLabel} to work it out again.
+            </p>
+          ) : null}
+          <ResultSummary projectId={projectId} assessment={result.assessment} />
+          <AssessmentReport
+            embedded
+            assessment={result.assessment}
+            projectId={projectId}
+            approvalMap={MAP_VERTICALS.has(questionnaire.vertical)}
+            guides={result.guides}
+          >
+            {shownCouncil ? <CouncilGuide council={shownCouncil} /> : null}
+          </AssessmentReport>
+        </div>
+      ) : null}
     </div>
+  );
+}
+
+/** The result in a sentence, how sure we are, and the one next step. */
+function ResultSummary({ projectId, assessment }: { projectId: string; assessment: AssessmentOut }) {
+  const approvals = assessment.approval_requirements.length;
+  const headline =
+    assessment.status === "NO_APPLICABLE_RULES"
+      ? "We can't assess this one yet"
+      : approvals > 0
+        ? `${approvals} approval${approvals === 1 ? "" : "s"} found`
+        : "No approvals found from your answers";
+  return (
+    <section className="panel result-summary" aria-labelledby="result-title">
+      <div className="finding-head">
+        <div>
+          <h2 id="result-title" className="section-title">
+            {headline}
+          </h2>
+          <p>
+            {assessment.status === "NO_APPLICABLE_RULES"
+              ? "We don't have reviewed rules for your situation yet. This doesn't mean no approval is needed."
+              : CONFIDENCE_HELP[assessment.overall_confidence]}
+          </p>
+        </div>
+        <span
+          className={`status confidence confidence-${assessment.overall_confidence.toLowerCase()}`}
+        >
+          {CONFIDENCE_LABELS[assessment.overall_confidence]}
+        </span>
+      </div>
+      <div className="flow-actions">
+        <Link
+          className="button flow-primary"
+          href={`/projects/${projectId}/assessments/${assessment.id}`}
+        >
+          Open your full report
+        </Link>
+      </div>
+      <p className="hint">
+        Download it, add your documents, or have a professional check it. The details are below.
+      </p>
+    </section>
   );
 }

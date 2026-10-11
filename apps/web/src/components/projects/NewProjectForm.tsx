@@ -28,11 +28,14 @@ export function NewProjectForm({
     }
     const form = new FormData(event.currentTarget);
     const description = String(form.get("description") ?? "").trim();
+    const product = defaultBrand.products.find((p) => p.key === vertical);
     setBusy(true);
     setError(null);
-    const result = await apiRequest<ProjectOut>("POST", `/organisations/${organisationId}/projects`, {
+    const base = `/organisations/${organisationId}`;
+    const result = await apiRequest<ProjectOut>("POST", `${base}/projects`, {
       vertical,
-      title: String(form.get("title") ?? "").trim(),
+      // A name is optional: one can be given later.
+      title: String(form.get("title") ?? "").trim() || `${product?.name ?? "New"} project`,
       description: description || null,
     });
     if (!result.ok) {
@@ -40,7 +43,10 @@ export function NewProjectForm({
       setError(result.message);
       return;
     }
-    router.push(`/projects/${result.data.id}`);
+    // Straight into the questions; the project page is there if they can't start yet.
+    const project = result.data.id;
+    const started = await apiRequest("POST", `${base}/projects/${project}/submissions`, {});
+    router.push(started.ok ? `/projects/${project}/questionnaire` : `/projects/${project}`);
   }
 
   return (
@@ -64,17 +70,20 @@ export function NewProjectForm({
         ))}
       </fieldset>
       <label>
-        Project name
-        <input name="title" required maxLength={200} placeholder="For example: Granny flat at Edge Hill" />
+        Project name <span className="optional">(optional)</span>
+        <input name="title" maxLength={200} placeholder="For example: Granny flat at Edge Hill" />
       </label>
-      <label>
-        Notes (optional)
-        <textarea name="description" maxLength={2000} rows={3} />
-      </label>
+      <details className="form-more">
+        <summary>Add notes</summary>
+        <label>
+          Notes <span className="optional">(optional)</span>
+          <textarea name="description" maxLength={2000} rows={3} />
+        </label>
+      </details>
       <FormError message={error} />
       <div>
         <button type="submit" className="button" disabled={busy}>
-          {busy ? "Creating…" : "Create project"}
+          {busy ? "Starting…" : "Continue"}
         </button>
       </div>
     </form>
