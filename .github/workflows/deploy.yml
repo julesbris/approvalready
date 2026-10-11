@@ -1,0 +1,138 @@
+name: Deploy
+
+# Deploys main to the production server after CI passes on it, or when someone presses
+# "Run workflow" on the Actions tab. See DEPLOY_KAMATERA.md §16.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write # a failed deploy opens an issue (GitHub emails it); the next success closes it
+
+# One deploy at a time; a newer one waits instead of cancelling a deploy halfway.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  DEPLOY_HOST: ${{ vars.DEPLOY_HOST || '45.151.154.206' }}
+  DEPLOY_USER: ${{ vars.DEPLOY_USER || 'deploy' }}
+  SITE_DOMAIN: ${{ vars.SITE_DOMAIN || 'approvalready.au' }}
+  ISSUE_TITLE: Automatic deploy failed
+
+jobs:
+  deploy:
+    # Only after a successful CI run for a push to main (not a pull request's run).
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.event == 'push')
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check the deploy is set up
+        id: setup
+        env:
+          KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          if [ -z "$KEY" ] || [ -z "$KNOWN_HOSTS" ]; then
+            msg="Automatic deploys aren't set up yet: add the DEPLOY_SSH_KEY and DEPLOY_KNOWN_HOSTS secrets (DEPLOY_KAMATERA.md §16). Nothing was deployed."
+            echo "::warning::$msg"
+            echo "$msg" >> "$GITHUB_STEP_SUMMARY"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy on the server
+        if: steps.setup.outputs.ready == 'true'
+        id: deploy
+        run: |
+          set -o pipefail
+          # The key only runs scripts/deploy.sh on the server, whatever command is sent.
+          ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=20 -o ServerAliveInterval=30 -o ServerAliveCountMax=10 \
+            "$DEPLOY_USER@$DEPLOY_HOST" deploy 2>&1 | tee deploy.log || {
+            status=$?
+            if [ "$status" = 255 ]; then
+              echo "::error::Couldn't connect to $DEPLOY_HOST over SSH. Check the server is up, that its firewall lets GitHub in on port 22, and the two DEPLOY_ secrets (DEPLOY_KAMATERA.md §16)."
+            fi
+            exit "$status"
+          }
+          sha="$(sed -n 's/^DEPLOYED_SHA=//p' deploy.log | tail -n 1)"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      - name: Check the live site
+        if: steps.setup.outputs.ready == 'true'
+        env:
+          SHA: ${{ steps.deploy.outputs.sha }}
+        run: |
+          for _ in $(seq 1 12); do
+            live="$(curl -fsS --max-time 10 "https://api.$SITE_DOMAIN/version" | jq -r .git_sha || true)"
+            if [ "$live" = "$SHA" ] &&
+              curl -fsS --max-time 10 -o /dev/null "https://api.$SITE_DOMAIN/health/ready" &&
+              curl -fsS --max-time 10 -o /dev/null "https://$SITE_DOMAIN/api/health"; then
+              echo "Live: $SHA, health checks pass." | tee -a "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            echo "Not yet (live version: ${live:-no answer}); checking again in 10 seconds..."
+            sleep 10
+          done
+          echo "::error::https://api.$SITE_DOMAIN is not serving $SHA, or a health check fails."
+          exit 1
+
+      - name: Summary
+        if: always() && steps.setup.outputs.ready == 'true'
+        run: |
+          {
+            echo '### Deploy log (last 80 lines)'
+            echo '```'
+            tail -n 80 deploy.log 2>/dev/null || echo "(no log)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report the failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo "The automatic deploy of \`${{ github.event.workflow_run.head_sha || github.sha }}\` failed. The site keeps running whatever started successfully."
+            echo
+            echo "Full log: $RUN_URL"
+            echo
+            echo '```'
+            grep -E 'DEPLOY FAILED|::error|WARNING' deploy.log 2>/dev/null || true
+            tail -n 40 deploy.log 2>/dev/null || echo "(no log: the deploy didn't reach the server)"
+            echo '```'
+            echo
+            echo "This issue closes by itself after the next successful deploy."
+          } > body.md
+          number="$(gh issue list --state open --search "in:title \"$ISSUE_TITLE\"" --json number --jq '.[0].number')"
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file body.md
+          else
+            gh issue create --title "$ISSUE_TITLE" --body-file body.md --assignee "${{ github.repository_owner }}" ||
+              gh issue create --title "$ISSUE_TITLE" --body-file body.md
+          fi
+
+      - name: Close the failure report
+        if: success() && steps.setup.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SHA: ${{ steps.deploy.outputs.sha }}
+        run: |
+          for number in $(gh issue list --state open --search "in:title \"$ISSUE_TITLE\"" --json number --jq '.[].number'); do
+            gh issue close "$number" --comment "Fixed: $SHA deployed and the health checks pass."
+          done
