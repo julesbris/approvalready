@@ -11,9 +11,11 @@ export const metadata: Metadata = { title: "New project", robots: { index: false
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 export default async function NewProjectPage({ searchParams }: Props) {
-  const session = await requireSession("/projects/new");
-  const orgId = session.active_organisation_id;
   const vertical = firstParam((await searchParams).vertical);
+  const session = await requireSession(
+    isVertical(vertical) ? `/projects/new?vertical=${vertical}` : "/projects/new",
+  );
+  const orgId = session.active_organisation_id;
   return (
     <AppShell session={session}>
       {orgId && session.permissions.includes("project.write") ? (

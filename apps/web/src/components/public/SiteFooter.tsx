@@ -16,14 +16,16 @@ export function SiteFooter() {
               legal, financial or planning advice.
             </p>
           </div>
-          <div>
+          <nav aria-label="Products">
             <p className="footer-heading">Products</p>
             <ul className="footer-list">
               {defaultBrand.products.map((product) => (
-                <li key={product.key}>{product.name}</li>
+                <li key={product.key}>
+                  <Link href={`/projects/new?vertical=${product.key}`}>{product.name}</Link>
+                </li>
               ))}
             </ul>
-          </div>
+          </nav>
           <nav aria-label="Legal">
             <p className="footer-heading">Company</p>
             <ul className="footer-list footer-nav">
