@@ -25,6 +25,12 @@ export const CATEGORY_LABELS: Record<NotificationCategory, { title: string; deta
     title: "Source reviews (staff)",
     detail: "Weekly note of verified sources due for review.",
   },
+  PROGRESS: {
+    title: "Reminders to finish your projects",
+    detail:
+      "When a project goes quiet partway through, up to three reminders of what's left: after a " +
+      "day, three days and a week.",
+  },
 };
 
 export const CHANNEL_LABELS: Record<NotificationChannel, string> = {

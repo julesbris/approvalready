@@ -11,6 +11,7 @@ import type {
   SubmissionOut,
   TaskOut,
   VesselOut,
+  WhatsLeftOut,
 } from "@approvalready/shared-types";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -46,6 +47,7 @@ export default async function ProjectPage({ params }: Props) {
     businesses,
     vessels,
     checklists,
+    whatsLeft,
   ] = await Promise.all([
     serverGet<ProjectDetailOut>(`${base}/projects/${projectId}`),
     serverGet<TaskOut[]>(`${base}/projects/${projectId}/tasks`),
@@ -56,6 +58,7 @@ export default async function ProjectPage({ params }: Props) {
     serverGet<BusinessProfileOut[]>(`${base}/business-profiles`),
     serverGet<VesselOut[]>(`${base}/vessels`),
     serverGet<ChecklistOut[]>(`${base}/projects/${projectId}/checklists`),
+    serverGet<WhatsLeftOut>(`${base}/projects/${projectId}/whats-left`),
   ]);
   const found = orNotFound(project);
   const definitions = await serverGet<ChecklistDefinitionOut[]>(
@@ -88,6 +91,7 @@ export default async function ProjectPage({ params }: Props) {
         checklistDefinitions={definitions.ok ? definitions.data : []}
         documents={orNotFound(documents)}
         council={council}
+        whatsLeft={whatsLeft.ok ? whatsLeft.data : undefined}
         currentUserId={session.user.id}
         canWrite={session.permissions.includes("project.write")}
       />
