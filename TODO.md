@@ -259,6 +259,14 @@ tests and updated docs before the next starts.
 - [x] Database function `purge_closed_workspace` (migration 0029) only empties closed personal workspaces and never payment tables; a test makes every new workspace table a deliberate delete-or-keep choice
 - [ ] Next: closing business organisations; a lawyer's check that the kept records match what the law requires
 
+## Milestone 30 — Keep going: reminders to finish a project ✅
+- [x] "What's left" at the top of every project: the questions still to answer, submitting, running the assessment, documents still to send, open tasks and checklist items, each linking straight to where it gets done
+- [x] When a project goes quiet partway through, its owner gets up to three reminders (after a day, three days and a week) naming exactly what's missing; they stop once nothing is left, the project is finished, or the person turns them off or unsubscribes, and start again only after they pick it up and go quiet again
+- [x] "Reminders to finish your projects" in notification settings, with one-click unsubscribe
+- [x] Staff see who stopped where at `/admin/progress` (Stuck projects)
+- [x] Migration 0030: `KEEP_GOING` kind, `PROGRESS` category, `quiet_projects` function
+- [ ] Next: SMS nudges; a "contact this customer" action from Stuck projects; nudging the other members of a business workspace
+
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
 - [x] Fetch source documents automatically for snapshots (built in Milestone 24; PDFs still pasted by hand)

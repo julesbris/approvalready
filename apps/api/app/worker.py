@@ -68,6 +68,10 @@ celery_app.conf.update(
             "task": "sources.weekly_check",
             "schedule": crontab(day_of_week="mon", hour=6, minute=0),
         },
+        "progress-nudge": {
+            "task": "progress.nudge",
+            "schedule": crontab(hour=10, minute=0),
+        },
         "privacy-delete-closed-workspaces": {
             "task": "privacy.delete_closed_workspaces",
             "schedule": crontab(hour=3, minute=20),
@@ -344,3 +348,14 @@ def delete_closed_workspaces() -> int:
         return len(done)
 
     return asyncio.run(_with_own_engine(job))
+
+
+# --- Keep going (Milestone 30) ----------------------------------------------------------
+
+
+@celery_app.task(name="progress.nudge")
+def progress_nudge() -> int:
+    """Remind people what is left on projects they stopped partway through (10 am)."""
+    from app.modules.progress import nudges
+
+    return asyncio.run(_with_own_engine(nudges.send_nudges))

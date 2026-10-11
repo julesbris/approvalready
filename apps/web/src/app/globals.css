@@ -2260,3 +2260,50 @@ a.card-title:hover {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+/* --- What's left on a project (keep going) --- */
+
+.whats-left-steps {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  counter-reset: left;
+}
+
+.whats-left-steps > li {
+  counter-increment: left;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.whats-left-steps > li::before {
+  content: counter(left);
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--ar-radius-pill);
+  background: var(--ar-primary);
+  color: var(--ar-on-primary);
+  font-family: var(--ar-font-display);
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+.whats-left-title {
+  font-weight: 600;
+}
+
+.whats-left-details {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  color: var(--ar-ink-muted);
+}
+
+.whats-left-details li + li {
+  margin-top: 2px;
+}

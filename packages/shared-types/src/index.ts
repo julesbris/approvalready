@@ -287,3 +287,8 @@ export type AccountEvent = Schemas["AccountEvent"];
 export type AccountActionIn = Schemas["AccountActionIn"];
 export type AccountActionOut = Schemas["AccountActionOut"];
 export type AccountSearch = Schemas["AccountSearch"];
+
+export type ProgressStep = Schemas["ProgressStep"];
+export type LeftItemOut = Schemas["LeftItemOut"];
+export type WhatsLeftOut = Schemas["WhatsLeftOut"];
+export type QuietProjectOut = Schemas["QuietProjectOut"];

@@ -7941,6 +7941,41 @@
         "title": "LeadStatus",
         "type": "string"
       },
+      "LeftItemOut": {
+        "properties": {
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          },
+          "details": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Details",
+            "type": "array"
+          },
+          "link_path": {
+            "title": "Link Path",
+            "type": "string"
+          },
+          "step": {
+            "$ref": "#/components/schemas/ProgressStep"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "step",
+          "title",
+          "count",
+          "link_path",
+          "details"
+        ],
+        "title": "LeftItemOut",
+        "type": "object"
+      },
       "ListingStatus": {
         "enum": [
           "NOT_LISTED",
@@ -9558,7 +9593,8 @@
           "REMINDERS",
           "GRANT_ROUNDS",
           "REFERRALS",
-          "SOURCE_REVIEWS"
+          "SOURCE_REVIEWS",
+          "PROGRESS"
         ],
         "title": "NotificationCategory",
         "type": "string"
@@ -9582,7 +9618,8 @@
           "OPS_ALERT",
           "QUOTE_RECEIVED",
           "QUOTE_ANSWERED",
-          "MESSAGE_RECEIVED"
+          "MESSAGE_RECEIVED",
+          "KEEP_GOING"
         ],
         "title": "NotificationKind",
         "type": "string"
@@ -12112,7 +12149,7 @@
             "items": {
               "$ref": "#/components/schemas/PreferenceOut"
             },
-            "maxItems": 4,
+            "maxItems": 5,
             "minItems": 1,
             "title": "Items",
             "type": "array"
@@ -12851,6 +12888,19 @@
         ],
         "title": "Progress",
         "type": "object"
+      },
+      "ProgressStep": {
+        "enum": [
+          "START",
+          "QUESTIONS",
+          "SUBMIT",
+          "RESULTS",
+          "DOCUMENTS",
+          "TASKS",
+          "CHECKLIST"
+        ],
+        "title": "ProgressStep",
+        "type": "string"
       },
       "ProjectCreate": {
         "additionalProperties": false,
@@ -13820,6 +13870,128 @@
           "due_on"
         ],
         "title": "QueueItemOut",
+        "type": "object"
+      },
+      "QuietProjectOut": {
+        "description": "A project that went quiet partway through (staff view): stage and counts only.",
+        "properties": {
+          "checklist_open": {
+            "title": "Checklist Open",
+            "type": "integer"
+          },
+          "documents_missing": {
+            "title": "Documents Missing",
+            "type": "integer"
+          },
+          "last_activity_at": {
+            "format": "date-time",
+            "title": "Last Activity At",
+            "type": "string"
+          },
+          "last_nudged_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Nudged At"
+          },
+          "nudges_sent": {
+            "title": "Nudges Sent",
+            "type": "integer"
+          },
+          "open_tasks": {
+            "title": "Open Tasks",
+            "type": "integer"
+          },
+          "organisation_id": {
+            "format": "uuid",
+            "title": "Organisation Id",
+            "type": "string"
+          },
+          "organisation_name": {
+            "title": "Organisation Name",
+            "type": "string"
+          },
+          "owner_email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Owner Email"
+          },
+          "owner_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Owner Name"
+          },
+          "owner_user_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Owner User Id"
+          },
+          "project_id": {
+            "format": "uuid",
+            "title": "Project Id",
+            "type": "string"
+          },
+          "reference_code": {
+            "title": "Reference Code",
+            "type": "string"
+          },
+          "stage": {
+            "title": "Stage",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "vertical": {
+            "title": "Vertical",
+            "type": "string"
+          }
+        },
+        "required": [
+          "organisation_id",
+          "organisation_name",
+          "project_id",
+          "reference_code",
+          "vertical",
+          "status",
+          "owner_user_id",
+          "owner_email",
+          "owner_name",
+          "last_activity_at",
+          "stage",
+          "open_tasks",
+          "documents_missing",
+          "checklist_open",
+          "nudges_sent",
+          "last_nudged_at"
+        ],
+        "title": "QuietProjectOut",
         "type": "object"
       },
       "QuoteAcceptIn": {
@@ -21362,6 +21534,27 @@
         "title": "VesselUpdate",
         "type": "object"
       },
+      "WhatsLeftOut": {
+        "properties": {
+          "done": {
+            "title": "Done",
+            "type": "boolean"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/LeftItemOut"
+            },
+            "title": "Items",
+            "type": "array"
+          }
+        },
+        "required": [
+          "done",
+          "items"
+        ],
+        "title": "WhatsLeftOut",
+        "type": "object"
+      },
       "app__modules__leads__schemas__RefundIn": {
         "additionalProperties": false,
         "properties": {
@@ -23312,6 +23505,55 @@
         "summary": "Set Professional Status",
         "tags": [
           "review"
+        ]
+      }
+    },
+    "/v1/admin/progress/quiet": {
+      "get": {
+        "operationId": "quiet_projects_v1_admin_progress_quiet_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "days",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "maximum": 365,
+              "minimum": 1,
+              "title": "Days",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/QuietProjectOut"
+                  },
+                  "title": "Response Quiet Projects V1 Admin Progress Quiet Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Quiet Projects",
+        "tags": [
+          "admin: progress"
         ]
       }
     },
@@ -33816,6 +34058,59 @@
           }
         },
         "summary": "Update Task",
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/whats-left": {
+      "get": {
+        "operationId": "get_whats_left_v1_organisations__organisation_id__projects__project_id__whats_left_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WhatsLeftOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Whats Left",
         "tags": [
           "projects"
         ]
