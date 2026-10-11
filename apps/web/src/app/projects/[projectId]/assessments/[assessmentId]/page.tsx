@@ -5,6 +5,7 @@ import type {
   AssessmentReviewOut,
   AssessmentSummary,
   CatalogueOut,
+  CouncilOut,
   DocumentOut,
   EvidenceOut,
   GeneratedDocumentOut,
@@ -18,11 +19,13 @@ import { AIExplanation } from "@/components/ai/AIExplanation";
 import { GrantDrafts } from "@/components/ai/GrantDrafts";
 import { AppShell, NoAccess } from "@/components/app/AppShell";
 import { AssessmentReport } from "@/components/assessments/AssessmentReport";
+import { CouncilGuide } from "@/components/councils/CouncilGuide";
 import { EvidencePanel } from "@/components/documents/EvidencePanel";
 import { REPORT_TEMPLATES, ReportDownloads } from "@/components/documents/ReportDownloads";
 import { ReviewPanel } from "@/components/review/ReviewPanel";
 import { MAP_VERTICALS } from "@/lib/assessment";
 import { reviewPrice } from "@/lib/billing";
+import { councilKey } from "@/lib/councils";
 import { firstParam } from "@/lib/redirect";
 import { isOpen } from "@/lib/review";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
@@ -82,6 +85,9 @@ export default async function AssessmentPage({ params, searchParams }: Props) {
   const latestId = assessments.ok ? assessments.data[0]?.id : undefined;
   const ai = aiStatus.ok && aiStatus.data.enabled ? aiStatus.data : null;
   const jobs = aiJobs.ok ? aiJobs.data : [];
+  // Planning: how to apply to the council the assessed answers name.
+  const key = councilKey(assessment.facts["property.lga"]);
+  const council = key ? await serverGet<CouncilOut>(`/councils/${key}`) : null;
   return (
     <AppShell session={session}>
       <p className="breadcrumb">
@@ -159,6 +165,7 @@ export default async function AssessmentPage({ params, searchParams }: Props) {
           documents={documents.ok ? documents.data : []}
           canWrite={canWrite}
         />
+        {council?.ok ? <CouncilGuide council={council.data} /> : null}
         <ReportDownloads
           organisationId={orgId}
           assessmentId={assessment.id}

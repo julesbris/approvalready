@@ -1773,6 +1773,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/councils": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Councils */
+        get: operations["list_councils_v1_councils_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/councils/{key}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Council */
+        get: operations["get_council_v1_councils__key__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/invitations/accept": {
         parameters: {
             query?: never;
@@ -5939,6 +5973,122 @@ export interface components {
              * @description Messages from the other side you haven't opened yet.
              */
             unread: number;
+        };
+        /** CouncilChecked */
+        CouncilChecked: {
+            /** Verified */
+            verified: boolean;
+            /** Verified At */
+            verified_at: string | null;
+        };
+        /** CouncilContact */
+        CouncilContact: {
+            /** Address */
+            address: string | null;
+            /** Email */
+            email: string | null;
+            /** Hours */
+            hours: string | null;
+            /** Phone */
+            phone: string | null;
+        };
+        /** CouncilFeeItem */
+        CouncilFeeItem: {
+            /** Amount */
+            amount: string;
+            /** Label */
+            label: string;
+            /** Note */
+            note: string | null;
+        };
+        /** CouncilFees */
+        CouncilFees: {
+            /** Fee Year */
+            fee_year: string | null;
+            /** Items */
+            items: components["schemas"]["CouncilFeeItem"][];
+            /** Schedule Url */
+            schedule_url: string | null;
+        };
+        /** CouncilLodgement */
+        CouncilLodgement: {
+            /** Address */
+            address: string | null;
+            /** Email */
+            email: string | null;
+            /** Label */
+            label: string;
+            /**
+             * Method
+             * @enum {string}
+             */
+            method: "ONLINE" | "EMAIL" | "POST" | "IN_PERSON";
+            /** Url */
+            url: string | null;
+        };
+        /** CouncilOut */
+        CouncilOut: {
+            checked: components["schemas"]["CouncilChecked"];
+            /**
+             * Checked On
+             * Format: date
+             */
+            checked_on: string;
+            contact: components["schemas"]["CouncilContact"];
+            fees: components["schemas"]["CouncilFees"] | null;
+            /** Gaps */
+            gaps: string[];
+            general_source: components["schemas"]["CouncilSource"];
+            /** General Steps */
+            general_steps: string[];
+            /** Key */
+            key: string;
+            /** Lodgement */
+            lodgement: components["schemas"]["CouncilLodgement"][];
+            /** Name */
+            name: string;
+            planning_scheme: components["schemas"]["CouncilPlanningScheme"] | null;
+            /** Planning Url */
+            planning_url: string | null;
+            pre_lodgement: components["schemas"]["CouncilPreLodgement"] | null;
+            /** Sources */
+            sources: components["schemas"]["CouncilSource"][];
+            /** Spatial Name */
+            spatial_name: string;
+            /** Steps */
+            steps: string[];
+            /** Website */
+            website: string | null;
+        };
+        /** CouncilPlanningScheme */
+        CouncilPlanningScheme: {
+            /** Name */
+            name: string | null;
+            /** Url */
+            url: string | null;
+        };
+        /** CouncilPreLodgement */
+        CouncilPreLodgement: {
+            /** Available */
+            available: boolean | null;
+            /** Note */
+            note: string | null;
+            /** Url */
+            url: string | null;
+        };
+        /** CouncilSource */
+        CouncilSource: {
+            /** Title */
+            title: string;
+            /** Url */
+            url: string;
+        };
+        /** CouncilSummary */
+        CouncilSummary: {
+            /** Key */
+            key: string;
+            /** Name */
+            name: string;
         };
         /** CredentialCheckIn */
         CredentialCheckIn: {
@@ -15316,6 +15466,57 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ChecklistDefinitionOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_councils_v1_councils_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CouncilSummary"][];
+                };
+            };
+        };
+    };
+    get_council_v1_councils__key__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                key: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CouncilOut"];
                 };
             };
             /** @description Validation Error */

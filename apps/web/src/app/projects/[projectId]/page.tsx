@@ -2,11 +2,13 @@ import type {
   BusinessProfileOut,
   ChecklistDefinitionOut,
   ChecklistOut,
+  CouncilOut,
   DocumentOut,
   MemberOut,
   ProjectDetailOut,
   PropertyOut,
   ReminderOut,
+  SubmissionOut,
   TaskOut,
   VesselOut,
 } from "@approvalready/shared-types";
@@ -15,6 +17,7 @@ import Link from "next/link";
 
 import { AppShell, NoAccess } from "@/components/app/AppShell";
 import { ProjectWorkspace } from "@/components/projects/ProjectWorkspace";
+import { councilKey } from "@/lib/councils";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = { title: "Project", robots: { index: false } };
@@ -58,6 +61,15 @@ export default async function ProjectPage({ params }: Props) {
   const definitions = await serverGet<ChecklistDefinitionOut[]>(
     `/checklists?vertical=${found.vertical}`,
   );
+  // Planning projects: how to apply to the council the latest answers name.
+  const latest = [...found.submissions].sort((a, b) => b.updated_at.localeCompare(a.updated_at))[0];
+  let council: CouncilOut | undefined;
+  if (found.vertical === "PLANNING" && latest) {
+    const submission = await serverGet<SubmissionOut>(`${base}/submissions/${latest.id}`);
+    const key = submission.ok ? councilKey(submission.data.answers["property.lga"]) : null;
+    const councilResult = key ? await serverGet<CouncilOut>(`/councils/${key}`) : null;
+    council = councilResult?.ok ? councilResult.data : undefined;
+  }
   return (
     <AppShell session={session}>
       <p className="breadcrumb">
@@ -75,6 +87,7 @@ export default async function ProjectPage({ params }: Props) {
         checklists={checklists.ok ? checklists.data : undefined}
         checklistDefinitions={definitions.ok ? definitions.data : []}
         documents={orNotFound(documents)}
+        council={council}
         currentUserId={session.user.id}
         canWrite={session.permissions.includes("project.write")}
       />

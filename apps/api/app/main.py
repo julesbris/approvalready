@@ -35,6 +35,7 @@ from app.modules.billing.router import webhook_router as billing_webhook_router
 from app.modules.billing.stripe import StripeClient
 from app.modules.checklists.router import definitions_router as checklist_definitions_router
 from app.modules.checklists.router import router as checklists_router
+from app.modules.councils.router import router as councils_router
 from app.modules.documents.router import router as documents_router
 from app.modules.entities.router import router as entities_router
 from app.modules.grants.router import router as grants_router
@@ -155,6 +156,7 @@ def create_app(
     app.include_router(vessels_router)
     app.include_router(grants_router)
     app.include_router(lookups_router)
+    app.include_router(councils_router)
     app.include_router(sales_router)
     app.include_router(rentals_router)
     app.include_router(notifications_router)

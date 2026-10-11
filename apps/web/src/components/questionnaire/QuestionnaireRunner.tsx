@@ -1,12 +1,21 @@
 "use client";
 
-import type { PrefillSuggestion, QuestionOut, SubmissionOut } from "@approvalready/shared-types";
+import type {
+  AddressMatchOut,
+  CouncilOut,
+  PrefillOut,
+  PrefillSuggestion,
+  QuestionOut,
+  SubmissionOut,
+} from "@approvalready/shared-types";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
+import { CouncilGuide } from "@/components/councils/CouncilGuide";
 import { QuestionField } from "@/components/questionnaire/QuestionField";
 import { apiRequest } from "@/lib/client-api";
+import { councilKey } from "@/lib/councils";
 import {
   type Answers,
   allQuestions,
@@ -24,7 +33,16 @@ type Props = {
   canWrite: boolean;
   /** Answers we can offer from the project's property (and the property facts provider). */
   suggestions?: PrefillSuggestion[];
+  /** Wait this long after the last change before saving it automatically. */
+  autosaveDelayMs?: number;
 };
+
+type SaveState = "idle" | "saving" | "saved" | "unsaved";
+
+const COUNCIL_KEY = "property.lga";
+const LOT_PLAN_KEY = "property.lot_plan";
+/** Answers that change what we can look up about the site. */
+const SITE_KEYS = new Set(["property.address", COUNCIL_KEY, LOT_PLAN_KEY]);
 
 function without<T>(record: Record<string, T>, key: string): Record<string, T> {
   const copy = { ...record };
@@ -42,7 +60,11 @@ function initialTexts(submission: SubmissionOut): Record<string, string | undefi
 
 /**
  * Guided questionnaire: one section at a time, with questions appearing and disappearing as
- * answers change, a save per section, then a review step before submitting.
+ * answers change, then a review step before submitting. Answers save automatically a moment
+ * after each change (and again on "Save and continue"), so people can leave and come back.
+ * Picking a Queensland address fills in its council and lot and plan, and once the site is
+ * saved we offer whatever else we can look up about it. For a council in our directory, the
+ * review step shows how to apply to it.
  */
 export function QuestionnaireRunner({
   organisationId,
@@ -50,6 +72,7 @@ export function QuestionnaireRunner({
   submission: initial,
   canWrite,
   suggestions: initialSuggestions = [],
+  autosaveDelayMs = 1200,
 }: Props) {
   const [submission, setSubmission] = useState(initial);
   const [draft, setDraft] = useState<Answers>(initial.answers);
@@ -61,6 +84,17 @@ export function QuestionnaireRunner({
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [suggestions, setSuggestions] = useState(initialSuggestions);
+  const [saveState, setSaveState] = useState<SaveState>("idle");
+  const [council, setCouncil] = useState<CouncilOut | null>(null);
+  // Keys changed since they were last saved, and the save queue (one request at a time).
+  const dirty = useRef(new Set<string>());
+  const queue = useRef<Promise<void>>(Promise.resolve());
+  const declined = useRef(new Set<string>());
+  // The latest answers, for a save that runs after later changes were made.
+  const latest = useRef({ draft, textErrors });
+  useEffect(() => {
+    latest.current = { draft, textErrors };
+  }, [draft, textErrors]);
 
   const questionnaire = submission.questionnaire;
   const sections = questionnaire.sections;
@@ -81,8 +115,93 @@ export function QuestionnaireRunner({
       : (steps.find((index) => index > requestedStep) ?? sections.length);
 
   function setValue(question: QuestionOut, value: unknown) {
+    dirty.current.add(question.key);
     setDraft((d) => ({ ...d, [question.key]: value }));
     setFieldErrors((e) => without(e, question.key));
+  }
+
+  const refreshSuggestions = useCallback(async () => {
+    const result = await apiRequest<PrefillOut>("GET", `${url}/prefill`);
+    if (result.ok) {
+      setSuggestions(result.data.suggestions.filter((s) => !declined.current.has(s.key)));
+    }
+  }, [url]);
+
+  // Save changed answers a moment after the last change. Only answers that parse are sent;
+  // the rest wait until they do (or until "Save and continue" shows what's wrong).
+  const autosave = useCallback(() => {
+    queue.current = queue.current.then(async () => {
+      const questions = allQuestions(questionnaire);
+      const { draft: answersNow, textErrors: errorsNow } = latest.current;
+      const keys = [...dirty.current].filter((key) => !errorsNow[key]);
+      if (keys.length === 0) return;
+      const answers: Answers = {};
+      for (const key of keys) {
+        const question = questions.find((q) => q.key === key);
+        if (question) answers[key] = cleanAnswer(question, answersNow[key]);
+        dirty.current.delete(key);
+      }
+      setSaveState("saving");
+      const result = await apiRequest<SubmissionOut>("PUT", `${url}/answers`, { answers });
+      if (!result.ok) {
+        for (const key of keys) dirty.current.add(key);
+        setSaveState("unsaved");
+        return;
+      }
+      setSubmission(result.data);
+      setSaveState(dirty.current.size > 0 ? "unsaved" : "saved");
+      if (keys.some((key) => SITE_KEYS.has(key))) await refreshSuggestions();
+    });
+  }, [questionnaire, url, refreshSuggestions]);
+
+  // Every change to the answers restarts the wait before saving.
+  useEffect(() => {
+    if (!editable || dirty.current.size === 0) return;
+    const timer = setTimeout(autosave, autosaveDelayMs);
+    return () => clearTimeout(timer);
+  }, [editable, autosave, autosaveDelayMs, draft]);
+
+  // The council the site is in, from the directory, for "how to apply".
+  const chosenCouncil = councilKey(draft[COUNCIL_KEY]);
+  useEffect(() => {
+    if (!chosenCouncil) return;
+    let current = true;
+    void apiRequest<CouncilOut>("GET", `/councils/${encodeURIComponent(chosenCouncil)}`).then(
+      (result) => {
+        if (current) setCouncil(result.ok ? result.data : null);
+      },
+    );
+    return () => {
+      current = false;
+    };
+  }, [chosenCouncil]);
+  const shownCouncil = chosenCouncil && council?.key === chosenCouncil ? council : null;
+
+  function onAddressPick(match: AddressMatchOut) {
+    const questions = allQuestions(questionnaire);
+    const councilQuestion = questions.find((q) => q.key === COUNCIL_KEY);
+    const filled: string[] = [];
+    const updates: Answers = {};
+    if (match.lga && councilQuestion?.options.some((o) => o.value === match.lga)) {
+      updates[COUNCIL_KEY] = match.lga;
+      filled.push("council");
+    }
+    if (match.lot_plan_label && questions.some((q) => q.key === LOT_PLAN_KEY)) {
+      updates[LOT_PLAN_KEY] = match.lot_plan_label;
+      filled.push("lot and plan");
+    }
+    if (filled.length === 0) return;
+    for (const key of Object.keys(updates)) dirty.current.add(key);
+    setDraft((d) => ({ ...d, ...updates }));
+    setFieldErrors((e) => {
+      let rest = e;
+      for (const key of Object.keys(updates)) rest = without(rest, key);
+      return rest;
+    });
+    setNotice(
+      `We filled in the ${filled.join(" and ")} from Queensland Government address data. ` +
+        "Check them before you continue.",
+    );
   }
 
   function setText(question: QuestionOut, text: string) {
@@ -98,6 +217,8 @@ export function QuestionnaireRunner({
   }
 
   function applySaved(saved: SubmissionOut) {
+    dirty.current.clear();
+    setSaveState("saved");
     setSubmission(saved);
     setDraft(saved.answers);
     setTexts(initialTexts(saved));
@@ -125,6 +246,7 @@ export function QuestionnaireRunner({
     setBusy(true);
     setError(null);
     setNotice(null);
+    await queue.current; // let an automatic save in progress finish first
     const result = await apiRequest<SubmissionOut>("PUT", `${url}/answers`, { answers });
     setBusy(false);
     if (!result.ok) {
@@ -133,6 +255,7 @@ export function QuestionnaireRunner({
       return false;
     }
     applySaved(result.data);
+    if (questions.some((q) => SITE_KEYS.has(q.key))) await refreshSuggestions();
     return true;
   }
 
@@ -233,6 +356,17 @@ export function QuestionnaireRunner({
             : ""}
           .
         </p>
+        {editable ? (
+          <p className="muted save-state" role="status">
+            {saveState === "saving"
+              ? "Saving…"
+              : saveState === "saved"
+                ? "All changes saved. You can leave and come back to this at any time."
+                : saveState === "unsaved"
+                  ? "Some answers aren't saved yet. Check them, then choose Save and continue."
+                  : "Your answers save as you go."}
+          </p>
+        ) : null}
       </nav>
 
       {editable && suggestions.length > 0 ? (
@@ -266,7 +400,10 @@ export function QuestionnaireRunner({
               type="button"
               className="button button-secondary"
               disabled={busy}
-              onClick={() => setSuggestions([])}
+              onClick={() => {
+                for (const s of suggestions) declined.current.add(s.key);
+                setSuggestions([]);
+              }}
             >
               No thanks
             </button>
@@ -335,7 +472,9 @@ export function QuestionnaireRunner({
             </Link>
           </div>
         </section>
-      ) : (
+      ) : null}
+      {onReview && shownCouncil ? <CouncilGuide council={shownCouncil} /> : null}
+      {onReview ? null : (
         <section className="panel" aria-labelledby="section-title">
           <h2 id="section-title" className="section-title">
             {sections[step]?.title}
@@ -359,8 +498,16 @@ export function QuestionnaireRunner({
                 onValue={(value) => setValue(question, value)}
                 onText={(text) => setText(question, text)}
                 files={{ organisationId, projectId }}
+                onAddressPick={onAddressPick}
               />
             ))}
+            {shownCouncil && shownIn(step).some((q) => q.key === COUNCIL_KEY) ? (
+              <p className="form-notice council-found">
+                Development applications for this site go to {shownCouncil.name}. When you
+                finish, we&apos;ll show you how to apply to them, with their contact details and
+                fees.
+              </p>
+            ) : null}
             <div className="button-row">
               {editable ? (
                 <button type="submit" className="button" disabled={busy}>

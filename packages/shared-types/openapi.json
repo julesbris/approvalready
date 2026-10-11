@@ -4119,6 +4119,529 @@
         "title": "ConversationOut",
         "type": "object"
       },
+      "CouncilChecked": {
+        "properties": {
+          "verified": {
+            "title": "Verified",
+            "type": "boolean"
+          },
+          "verified_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verified At"
+          }
+        },
+        "required": [
+          "verified",
+          "verified_at"
+        ],
+        "title": "CouncilChecked",
+        "type": "object"
+      },
+      "CouncilContact": {
+        "additionalProperties": false,
+        "properties": {
+          "address": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "hours": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hours"
+          },
+          "phone": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Phone"
+          }
+        },
+        "required": [
+          "phone",
+          "email",
+          "address",
+          "hours"
+        ],
+        "title": "CouncilContact",
+        "type": "object"
+      },
+      "CouncilFeeItem": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Amount",
+            "type": "string"
+          },
+          "label": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Label",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "required": [
+          "label",
+          "amount",
+          "note"
+        ],
+        "title": "CouncilFeeItem",
+        "type": "object"
+      },
+      "CouncilFees": {
+        "additionalProperties": false,
+        "properties": {
+          "fee_year": {
+            "anyOf": [
+              {
+                "pattern": "^\\d{4}-\\d{2}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fee Year"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CouncilFeeItem"
+            },
+            "maxItems": 8,
+            "title": "Items",
+            "type": "array"
+          },
+          "schedule_url": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://[^\\s]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Schedule Url"
+          }
+        },
+        "required": [
+          "schedule_url",
+          "fee_year",
+          "items"
+        ],
+        "title": "CouncilFees",
+        "type": "object"
+      },
+      "CouncilLodgement": {
+        "additionalProperties": false,
+        "properties": {
+          "address": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "label": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Label",
+            "type": "string"
+          },
+          "method": {
+            "enum": [
+              "ONLINE",
+              "EMAIL",
+              "POST",
+              "IN_PERSON"
+            ],
+            "title": "Method",
+            "type": "string"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://[^\\s]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          }
+        },
+        "required": [
+          "method",
+          "label",
+          "url",
+          "email",
+          "address"
+        ],
+        "title": "CouncilLodgement",
+        "type": "object"
+      },
+      "CouncilOut": {
+        "additionalProperties": false,
+        "properties": {
+          "checked": {
+            "$ref": "#/components/schemas/CouncilChecked"
+          },
+          "checked_on": {
+            "format": "date",
+            "title": "Checked On",
+            "type": "string"
+          },
+          "contact": {
+            "$ref": "#/components/schemas/CouncilContact"
+          },
+          "fees": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CouncilFees"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "gaps": {
+            "items": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "title": "Gaps",
+            "type": "array"
+          },
+          "general_source": {
+            "$ref": "#/components/schemas/CouncilSource"
+          },
+          "general_steps": {
+            "items": {
+              "type": "string"
+            },
+            "title": "General Steps",
+            "type": "array"
+          },
+          "key": {
+            "pattern": "^[a-z][a-z0-9_]{1,40}$",
+            "title": "Key",
+            "type": "string"
+          },
+          "lodgement": {
+            "items": {
+              "$ref": "#/components/schemas/CouncilLodgement"
+            },
+            "title": "Lodgement",
+            "type": "array"
+          },
+          "name": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "planning_scheme": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CouncilPlanningScheme"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "planning_url": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://[^\\s]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Planning Url"
+          },
+          "pre_lodgement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CouncilPreLodgement"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/CouncilSource"
+            },
+            "minItems": 1,
+            "title": "Sources",
+            "type": "array"
+          },
+          "spatial_name": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Spatial Name",
+            "type": "string"
+          },
+          "steps": {
+            "items": {
+              "maxLength": 500,
+              "minLength": 1,
+              "type": "string"
+            },
+            "maxItems": 10,
+            "title": "Steps",
+            "type": "array"
+          },
+          "website": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://[^\\s]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website"
+          }
+        },
+        "required": [
+          "key",
+          "name",
+          "spatial_name",
+          "checked_on",
+          "website",
+          "planning_url",
+          "planning_scheme",
+          "lodgement",
+          "steps",
+          "pre_lodgement",
+          "contact",
+          "fees",
+          "sources",
+          "gaps",
+          "checked",
+          "general_steps",
+          "general_source"
+        ],
+        "title": "CouncilOut",
+        "type": "object"
+      },
+      "CouncilPlanningScheme": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://[^\\s]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          }
+        },
+        "required": [
+          "name",
+          "url"
+        ],
+        "title": "CouncilPlanningScheme",
+        "type": "object"
+      },
+      "CouncilPreLodgement": {
+        "additionalProperties": false,
+        "properties": {
+          "available": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Available"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://[^\\s]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          }
+        },
+        "required": [
+          "available",
+          "url",
+          "note"
+        ],
+        "title": "CouncilPreLodgement",
+        "type": "object"
+      },
+      "CouncilSource": {
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "url": {
+            "maxLength": 2000,
+            "pattern": "^https?://[^\\s]+$",
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url",
+          "title"
+        ],
+        "title": "CouncilSource",
+        "type": "object"
+      },
+      "CouncilSummary": {
+        "properties": {
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "name"
+        ],
+        "title": "CouncilSummary",
+        "type": "object"
+      },
       "CredentialCheckIn": {
         "properties": {
           "notes": {
@@ -26223,6 +26746,73 @@
         "summary": "List Definitions",
         "tags": [
           "checklists"
+        ]
+      }
+    },
+    "/v1/councils": {
+      "get": {
+        "operationId": "list_councils_v1_councils_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CouncilSummary"
+                  },
+                  "title": "Response List Councils V1 Councils Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Councils",
+        "tags": [
+          "councils"
+        ]
+      }
+    },
+    "/v1/councils/{key}": {
+      "get": {
+        "operationId": "get_council_v1_councils__key__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "title": "Key",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CouncilOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Council",
+        "tags": [
+          "councils"
         ]
       }
     },
