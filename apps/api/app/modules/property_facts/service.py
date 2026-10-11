@@ -10,8 +10,11 @@ from:
   customer entered themselves;
 * the configured property facts provider (``provider.py``), with its source shown.
 
-Only questions that are part of the questionnaire, not answered yet, and for which the
-value is a valid answer are suggested.
+Only questions that are part of the questionnaire and for which the value is a valid answer
+are suggested, and only when they aren't answered yet, with two exceptions so the answers
+follow the site: when the project's property is a different address from the one answered,
+the site answers (address, lot and plan, land area, council) are suggested again from the
+property; and mapped constraints are suggested when they add to the ones already ticked.
 """
 
 from __future__ import annotations
@@ -31,6 +34,11 @@ from app.modules.questionnaires.engine import AnswerInvalid, normalise_answer
 from app.modules.questionnaires.service import SubmissionView
 
 PROPERTY_SOURCE = "Your property details"
+# Answers that describe the site itself: replaced when the project's property changes.
+SITE_KEYS = frozenset(
+    {"property.address", "property.lot_plan", "property.land_area_m2", "property.lga"}
+)
+CONSTRAINTS_KEY = "planning.known_constraints"
 BUSINESS_SOURCE = "Your business details"
 VESSEL_SOURCE = "Your vessel details"
 
@@ -190,6 +198,16 @@ def _address_from_answer(value: Any) -> AddressQuery | None:
         return None
 
 
+def _same_address(a: Any, b: Any) -> bool:
+    if not isinstance(a, dict) or not isinstance(b, dict):
+        return False
+
+    def norm(v: Any) -> str:
+        return " ".join(str(v or "").upper().split())
+
+    return all(norm(a.get(k)) == norm(b.get(k)) for k in ("line1", "suburb", "state"))
+
+
 async def suggestions(
     db: AsyncSession, project: Project, view: SubmissionView, provider: PropertyFactsProvider
 ) -> list[Suggestion]:
@@ -202,7 +220,13 @@ async def suggestions(
     candidates += [
         Suggestion(k, "", v, VESSEL_SOURCE) for k, v in (await _vessel_answers(db, project)).items()
     ]
-    query = query or _address_from_answer(view.answers.get("property.address"))
+    answered_address = view.answers.get("property.address")
+    # The project's property is a different site from the one answered: redo the site.
+    site_changed = "property.address" in known and (
+        answered_address is not None
+        and not _same_address(known["property.address"], answered_address)
+    )
+    query = query or _address_from_answer(answered_address)
     if query is not None:
         candidates += [
             Suggestion(f.key, "", f.value, f.source, f.source_url, f.is_mock)
@@ -212,13 +236,24 @@ async def suggestions(
     seen: set[str] = set()
     for c in candidates:
         question = view.spec.by_key.get(c.key)
-        if question is None or c.key in view.answers or c.key in seen:
+        if question is None or c.key in seen:
+            continue
+        current = view.answers.get(c.key)
+        replace = site_changed and c.key in SITE_KEYS
+        if current is not None and not replace and c.key != CONSTRAINTS_KEY:
             continue
         try:
             value = normalise_answer(question, c.value)
         except AnswerInvalid:
             continue
         if value is None:
+            continue
+        if c.key == CONSTRAINTS_KEY and isinstance(current, list):
+            # Add what the mapping shows to what was ticked; never untick anything.
+            if set(value) <= set(current):
+                continue
+            value = sorted(set(current) | set(value))
+        if value == current:
             continue
         seen.add(c.key)
         out.append(Suggestion(c.key, question.label, value, c.source, c.source_url, c.is_mock))

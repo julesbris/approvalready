@@ -56,6 +56,8 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "project_status_event": APPEND,
     "task": CRUD,
     "reminder": CRUD,
+    "project_plan": CRUD,
+    "project_plan_item": CRUD,
     "questionnaire": READ,
     "questionnaire_version": READ,
     "question": READ,

@@ -114,6 +114,7 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
       line2: "",
       suburb: match.suburb,
       state: match.state,
+      postcode: match.postcode ?? f.postcode,
       lot_plan: match.lot_plan_label ?? "",
       land_area_m2: "",
     }));
@@ -148,7 +149,7 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
             {linked.land_area_m2 ? ` · ${linked.land_area_m2} m²` : ""}
           </p>
           <p className="hint">
-            The questionnaire can fill in these details for you, with the council area, land
+            The questionnaire fills in these details for you, with the postcode, council area, land
             area and state-mapped overlays for Queensland land. The zone still comes from you.
           </p>
           {linked.lot_plan && linked.address.state === "QLD" && linkedParcel.status === "idle" ? (

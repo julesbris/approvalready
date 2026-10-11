@@ -45,15 +45,20 @@ from app.modules.projects.models import Project, ProjectStatus
 from app.modules.vessels.models import SafetyManagementSystem
 
 # The report templates available for each vertical's assessments; the first is the default.
+# Every product also has a printable checklist (``<VERTICAL>_CHECKLIST``, plans/checklist.py).
 ASSESSMENT_TEMPLATES = {
-    "PLANNING": ("PLANNING_ASSESSMENT",),
-    "BUSINESS": ("BUSINESS_APPROVAL_MAP",),
-    "VESSEL": ("VESSEL_PATHWAY", "SMS"),
-    "GRANT": ("GRANT_ELIGIBILITY",),
-    "TRADE": ("TRADE_APPROVAL_MAP",),
+    "PLANNING": ("PLANNING_ASSESSMENT", "PLANNING_CHECKLIST"),
+    "BUSINESS": ("BUSINESS_APPROVAL_MAP", "BUSINESS_CHECKLIST"),
+    "VESSEL": ("VESSEL_PATHWAY", "VESSEL_CHECKLIST", "SMS"),
+    "GRANT": ("GRANT_ELIGIBILITY", "GRANT_CHECKLIST"),
+    "TRADE": ("TRADE_APPROVAL_MAP", "TRADE_CHECKLIST"),
+    "SELL": ("SELL_CHECKLIST",),
+    "RENT": ("RENT_CHECKLIST",),
 }
 # How each template's files are named (``<reference>-<slug>-<assessment date>``).
-FILENAME_SLUGS = {"SMS": "safety-management-system"}
+FILENAME_SLUGS = {"SMS": "safety-management-system"} | {
+    f"{v}_CHECKLIST": "checklist" for v in ASSESSMENT_TEMPLATES
+}
 EXTENSIONS = {OutputFormat.PDF: "pdf", OutputFormat.DOCX: "docx", OutputFormat.HTML: "html"}
 MIME_TYPES = {
     OutputFormat.PDF: "application/pdf",

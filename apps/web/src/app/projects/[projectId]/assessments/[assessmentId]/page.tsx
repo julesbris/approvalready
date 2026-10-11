@@ -122,6 +122,9 @@ export default async function AssessmentPage({ params, searchParams }: Props) {
             <Link className="button-secondary" href={`/projects/${projectId}/referrals`}>
               Your introductions
             </Link>
+            <Link className="button-secondary" href={`/projects/${projectId}/plan`}>
+              Manage it as a project plan
+            </Link>
           </div>
         }
         intro={

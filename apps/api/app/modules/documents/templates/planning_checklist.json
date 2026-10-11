@@ -1,0 +1,12 @@
+{
+  "key": "PLANNING_CHECKLIST",
+  "title": "Planning checklist",
+  "vertical": "PLANNING",
+  "engine": "JINJA_HTML",
+  "body": "checklist.html.j2",
+  "output_formats": [
+    "PDF",
+    "DOCX",
+    "HTML"
+  ]
+}

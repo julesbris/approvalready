@@ -5,13 +5,21 @@ Government's open spatial services (free, no key, ``spatial-gis.information.qld.
   Digital Cadastral Database (``PlanningCadastre/LandParcelPropertyFramework``, both
   updated nightly). An address gives its lot and plan and council; the parcel gives its
   area and tenure.
+* Address search asks the state's address locator for type-ahead suggestions
+  (``Location/QldLocator/GeocodeServer/suggest``, built for search-as-you-type), then
+  reads those exact addresses from the address data in one query. Only if that finds
+  nothing does it fall back to a pattern search of the address data, which is much slower
+  because it scans every address in the state.
 * Overlays are checked by intersecting the parcel with state layers: storm tide and
-  erosion prone areas (``PlanningCadastre/CoastalManagement``) and the regulated
-  vegetation management map (``Biota/VegetationManagement``).
+  erosion prone areas (``PlanningCadastre/CoastalManagement``), the regulated
+  vegetation management map (``Biota/VegetationManagement``), and World Heritage Areas
+  (including the Wet Tropics) and the Queensland Heritage Register
+  (``Environment/EnvironmentallySensitiveAreasCategoryB``). All layers are queried at once.
 
 What this does **not** tell you, and says so: the zone and local overlays under a
 council's planning scheme (Cairns publishes them only in its own map viewer, not as a
-service), bushfire prone areas, river and creek flooding, heritage listing and easements.
+service), bushfire prone areas, river and creek flooding, local heritage listing, Wet
+Tropics zoning (its data licence rules out commercial use) and easements.
 A layer found means "the mapping shows this", not a determination; a layer not found means
 "not shown on this map", never "does not apply".
 """
@@ -33,6 +41,7 @@ from app.modules.lookups.client import LookupUnavailable, TtlCache
 
 ADDRESS_SERVICE = "PlanningCadastre/LandParcelPropertyFramework/MapServer"
 ADDRESS_LAYER = 0
+LOCATOR_SERVICE = "Location/QldLocator/GeocodeServer"
 PARCEL_LAYER = 4
 CADASTRE_SOURCE = "Queensland Government: Digital Cadastral Database and Queensland address data"
 
@@ -135,7 +144,13 @@ class OverlayCheck:
     # The planning questionnaire's ``planning.known_constraints`` option it supports.
     constraint: str | None
     group: str
+    # Only features matching this (for a layer holding several places).
+    where: str | None = None
 
+
+WET_TROPICS = "Wet Tropics of Queensland"
+ESA_B = "Environment/EnvironmentallySensitiveAreasCategoryB/MapServer"
+HERITAGE_GROUP = "State World Heritage and heritage register mapping"
 
 OVERLAY_CHECKS: tuple[OverlayCheck, ...] = (
     OverlayCheck(
@@ -194,6 +209,33 @@ OVERLAY_CHECKS: tuple[OverlayCheck, ...] = (
         "vegetation",
         "State vegetation management mapping",
     ),
+    OverlayCheck(
+        "wet_tropics_world_heritage",
+        "Wet Tropics of Queensland World Heritage Area",
+        ESA_B,
+        (240,),
+        "heritage",
+        HERITAGE_GROUP,
+        f"name = '{WET_TROPICS}'",
+    ),
+    OverlayCheck(
+        "world_heritage_other",
+        "Another World Heritage Area (Great Barrier Reef, K'gari, Gondwana Rainforests or "
+        "Riversleigh)",
+        ESA_B,
+        (240,),
+        None,
+        HERITAGE_GROUP,
+        f"name <> '{WET_TROPICS}'",
+    ),
+    OverlayCheck(
+        "queensland_heritage_register",
+        "Queensland Heritage Register place",
+        ESA_B,
+        (270,),
+        "heritage",
+        HERITAGE_GROUP,
+    ),
 )
 
 
@@ -216,11 +258,23 @@ class NotChecked:
 CAIRNS_PLAN_URL = "https://www.cairns.qld.gov.au/property-and-business/planning-schemes/current"
 
 
-def not_checked(local_authority: str | None) -> list[NotChecked]:
+WET_TROPICS_ZONING = NotChecked(
+    "Wet Tropics zoning and permits",
+    "The land is in or touches the Wet Tropics World Heritage Area. Its zoning decides "
+    "whether you need a Wet Tropics permit, and its data licence doesn't allow us to read it.",
+    "https://www.wettropics.gov.au/ZoningMap",
+)
+
+
+def not_checked(
+    local_authority: str | None, overlays: tuple[str, ...] | list[str] = ()
+) -> list[NotChecked]:
     council = for_local_authority(local_authority)
     cairns = council is not None and council.key == "cairns"
     scheme = council.planning_scheme if council else None
+    extra = [WET_TROPICS_ZONING] if "wet_tropics_world_heritage" in overlays else []
     return [
+        *extra,
         NotChecked(
             "Zone and local overlays under the council's planning scheme",
             "Cairns Regional Council publishes zoning only in its own map viewer, not as a "
@@ -240,9 +294,10 @@ def not_checked(local_authority: str | None) -> list[NotChecked]:
             "https://floodcheck.information.qld.gov.au/",
         ),
         NotChecked(
-            "Heritage listing",
-            "Check the Queensland Heritage Register and the council's local heritage list.",
-            "https://apps.des.qld.gov.au/heritage-register/",
+            "Local heritage listing",
+            "We check the Queensland Heritage Register; councils keep their own local "
+            "heritage lists in their planning schemes.",
+            scheme.url if scheme else "https://apps.des.qld.gov.au/heritage-register/",
         ),
         NotChecked(
             "Easements and registered interests",
@@ -324,19 +379,32 @@ class QldSpatial:
             raise LookupUnavailable(json.dumps(body)[:300])
         return body
 
-    async def search_addresses(self, query: str, limit: int = 8) -> list[AddressMatch]:
-        pattern = address_pattern(query)
-        if pattern is None:
-            return []
-        cache_key = f"addr:{pattern}:{limit}"
-        cached = self._cache.get(cache_key)
-        if cached is not None:
-            return list(cached)
+    async def _suggest(self, query: str, limit: int) -> list[str]:
+        """The locator's type-ahead suggestions, as the address data writes them
+        ("34 Gilmore Street Bentley Park QLD")."""
+        url = f"{self.base_url}/{LOCATOR_SERVICE}/suggest"
+        params = {"text": query[:200], "maxSuggestions": str(limit), "f": "json"}
+        try:
+            response = await self.http.get(url, params=params)
+            response.raise_for_status()
+            body = response.json()
+        except (httpx.HTTPError, ValueError) as exc:
+            raise LookupUnavailable(str(exc)) from exc
+        if not isinstance(body, dict) or "error" in body:
+            raise LookupUnavailable(json.dumps(body)[:300])
+        out: list[str] = []
+        for suggestion in body.get("suggestions") or []:
+            text = _str((suggestion or {}).get("text"))
+            if text and text.endswith(", Queensland"):
+                out.append(text.removesuffix(", Queensland").replace(", ", " ") + " QLD")
+        return out
+
+    async def _addresses_where(self, where: str, limit: int) -> list[AddressMatch]:
         body = await self._query(
             ADDRESS_SERVICE,
             ADDRESS_LAYER,
             {
-                "where": f"upper(address) LIKE '{pattern}'",
+                "where": where,
                 "outFields": "address,lot,plan,lotplan,street_full,street_number,unit_number,"
                 "unit_type,locality,local_authority,state,latitude,longitude,address_pid",
                 "returnGeometry": "false",
@@ -367,9 +435,43 @@ class QldSpatial:
                 latitude=a.get("latitude"),
                 longitude=a.get("longitude"),
             )
-        found = sorted(matches.values(), key=lambda m: m.label)[:limit]
+        return list(matches.values())
+
+    async def search_addresses(self, query: str, limit: int = 8) -> list[AddressMatch]:
+        pattern = address_pattern(query)
+        if pattern is None:
+            return []
+        cache_key = f"addr:{pattern}:{limit}"
+        cached = self._cache.get(cache_key)
+        if cached is not None:
+            return list(cached)
+        found: list[AddressMatch] = []
+        suggested: list[str] = []
+        # The locator drops the slash in unit numbers ("2/15" becomes "215"), so units go
+        # straight to the pattern search.
+        if "/" not in query:
+            try:
+                suggested = await self._suggest(query, limit)
+            except LookupUnavailable:
+                suggested = []
+        if suggested:
+            quoted = ", ".join("'" + a.replace("'", "''") + "'" for a in suggested)
+            rows = await self._addresses_where(f"address IN ({quoted})", limit)
+            order = {a.upper(): i for i, a in enumerate(suggested)}
+            found = sorted(
+                rows,
+                key=lambda m: (order.get(f"{m.line1} {m.suburb} {m.state}".upper(), 99), m.label),
+            )[:limit]
+        if not found:
+            # The slow way: a pattern over every address in the state.
+            rows = await self._addresses_where(f"upper(address) LIKE '{pattern}'", limit)
+            found = sorted(rows, key=lambda m: m.label)[:limit]
         self._cache.put(cache_key, tuple(found))
         return found
+
+    async def _layer_has(self, service: str, layer: int, params: dict[str, Any]) -> bool:
+        body = await self._query(service, layer, params)
+        return int(body.get("count") or 0) > 0
 
     async def _overlay(self, check: OverlayCheck, geometry: dict[str, Any]) -> bool:
         params = {
@@ -379,11 +481,12 @@ class QldSpatial:
             "spatialRel": "esriSpatialRelIntersects",
             "returnCountOnly": "true",
         }
-        for layer in check.layers:
-            body = await self._query(check.service, layer, params)
-            if int(body.get("count") or 0) > 0:
-                return True
-        return False
+        if check.where:
+            params["where"] = check.where
+        found = await asyncio.gather(
+            *(self._layer_has(check.service, layer, params) for layer in check.layers)
+        )
+        return any(found)
 
     async def parcel(self, lot_plan: str) -> ParcelReport | None:
         """The parcel, its area and tenure and the state overlays it touches, or None when
@@ -448,7 +551,7 @@ class QldSpatial:
             overlays=overlays,
             overlays_checked=checked,
             overlays_failed=failed,
-            not_checked=not_checked(local_authority),
+            not_checked=not_checked(local_authority, [o.key for o in overlays]),
             source=CADASTRE_SOURCE,
             source_url=self.layer_url(ADDRESS_SERVICE, PARCEL_LAYER),
             retrieved_at=datetime.now(UTC),

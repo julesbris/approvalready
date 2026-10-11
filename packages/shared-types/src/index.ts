@@ -294,6 +294,18 @@ export type AccountSearch = Schemas["AccountSearch"];
 export type ProgressStep = Schemas["ProgressStep"];
 export type LeftItemOut = Schemas["LeftItemOut"];
 export type WhatsLeftOut = Schemas["WhatsLeftOut"];
+
+export type ProjectPlanOut = Schemas["ProjectPlanOut"];
+export type PlanStartOut = Schemas["PlanStartOut"];
+export type PlanCheckoutOut = Schemas["PlanCheckoutOut"];
+export type PlanOfferOut = Schemas["PlanOfferOut"];
+export type PlanSectionOut = Schemas["PlanSectionOut"];
+export type PlanStepOut = Schemas["PlanStepOut"];
+export type PlanHelpOut = Schemas["PlanHelpOut"];
+export type SuggestedPartnerOut = Schemas["SuggestedPartnerOut"];
+export type PlanProgressOut = Schemas["PlanProgressOut"];
+export type PlanStepUpdate = Schemas["PlanStepUpdate"];
+export type PlanItemStatus = Schemas["PlanItemStatus"];
 export type QuietProjectOut = Schemas["QuietProjectOut"];
 
 export type MarketingChannel = Schemas["Channel"];

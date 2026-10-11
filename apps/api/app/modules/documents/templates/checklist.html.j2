@@ -1,0 +1,149 @@
+{#- Checklist report body, shared by every product's <VERTICAL>_CHECKLIST template. Built by
+    plans/checklist.py: each approval broken into what to have ready and the steps in order,
+    with forms, costs, timeframes, fees, contacts and what goes wrong; then the documents and
+    other tasks. The frame (render.py) adds the required metadata, assumptions, missing
+    information, sources and limitations sections. Only the tags documented in render.py
+    survive conversion to Word, so links are written out in full. -#}
+<h2>Your checklist</h2>
+<p>
+  {%- if not checklist.sections %}
+  Your assessment didn't find anything to do yet. This is not a finding that nothing is
+  required: answer any missing questions and run the assessment again.
+  {%- else %}
+  {{ checklist.total }} thing{{ "" if checklist.total == 1 else "s" }} to do across
+  {{ checklist.sections | length }} part{{ "" if checklist.sections | length == 1 else "s" }},
+  in the order to do them.
+  {%- if checklist.done %} {{ checklist.done }} already done (ticked).{% endif %}
+  Tick each box as you go: &#9744; to do, &#9745; done.
+  {%- endif %}
+</p>
+{% if checklist.sections %}
+<table>
+  <tr><th>#</th><th>Part</th><th>How sure</th><th>To do</th></tr>
+  {% for s in checklist.sections %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ s.title }}</td>
+    <td>{{ s.certainty_label or "" }}</td>
+    <td>{{ s.open }} of {{ s.total }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% for s in checklist.sections %}
+<h2>{{ loop.index }}. {{ s.title }}</h2>
+{% if s.authority or s.certainty_label %}
+<p>
+  {%- if s.authority %}<strong>Who decides:</strong> {{ s.authority }}{% endif %}
+  {%- if s.authority and s.certainty_label %}<br>{% endif %}
+  {%- if s.certainty_label %}<strong>How sure we are it applies:</strong> {{ s.certainty_label }}{% endif %}
+</p>
+{% endif %}
+{% if s.summary %}<p>{{ s.summary }}</p>{% endif %}
+{% if s.timeframe or s.cost_summary %}
+<p>
+  {%- if s.timeframe %}<strong>How long:</strong> {{ s.timeframe }}{% endif %}
+  {%- if s.timeframe and s.cost_summary %}<br>{% endif %}
+  {%- if s.cost_summary %}<strong>What it costs:</strong> {{ s.cost_summary }}{% endif %}
+</p>
+{% endif %}
+
+{% if s.prepare %}
+<h3>Have ready</h3>
+<ul>
+  {% for st in s.prepare %}
+  <li>{{ st.box }} {{ st.title }}{% if st.detail %} {{ st.detail }}{% endif %}
+    {%- if st.link_url %} ({{ st.link_label or "Link" }}: {{ st.link_url }}){% endif %}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if s.steps %}
+<h3>{% if s.kind == "DOCUMENTS" %}Documents{% elif s.kind in ("CHECKLIST", "TASKS") %}Items{% else %}Steps{% endif %}</h3>
+<table>
+  <tr><th></th><th>{% if s.kind in ("APPROVAL", "COUNCIL", "GRANT") %}Step{% else %}Item{% endif %}</th><th>Time and cost</th><th>Form or page</th></tr>
+  {% for st in s.steps %}
+  <tr>
+    <td>{{ st.box }}</td>
+    <td><strong>{{ st.title }}</strong>{% if st.detail %}<br>{{ st.detail }}{% endif %}
+      {%- if st.not_applicable %}<br><em>Doesn't apply</em>{% endif %}</td>
+    <td>
+      {%- if st.timeframe %}{{ st.timeframe }}{% endif %}
+      {%- if st.timeframe and st.cost %}<br>{% endif %}
+      {%- if st.cost %}{{ st.cost }}{% endif %}
+    </td>
+    <td>
+      {%- if st.link_url %}{{ st.link_label or "Link" }}: {{ st.link_url }}
+      {%- elif st.link_label %}{{ st.link_label }}{% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% if s.fees %}
+<h3>Fees</h3>
+<table>
+  <tr><th>Fee</th><th>Amount</th></tr>
+  {% for f in s.fees %}
+  <tr><td>{{ f.label }}{% if f.note %} ({{ f.note }}){% endif %}</td><td>{{ f.amount }}</td></tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% if s.contacts %}
+<h3>Who to contact</h3>
+<ul>
+  {% for c in s.contacts %}
+  <li><strong>{{ c.name }}</strong>
+    {%- if c.phone %}, phone {{ c.phone }}{% endif %}
+    {%- if c.email %}, email {{ c.email }}{% endif %}
+    {%- if c.url %}, {{ c.url }}{% endif %}
+    {%- if c.hours %} ({{ c.hours }}){% endif %}
+    {%- if c.note %}. {{ c.note }}{% endif %}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if s.watch_out %}
+<h3>Watch out for</h3>
+<ul>
+  {% for w in s.watch_out %}<li>{{ w }}</li>{% endfor %}
+</ul>
+{% endif %}
+
+{% if s.helpers %}
+<p><strong>Who can help:</strong> {{ s.helpers | join(", ") }}.</p>
+{% endif %}
+
+{% if s.sources %}
+<p><em>
+  {%- if s.checked_on %}Gathered from official websites on {{ s.checked_on }}
+  {%- if s.verified %} and checked by our team{% else %}, not yet checked by our team{% endif %}.
+  {% endif %}Sources: {% for src in s.sources %}{{ src.title }}{% if src.url %} ({{ src.url }}){% endif %}{{ "; " if not loop.last else "." }}{% endfor %}
+</em></p>
+{% endif %}
+{% if s.gaps %}
+<p><em>What we couldn't confirm: {{ s.gaps | join(" ") }}</em></p>
+{% endif %}
+{% endfor %}
+
+{% if referrals %}
+<h2>Who can help</h2>
+<ul>
+  {% for r in referrals %}<li>{{ r }}</li>{% endfor %}
+</ul>
+<p>
+  These are kinds of professional, not recommendations of particular businesses. Your
+  project plan in ApprovalReady suggests checked partners in your area for each step, with
+  their contact details, and keeps track of who you called and when to follow up.
+</p>
+{% endif %}
+
+<h2>Manage it online</h2>
+<p>
+  Turn this checklist into a project plan in ApprovalReady: a timeline with a due date and an
+  owner for every step, your files against each one, reminders to follow up, and checked
+  partners in your area suggested for each part. Open the project and choose "Project plan".
+</p>

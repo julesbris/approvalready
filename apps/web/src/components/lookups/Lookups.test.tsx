@@ -19,6 +19,7 @@ const MATCH: AddressMatchOut = {
   lot_plan_label: "Lot 1 on RP731159",
   local_authority: "Cairns Regional",
   lga: "cairns",
+  postcode: "4869",
   latitude: -17,
   longitude: 145.7,
 };
@@ -100,6 +101,7 @@ describe("lookups", () => {
     fireEvent.click(await screen.findByRole("button", { name: MATCH.label }));
     expect(screen.getByLabelText("Street address")).toHaveValue("34 Gilmore Street");
     expect(screen.getByLabelText("Suburb")).toHaveValue("Bentley Park");
+    expect(screen.getByLabelText("Postcode")).toHaveValue("4869");
     expect(screen.getByLabelText("Lot and plan (optional)")).toHaveValue("Lot 1 on RP731159");
     await waitFor(() =>
       expect(screen.getByLabelText("Land area in m² (optional)")).toHaveValue("774"),

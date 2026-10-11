@@ -6,7 +6,7 @@
 * Permission ``marketing.manage`` (ADMIN, SUPERADMIN).
 
 Revision ID: 0032
-Revises: 0030
+Revises: 0031
 Create Date: 2026-10-11
 """
 
@@ -17,9 +17,7 @@ from alembic import op
 from sqlalchemy.dialects import postgresql
 
 revision: str = "0032"
-# 0031 is taken by the checklist reports and project plans branch: whichever of the two
-# merges second points this at the other.
-down_revision: str | None = "0030"
+down_revision: str | None = "0031"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

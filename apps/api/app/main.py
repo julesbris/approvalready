@@ -58,6 +58,7 @@ from app.modules.ops.router import admin_router as ops_admin_router
 from app.modules.partners.router import admin_router as partners_admin_router
 from app.modules.partners.router import apply_router as partners_apply_router
 from app.modules.partners.router import router as partners_router
+from app.modules.plans.router import router as plans_router
 from app.modules.privacy.router import account_router as privacy_account_router
 from app.modules.privacy.router import admin_router as privacy_admin_router
 from app.modules.privacy.router import public_router as privacy_public_router
@@ -189,6 +190,7 @@ def create_app(
     app.include_router(analytics_admin_router)
     app.include_router(ops_admin_router)
     app.include_router(progress_router)
+    app.include_router(plans_router)
     app.include_router(progress_admin_router)
     app.include_router(marketing_public_router)
     app.include_router(marketing_account_router)
