@@ -114,6 +114,11 @@ def fake_government(overlay_counts: dict[tuple[str, int], int] | None = None, fa
             return httpx.Response(
                 200, text='<a href="/sites/default/files/dcv-vessels-aug26.xlsx">Download</a>'
             )
+        if "/ASGS2021/POA/MapServer/0/query" in url:
+            assert request.url.params["geometry"] == "145.7,-17.0"
+            return httpx.Response(
+                200, json={"features": [{"attributes": {"poa_code_2021": "4869"}}]}
+            )
         if url.endswith(".xlsx"):
             return httpx.Response(200, content=xlsx(VESSEL_ROWS))
         if fail and fail in url:
@@ -207,6 +212,7 @@ async def test_amsa_list_is_found_on_the_page_and_cached() -> None:
 def settings() -> Settings:
     return make_settings(
         qld_spatial_base_url=BASE,
+        abs_geo_base_url="https://abs.example/arcgis/rest/services",
         amsa_vessel_list_page_url=AMSA_PAGE,
         property_facts_provider=PropertyFactsProviderKind.QLD_SPATIAL,
     )
@@ -231,6 +237,7 @@ async def test_lookup_endpoints(api: ApiHarness) -> None:
     assert match["lot_plan"] == "1RP731159"
     assert match["lot_plan_label"] == "Lot 1 on RP731159"
     assert match["lga"] == "cairns"
+    assert match["postcode"] == "4869"
 
     r = await user.get(f"{base}/parcels/Lot 1 on RP731159")
     assert r.status_code == 200, r.text
@@ -271,7 +278,8 @@ async def test_prefill_from_queensland_data(api: ApiHarness) -> None:
                     "suburb": "Bentley Park",
                     "state": "QLD",
                     "postcode": "4869",
-                }
+                },
+                "planning.known_constraints": ["heritage"],
             }
         },
     )
@@ -283,6 +291,7 @@ async def test_prefill_from_queensland_data(api: ApiHarness) -> None:
     assert found["property.lga"]["value"] == "cairns"
     assert found["property.lot_plan"]["value"] == "Lot 1 on RP731159"
     assert found["property.land_area_m2"]["value"] == "774"
-    assert found["planning.known_constraints"]["value"] == ["flooding", "vegetation"]
+    # Mapped constraints add to the ones ticked; nothing ticked is taken away.
+    assert found["planning.known_constraints"]["value"] == ["flooding", "heritage", "vegetation"]
     assert "Storm tide" in found["planning.known_constraints"]["source"]
     assert not any(s["is_mock"] for s in body["suggestions"])

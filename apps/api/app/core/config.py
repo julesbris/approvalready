@@ -197,6 +197,8 @@ class Settings(BaseSettings):
     lookups_enabled: bool = True
     lookup_timeout_seconds: float = Field(default=12.0, gt=0, le=60)
     qld_spatial_base_url: str = "https://spatial-gis.information.qld.gov.au/arcgis/rest/services"
+    # ABS postal areas, for the postcode of a Queensland address (app/modules/lookups/abs.py).
+    abs_geo_base_url: str = "https://geo.abs.gov.au/arcgis/rest/services"
     # The AMSA page that links the current list of domestic commercial vessels with a vessel
     # permission (an Excel file, renamed each update). Set AMSA_VESSEL_LIST_URL to the file
     # itself to skip finding it on the page.

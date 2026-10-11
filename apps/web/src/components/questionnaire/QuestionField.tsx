@@ -217,7 +217,14 @@ export function QuestionField(props: Props) {
             <AddressSearch
               organisationId={files.organisationId}
               onPick={(m) => {
-                onValue({ ...address, line1: m.line1, line2: "", suburb: m.suburb, state: m.state });
+                onValue({
+                  ...address,
+                  line1: m.line1,
+                  line2: "",
+                  suburb: m.suburb,
+                  state: m.state,
+                  postcode: m.postcode ?? address.postcode ?? "",
+                });
                 onAddressPick?.(m);
               }}
             />

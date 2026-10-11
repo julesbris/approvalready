@@ -6,6 +6,7 @@ forms, which the customer checks and saves as usual.
 
 from __future__ import annotations
 
+import asyncio
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query, Request
@@ -13,6 +14,7 @@ from fastapi import APIRouter, Depends, Query, Request
 from app.api.deps import LimiterDep, OrgContext, require_org_permission
 from app.core.errors import ApiError, not_found, rate_limited
 from app.core.ratelimit import Limit
+from app.modules.lookups.abs import POSTCODE_SOURCE
 from app.modules.lookups.amsa import normalise_uvi
 from app.modules.lookups.client import LookupUnavailable, unavailable
 from app.modules.lookups.qld import CADASTRE_SOURCE, ParcelReport, lga_answer, parse_lot_plan
@@ -50,6 +52,10 @@ async def _throttle(ctx: OrgContext, limiter: LimiterDep) -> None:
     subject = str(ctx.auth.user.id)
     if await limiter.hit(LOOKUP_LIMIT, subject) > LOOKUP_LIMIT.max_hits:
         raise rate_limited(await limiter.retry_after(LOOKUP_LIMIT, subject))
+
+
+async def _none() -> None:
+    return None
 
 
 def parcel_out(p: ParcelReport) -> ParcelOut:
@@ -99,6 +105,14 @@ async def search_addresses(
         matches = await lookups.qld.search_addresses(q)
     except LookupUnavailable as exc:
         raise unavailable("The Queensland address service") from exc
+    postcodes = await asyncio.gather(
+        *(
+            lookups.postcodes.postcode_at(m.latitude, m.longitude)
+            if m.latitude is not None and m.longitude is not None
+            else _none()
+            for m in matches
+        )
+    )
     return AddressSearchOut(
         matches=[
             AddressMatchOut(
@@ -107,6 +121,7 @@ async def search_addresses(
                 line1=m.line1,
                 suburb=m.suburb,
                 state=m.state,
+                postcode=postcode,
                 lot_plan=m.lot_plan,
                 lot_plan_label=f"Lot {m.lot} on {m.plan}" if m.lot and m.plan else None,
                 local_authority=m.local_authority,
@@ -114,10 +129,10 @@ async def search_addresses(
                 latitude=m.latitude,
                 longitude=m.longitude,
             )
-            for m in matches
+            for m, postcode in zip(matches, postcodes, strict=True)
         ],
-        source=CADASTRE_SOURCE,
-        note="Queensland addresses only. Postcodes aren't in this data, so add yours.",
+        source=f"{CADASTRE_SOURCE}; postcodes: {POSTCODE_SOURCE}",
+        note="Queensland addresses only. Postcodes come from ABS postal areas: check yours.",
     )
 
 

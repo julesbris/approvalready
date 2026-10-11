@@ -112,3 +112,42 @@ async def test_prefill_uses_the_answered_address_without_a_property(api: ApiHarn
     outsider = await api.user()
     r = await outsider.get(f"{org}/submissions/{submission['id']}/prefill")
     assert r.status_code == 404
+
+
+@pytest.mark.integration
+async def test_prefill_redoes_the_site_when_the_property_changes(api: ApiHarness) -> None:
+    user = await api.user()
+    org = f"/v1/organisations/{user.personal_org_id}"
+    r = await user.post(
+        f"{org}/properties",
+        json={"address": MOCK_ADDRESS, "lot_plan": "1RP000001", "land_area_m2": "640.5"},
+    )
+    org, submission = await _submission(user, property_id=r.json()["id"])
+    old_site = {
+        "property.address": {
+            "line1": "9 Old Road",
+            "suburb": "Elsewhere",
+            "state": "QLD",
+            "postcode": "4000",
+        },
+        "property.lot_plan": "9RP999999",
+        "planning.development_type": "secondary_dwelling",
+    }
+    r = await user.put(f"{org}/submissions/{submission['id']}/answers", json={"answers": old_site})
+    assert r.status_code == 200, r.text
+    r = await user.get(f"{org}/submissions/{submission['id']}/prefill")
+    found = {s["key"]: s["value"] for s in r.json()["suggestions"]}
+    # The saved property wins over the old site answers; other answers are left alone.
+    assert found["property.address"] == MOCK_ADDRESS
+    assert found["property.lot_plan"] == "1RP000001"
+    assert found["property.lga"] == "cairns"
+    assert "planning.development_type" not in found
+
+    # Same address in different case and spacing is the same site: nothing to redo.
+    same = {**MOCK_ADDRESS, "line1": "1  pretend street"}
+    r = await user.put(
+        f"{org}/submissions/{submission['id']}/answers",
+        json={"answers": {"property.address": same, "property.lot_plan": "9RP999999"}},
+    )
+    r = await user.get(f"{org}/submissions/{submission['id']}/prefill")
+    assert "property.lot_plan" not in {s["key"] for s in r.json()["suggestions"]}
