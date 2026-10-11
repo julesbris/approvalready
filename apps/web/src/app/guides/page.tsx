@@ -13,23 +13,28 @@ export const metadata: Metadata = {
 export default function GuidesPage() {
   return (
     <PublicShell>
-      <section className="hero" aria-labelledby="guides-title">
-        <h1 id="guides-title">Guides</h1>
-        <p>
-          Plain-language summaries of what the rules say, with a link to every source and a note
-          of how far we have checked it.
-        </p>
-      </section>
-      <ul className="products" aria-label="Guides">
-        {GUIDES.map((g) => (
-          <li key={g.slug} className="product">
-            <h2>
-              <Link href={`/guides/${g.slug}`}>{g.title}</Link>
-            </h2>
-            <p>{g.description}</p>
-          </li>
-        ))}
-      </ul>
+      <div className="guides-index">
+        <header className="guides-head">
+          <p className="eyebrow">Sources, not guesses</p>
+          <h1 id="guides-title">Guides</h1>
+          <p className="lede">
+            Plain-language summaries of what the rules say, with a link to every source and a
+            note of how far we have checked it.
+          </p>
+        </header>
+        <ul className="guide-cards" aria-labelledby="guides-title">
+          {GUIDES.map((g) => (
+            <li key={g.slug}>
+              <Link className="guide-card" href={`/guides/${g.slug}`}>
+                <span className="guide-card-area">{g.area}</span>
+                <h2>{g.title}</h2>
+                <p>{g.description}</p>
+                <span className="guide-card-cta">Read the guide</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </PublicShell>
   );
 }
