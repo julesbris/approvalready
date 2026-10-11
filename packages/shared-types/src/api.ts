@@ -4908,6 +4908,11 @@ export interface components {
              * @description e.g. 'Lot 2 on RP53576'.
              */
             lot_plan_label: string | null;
+            /**
+             * Postcode
+             * @description From the ABS postal area containing the address (check it).
+             */
+            postcode: string | null;
             /** State */
             state: string;
             /** Suburb */

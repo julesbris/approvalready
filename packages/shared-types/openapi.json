@@ -885,6 +885,18 @@
             "description": "e.g. 'Lot 2 on RP53576'.",
             "title": "Lot Plan Label"
           },
+          "postcode": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "From the ABS postal area containing the address (check it).",
+            "title": "Postcode"
+          },
           "state": {
             "title": "State",
             "type": "string"
@@ -900,6 +912,7 @@
           "line1",
           "suburb",
           "state",
+          "postcode",
           "lot_plan",
           "lot_plan_label",
           "local_authority",

@@ -12,6 +12,9 @@ class AddressMatchOut(BaseModel):
     line1: str
     suburb: str
     state: str
+    postcode: str | None = Field(
+        description="From the ABS postal area containing the address (check it)."
+    )
     lot_plan: str | None = Field(description="Lot and plan in the cadastre, e.g. 2RP53576.")
     lot_plan_label: str | None = Field(description="e.g. 'Lot 2 on RP53576'.")
     local_authority: str | None = Field(description="Council, e.g. 'Cairns Regional'.")

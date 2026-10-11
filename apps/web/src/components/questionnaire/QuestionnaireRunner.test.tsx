@@ -164,13 +164,13 @@ describe("QuestionnaireRunner", () => {
     expect((fetchMock.mock.calls[0] as [string])[0]).toBe("/api/v1/organisations/o1/submissions/s1/reopen");
   });
 
-  it("offers answers from the site and saves the ones accepted", async () => {
+  it("fills in answers from the site, saves them, and can undo them", async () => {
     const saved = submission({
       answers: { kind: "sub" },
       missing_required: ["lots"],
       progress: { answered: 1, visible: 2, required_remaining: 1 },
     });
-    const fetchMock = vi.fn().mockResolvedValue(Response.json(saved));
+    const fetchMock = vi.fn(() => Promise.resolve(Response.json(saved)));
     vi.stubGlobal("fetch", fetchMock);
     render(
       <QuestionnaireRunner
@@ -178,6 +178,7 @@ describe("QuestionnaireRunner", () => {
         projectId="p1"
         submission={submission()}
         canWrite
+        autosaveDelayMs={5}
         suggestions={[
           {
             key: "kind",
@@ -190,14 +191,20 @@ describe("QuestionnaireRunner", () => {
         ]}
       />,
     );
-    const panel = screen.getByRole("region", { name: "We can fill in an answer for you" });
+    const panel = screen.getByRole("region", { name: "We filled in an answer for you" });
     expect(panel).toHaveTextContent("Subdividing");
     expect(panel).toHaveTextContent("(test data, not real)");
-    fireEvent.click(screen.getByRole("button", { name: "Use these answers" }));
-    expect(await screen.findByText(/Filled in from your site details/)).toBeInTheDocument();
-    expect(screen.queryByRole("region", { name: /We can fill in/ })).not.toBeInTheDocument();
-    const [, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(screen.getByLabelText("Subdividing")).toBeChecked();
+    await waitFor(() => expect(fetchMock).toHaveBeenCalled());
+    const [, init] = fetchMock.mock.calls[0] as unknown as [string, RequestInit];
     expect(JSON.parse(init.body as string)).toEqual({ answers: { kind: "sub" } });
+
+    fireEvent.click(screen.getByRole("button", { name: "Undo these" }));
+    expect(screen.getByLabelText("Subdividing")).not.toBeChecked();
+    expect(screen.queryByRole("region", { name: /We filled in/ })).not.toBeInTheDocument();
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
+    const [, undo] = fetchMock.mock.calls[1] as unknown as [string, RequestInit];
+    expect(JSON.parse(undo.body as string)).toEqual({ answers: { kind: null } });
   });
 
   it("saves answers automatically a moment after they change", async () => {
@@ -273,6 +280,16 @@ describe("QuestionnaireRunner", () => {
                 validation: {},
                 visible_when: null,
               },
+              {
+                key: "property.land_area_m2",
+                type: "DECIMAL",
+                label: "Land area (square metres)",
+                help_text: null,
+                required: false,
+                options: [],
+                validation: {},
+                visible_when: null,
+              },
             ],
           },
         ],
@@ -307,6 +324,7 @@ describe("QuestionnaireRunner", () => {
                 lot_plan_label: "Lot 1 on RP731159",
                 local_authority: "Cairns Regional",
                 lga: "cairns",
+                postcode: "4869",
               },
             ],
             note: "",
@@ -316,7 +334,23 @@ describe("QuestionnaireRunner", () => {
       }
       if (url.includes("/councils/cairns")) return Promise.resolve(Response.json(council));
       if (url.includes("/prefill")) {
-        return Promise.resolve(Response.json({ provider: "none", suggestions: [] }));
+        const from = (key: string, label: string, value: unknown) => ({
+          key,
+          label,
+          value,
+          source: "Queensland Government land parcel data",
+          source_url: null,
+          is_mock: false,
+        });
+        return Promise.resolve(
+          Response.json({
+            provider: "qld_spatial",
+            suggestions: [
+              from("property.lot_plan", "Lot and plan", "1RP731159"),
+              from("property.land_area_m2", "Land area (square metres)", "774"),
+            ],
+          }),
+        );
       }
       return Promise.resolve(Response.json(site));
     });
@@ -336,7 +370,16 @@ describe("QuestionnaireRunner", () => {
     fireEvent.click(await screen.findByRole("button", { name: /34 Gilmore Street/ }));
     expect(screen.getByLabelText("Cairns Regional Council")).toBeChecked();
     expect(screen.getByLabelText(/Lot and plan/)).toHaveValue("Lot 1 on RP731159");
-    expect(screen.getByText(/We filled in the council and lot and plan/)).toBeInTheDocument();
+    expect(screen.getByLabelText("Postcode")).toHaveValue("4869");
+    expect(
+      screen.getByText(/We filled in the postcode, council and lot and plan/),
+    ).toBeInTheDocument();
+    // Once the address saves, what else we can look up is filled in; the lot and plan just
+    // picked is kept as it is.
+    await waitFor(() =>
+      expect(screen.getByLabelText(/^Land area/)).toHaveValue("774"),
+    );
+    expect(screen.getByLabelText(/Lot and plan/)).toHaveValue("Lot 1 on RP731159");
     expect(
       await screen.findByText(/Development applications for this site go to Cairns Regional/),
     ).toBeInTheDocument();
