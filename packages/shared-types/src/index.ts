@@ -71,6 +71,7 @@ export type FindingSourceOut = Schemas["FindingSourceOut"];
 export type RuleSetScopeOut = Schemas["RuleSetScopeOut"];
 export type ApprovalRequirementOut = Schemas["ApprovalRequirementOut"];
 export type ApprovalMapEntryOut = Schemas["ApprovalMapEntryOut"];
+export type ApprovalGuideOut = Schemas["ApprovalGuideOut"];
 export type MarketplaceCategoryOut = Schemas["MarketplaceCategoryOut"];
 export type EvidenceRequirementOut = Schemas["EvidenceRequirementOut"];
 export type ReferralCategoryOut = Schemas["ReferralCategoryOut"];

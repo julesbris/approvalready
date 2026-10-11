@@ -9,6 +9,7 @@
     python -m app.cli documents sync-templates  # publish changed report templates
     python -m app.cli ai sync-prompts         # publish changed AI prompts
     python -m app.cli rules load-pack planning_qld_cairns --email staff@example.com [--publish]
+        [--update]
 
 Platform roles can only be granted in the PLATFORM_ADMIN organisation, which is created on
 first use. There is deliberately no HTTP endpoint that bootstraps the first super admin.
@@ -395,7 +396,12 @@ async def sync_consent(settings: Settings) -> int:
 
 
 async def load_pack(
-    name: str, email: str, *, publish: bool, settings: Settings | None = None
+    name: str,
+    email: str,
+    *,
+    publish: bool,
+    update: bool = False,
+    settings: Settings | None = None,
 ) -> int:
     """Create a content pack's sources and rules as the given platform staff member (so the
     audit log names them). Existing items are left alone; see ``app/modules/rules/packs.py``."""
@@ -425,7 +431,9 @@ async def load_pack(
             if missing:
                 print(f"{email} lacks permissions: {', '.join(missing)}", file=sys.stderr)
                 return 1
-            report = await packs.load(db, pack, Actor(user.id, org.id, CLI_META), publish=publish)
+            report = await packs.load(
+                db, pack, Actor(user.id, org.id, CLI_META), publish=publish, update=update
+            )
             await db.commit()
     finally:
         await resources.close()
@@ -514,6 +522,11 @@ def main(argv: list[str] | None = None) -> int:
     lp.add_argument("name", help=f"One of: {', '.join(packs.available())}")
     lp.add_argument("--email", required=True, help="Platform staff member doing the load")
     lp.add_argument("--publish", action="store_true", help="Publish rules that pass the gate")
+    lp.add_argument(
+        "--update",
+        action="store_true",
+        help="Give rules already loaded a new version when the pack's wording has changed",
+    )
     sc = sub.add_parser("sources", help="Regulatory sources")
     sc.add_argument("action", choices=["check"], help="Run the weekly source check now")
     pv = sub.add_parser("privacy", help="Closed accounts")
@@ -548,7 +561,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "privacy":
         return asyncio.run(delete_closed_workspaces(get_settings()))
     if args.command == "rules":
-        return asyncio.run(load_pack(args.name, args.email, publish=args.publish))
+        return asyncio.run(
+            load_pack(args.name, args.email, publish=args.publish, update=args.update)
+        )
     return asyncio.run(verify_audit())
 
 

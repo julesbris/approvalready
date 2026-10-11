@@ -44,6 +44,27 @@
    "kind": "CTH_AGENCY",
    "jurisdiction": "CTH",
    "website": "https://www.defence.gov.au"
+  },
+  {
+   "ref": "infrastructure",
+   "name": "Department of Infrastructure, Transport, Regional Development, Communications, Sport and the Arts",
+   "kind": "CTH_AGENCY",
+   "jurisdiction": "CTH",
+   "website": "https://www.infrastructure.gov.au"
+  },
+  {
+   "ref": "tmr",
+   "name": "Queensland Department of Transport and Main Roads",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "QLD",
+   "website": "https://www.tmr.qld.gov.au"
+  },
+  {
+   "ref": "qld_fair_trading",
+   "name": "Office of Fair Trading (Queensland)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "QLD",
+   "website": "https://www.qld.gov.au/law/fair-trading"
   }
  ],
  "documents": [
@@ -174,6 +195,94 @@
    "title": "Permits (Defence export controls)",
    "url": "https://www.defence.gov.au/business-industry/exporting/applications-and-pre-notification/permits",
    "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rvs_older",
+   "organisation": "infrastructure",
+   "jurisdiction": "CTH",
+   "title": "How to import your older vehicle (25 years or older)",
+   "url": "https://www.infrastructure.gov.au/department/media/news/how-import-your-older-vehicle-25-years-or-older",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rvs_sevs",
+   "organisation": "infrastructure",
+   "jurisdiction": "CTH",
+   "title": "Guide to specialist and enthusiast vehicles (September 2025)",
+   "url": "https://www.infrastructure.gov.au/sites/default/files/documents/guide-to-specialist-and-enthusiast-vehicles-sept-2025.pdf",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rvs_concessional",
+   "organisation": "infrastructure",
+   "jurisdiction": "CTH",
+   "title": "Guide to concessional RAV entry approvals (May 2025)",
+   "url": "https://www.infrastructure.gov.au/sites/default/files/documents/guide-to-concessional-rav-entry-approvals-may2025.pdf",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "abf_vehicle",
+   "organisation": "abf",
+   "jurisdiction": "CTH",
+   "title": "Importing a motor vehicle",
+   "url": "https://www.abf.gov.au/importing-exporting-and-manufacturing/importing/how-to-import/types-of-imports/importing-a-motor-vehicle",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "abf_asbestos_vehicles",
+   "organisation": "abf",
+   "jurisdiction": "CTH",
+   "title": "Asbestos in imported motor vehicles",
+   "url": "https://www.abf.gov.au/importing-exporting-and-manufacturing/prohibited-goods/asbestos/asbestos-in-imported-motor-vehicles",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "daff_vehicles",
+   "organisation": "daff",
+   "jurisdiction": "CTH",
+   "title": "Importing vehicles and machinery",
+   "url": "https://www.agriculture.gov.au/biosecurity-trade/import/goods/vehicles-machinery",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "abf_schedule_11",
+   "organisation": "abf",
+   "jurisdiction": "CTH",
+   "title": "Current tariff, Schedule 11 (Japanese originating goods)",
+   "url": "https://www.abf.gov.au/importing-exporting-and-manufacturing/tariff-classification/current-tariff/schedule-11",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ato_lct_thresholds",
+   "organisation": "ato",
+   "jurisdiction": "CTH",
+   "title": "Luxury car tax rate and thresholds",
+   "url": "https://www.ato.gov.au/tax-rates-and-codes/luxury-car-tax-rate-and-thresholds",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "qld_register_vehicle",
+   "organisation": "tmr",
+   "jurisdiction": "QLD",
+   "title": "Register your vehicle or motorcycle",
+   "url": "https://www.qld.gov.au/transport/registration/register/vehicle",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "qld_lhd",
+   "organisation": "tmr",
+   "jurisdiction": "QLD",
+   "title": "Left hand drive vehicles",
+   "url": "https://www.qld.gov.au/transport/registration/register/left",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "qld_dealer_licence",
+   "organisation": "qld_fair_trading",
+   "jurisdiction": "QLD",
+   "title": "Apply for a motor dealer licence",
+   "url": "https://www.qld.gov.au/community/fair-trading/regulated-industries-licensing-and-legislation/motor-industry-regulation/get-a-motor-licence-or-registration/apply-for-a-motor-dealer-licence",
+   "source_type": "WEBPAGE"
   }
  ],
  "references": [
@@ -288,6 +397,83 @@
    "section": "Permits",
    "extracted_text": "[Summary, not the source's wording] A permit is needed to export or supply goods, software or technology on the Defence and Strategic Goods List, including dual-use items, and to supply listed technology to a foreign person in Australia. Firearms, parts, accessories and ammunition always need a permit before export. Applications go through the My Australian Defence Export (MADE) portal.",
    "interpretation": "Military and dual-use goods and firearms need a Defence export permit. Captured on 2026-10-10 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_older",
+   "document": "rvs_older",
+   "section": "Older vehicles (25 years or older)",
+   "extracted_text": "[Summary, not the source's wording] A road vehicle built, or significantly modified, more than 25 years before the date of application can be imported under a concessional RAV entry approval for older vehicles, applied for in ROVER before the vehicle is shipped. If the month of build can't be established, December of the build year is used. The application fee for a passenger car is A$42.20.",
+   "interpretation": "Cars built more than 25 years before the application date use the older vehicle pathway. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_sevs",
+   "document": "rvs_sevs",
+   "section": "Specialist and enthusiast vehicles",
+   "extracted_text": "[Summary, not the source's wording] A vehicle under 25 years old that is not type approved can be imported for road use if its model and build date range have a current entry on the SEVs Register and a Registered Automotive Workshop holding an approved Model Report modifies it to comply; an Authorised Vehicle Verifier then verifies it before it is entered on the Register of Approved Vehicles. SEVs entries last 3 years and must be current when the import approval is decided.",
+   "interpretation": "SEVs cars need a workshop to comply them before they go on the RAV. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_personal_effects",
+   "document": "rvs_concessional",
+   "section": "Personal effects",
+   "extracted_text": "[Summary, not the source's wording] The personal effects pathway is for people arriving to live in Australia who personally owned and used the vehicle overseas for at least 12 months before arriving. The application must be made within 6 months of arriving and the pathway can't be used if the person had a personal effects approval in the previous 5 years. Fee A$57.20.",
+   "interpretation": "Personal effects is limited to people moving to Australia with a car they owned and used for 12 months. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_abf_approval",
+   "document": "abf_vehicle",
+   "section": "Importing a motor vehicle",
+   "extracted_text": "[Summary, not the source's wording] It is an offence to import a road vehicle without an approval under the Road Vehicle Standards Act, whatever its value. The ABF won't release a vehicle until a valid approval is provided and duty, GST, luxury car tax and other charges are paid. The vehicle also has to be clean for biosecurity and free of asbestos.",
+   "interpretation": "Every imported road vehicle needs an approval, customs clearance, biosecurity clearance and asbestos-free evidence. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_asbestos",
+   "document": "abf_asbestos_vehicles",
+   "section": "Asbestos in imported motor vehicles",
+   "extracted_text": "[Summary, not the source's wording] Australia has zero tolerance for asbestos. Importers must make sure an imported vehicle and its parts contain no asbestos before it is shipped; vehicles suspected of containing asbestos can be held at the border for sampling and testing by an accredited laboratory at the importer's cost, and asbestos found must be removed under supervision before release.",
+   "interpretation": "Every imported vehicle needs asbestos-free assurance before shipping. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_biosecurity",
+   "document": "daff_vehicles",
+   "section": "Importing vehicles and machinery",
+   "extracted_text": "[Summary, not the source's wording] Imported used vehicles must be free of soil, seeds, plant material, animals and other contamination. They are inspected on arrival, and a vehicle that fails must be cleaned or treated at the importer's cost before release. Cleaning and pre-inspection at an approved offshore facility can reduce onshore inspection.",
+   "interpretation": "Every imported used vehicle is subject to biosecurity cleanliness checks. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_jaepa",
+   "document": "abf_schedule_11",
+   "section": "Japanese originating goods",
+   "extracted_text": "[Summary, not the source's wording] Under the Japan-Australia Economic Partnership Agreement, Schedule 11 of the Customs Tariff gives a preferential rate (Free for passenger motor vehicles) to goods that are Japanese originating, when the importer holds valid origin evidence. Vehicles built elsewhere pay the general rate (5% for most passenger cars).",
+   "interpretation": "A Japanese-built car can enter duty free with valid origin evidence. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_lct",
+   "document": "ato_lct_thresholds",
+   "section": "Luxury car tax rate and thresholds 2026-27",
+   "extracted_text": "[Summary, not the source's wording] Luxury car tax is 33% of the amount above the threshold. For 2026-27 the threshold is A$80,809, or A$91,661 for fuel-efficient vehicles (3.5 litres per 100 km or less). On an import it is worked out on the value of the taxable importation.",
+   "interpretation": "LCT applies when the value of the taxable importation is over the threshold. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_qld_rego",
+   "document": "qld_register_vehicle",
+   "section": "Register your vehicle",
+   "extracted_text": "[Summary, not the source's wording] To register a vehicle in Queensland you need a safety certificate from an approved inspection station, proof of identity and a customer reference number, evidence of the vehicle's details, and to pay registration, compulsory third party insurance and vehicle registration duty at a Department of Transport and Main Roads customer service centre.",
+   "interpretation": "An imported car registered in Queensland needs a safety certificate and registration at TMR. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_qld_lhd",
+   "document": "qld_lhd",
+   "section": "Left hand drive vehicles",
+   "extracted_text": "[Summary, not the source's wording] In Queensland, light vehicles less than 25 years old must generally be right-hand drive to be registered; left-hand drive vehicles 25 years or older can be registered.",
+   "interpretation": "A left-hand drive car under 25 years old generally can't be registered in Queensland. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "veh_dealer",
+   "document": "qld_dealer_licence",
+   "section": "Apply for a motor dealer licence",
+   "extracted_text": "[Summary, not the source's wording] A person or company who carries on a business of buying, selling or exchanging motor vehicles in Queensland must hold a motor dealer licence. The fee for 2026-27 is A$1,709 for 1 year for an individual and A$973 for a corporation.",
+   "interpretation": "Importing cars to sell as a business in Queensland needs a motor dealer licence. Captured on 2026-10-11 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
   }
  ],
  "rule_sets": [
@@ -1058,7 +1244,7 @@
        "on_result": "MATCH",
        "outcome_type": "APPROVAL_REQUIRED",
        "title": "Get a vehicle import approval before shipping",
-       "detail": "Every new or second-hand road vehicle needs an import approval from the Department of Infrastructure before it is imported, and approval to supply it in Australia. Some older vehicles, such as those made before 1989, have other options.",
+       "detail": "Every new or second-hand road vehicle needs an approval under the Road Vehicle Standards Act before it's shipped, applied for in the department's ROVER portal. Which approval depends on the vehicle: cars built more than 25 years before you apply, cars on the Specialist and Enthusiast Vehicles Register that a registered workshop will comply, or a migrant's own car brought as personal effects. Importing a vehicle without an approval is an offence.",
        "payload": {
         "approval": {
          "kind": "VEHICLE_IMPORT_APPROVAL",
@@ -1081,6 +1267,10 @@
       {
        "reference": "broker_role",
        "relationship": "BASIS"
+      },
+      {
+       "reference": "veh_abf_approval",
+       "relationship": "SUPPORTING"
       }
      ],
      "test_cases": [
@@ -1587,6 +1777,792 @@
       }
      ],
      "notes": "Effective from the date the source was read (2026-10-10), not the date the law began: capped at likely until the reference is verified."
+    }
+   ]
+  },
+  {
+   "key": "trade.au.vehicles",
+   "vertical": "TRADE",
+   "jurisdiction": "CTH",
+   "title": "Australia: importing a car or other road vehicle",
+   "description": "Which import approval pathway fits the vehicle, asbestos, biosecurity, duty, GST and luxury car tax, and registering it, from Department of Infrastructure, Australian Border Force, Department of Agriculture, ATO and Queensland Government guidance.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "trade.direction",
+      "op": "in",
+      "value": [
+       "import",
+       "both"
+      ]
+     },
+     {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "vehicles"
+     }
+    ]
+   },
+   "limitations": [
+    "Built from Department of Infrastructure, Australian Border Force, Department of Agriculture, ATO and Queensland Government guidance, not from the Road Vehicle Standards Act 2018 or its rules.",
+    "Doesn't check whether your exact model is on the SEVs Register or whether a workshop can comply it; search the register in ROVER.",
+    "Registration is only checked for Queensland.",
+    "Not legal or customs advice. Check with the Department of Infrastructure, a licensed customs broker or a Registered Automotive Workshop."
+   ],
+   "rules": [
+    {
+     "key": "older_vehicle",
+     "title": "Older vehicle pathway (25 years or older)",
+     "condition": {
+      "fact": "trade.vehicle_age",
+      "op": "equals",
+      "value": "over_25"
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Apply in ROVER under the older vehicle pathway",
+       "detail": "Because the vehicle was built more than 25 years before you'll apply, it can come in under the older vehicle concessional RAV entry approval (A$42.20 for a passenger car). It doesn't need to be on the SEVs Register or modified by a workshop, but you must hold the approval before it's shipped. Have the build date evidence ready, such as the Japanese export or deregistration certificate.",
+       "payload": {
+        "approval": {
+         "kind": "VEHICLE_IMPORT_APPROVAL",
+         "authority": "Department of Infrastructure (Road Vehicle Standards)",
+         "pathway": "Older vehicle concessional RAV entry in ROVER, A$42.20, before shipping"
+        },
+        "task": "Apply in ROVER for an older vehicle approval before booking shipping"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "WARNING",
+       "title": "Find out exactly when the vehicle was built",
+       "detail": "The build date decides the whole process. Cars built more than 25 years before you apply have a simple pathway; newer cars need to be on the SEVs Register and complied by a workshop, or come in as your personal effects. Get the build month and year before you buy.",
+       "payload": {
+        "task": "Confirm the vehicle's build month and year before buying"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_older",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Older",
+       "facts": {
+        "trade.vehicle_age": "over_25"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Newer",
+       "facts": {
+        "trade.vehicle_age": "under_25"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "build_date_unknown",
+     "title": "Build date not known",
+     "condition": {
+      "fact": "trade.vehicle_age",
+      "op": "equals",
+      "value": "unsure"
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Find out exactly when the vehicle was built",
+       "detail": "The build date decides the whole process. Cars built more than 25 years before you apply have a simple pathway (A$42.20); newer cars need to be on the SEVs Register and complied by a workshop, or come in as your personal effects. If the build month can't be shown, December of the build year is assumed, which can push a car past the 25-year line by up to a year.",
+       "payload": {
+        "task": "Confirm the vehicle's build month and year before buying"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_older",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Unsure",
+       "facts": {
+        "trade.vehicle_age": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Older",
+       "facts": {
+        "trade.vehicle_age": "over_25"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "sevs_workshop",
+     "title": "SEVs Register vehicle complied by a workshop",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.vehicle_age",
+        "op": "in",
+        "value": [
+         "under_25",
+         "unsure"
+        ]
+       },
+       {
+        "fact": "trade.vehicle_pathway",
+        "op": "equals",
+        "value": "sevs"
+       }
+      ]
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "A registered workshop must comply the vehicle",
+       "detail": "A vehicle under 25 years old on the SEVs Register is imported under a concessional RAV entry approval for vehicles to be modified by a Registered Automotive Workshop (A$95). Before you buy, find a workshop whose Model Report covers your exact variant and check the car is within its damage and corrosion limits. After arrival the workshop modifies it, an Authorised Vehicle Verifier checks it, and it goes on the Register of Approved Vehicles (A$109 charge) before it can be registered.",
+       "payload": {
+        "approval": {
+         "kind": "VEHICLE_COMPLIANCE_RAWS",
+         "authority": "Department of Infrastructure (Road Vehicle Standards)",
+         "pathway": "Registered Automotive Workshop compliance, then entry on the RAV"
+        },
+        "referral_categories": [
+         "trade_compliance_consultant"
+        ],
+        "task": "Line up a Registered Automotive Workshop with a Model Report for the exact variant"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_sevs",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "SEVs",
+       "facts": {
+        "trade.vehicle_age": "under_25",
+        "trade.vehicle_pathway": "sevs"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Older",
+       "facts": {
+        "trade.vehicle_age": "over_25",
+        "trade.vehicle_pathway": "sevs"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "personal_effects",
+     "title": "Personal effects pathway",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.vehicle_age",
+        "op": "in",
+        "value": [
+         "under_25",
+         "unsure"
+        ]
+       },
+       {
+        "fact": "trade.vehicle_pathway",
+        "op": "equals",
+        "value": "personal_effects"
+       }
+      ]
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Apply under the personal effects pathway",
+       "detail": "If you're arriving to live in Australia and personally owned and used the vehicle overseas for at least 12 months before you arrive, you can apply in ROVER for a personal effects approval (A$57.20). Apply within 6 months of arriving. You can't use it if you've had a personal effects approval in the last 5 years, and a company can't use it.",
+       "payload": {
+        "approval": {
+         "kind": "VEHICLE_IMPORT_APPROVAL",
+         "authority": "Department of Infrastructure (Road Vehicle Standards)",
+         "pathway": "Personal effects concessional RAV entry in ROVER, A$57.20"
+        },
+        "task": "Gather 12 months of ownership and use evidence for the personal effects application"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_personal_effects",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Personal effects",
+       "facts": {
+        "trade.vehicle_age": "under_25",
+        "trade.vehicle_pathway": "personal_effects"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "SEVs",
+       "facts": {
+        "trade.vehicle_age": "under_25",
+        "trade.vehicle_pathway": "sevs"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "no_pathway",
+     "title": "No pathway identified for a newer vehicle",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.vehicle_age",
+        "op": "in",
+        "value": [
+         "under_25",
+         "unsure"
+        ]
+       },
+       {
+        "fact": "trade.vehicle_pathway",
+        "op": "in",
+        "value": [
+         "not_listed",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Check the SEVs Register before you buy",
+       "detail": "A vehicle under 25 years old that isn't type approved can only be imported for road use if it's on the SEVs Register (and a workshop can comply it) or comes in as a migrant's personal effects. If its model isn't listed, someone has to apply to add it (A$230) and a Model Report is needed, which is rarely practical for one car. Otherwise it can only come in for racing, display or film use and can't be registered.",
+       "payload": {
+        "referral_categories": [
+         "trade_compliance_consultant"
+        ],
+        "task": "Search the SEVs Register in ROVER for the exact model and build date range"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_sevs",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "veh_personal_effects",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not listed",
+       "facts": {
+        "trade.vehicle_age": "under_25",
+        "trade.vehicle_pathway": "not_listed"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Older",
+       "facts": {
+        "trade.vehicle_age": "over_25"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "left_hand_drive",
+     "title": "Left-hand drive in Queensland",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.vehicle_age",
+        "op": "in",
+        "value": [
+         "under_25",
+         "unsure"
+        ]
+       },
+       {
+        "fact": "trade.vehicle_left_hand_drive",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "trade.vehicle_state",
+        "op": "equals",
+        "value": "QLD"
+       }
+      ]
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Queensland generally won't register this vehicle",
+       "detail": "In Queensland a light vehicle under 25 years old generally has to be right-hand drive to be registered. Talk to the Department of Transport and Main Roads (13 23 80) before you buy, because an import approval doesn't guarantee registration."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_qld_lhd",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "LHD newer Qld",
+       "facts": {
+        "trade.vehicle_age": "under_25",
+        "trade.vehicle_left_hand_drive": true,
+        "trade.vehicle_state": "QLD"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "RHD",
+       "facts": {
+        "trade.vehicle_age": "under_25",
+        "trade.vehicle_left_hand_drive": false,
+        "trade.vehicle_state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "asbestos",
+     "title": "Asbestos-free vehicle",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "vehicles"
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Make sure the vehicle is asbestos free before it's shipped",
+       "detail": "Australia has zero tolerance for asbestos, and older vehicles often have it in brakes, clutches and gaskets. Get evidence the vehicle and any parts are asbestos free, or replace or test suspect parts, before it leaves. A vehicle held at the border for testing costs you storage and lab fees, and asbestos found must be removed before release.",
+       "payload": {
+        "approval": {
+         "kind": "VEHICLE_ASBESTOS_ASSURANCE",
+         "authority": "Australian Border Force",
+         "pathway": "Evidence or testing before shipping"
+        },
+        "referral_categories": [
+         "customs_broker"
+        ],
+        "task": "Get asbestos-free evidence for the vehicle and parts before shipping"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_asbestos",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "veh_abf_approval",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vehicle",
+       "facts": {
+        "trade.goods_categories": [
+         "vehicles"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Clothing",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "vehicle_biosecurity",
+     "title": "Vehicle biosecurity cleaning and inspection",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "vehicles"
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Have the vehicle cleaned before shipping; it will be inspected on arrival",
+       "detail": "Used vehicles must arrive free of soil, seeds, plant material and insects, inside and underneath. The department inspects them on arrival (A$42 per 15 minutes in 2026-27) and a dirty vehicle is cleaned or treated at your cost. Cleaning and pre-inspection at an approved facility in Japan means far fewer full inspections here.",
+       "payload": {
+        "approval": {
+         "kind": "VEHICLE_BIOSECURITY_INSPECTION",
+         "authority": "Department of Agriculture, Fisheries and Forestry",
+         "pathway": "Clean before shipping; inspection on arrival"
+        },
+        "task": "Book cleaning, ideally at an approved offshore pre-inspection facility"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_biosecurity",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vehicle",
+       "facts": {
+        "trade.goods_categories": [
+         "vehicles"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Clothing",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "vehicle_customs",
+     "title": "Vehicle customs clearance, duty, GST and LCT",
+     "condition": {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "vehicles"
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Clear the vehicle through customs and pay duty, GST and any luxury car tax",
+       "detail": "A full import declaration is lodged for the vehicle, usually by a customs broker while it's at sea. You pay customs duty (Free or 5%), GST of 10% on the value plus duty, freight and insurance, any luxury car tax, an import processing charge (A$152 electronic for vehicles worth A$10,000 or more) and a A$71 biosecurity charge. The vehicle isn't released until the import approval, biosecurity clearance and payment are all in place.",
+       "payload": {
+        "approval": {
+         "kind": "VEHICLE_CUSTOMS_CLEARANCE",
+         "authority": "Australian Border Force",
+         "pathway": "Full import declaration, usually through a customs broker"
+        },
+        "referral_categories": [
+         "customs_broker",
+         "freight_forwarder"
+        ],
+        "task": "Engage a customs broker to lodge the import declaration"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_abf_approval",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vehicle",
+       "facts": {
+        "trade.goods_categories": [
+         "vehicles"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Clothing",
+       "facts": {
+        "trade.goods_categories": [
+         "general"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "japan_duty_free",
+     "title": "Duty under the Japan-Australia agreement",
+     "condition": {
+      "fact": "trade.vehicle_origin",
+      "op": "equals",
+      "value": "japan"
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "No customs duty if you have origin evidence",
+       "detail": "A vehicle built in Japan can enter duty free under the Japan-Australia Economic Partnership Agreement, but only if you hold a valid certificate of origin or origin declaration (less than 12 months old) when you claim it. Ask the exporter for it when you buy.",
+       "payload": {
+        "task": "Ask the exporter for Japan-Australia agreement origin evidence"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Expect 5% customs duty",
+       "detail": "Most passenger cars that aren't Japanese originating pay the general 5% duty unless another free trade agreement applies and you have origin evidence for it. A broker can confirm the tariff classification and rate."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_jaepa",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Japan",
+       "facts": {
+        "trade.vehicle_origin": "japan"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Elsewhere",
+       "facts": {
+        "trade.vehicle_origin": "elsewhere"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "luxury_car_tax",
+     "title": "Luxury car tax",
+     "condition": {
+      "fact": "trade.vehicle_over_lct",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Luxury car tax of 33% applies above the threshold",
+       "detail": "Luxury car tax is 33% of the value above A$80,809 in 2026-27 (A$91,661 for cars using 3.5 litres per 100 km or less), worked out on the value of the taxable importation. It's paid with duty and GST before release."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_lct",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Over",
+       "facts": {
+        "trade.vehicle_over_lct": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Under",
+       "facts": {
+        "trade.vehicle_over_lct": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "qld_registration",
+     "title": "Registering the vehicle in Queensland",
+     "condition": {
+      "fact": "trade.vehicle_state",
+      "op": "equals",
+      "value": "QLD"
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Get a safety certificate and register the vehicle with TMR",
+       "detail": "Once the vehicle is on the Register of Approved Vehicles, get a safety certificate from an approved inspection station (up to A$102.70), then register it at a Department of Transport and Main Roads customer service centre. You pay registration and compulsory third party insurance (about A$865 to A$881 a year for a 4-cylinder car) plus vehicle registration duty of A$3 per A$100 of value for a 4-cylinder car.",
+       "payload": {
+        "approval": {
+         "kind": "QLD_VEHICLE_REGISTRATION",
+         "authority": "Queensland Department of Transport and Main Roads",
+         "pathway": "Safety certificate, then registration at a TMR centre"
+        },
+        "task": "Get a safety certificate and register the vehicle at TMR"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Register the vehicle with your state's road authority",
+       "detail": "Each state registers vehicles. Check your state's road authority for inspection, registration, insurance and stamp duty before you buy; we've only checked Queensland's requirements."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_qld_rego",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Qld",
+       "facts": {
+        "trade.vehicle_state": "QLD"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW",
+       "facts": {
+        "trade.vehicle_state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
+    },
+    {
+     "key": "qld_motor_dealer",
+     "title": "Motor dealer licence for selling imports",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.vehicle_purpose",
+        "op": "equals",
+        "value": "sell"
+       },
+       {
+        "fact": "trade.vehicle_state",
+        "op": "equals",
+        "value": "QLD"
+       }
+      ]
+     },
+     "effective_from": "2026-10-11",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need a Queensland motor dealer licence to sell imported vehicles",
+       "detail": "Buying and selling vehicles as a business in Queensland needs a motor dealer licence from the Office of Fair Trading (A$1,709 a year for an individual or A$973 for a company in 2026-27). Each vehicle must also be on the Register of Approved Vehicles before it's first sold.",
+       "payload": {
+        "approval": {
+         "kind": "QLD_MOTOR_DEALER_LICENCE",
+         "authority": "Office of Fair Trading (Queensland)",
+         "pathway": "Apply online to the Office of Fair Trading"
+        },
+        "task": "Apply for a motor dealer licence before selling imported vehicles"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "veh_dealer",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Sell in Qld",
+       "facts": {
+        "trade.vehicle_purpose": "sell",
+        "trade.vehicle_state": "QLD"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Own use",
+       "facts": {
+        "trade.vehicle_purpose": "own_use",
+        "trade.vehicle_state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ],
+     "notes": "Effective from the date the source was read (2026-10-11), not the date the law began: capped at likely until the reference is verified."
     }
    ]
   },

@@ -68,7 +68,7 @@ def test_import_and_logistics_companies_are_marketplace_categories() -> None:
 
 def test_pack_rules_pass_their_own_test_cases() -> None:
     pack = packs.load_file(PACK)
-    assert len(pack.rule_sets) == 4
+    assert len(pack.rule_sets) == 5
     for rs in pack.rule_sets:
         assert rs.vertical == "TRADE"
         assert rs.limitations, f"{rs.key} must say what it doesn't check"
