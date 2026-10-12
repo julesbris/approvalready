@@ -1053,3 +1053,20 @@ From Jules's ask to show the assessment right under the answers and make the flo
   plan and land area are asked only once there is an address (they are usually filled from it).
 - The BFF now proxies `/guidance` (public, read-only) so the runner can fetch guides.
 - Before/after screenshots: docs/answers-to-result.
+
+## 45. Listing import and the free property report
+
+From Jules's ask: bring a property in from Domain, realestate.com.au or the free listing
+sites, and give a free property report that goes well beyond prices and comparable sales.
+Migration 0034 (property gains `bedrooms`, `bathrooms`, `car_spaces`, `property_type`,
+`listing_url`); optional setting `DOMAIN_API_KEY`.
+
+| Part | As built |
+|---|---|
+| What we may read | Domain is the only listing site with an official API (developer.domain.com.au); with `DOMAIN_API_KEY` set, a domain.com.au link brings bedrooms, bathrooms, car spaces, type and the advertised price from `GET /v1/listings/{id}`. realestate.com.au, Homely, OnTheHouse, property.com.au, PropertyValue, view.com.au, Allhomes and the rest have no public API and their terms forbid copying pages by software, so we never fetch a listing page: `lookups/listing.py` reads the address from the pasted link itself, then the Queensland address search and our own lookups fill the rest. realestate.com.au buy/rent links carry only the suburb; Facebook and Gumtree carry nothing. |
+| API | `POST /v1/organisations/{org}/lookups/listing {url}` returns the site, what we may read from it, the address from the link, Domain details if any, and Queensland address matches. `GET .../properties/{id}/report` (JSON) and `/report.pdf` (branded, WeasyPrint): built on request, nothing stored, free on every account, throttled like the other lookups. Properties accept the new fields and the address search's latitude and longitude. |
+| Report sources | `property_report/sources.py`, all free and keyless, each named with its date in the report: state cadastre and overlays (existing `lookups/qld.py`); FloodCheck basin 1% AEP extent; Queensland school catchments and school locations (`Society/SchoolsAndSchoolCatchments`); ABS suburb (ASGS 2021 SAL) and Census 2021 tables G01, G02, G37 from the ABS Data API, compared with Queensland QuickStats figures; QPS reported offence rates by council area (last 12 months, vs Queensland; the CSVs are re-read weekly in the background); places within 2 km from OpenStreetMap via Overpass (attributed, ODbL). Prices and comparable sales are linked (Domain and realestate.com.au suburb profiles, PropertyValue, RTA median rents, SQM vacancy rates, Valuer-General land valuation), not copied. |
+| Time budget | The browser's proxy gives up at 15 s, so `build_report` waits at most 12.5 s; a slow source shows "couldn't be checked just now" and the rest still shows. |
+| Web | The project's Site panel: "Have a listing? Paste its link" above the address search (one match is picked automatically), type, bedrooms, bathrooms and car spaces fields, and a "Free property report" button once a property is linked. `/projects/[id]/property-report` loads the report in the browser with a PDF download. |
+| Tests | `tests/test_property_report.py` (link parsing per site, Domain mapping, SDMX parsing, places, crime months, listing import and the report and PDF through the API); web `SitePanel.test.tsx`, `PropertyReport.test.tsx`. |
+| Not built | Domain suburb price statistics (needs a Domain plan with that package); RTA median rent figures inside the report (their file has no published structure or licence); bushfire and council flood/zoning mapping (not published as services; linked instead); other states' parcels, schools and crime. |

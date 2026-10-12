@@ -208,6 +208,22 @@ class Settings(BaseSettings):
     amsa_vessel_list_url: str | None = None
     amsa_vessel_list_max_age_hours: int = Field(default=168, ge=1)
 
+    # --- Listing import and the free property report (app/modules/lookups/listing.py,
+    # app/modules/property_report) ---
+    # Domain's developer API (developer.domain.com.au) is the only listing site with an
+    # official way to read a listing. Without a key, a pasted listing link still gives the
+    # address (read from the link itself, the page is never fetched).
+    domain_api_key: SecretStr | None = None
+    domain_api_base_url: str = "https://api.domain.com.au"
+    # Census 2021 figures for a suburb (ABS Data API, free, no key).
+    abs_data_api_base_url: str = "https://data.api.abs.gov.au/rest"
+    # Places nearby (shops, transport, health, parks) from OpenStreetMap's Overpass API.
+    overpass_url: str = "https://overpass-api.de/api/interpreter"
+    # Queensland Police Service reported offence rates (open data, monthly).
+    qps_crime_data_base_url: str = (
+        "https://open-crime-data.s3-ap-southeast-2.amazonaws.com/Crime%20Statistics"
+    )
+
     # --- Documents (Milestone 6) ---
     storage_backend: StorageBackendKind = StorageBackendKind.LOCAL
     storage_local_root: str = "/data/uploads"

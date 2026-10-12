@@ -2,13 +2,16 @@
 
 import type {
   AddressMatchOut,
+  ListingImportOut,
   ProjectDetailOut,
   PropertyOut,
 } from "@approvalready/shared-types";
+import Link from "next/link";
 import { type FormEvent, useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
 import { AddressSearch } from "@/components/lookups/AddressSearch";
+import { ListingImport } from "@/components/lookups/ListingImport";
 import {
   fetchParcel,
   ParcelLookupResult,
@@ -38,7 +41,26 @@ const EMPTY_FORM = {
   postcode: "",
   lot_plan: "",
   land_area_m2: "",
+  bedrooms: "",
+  bathrooms: "",
+  car_spaces: "",
+  property_type: "",
 };
+
+const PROPERTY_TYPES = ["House", "Unit", "Apartment", "Townhouse", "Villa", "Land", "Acreage"];
+
+/** "House: 3 bed, 2 bath, 1 car", from what's saved. */
+export function homeLabel(p: PropertyOut): string | null {
+  const rooms = [
+    p.bedrooms != null ? `${p.bedrooms} bed` : null,
+    p.bathrooms != null ? `${p.bathrooms} bath` : null,
+    p.car_spaces != null ? `${p.car_spaces} car` : null,
+  ]
+    .filter(Boolean)
+    .join(", ");
+  if (p.property_type) return rooms ? `${p.property_type}: ${rooms}` : p.property_type;
+  return rooms || null;
+}
 
 /** The property a project is about: pick one the organisation already has, or add one.
  * Adding one starts from a Queensland address search that fills in the lot and plan and
@@ -51,6 +73,8 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
   const [form, setForm] = useState(EMPTY_FORM);
   const [picked, setPicked] = useState<ParcelState>({ status: "idle" });
   const [linkedParcel, setLinkedParcel] = useState<ParcelState>({ status: "idle" });
+  const [point, setPoint] = useState<{ latitude: number; longitude: number } | null>(null);
+  const [listingUrl, setListingUrl] = useState<string | null>(null);
   const org = `/organisations/${organisationId}`;
   const linked = properties.find((p) => p.id === project.property_id) ?? null;
   const field = (name: keyof typeof EMPTY_FORM) => ({
@@ -79,6 +103,7 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
   async function addProperty(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const text = (name: keyof typeof EMPTY_FORM) => form[name].trim();
+    const count = (name: keyof typeof EMPTY_FORM) => (text(name) ? Number(text(name)) : null);
     setBusy(true);
     setError(null);
     const created = await apiRequest<PropertyOut>("POST", `${org}/properties`, {
@@ -88,9 +113,16 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
         suburb: text("suburb"),
         state: text("state"),
         postcode: text("postcode"),
+        latitude: point?.latitude ?? null,
+        longitude: point?.longitude ?? null,
       },
       lot_plan: text("lot_plan") || null,
       land_area_m2: text("land_area_m2") || null,
+      bedrooms: count("bedrooms"),
+      bathrooms: count("bathrooms"),
+      car_spaces: count("car_spaces"),
+      property_type: text("property_type") || null,
+      listing_url: listingUrl,
     });
     setBusy(false);
     if (!created.ok) {
@@ -105,6 +137,21 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
     setAdding(false);
     setForm(EMPTY_FORM);
     setPicked({ status: "idle" });
+    setPoint(null);
+    setListingUrl(null);
+  }
+
+  function imported(listing: ListingImportOut) {
+    setListingUrl(listing.url);
+    const d = listing.details;
+    const n = (value: number | null | undefined) => (value == null ? "" : String(value));
+    setForm((f) => ({
+      ...f,
+      bedrooms: n(d?.bedrooms) || f.bedrooms,
+      bathrooms: n(d?.bathrooms) || f.bathrooms,
+      car_spaces: n(d?.car_spaces) || f.car_spaces,
+      property_type: listing.property_type ?? f.property_type,
+    }));
   }
 
   async function pick(match: AddressMatchOut) {
@@ -118,6 +165,11 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
       lot_plan: match.lot_plan_label ?? "",
       land_area_m2: "",
     }));
+    setPoint(
+      match.latitude != null && match.longitude != null
+        ? { latitude: match.latitude, longitude: match.longitude }
+        : null,
+    );
     if (!match.lot_plan) {
       setPicked({ status: "idle" });
       return;
@@ -147,6 +199,12 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
           <p className="muted">
             {linked.lot_plan ? `Lot and plan ${linked.lot_plan}` : "Lot and plan not given"}
             {linked.land_area_m2 ? ` · ${linked.land_area_m2} m²` : ""}
+            {homeLabel(linked) ? ` · ${homeLabel(linked)}` : ""}
+          </p>
+          <p>
+            <Link className="button" href={`/projects/${project.id}/property-report`}>
+              Free property report
+            </Link>
           </p>
           <p className="hint">
             The questionnaire fills in these details for you, with the postcode, council area, land
@@ -202,6 +260,12 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
       ) : null}
       {canWrite && adding ? (
         <form method="post" className="form" onSubmit={addProperty} aria-label="Add a property">
+          <ListingImport
+            organisationId={organisationId}
+            onImport={imported}
+            onPick={pick}
+            disabled={busy}
+          />
           <AddressSearch organisationId={organisationId} onPick={pick} disabled={busy} />
           <ParcelLookupResult state={picked} />
           <label>
@@ -247,6 +311,31 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
             <label>
               Land area in m² (optional)
               <input {...field("land_area_m2")} inputMode="decimal" />
+            </label>
+          </div>
+          <div className="field-row">
+            <label>
+              Type (optional)
+              <select {...field("property_type")}>
+                <option value="">Not given</option>
+                {[...new Set([...PROPERTY_TYPES, form.property_type].filter(Boolean))].map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Bedrooms
+              <input {...field("bedrooms")} inputMode="numeric" pattern="[0-9]{1,2}" />
+            </label>
+            <label>
+              Bathrooms
+              <input {...field("bathrooms")} inputMode="numeric" pattern="[0-9]{1,2}" />
+            </label>
+            <label>
+              Car spaces
+              <input {...field("car_spaces")} inputMode="numeric" pattern="[0-9]{1,2}" />
             </label>
           </div>
           <div className="button-row tight">

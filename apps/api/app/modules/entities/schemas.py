@@ -48,8 +48,18 @@ class AddressIn(_In):
     suburb: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=100)]
     state: AustralianState
     postcode: Annotated[str, StringConstraints(strip_whitespace=True, pattern=r"^[0-9]{4}$")]
+    # From the address search, so the property report needn't look the address up again.
+    latitude: Decimal | None = Field(default=None, ge=-90, le=90, decimal_places=6)
+    longitude: Decimal | None = Field(default=None, ge=-180, le=180, decimal_places=6)
 
     _blank = field_validator("line2", mode="before")(_blank_to_none)
+
+    @field_validator("latitude", "longitude", mode="before")
+    @classmethod
+    def _round(cls, value: object) -> object:
+        if isinstance(value, float | int | str) and str(value).strip():
+            return round(Decimal(str(value)), 6)
+        return _blank_to_none(value)
 
 
 class AddressOut(BaseModel):
@@ -59,25 +69,40 @@ class AddressOut(BaseModel):
     state: str
     postcode: str
     lga_code: str | None
+    latitude: Decimal | None = None
+    longitude: Decimal | None = None
 
 
-class PropertyCreate(_In):
+Rooms = Annotated[int, Field(ge=0, le=100)] | None
+PropertyType = Annotated[str, StringConstraints(strip_whitespace=True, max_length=40)] | None
+ListingUrl = (
+    Annotated[str, StringConstraints(strip_whitespace=True, max_length=500, pattern=r"^https://")]
+    | None
+)
+
+
+class _PropertyFields(_In):
+    lot_plan: ShortCode = None
+    title_reference: ShortCode = None
+    land_area_m2: Decimal | None = Field(default=None, gt=0, le=10**10, decimal_places=2)
+    bedrooms: Rooms = None
+    bathrooms: Rooms = None
+    car_spaces: Rooms = None
+    property_type: PropertyType = None
+    listing_url: ListingUrl = None
+
+    _blank = field_validator(
+        "lot_plan", "title_reference", "property_type", "listing_url", mode="before"
+    )(_blank_to_none)
+
+
+class PropertyCreate(_PropertyFields):
     address: AddressIn
     relationship: OwnershipRole = OwnershipRole.OWNER
-    lot_plan: ShortCode = None
-    title_reference: ShortCode = None
-    land_area_m2: Decimal | None = Field(default=None, gt=0, le=10**10, decimal_places=2)
-
-    _blank = field_validator("lot_plan", "title_reference", mode="before")(_blank_to_none)
 
 
-class PropertyUpdate(_In):
+class PropertyUpdate(_PropertyFields):
     address: AddressIn | None = None
-    lot_plan: ShortCode = None
-    title_reference: ShortCode = None
-    land_area_m2: Decimal | None = Field(default=None, gt=0, le=10**10, decimal_places=2)
-
-    _blank = field_validator("lot_plan", "title_reference", mode="before")(_blank_to_none)
 
 
 class PropertyOut(BaseModel):
@@ -87,6 +112,11 @@ class PropertyOut(BaseModel):
     lot_plan: str | None
     title_reference: str | None
     land_area_m2: Decimal | None
+    bedrooms: int | None = None
+    bathrooms: int | None = None
+    car_spaces: int | None = None
+    property_type: str | None = None
+    listing_url: str | None = None
     created_at: datetime
     updated_at: datetime
 

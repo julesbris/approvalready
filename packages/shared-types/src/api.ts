@@ -2860,6 +2860,28 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/lookups/listing": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Import Listing
+         * @description What a pasted listing link gives us: the address read from the link itself (no
+         *     listing page is fetched), Queensland addresses matching it, and, for a Domain link when
+         *     the server has a Domain API key, the listing's details from Domain's API.
+         */
+        post: operations["import_listing_v1_organisations__organisation_id__lookups_listing_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/lookups/parcels/{lot_plan}": {
         parameters: {
             query?: never;
@@ -4348,6 +4370,44 @@ export interface paths {
         patch: operations["update_property_v1_organisations__organisation_id__properties__property_id__patch"];
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/properties/{property_id}/report": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Property Report
+         * @description Everything free public data says about the property and its suburb, each figure
+         *     with its source.
+         */
+        get: operations["property_report_v1_organisations__organisation_id__properties__property_id__report_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/properties/{property_id}/report.pdf": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Property Report Pdf */
+        get: operations["property_report_pdf_v1_organisations__organisation_id__properties__property_id__report_pdf_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/reviews/{review_id}": {
         parameters: {
             query?: never;
@@ -5431,10 +5491,14 @@ export interface components {
         };
         /** AddressIn */
         AddressIn: {
+            /** Latitude */
+            latitude?: number | string | null;
             /** Line1 */
             line1: string;
             /** Line2 */
             line2?: string | null;
+            /** Longitude */
+            longitude?: number | string | null;
             /** Postcode */
             postcode: string;
             state: components["schemas"]["AustralianState"];
@@ -5488,12 +5552,16 @@ export interface components {
         };
         /** AddressOut */
         AddressOut: {
+            /** Latitude */
+            latitude?: string | null;
             /** Lga Code */
             lga_code: string | null;
             /** Line1 */
             line1: string;
             /** Line2 */
             line2: string | null;
+            /** Longitude */
+            longitude?: string | null;
             /** Postcode */
             postcode: string;
             /** State */
@@ -8346,6 +8414,72 @@ export interface components {
             /** Title */
             title: string;
         };
+        /** ListingDetailsOut */
+        ListingDetailsOut: {
+            /** Bathrooms */
+            bathrooms: number | null;
+            /** Bedrooms */
+            bedrooms: number | null;
+            /** Car Spaces */
+            car_spaces: number | null;
+            /** Headline */
+            headline: string | null;
+            /**
+             * Objective
+             * @description 'sale' or 'rent'.
+             */
+            objective: string | null;
+            /**
+             * Price Text
+             * @description The advertised price, as the listing shows it.
+             */
+            price_text: string | null;
+            /** Property Type */
+            property_type: string | null;
+            /** Status */
+            status: string | null;
+        };
+        /** ListingImportOut */
+        ListingImportOut: {
+            /**
+             * Address Text
+             * @description The address as the link spells it.
+             */
+            address_text: string | null;
+            /** @description From Domain's developer API, when the server has a key. */
+            details: components["schemas"]["ListingDetailsOut"] | null;
+            /**
+             * How
+             * @description What we may read from that site, in plain words.
+             */
+            how: string;
+            /**
+             * Matches
+             * @description Queensland addresses to pick from.
+             */
+            matches: components["schemas"]["AddressMatchOut"][];
+            /** Note */
+            note: string;
+            /**
+             * Property Type
+             * @description From the link or the listing.
+             */
+            property_type: string | null;
+            /**
+             * Site
+             * @description Which site the link is from, e.g. 'domain', 'realestate'.
+             */
+            site: string;
+            /** Site Name */
+            site_name: string;
+            /** Url */
+            url: string;
+        };
+        /** ListingIn */
+        ListingIn: {
+            /** Url */
+            url: string;
+        };
         /**
          * ListingStatus
          * @enum {string}
@@ -10757,10 +10891,20 @@ export interface components {
         /** PropertyCreate */
         PropertyCreate: {
             address: components["schemas"]["AddressIn"];
+            /** Bathrooms */
+            bathrooms?: number | null;
+            /** Bedrooms */
+            bedrooms?: number | null;
+            /** Car Spaces */
+            car_spaces?: number | null;
             /** Land Area M2 */
             land_area_m2?: number | string | null;
+            /** Listing Url */
+            listing_url?: string | null;
             /** Lot Plan */
             lot_plan?: string | null;
+            /** Property Type */
+            property_type?: string | null;
             /** @default OWNER */
             relationship: components["schemas"]["OwnershipRole"];
             /** Title Reference */
@@ -10769,6 +10913,12 @@ export interface components {
         /** PropertyOut */
         PropertyOut: {
             address: components["schemas"]["AddressOut"];
+            /** Bathrooms */
+            bathrooms?: number | null;
+            /** Bedrooms */
+            bedrooms?: number | null;
+            /** Car Spaces */
+            car_spaces?: number | null;
             /**
              * Created At
              * Format: date-time
@@ -10781,8 +10931,12 @@ export interface components {
             id: string;
             /** Land Area M2 */
             land_area_m2: string | null;
+            /** Listing Url */
+            listing_url?: string | null;
             /** Lot Plan */
             lot_plan: string | null;
+            /** Property Type */
+            property_type?: string | null;
             /** Relationships */
             relationships: string[];
             /** Title Reference */
@@ -10793,13 +10947,51 @@ export interface components {
              */
             updated_at: string;
         };
+        /** PropertyReportOut */
+        PropertyReportOut: {
+            /** Address */
+            address: string;
+            /** Council */
+            council: string | null;
+            /** Disclaimer */
+            disclaimer: string;
+            /**
+             * Generated At
+             * Format: date-time
+             */
+            generated_at: string;
+            /**
+             * Headline
+             * @description The few things worth knowing first.
+             */
+            headline: string[];
+            /**
+             * Property Id
+             * Format: uuid
+             */
+            property_id: string;
+            /** Sections */
+            sections: components["schemas"]["ReportSection"][];
+            /** Suburb */
+            suburb: string | null;
+        };
         /** PropertyUpdate */
         PropertyUpdate: {
             address?: components["schemas"]["AddressIn"] | null;
+            /** Bathrooms */
+            bathrooms?: number | null;
+            /** Bedrooms */
+            bedrooms?: number | null;
+            /** Car Spaces */
+            car_spaces?: number | null;
             /** Land Area M2 */
             land_area_m2?: number | string | null;
+            /** Listing Url */
+            listing_url?: string | null;
             /** Lot Plan */
             lot_plan?: string | null;
+            /** Property Type */
+            property_type?: string | null;
             /** Title Reference */
             title_reference?: string | null;
         };
@@ -11473,6 +11665,86 @@ export interface components {
              */
             rent_cents?: number | null;
             rent_period?: components["schemas"]["RentPeriod"] | null;
+        };
+        /** ReportFact */
+        ReportFact: {
+            /**
+             * Compare
+             * @description e.g. 'Queensland: $1,675'.
+             */
+            compare?: string | null;
+            /** Label */
+            label: string;
+            /** Note */
+            note?: string | null;
+            /** Value */
+            value: string;
+        };
+        /** ReportItem */
+        ReportItem: {
+            /** Detail */
+            detail?: string | null;
+            /** Distance M */
+            distance_m?: number | null;
+            /** Label */
+            label: string;
+            /** Url */
+            url?: string | null;
+        };
+        /** ReportLink */
+        ReportLink: {
+            /** Label */
+            label: string;
+            /** Url */
+            url: string;
+            /** Why */
+            why: string;
+        };
+        /** ReportSection */
+        ReportSection: {
+            /**
+             * Facts
+             * @default []
+             */
+            facts: components["schemas"]["ReportFact"][];
+            /** Intro */
+            intro: string;
+            /**
+             * Items
+             * @default []
+             */
+            items: components["schemas"]["ReportItem"][];
+            /** Key */
+            key: string;
+            /**
+             * Links
+             * @default []
+             */
+            links: components["schemas"]["ReportLink"][];
+            /**
+             * Sources
+             * @default []
+             */
+            sources: components["schemas"]["ReportSource"][];
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "ok" | "partial" | "unavailable";
+            /** Title */
+            title: string;
+        };
+        /** ReportSource */
+        ReportSource: {
+            /**
+             * As At
+             * @description How current it is, e.g. 'Census 2021' or 'checked today'.
+             */
+            as_at: string;
+            /** Name */
+            name: string;
+            /** Url */
+            url: string;
         };
         /** RereadOut */
         RereadOut: {
@@ -19245,6 +19517,41 @@ export interface operations {
             };
         };
     };
+    import_listing_v1_organisations__organisation_id__lookups_listing_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ListingIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ListingImportOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     get_parcel_v1_organisations__organisation_id__lookups_parcels__lot_plan__get: {
         parameters: {
             query?: never;
@@ -22831,6 +23138,68 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["PropertyOut"];
                 };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    property_report_v1_organisations__organisation_id__properties__property_id__report_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                property_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PropertyReportOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    property_report_pdf_v1_organisations__organisation_id__properties__property_id__report_pdf_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                property_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {

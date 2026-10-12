@@ -77,6 +77,7 @@ describe("SitePanel", () => {
     fireEvent.change(screen.getByLabelText("Land area in m² (optional)"), {
       target: { value: "640.5" },
     });
+    fireEvent.change(screen.getByLabelText("Bedrooms"), { target: { value: "3" } });
     fireEvent.click(screen.getByRole("button", { name: "Save property" }));
     await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
     const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
@@ -88,10 +89,78 @@ describe("SitePanel", () => {
         suburb: "Cairns",
         state: "QLD",
         postcode: "4870",
+        latitude: null,
+        longitude: null,
       },
       lot_plan: null,
       land_area_m2: "640.5",
+      bedrooms: 3,
+      bathrooms: null,
+      car_spaces: null,
+      property_type: null,
+      listing_url: null,
     });
+  });
+
+  it("brings a property in from a listing link", async () => {
+    const listing = {
+      site: "domain",
+      site_name: "Domain",
+      how: "Domain has an official developer API.",
+      url: "https://www.domain.com.au/1-example-street-cairns-qld-4870-2019123456",
+      address_text: "1 Example Street Cairns QLD 4870",
+      property_type: "House",
+      details: {
+        bedrooms: 3,
+        bathrooms: 2,
+        car_spaces: 1,
+        property_type: "House",
+        price_text: "Offers over $650,000",
+        headline: null,
+        status: "live",
+        objective: "sale",
+      },
+      matches: [
+        {
+          address_pid: 1,
+          label: "1 Example Street Cairns QLD",
+          line1: "1 Example Street",
+          suburb: "Cairns",
+          state: "QLD",
+          postcode: "4870",
+          lot_plan: null,
+          lot_plan_label: null,
+          local_authority: "Cairns Regional",
+          lga: "cairns",
+          latitude: -16.9,
+          longitude: 145.7,
+        },
+      ],
+      note: "Pick the matching address to fill in the rest.",
+    };
+    const fetchMock = vi.fn().mockResolvedValueOnce(Response.json(listing));
+    vi.stubGlobal("fetch", fetchMock);
+    render(
+      <SitePanel
+        organisationId="o1"
+        project={PROJECT}
+        properties={[]}
+        canWrite
+        onProjectChange={vi.fn()}
+      />,
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Add a property" }));
+    fireEvent.change(screen.getByLabelText("Have a listing? Paste its link"), {
+      target: { value: listing.url },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Bring it in" }));
+    await waitFor(() =>
+      expect(screen.getByLabelText("Street address")).toHaveValue("1 Example Street"),
+    );
+    expect(fetchMock.mock.calls[0]?.[0]).toBe("/api/v1/organisations/o1/lookups/listing");
+    expect(screen.getByLabelText("Bedrooms")).toHaveValue("3");
+    expect(screen.getByLabelText("Bathrooms")).toHaveValue("2");
+    expect(screen.getByText(/House · 3 bed, 2 bath, 1 car · Offers over \$650,000/)).toBeInTheDocument();
   });
 
   it("shows the linked property read-only without write access", () => {

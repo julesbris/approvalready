@@ -65,6 +65,7 @@ from app.modules.privacy.router import public_router as privacy_public_router
 from app.modules.progress.router import admin_router as progress_admin_router
 from app.modules.progress.router import router as progress_router
 from app.modules.projects.router import router as projects_router
+from app.modules.property_report.router import router as property_report_router
 from app.modules.questionnaires.router import router as questionnaires_router
 from app.modules.regulatory.fetch import Resolver, SourceFetcher
 from app.modules.regulatory.router import router as sources_router
@@ -163,6 +164,7 @@ def create_app(
     app.include_router(vessels_router)
     app.include_router(grants_router)
     app.include_router(lookups_router)
+    app.include_router(property_report_router)
     app.include_router(councils_router)
     app.include_router(guidance_router)
     app.include_router(sales_router)

@@ -41,6 +41,8 @@ def _address_out(address: Address | None) -> AddressOut | None:
         state=address.state,
         postcode=address.postcode,
         lga_code=address.lga_code,
+        latitude=address.latitude,
+        longitude=address.longitude,
     )
 
 
@@ -59,6 +61,11 @@ async def _properties_out(db: AsyncSession, props: list[Property]) -> list[Prope
                 lot_plan=p.lot_plan,
                 title_reference=p.title_reference,
                 land_area_m2=p.land_area_m2,
+                bedrooms=p.bedrooms,
+                bathrooms=p.bathrooms,
+                car_spaces=p.car_spaces,
+                property_type=p.property_type,
+                listing_url=p.listing_url,
                 created_at=p.created_at,
                 updated_at=p.updated_at,
             )

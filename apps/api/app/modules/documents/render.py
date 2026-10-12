@@ -230,6 +230,15 @@ def render_html(template_body: str, context: dict[str, Any]) -> str:
     return html
 
 
+def brand_style() -> Any:
+    """The report stylesheet, for other documents built in the same style."""
+    return _markup(_STYLE)
+
+
+def brand_logo() -> Any:
+    return _markup(_logo_svg())
+
+
 @cache
 def _logo_svg() -> str:
     """The reversed horizontal lockup, as supplied, for the navy cover band."""

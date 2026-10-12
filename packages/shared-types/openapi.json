@@ -784,6 +784,23 @@
       "AddressIn": {
         "additionalProperties": false,
         "properties": {
+          "latitude": {
+            "anyOf": [
+              {
+                "maximum": 90.0,
+                "minimum": -90.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d{0,6}0*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latitude"
+          },
           "line1": {
             "maxLength": 200,
             "minLength": 1,
@@ -801,6 +818,23 @@
               }
             ],
             "title": "Line2"
+          },
+          "longitude": {
+            "anyOf": [
+              {
+                "maximum": 180.0,
+                "minimum": -180.0,
+                "type": "number"
+              },
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d{0,6}0*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Longitude"
           },
           "postcode": {
             "pattern": "^[0-9]{4}$",
@@ -951,6 +985,18 @@
       },
       "AddressOut": {
         "properties": {
+          "latitude": {
+            "anyOf": [
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latitude"
+          },
           "lga_code": {
             "anyOf": [
               {
@@ -976,6 +1022,18 @@
               }
             ],
             "title": "Line2"
+          },
+          "longitude": {
+            "anyOf": [
+              {
+                "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Longitude"
           },
           "postcode": {
             "title": "Postcode",
@@ -9377,6 +9435,209 @@
         "title": "LeftItemOut",
         "type": "object"
       },
+      "ListingDetailsOut": {
+        "properties": {
+          "bathrooms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bathrooms"
+          },
+          "bedrooms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bedrooms"
+          },
+          "car_spaces": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Car Spaces"
+          },
+          "headline": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Headline"
+          },
+          "objective": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "'sale' or 'rent'.",
+            "title": "Objective"
+          },
+          "price_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The advertised price, as the listing shows it.",
+            "title": "Price Text"
+          },
+          "property_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Property Type"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status"
+          }
+        },
+        "required": [
+          "bedrooms",
+          "bathrooms",
+          "car_spaces",
+          "property_type",
+          "price_text",
+          "headline",
+          "status",
+          "objective"
+        ],
+        "title": "ListingDetailsOut",
+        "type": "object"
+      },
+      "ListingImportOut": {
+        "properties": {
+          "address_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The address as the link spells it.",
+            "title": "Address Text"
+          },
+          "details": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ListingDetailsOut"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "From Domain's developer API, when the server has a key."
+          },
+          "how": {
+            "description": "What we may read from that site, in plain words.",
+            "title": "How",
+            "type": "string"
+          },
+          "matches": {
+            "description": "Queensland addresses to pick from.",
+            "items": {
+              "$ref": "#/components/schemas/AddressMatchOut"
+            },
+            "title": "Matches",
+            "type": "array"
+          },
+          "note": {
+            "title": "Note",
+            "type": "string"
+          },
+          "property_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "From the link or the listing.",
+            "title": "Property Type"
+          },
+          "site": {
+            "description": "Which site the link is from, e.g. 'domain', 'realestate'.",
+            "title": "Site",
+            "type": "string"
+          },
+          "site_name": {
+            "title": "Site Name",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "site",
+          "site_name",
+          "how",
+          "url",
+          "address_text",
+          "property_type",
+          "details",
+          "matches",
+          "note"
+        ],
+        "title": "ListingImportOut",
+        "type": "object"
+      },
+      "ListingIn": {
+        "properties": {
+          "url": {
+            "maxLength": 2000,
+            "minLength": 4,
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "title": "ListingIn",
+        "type": "object"
+      },
       "ListingStatus": {
         "enum": [
           "NOT_LISTED",
@@ -16363,6 +16624,45 @@
           "address": {
             "$ref": "#/components/schemas/AddressIn"
           },
+          "bathrooms": {
+            "anyOf": [
+              {
+                "maximum": 100.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bathrooms"
+          },
+          "bedrooms": {
+            "anyOf": [
+              {
+                "maximum": 100.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bedrooms"
+          },
+          "car_spaces": {
+            "anyOf": [
+              {
+                "maximum": 100.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Car Spaces"
+          },
           "land_area_m2": {
             "anyOf": [
               {
@@ -16380,6 +16680,19 @@
             ],
             "title": "Land Area M2"
           },
+          "listing_url": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "pattern": "^https://",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Listing Url"
+          },
           "lot_plan": {
             "anyOf": [
               {
@@ -16391,6 +16704,18 @@
               }
             ],
             "title": "Lot Plan"
+          },
+          "property_type": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Property Type"
           },
           "relationship": {
             "$ref": "#/components/schemas/OwnershipRole",
@@ -16420,6 +16745,39 @@
           "address": {
             "$ref": "#/components/schemas/AddressOut"
           },
+          "bathrooms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bathrooms"
+          },
+          "bedrooms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bedrooms"
+          },
+          "car_spaces": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Car Spaces"
+          },
           "created_at": {
             "format": "date-time",
             "title": "Created At",
@@ -16442,6 +16800,17 @@
             ],
             "title": "Land Area M2"
           },
+          "listing_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Listing Url"
+          },
           "lot_plan": {
             "anyOf": [
               {
@@ -16452,6 +16821,17 @@
               }
             ],
             "title": "Lot Plan"
+          },
+          "property_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Property Type"
           },
           "relationships": {
             "items": {
@@ -16490,6 +16870,77 @@
         "title": "PropertyOut",
         "type": "object"
       },
+      "PropertyReportOut": {
+        "properties": {
+          "address": {
+            "title": "Address",
+            "type": "string"
+          },
+          "council": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Council"
+          },
+          "disclaimer": {
+            "title": "Disclaimer",
+            "type": "string"
+          },
+          "generated_at": {
+            "format": "date-time",
+            "title": "Generated At",
+            "type": "string"
+          },
+          "headline": {
+            "description": "The few things worth knowing first.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Headline",
+            "type": "array"
+          },
+          "property_id": {
+            "format": "uuid",
+            "title": "Property Id",
+            "type": "string"
+          },
+          "sections": {
+            "items": {
+              "$ref": "#/components/schemas/ReportSection"
+            },
+            "title": "Sections",
+            "type": "array"
+          },
+          "suburb": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suburb"
+          }
+        },
+        "required": [
+          "property_id",
+          "address",
+          "suburb",
+          "council",
+          "headline",
+          "sections",
+          "generated_at",
+          "disclaimer"
+        ],
+        "title": "PropertyReportOut",
+        "type": "object"
+      },
       "PropertyUpdate": {
         "additionalProperties": false,
         "properties": {
@@ -16502,6 +16953,45 @@
                 "type": "null"
               }
             ]
+          },
+          "bathrooms": {
+            "anyOf": [
+              {
+                "maximum": 100.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bathrooms"
+          },
+          "bedrooms": {
+            "anyOf": [
+              {
+                "maximum": 100.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bedrooms"
+          },
+          "car_spaces": {
+            "anyOf": [
+              {
+                "maximum": 100.0,
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Car Spaces"
           },
           "land_area_m2": {
             "anyOf": [
@@ -16520,6 +17010,19 @@
             ],
             "title": "Land Area M2"
           },
+          "listing_url": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "pattern": "^https://",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Listing Url"
+          },
           "lot_plan": {
             "anyOf": [
               {
@@ -16531,6 +17034,18 @@
               }
             ],
             "title": "Lot Plan"
+          },
+          "property_type": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Property Type"
           },
           "title_reference": {
             "anyOf": [
@@ -18400,6 +18915,205 @@
           }
         },
         "title": "RentalUpdate",
+        "type": "object"
+      },
+      "ReportFact": {
+        "properties": {
+          "compare": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "e.g. 'Queensland: $1,675'.",
+            "title": "Compare"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "value"
+        ],
+        "title": "ReportFact",
+        "type": "object"
+      },
+      "ReportItem": {
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "distance_m": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Distance M"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          }
+        },
+        "required": [
+          "label"
+        ],
+        "title": "ReportItem",
+        "type": "object"
+      },
+      "ReportLink": {
+        "properties": {
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "why": {
+            "title": "Why",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "url",
+          "why"
+        ],
+        "title": "ReportLink",
+        "type": "object"
+      },
+      "ReportSection": {
+        "properties": {
+          "facts": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/ReportFact"
+            },
+            "title": "Facts",
+            "type": "array"
+          },
+          "intro": {
+            "title": "Intro",
+            "type": "string"
+          },
+          "items": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/ReportItem"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "links": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/ReportLink"
+            },
+            "title": "Links",
+            "type": "array"
+          },
+          "sources": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/ReportSource"
+            },
+            "title": "Sources",
+            "type": "array"
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "partial",
+              "unavailable"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "title",
+          "intro",
+          "status"
+        ],
+        "title": "ReportSection",
+        "type": "object"
+      },
+      "ReportSource": {
+        "properties": {
+          "as_at": {
+            "description": "How current it is, e.g. 'Census 2021' or 'checked today'.",
+            "title": "As At",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "as_at"
+        ],
+        "title": "ReportSource",
         "type": "object"
       },
       "RereadOut": {
@@ -33064,6 +33778,60 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/lookups/listing": {
+      "post": {
+        "description": "What a pasted listing link gives us: the address read from the link itself (no\nlisting page is fetched), Queensland addresses matching it, and, for a Domain link when\nthe server has a Domain API key, the listing's details from Domain's API.",
+        "operationId": "import_listing_v1_organisations__organisation_id__lookups_listing_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListingIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListingImportOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Import Listing",
+        "tags": [
+          "lookups"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/lookups/parcels/{lot_plan}": {
       "get": {
         "description": "A Queensland lot and plan: area, tenure, council and the state-mapped overlays it\ntouches, and what to check elsewhere (zone, bushfire, flooding, heritage).",
@@ -39232,6 +40000,106 @@
         "summary": "Update Property",
         "tags": [
           "entities"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/properties/{property_id}/report": {
+      "get": {
+        "description": "Everything free public data says about the property and its suburb, each figure\nwith its source.",
+        "operationId": "property_report_v1_organisations__organisation_id__properties__property_id__report_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "property_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Property Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PropertyReportOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Property Report",
+        "tags": [
+          "property-report"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/properties/{property_id}/report.pdf": {
+      "get": {
+        "operationId": "property_report_pdf_v1_organisations__organisation_id__properties__property_id__report_pdf_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "property_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Property Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Property Report Pdf",
+        "tags": [
+          "property-report"
         ]
       }
     },

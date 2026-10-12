@@ -8,7 +8,9 @@ from app.core.config import Settings
 from app.modules.lookups.abs import AbsPostcodes
 from app.modules.lookups.amsa import AmsaVesselList
 from app.modules.lookups.client import create_http_client
+from app.modules.lookups.listing import DomainListings
 from app.modules.lookups.qld import QldSpatial
+from app.modules.property_report.sources import AbsCensus, Overpass, QldSchoolsAndFlood, QpsCrime
 
 
 class Lookups:
@@ -20,6 +22,15 @@ class Lookups:
         self.qld = QldSpatial(self.http, settings.qld_spatial_base_url)
         self.amsa = AmsaVesselList(self.http, settings)
         self.postcodes = AbsPostcodes(self.http, settings.abs_geo_base_url)
+        key = settings.domain_api_key.get_secret_value() if settings.domain_api_key else None
+        self.domain = DomainListings(self.http, settings.domain_api_base_url, key)
+        # The free property report's sources (app/modules/property_report).
+        self.census = AbsCensus(
+            self.http, settings.abs_geo_base_url, settings.abs_data_api_base_url
+        )
+        self.schools = QldSchoolsAndFlood(self.http, settings.qld_spatial_base_url)
+        self.places = Overpass(self.http, settings.overpass_url)
+        self.crime = QpsCrime(self.http, settings.qps_crime_data_base_url)
 
     async def aclose(self) -> None:
         await self.http.aclose()
