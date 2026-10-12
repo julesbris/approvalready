@@ -11998,6 +11998,2104 @@
       ],
       "jurisdiction": "VIC",
       "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "WA_DEVELOPMENT_APPROVAL",
+      "title": "Get development approval from your council (Western Australia)",
+      "summary": "In WA your council's local planning scheme decides whether you need development approval (sometimes called planning approval). A house, extension or granny flat that meets every deemed-to-comply standard in the Residential Design Codes (R-Codes) is usually exempt. If not, you apply to council, which must decide within 60 days, or 90 days if the application is advertised to neighbours.",
+      "authority": "Your local government (council), or a development assessment panel for large projects",
+      "publisher": "Department of Planning, Lands and Heritage (Western Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "WA",
+      "order": 620,
+      "checked_on": "2026-10-12",
+      "timeframe": "60 days, or 90 days if advertised, once council has a complete application.",
+      "cost_summary": "Statutory fee of $147 for work up to $50,000, then 0.32% of the cost up to $500,000. $295 for a change of use only.",
+      "before_you_start": [
+        "Search your address on PlanWA to find your zone and R-Code (density code, such as R20).",
+        "Read your council's local planning scheme and any local planning policies or local development plan for your street.",
+        "Get a certificate of title from Landgate to check easements and restrictive covenants.",
+        "Have plans drawn: site plan, floor plans and elevations, with setbacks, site cover and open space marked.",
+        "Ask your designer which R-Codes deemed-to-comply standards you meet. Where you don't, explain how you meet the design principles."
+      ],
+      "steps": [
+        {
+          "title": "Check whether you need approval",
+          "detail": "A single house, alterations and additions, or a granny flat up to 70 m2 that meets all the R-Codes Volume 1 deemed-to-comply standards is exempt under clause 61 of the deemed provisions, unless the place is heritage-protected or your scheme or a local development plan requires approval. Outbuildings, fences, retaining walls and some patios may be exempt under local planning policies.",
+          "cost": "Free",
+          "url": "https://espatial.dplh.wa.gov.au/PlanWA/Index.html?viewer=PlanWA"
+        },
+        {
+          "title": "Talk to council before you lodge",
+          "detail": "Call the duty planner or book a pre-lodgement meeting. Ask which reports to include and whether your application will be advertised.",
+          "url": "https://mycouncil.wa.gov.au/"
+        },
+        {
+          "title": "Complete the application form",
+          "detail": "Fill in the WA application for development approval form (the same form in every council, set by the deemed provisions). The owner of the land must sign it.",
+          "form": {
+            "name": "WA application for development approval form",
+            "url": "https://perth.wa.gov.au/-/media/Project/COP/COP/COP/Documents-and-Forms/Develop/Forms/Building-and-Development-Forms/Development-Applications-Forms/Local-Planning-Scheme-Application-Form-250721.pdf"
+          }
+        },
+        {
+          "title": "Lodge with plans and pay the fee",
+          "detail": "Lodge with your council, usually online. Include the site plan, floor plans, elevations, a copy of the title and any reports such as a bushfire management plan or heritage impact statement.",
+          "cost": "$147 up to $50,000 of work, then 0.32% to $500,000"
+        },
+        {
+          "title": "Advertising and referral",
+          "detail": "If your proposal doesn't meet the deemed-to-comply standards, council usually writes to affected neighbours, who have at least 14 days to comment. Heritage places on the State Register are referred to the Heritage Council.",
+          "timeframe": "Usually 14 to 21 days"
+        },
+        {
+          "title": "Council decides",
+          "detail": "Council approves, approves with conditions or refuses. Read the conditions: some must be met before the building permit or before you occupy.",
+          "timeframe": "60 days, or 90 days if advertised"
+        },
+        {
+          "title": "Ask the State Administrative Tribunal for a review if needed",
+          "detail": "If council refuses, sets conditions you don't accept or doesn't decide in time, you can apply to the State Administrative Tribunal (SAT) for a review, usually within 28 days of the decision.",
+          "url": "https://www.sat.justice.wa.gov.au/"
+        },
+        {
+          "title": "Start before approval lapses",
+          "detail": "Approval usually lapses if the development isn't substantially started within 2 years, unless the approval says otherwise. Then apply for your building permit, which must match the approved plans."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Development, estimated cost up to $50,000",
+          "amount": "$147",
+          "note": "Planning and Development Regulations 2009 Schedule 2, item 1"
+        },
+        {
+          "label": "Development, $50,001 to $500,000",
+          "amount": "0.32% of the estimated cost"
+        },
+        {
+          "label": "Development, $500,001 to $2.5 million",
+          "amount": "$1,700 plus 0.257% of the cost over $500,000"
+        },
+        {
+          "label": "Development, $2.5 million to $5 million",
+          "amount": "$7,161 plus 0.206% of the cost over $2.5 million"
+        },
+        {
+          "label": "Change of use only (no building work)",
+          "amount": "$295",
+          "note": "Schedule 2, item 2"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning or building team",
+          "url": "https://mycouncil.wa.gov.au/",
+          "note": "Most councils have a duty planner and a duty building surveyor you can call before you lodge."
+        },
+        {
+          "name": "Department of Planning, Lands and Heritage",
+          "url": "https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage",
+          "note": "General planning enquiries."
+        },
+        {
+          "name": "State Administrative Tribunal",
+          "url": "https://www.sat.justice.wa.gov.au/",
+          "note": "Reviews of planning decisions."
+        }
+      ],
+      "watch_out": [
+        "Get development approval before you apply for a building permit. The building permit can't be issued if development approval is needed and missing.",
+        "Restrictive covenants and local development plans can be stricter than the R-Codes.",
+        "Large projects, generally worth millions of dollars, may be decided by a development assessment panel rather than council.",
+        "Starting work that needs approval without it is an offence, and council can order you to remove it."
+      ],
+      "sources": [
+        {
+          "url": "https://www.legislation.wa.gov.au/",
+          "title": "Western Australian Legislation (Parliamentary Counsel's Office)"
+        },
+        {
+          "url": "https://www.wa.gov.au/system/files/2022-11/Development-Application-Fees-Schedule-2-Planning-and-Development-Regulations-2009.pdf",
+          "title": "Development application fees: Planning and Development Regulations 2009 Schedule 2 (DPLH)"
+        },
+        {
+          "url": "https://www.wa.gov.au/government/announcements/revised-r-codes-now-effect",
+          "title": "Revised R-Codes now in effect (Government of Western Australia)"
+        },
+        {
+          "url": "https://www.planning.wa.gov.au/docs/default-source/planning-reform/pr-info-sheet-granny-flat.pdf?sfvrsn=31c1ea2d_4",
+          "title": "Ancillary dwelling information sheet: Granny flats (DPLH)"
+        }
+      ],
+      "gaps": [
+        "The deemed provisions (clauses 61, 62, 74 and 75) weren't read directly this session; the 60/90 day, 2 year and 28 day figures are from prior knowledge of the regulations.",
+        "The fee amounts are as last published in Schedule 2 (DPLH copy dated 2022); the current schedule couldn't be re-read because the web fetch budget ran out.",
+        "The 14 day advertising period is the usual minimum and wasn't confirmed.",
+        "Development assessment panel thresholds changed in 2024 and weren't confirmed.",
+        "No DPLH or Building and Energy phone number was confirmed this session, so none is shown.",
+        "The application form link is the City of Perth's copy; each council publishes its own copy of the same form."
+      ],
+      "forms": [
+        "wa-application-for-development-approval",
+        "wa-planwa"
+      ]
+    },
+    {
+      "kind": "WA_BUILDING_PERMIT",
+      "title": "Get a building permit (Western Australia)",
+      "summary": "Almost all building work in WA needs a building permit from your council, which is the permit authority. You can lodge a certified application, with a certificate of design compliance from a registered private building surveyor, decided in 10 business days. Or for a house or shed you can lodge an uncertified application that the council checks, decided in 25 business days.",
+      "authority": "Your local government (permit authority) under the Building Act 2011",
+      "publisher": "Building and Energy (Government of Western Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "WA",
+      "order": 640,
+      "checked_on": "2026-10-12",
+      "timeframe": "10 business days for a certified application, 25 business days for an uncertified one.",
+      "cost_summary": "0.19% (certified) or 0.32% (uncertified) of the value of work for a house, minimum $121, plus the 0.137% Building Services Levy and the Construction Training Fund levy.",
+      "before_you_start": [
+        "Get development approval first if you need it.",
+        "Have working drawings, specifications, structural engineering and an energy efficiency assessment ready.",
+        "If the land is in a bushfire prone area, get a BAL assessment.",
+        "Choose a registered builder for work over $20,000, or apply to Building and Energy for owner-builder approval.",
+        "Your builder must take out home indemnity insurance for residential work over $20,000."
+      ],
+      "steps": [
+        {
+          "title": "Choose certified or uncertified",
+          "detail": "Certified: a registered private building surveyor checks your plans and issues a WA BA3 certificate of design compliance, then you lodge it with council. It's faster and works for every building class. Uncertified: only for houses and Class 10 buildings like sheds and garages; council's own building surveyor checks the plans.",
+          "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals"
+        },
+        {
+          "title": "Get a certificate of design compliance (certified only)",
+          "detail": "Engage a registered building surveyor contractor. They check the design against the Building Code and issue the WA BA3 certificate of design compliance.",
+          "cost": "Private fee, set by the surveyor",
+          "form": {
+            "name": "WA BA3 certificate of design compliance",
+            "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals"
+          }
+        },
+        {
+          "title": "Pay the Construction Training Fund levy",
+          "detail": "For work over $20,000, pay the levy and include the receipt with your application.",
+          "cost": "0.2% of the value of work"
+        },
+        {
+          "title": "Lodge the application",
+          "detail": "Lodge the WA BA1 building permit application (certified) or the WA BA2 uncertified building permit application with your council, with plans, the levy receipt and fees. The builder named on the application signs it.",
+          "form": {
+            "name": "WA BA1 building permit application",
+            "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals"
+          }
+        },
+        {
+          "title": "Council decides",
+          "detail": "Council must decide a certified application in 10 business days and an uncertified one in 25 business days. It can ask once for more information, which pauses the clock.",
+          "timeframe": "10 or 25 business days"
+        },
+        {
+          "title": "Build, then lodge a notice of completion",
+          "detail": "The permit is usually valid for 2 years. When work finishes, the builder lodges a WA BA7 notice of completion with council within 7 days. Houses don't need an occupancy permit."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Certified application, house or Class 10",
+          "amount": "0.19% of the value of work (minimum $121.00)",
+          "note": "Building Regulations 2012 Schedule 2, as charged from 8 July 2026"
+        },
+        {
+          "label": "Uncertified application, house or Class 10",
+          "amount": "0.32% of the value of work (minimum $121.00)"
+        },
+        {
+          "label": "Certified application, Class 2 to 9",
+          "amount": "0.09% of the value of work (minimum $121.00)"
+        },
+        {
+          "label": "Extension of time on a permit",
+          "amount": "$121.00"
+        },
+        {
+          "label": "Building Services Levy",
+          "amount": "0.137% of the value of work (minimum $61.65)",
+          "note": "Collected with the permit fee"
+        },
+        {
+          "label": "Construction Training Fund levy",
+          "amount": "0.2% of the value of work over $20,000",
+          "note": "Paid to the Construction Training Fund before the permit is issued; check the current rate"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning or building team",
+          "url": "https://mycouncil.wa.gov.au/",
+          "note": "Most councils have a duty planner and a duty building surveyor you can call before you lodge."
+        },
+        {
+          "name": "Building and Energy (Government of Western Australia)",
+          "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals",
+          "note": "General building enquiries and builder and building surveyor registration."
+        }
+      ],
+      "watch_out": [
+        "Unregistered builders can't do building work over $20,000. Check registration on Building and Energy's register.",
+        "Owner-builders need Building and Energy approval for work over $20,000 before applying.",
+        "A building surveyor can't certify plans that conflict with your development approval.",
+        "Building without a permit can lead to fines and an order to remove the work."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals",
+          "title": "Building approvals (Building and Energy, Government of Western Australia)"
+        },
+        {
+          "url": "https://www.wanneroo.wa.gov.au/download/downloads/id/2229/building_fee_schedule_effective_8_july_2026.pdf",
+          "title": "Building fee schedule effective 8 July 2026 (City of Wanneroo)"
+        }
+      ],
+      "gaps": [
+        "Fees are from the City of Wanneroo's schedule effective 8 July 2026, which reproduces Building Regulations 2012 Schedule 2, not the regulations themselves.",
+        "The Construction Training Fund levy rate and $20,000 threshold are from prior knowledge; the CTF website wasn't read.",
+        "The 2 year permit duration, BA7 completion period and Building and Energy phone number weren't confirmed this session.",
+        "Direct links to each BA form PDF weren't confirmed; the forms link to Building and Energy's building approvals page.",
+        "Building and Energy moved departments in 2025; its pages may now sit under a new department name."
+      ],
+      "forms": [
+        "wa-ba1-certified-building-permit",
+        "wa-ba2-uncertified-building-permit",
+        "wa-ba3-certificate-of-design-compliance"
+      ]
+    },
+    {
+      "kind": "WA_DEMOLITION_PERMIT",
+      "title": "Get a demolition permit (Western Australia)",
+      "summary": "Demolishing a house, shed or other building in WA needs a demolition permit from your council. Asbestos must be removed safely, and services disconnected first. In a heritage-protected place you also need development approval.",
+      "authority": "Your local government (permit authority) under the Building Act 2011",
+      "publisher": "Building and Energy (Government of Western Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "WA",
+      "order": 635,
+      "checked_on": "2026-10-12",
+      "timeframe": "Usually 10 business days once complete.",
+      "cost_summary": "$121.00 for a house or Class 10 building, plus the Building Services Levy (minimum $61.65).",
+      "before_you_start": [
+        "Check whether the place is heritage-protected on inHerit. If so, get development approval first.",
+        "Arrange disconnection of power, gas, water and sewer.",
+        "Get an asbestos survey. Licensed removalists must remove more than 10 m2 of bonded asbestos.",
+        "Engage a licensed demolition contractor where required."
+      ],
+      "steps": [
+        {
+          "title": "Prepare the application",
+          "detail": "Complete the WA BA5 demolition permit application with a site plan showing the buildings to be demolished, and evidence of service disconnections.",
+          "form": {
+            "name": "WA BA5 demolition permit application",
+            "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals"
+          }
+        },
+        {
+          "title": "Lodge and pay",
+          "detail": "Lodge with your council and pay the application fee and Building Services Levy.",
+          "cost": "From $182.65"
+        },
+        {
+          "title": "Council decides",
+          "detail": "Council issues the permit, often with conditions about dust, asbestos, hours and protecting neighbours.",
+          "timeframe": "Usually 10 business days"
+        },
+        {
+          "title": "Demolish and clean up",
+          "detail": "Follow the permit conditions and keep asbestos disposal receipts. Tell council when demolition is finished if the permit asks you to."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Demolition permit, house or Class 10",
+          "amount": "$121.00",
+          "note": "As charged from 8 July 2026"
+        },
+        {
+          "label": "Demolition permit, Class 2 to 9",
+          "amount": "$121.00 per storey"
+        },
+        {
+          "label": "Building Services Levy",
+          "amount": "0.137% of the value of work (minimum $61.65)",
+          "note": "Collected with the permit fee"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning or building team",
+          "url": "https://mycouncil.wa.gov.au/",
+          "note": "Most councils have a duty planner and a duty building surveyor you can call before you lodge."
+        },
+        {
+          "name": "Building and Energy (Government of Western Australia)",
+          "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals",
+          "note": "General building enquiries and builder and building surveyor registration."
+        }
+      ],
+      "watch_out": [
+        "Demolishing a heritage-protected building without development approval is a serious offence.",
+        "Asbestos is common in WA homes built before 1990."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals",
+          "title": "Building approvals (Building and Energy, Government of Western Australia)"
+        },
+        {
+          "url": "https://www.wanneroo.wa.gov.au/download/downloads/id/2229/building_fee_schedule_effective_8_july_2026.pdf",
+          "title": "Building fee schedule effective 8 July 2026 (City of Wanneroo)"
+        }
+      ],
+      "gaps": [
+        "The 10 business day timeframe and the 10 m2 asbestos threshold weren't confirmed this session.",
+        "The direct BA5 form link wasn't confirmed."
+      ],
+      "forms": [
+        "wa-ba5-demolition-permit"
+      ]
+    },
+    {
+      "kind": "WA_OCCUPANCY_PERMIT",
+      "title": "Get an occupancy permit (Western Australia)",
+      "summary": "In WA, Class 2 to 9 buildings (apartments, shops, offices, factories and the like) need an occupancy permit before anyone uses them, and again if you change the building's class. Houses and sheds don't need one.",
+      "authority": "Your local government (permit authority) under the Building Act 2011",
+      "publisher": "Building and Energy (Government of Western Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "WA",
+      "order": 660,
+      "checked_on": "2026-10-12",
+      "timeframe": "Usually 10 business days once complete.",
+      "cost_summary": "$121.00 for a completed building. More for unauthorised work.",
+      "before_you_start": [
+        "Ask a registered building surveyor whether your building or new use needs an occupancy permit.",
+        "Collect certificates for fire safety, electrical, plumbing and structural work.",
+        "If you are changing the building's use, check whether you also need development approval."
+      ],
+      "steps": [
+        {
+          "title": "Get a certificate of construction compliance",
+          "detail": "A registered building surveyor inspects the completed work and certifies it complies with the building permit and the Building Code."
+        },
+        {
+          "title": "Lodge the application",
+          "detail": "Lodge the WA BA9 occupancy permit application with your council, with the surveyor's certificate and fire safety documents.",
+          "form": {
+            "name": "WA BA9 occupancy permit application",
+            "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals"
+          }
+        },
+        {
+          "title": "Council decides",
+          "detail": "Council issues the occupancy permit, which states the building's class and any conditions.",
+          "timeframe": "Usually 10 business days"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Occupancy permit, completed building",
+          "amount": "$121.00",
+          "note": "As charged from 8 July 2026"
+        },
+        {
+          "label": "Occupancy permit, incomplete building",
+          "amount": "$121.00 plus $61.65 Building Services Levy"
+        },
+        {
+          "label": "Occupancy permit for unauthorised work, Class 2 to 9",
+          "amount": "0.18% of value (minimum $121.00) plus 0.274% levy (minimum $123.30)"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning or building team",
+          "url": "https://mycouncil.wa.gov.au/",
+          "note": "Most councils have a duty planner and a duty building surveyor you can call before you lodge."
+        },
+        {
+          "name": "Building and Energy (Government of Western Australia)",
+          "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals",
+          "note": "General building enquiries and builder and building surveyor registration."
+        }
+      ],
+      "watch_out": [
+        "Using a Class 2 to 9 building without an occupancy permit is an offence.",
+        "A change of use, like a house becoming an office, can change the building class and needs a new occupancy permit."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals",
+          "title": "Building approvals (Building and Energy, Government of Western Australia)"
+        },
+        {
+          "url": "https://www.wanneroo.wa.gov.au/download/downloads/id/2229/building_fee_schedule_effective_8_july_2026.pdf",
+          "title": "Building fee schedule effective 8 July 2026 (City of Wanneroo)"
+        }
+      ],
+      "gaps": [
+        "The BA9 form number and the certificate of construction compliance form number weren't confirmed against Building and Energy's forms list.",
+        "The 10 business day timeframe wasn't confirmed this session."
+      ],
+      "forms": [
+        "wa-ba9-occupancy-permit"
+      ]
+    },
+    {
+      "kind": "WA_SUBDIVISION_APPROVAL",
+      "title": "Subdivide land through the WA Planning Commission",
+      "summary": "In WA, subdivision is approved by the Western Australian Planning Commission (WAPC), not your council. A licensed surveyor or town planner usually lodges the application online. After approval you clear the conditions, and Landgate issues a new certificate of title for each lot.",
+      "authority": "Western Australian Planning Commission, then Landgate for titles",
+      "publisher": "Department of Planning, Lands and Heritage (Western Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "WA",
+      "order": 670,
+      "checked_on": "2026-10-12",
+      "timeframe": "WAPC decision usually within 90 days; clearing conditions and new titles often take 6 to 18 months more.",
+      "cost_summary": "WAPC application and endorsement fees by number of lots, plus surveyor, service connection and Landgate fees.",
+      "before_you_start": [
+        "Check your R-Code on PlanWA. It sets the minimum and average lot sizes for your land.",
+        "Get a certificate of title from Landgate and check for easements and covenants.",
+        "Ask Water Corporation and Western Power what connections will cost.",
+        "If the land is bushfire prone, get a BAL contour map and bushfire management plan."
+      ],
+      "steps": [
+        {
+          "title": "Check what lot sizes are allowed",
+          "detail": "Your R-Code and local planning scheme set minimum and average lot sizes. A surveyor can tell you how many lots fit.",
+          "url": "https://espatial.dplh.wa.gov.au/PlanWA/Index.html?viewer=PlanWA"
+        },
+        {
+          "title": "Prepare the plan and application",
+          "detail": "Your surveyor prepares the plan of subdivision. Complete WAPC Form 1A subdivision application, signed by all owners.",
+          "form": {
+            "name": "WAPC Form 1A subdivision application",
+            "url": "https://www.planning.wa.gov.au/docs/default-source/planning-applications/planning-subdivision/frm-1a-application-for-approval.pdf?sfvrsn=63c0b4e_10"
+          }
+        },
+        {
+          "title": "Lodge online and pay",
+          "detail": "Lodge through the WAPC's eLodgement system with the plan, title, owner signatures and fee.",
+          "url": "https://elodgement.planning.wa.gov.au/Pages/FAQs.aspx"
+        },
+        {
+          "title": "Referral and decision",
+          "detail": "The WAPC sends the application to your council and service agencies for comment, then approves it with conditions or refuses it. You can ask the State Administrative Tribunal for a review.",
+          "timeframe": "Usually 90 days"
+        },
+        {
+          "title": "Clear the conditions",
+          "detail": "Meet each condition: service connections, crossovers, demolition, fill or easements. Each agency gives a clearance. Approval lapses if conditions aren't cleared in time, usually 3 years for up to 4 lots."
+        },
+        {
+          "title": "Lodge the deposited plan and get new titles",
+          "detail": "Your surveyor lodges the deposited plan with Landgate. The WAPC endorses it once all clearances are in, and Landgate issues the new certificates of title.",
+          "url": "https://www.landgate.wa.gov.au/"
+        }
+      ],
+      "fees": [
+        {
+          "label": "WAPC subdivision application and endorsement fees",
+          "amount": "Varies: set by number of lots under the Planning and Development Regulations 2009",
+          "note": "See the WAPC guide to subdivision applications and fees"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Western Australian Planning Commission (DPLH)",
+          "url": "https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage",
+          "note": "Subdivision enquiries."
+        },
+        {
+          "name": "Landgate",
+          "url": "https://www.landgate.wa.gov.au/",
+          "note": "Titles and deposited plans."
+        },
+        {
+          "name": "Your local council's planning or building team",
+          "url": "https://mycouncil.wa.gov.au/",
+          "note": "Most councils have a duty planner and a duty building surveyor you can call before you lodge."
+        }
+      ],
+      "watch_out": [
+        "Service connection costs (Water Corporation, Western Power) are often the biggest cost of a small subdivision.",
+        "Built strata can be an alternative for lots with two existing homes; it uses a different WAPC form.",
+        "Restrictive covenants on your title can stop a subdivision even if the R-Code allows it."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/system/files/2023-07/guide_to_subdivision_applications_and_fees_june2023.pdf",
+          "title": "Guide to subdivision applications and fees (WAPC)"
+        },
+        {
+          "url": "https://www.legislation.wa.gov.au/",
+          "title": "Western Australian Legislation (Parliamentary Counsel's Office)"
+        }
+      ],
+      "gaps": [
+        "WAPC subdivision fees by number of lots couldn't be read (the web fetch budget ran out); see the WAPC guide.",
+        "The 90 day decision period and the 3 or 4 year validity periods are from prior knowledge of the Planning and Development Act 2005 and weren't confirmed.",
+        "Typical clearance times are estimates, not official figures.",
+        "No WAPC phone number or email was confirmed."
+      ],
+      "forms": [
+        "wa-wapc-form-1a-subdivision",
+        "wa-planwa"
+      ]
+    },
+    {
+      "kind": "WA_BAL_ASSESSMENT",
+      "title": "Get a Bushfire Attack Level (BAL) assessment (Western Australia)",
+      "summary": "If your land is on WA's Map of Bush Fire Prone Areas, you need a Bushfire Attack Level (BAL) assessment before you build a house, extension or granny flat, and usually before you subdivide. It sets how the building must be built under Australian Standard AS 3959.",
+      "authority": "An accredited bushfire planning practitioner; checked by your building surveyor and council",
+      "publisher": "Department of Planning, Lands and Heritage (Western Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "WA",
+      "order": 610,
+      "checked_on": "2026-10-12",
+      "timeframe": "Usually a few days to a few weeks, depending on the practitioner.",
+      "cost_summary": "Private fee set by the practitioner. No government fee.",
+      "before_you_start": [
+        "Check the Map of Bush Fire Prone Areas on PlanWA or the DFES website.",
+        "Have a site plan showing where the building will go."
+      ],
+      "steps": [
+        {
+          "title": "Check whether the land is bushfire prone",
+          "detail": "Search your address on PlanWA with the bush fire prone areas layer turned on.",
+          "url": "https://espatial.dplh.wa.gov.au/PlanWA/Index.html?viewer=PlanWA"
+        },
+        {
+          "title": "Engage an accredited practitioner",
+          "detail": "Use a practitioner accredited for bushfire planning and design. They assess vegetation, slope and distance and give a BAL rating from BAL-LOW to BAL-FZ (Flame Zone)."
+        },
+        {
+          "title": "Use the BAL in your applications",
+          "detail": "Include the BAL certificate with your building permit application. Under State Planning Policy 3.7, BAL-40 or BAL-FZ can mean you also need development approval with a bushfire management plan. For subdivision, provide a BAL contour map."
+        }
+      ],
+      "fees": [
+        {
+          "label": "BAL assessment",
+          "amount": "Varies: set by the practitioner",
+          "note": "No statutory fee"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning or building team",
+          "url": "https://mycouncil.wa.gov.au/",
+          "note": "Most councils have a duty planner and a duty building surveyor you can call before you lodge."
+        },
+        {
+          "name": "Department of Fire and Emergency Services",
+          "url": "https://dfes.wa.gov.au/",
+          "note": "Map of Bush Fire Prone Areas."
+        }
+      ],
+      "watch_out": [
+        "Building to a higher BAL can add significant cost. Siting the building further from vegetation can lower it.",
+        "The bush fire prone areas map is updated from time to time. Check it when you apply."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planning.wa.gov.au/news-and-media-statements/western-australia-gets-new-bushfire-policy-and-map",
+          "title": "Western Australia gets new bushfire policy and map (DPLH)"
+        },
+        {
+          "url": "https://dfes.wa.gov.au/documents/Map-of-Bush-Fire-Prone-Areas-FAQ-2023.pdf",
+          "title": "Map of Bush Fire Prone Areas: FAQ (DFES)"
+        }
+      ],
+      "gaps": [
+        "The revised State Planning Policy 3.7 text wasn't read this session; the BAL-40 and BAL-FZ trigger is from the previous policy.",
+        "The practitioner accreditation scheme and its register weren't confirmed.",
+        "Typical BAL assessment costs aren't published officially."
+      ],
+      "forms": [
+        "wa-planwa"
+      ]
+    },
+    {
+      "kind": "WA_BOND_LODGEMENT",
+      "title": "Lodging a rental bond with Bonds Administration in Western Australia",
+      "summary": "Every bond for a WA residential tenancy must be lodged with Bonds Administration at Consumer Protection, not kept by you. The bond is at most 4 weeks' rent unless the rent is over $1,200 a week, plus up to $350 pet bond. Lodge it within 14 days of the tenant paying. Agents must use BondsOnline; private landlords can use BondsOnline or the paper form.",
+      "authority": "Bonds Administration, Consumer Protection",
+      "publisher": "Consumer Protection (WA)",
+      "jurisdiction": "WA",
+      "verticals": [
+        "RENT"
+      ],
+      "order": 300,
+      "checked_on": "2026-10-12",
+      "timeframe": "Lodge no later than 14 days after the tenant pays. A record of payment should arrive within a month.",
+      "cost_summary": "No lodgement fee was published on the pages read. Bond up to 4 weeks' rent plus up to $350 pet bond.",
+      "before_you_start": [
+        "Work out the bond: no more than 4 weeks' rent unless the rent is over $1,200 a week.",
+        "If a pet is approved, you can add a pet bond of up to $350 for fumigation and pet damage.",
+        "Give the tenant a receipt as soon as they pay, showing the date, tenant names, amount, any pet bond and the address.",
+        "Have every tenant's name and contact details, even if only one of them paid.",
+        "To use the paper form you must be a private owner with a bank account in your name needing only one signature."
+      ],
+      "steps": [
+        {
+          "title": "Register for BondsOnline (or get the paper form)",
+          "detail": "Agents and property managers must use BondsOnline. Private landlords can register for BondsOnline, use the bonds e-form (fill in online, then print and sign) or the blank WA bond lodgement form.",
+          "form": {
+            "name": "WA bond lodgement form",
+            "url": "https://www.consumerprotection.wa.gov.au/publications/bond-lodgement-form"
+          },
+          "url": "https://www.consumerprotection.wa.gov.au/registering-bondsonline"
+        },
+        {
+          "title": "Lodge the bond",
+          "detail": "List all tenants on the agreement, the bond amount, any pet bond and each tenant's contact details. Have the tenant sign the lodgement form at the start of the tenancy.",
+          "timeframe": "No later than 14 days after the tenant pays",
+          "url": "https://bonds.commerce.wa.gov.au/bonds"
+        },
+        {
+          "title": "Check the record of payment",
+          "detail": "Bonds Administration sends a record of payment to every bond party. If nothing arrives within one month, call 1300 30 40 54 or email bondsadmin@lgirs.wa.gov.au.",
+          "timeframe": "Within one month"
+        },
+        {
+          "title": "Release the bond at the end",
+          "detail": "Bonds Administration pays out the bond when it gets a joint bond disposal form signed by all tenants and landlords (or a BondsOnline release), a Commissioner's decision, or a court order. If you can't agree, ask for a Commissioner determination.",
+          "form": {
+            "name": "WA joint bond disposal form",
+            "url": "https://www.consumerprotection.wa.gov.au/publications/joint-application-disposal-security-bond"
+          },
+          "url": "https://www.consumerprotection.wa.gov.au/releasing-bond"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Maximum bond",
+          "amount": "Varies: 4 weeks' rent",
+          "note": "No limit if rent is over $1,200 a week"
+        },
+        {
+          "label": "Maximum pet bond",
+          "amount": "$350",
+          "note": "For fumigation and pet-related damage"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Bonds Administration, Consumer Protection",
+          "phone": "1300 30 40 54",
+          "email": "bondsadmin@lgirs.wa.gov.au",
+          "url": "https://www.consumerprotection.wa.gov.au/bonds"
+        }
+      ],
+      "watch_out": [
+        "Boarders' and lodgers' bonds can't be lodged with Bonds Administration.",
+        "Existing pet bonds can only be raised to $350 at the next rent increase or when another pet is approved.",
+        "Agents who can't use BondsOnline for a bond must give written reasons."
+      ],
+      "sources": [
+        {
+          "url": "https://www.consumerprotection.wa.gov.au/lodging-bond",
+          "title": "Lodging a bond"
+        },
+        {
+          "url": "https://www.consumerprotection.wa.gov.au/consumer-protection/rental-bonds",
+          "title": "Rental bonds"
+        },
+        {
+          "url": "https://www.consumerprotection.wa.gov.au/rental-forms-and-notices",
+          "title": "Rental forms and notices"
+        }
+      ],
+      "gaps": [
+        "Penalties for late lodgement were not on the pages read.",
+        "The BondsOnline portal and the releasing a bond page were not read; release steps come from the rental bonds page.",
+        "Bond release processing times were not read."
+      ],
+      "forms": [
+        "wa-bondsonline",
+        "wa-bond-lodgement",
+        "wa-joint-bond-disposal"
+      ]
+    },
+    {
+      "kind": "WA_FOOD_BUSINESS_REGISTRATION",
+      "title": "Registering your food business (WA)",
+      "summary": "In WA a food business must be registered with, or notified to, its enforcement agency before it starts trading, under the Food Act 2008. For almost all cafes, restaurants, shops, home-based food businesses, manufacturers, school canteens, childcare kitchens and food vans, that's your local government's environmental health team. The WA Department of Health registers a few businesses itself, such as those on Rottnest Island, in Kings Park or outside any local government area.",
+      "authority": "Your local government (or the WA Department of Health), under the Food Act 2008 (WA)",
+      "publisher": "Department of Health (WA)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 160,
+      "checked_on": "2026-10-12",
+      "timeframe": "Register before you open. Department of Health registrations are assessed within about 10 working days; local governments set their own timeframes.",
+      "cost_summary": "One-off registration or notification fee set by each local government, plus annual or inspection fees in many areas. Charities and community groups don't pay notification fees.",
+      "before_you_start": [
+        "Check which agency registers you: almost always the local government where your premises (or, for a food van, where it's kept overnight) is.",
+        "Fit out your premises to the Food Standards Code (Standard 3.2.3) before you apply: hand basins, cleanable surfaces, hot and cold holding.",
+        "Work out whether you need a food safety supervisor under Standard 3.2.2A and have their certificate ready.",
+        "Home-based food businesses should check planning rules with the same local government.",
+        "If you'll trade at markets or events, plan to notify each other local government you trade in."
+      ],
+      "steps": [
+        {
+          "title": "Find your local government's food page",
+          "detail": "Search your local government's website for 'food business registration'. Most have their own form and fee. The WALGA online directory lists every local government.",
+          "timeframe": "15 minutes",
+          "url": "https://walga.asn.au/About-Local-Government/Online-Local-Government-Directory"
+        },
+        {
+          "title": "Complete the registration or notification form",
+          "detail": "Give the owner, premises, food activities and food safety supervisor details, and pay the fee. Businesses the Department of Health regulates use the WA Department of Health Notification/Registration form and email it to foodsafety@health.wa.gov.au.",
+          "timeframe": "Before you open",
+          "cost": "Varies by local government",
+          "form": {
+            "name": "Notification/Registration form (Department of Health)",
+            "url": "https://www.health.wa.gov.au/~/media/Files/Corporate/general-documents/food/PDF/FoodActNotificationRegistrationFormDeptHealth.pdf"
+          }
+        },
+        {
+          "title": "Have your premises inspected",
+          "detail": "An environmental health officer may inspect before or soon after you open and grants registration, with or without conditions, or refuses it in writing with reasons.",
+          "timeframe": "Usually within weeks",
+          "cost": "Inspection fees vary"
+        },
+        {
+          "title": "Keep your registration current",
+          "detail": "Registration stays in force until cancelled. Tell the local government about changes such as a sale or closure: not doing so is an offence under section 113 of the Food Act 2008. A new owner must apply for their own registration."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Local government registration",
+          "amount": "Varies by local government",
+          "note": "One-off fee; some charge annual inspection fees."
+        },
+        {
+          "label": "Department of Health registration",
+          "amount": "Varies: one-off fee",
+          "note": "Amount not stated on the page read."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local government's environmental health team",
+          "note": "For registration, inspections and fees."
+        },
+        {
+          "name": "WA Department of Health, Food Unit",
+          "email": "foodsafety@health.wa.gov.au",
+          "url": "https://www.health.wa.gov.au/Health-for/Licensing-and-industry/Food"
+        }
+      ],
+      "watch_out": [
+        "Operating before you're registered can lead to enforcement action, including prosecution.",
+        "Exempt businesses (for example sausage sizzles for charity, or packaged non-perishable food only) must still notify.",
+        "Food vans register where the van is kept overnight, then notify every other local government they trade in."
+      ],
+      "sources": [
+        {
+          "url": "https://www.health.wa.gov.au/articles/n_r/registration-of-a-food-business",
+          "title": "WA Department of Health: Registration of a food business"
+        }
+      ],
+      "gaps": [
+        "The Department of Health page was last reviewed in 2021; local government forms and fees were not read.",
+        "No statewide fee cap was published on the page read."
+      ],
+      "forms": [
+        "wa-doh-food-notification-registration"
+      ]
+    },
+    {
+      "kind": "WA_FOOD_SAFETY_SUPERVISOR",
+      "title": "Food safety supervisor and Standard 3.2.2A (WA)",
+      "summary": "Since 8 December 2023, WA food service, catering and retail businesses that handle unpackaged, potentially hazardous food must meet Food Safety Standard 3.2.2A. Category one businesses (they make ready-to-eat food, such as cafes, restaurants and caterers) need a certified food safety supervisor, trained food handlers and records. Category two businesses (they only minimally handle such food, such as delis and service stations) need the supervisor and trained handlers.",
+      "authority": "Your local government, enforcing Standard 3.2.2A of the Food Standards Code",
+      "publisher": "Department of Health (WA)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 165,
+      "checked_on": "2026-10-12",
+      "timeframe": "Supervisor training usually takes a day or two; have it done before you open.",
+      "cost_summary": "Food safety supervisor courses are run by registered training organisations at their own prices. WA Health links to free online food handler training.",
+      "before_you_start": [
+        "Work out your category: category one if you process or make unpackaged, potentially hazardous, ready-to-eat food; category two if you only slice, pack or display it.",
+        "Choose who will be your supervisor: they must be reasonably available to advise and supervise food handlers whenever food is handled."
+      ],
+      "steps": [
+        {
+          "title": "Train your supervisor",
+          "detail": "Your supervisor completes an accredited food safety supervisor course with a registered training organisation and gets a certificate.",
+          "timeframe": "1 to 2 days",
+          "cost": "Set by the training provider"
+        },
+        {
+          "title": "Train your food handlers",
+          "detail": "Every food handler must complete training or show the skills and knowledge needed. WA Health links to free online courses.",
+          "timeframe": "A few hours",
+          "cost": "Free options available",
+          "url": "https://www.health.wa.gov.au/FSMT"
+        },
+        {
+          "title": "Keep records (category one)",
+          "detail": "Keep records showing key controls are managed, such as cold and hot holding temperatures, cooking and cleaning, for at least 3 months.",
+          "timeframe": "Ongoing"
+        },
+        {
+          "title": "Refresh the certificate",
+          "detail": "The supervisor's certification must be refreshed every 5 years. Appoint a new supervisor if yours leaves.",
+          "timeframe": "Every 5 years"
+        }
+      ],
+      "fees": [],
+      "contacts": [
+        {
+          "name": "Your local government's environmental health team",
+          "note": "For questions about your category and inspections."
+        }
+      ],
+      "watch_out": [
+        "Having a supervisor on paper isn't enough: they must be reasonably available while food is handled.",
+        "Environmental health officers check training and records at inspections."
+      ],
+      "sources": [
+        {
+          "url": "https://www.health.wa.gov.au/~/media/Corp/Documents/Health-for/Environmental-health/Food/PDF/Food-Safety-Management-Tools---Factsheet.pdf",
+          "title": "WA Department of Health: Food Safety Management Tools factsheet"
+        }
+      ],
+      "gaps": [
+        "The factsheet doesn't say whether you must tell your local government who your supervisor is; ask your local government.",
+        "Course prices were not checked."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_LIQUOR_LICENCE",
+      "title": "Getting a liquor licence (WA)",
+      "summary": "Selling or supplying alcohol in WA needs a licence from Racing, Gaming and Liquor, part of the Department of Local Government, Industry Regulation and Safety, under the Liquor Control Act 1988. Restaurants and small bars apply for a restaurant or small bar licence; pubs need a tavern or hotel licence; bottle shops a liquor store licence. One-off events use an occasional licence.",
+      "authority": "Racing, Gaming and Liquor (Department of Local Government, Industry Regulation and Safety)",
+      "publisher": "Racing, Gaming and Liquor",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 170,
+      "checked_on": "2026-10-12",
+      "timeframe": "Allow several months for a new licence: applications may need advertising and objection periods.",
+      "cost_summary": "Restaurant or small bar application A$1,058.50; tavern or liquor store A$4,129.50; annual fee A$697.50 (all excluding GST, as updated 26 June 2026).",
+      "before_you_start": [
+        "Get planning approval for the use of your premises from your local government first.",
+        "Decide on the licence type that matches your trading (restaurant, small bar, tavern, liquor store or occasional).",
+        "Name an approved manager who will supervise the premises; they need a manager's approval.",
+        "Make sure staff who serve alcohol complete responsible service of alcohol training."
+      ],
+      "steps": [
+        {
+          "title": "Choose the licence type",
+          "detail": "Read the licence types on the Racing, Gaming and Liquor applications page and check any conditions, such as restaurants serving liquor mainly with meals.",
+          "timeframe": "1 to 2 hours",
+          "url": "https://www.wa.gov.au/organisation/racing-gaming-and-liquor/liquor-applications"
+        },
+        {
+          "title": "Prepare your application",
+          "detail": "Gather your plans, planning approval, ownership and lease details, and any public interest assessment the licence type needs.",
+          "timeframe": "Weeks"
+        },
+        {
+          "title": "Lodge and pay",
+          "detail": "Lodge the application with Racing, Gaming and Liquor and pay the application fee.",
+          "cost": "A$1,058.50 to A$4,129.50"
+        },
+        {
+          "title": "Apply for approved manager approval",
+          "detail": "Each approved manager applies separately.",
+          "cost": "A$212.00 at Australia Post"
+        },
+        {
+          "title": "Pay the annual fee",
+          "detail": "Once granted, pay the annual licence fee each year.",
+          "timeframe": "Yearly",
+          "cost": "A$697.50"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Restaurant licence application",
+          "amount": "A$1,058.50",
+          "note": "Excludes GST."
+        },
+        {
+          "label": "Small bar licence application",
+          "amount": "A$1,058.50"
+        },
+        {
+          "label": "Tavern licence application",
+          "amount": "A$4,129.50"
+        },
+        {
+          "label": "Liquor store licence application",
+          "amount": "A$4,129.50"
+        },
+        {
+          "label": "Occasional licence (up to 250 patrons)",
+          "amount": "A$62.00",
+          "note": "Higher fees for larger events."
+        },
+        {
+          "label": "Annual licence fee",
+          "amount": "A$697.50",
+          "note": "Club restricted A$342.00."
+        },
+        {
+          "label": "Approved manager application",
+          "amount": "A$212.00",
+          "note": "At Australia Post."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Racing, Gaming and Liquor",
+          "url": "https://www.wa.gov.au/organisation/racing-gaming-and-liquor"
+        }
+      ],
+      "watch_out": [
+        "Don't sell alcohol before your licence is granted.",
+        "An alfresco area needs to be covered by your licence or an extended trading permit (from A$414.50)."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/organisation/racing-gaming-and-liquor/fees-and-charges-liquor-licensing",
+          "title": "Racing, Gaming and Liquor: Fees and charges, liquor licensing"
+        }
+      ],
+      "gaps": [
+        "The application steps, advertising rules and processing times page was not read; steps are summarised at a high level.",
+        "The RSA training requirement and timeframe for staff were not confirmed from an official page."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_ALFRESCO_DINING_PERMIT",
+      "title": "Alfresco (outdoor) dining permits (WA)",
+      "summary": "Putting tables and chairs on a footpath or other public land in WA needs a permit from your local government under its local laws. Each local government sets its own rules, insurance amount and fee. The City of Perth, for example, issues free Outdoor Dining Permits under its Outdoor Dining Local Law 2019 to registered food businesses with A$20 million public liability cover.",
+      "authority": "Your local government",
+      "publisher": "City of Perth (example)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 180,
+      "checked_on": "2026-10-12",
+      "timeframe": "City of Perth: provisional approval for two months while it assesses, with an inspection arranged within 10 days.",
+      "cost_summary": "Varies by local government; the City of Perth charges no fee.",
+      "before_you_start": [
+        "Register your food business first: most local governments need proof.",
+        "Get public liability insurance (City of Perth asks for A$20 million).",
+        "Plan where furniture will be stored outside trading hours."
+      ],
+      "steps": [
+        {
+          "title": "Check your local government's rules",
+          "detail": "Search your local government's website for 'alfresco' or 'outdoor dining' and read its guidelines.",
+          "timeframe": "30 minutes"
+        },
+        {
+          "title": "Apply",
+          "detail": "Complete the outdoor dining application with your plan of the area, insurance certificate and food registration.",
+          "cost": "Varies",
+          "url": "https://perth.wa.gov.au/forms-and-payments/residents-and-businesses/Business/licences-and-permits/outdoor-dining-permit"
+        },
+        {
+          "title": "Inspection and permit",
+          "detail": "An officer inspects the area and issues the permit with conditions.",
+          "timeframe": "City of Perth: within 10 days"
+        }
+      ],
+      "fees": [
+        {
+          "label": "City of Perth Outdoor Dining Permit",
+          "amount": "No charge",
+          "note": "Since 1 February 2019."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local government",
+          "note": "Usually the environmental health or place activation team."
+        }
+      ],
+      "watch_out": [
+        "The City of Perth doesn't allow advertising in outdoor dining areas.",
+        "If you serve alcohol outside, your liquor licence must cover the area."
+      ],
+      "sources": [
+        {
+          "url": "https://perth.wa.gov.au/forms-and-payments/residents-and-businesses/Business/licences-and-permits/outdoor-dining-permit",
+          "title": "City of Perth: Outdoor Dining Permit"
+        }
+      ],
+      "gaps": [
+        "Only the City of Perth page was read; other local governments have their own fees and rules."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_WORKERS_COMPENSATION_POLICY",
+      "title": "Workers compensation insurance (WA)",
+      "summary": "Every WA employer must hold a workers compensation policy with an approved insurer under the Workers Compensation and Injury Management Act 2023. WorkCover WA regulates the scheme. You can be prosecuted for not having a current policy.",
+      "authority": "WorkCover WA (policies from approved insurers)",
+      "publisher": "WorkCover WA",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 190,
+      "checked_on": "2026-10-12",
+      "timeframe": "Get a policy before your first worker starts.",
+      "cost_summary": "Premiums are set by your insurer based on your industry and wages.",
+      "before_you_start": [
+        "Work out who counts as a worker: employees (including casuals) and some contractors.",
+        "Check how working directors are covered on WorkCover WA's working directors page."
+      ],
+      "steps": [
+        {
+          "title": "Get quotes",
+          "detail": "Contact approved insurers or an insurance broker for a policy.",
+          "timeframe": "1 to 2 days"
+        },
+        {
+          "title": "Take out the policy",
+          "detail": "Buy the policy before anyone starts work, and keep it current.",
+          "cost": "Premium based on wages"
+        },
+        {
+          "title": "Declare wages each year",
+          "detail": "Report your actual wages to your insurer at renewal.",
+          "timeframe": "Yearly"
+        }
+      ],
+      "fees": [],
+      "contacts": [
+        {
+          "name": "WorkCover WA Advice and Assistance Service",
+          "phone": "1300 794 744",
+          "url": "https://www.workcover.wa.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Not having a current policy risks prosecution."
+      ],
+      "sources": [
+        {
+          "url": "https://www.workcover.wa.gov.au/employers/insurance/",
+          "title": "WorkCover WA: Employers, insurance"
+        }
+      ],
+      "gaps": [
+        "The list of approved insurers and the definition of a worker were not on the page read; check WorkCover WA."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_PAYROLL_TAX_REGISTRATION",
+      "title": "Payroll tax (WA)",
+      "summary": "WA payroll tax applies once your total Australian taxable wages (including any group you belong to) are more than A$1 million a year, or A$83,333 in a month. The rate is 5.5%, and a diminishing threshold applies between A$1 million and A$7.5 million. You register and lodge with RevenueWA.",
+      "authority": "RevenueWA (Department of Treasury and Finance)",
+      "publisher": "RevenueWA",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 205,
+      "checked_on": "2026-10-12",
+      "timeframe": "Register as soon as your wages go over the threshold.",
+      "cost_summary": "5.5% of taxable wages above your threshold.",
+      "before_you_start": [
+        "Add up Australian taxable wages, including grouped businesses.",
+        "Check the monthly figure: A$83,333."
+      ],
+      "steps": [
+        {
+          "title": "Check the threshold",
+          "detail": "Use the Payroll Tax Employer Guide to work out whether you're over the threshold.",
+          "timeframe": "1 hour",
+          "url": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide"
+        },
+        {
+          "title": "Register with RevenueWA",
+          "detail": "Register online once you go over the threshold."
+        },
+        {
+          "title": "Lodge and pay",
+          "detail": "Lodge returns and pay by the due dates RevenueWA sets.",
+          "timeframe": "Monthly or yearly",
+          "cost": "5.5%"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Payroll tax rate",
+          "amount": "5.5%",
+          "note": "Threshold A$1 million a year from 1 July 2023."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "RevenueWA",
+          "url": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/revenuewa"
+        }
+      ],
+      "watch_out": [
+        "Grouped businesses share one threshold."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide/calculation-payroll-tax-employer-guide",
+          "title": "RevenueWA: Calculation, Payroll Tax Employer Guide"
+        }
+      ],
+      "gaps": [
+        "The registration deadline and lodgement dates were not on the page read."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_BUILDING_CONTRACTOR_REGISTRATION",
+      "title": "Building contractor registration (WA)",
+      "summary": "In WA you must be a registered building contractor to contract for building work valued at A$20,000 or more (A$50,000 or more for Class 10a buildings such as sheds, carports and patios) that needs a building permit and is in the prescribed area (122 local governments). The Building Services Board registers individuals, partnerships and companies. Each needs a registered building practitioner as nominated supervisor and must show financial capacity.",
+      "authority": "Building Services Board (through Building and Energy, LGIRS)",
+      "publisher": "Building and Energy",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 120,
+      "checked_on": "2026-10-12",
+      "timeframe": "Decision within 50 business days of a complete application; usually 4 to 6 weeks. Registration lasts 3 years.",
+      "cost_summary": "Individual A$854, partnership A$2,299, company A$4,359 for 3 years (2026-27, excluding GST); building practitioner A$1,133.",
+      "before_you_start": [
+        "Hold (or apply at the same time for) building practitioner registration; partnerships and companies need a registered practitioner as nominated supervisor.",
+        "Show access to at least A$50,000 in cash or equivalent and a quick ratio of at least 1:1.",
+        "Get a bank statement and credit report no more than 3 months old.",
+        "A trust can't register: the trustee applies."
+      ],
+      "steps": [
+        {
+          "title": "Check you need registration",
+          "detail": "Confirm the work needs a building permit, is in the prescribed area and meets the value threshold.",
+          "timeframe": "15 minutes",
+          "url": "https://www.wa.gov.au/government/publications/do-i-need-be-registered-building-contractor"
+        },
+        {
+          "title": "Prepare your documents",
+          "detail": "Business profile, management and supervision questionnaire, ID, financial documents and supervisor details.",
+          "timeframe": "1 to 2 weeks"
+        },
+        {
+          "title": "Lodge the application",
+          "detail": "Apply online, or lodge Building Services Board Form 13 (individual), Building Services Board Form 14 (partnership, with Forms A2.1 and A2.2) or Building Services Board Form 15 (company) by post or in person at Cannington.",
+          "cost": "A$854 to A$4,359",
+          "form": {
+            "name": "Building contractor registration: new",
+            "url": "https://www.wa.gov.au/government/multi-step-guides/builders-registration/building-contractor-registration-new"
+          }
+        },
+        {
+          "title": "Wait for assessment",
+          "detail": "The Board may ask for more information, which extends the timeframe.",
+          "timeframe": "4 to 6 weeks"
+        },
+        {
+          "title": "Renew every 3 years",
+          "detail": "Keep your financial position and supervisor current.",
+          "timeframe": "Every 3 years"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Individual",
+          "amount": "A$854",
+          "note": "Registration A$564 plus non-refundable application A$290."
+        },
+        {
+          "label": "Partnership",
+          "amount": "A$2,299"
+        },
+        {
+          "label": "Company",
+          "amount": "A$4,359"
+        },
+        {
+          "label": "Building practitioner",
+          "amount": "A$1,133"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building and Energy Licensing Services",
+          "phone": "1300 489 099",
+          "email": "be.licensingenquiries@lgirs.wa.gov.au",
+          "hours": "8.30am to 4.30pm weekdays",
+          "note": "Customer service: Level 1, Mason Bird Building, 303 Sevenoaks Street, Cannington."
+        }
+      ],
+      "watch_out": [
+        "Contracting for work over the threshold while unregistered is an offence.",
+        "Residential work over A$20,000 also needs home indemnity insurance before you take any payment."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/government/publications/do-i-need-be-registered-building-contractor",
+          "title": "Building and Energy: Do I need to be a registered building contractor?"
+        },
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/builders-registration/building-contractor-registration-new",
+          "title": "Building contractor registration: new"
+        },
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/lgirs-licensing-and-registration-fees-and-charges/building-and-energy-fees",
+          "title": "Building and Energy fees (2026-27)"
+        }
+      ],
+      "gaps": [
+        "Direct PDF links for the Building Services Board forms were not captured; the forms are linked from the registration page."
+      ],
+      "forms": [
+        "wa-bsb-form-13",
+        "wa-bsb-form-14",
+        "wa-bsb-form-15"
+      ]
+    },
+    {
+      "kind": "WA_HOME_INDEMNITY_INSURANCE",
+      "title": "Home indemnity insurance (WA)",
+      "summary": "Under the Home Building Contracts Act 1991, residential building work over A$20,000 must be covered by home indemnity insurance. The builder must get the certificate before claiming any payment, and give a copy to the owner and to the permit authority with the building permit application. It protects owners if the builder dies, disappears, becomes insolvent or loses registration for failing financial requirements.",
+      "authority": "Approved insurers (scheme overseen by Building and Energy)",
+      "publisher": "Building and Energy",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 123,
+      "checked_on": "2026-10-12",
+      "timeframe": "Insurers assess your eligibility first, then issue a certificate for each job.",
+      "cost_summary": "Premiums are set by the insurer for each job.",
+      "before_you_start": [
+        "Get eligibility approved with an approved insurer before you quote residential jobs over A$20,000."
+      ],
+      "steps": [
+        {
+          "title": "Apply for eligibility",
+          "detail": "An approved insurer reviews your finances and sets limits on the work you can take on.",
+          "timeframe": "Weeks"
+        },
+        {
+          "title": "Get a certificate for each job",
+          "detail": "Buy a certificate before taking any deposit or payment.",
+          "cost": "Per job"
+        },
+        {
+          "title": "Give copies",
+          "detail": "Give a copy to the owner and include one with the building permit application."
+        }
+      ],
+      "fees": [],
+      "contacts": [
+        {
+          "name": "Building and Energy Licensing Services",
+          "phone": "1300 489 099",
+          "email": "be.licensingenquiries@lgirs.wa.gov.au",
+          "hours": "8.30am to 4.30pm weekdays",
+          "note": "Customer service: Level 1, Mason Bird Building, 303 Sevenoaks Street, Cannington."
+        }
+      ],
+      "watch_out": [
+        "Associated work done alone under a separate contract (pools, carports, pergolas, landscaping) doesn't need home indemnity insurance.",
+        "Builders who don't get it risk substantial penalties and disciplinary action."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/government/announcements/home-indemnity-insurance-reminder-about-your-obligations",
+          "title": "Building and Energy: Home indemnity insurance, reminder about your obligations"
+        }
+      ],
+      "gaps": [
+        "The list of approved insurers and premium rates were not read."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_PLUMBING_LICENCE",
+      "title": "Plumbing contractor's licence (WA)",
+      "summary": "Plumbing businesses in WA need a plumbing contractor's licence from the Plumbers Licensing Board, which lets you take responsibility for plumbing work and supervise tradespeople. You must first hold a tradesperson's licence (or a drainage plumbing tradesperson's licence) and complete business units of competency.",
+      "authority": "Plumbers Licensing Board (through Building and Energy, LGIRS)",
+      "publisher": "Building and Energy",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 121,
+      "checked_on": "2026-10-12",
+      "timeframe": "Usually 4 to 6 weeks. Licences last 3 years.",
+      "cost_summary": "Plumbing contractor's licence A$928; tradesperson's licence A$334 (3 years, 2026-27, excluding GST).",
+      "before_you_start": [
+        "Hold a tradesperson's licence and your statements of competency (water supply, sanitary and/or drainage).",
+        "Complete the business unit 'Establish legal and risk management requirements of small business' and the units for your category.",
+        "Get a police check dated within 3 months and a passport-style photo."
+      ],
+      "steps": [
+        {
+          "title": "Check the units for your category",
+          "detail": "Read the requirements for your chosen contractor category.",
+          "timeframe": "30 minutes",
+          "url": "https://www.wa.gov.au/government/multi-step-guides/plumbers-licensing/apply-new-plumbing-contractors-licence"
+        },
+        {
+          "title": "Apply",
+          "detail": "Apply online, or post Plumbers Licensing Board Form 101 to Licensing Services, Locked Bag 14, Cloisters Square WA 6850, or lodge in person at Cannington.",
+          "cost": "A$928",
+          "form": {
+            "name": "Apply for a new plumbing contractor's licence",
+            "url": "https://www.wa.gov.au/government/multi-step-guides/plumbers-licensing/apply-new-plumbing-contractors-licence"
+          }
+        },
+        {
+          "title": "Wait for your licence",
+          "detail": "You'll be emailed when it's finalised.",
+          "timeframe": "4 to 6 weeks"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Plumbing contractor's licence",
+          "amount": "A$928",
+          "note": "Registration A$846 plus application A$82; 3 years."
+        },
+        {
+          "label": "Tradesperson's licence",
+          "amount": "A$334",
+          "note": "3 years."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Plumbers Licensing Board (Licensing Services)",
+          "phone": "1300 489 099",
+          "email": "plumbers@lgirs.wa.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Gas fitting needs a separate gas licence from Building and Energy."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/plumbers-licensing/apply-new-plumbing-contractors-licence",
+          "title": "Apply for a new plumbing contractor's licence"
+        },
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/lgirs-licensing-and-registration-fees-and-charges/building-and-energy-fees",
+          "title": "Building and Energy fees (2026-27)"
+        }
+      ],
+      "gaps": [
+        "A direct PDF link for Plumbers Licensing Board Form 101 was not captured."
+      ],
+      "forms": [
+        "wa-plb-form-101"
+      ]
+    },
+    {
+      "kind": "WA_ELECTRICAL_CONTRACTOR_LICENCE",
+      "title": "Electrical contractor's licence (WA)",
+      "summary": "To carry on a business of electrical work in WA you need an electrical contractor's licence from Building and Energy. The applicant or an employee must hold a WA electrician's licence and act as nominee, a management representative must understand the regulations, and you need public liability insurance.",
+      "authority": "Building and Energy (LGIRS)",
+      "publisher": "Building and Energy",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 122,
+      "checked_on": "2026-10-12",
+      "timeframe": "No set processing time; you'll be emailed when the licence is finalised.",
+      "cost_summary": "A$795 for 1 year or A$2,101 for 3 years (2026-27, excluding GST).",
+      "before_you_start": [
+        "Your nominee needs a WA electrician's licence and the Electrical Contractor Training Program modules on legislative and electrical requirements.",
+        "Your management representative needs the General Legislative Requirements and Establishing a Contracting Business modules (usually within the last 5 years).",
+        "Get a public liability certificate of currency in the legal entity's name, issued within 30 days."
+      ],
+      "steps": [
+        {
+          "title": "Complete the training",
+          "detail": "Finish the Electrical Contractor Training Program modules.",
+          "timeframe": "Days to weeks",
+          "cost": "Set by provider"
+        },
+        {
+          "title": "Apply",
+          "detail": "Apply online, or lodge Form R013A (individual), Form R013B (partnership) or Form R013C (company) by post or in person.",
+          "cost": "A$795 or A$2,101",
+          "form": {
+            "name": "Electrical contractor's licence application",
+            "url": "https://www.wa.gov.au/government/multi-step-guides/electrical-contractor-licensing/electrical-contractors-licence-application"
+          }
+        },
+        {
+          "title": "Keep insurance current",
+          "detail": "Maintain public liability insurance while licensed.",
+          "timeframe": "Ongoing"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Electrical contractor's licence, 1 year",
+          "amount": "A$795"
+        },
+        {
+          "label": "Electrical contractor's licence, 3 years",
+          "amount": "A$2,101"
+        },
+        {
+          "label": "Electrician's licence",
+          "amount": "A$218 (1 year) or A$714 (5 years)"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building and Energy Licensing Services (electrical)",
+          "phone": "(08) 6251 2000",
+          "email": "electricallicensing@lgirs.wa.gov.au"
+        }
+      ],
+      "watch_out": [
+        "The certificate of currency must be in the entity's legal name, not a trust or trading name."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/electrical-contractor-licensing/electrical-contractors-licence-application",
+          "title": "Electrical contractor's licence application"
+        },
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/lgirs-licensing-and-registration-fees-and-charges/building-and-energy-fees",
+          "title": "Building and Energy fees (2026-27)"
+        }
+      ],
+      "gaps": [
+        "Minimum insurance amount was not stated on the page read."
+      ],
+      "forms": [
+        "wa-electrical-form-r013a",
+        "wa-electrical-form-r013b",
+        "wa-electrical-form-r013c"
+      ]
+    },
+    {
+      "kind": "WA_PAINTER_REGISTRATION",
+      "title": "Painter registration (WA)",
+      "summary": "WA still registers painters under the Building Services (Registration) Act 2011. A business that contracts with the public for painting work worth more than A$1,000 must be a registered painting contractor, and its supervisor and painters must be registered painting practitioners.",
+      "authority": "Building Services Board (through Building and Energy, LGIRS)",
+      "publisher": "Building and Energy",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 124,
+      "checked_on": "2026-10-12",
+      "timeframe": "Registrations last 3 years; renewals open 12 weeks before expiry.",
+      "cost_summary": "Painting contractor A$476 (individual) to A$1,391 (company); practitioner A$645 (2026-27, excluding GST).",
+      "before_you_start": [
+        "Get practitioner registration first if you'll be the nominated supervisor."
+      ],
+      "steps": [
+        {
+          "title": "Apply for practitioner registration",
+          "detail": "Apply for painting practitioner registration.",
+          "cost": "A$645",
+          "url": "https://www.wa.gov.au/government/multi-step-guides/painters-registration"
+        },
+        {
+          "title": "Apply for contractor registration",
+          "detail": "Apply for painting contractor registration for your business.",
+          "cost": "A$476 to A$1,391"
+        },
+        {
+          "title": "Renew every 3 years",
+          "detail": "Renewals open 12 weeks before expiry.",
+          "timeframe": "Every 3 years"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Painting contractor, individual",
+          "amount": "A$476"
+        },
+        {
+          "label": "Painting contractor, partnership",
+          "amount": "A$818"
+        },
+        {
+          "label": "Painting contractor, company",
+          "amount": "A$1,391"
+        },
+        {
+          "label": "Painting practitioner",
+          "amount": "A$645"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building and Energy Licensing Services",
+          "phone": "1300 489 099",
+          "email": "be.licensingenquiries@lgirs.wa.gov.au",
+          "hours": "8.30am to 4.30pm weekdays",
+          "note": "Customer service: Level 1, Mason Bird Building, 303 Sevenoaks Street, Cannington."
+        }
+      ],
+      "watch_out": [
+        "Painting work over A$1,000 without registration is an offence."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/painters-registration",
+          "title": "Painters' registration"
+        },
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/lgirs-licensing-and-registration-fees-and-charges/building-and-energy-fees",
+          "title": "Building and Energy fees (2026-27)"
+        }
+      ],
+      "gaps": [
+        "The page didn't define the area where painter registration applies."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_SKIN_PENETRATION_REGISTRATION",
+      "title": "Skin penetration premises (WA)",
+      "summary": "Tattooing, piercing, scarification, branding, waxing, electrolysis, acupuncture and similar procedures are regulated by the Health (Skin Penetration Procedures) Regulations 1998 and the Code of Practice for Skin Penetration Procedures. Before you open you must notify your local government of your trading name, address and procedures, and give it a layout of the premises.",
+      "authority": "Your local government (environmental health)",
+      "publisher": "Department of Health (WA)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 150,
+      "checked_on": "2026-10-12",
+      "timeframe": "Notify and get your fit-out checked before you open.",
+      "cost_summary": "Set by each local government.",
+      "before_you_start": [
+        "Plan your fit-out: a hand basin with hot and cold water in the procedure area (hands-free for new or refurbished premises) and at least two sinks, one for hands and one for equipment.",
+        "Train staff in infection control."
+      ],
+      "steps": [
+        {
+          "title": "Contact your local government",
+          "detail": "Ask the environmental health team for its skin penetration notification or registration form and fee."
+        },
+        {
+          "title": "Lodge your details and layout",
+          "detail": "Give your trading name, address, procedures and a layout of the premises including fixtures and materials.",
+          "timeframe": "Before you open",
+          "cost": "Varies"
+        },
+        {
+          "title": "Inspection",
+          "detail": "An environmental health officer inspects against the regulations and Code of Practice."
+        },
+        {
+          "title": "Mobile work",
+          "detail": "If you work at more than one place, every place must be registered with its local government."
+        }
+      ],
+      "fees": [],
+      "contacts": [
+        {
+          "name": "Your local government's environmental health team"
+        }
+      ],
+      "watch_out": [
+        "Owners who breach the regulations or code can be fined up to A$1,000 plus daily penalties.",
+        "Tattooing or branding anyone under 18 without written parental consent can bring a A$12,000 fine and a year in prison; intimate piercing of a child is banned (A$18,000 and 18 months).",
+        "Lasers for hair or tattoo removal need a licence under radiation safety laws."
+      ],
+      "sources": [
+        {
+          "url": "https://www.health.wa.gov.au/articles/s_t/skin-penetration-procedures-and-the-law",
+          "title": "WA Department of Health: Skin penetration procedures and the law"
+        }
+      ],
+      "gaps": [
+        "Local government forms and fees vary and were not read.",
+        "The Health Department page didn't say whether new regulations under the Public Health Act 2016 will replace the 1998 regulations."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_EDUCATION_CARE_SERVICE_APPROVAL",
+      "title": "Provider and service approval for childcare (WA)",
+      "summary": "Long day care, family day care, outside school hours care and kindergartens in WA run under the Education and Care Services National Law. The Education and Care Regulatory Unit (ECRU) at the Department of Communities is the regulatory authority. You need provider approval, then service approval for each service, both through the National Quality Agenda IT System.",
+      "authority": "Education and Care Regulatory Unit (Department of Communities)",
+      "publisher": "Department of Communities (WA)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "WA",
+      "order": 140,
+      "checked_on": "2026-10-12",
+      "timeframe": "60 days for provider approval and 90 days for service approval, from when the application is validated as complete.",
+      "cost_summary": "Fees are set under the national regulations; see ACECQA's Guide to the National Quality Framework.",
+      "before_you_start": [
+        "Get planning approval from your local government for a centre.",
+        "Read ACECQA's Guide to the National Quality Framework for documents and checks."
+      ],
+      "steps": [
+        {
+          "title": "Register on the NQA IT System",
+          "detail": "Create an account on the National Quality Agenda IT System.",
+          "timeframe": "1 day",
+          "url": "https://www.acecqa.gov.au"
+        },
+        {
+          "title": "Apply for provider approval",
+          "detail": "Lodge the provider approval application online.",
+          "timeframe": "60 days"
+        },
+        {
+          "title": "Apply for service approval",
+          "detail": "Once approved as a provider, apply for each service.",
+          "timeframe": "90 days"
+        },
+        {
+          "title": "Prepare for assessment and rating",
+          "detail": "ECRU will assess and rate your service after it opens."
+        }
+      ],
+      "fees": [],
+      "contacts": [
+        {
+          "name": "Education and Care Regulatory Unit",
+          "phone": "(08) 6277 3889",
+          "email": "ECRU@communities.wa.gov.au",
+          "hours": "9am to 5pm weekdays",
+          "note": "Freecall 1800 199 383."
+        }
+      ],
+      "watch_out": [
+        "Plan for the maximum timeframe: the clock starts only once your application is complete."
+      ],
+      "sources": [
+        {
+          "url": "https://www.wa.gov.au/organisation/department-of-communities/education-and-care-services-applications",
+          "title": "Department of Communities: Education and care services, applications"
+        }
+      ],
+      "gaps": [
+        "Application fees and required checks were not listed on the page read."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_VEHICLE_REGISTRATION",
+      "title": "Licensing an imported vehicle (WA)",
+      "summary": "In WA registering a vehicle is called licensing it, and an imported vehicle must be licensed as soon as it arrives. You get a temporary movement permit, pass a roadworthiness inspection, then lodge Form VL17 in person at a Department of Transport and Major Infrastructure (DTMI) service centre with your import approval, Certificate of Inspection, ID and proof of ownership. You pay vehicle licence duty, the licence fee and motor injury insurance.",
+      "authority": "Department of Transport and Major Infrastructure (WA)",
+      "publisher": "Department of Transport and Major Infrastructure",
+      "verticals": [
+        "TRADE"
+      ],
+      "jurisdiction": "WA",
+      "order": 480,
+      "checked_on": "2026-10-12",
+      "timeframe": "Inspection booking, then one visit to a service centre.",
+      "cost_summary": "Licence fee A$29.76 per 100 kg for a car (about A$513 a year for 1,650 kg) plus motor injury insurance; duty 2.75% to 6.5% of value.",
+      "before_you_start": [
+        "Have your import approval and proof the vehicle cleared customs.",
+        "Make sure the vehicle meets the Australian Design Rules for its year, and read Vehicle Technical Bulletin VTB-106A for left-hand drive vehicles.",
+        "If you've never licensed a vehicle in WA and have no WA driver's licence, complete Form VL186.",
+        "Have proof of purchase showing the VIN, and a weighbridge certificate if the tare can't be verified."
+      ],
+      "steps": [
+        {
+          "title": "Get a temporary movement permit",
+          "detail": "You need one to drive the unlicensed vehicle to the inspection and for the road test.",
+          "url": "https://www.transport.wa.gov.au/licensing/vehicle/inspected-moved/temporary-movement-permit"
+        },
+        {
+          "title": "Book the inspection",
+          "detail": "Most vehicles go to an Authorised Inspection Station. Personal effects imports must be inspected by DTMI: call Vehicle Operations on 1300 776 065.",
+          "timeframe": "Book ahead; arrive 15 minutes early",
+          "cost": "Inspection fee"
+        },
+        {
+          "title": "Complete the application",
+          "detail": "Fill in Form VL17 (and Form VL186 if needed).",
+          "form": {
+            "name": "Application to license a vehicle (Form VL17)",
+            "url": "https://www.transport.wa.gov.au/getmedia/bcf66761-cfff-4c89-8a43-4c463d846fd6/LBU_F_VL_17_LicenceVehicle.pdf"
+          }
+        },
+        {
+          "title": "Lodge in person and pay",
+          "detail": "Take your documents to a DTMI service centre or regional agent and pay duty, the licence fee and motor injury insurance.",
+          "timeframe": "One visit",
+          "cost": "Duty plus licence fees",
+          "url": "https://www.transport.wa.gov.au/about-us/contact-us/find-a-location"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Licence fee (car)",
+          "amount": "A$29.76 per 100 kg",
+          "note": "2026-27, plus a flat fee; 1,650 kg car about A$512.52 for 12 months."
+        },
+        {
+          "label": "Vehicle licence duty, up to A$25,000",
+          "amount": "2.75% of value"
+        },
+        {
+          "label": "Vehicle licence duty, A$25,000 to A$50,000",
+          "amount": "Sliding rate from 2.75% to 6.5%"
+        },
+        {
+          "label": "Vehicle licence duty, over A$50,000",
+          "amount": "6.5% of value"
+        },
+        {
+          "label": "Recording fee",
+          "amount": "A$9.70",
+          "note": "On non-direct-debit renewals."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "DTMI Vehicle Operations (inspections)",
+          "phone": "1300 776 065"
+        },
+        {
+          "name": "Department of Transport and Major Infrastructure",
+          "phone": "13 11 56",
+          "url": "https://www.transport.wa.gov.au/about-us/contact/get-in-touch"
+        }
+      ],
+      "watch_out": [
+        "Personal effects imports can't be inspected at an Authorised Inspection Station.",
+        "Give at least 24 hours' notice to cancel or reschedule an inspection."
+      ],
+      "sources": [
+        {
+          "url": "https://www.transport.wa.gov.au/licensing/vehicle/license-vehicle/overseas-vehicle/imported-vehicle",
+          "title": "DTMI: License an imported vehicle"
+        },
+        {
+          "url": "https://www.transport.wa.gov.au/licensing/vehicle/license-vehicle/western-australia",
+          "title": "DTMI: License a vehicle in Western Australia"
+        },
+        {
+          "url": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/vehicle-licence-duty",
+          "title": "RevenueWA: Vehicle licence duty"
+        }
+      ],
+      "gaps": [
+        "Motor injury insurance amount, plate fees and inspection fees were not read."
+      ],
+      "forms": [
+        "wa-dtmi-form-vl17",
+        "wa-dtmi-form-vl186"
+      ]
+    },
+    {
+      "kind": "WA_MOTOR_VEHICLE_DEALER_LICENCE",
+      "title": "Motor vehicle dealer licence (WA)",
+      "summary": "In WA you're a motor vehicle dealer if you sell or exchange 4 or more vehicles in any 12 months to people who aren't dealers, or run a business buying or selling vehicles. You need a dealer licence from Consumer Protection (Department of Local Government, Industry Regulation and Safety) under the Motor Vehicle Dealers Act 1973. Yard managers and salespeople need their own licences.",
+      "authority": "Consumer Protection (Department of Local Government, Industry Regulation and Safety)",
+      "publisher": "Consumer Protection (WA)",
+      "verticals": [
+        "TRADE"
+      ],
+      "jurisdiction": "WA",
+      "order": 490,
+      "checked_on": "2026-10-12",
+      "timeframe": "Licences last 3 years. Police checks must be no older than 3 months when you lodge.",
+      "cost_summary": "Dealer licence A$2,240 for one premises plus A$1,230 per extra premises; yard manager A$662; salesperson A$448 (3 years, excluding GST).",
+      "before_you_start": [
+        "Complete the dealer and yard manager licensing course with an accepted training provider.",
+        "Secure suitable premises and check planning approval with your local government.",
+        "Register with ASIC if you're a company.",
+        "Get police checks for all partners and directors (or yourself) from an approved provider."
+      ],
+      "steps": [
+        {
+          "title": "Do the licensing course",
+          "detail": "Complete the accepted dealer course.",
+          "timeframe": "Days",
+          "cost": "Set by provider"
+        },
+        {
+          "title": "Prepare the application",
+          "detail": "Download the right application form for your business structure.",
+          "form": {
+            "name": "New application: motor vehicle dealer licence (individual)",
+            "url": "https://www.wa.gov.au/media/49915/download?inline="
+          }
+        },
+        {
+          "title": "Lodge with police checks and fee",
+          "detail": "Consumer Protection also checks your credit history.",
+          "cost": "From A$2,240",
+          "url": "https://www.consumerprotection.wa.gov.au/motor-vehicle-dealers-licensing"
+        },
+        {
+          "title": "License your staff",
+          "detail": "Yard managers and salespeople apply for their own licences.",
+          "cost": "A$662 or A$448"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Dealer licence, one premises",
+          "amount": "A$2,240",
+          "note": "3 years."
+        },
+        {
+          "label": "Each extra premises",
+          "amount": "A$1,230"
+        },
+        {
+          "label": "Yard manager",
+          "amount": "A$662"
+        },
+        {
+          "label": "Salesperson",
+          "amount": "A$448"
+        },
+        {
+          "label": "Change of premises",
+          "amount": "A$194"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Consumer Protection Licensing Branch",
+          "phone": "1300 30 40 64"
+        }
+      ],
+      "watch_out": [
+        "Selling 4 or more vehicles in 12 months without a licence is an offence; Consumer Protection prosecutes unlicensed dealers."
+      ],
+      "sources": [
+        {
+          "url": "https://www.consumerprotection.wa.gov.au/motor-vehicle-dealers-licensing",
+          "title": "Consumer Protection: Motor vehicle dealers licensing"
+        },
+        {
+          "url": "https://www.wa.gov.au/government/multi-step-guides/lgirs-licensing-and-registration-fees-and-charges/motor-vehicle-industry-licensing-fees",
+          "title": "Motor vehicle industry licensing fees"
+        }
+      ],
+      "gaps": [
+        "Processing times weren't stated.",
+        "The Licensing Branch email shown on the page used an old department domain; confirm before using it."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "WA_VESSEL_REGISTRATION",
+      "title": "Registering a boat (WA)",
+      "summary": "In WA every recreational vessel that is or can be propelled by a motor must be registered with the Department of Transport and Major Infrastructure, including sailing boats with an engine and boats on moorings or in pens. Lodge the WA application to register a new boat in person with a HIN certificate, ID and proof of purchase. Registration lasts 12 months.",
+      "authority": "Department of Transport and Major Infrastructure (WA)",
+      "publisher": "Department of Transport and Major Infrastructure",
+      "verticals": [
+        "VESSEL"
+      ],
+      "jurisdiction": "WA",
+      "order": 600,
+      "checked_on": "2026-10-12",
+      "timeframe": "One visit to a service centre once you have the HIN certificate; renew every 12 months.",
+      "cost_summary": "A$170.65 a year under 5 m, A$362.40 for 5 to 9.99 m, plus a A$36.90 recording fee for new registrations.",
+      "before_you_start": [
+        "Get a Hull Identification Number (HIN) certificate.",
+        "Have proof of acquisition: a sales invoice, signed receipt, interstate papers in your name, or a statutory declaration of boat ownership.",
+        "Bring proof of identity.",
+        "If you bought a trailer too, license it separately."
+      ],
+      "steps": [
+        {
+          "title": "Get a HIN certificate",
+          "detail": "Have the boat inspected for a HIN if it doesn't have one.",
+          "url": "https://www.transport.wa.gov.au/marine/recreational-boating/boat-registration/boatcode-hin"
+        },
+        {
+          "title": "Complete the application",
+          "detail": "Fill in the WA application to register a new boat (and the additional owners form if there's more than one owner)."
+        },
+        {
+          "title": "Lodge in person and pay",
+          "detail": "Lodge at a DTMI service centre or regional agent and pay the registration and recording fees.",
+          "timeframe": "One visit",
+          "cost": "From A$207.55",
+          "url": "https://www.transport.wa.gov.au/about-us/contact-us/find-a-location"
+        },
+        {
+          "title": "Renew each year",
+          "detail": "Pay online with your account number or through DoTDirect.",
+          "timeframe": "Yearly",
+          "url": "https://online.transport.wa.gov.au/tso/selfservice/public/login.jsf"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Under 5 m",
+          "amount": "A$170.65",
+          "note": "12 months."
+        },
+        {
+          "label": "5 to 9.99 m",
+          "amount": "A$362.40"
+        },
+        {
+          "label": "10 to 19.99 m",
+          "amount": "A$726.95"
+        },
+        {
+          "label": "20 m and over",
+          "amount": "A$1,063.15"
+        },
+        {
+          "label": "Recording fee",
+          "amount": "A$36.90",
+          "note": "New registration or change of owner."
+        },
+        {
+          "label": "Registration numbers",
+          "amount": "A$2.10 each"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Department of Transport and Major Infrastructure",
+          "phone": "13 11 56",
+          "url": "https://www.transport.wa.gov.au/about-us/contact/get-in-touch"
+        }
+      ],
+      "watch_out": [
+        "Exempt: boats with no motor, paddle boards, electric hydrofoil boards under 4.5 kW, and small tenders that meet the tender rules.",
+        "The person in charge of a registered boat needs a Recreational Skipper's Ticket."
+      ],
+      "sources": [
+        {
+          "url": "https://www.transport.wa.gov.au/imarine/recreational-boat-registration.asp",
+          "title": "DTMI: Register a vessel"
+        }
+      ],
+      "gaps": [
+        "The page didn't state the fee year or which fees include GST (page updated 4 September 2026).",
+        "A direct link to the new boat registration form was not captured."
+      ],
+      "forms": [
+        "wa-dtmi-new-boat-registration"
+      ]
+    },
+    {
+      "kind": "WA_SKIPPERS_TICKET",
+      "title": "Recreational Skipper's Ticket (WA)",
+      "summary": "The Recreational Skipper's Ticket (RST) is WA's recreational boat licence. You need one to be in charge of a registered recreational boat, unless an RST holder aged 18 or over supervises you. You must be at least 14 and pass a theory test and a practical assessment with an authorised provider. The ticket lasts for life.",
+      "authority": "Department of Transport and Major Infrastructure (WA)",
+      "publisher": "Department of Transport and Major Infrastructure",
+      "verticals": [
+        "VESSEL"
+      ],
+      "jurisdiction": "WA",
+      "order": 610,
+      "checked_on": "2026-10-12",
+      "timeframe": "Theory and practical assessments take about an hour each; the assessor gives an interim certificate valid for 3 months until your card arrives.",
+      "cost_summary": "A$36.90 recording fee, plus the provider's assessment fees.",
+      "before_you_start": [
+        "Get the eyesight and medical fitness declaration completed.",
+        "Bring proof of identity (a WA driver's licence usually covers ID and eyesight).",
+        "If you're under 18, bring a letter of consent from a parent or guardian."
+      ],
+      "steps": [
+        {
+          "title": "Study",
+          "detail": "Use the RST workbook and quizzes, or a training provider.",
+          "timeframe": "Days",
+          "url": "https://www.transport.wa.gov.au/marine/recreational-boating/recreational-skippers-ticket/rst-workbook-quizzes"
+        },
+        {
+          "title": "Book with an authorised provider",
+          "detail": "Choose an authorised assessment provider.",
+          "cost": "Set by provider",
+          "url": "https://www.transport.wa.gov.au/marine/recreational-boating/recreational-skippers-ticket/rst-assessment-providers"
+        },
+        {
+          "title": "Pass the theory test",
+          "detail": "40 multiple-choice questions; you need 34 correct.",
+          "timeframe": "About 1 hour"
+        },
+        {
+          "title": "Pass the practical assessment",
+          "detail": "11 tasks; you need 56 of 62 criteria.",
+          "timeframe": "About 1 hour"
+        },
+        {
+          "title": "Receive your card",
+          "detail": "Your assessor issues an interim certificate valid for 3 months; DTMI posts your card.",
+          "cost": "A$36.90"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Recording fee",
+          "amount": "A$36.90"
+        },
+        {
+          "label": "Replacement card",
+          "amount": "A$26.75"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Department of Transport and Major Infrastructure",
+          "phone": "13 11 56",
+          "url": "https://www.transport.wa.gov.au/about-us/contact/get-in-touch"
+        }
+      ],
+      "watch_out": [
+        "You must pass the theory test before the practical.",
+        "Providers may charge for each attempt."
+      ],
+      "sources": [
+        {
+          "url": "https://www.transport.wa.gov.au/marine/recreational-boating/recreational-skippers-ticket/get-rst",
+          "title": "DTMI: Get a Recreational Skipper's Ticket"
+        }
+      ],
+      "gaps": [
+        "The 'About RST' page, which sets out exactly when a ticket is needed and the PWC rules, couldn't be read.",
+        "Direct form links for the eyesight declaration and consent letter were not captured."
+      ],
+      "forms": []
     }
   ]
 }

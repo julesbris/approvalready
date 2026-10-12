@@ -1,0 +1,83 @@
+{
+  "key": "rent.wa_minimum_standards",
+  "vertical": "RENT",
+  "title": "Minimum standards for a WA rental",
+  "description": "Safety and security standards a WA rental must meet before a tenancy. Summarised from Consumer Protection and Building and Energy guidance.",
+  "sources": [
+    {
+      "title": "Rental home security",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/rental-home-security"
+    },
+    {
+      "title": "Smoke alarm laws for homes being sold, rented and hired",
+      "organisation": "Building and Energy (Western Australia)",
+      "url": "https://www.wa.gov.au/organisation/building-and-energy/smoke-alarm-laws-homes-being-sold-rented-and-hired"
+    },
+    {
+      "title": "Electrical safety when renting or hiring (fact sheet)",
+      "organisation": "Building and Energy (Western Australia)",
+      "url": "https://www.wa.gov.au/system/files/2024-10/electrical_safety_renting_hiring_factsheet.pdf"
+    },
+    {
+      "title": "RCD safety switches",
+      "organisation": "Building and Energy (Western Australia)",
+      "url": "https://www.wa.gov.au/government/multi-step-guides/electrical-safety-home/rcd-safety-switches"
+    },
+    {
+      "title": "Councils urged to stay buoyant on pool barrier inspections",
+      "organisation": "Building and Energy (Western Australia)",
+      "url": "https://www.wa.gov.au/government/announcements/councils-urged-stay-buoyant-pool-barrier-inspections"
+    }
+  ],
+  "items": [
+    {
+      "key": "smoke_mains",
+      "title": "Smoke alarms are permanently connected to mains power",
+      "detail": "A 10-year sealed battery alarm only where there is no space to run wiring."
+    },
+    {
+      "key": "smoke_age",
+      "title": "Each smoke alarm is no more than 10 years old and not past its expiry date"
+    },
+    {
+      "key": "smoke_interconnected",
+      "title": "Alarms are interconnected where there is more than one (building permit applied for from 1 May 2015)"
+    },
+    {
+      "key": "rcds",
+      "title": "At least two RCDs protect all power and lighting circuits"
+    },
+    {
+      "key": "main_door",
+      "title": "Main entry door has a deadlock or an AS 5039-2008 security screen door"
+    },
+    {
+      "key": "other_doors",
+      "title": "Other external doors have a deadlock, patio bolt or compliant security screen door"
+    },
+    {
+      "key": "windows",
+      "title": "Windows that can be reached from outside lock so they can't be opened from outside"
+    },
+    {
+      "key": "entry_light",
+      "title": "An electric light at or near the main entry can be switched on from inside",
+      "detail": "Not needed for an apartment where the strata company looks after lighting."
+    },
+    {
+      "key": "pool",
+      "title": "Pool or spa barrier complies and gates self-close and latch",
+      "required": false
+    },
+    {
+      "key": "gas",
+      "title": "Have a licensed gas fitter check gas appliances (recommended)",
+      "required": false
+    },
+    {
+      "key": "licensed_trades",
+      "title": "Use licensed electrical contractors for electrical repairs and smoke alarm wiring"
+    }
+  ]
+}

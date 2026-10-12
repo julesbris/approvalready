@@ -1,0 +1,73 @@
+{
+  "key": "rent.wa_end_of_tenancy",
+  "vertical": "RENT",
+  "title": "Ending a tenancy in Western Australia",
+  "description": "Notices, the final inspection and the bond when a WA tenancy ends. Summarised from Consumer Protection forms and guidance.",
+  "sources": [
+    {
+      "title": "WA notice of termination form (PDF)",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/system/files/documents/2025-07/noticeofterminationform1c.pdf"
+    },
+    {
+      "title": "Property condition reports",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/consumer-protection/property-condition-reports"
+    },
+    {
+      "title": "Rental bonds",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/consumer-protection/rental-bonds"
+    },
+    {
+      "title": "Rental forms and notices",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/rental-forms-and-notices"
+    }
+  ],
+  "items": [
+    {
+      "key": "notice_form",
+      "title": "Use the WA notice of termination (not for unpaid rent)",
+      "detail": "Unpaid rent uses separate termination forms after a breach notice."
+    },
+    {
+      "key": "no_grounds",
+      "title": "Periodic tenancy without grounds: give at least 60 days' notice",
+      "required": false
+    },
+    {
+      "key": "sale",
+      "title": "Periodic tenancy after a sale needing vacant possession: give at least 30 days' notice",
+      "required": false
+    },
+    {
+      "key": "fixed_term",
+      "title": "Fixed term ending on its expiry date: give at least 30 days' notice",
+      "required": false
+    },
+    {
+      "key": "breach",
+      "title": "Breach not fixed: give a breach notice first, then at least 7 days' notice",
+      "required": false
+    },
+    {
+      "key": "final_pcr",
+      "title": "Do the outgoing property condition report and give the tenant a copy within 14 days of move-out"
+    },
+    {
+      "key": "keys_back",
+      "title": "Collect all keys and security devices"
+    },
+    {
+      "key": "bond_release",
+      "title": "Release the bond with the WA joint bond disposal form or through BondsOnline",
+      "detail": "If you can't agree, either party can ask for a Commissioner determination."
+    },
+    {
+      "key": "goods",
+      "title": "Follow the disposal of goods notices if the tenant leaves belongings",
+      "required": false
+    }
+  ]
+}

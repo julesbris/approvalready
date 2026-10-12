@@ -168,6 +168,81 @@
         "Building permits come from a registered building surveyor, with the state levy of 0.128% on work over $10,000 paid to the Building and Plumbing Commission (1300 067 088).",
         "Planning law reforms are commencing in stages until 29 October 2027."
       ]
+    },
+    {
+      "state": "WA",
+      "name": "Western Australia",
+      "checked_on": "2026-10-12",
+      "general_steps": [
+        "Search your address on PlanWA to find your zone and R-Code, and whether the land is bushfire prone or heritage-listed.",
+        "Read your council's local planning scheme and local planning policies. A house or granny flat (up to 70 m2) that meets every R-Codes deemed-to-comply standard is usually exempt from development approval.",
+        "Talk to council's duty planner before you lodge, especially if your design varies from the R-Codes.",
+        "Prepare the WA application for development approval form, signed by the owner, with plans, a copy of the title and any reports such as a BAL assessment.",
+        "Lodge with your council and pay the fee: $147 for work up to $50,000, then 0.32% of the cost up to $500,000.",
+        "Council may advertise to neighbours and refer the application to agencies such as the Heritage Council.",
+        "Council decides within 60 days, or 90 days if advertised. You can ask the State Administrative Tribunal to review a refusal or conditions.",
+        "Then get your building permit (certified, 10 business days, or uncertified, 25 business days) before you start work."
+      ],
+      "forms": [
+        "wa-planwa",
+        "wa-application-for-development-approval",
+        "wa-ba1-certified-building-permit",
+        "wa-ba2-uncertified-building-permit",
+        "wa-wapc-form-1a-subdivision"
+      ],
+      "source": {
+        "url": "https://www.planning.wa.gov.au/docs/default-source/planning-reform/pr-info-sheet-granny-flat.pdf?sfvrsn=31c1ea2d_4",
+        "title": "Ancillary dwelling information sheet: Granny flats (DPLH)"
+      },
+      "fees": {
+        "fee_year": "2026-27",
+        "schedule_url": "https://www.wa.gov.au/system/files/2022-11/Development-Application-Fees-Schedule-2-Planning-and-Development-Regulations-2009.pdf",
+        "items": [
+          {
+            "label": "Development approval, cost up to $50,000",
+            "amount": "$147",
+            "note": "Planning and Development Regulations 2009 Schedule 2"
+          },
+          {
+            "label": "Development approval, $50,001 to $500,000",
+            "amount": "0.32% of the cost"
+          },
+          {
+            "label": "Development approval, $500,001 to $2.5 million",
+            "amount": "$1,700 plus 0.257% over $500,000"
+          },
+          {
+            "label": "Change of use only",
+            "amount": "$295"
+          },
+          {
+            "label": "Certified building permit, house or Class 10",
+            "amount": "0.19% of value (minimum $121.00)",
+            "note": "Building Regulations 2012, as charged from 8 July 2026"
+          },
+          {
+            "label": "Uncertified building permit, house or Class 10",
+            "amount": "0.32% of value (minimum $121.00)"
+          },
+          {
+            "label": "Building Services Levy",
+            "amount": "0.137% of value (minimum $61.65)"
+          },
+          {
+            "label": "Demolition permit, house or Class 10",
+            "amount": "$121.00 plus levy"
+          }
+        ]
+      },
+      "planning_scheme_label": "local planning scheme",
+      "zoning_lookup_url": "https://espatial.dplh.wa.gov.au/PlanWA/Index.html?viewer=PlanWA",
+      "gaps": [
+        "Development application fees are maximums set statewide by the Planning and Development Regulations 2009 Schedule 2; the amounts shown are as last published by DPLH and weren't re-read this session.",
+        "Building fees are from the City of Wanneroo's schedule effective 8 July 2026 (Building Regulations 2012 Schedule 2).",
+        "There is no single statewide lodgement portal for development applications: each council runs its own.",
+        "Subdivisions are lodged with the WAPC through its eLodgement system.",
+        "Houses and Class 10 buildings don't need occupancy permits in WA."
+      ]
     }
   ]
 }

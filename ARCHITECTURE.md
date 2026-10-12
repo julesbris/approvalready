@@ -1117,3 +1117,22 @@ Built like New South Wales (§47). Content gathered from Victorian Government si
 | Business, vehicles, vessels, grants | Pack `business_vic`: food (classes, FoodTrader), liquor, footpath, WorkSafe, payroll tax, builder, plumber and electrician registration, Home Warranty, personal services, VECRA for childcare, VicRoads registration and motor car traders, boat registration and marine licences, the Hospitality Security Fund. |
 | Lookups | `lookups/vic.py` (`VicSpatial`): type-ahead from the Vicmap address geocoder (falls back to VicPlan's address layer by prefix), parcel by SPI (`1\PS123456`) with the area worked out from the boundary (`spatial.rings_area_m2`, Vicmap has no area field), council from the planning scheme boundary, zone and overlays from VicPlan's zone and overlay layers, plus bushfire prone areas, the Victorian Heritage Register and Aboriginal cultural heritage sensitivity. Settings `vic_geocoder_base_url`, `vic_planning_base_url` (public, no key). |
 | Tests | `tests/test_vic.py`; pack tests now cover every `property_*`, `planning_*` and `business_*` pack. |
+
+## 49. Western Australia
+
+Content like New South Wales (§47) and Victoria (§48), gathered from WA Government sites on
+2026-10-12, with what couldn't be confirmed in each entry's gaps. **No address lookups:**
+WA's keyless services work, but Landgate's address, cadastre and boundary data is licensed
+for personal use, and DPLH's zoning, R-Code, region scheme and heritage layers for "internal
+business or personal purposes only and not for any external or further display" (DWER's flood
+data likewise). Only the bush fire prone areas layer (OBRM-026) is CC BY 4.0, and without
+addresses it has nothing to attach to. WA addresses are typed in; the council guide links to
+PlanWA for the zone. A WA module needs a licence from Landgate and DPLH first.
+
+| Part | As built |
+|---|---|
+| Councils | `councils/wa_councils.json`: all 137 WA local governments (Christmas Island and Cocos (Keeling) Islands left out); spatial names as Landgate's LGA layer writes them ("STIRLING, CITY OF"), kept for a future lookup. Pack `councils_wa`. `states.json` WA: development application steps, statewide fees from the Planning and Development Regulations 2009, PlanWA for zones; no statewide portal. |
+| Planning | Pack `planning_wa`: development approval (with the deemed provisions' exemptions for R-Codes-compliant houses), ancillary dwellings up to 70 m², building and demolition permits (certified and uncertified), occupancy permits for a change of use, WAPC subdivision, BAL assessment. |
+| Selling and renting | Pack `property_wa` (`sell.wa.seller_disclosure`, `rent.wa.residential_tenancy`) and checklists `rent.wa_*`, `sell.wa_before_sale`. |
+| Business, vehicles, vessels, grants | Pack `business_wa`: food, liquor, alfresco dining, workers' compensation, payroll tax, builder and painter registration, home indemnity insurance, plumbing and electrical licences, skin penetration, childcare, DTMI vehicle registration and motor vehicle dealers, boat registration and the Recreational Skipper's Ticket, the SBDC CCTV rebate. |
+| Tests | `tests/test_wa.py`. |

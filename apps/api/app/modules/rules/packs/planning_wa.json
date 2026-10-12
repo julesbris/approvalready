@@ -1,0 +1,1493 @@
+{
+ "key": "planning_wa",
+ "title": "PlanningReady: Western Australia (approval pathways)",
+ "notes": "First sourced rules for Western Australia, statewide. Built on 2026-10-12 from DPLH and WAPC pages, the 2024 granny flat information sheet, Building and Energy's building approvals page and a council's 2026 Building Regulations 2012 fee schedule. Every reference is UNVERIFIED and carries a summary, not the source's wording. Local planning schemes, R-Codes and local planning policies are not encoded.",
+ "organisations": [
+  {
+   "ref": "dplh",
+   "name": "Department of Planning, Lands and Heritage (Western Australia)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "WA",
+   "website": "https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage"
+  },
+  {
+   "ref": "wapc",
+   "name": "Western Australian Planning Commission",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "WA",
+   "website": "https://www.wa.gov.au/organisation/western-australian-planning-commission"
+  },
+  {
+   "ref": "building_energy",
+   "name": "Building and Energy (Government of Western Australia)",
+   "kind": "REGULATOR",
+   "jurisdiction": "WA",
+   "website": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals"
+  },
+  {
+   "ref": "dfes",
+   "name": "Department of Fire and Emergency Services (Western Australia)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "WA",
+   "website": "https://dfes.wa.gov.au/"
+  },
+  {
+   "ref": "pco",
+   "name": "Parliamentary Counsel's Office (Western Australia)",
+   "kind": "LEGISLATURE",
+   "jurisdiction": "WA",
+   "website": "https://www.legislation.wa.gov.au/"
+  },
+  {
+   "ref": "wanneroo",
+   "name": "City of Wanneroo",
+   "kind": "COUNCIL",
+   "jurisdiction": "WA",
+   "website": "https://www.wanneroo.wa.gov.au/"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "lps_regs",
+   "organisation": "pco",
+   "jurisdiction": "WA",
+   "title": "Planning and Development (Local Planning Schemes) Regulations 2015, Schedule 2 (deemed provisions)",
+   "url": "https://www.legislation.wa.gov.au/",
+   "source_type": "REGULATION"
+  },
+  {
+   "ref": "granny_sheet",
+   "organisation": "dplh",
+   "jurisdiction": "WA",
+   "title": "Ancillary dwelling information sheet: Granny flats (DPLH planning reform)",
+   "url": "https://www.planning.wa.gov.au/docs/default-source/planning-reform/pr-info-sheet-granny-flat.pdf?sfvrsn=31c1ea2d_4",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rcodes_news",
+   "organisation": "dplh",
+   "jurisdiction": "WA",
+   "title": "Revised R-Codes now in effect (Government of Western Australia)",
+   "url": "https://www.wa.gov.au/government/announcements/revised-r-codes-now-effect",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "granny_media",
+   "organisation": "dplh",
+   "jurisdiction": "WA",
+   "title": "Granny flat exemptions commence to boost housing diversity (media statement, 9 April 2024)",
+   "url": "https://www.wa.gov.au/government/media-statements/Cook-Labor-Government/-Granny-flat-exemptions-commence-to-boost-housing-diversity-20240409",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "building_approvals",
+   "organisation": "building_energy",
+   "jurisdiction": "WA",
+   "title": "Building approvals (Building and Energy)",
+   "url": "https://www.wa.gov.au/organisation/building-and-energy/building-approvals",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "building_fees",
+   "organisation": "wanneroo",
+   "jurisdiction": "WA",
+   "title": "Building fee schedule effective 8 July 2026 (City of Wanneroo, Building Regulations 2012 Schedule 2)",
+   "url": "https://www.wanneroo.wa.gov.au/download/downloads/id/2229/building_fee_schedule_effective_8_july_2026.pdf",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "da_fees",
+   "organisation": "dplh",
+   "jurisdiction": "WA",
+   "title": "Development application fees: Planning and Development Regulations 2009 Schedule 2",
+   "url": "https://www.wa.gov.au/system/files/2022-11/Development-Application-Fees-Schedule-2-Planning-and-Development-Regulations-2009.pdf",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "subdiv_guide",
+   "organisation": "wapc",
+   "jurisdiction": "WA",
+   "title": "Guide to subdivision applications and fees (WAPC)",
+   "url": "https://www.wa.gov.au/system/files/2023-07/guide_to_subdivision_applications_and_fees_june2023.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "bushfire_news",
+   "organisation": "dplh",
+   "jurisdiction": "WA",
+   "title": "Western Australia gets new bushfire policy and map (DPLH)",
+   "url": "https://www.planning.wa.gov.au/news-and-media-statements/western-australia-gets-new-bushfire-policy-and-map",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bushfire_faq",
+   "organisation": "dfes",
+   "jurisdiction": "WA",
+   "title": "Map of Bush Fire Prone Areas: frequently asked questions (DFES)",
+   "url": "https://dfes.wa.gov.au/documents/Map-of-Bush-Fire-Prone-Areas-FAQ-2023.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "inherit",
+   "organisation": "dplh",
+   "jurisdiction": "WA",
+   "title": "inHerit: State Register and local heritage listings (Heritage Council and DPLH)",
+   "url": "https://inherit.dplh.wa.gov.au/",
+   "source_type": "WEBPAGE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "clause61_single_house",
+   "document": "lps_regs",
+   "section": "Schedule 2, Part 7, clause 61 (exempted development)",
+   "extracted_text": "[Summary, not the source's wording] Development approval is not needed for a single house, or alterations and additions to one, that meets all the deemed-to-comply provisions of the R-Codes, unless the place is heritage-protected (on the State Register, the local Heritage List or in a heritage area) or the local planning scheme says approval is needed. Where a design relies on a design principle instead of a deemed-to-comply provision, development approval is needed.",
+   "interpretation": "A house, extension or ancillary dwelling that fully meets the R-Codes deemed-to-comply standards usually needs no development approval, but we don't know the zone, R-Code or local planning policies, so it may still apply. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "clause75_timeframes",
+   "document": "lps_regs",
+   "section": "Schedule 2, Part 9, clause 75 (time for deciding application)",
+   "extracted_text": "[Summary, not the source's wording] The local government must decide an application for development approval within 60 days, or 90 days if it is advertised. If it doesn't decide in time, the application is taken to be refused and the applicant can apply to the State Administrative Tribunal for review.",
+   "interpretation": "Sets the 60 and 90 day timeframes used in the guide. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "clause62_form",
+   "document": "lps_regs",
+   "section": "Schedule 2, Part 8, clause 62 (form of application)",
+   "extracted_text": "[Summary, not the source's wording] An application for development approval is made in the form set out in the deemed provisions, signed by the owner, with plans and the fee set by the Planning and Development Regulations 2009.",
+   "interpretation": "Explains why every council uses the same application for development approval form. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "granny_rules",
+   "document": "granny_sheet",
+   "section": "Ancillary dwellings",
+   "extracted_text": "[Summary, not the source's wording] An ancillary dwelling does not need planning approval if it meets all the relevant deemed-to-comply requirements in R-Codes Volume 1 (2024). The maximum internal floor area is 70 m2. The minimum 350 m2 lot size requirement was removed. In most cases no parking bay is needed. Anyone can live in it, including a tenant. A building permit is still needed. The changes became operational in April 2024.",
+   "interpretation": "An ancillary dwelling up to 70 m2 that meets every deemed-to-comply requirement is usually exempt from development approval. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rcodes_2024",
+   "document": "rcodes_news",
+   "section": "Revised R-Codes",
+   "extracted_text": "[Summary, not the source's wording] The revised Residential Design Codes Volume 1 took effect in April 2024, simplifying the rules for single houses, grouped dwellings and ancillary dwellings and making more compliant homes exempt from development approval.",
+   "interpretation": "Confirms R-Codes Volume 1 (2024) is the current standard. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "building_permit_rules",
+   "document": "building_approvals",
+   "section": "Building permits",
+   "extracted_text": "[Summary, not the source's wording] Most building work in WA needs a building permit from the permit authority, usually the local government. A certified application (BA1) comes with a certificate of design compliance (BA3) from a registered private building surveyor and must be decided in 10 business days. An uncertified application (BA2) is only for Class 1 and Class 10 buildings, is checked by the council's building surveyor and must be decided in 25 business days. A demolition permit (BA5) is needed to demolish most buildings. An occupancy permit is needed for Class 2 to 9 buildings, not for houses or sheds.",
+   "interpretation": "Building permits apply to all the building projects we cover; occupancy permits only to non-residential or multi-unit buildings. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "building_fees_2026",
+   "document": "building_fees",
+   "section": "Building permit, demolition permit and occupancy permit fees",
+   "extracted_text": "[Summary, not the source's wording] Fees under Schedule 2 of the Building Regulations 2012, effective 8 July 2026: certified building permit for Class 1 or 10, 0.19% of construction value (minimum $121.00); uncertified, 0.32% (minimum $121.00); certified Class 2 to 9, 0.09% (minimum $121.00). Demolition permit for Class 1 or 10, $121.00. Occupancy permit for a completed building, $121.00. Building Services Levy 0.137% of value (minimum $61.65).",
+   "interpretation": "Fees used in the building, demolition and occupancy permit guides. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "da_fee_schedule",
+   "document": "da_fees",
+   "section": "Schedule 2, item 1 and item 2",
+   "extracted_text": "[Summary, not the source's wording] Development application fees depend on the estimated cost of the development: $147 up to $50,000, then 0.32% of the cost up to $500,000, with higher bands above that. An application for a change of use (no building work) is $295.",
+   "interpretation": "Statewide maximum fees that every council charges; the current schedule couldn't be re-read this session. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "subdivision_process",
+   "document": "subdiv_guide",
+   "section": "Subdivision applications",
+   "extracted_text": "[Summary, not the source's wording] Freehold (green title) and survey-strata subdivisions are approved by the Western Australian Planning Commission. You apply on Form 1A, lodged online through the WAPC's eLodgement system, with plans and the fee. The WAPC refers the application to the council and service agencies, then approves it with conditions or refuses it. After conditions are cleared, the WAPC endorses the deposited plan and Landgate issues the new titles.",
+   "interpretation": "Any subdivision into 2 or more lots needs WAPC approval. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bushfire_policy",
+   "document": "bushfire_news",
+   "section": "State Planning Policy 3.7 and the bush fire prone areas map",
+   "extracted_text": "[Summary, not the source's wording] Western Australia has a revised State Planning Policy 3.7 for planning in bushfire prone areas, with guidelines and an updated Map of Bush Fire Prone Areas. Development and subdivision in a designated bushfire prone area must address bushfire risk, usually with a Bushfire Attack Level (BAL) assessment and sometimes a bushfire management plan.",
+   "interpretation": "If the land is in a bushfire prone area, a BAL assessment is likely needed for planning and building. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bal_building",
+   "document": "bushfire_faq",
+   "section": "Building in a bush fire prone area",
+   "extracted_text": "[Summary, not the source's wording] Land shown on the Map of Bush Fire Prone Areas triggers bushfire construction requirements in the Building Code for Class 1, 2 and 3 buildings and associated Class 10a buildings. A BAL assessment by an accredited practitioner sets the construction standard.",
+   "interpretation": "A house, extension or ancillary dwelling in a bushfire prone area needs a BAL assessment before the building permit. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "heritage_listing",
+   "document": "inherit",
+   "section": "Heritage listings",
+   "extracted_text": "[Summary, not the source's wording] inHerit lists places on the State Register of Heritage Places (Heritage Act 2018) and on local heritage surveys and Heritage Lists. Work to a place on the State Register is referred to the Heritage Council. Places on a local Heritage List or in a heritage area are heritage-protected under the deemed provisions.",
+   "interpretation": "Heritage-protected places lose the single house exemption, so development approval is likely needed. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "planwa_tool",
+   "document": "rcodes_news",
+   "section": "Finding your zone and R-Code",
+   "extracted_text": "[Summary, not the source's wording] Your zone and density code (R-Code) are set by your council's local planning scheme maps. PlanWA, the state's online planning map, shows scheme zones, R-Codes, bushfire prone areas and heritage places.",
+   "interpretation": "PlanWA is the first step for every WA planning project. Captured on 2026-10-12 from an automated summary or from research notes; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "planning.wa.building",
+   "vertical": "PLANNING",
+   "jurisdiction": "WA",
+   "title": "Western Australia: houses, extensions and granny flats",
+   "description": "Development approval, building permits, BAL assessments and demolition permits in WA for houses, extensions and ancillary dwellings.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, R-Code (density code) or your council's local planning policies, so we can only say whether you may need development approval.",
+    "Your council's local planning scheme and policies are not encoded. PlanWA shows your zone, R-Code, bushfire prone areas and heritage places.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "da_option",
+     "title": "Development approval may be needed, depending on zone, R-Code and design",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need development approval from your council",
+       "detail": "In WA a single house, extension or granny flat that meets every deemed-to-comply standard in the Residential Design Codes (R-Codes) Volume 1 is usually exempt from development approval under clause 61 of the deemed provisions. You need approval if your design relies on a design principle instead (for example a smaller setback or more site cover), if the place is heritage-protected, or if your local planning scheme or a local development plan says so. Check your zone and R-Code on PlanWA, then ask your designer to check the plans against the deemed-to-comply standards.",
+       "payload": {
+        "approval": {
+         "kind": "WA_DEVELOPMENT_APPROVAL",
+         "authority": "Your local government (council)",
+         "pathway": "Development approval under your local planning scheme (Planning and Development Act 2005)",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "SITE_PLAN",
+          "title": "Site plan with setbacks, open space and existing buildings"
+         },
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Floor plans and elevations"
+         },
+         {
+          "kind": "TITLE_SEARCH",
+          "title": "Certificate of title from Landgate, with any easements and restrictive covenants"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Look up your zone and R-Code on PlanWA and check the design against the R-Codes deemed-to-comply standards"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "clause61_single_house",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rcodes_2024",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "planwa_tool",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "MAY_APPLY because we don't know the zone, R-Code or whether the design is fully deemed-to-comply."
+    },
+    {
+     "key": "heritage",
+     "title": "Heritage-protected places need development approval",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "heritage"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Heritage listing: you likely need development approval",
+       "detail": "The clause 61 exemption for houses that meet the R-Codes doesn't apply to a heritage-protected place: one on the State Register of Heritage Places, on your council's Heritage List or in a heritage area. Expect to need development approval, and a heritage impact statement for bigger changes. Work to a State Register place is referred to the Heritage Council. Check the listing on inHerit.",
+       "payload": {
+        "approval": {
+         "kind": "WA_DEVELOPMENT_APPROVAL",
+         "authority": "Your local government (council)",
+         "pathway": "Development approval under your local planning scheme (Planning and Development Act 2005)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "HERITAGE_IMPACT_STATEMENT",
+          "title": "Heritage impact statement, if council asks for one"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Check the place's heritage listing on inHerit and ask council about heritage requirements"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "heritage_listing",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "clause61_single_house",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Heritage ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other constraint",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bushfire",
+     "title": "Bushfire prone areas need a BAL assessment",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "bushfire"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Bushfire prone area: you likely need a BAL assessment",
+       "detail": "If your land is on the Map of Bush Fire Prone Areas, the Building Code's bushfire construction rules apply to houses, granny flats and attached structures. A Bushfire Attack Level (BAL) assessment by an accredited bushfire practitioner sets the construction standard and goes with your building permit application. Under State Planning Policy 3.7, a high BAL (BAL-40 or Flame Zone) can also mean you need development approval with a bushfire management plan.",
+       "payload": {
+        "approval": {
+         "kind": "WA_BAL_ASSESSMENT",
+         "authority": "An accredited bushfire planning practitioner, checked by your building surveyor",
+         "pathway": "BAL assessment to AS 3959 for the building permit; State Planning Policy 3.7 for planning",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "BAL_ASSESSMENT",
+          "title": "BAL assessment (or BAL contour plan) by an accredited practitioner"
+         }
+        ],
+        "referral_categories": [
+         "building_certifier",
+         "town_planner"
+        ],
+        "task": "Check the Map of Bush Fire Prone Areas and order a BAL assessment"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bal_building",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bushfire_policy",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Bushfire ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Heritage only",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "flooding",
+     "title": "Flood-prone land",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "flooding"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Flood-prone land: check floor levels with council",
+       "detail": "Councils can set minimum floor levels and other controls on flood-prone land through the local planning scheme or local planning policies. This can remove the exemption from development approval. Ask council what applies before you finalise the design.",
+       "payload": {
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Ask council about flood controls and minimum floor levels for your lot"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "clause61_single_house",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Flooding ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Bushfire only",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "vegetation",
+     "title": "Clearing native vegetation",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "vegetation"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Protected vegetation: you may need a clearing permit",
+       "detail": "Clearing native vegetation in WA generally needs a clearing permit under the Environmental Protection Act 1986 unless an exemption applies, and councils can protect significant trees through their scheme. Check before you clear any part of the site.",
+       "payload": {
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Check whether clearing on your site needs a native vegetation clearing permit"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "clause61_single_house",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vegetation ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "vegetation"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Heritage only",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Clearing permits are administered by the Department of Water and Environmental Regulation; not verified this session."
+    },
+    {
+     "key": "building_permit",
+     "title": "A building permit is needed",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You will almost certainly need a building permit",
+       "detail": "Building a house, extension or granny flat in WA needs a building permit from your council (the permit authority). You can lodge a certified application (WA BA1 building permit application) with a certificate of design compliance from a registered private building surveyor, decided in 10 business days, or an uncertified application (WA BA2 uncertified building permit application) checked by the council, decided in 25 business days. Get development approval first if you need it.",
+       "payload": {
+        "approval": {
+         "kind": "WA_BUILDING_PERMIT",
+         "authority": "Your local government as permit authority",
+         "pathway": "Building permit under the Building Act 2011 (certified or uncertified)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "WORKING_DRAWINGS",
+          "title": "Working drawings, specifications and engineering"
+         },
+         {
+          "kind": "ENERGY_EFFICIENCY_REPORT",
+          "title": "Energy efficiency assessment to the Building Code"
+         },
+         {
+          "kind": "CERTIFICATE_OF_DESIGN_COMPLIANCE",
+          "title": "WA BA3 certificate of design compliance (certified applications)"
+         }
+        ],
+        "referral_categories": [
+         "building_certifier",
+         "builder",
+         "architect"
+        ],
+        "task": "Choose a certified or uncertified building permit application and line up a building surveyor"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_permit_rules",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "building_fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "demolition",
+     "title": "Demolishing the existing house needs a demolition permit",
+     "condition": {
+      "all": [
+       {
+        "fact": "planning.development_type",
+        "op": "equals",
+        "value": "new_dwelling"
+       },
+       {
+        "fact": "property.has_existing_dwelling",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "If you knock down the existing house, you need a demolition permit",
+       "detail": "Demolishing a house in WA needs a demolition permit from your council (WA BA5 demolition permit application). Asbestos must be removed by a licensed removalist, and services must be disconnected first. In a heritage-protected place, demolition also needs development approval.",
+       "payload": {
+        "approval": {
+         "kind": "WA_DEMOLITION_PERMIT",
+         "authority": "Your local government as permit authority",
+         "pathway": "Demolition permit under the Building Act 2011",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "builder"
+        ],
+        "task": "If the existing house is coming down, apply for a demolition permit"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_permit_rules",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "building_fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house replacing old",
+       "facts": {
+        "planning.development_type": "new_dwelling",
+        "property.has_existing_dwelling": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant lot",
+       "facts": {
+        "planning.development_type": "new_dwelling",
+        "property.has_existing_dwelling": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "MAY_APPLY because a new house on a lot with an existing house may keep it."
+    },
+    {
+     "key": "completion",
+     "title": "Houses don't need an occupancy permit",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "No occupancy permit for a house, but tell council when you finish",
+       "detail": "In WA, houses (Class 1a) and sheds or garages (Class 10) don't need an occupancy permit. When the work is done, the builder named on the permit must lodge a WA BA7 notice of completion with the council within 7 days."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_permit_rules",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "The 7 day notice of completion period is from memory of the Building Act 2011; not re-read this session."
+    }
+   ]
+  },
+  {
+   "key": "planning.wa.secondary_dwelling",
+   "vertical": "PLANNING",
+   "jurisdiction": "WA",
+   "title": "Western Australia: ancillary dwellings (granny flats)",
+   "description": "R-Codes Volume 1 rules and exemptions for ancillary dwellings in WA.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "secondary_dwelling"
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, R-Code (density code) or your council's local planning policies, so we can only say whether you may need development approval.",
+    "Your council's local planning scheme and policies are not encoded. PlanWA shows your zone, R-Code, bushfire prone areas and heritage places.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "floor_area",
+     "title": "Ancillary dwellings up to 70 m2 can be exempt",
+     "condition": {
+      "fact": "planning.secondary_dwelling_floor_area_m2",
+      "op": "less_equal",
+      "value": 70
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Up to 70 m2: your granny flat may not need development approval",
+       "detail": "Since April 2024 an ancillary dwelling (granny flat) with an internal floor area of up to 70 m2 needs no development approval if it meets every deemed-to-comply requirement in R-Codes Volume 1. There's no minimum lot size, most don't need a parking bay, and anyone can live in it, including a tenant. It still needs a building permit, and heritage, bushfire or local scheme controls can still trigger development approval."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Over 70 m2: you likely need development approval",
+       "detail": "A granny flat bigger than 70 m2 doesn't meet the R-Codes deemed-to-comply size limit, so it needs development approval assessed against the design principles, or it may be treated as a second house (grouped dwelling) if your R-Code allows that.",
+       "payload": {
+        "approval": {
+         "kind": "WA_DEVELOPMENT_APPROVAL",
+         "authority": "Your local government (council)",
+         "pathway": "Development approval under your local planning scheme (Planning and Development Act 2005)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Ask council or a town planner whether a granny flat over 70 m2 can be approved on your lot"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "granny_rules",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "clause61_single_house",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Small",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 60
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Large",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 90
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "existing_home",
+     "title": "An ancillary dwelling goes with a single house",
+     "condition": {
+      "fact": "property.has_existing_dwelling",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "An ancillary dwelling sits with the main house",
+       "detail": "An ancillary dwelling is a self-contained dwelling on the same lot as a single house. It can't be sold separately unless the land is subdivided."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "No house on the land yet",
+       "detail": "An ancillary dwelling must be on the same lot as a single house. If you build it first, or at the same time as the main house, check with council how it will be assessed."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "granny_rules",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "House exists",
+       "facts": {
+        "property.has_existing_dwelling": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "property.has_existing_dwelling": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.wa.subdivision",
+   "vertical": "PLANNING",
+   "jurisdiction": "WA",
+   "title": "Western Australia: subdivision",
+   "description": "WAPC subdivision approval, clearances and Landgate titles in WA.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "subdivision"
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, R-Code (density code) or your council's local planning policies, so we can only say whether you may need development approval.",
+    "Your council's local planning scheme and policies are not encoded. PlanWA shows your zone, R-Code, bushfire prone areas and heritage places.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "wapc_approval",
+     "title": "Subdivision needs WAPC approval",
+     "condition": {
+      "fact": "planning.proposed_lots",
+      "op": "greater_equal",
+      "value": 2
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You need subdivision approval from the WA Planning Commission",
+       "detail": "In WA, subdividing land into 2 or more freehold or survey-strata lots is approved by the Western Australian Planning Commission (WAPC), not your council. Your surveyor or town planner lodges WAPC Form 1A subdivision application through the WAPC's eLodgement system. The WAPC asks council and service agencies for advice and sets conditions. Your R-Code sets the minimum and average lot sizes.",
+       "payload": {
+        "approval": {
+         "kind": "WA_SUBDIVISION_APPROVAL",
+         "authority": "Western Australian Planning Commission",
+         "pathway": "Subdivision approval under Part 10 of the Planning and Development Act 2005",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "SUBDIVISION_PLAN",
+          "title": "Proposed plan of subdivision with lot sizes and existing buildings"
+         },
+         {
+          "kind": "TITLE_SEARCH",
+          "title": "Certificate of title from Landgate"
+         }
+        ],
+        "referral_categories": [
+         "cadastral_surveyor",
+         "town_planner"
+        ],
+        "task": "Ask a licensed surveyor to check your R-Code lot sizes and prepare a subdivision plan"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "subdivision_process",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "planwa_tool",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Two lots",
+       "facts": {
+        "planning.proposed_lots": 2
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "One lot",
+       "facts": {
+        "planning.proposed_lots": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "titles",
+     "title": "Clearing conditions and new titles",
+     "condition": {
+      "fact": "planning.proposed_lots",
+      "op": "greater_equal",
+      "value": 2
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "After approval: clear conditions, then Landgate issues new titles",
+       "detail": "Once the WAPC approves your subdivision, you meet the conditions (often Water Corporation and Western Power connections, crossovers and demolition), get clearances from the council and agencies, and your surveyor lodges the deposited plan with Landgate. The WAPC endorses the plan and Landgate issues a certificate of title for each lot.",
+       "payload": {
+        "referral_categories": [
+         "cadastral_surveyor",
+         "lawyer"
+        ],
+        "task": "Plan the time and cost of clearing subdivision conditions before you sell or build"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "subdivision_process",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Three lots",
+       "facts": {
+        "planning.proposed_lots": 3
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "One lot",
+       "facts": {
+        "planning.proposed_lots": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bushfire_subdivision",
+     "title": "Bushfire and subdivision",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "bushfire"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Bushfire prone land: expect a BAL contour plan",
+       "detail": "Under State Planning Policy 3.7, a subdivision in a bushfire prone area must show that each lot can be built at BAL-29 or lower. The WAPC usually wants a BAL contour map and bushfire management plan from an accredited practitioner with the application.",
+       "payload": {
+        "approval": {
+         "kind": "WA_BAL_ASSESSMENT",
+         "authority": "An accredited bushfire planning practitioner",
+         "pathway": "BAL contour map and bushfire management plan for subdivision",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Get a BAL contour map before you lodge the subdivision"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bushfire_policy",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Bushfire ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Nothing relevant",
+       "facts": {
+        "planning.known_constraints": [
+         "easement"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "BAL-29 lot threshold is from SPP 3.7 as previously published; not re-read this session."
+    }
+   ]
+  },
+  {
+   "key": "planning.wa.change_of_use",
+   "vertical": "PLANNING",
+   "jurisdiction": "WA",
+   "title": "Western Australia: change of use",
+   "description": "Development approval and occupancy permits when a building's use changes in WA.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, R-Code (density code) or your council's local planning policies, so we can only say whether you may need development approval.",
+    "Your council's local planning scheme and policies are not encoded. PlanWA shows your zone, R-Code, bushfire prone areas and heritage places.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "cou_da",
+     "title": "Change of use may need development approval",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need development approval for the new use",
+       "detail": "Whether a new use needs approval depends on the zoning table in your local planning scheme. Some uses are permitted, some need approval with or without advertising, and some aren't allowed in the zone. Clause 61 also exempts some changes of use, such as a change to a permitted use with no building work, depending on your scheme.",
+       "payload": {
+        "approval": {
+         "kind": "WA_DEVELOPMENT_APPROVAL",
+         "authority": "Your local government (council)",
+         "pathway": "Development approval under your local planning scheme (Planning and Development Act 2005)",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "SITE_PLAN",
+          "title": "Site and floor plans showing the new use and parking"
+         },
+         {
+          "kind": "PLANNING_REPORT",
+          "title": "Short report on hours, staff, customers and parking"
+         }
+        ],
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Check the zoning table in your local planning scheme for the new use"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "clause61_single_house",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_fee_schedule",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "cou_building",
+     "title": "A change of building class needs a permit and occupancy permit",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a building permit and an occupancy permit",
+       "detail": "If the new use changes the building's class under the Building Code (for example a house becoming a shop or office), you need an occupancy permit for the new classification (WA BA9 occupancy permit application), and a building permit for any work like fire separation, access or toilets.",
+       "payload": {
+        "approval": {
+         "kind": "WA_OCCUPANCY_PERMIT",
+         "authority": "Your local government as permit authority",
+         "pathway": "Occupancy permit under the Building Act 2011",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "building_certifier"
+        ],
+        "task": "Ask a building surveyor whether the new use changes the building class"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_permit_rules",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.wa.general",
+   "vertical": "PLANNING",
+   "jurisdiction": "WA",
+   "title": "Western Australia: all planning projects",
+   "description": "Where to start, and other projects, in WA.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, R-Code (density code) or your council's local planning policies, so we can only say whether you may need development approval.",
+    "Your council's local planning scheme and policies are not encoded. PlanWA shows your zone, R-Code, bushfire prone areas and heritage places.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "planwa",
+     "title": "Start with PlanWA",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Look up your zone and R-Code on PlanWA",
+       "detail": "PlanWA is the WA Government's free online planning map. Search your address to see the local planning scheme zone, the R-Code (density code, such as R20), bushfire prone areas and heritage places. Your council's local planning scheme and local planning policies then set the detailed rules.",
+       "payload": {
+        "task": "Search your address on PlanWA and note the zone and R-Code"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "planwa_tool",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Any project",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "other_project",
+     "title": "Other projects",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "other"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Your project may need development approval",
+       "detail": "Most development in WA needs development approval unless clause 61 of the deemed provisions or your local planning scheme exempts it. Larger projects, generally worth millions of dollars, can be decided by a development assessment panel instead of council. Talk to council's duty planner about your project.",
+       "payload": {
+        "approval": {
+         "kind": "WA_DEVELOPMENT_APPROVAL",
+         "authority": "Your local government (council)",
+         "pathway": "Development approval under your local planning scheme (Planning and Development Act 2005)",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Call council's duty planner to ask whether your project needs development approval"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "clause61_single_house",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "clause75_timeframes",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Other",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

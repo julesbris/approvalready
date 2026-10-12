@@ -1,0 +1,84 @@
+{
+  "key": "rent.wa_start_of_tenancy",
+  "vertical": "RENT",
+  "title": "Starting a tenancy in Western Australia",
+  "description": "The paperwork and steps before and when a WA tenant moves in. Summarised from Consumer Protection guidance on rental agreements, condition reports and bonds.",
+  "sources": [
+    {
+      "title": "Rental agreements",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/rental-agreements"
+    },
+    {
+      "title": "Property condition reports",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/consumer-protection/property-condition-reports"
+    },
+    {
+      "title": "Rental bonds",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/consumer-protection/rental-bonds"
+    },
+    {
+      "title": "Lodging a bond",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/lodging-bond"
+    },
+    {
+      "title": "Rental forms and notices",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/rental-forms-and-notices"
+    }
+  ],
+  "items": [
+    {
+      "key": "application",
+      "title": "Use the WA application to rent form if you take applications",
+      "required": false
+    },
+    {
+      "key": "agreement",
+      "title": "Sign the WA residential tenancy agreement",
+      "detail": "You can't write your own. Don't change Part B; Part C terms can't remove the tenant's rights."
+    },
+    {
+      "key": "copy",
+      "title": "Give the tenant a copy of the signed agreement within 14 days"
+    },
+    {
+      "key": "info_sheet",
+      "title": "Give the tenant the WA information for tenant sheet"
+    },
+    {
+      "key": "bylaws",
+      "title": "Give a copy of the strata or community title by-laws",
+      "required": false
+    },
+    {
+      "key": "bond_amount",
+      "title": "Take no more than 4 weeks' rent as bond (unless rent is over $1,200 a week), plus up to $350 pet bond if a pet is approved"
+    },
+    {
+      "key": "receipt",
+      "title": "Give a receipt for the bond and any rent straight away"
+    },
+    {
+      "key": "bond_lodge",
+      "title": "Lodge the bond with Bonds Administration within 14 days",
+      "detail": "Through BondsOnline, or the WA bond lodgement form if you qualify as a private landlord."
+    },
+    {
+      "key": "pcr",
+      "title": "Give 2 copies of the WA property condition report within 7 days of move-in",
+      "detail": "Take dated photos. The tenant has 7 days to return one copy."
+    },
+    {
+      "key": "keys",
+      "title": "Give a set of keys for each tenant if available"
+    },
+    {
+      "key": "safety",
+      "title": "Confirm smoke alarms, RCDs and locks meet the minimum standards before move-in"
+    }
+  ]
+}
