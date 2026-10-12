@@ -42,6 +42,7 @@ function guide(overrides: Partial<ApprovalGuideOut> = {}): ApprovalGuideOut {
     watch_out: ["Don't ship before approval."],
     sources: [{ url: "https://example.gov.au/source", title: "8 steps to importing a vehicle" }],
     gaps: ["Phone number not confirmed."],
+    forms: [],
     checked: { verified: false, verified_at: null },
     ...overrides,
   };
@@ -91,5 +92,44 @@ describe("ApprovalPlan", () => {
     expect(first.getByText("Phone number not confirmed.")).toBeInTheDocument();
     expect(screen.getAllByText("Not yet checked by our team")).toHaveLength(1);
     expect(screen.getByText(/Checked by our team/)).toBeInTheDocument();
+  });
+
+  it("links every form a guide names and lists them", () => {
+    const b650 = {
+      id: "abf-b650",
+      code: "B650",
+      name: "Import declaration (N10)",
+      publisher: "Australian Border Force",
+      url: "https://www.abf.gov.au/form-listing/forms/b650.pdf",
+      mentions: [],
+      verticals: [],
+      note: null,
+    };
+    render(
+      <ApprovalPlan
+        guides={[
+          guide({
+            steps: [
+              {
+                title: "Lodge the declaration",
+                detail: "Lodge form B650 at an ABF counter, or B6500 is not a form.",
+                timeframe: null,
+                cost: null,
+                form: null,
+                url: null,
+              },
+            ],
+            forms: [b650],
+          }),
+        ]}
+      />,
+    );
+    const inline = screen.getByRole("link", { name: "B650" });
+    expect(inline).toHaveAttribute("href", b650.url);
+    expect(screen.getByRole("heading", { name: "Forms you'll need" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "B650 Import declaration (N10)" })).toHaveAttribute(
+      "href",
+      b650.url,
+    );
   });
 });

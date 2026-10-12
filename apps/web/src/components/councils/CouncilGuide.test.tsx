@@ -1,5 +1,5 @@
 import type { CouncilOut } from "@approvalready/shared-types";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 
 import { CouncilGuide } from "./CouncilGuide";
 
@@ -36,8 +36,20 @@ function council(overrides: Partial<CouncilOut> = {}): CouncilOut {
     },
     sources: [{ url: "https://testshire.example/da", title: "Development applications" }],
     gaps: ["Office hours not published."],
-    general_steps: ["Check the planning scheme."],
+    general_steps: ["Check the planning scheme.", "Fill in DA Form 1."],
     general_source: { url: "https://planning.example/process", title: "Process" },
+    forms: [
+      {
+        id: "qld-da-form-1",
+        code: "DA Form 1",
+        name: "Development application details",
+        publisher: "Queensland Government",
+        url: "https://planning.example/forms",
+        mentions: ["DA Form 1"],
+        verticals: ["PLANNING"],
+        note: null,
+      },
+    ],
     ...overrides,
   } as CouncilOut;
 }
@@ -55,7 +67,12 @@ describe("CouncilGuide", () => {
       "href",
       "mailto:planning@testshire.example",
     );
-    expect(screen.getByText("Lodge with DA Form 1.")).toBeInTheDocument();
+    const lodge = screen.getByText((_, el) => el?.textContent === "Lodge with DA Form 1.");
+    expect(within(lodge).getByRole("link", { name: "DA Form 1" })).toHaveAttribute(
+      "href",
+      "https://planning.example/forms",
+    );
+    expect(screen.getByRole("heading", { name: "Application forms" })).toBeInTheDocument();
     expect(screen.getByText("$1,000.00")).toBeInTheDocument();
     expect(screen.getByText(/2026-27 fees/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "07 4000 0000" })).toHaveAttribute(
@@ -70,6 +87,10 @@ describe("CouncilGuide", () => {
     expect(screen.getByText(/Check with the council/)).toBeInTheDocument();
     expect(screen.getByText("Check the planning scheme.")).toBeInTheDocument();
     expect(screen.getByText(/doesn't publish its own steps online/)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "DA Form 1" })).toHaveAttribute(
+      "href",
+      "https://planning.example/forms",
+    );
   });
 
   it("shows when our team has checked the details", () => {

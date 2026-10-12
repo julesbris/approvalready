@@ -2101,6 +2101,27 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/guidance/forms": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Forms
+         * @description Official forms with a direct link to each: the ones a product's findings, checklists
+         *     and plan steps can name when ``vertical`` is given, otherwise all of them.
+         */
+        get: operations["forms_v1_guidance_forms_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/invitations/accept": {
         parameters: {
             query?: never;
@@ -5645,6 +5666,8 @@ export interface components {
             cost_summary: string | null;
             /** Fees */
             fees: components["schemas"]["GuideFee"][];
+            /** Forms */
+            forms: components["schemas"]["OfficialForm"][];
             /** Gaps */
             gaps: string[];
             /** Jurisdiction */
@@ -6756,6 +6779,8 @@ export interface components {
             checked_on: string;
             contact: components["schemas"]["CouncilContact"];
             fees: components["schemas"]["CouncilFees"] | null;
+            /** Forms */
+            forms: components["schemas"]["OfficialForm"][];
             /** Gaps */
             gaps: string[];
             general_source: components["schemas"]["CouncilSource"];
@@ -9032,6 +9057,25 @@ export interface components {
             /** Subject To Inspection */
             subject_to_inspection?: boolean | null;
         };
+        /** OfficialForm */
+        OfficialForm: {
+            /** Code */
+            code: string | null;
+            /** Id */
+            id: string;
+            /** Mentions */
+            mentions: string[];
+            /** Name */
+            name: string;
+            /** Note */
+            note: string | null;
+            /** Publisher */
+            publisher: string;
+            /** Url */
+            url: string;
+            /** Verticals */
+            verticals: components["schemas"]["Vertical"][];
+        };
         /** OpsStatusOut */
         OpsStatusOut: {
             /** Alert Email Count */
@@ -9801,6 +9845,19 @@ export interface components {
             /** Note */
             note?: string | null;
         };
+        /** PlanFormOut */
+        PlanFormOut: {
+            /** Code */
+            code?: string | null;
+            /** Label */
+            label: string;
+            /** Name */
+            name: string;
+            /** Publisher */
+            publisher: string;
+            /** Url */
+            url: string;
+        };
         /** PlanHelpOut */
         PlanHelpOut: {
             /** Description */
@@ -9907,6 +9964,12 @@ export interface components {
              * @default []
              */
             fees: components["schemas"]["PlanFeeOut"][];
+            /**
+             * Forms
+             * @description Official forms, linked.
+             * @default []
+             */
+            forms: components["schemas"]["PlanFormOut"][];
             /**
              * Gaps
              * @default []
@@ -17471,6 +17534,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ApprovalGuideOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    forms_v1_guidance_forms_get: {
+        parameters: {
+            query?: {
+                vertical?: components["schemas"]["Vertical"] | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OfficialForm"][];
                 };
             };
             /** @description Validation Error */

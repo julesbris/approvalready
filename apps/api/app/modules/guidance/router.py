@@ -10,7 +10,9 @@ from pydantic import BaseModel
 from sqlalchemy import select
 
 from app.api.deps import AuthDep, DbDep
+from app.modules.guidance import forms as official_forms
 from app.modules.guidance import guides
+from app.modules.guidance.forms import OfficialForm
 from app.modules.guidance.guides import ApprovalGuide
 from app.modules.projects.models import Vertical
 from app.modules.regulatory.models import SourceReference, VerificationStatus
@@ -25,6 +27,16 @@ class GuideChecked(BaseModel):
 
 class ApprovalGuideOut(ApprovalGuide):
     checked: GuideChecked
+    forms: list[OfficialForm]  # type: ignore[assignment]  # the forms themselves, not ids
+
+
+@router.get("/forms", response_model=list[OfficialForm])
+async def forms(_: AuthDep, vertical: Vertical | None = None) -> list[OfficialForm]:
+    """Official forms with a direct link to each: the ones a product's findings, checklists
+    and plan steps can name when ``vertical`` is given, otherwise all of them."""
+    if vertical is None:
+        return list(official_forms.library().forms)
+    return official_forms.for_vertical(vertical)
 
 
 @router.get("/approvals", response_model=list[ApprovalGuideOut])
@@ -57,7 +69,7 @@ async def approval_guides(
         verified[section] = max(latest, at) if latest and at else latest or at
     return [
         ApprovalGuideOut(
-            **g.model_dump(),
+            **(g.model_dump() | {"forms": official_forms.by_ids(g.forms)}),
             checked=GuideChecked(
                 verified=g.reference_section in verified,
                 verified_at=verified.get(g.reference_section),

@@ -12,6 +12,8 @@ from app.api.deps import AuthDep, DbDep
 from app.core.errors import not_found
 from app.modules.councils import directory
 from app.modules.councils.directory import Council, CouncilSource
+from app.modules.guidance import forms as official_forms
+from app.modules.guidance.forms import OfficialForm
 from app.modules.regulatory.models import SourceReference, VerificationStatus
 
 router = APIRouter(prefix="/v1/councils", tags=["councils"])
@@ -31,6 +33,8 @@ class CouncilOut(Council):
     checked: CouncilChecked
     general_steps: list[str]
     general_source: CouncilSource
+    # The state's application forms every council uses, each with a direct link.
+    forms: list[OfficialForm]
 
 
 @router.get("", response_model=list[CouncilSummary])
@@ -60,4 +64,5 @@ async def get_council(key: str, _: AuthDep, db: DbDep) -> CouncilOut:
         checked=CouncilChecked(verified=verified_at is not None, verified_at=verified_at),
         general_steps=list(directory.GENERAL_STEPS),
         general_source=directory.GENERAL_SOURCE,
+        forms=official_forms.by_ids(directory.STATE_FORMS),
     )

@@ -5,10 +5,12 @@ import type {
   ChecklistItemOut,
   ChecklistOut,
   ItemStatus,
+  OfficialForm,
 } from "@approvalready/shared-types";
 import { useState } from "react";
 
 import { FormError } from "@/components/auth/FormStatus";
+import { FormText } from "@/components/guidance/FormText";
 import { apiRequest } from "@/lib/client-api";
 
 type Props = {
@@ -17,11 +19,19 @@ type Props = {
   checklists: ChecklistOut[];
   definitions: ChecklistDefinitionOut[];
   canWrite: boolean;
+  /** The product's official forms, so items that name a form link to it. */
+  forms?: OfficialForm[];
 };
 
 /** Checklists on a project: added by the assessment or by the customer, ticked off item by
  * item. An item that doesn't apply is marked so, with a note if it is a required one. */
-export function ChecklistsPanel({ organisationId, projectId, canWrite, ...props }: Props) {
+export function ChecklistsPanel({
+  organisationId,
+  projectId,
+  canWrite,
+  forms = [],
+  ...props
+}: Props) {
   const [checklists, setChecklists] = useState(props.checklists);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -118,11 +128,15 @@ export function ChecklistsPanel({ organisationId, projectId, canWrite, ...props 
                     onChange={() => setStatus(item, item.status === "DONE" ? "OPEN" : "DONE")}
                   />
                   <span>
-                    {item.title}
+                    <FormText text={item.title} forms={forms} />
                     {item.required ? null : <span className="muted"> (if it applies)</span>}
                   </span>
                 </label>
-                {item.detail ? <span className="muted">{item.detail}</span> : null}
+                {item.detail ? (
+                  <span className="muted">
+                    <FormText text={item.detail} forms={forms} />
+                  </span>
+                ) : null}
                 {item.status === "NOT_APPLICABLE" ? (
                   <span className="muted">
                     Doesn&apos;t apply{item.note ? `: ${item.note}` : ""}

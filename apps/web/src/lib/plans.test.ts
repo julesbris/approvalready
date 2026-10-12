@@ -50,6 +50,7 @@ function plan(steps: PlanStepOut[]): ProjectPlanOut {
         watch_out: [],
         sources: [],
         gaps: [],
+        forms: [],
         verified: false,
         help: [],
         steps,
