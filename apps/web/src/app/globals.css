@@ -2010,6 +2010,7 @@ a.card-title:hover {
 /* --- Address, parcel and vessel lookups --- */
 
 .address-search,
+.listing-import,
 .vessel-lookup {
   display: grid;
   gap: 8px;
@@ -2023,6 +2024,18 @@ a.card-title:hover {
   gap: 6px;
 }
 
+.listing-import-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.listing-import-row input {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.listing-found,
 .parcel-details,
 .vessel-record {
   padding: 14px 16px;
@@ -3091,4 +3104,85 @@ a.card-title:hover {
   margin: 16px 0 24px;
   box-shadow: none;
   border: 1px solid var(--ar-border);
+}
+
+/* --- Free property report --- */
+
+.report-cover {
+  background: var(--ar-brand-navy);
+  color: var(--ar-ink-inverse);
+  border-color: var(--ar-brand-navy);
+}
+
+.report-cover .muted,
+.report-cover .hint {
+  color: var(--ar-brand-mist);
+}
+
+.report-address {
+  font-family: var(--ar-font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.report-cover ul {
+  margin: 12px 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 4px;
+}
+
+.report-facts {
+  display: grid;
+  gap: 0;
+  margin: 12px 0;
+}
+
+.report-facts > div {
+  display: grid;
+  grid-template-columns: minmax(140px, 35%) 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--ar-border);
+}
+
+.report-facts dt {
+  color: var(--ar-ink-muted);
+}
+
+.report-facts dd {
+  margin: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.report-items,
+.report-links {
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.report-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: var(--ar-radius);
+  background: var(--ar-surface-sunk);
+}
+
+.report-distance {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .report-facts > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
 }

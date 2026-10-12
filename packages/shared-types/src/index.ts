@@ -151,6 +151,12 @@ export type CouncilSummary = Schemas["CouncilSummary"];
 export type AddressSearchOut = Schemas["AddressSearchOut"];
 export type ParcelOut = Schemas["ParcelOut"];
 export type VesselLookupOut = Schemas["VesselLookupOut"];
+export type ListingImportOut = Schemas["ListingImportOut"];
+export type ListingDetailsOut = Schemas["ListingDetailsOut"];
+
+// Free property report
+export type PropertyReportOut = Schemas["PropertyReportOut"];
+export type ReportSection = Schemas["ReportSection"];
 
 // AI drafting (Milestone 12)
 export type AIJobOut = Schemas["AIJobOut"];

@@ -75,3 +75,32 @@ class VesselLookupOut(BaseModel):
     source_url: str
     list_retrieved_at: datetime
     note: str
+
+
+class ListingIn(BaseModel):
+    url: str = Field(min_length=4, max_length=2000)
+
+
+class ListingDetailsOut(BaseModel):
+    bedrooms: int | None
+    bathrooms: int | None
+    car_spaces: int | None
+    property_type: str | None
+    price_text: str | None = Field(description="The advertised price, as the listing shows it.")
+    headline: str | None
+    status: str | None
+    objective: str | None = Field(description="'sale' or 'rent'.")
+
+
+class ListingImportOut(BaseModel):
+    site: str = Field(description="Which site the link is from, e.g. 'domain', 'realestate'.")
+    site_name: str
+    how: str = Field(description="What we may read from that site, in plain words.")
+    url: str
+    address_text: str | None = Field(description="The address as the link spells it.")
+    property_type: str | None = Field(description="From the link or the listing.")
+    details: ListingDetailsOut | None = Field(
+        description="From Domain's developer API, when the server has a key."
+    )
+    matches: list[AddressMatchOut] = Field(description="Queensland addresses to pick from.")
+    note: str

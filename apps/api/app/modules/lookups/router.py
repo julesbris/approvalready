@@ -17,10 +17,20 @@ from app.core.ratelimit import Limit
 from app.modules.lookups.abs import POSTCODE_SOURCE
 from app.modules.lookups.amsa import normalise_uvi
 from app.modules.lookups.client import LookupUnavailable, unavailable
-from app.modules.lookups.qld import CADASTRE_SOURCE, ParcelReport, lga_answer, parse_lot_plan
+from app.modules.lookups.listing import ListingDetails, parse_listing_url
+from app.modules.lookups.qld import (
+    CADASTRE_SOURCE,
+    AddressMatch,
+    ParcelReport,
+    lga_answer,
+    parse_lot_plan,
+)
 from app.modules.lookups.schemas import (
     AddressMatchOut,
     AddressSearchOut,
+    ListingDetailsOut,
+    ListingImportOut,
+    ListingIn,
     NotCheckedOut,
     OverlayOut,
     ParcelOut,
@@ -56,6 +66,35 @@ async def _throttle(ctx: OrgContext, limiter: LimiterDep) -> None:
 
 async def _none() -> None:
     return None
+
+
+async def _matches_out(lookups: Lookups, matches: list[AddressMatch]) -> list[AddressMatchOut]:
+    """Matches with the postcode of the ABS postal area each one sits in."""
+    postcodes = await asyncio.gather(
+        *(
+            lookups.postcodes.postcode_at(m.latitude, m.longitude)
+            if m.latitude is not None and m.longitude is not None
+            else _none()
+            for m in matches
+        )
+    )
+    return [
+        AddressMatchOut(
+            address_pid=m.address_pid,
+            label=m.label,
+            line1=m.line1,
+            suburb=m.suburb,
+            state=m.state,
+            postcode=postcode,
+            lot_plan=m.lot_plan,
+            lot_plan_label=f"Lot {m.lot} on {m.plan}" if m.lot and m.plan else None,
+            local_authority=m.local_authority,
+            lga=lga_answer(m.local_authority),
+            latitude=m.latitude,
+            longitude=m.longitude,
+        )
+        for m, postcode in zip(matches, postcodes, strict=True)
+    ]
 
 
 def parcel_out(p: ParcelReport) -> ParcelOut:
@@ -105,32 +144,8 @@ async def search_addresses(
         matches = await lookups.qld.search_addresses(q)
     except LookupUnavailable as exc:
         raise unavailable("The Queensland address service") from exc
-    postcodes = await asyncio.gather(
-        *(
-            lookups.postcodes.postcode_at(m.latitude, m.longitude)
-            if m.latitude is not None and m.longitude is not None
-            else _none()
-            for m in matches
-        )
-    )
     return AddressSearchOut(
-        matches=[
-            AddressMatchOut(
-                address_pid=m.address_pid,
-                label=m.label,
-                line1=m.line1,
-                suburb=m.suburb,
-                state=m.state,
-                postcode=postcode,
-                lot_plan=m.lot_plan,
-                lot_plan_label=f"Lot {m.lot} on {m.plan}" if m.lot and m.plan else None,
-                local_authority=m.local_authority,
-                lga=lga_answer(m.local_authority),
-                latitude=m.latitude,
-                longitude=m.longitude,
-            )
-            for m, postcode in zip(matches, postcodes, strict=True)
-        ],
+        matches=await _matches_out(lookups, matches),
         source=f"{CADASTRE_SOURCE}; postcodes: {POSTCODE_SOURCE}",
         note="Queensland addresses only. Postcodes come from ABS postal areas: check yours.",
     )
@@ -186,4 +201,72 @@ async def get_vessel(
         list_retrieved_at=vessels.retrieved_at,
         note="AMSA's list doesn't include certificates of operation. Check the details "
         "against your certificate of survey.",
+    )
+
+
+def _details_out(d: ListingDetails) -> ListingDetailsOut:
+    return ListingDetailsOut(
+        bedrooms=d.bedrooms,
+        bathrooms=d.bathrooms,
+        car_spaces=d.car_spaces,
+        property_type=d.property_type,
+        price_text=d.price_text,
+        headline=d.headline,
+        status=d.status,
+        objective=d.objective,
+    )
+
+
+@router.post("/listing", response_model=ListingImportOut)
+async def import_listing(
+    body: ListingIn, ctx: Read, limiter: LimiterDep, lookups: LookupsDep
+) -> ListingImportOut:
+    """What a pasted listing link gives us: the address read from the link itself (no
+    listing page is fetched), Queensland addresses matching it, and, for a Domain link when
+    the server has a Domain API key, the listing's details from Domain's API."""
+    await _throttle(ctx, limiter)
+    link = parse_listing_url(body.url)
+    if link is None:
+        raise ApiError(422, "invalid_link", "Paste the whole link to the listing.")
+    details: ListingDetails | None = None
+    notes: list[str] = []
+    if link.listing_id and link.site.key == "domain":
+        if lookups.domain.enabled:
+            try:
+                details = await lookups.domain.listing(link.listing_id)
+            except LookupUnavailable:
+                notes.append("Domain didn't answer just now, so only the address came across.")
+        else:
+            notes.append("Bedrooms and price from Domain aren't switched on yet.")
+    search = details.address if details and details.address else link.address_text
+    has_street = bool(search and any(c.isdigit() for c in search.split(" QLD")[0]))
+    matches: list[AddressMatch] = []
+    if search and has_street and link.state in (None, "QLD"):
+        try:
+            matches = await lookups.qld.search_addresses(search)
+        except LookupUnavailable:
+            notes.append("The Queensland address service didn't answer. Search for the address.")
+    if link.state and link.state != "QLD":
+        notes.append("We look up Queensland addresses only for now. Type the address in.")
+    elif not search:
+        notes.append("This link doesn't include the address. Search for it below.")
+    elif not has_street:
+        notes.append(
+            f"This link only gives the suburb ({link.suburb or search}). Search for the "
+            "street address below."
+        )
+    elif not matches:
+        notes.append("We couldn't match that address. Search for it below.")
+    else:
+        notes.append("Pick the matching address to fill in the rest.")
+    return ListingImportOut(
+        site=link.site.key,
+        site_name=link.site.name,
+        how=link.site.how.format(name=link.site.name),
+        url=link.url,
+        address_text=search,
+        property_type=(details.property_type if details else None) or link.property_type,
+        details=_details_out(details) if details else None,
+        matches=await _matches_out(lookups, matches),
+        note=" ".join(notes),
     )

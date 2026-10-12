@@ -54,6 +54,7 @@ x-api-env: &api-env
   # Address, lot and plan, overlay and vessel lookups from free government sources.
   PROPERTY_FACTS_PROVIDER: ${PROPERTY_FACTS_PROVIDER:-qld_spatial}
   LOOKUPS_ENABLED: ${LOOKUPS_ENABLED:-true}
+  DOMAIN_API_KEY: ${DOMAIN_API_KEY:-}
   AMSA_VESSEL_LIST_URL: ${AMSA_VESSEL_LIST_URL:-}
   # AI drafting (Milestone 12). Off unless AI_PROVIDER=anthropic and a key are set.
   AI_PROVIDER: ${AI_PROVIDER:-none}

@@ -142,12 +142,24 @@ class Property(
         UniqueConstraint("organisation_id", "id"),
         tenant_fk("address_id", "address"),
         CheckConstraint("land_area_m2 IS NULL OR land_area_m2 > 0", name="land_area_positive"),
+        CheckConstraint(
+            "(bedrooms IS NULL OR bedrooms BETWEEN 0 AND 100) AND "
+            "(bathrooms IS NULL OR bathrooms BETWEEN 0 AND 100) AND "
+            "(car_spaces IS NULL OR car_spaces BETWEEN 0 AND 100)",
+            name="rooms_range",
+        ),
     )
 
     address_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
     lot_plan: Mapped[str | None] = mapped_column(String(50))
     title_reference: Mapped[str | None] = mapped_column(String(50))
     land_area_m2: Mapped[Decimal | None] = mapped_column(Numeric(12, 2))
+    # From the customer, or brought in from a listing link (app/modules/lookups/listing.py).
+    bedrooms: Mapped[int | None] = mapped_column(Integer)
+    bathrooms: Mapped[int | None] = mapped_column(Integer)
+    car_spaces: Mapped[int | None] = mapped_column(Integer)
+    property_type: Mapped[str | None] = mapped_column(String(40))
+    listing_url: Mapped[str | None] = mapped_column(String(500))
 
 
 class PropertyOwnership(UUIDPrimaryKeyMixin, TimestampMixin, CreatedByMixin, TenantMixin, Base):
