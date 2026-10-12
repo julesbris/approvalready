@@ -46,6 +46,14 @@ export const REPORT_TEMPLATES: Record<string, ReportTemplate[]> = {
         "information, sources and review status.",
     },
     checklist("PLANNING"),
+    {
+      key: "PLANNING_PRELODGEMENT",
+      title: "Pre-lodgement pack",
+      description:
+        "Take it to a meeting with the council's planning team, or attach it to your email: " +
+        "the site, what you want to do, the approvals we found, the questions to ask with room " +
+        "for the council's answers, what to bring, and the council's contacts and fees.",
+    },
   ],
   BUSINESS: [
     {

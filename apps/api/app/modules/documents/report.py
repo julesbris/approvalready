@@ -19,7 +19,7 @@ from app.modules.assessments import approval_map
 from app.modules.assessments import service as assessments
 from app.modules.assessments.models import AssessmentFinding
 from app.modules.checklists import service as checklists
-from app.modules.documents import render
+from app.modules.documents import prelodgement, render
 from app.modules.documents.models import (
     DocumentTemplate,
     DocumentTemplateVersion,
@@ -152,6 +152,16 @@ def _format_value(value: Any) -> str:
     return str(value)
 
 
+def _worded(options: dict[str, dict[str, str]], key: str, value: Any) -> Any:
+    """A choice answer in the question's own wording ("Low density residential")."""
+    choices = options.get(key)
+    if not choices:
+        return value
+    if isinstance(value, list):
+        return [choices.get(v, v) if isinstance(v, str) else v for v in value]
+    return choices.get(value, value) if isinstance(value, str) else value
+
+
 def _finding(f: AssessmentFinding, override: review.OverrideRow | None) -> dict[str, Any]:
     """A finding as the customer should read it: with the reviewer's change, if any, and
     the original kept in the reasons."""
@@ -193,6 +203,7 @@ async def build_context(
             row.document.original_filename
         )
     labels = await questionnaires.fact_labels(db, project.vertical)
+    options = await questionnaires.option_labels(db, project.vertical)
     facts = decode_facts(assessment.facts_snapshot)
 
     sources: dict[str, dict[str, Any]] = {}
@@ -275,7 +286,30 @@ async def build_context(
         }
         for v in await checklists.list_for_project(db, project)
     ]
+    approval_rows = [
+        {
+            "title": a.title,
+            "certainty_label": CERTAINTY.get(a.certainty, a.certainty),
+            "confidence_label": CONFIDENCE.get(a.confidence, a.confidence),
+            "authority": a.authority,
+            "pathway": a.pathway,
+        }
+        for a in approvals
+    ]
+    evidence_rows = [
+        {"title": e.title, "detail": e.detail, "documents": provided.get(e.id, [])}
+        for e in evidence_requirements
+    ]
     return {
+        "prelodgement": prelodgement.build(
+            facts,
+            options,
+            approval_rows,
+            evidence_rows,
+            list(missing),
+        )
+        if template.key == "PLANNING_PRELODGEMENT"
+        else None,
         "checklist": await _checklist_context(db, assessment, project, findings)
         if template.key.endswith("_CHECKLIST")
         else None,
@@ -310,20 +344,8 @@ async def build_context(
             rs["title"] for rs in assessment.rule_sets if rs.get("scope") == "IN_SCOPE"
         ],
         "findings": [_finding(f, overridden.get(f.id)) for f in findings],
-        "approvals": [
-            {
-                "title": a.title,
-                "certainty_label": CERTAINTY.get(a.certainty, a.certainty),
-                "confidence_label": CONFIDENCE.get(a.confidence, a.confidence),
-                "authority": a.authority,
-                "pathway": a.pathway,
-            }
-            for a in approvals
-        ],
-        "evidence": [
-            {"title": e.title, "detail": e.detail, "documents": provided.get(e.id, [])}
-            for e in evidence_requirements
-        ],
+        "approvals": approval_rows,
+        "evidence": evidence_rows,
         "approval_map": [
             {
                 "certainty_label": CERTAINTY[column],
@@ -343,7 +365,7 @@ async def build_context(
         ],
         "referrals": [referral_labels[k] for k in referral_keys],
         "assumptions": [
-            {"label": labels[key], "value": _format_value(facts[key])}
+            {"label": labels[key], "value": _format_value(_worded(options, key, facts[key]))}
             for key in labels
             if key in facts
         ],

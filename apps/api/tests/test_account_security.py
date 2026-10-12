@@ -125,14 +125,17 @@ async def test_setup_confirm_and_sign_in_with_a_code(api: ApiHarness) -> None:
     client = await _login(api, user.email)
     r = await client.post("/v1/auth/login/mfa", json={"code": "999999"})
     assert r.status_code == 400
-    r = await client.post("/v1/auth/login/mfa", json={"code": totp_code(secret, 1)})
+    # Work the code out once: recomputing it after a 30-second step boundary would give a
+    # fresh code, not the one already used.
+    code = totp_code(secret, 1)
+    r = await client.post("/v1/auth/login/mfa", json={"code": code})
     assert r.status_code == 200, r.text
     assert r.json()["user"]["mfa_enabled"] is True
     assert client.cookies.get("ar_session")
     assert not client.cookies.get("ar_mfa")
     # The same code can't be used again.
     again = await _login(api, user.email)
-    r = await again.post("/v1/auth/login/mfa", json={"code": totp_code(secret, 1)})
+    r = await again.post("/v1/auth/login/mfa", json={"code": code})
     assert r.status_code == 400
 
     async with api.app.state.resources.session_factory() as db:
