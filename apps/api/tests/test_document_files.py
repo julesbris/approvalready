@@ -12,6 +12,7 @@ from urllib.parse import parse_qs, unquote, urlparse
 
 import pytest
 from pydantic import SecretStr, ValidationError
+from pypdf import PdfReader
 
 from app.core.config import Environment, MalwareScannerKind, StorageBackendKind
 from app.modules.documents import filetypes, render
@@ -379,3 +380,26 @@ def test_bundled_templates_load() -> None:
     assert templates["GRANT_ELIGIBILITY"].vertical == "GRANT"
     assert templates["TRADE_APPROVAL_MAP"].vertical == "TRADE"
     assert templates["PLANNING_PRELODGEMENT"].vertical == "PLANNING"
+
+
+def test_reports_use_the_brand() -> None:
+    html = render.render_html(BODY, context())
+    assert 'aria-label="ApprovalReady.au"' in html  # the logo lockup in the cover band
+    pdf = PdfReader(io.BytesIO(render.html_to_pdf(html)))
+    fonts = {
+        str(f.get_object()["/BaseFont"])
+        for page in pdf.pages
+        for f in page["/Resources"]["/Font"].values()
+    }
+    for font in ("Outfit", "Figtree"):
+        assert any(font in f for f in fonts), fonts
+    docx = render.html_to_docx(html, title="t")
+    with zipfile.ZipFile(io.BytesIO(docx)) as z:
+        assert any(n.startswith("word/media/") for n in z.namelist())  # the header logo
+        assert "Outfit" in z.read("word/styles.xml").decode()
+
+
+def test_the_brand_fetcher_only_serves_brand_fonts() -> None:
+    assert render._brand_asset("Outfit-600.woff2")
+    for name in ("../render.py", "ar-lockup-horizontal.svg", ".hidden.woff2", "nope.woff2"):
+        assert render._brand_asset(name) is None, name
