@@ -532,6 +532,42 @@ async def test_every_product_has_a_checklist_report(api: ApiHarness) -> None:
     assert r.status_code == 409
 
 
+async def test_planning_pre_lodgement_pack(api: ApiHarness) -> None:
+    customer, _, assessment = await _assessed(api)
+    org = org_url(customer)
+    outputs: dict[str, bytes] = {}
+    for fmt in ("HTML", "DOCX", "PDF"):
+        r = await customer.post(
+            f"{org}/assessments/{assessment['id']}/documents",
+            json={"format": fmt, "template": "PLANNING_PRELODGEMENT"},
+        )
+        assert r.status_code == 202, r.text
+        assert "-pre-lodgement-pack-" in r.json()["filename"]
+        r = await customer.get(f"{org}/generated-documents/{r.json()['id']}/content")
+        assert r.status_code == 200
+        outputs[fmt] = r.content
+    html = outputs["HTML"].decode()
+    for expected in (
+        "Pre-lodgement pack",
+        "The site",
+        "812.25 m²",
+        "A secondary dwelling (granny flat)",  # the option's wording, not its value
+        "Questions to ask the council",
+        "Council's answer:",  # room to write the council's answers
+        "Is this approval needed: A development application is likely?",
+        "What to bring",
+        "Site plan (Show the parking.)",  # the assessment's evidence
+        "qldglobe.information.qld.gov.au",
+        "Notes from the meeting",
+        "not legal or planning advice",
+    ):
+        assert expected in html, expected
+    assert "secondary_dwelling" not in html
+    assert outputs["PDF"].startswith(b"%PDF-")
+    with zipfile.ZipFile(io.BytesIO(outputs["DOCX"])) as z:
+        assert "Questions to ask the council" in z.read("word/document.xml").decode()
+
+
 async def test_reports_wait_until_generated(api: ApiHarness) -> None:
     customer, _, assessment = await _assessed(api)
     api.app.state.resources.jobs = NoJobs()

@@ -48,7 +48,9 @@ export function CouncilEnquiryEmail({ council, answers, level = 3 }: Props) {
         {to
           ? "We've written this email from your answers. Add your name and phone number, then send it from your own email."
           : "We've written this enquiry from your answers. The council doesn't publish an email address for planning, so add your name and phone number and paste it into its enquiry form."}{" "}
-        An early answer from the council can save a refused or delayed application.
+        An early answer from the council can save a refused or delayed application. Attach your
+        pre-lodgement pack (under Reports on your assessment) so the planning team has the full
+        picture.
       </p>
       <dl className="review-list">
         <div>

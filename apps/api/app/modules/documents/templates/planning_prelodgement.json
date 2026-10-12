@@ -1,0 +1,12 @@
+{
+  "key": "PLANNING_PRELODGEMENT",
+  "title": "Pre-lodgement pack",
+  "vertical": "PLANNING",
+  "engine": "JINJA_HTML",
+  "body": "planning_prelodgement.html.j2",
+  "output_formats": [
+    "PDF",
+    "DOCX",
+    "HTML"
+  ]
+}

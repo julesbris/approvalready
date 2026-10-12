@@ -1,0 +1,110 @@
+{#- Pre-lodgement pack body (documents/prelodgement.py): what to take to a meeting with the
+    council's planning team, or send them, before lodging. The frame (render.py) adds the
+    required metadata, assumptions (every answer), missing information, sources and
+    limitations sections. Only the tags documented in render.py survive conversion to Word,
+    so links are written out in full. -#}
+{% set p = prelodgement %}
+<h2>About this pack</h2>
+<p>
+  Take this to a pre-lodgement meeting with the council's planning team, or attach it to an
+  email to them. It sets out the site, what you want to do, the approvals our assessment found
+  and the questions to ask, with room to write the council's answers. Talking to the council
+  before you lodge can save a refused or delayed application.
+</p>
+
+<h2>The site</h2>
+{% if p.site %}
+<table>
+  {% for row in p.site %}
+  <tr><th>{{ row.label }}</th><td>{{ row.value }}</td></tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Add the site's address and lot and plan before the meeting: we don't have them yet.</p>
+{% endif %}
+{% if p.constraints %}
+<p><strong>Site constraints known or mapped:</strong> {{ p.constraints | join(", ") }}.</p>
+{% endif %}
+<p><strong>Site maps:</strong> print a map of the lot to bring along.</p>
+<ul>
+  {% for m in p.map_links %}<li>{{ m.title }}: {{ m.url }}</li>{% endfor %}
+</ul>
+
+<h2>What is proposed</h2>
+{% if p.proposal %}
+<table>
+  {% for row in p.proposal %}
+  <tr><th>{{ row.label }}</th><td>{{ row.value }}</td></tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Describe what you want to build or change before the meeting.</p>
+{% endif %}
+
+<h2>Approvals our assessment found</h2>
+{% if approvals %}
+<table>
+  <tr><th>Approval</th><th>How sure</th><th>Who decides</th></tr>
+  {% for a in approvals %}
+  <tr>
+    <td>{{ a.title }}</td>
+    <td>{{ a.certainty_label }} ({{ a.confidence_label }})</td>
+    <td>{{ a.authority or "Not stated" }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>
+  Our assessment didn't identify an approval from your answers. This is not a finding that none
+  is needed: ask the council to confirm.
+</p>
+{% endif %}
+
+<h2>Questions to ask the council</h2>
+<p>Write the council's answer under each question.</p>
+<table>
+  {% for q in p.questions %}
+  <tr><th>{{ loop.index }}</th><td><strong>{{ q }}</strong><br><br><em>Council's answer:</em><br><br><br></td></tr>
+  {% endfor %}
+</table>
+
+{% if p.to_confirm %}
+<h2>Things we couldn't confirm</h2>
+<p>Your answers didn't cover these. Bring what you know, or ask the council what they need.</p>
+<ul>
+  {% for item in p.to_confirm %}<li>{{ item }}</li>{% endfor %}
+</ul>
+{% endif %}
+
+<h2>What to bring</h2>
+<ul>
+  {% for item in p.bring %}<li>&#9744; {{ item }}</li>{% endfor %}
+</ul>
+
+<h2>The council</h2>
+{% if p.council %}
+{% set c = p.council %}
+<table>
+  <tr><th>Council</th><td>{{ c.name }}</td></tr>
+  {% if c.email %}<tr><th>Planning enquiries</th><td>{{ c.email }}{% if c.email_general %} (the council's main inbox){% endif %}</td></tr>{% endif %}
+  {% if c.phone %}<tr><th>Phone</th><td>{{ c.phone }}</td></tr>{% endif %}
+  <tr><th>Pre-lodgement meetings</th><td>{{ c.pre_lodgement }}{% if c.pre_lodgement_url %}<br>{{ c.pre_lodgement_url }}{% endif %}</td></tr>
+  {% if c.planning_scheme %}<tr><th>Planning scheme</th><td>{{ c.planning_scheme }}{% if c.planning_scheme_url %}<br>{{ c.planning_scheme_url }}{% endif %}</td></tr>{% endif %}
+</table>
+{% if c.fees %}
+<h3>Application fees{% if c.fee_year %} ({{ c.fee_year }}){% endif %}</h3>
+<table>
+  <tr><th>Application</th><th>Fee</th></tr>
+  {% for f in c.fees %}<tr><td>{{ f.label }}</td><td>{{ f.amount }}</td></tr>{% endfor %}
+</table>
+{% endif %}
+<p><em>Council details gathered from official websites on {{ c.checked_on }}. Confirm them with the council.</em></p>
+{% else %}
+<p>We don't have this council's details yet. Look up its planning team on its website.</p>
+{% endif %}
+
+<h2>Notes from the meeting</h2>
+<table>
+  <tr><td><strong>Date and who we spoke to:</strong><br><br><br></td></tr>
+  <tr><td><strong>Next steps agreed:</strong><br><br><br><br><br></td></tr>
+</table>

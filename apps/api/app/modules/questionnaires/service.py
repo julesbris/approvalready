@@ -264,6 +264,17 @@ async def fact_labels(db: AsyncSession, vertical: str) -> dict[str, str]:
     return labels
 
 
+async def option_labels(db: AsyncSession, vertical: str) -> dict[str, dict[str, str]]:
+    """The wording of each choice in the vertical's published questionnaires, by fact, so a
+    report can say "Low density residential" rather than ``low_density_residential``."""
+    out: dict[str, dict[str, str]] = {}
+    for _, version in await published_versions(db, vertical):
+        for q in (await compiled(db, version.id)).questions:
+            for option in q.options:
+                out.setdefault(q.key, {}).setdefault(option.value, option.label)
+    return out
+
+
 # --- Submissions -----------------------------------------------------------------------
 
 
