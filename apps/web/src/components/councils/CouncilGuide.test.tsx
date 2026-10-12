@@ -19,7 +19,16 @@ function council(overrides: Partial<CouncilOut> = {}): CouncilOut {
     ],
     steps: ["Book a pre-lodgement meeting.", "Lodge with DA Form 1."],
     pre_lodgement: { available: true, url: null, note: "Free for 30 minutes." },
-    contact: { phone: "07 4000 0000", email: "mail@testshire.example", address: "1 Main St", hours: null },
+    contact: {
+      phone: "07 4000 0000",
+      email: "mail@testshire.example",
+      address: "1 Main St",
+      hours: null,
+      planning_email: "da@testshire.example",
+      planning_email_general: false,
+      planning_phone: null,
+      planning_source: "https://testshire.example/da",
+    },
     fees: {
       schedule_url: "https://testshire.example/fees.pdf",
       fee_year: "2026-27",
@@ -71,5 +80,93 @@ describe("CouncilGuide", () => {
     );
     expect(screen.getByText(/Checked by our team/)).toBeInTheDocument();
     expect(screen.queryByText(/Confirm the details/)).not.toBeInTheDocument();
+  });
+  it("writes a pre-lodgement email to the planning team from the answers", () => {
+    render(
+      <CouncilGuide
+        council={council()}
+        answers={{
+          "property.address": {
+            line1: "1 Smith St",
+            suburb: "Edge Hill",
+            state: "QLD",
+            postcode: "4870",
+          },
+          "property.lot_plan": "12RP700000",
+          "planning.development_type": "secondary_dwelling",
+          "planning.secondary_dwelling_bedrooms": 2,
+        }}
+      />,
+    );
+    expect(screen.getByText("Planning team email")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Pre-lodgement enquiry: secondary dwelling (granny flat) at 1 Smith St, Edge Hill QLD 4870",
+      ),
+    ).toBeInTheDocument();
+    const body = screen.getByRole("textbox", {
+      name: "Email",
+    }) as HTMLTextAreaElement;
+    expect(body.value).toContain("Hello Test Shire Council planning team,");
+    expect(body.value).toContain("- Lot and plan: 12RP700000");
+    expect(body.value).toContain("- Bedrooms: 2");
+    const open = screen.getByRole("link", { name: "Open in my email" });
+    expect(open.getAttribute("href")).toMatch(
+      /^mailto:da@testshire\.example\?subject=Pre-lodgement/,
+    );
+  });
+
+  it("falls back to the council's main inbox when there is no planning email", () => {
+    render(
+      <CouncilGuide
+        council={council({
+          contact: {
+            phone: null,
+            email: "mail@testshire.example",
+            address: null,
+            hours: null,
+            planning_email: null,
+            planning_email_general: false,
+            planning_phone: null,
+            planning_source: null,
+          },
+        })}
+      />,
+    );
+    expect(screen.getByText(/the council's main inbox/)).toBeInTheDocument();
+    const body = screen.getByRole("textbox", {
+      name: "Email",
+    }) as HTMLTextAreaElement;
+    expect(body.value).toContain("I'm planning a development and would like");
+  });
+
+  it("points to the council's enquiry form when it publishes no email", () => {
+    render(
+      <CouncilGuide
+        council={council({
+          contact: {
+            phone: "07 3403 8888",
+            email: null,
+            address: null,
+            hours: null,
+            planning_email: null,
+            planning_email_general: false,
+            planning_phone: null,
+            planning_source: null,
+          },
+          pre_lodgement: {
+            available: true,
+            url: "https://testshire.example/enquiry",
+            note: null,
+          },
+        })}
+      />,
+    );
+    expect(screen.getByRole("link", { name: "The council's enquiry form" })).toHaveAttribute(
+      "href",
+      "https://testshire.example/enquiry",
+    );
+    expect(screen.queryByRole("link", { name: "Open in my email" })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Copy enquiry" })).toBeInTheDocument();
   });
 });

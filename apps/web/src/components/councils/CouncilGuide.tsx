@@ -1,5 +1,6 @@
 import type { CouncilOut } from "@approvalready/shared-types";
 
+import { CouncilEnquiryEmail } from "@/components/councils/CouncilEnquiryEmail";
 import { LODGEMENT_LABELS, feesMayBeOutOfDate, telHref } from "@/lib/councils";
 import { formatDate } from "@/lib/questionnaire";
 
@@ -7,6 +8,8 @@ type Props = {
   council: CouncilOut;
   /** Heading level for the panel title (sub-headings go one lower). */
   level?: 2 | 3;
+  /** Planning answers (or an assessment's facts), to write the enquiry email from. */
+  answers?: Record<string, unknown>;
 };
 
 /**
@@ -14,7 +17,7 @@ type Props = {
  * contacts, with where each came from. Until a person checks the council's details they are
  * labelled as gathered from the council's website.
  */
-export function CouncilGuide({ council, level = 2 }: Props) {
+export function CouncilGuide({ council, level = 2, answers }: Props) {
   const Title = level === 2 ? "h2" : "h3";
   const Sub = level === 2 ? "h3" : "h4";
   const titleId = `council-${council.key}`;
@@ -22,6 +25,11 @@ export function CouncilGuide({ council, level = 2 }: Props) {
   const fees = council.fees;
   const contact = council.contact;
   const phoneHref = contact.phone ? telHref(contact.phone) : null;
+  const planningPhoneHref = contact.planning_phone ? telHref(contact.planning_phone) : null;
+  const planningEmail =
+    contact.planning_email_general || contact.planning_email === contact.email
+      ? null
+      : contact.planning_email;
   return (
     <section className="panel council-guide" aria-labelledby={titleId}>
       <div className="council-head">
@@ -165,6 +173,26 @@ export function CouncilGuide({ council, level = 2 }: Props) {
 
       <Sub className="subsection-title">Contact the council</Sub>
       <dl className="review-list">
+        {planningEmail ? (
+          <div>
+            <dt>Planning team email</dt>
+            <dd>
+              <a href={`mailto:${planningEmail}`}>{planningEmail}</a>
+            </dd>
+          </div>
+        ) : null}
+        {contact.planning_phone && contact.planning_phone !== contact.phone ? (
+          <div>
+            <dt>Planning team phone</dt>
+            <dd>
+              {planningPhoneHref ? (
+                <a href={planningPhoneHref}>{contact.planning_phone}</a>
+              ) : (
+                contact.planning_phone
+              )}
+            </dd>
+          </div>
+        ) : null}
         {contact.phone ? (
           <div>
             <dt>Phone</dt>
@@ -220,6 +248,8 @@ export function CouncilGuide({ council, level = 2 }: Props) {
           </div>
         ) : null}
       </dl>
+
+      <CouncilEnquiryEmail council={council} answers={answers} level={level === 2 ? 3 : 4} />
 
       {council.gaps.length > 0 ? (
         <details className="council-more">

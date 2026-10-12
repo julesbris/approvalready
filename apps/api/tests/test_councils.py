@@ -5,6 +5,7 @@ checked it."""
 
 from __future__ import annotations
 
+import re
 import uuid
 
 import pytest
@@ -89,6 +90,17 @@ def test_fees_and_links_are_well_formed() -> None:
         for way in council.lodgement:
             if way.method == "EMAIL":
                 assert way.email and "@" in way.email, f"{council.key}: {way.label}"
+
+
+def test_planning_emails_say_where_they_came_from() -> None:
+    email = re.compile(r"^[^@\s]+@[a-z0-9.-]+\.[a-z]{2,}$", re.IGNORECASE)
+    with_email = [c for c in directory.councils() if c.contact.planning_email]
+    assert len(with_email) > 50
+    for council in with_email:
+        contact = council.contact
+        assert email.match(contact.planning_email or ""), council.key
+        # Read weekly for changes like any other page the entry came from.
+        assert contact.planning_source in {s.url for s in council.sources}, council.key
 
 
 def test_planning_questionnaire_offers_every_council() -> None:

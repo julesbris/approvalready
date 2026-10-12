@@ -2991,3 +2991,17 @@ a.card-title:hover {
     break-inside: avoid-page;
   }
 }
+
+.council-enquiry {
+  margin-top: 20px;
+}
+
+.council-enquiry .form {
+  margin: 12px 0;
+}
+
+.council-enquiry-body {
+  font: inherit;
+  line-height: 1.5;
+  min-height: 16rem;
+}
