@@ -5,12 +5,15 @@ import {
   cardAlt,
   cardPath,
   guideFaqs,
+  GUIDE_STATES,
   guideJsonLd,
+  guidesFor,
   jsonLdScript,
   metaDescription,
   pageTitle,
   PUBLIC_GUIDES,
   publicGuide,
+  SCENARIOS,
 } from "@/lib/publicGuides";
 import { sitemapPaths } from "@/lib/site";
 
@@ -28,6 +31,16 @@ describe("public guide pages", () => {
     expect(new Set(paths).size).toBe(paths.length);
     expect(publicGuide("nsw", "boat-licence")?.kind).toBe("NSW_BOAT_LICENCE");
     expect(publicGuide("australia", "abn-registration")?.state.name).toBe("Australia-wide");
+  });
+
+  it("covers every scenario in every state", () => {
+    for (const state of GUIDE_STATES.filter((s) => s.segment !== "australia")) {
+      const missing = SCENARIOS.filter((s) => {
+        const { local, national } = guidesFor(state.segment, s.vertical);
+        return local.length + national.length === 0;
+      }).map((s) => s.vertical);
+      expect({ state: state.segment, missing }).toEqual({ state: state.segment, missing: [] });
+    }
   });
 
   it("writes titles and descriptions for search results", () => {
