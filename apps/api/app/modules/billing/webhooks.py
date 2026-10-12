@@ -244,6 +244,7 @@ async def _subscription(db: AsyncSession, org: uuid.UUID, obj: dict[str, Any], a
     row.current_period_end = _period_end(obj)
     row.cancel_at_period_end = bool(obj.get("cancel_at_period_end"))
     row.canceled_at = _ts(obj.get("canceled_at"))
+    row.trial_end = _ts(obj.get("trial_end"))
     if status == SubscriptionStatus.PAST_DUE:
         row.past_due_since = row.past_due_since or at
     else:

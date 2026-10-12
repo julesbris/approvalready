@@ -74,7 +74,11 @@ export function PlanOffer({
         ))}
       </ul>
       <p className="plan-price">
-        {offer.on_sale && offer.price_cents !== null ? (
+        {offer.included_in_membership ? (
+          <>
+            <strong>Included in your ApprovalReady Plus membership.</strong> No extra cost.
+          </>
+        ) : offer.on_sale && offer.price_cents !== null ? (
           <>
             <strong>{formatMoney(offer.price_cents, offer.currency ?? "AUD")}</strong> once, for
             this project. No subscription.
@@ -85,6 +89,12 @@ export function PlanOffer({
           </>
         )}
       </p>
+      {offer.membership_on_sale && !pending ? (
+        <p className="muted">
+          Have more than one project? <Link href="/membership">ApprovalReady Plus</Link> includes
+          a plan for every project, and your first month is free.
+        </p>
+      ) : null}
       <FormError message={error} />
       {!canWrite ? (
         <p className="muted">Ask someone who can edit this project to start the plan.</p>

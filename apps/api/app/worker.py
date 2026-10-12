@@ -74,6 +74,7 @@ celery_app.conf.update(
             "schedule": crontab(hour=10, minute=0),
         },
         "marketing-publish-due": {"task": "marketing.publish_due", "schedule": 120.0},
+        "billing-trial-emails": {"task": "billing.trial_emails", "schedule": 900.0},
         "privacy-delete-closed-workspaces": {
             "task": "privacy.delete_closed_workspaces",
             "schedule": crontab(hour=3, minute=20),
@@ -374,6 +375,17 @@ def progress_nudge() -> int:
     from app.modules.progress import nudges
 
     return asyncio.run(_with_own_engine(nudges.send_nudges))
+
+
+# --- Free trials (ApprovalReady Plus) -----------------------------------------------------
+
+
+@celery_app.task(name="billing.trial_emails")
+def billing_trial_emails() -> int:
+    """Tell people their free month started, and remind them before the first charge."""
+    from app.modules.billing import trials
+
+    return asyncio.run(_with_own_engine(trials.send_trial_emails))
 
 
 # --- Marketing ----------------------------------------------------------------------------

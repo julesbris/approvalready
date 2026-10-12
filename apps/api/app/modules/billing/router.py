@@ -32,12 +32,13 @@ from app.api.deps import (
 from app.core.config import Settings
 from app.core.errors import ApiError, not_found
 from app.modules.billing import service, webhooks
-from app.modules.billing.catalogue import suggested_prices
+from app.modules.billing.catalogue import load_bundled, suggested_prices
 from app.modules.billing.models import (
     EventStatus,
     InvoiceReference,
     Payment,
     Price,
+    PriceInterval,
     Product,
     StripeEvent,
     Subscription,
@@ -51,6 +52,8 @@ from app.modules.billing.schemas import (
     InvoiceOut,
     PaymentOut,
     PlanCheckoutIn,
+    PlusMembershipOut,
+    PlusOfferOut,
     PriceIn,
     PriceOut,
     ProductOut,
@@ -154,6 +157,7 @@ def subscription_out(s: Subscription, product: Product, price: Price) -> Subscri
         cancel_at_period_end=s.cancel_at_period_end,
         canceled_at=s.canceled_at,
         past_due_since=s.past_due_since,
+        trial_end=s.trial_end,
         grace_ends_at=service.grace_ends_at(s),
         gives_plan=service.subscription_counts(s, service.utcnow()),
     )
@@ -255,6 +259,83 @@ async def plan_checkout(
         success_url=f"{back}?checkout=done",
         cancel_url=f"{back}?checkout=cancelled",
         meta=meta,
+        trial_days=settings.membership_trial_days,
+    )
+    await db.commit()
+    return RedirectOut(url=url)
+
+
+# --- ApprovalReady Plus (the membership with a free first month) --------------------------
+
+
+async def _membership_offer(db: AsyncSession, settings: Settings) -> PlusOfferOut:
+    product = next(p for p in load_bundled().products if p.key == service.MEMBERSHIP_KEY)
+    sale = await service.membership_price(db) if settings.payments_enabled else None
+    price = sale[1] if sale else None
+    return PlusOfferOut(
+        on_sale=price is not None,
+        product_name=product.name,
+        description=product.description,
+        amount_cents=price.amount_cents if price else None,
+        currency=price.currency if price else None,
+        interval=PriceInterval(price.interval) if price else None,
+        trial_days=settings.membership_trial_days,
+        reminder_days=settings.membership_trial_reminder_days,
+    )
+
+
+@router.get("/billing/membership", response_model=PlusMembershipOut)
+async def membership(ctx: Manage, db: DbDep, settings: SettingsDep) -> PlusMembershipOut:
+    """The membership offer and where this organisation stands with it."""
+    org_id = ctx.organisation.id
+    current = await service.live_subscription(db, org_id)
+    sub, other = None, None
+    if current is not None:
+        product = await service.get_product(db, current.product_id)
+        if product.key == service.MEMBERSHIP_KEY:
+            sub = subscription_out(current, product, await service.get_price(db, current.price_id))
+        else:
+            other = product.name
+    return PlusMembershipOut(
+        offer=await _membership_offer(db, settings),
+        trial_available=settings.membership_trial_days > 0
+        and await service.trial_available(db, org_id),
+        other_plan=other,
+        subscription=sub,
+    )
+
+
+@router.post("/billing/membership/checkout", response_model=RedirectOut)
+async def membership_checkout(
+    ctx: Manage,
+    db: DbDep,
+    meta: MetaDep,
+    settings: SettingsDep,
+    stripe: StripeDep,
+) -> RedirectOut:
+    """Stripe Checkout for ApprovalReady Plus: the card is saved now, and the first month is
+    free when the organisation hasn't had a trial before."""
+    client = _require(stripe)
+    if ctx.organisation.kind == OrganisationKind.PARTNER:
+        raise ApiError(
+            409,
+            "customer_plan_only",
+            "ApprovalReady Plus is for customer accounts. Switch to your own account first.",
+        )
+    sale = await service.membership_price(db)
+    if sale is None:
+        raise ApiError(409, "price_unavailable", "ApprovalReady Plus isn't on sale yet.")
+    back = f"{settings.web_base_url}/membership/start"
+    url = await service.checkout_for_plan(
+        db,
+        client,
+        organisation=ctx.organisation,
+        user=ctx.auth.user,
+        price=sale[1],
+        success_url=f"{back}?checkout=done",
+        cancel_url=f"{back}?checkout=cancelled",
+        meta=meta,
+        trial_days=settings.membership_trial_days,
     )
     await db.commit()
     return RedirectOut(url=url)
@@ -271,6 +352,12 @@ async def billing_portal(
     )
     await db.commit()
     return RedirectOut(url=url)
+
+
+@webhook_router.get("/membership", response_model=PlusOfferOut)
+async def membership_offer(db: DbDep, settings: SettingsDep) -> PlusOfferOut:
+    """ApprovalReady Plus for the public sales page: price, free days, reminder. No sign-in."""
+    return await _membership_offer(db, settings)
 
 
 # --- Webhook -----------------------------------------------------------------------------
