@@ -36,6 +36,8 @@ function plan(steps: PlanStepOut[]): ProjectPlanOut {
       currency: null,
       product_name: "Project plan",
       product_description: "x",
+      included_in_membership: false,
+      membership_on_sale: false,
     },
     complimentary: true,
     sections: [

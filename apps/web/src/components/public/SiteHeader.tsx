@@ -15,6 +15,7 @@ export function SiteHeader() {
         <div className="public-actions">
           <nav className="public-nav" aria-label="Site">
             <Link href="/guides">Guides</Link>
+            <Link href="/membership">First month free</Link>
             <Link href="/login">Sign in</Link>
           </nav>
           <Link className="button button-small" href="/register">
@@ -22,6 +23,7 @@ export function SiteHeader() {
           </Link>
           <MenuDisclosure>
             <Link href="/guides">Guides</Link>
+            <Link href="/membership">First month free</Link>
             <Link href="/login">Sign in</Link>
             <Link href="/register">Create an account</Link>
           </MenuDisclosure>

@@ -25,6 +25,11 @@
       "key": "partner.leads.included",
       "description": "Referrals included each month without a lead fee",
       "default_limit": 3
+    },
+    {
+      "key": "plan.project.included",
+      "description": "Online project plans included at no extra cost",
+      "default_limit": 0
     }
   ],
   "products": [
@@ -116,6 +121,14 @@
         "partner.members.max": 20,
         "partner.leads.included": 50
       }
+    },
+    {
+      "key": "membership.plus",
+      "kind": "SAAS",
+      "name": "ApprovalReady Plus",
+      "description": "Every project gets its online project plan included: every step on a timeline with due dates, owners, your files and notes, follow-up reminders, and checked partners in your area for each part. First month free.",
+      "features": {"plan.project.included": null},
+      "suggested_price_cents": 2900
     },
     {
       "key": "plan.project",

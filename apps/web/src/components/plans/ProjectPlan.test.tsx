@@ -20,6 +20,8 @@ const OFFER = {
   currency: null,
   product_name: "Project plan",
   product_description: "Manage one project online.",
+  included_in_membership: false,
+  membership_on_sale: false,
 };
 
 function step(overrides: Partial<PlanStepOut>): PlanStepOut {
@@ -241,5 +243,45 @@ describe("PlanOffer", () => {
     expect(screen.getByText("$149.00")).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Buy the project plan" })).toBeNull();
     expect(screen.getByRole("link", { name: /run it first/ })).toBeInTheDocument();
+  });
+
+  it("points to ApprovalReady Plus, and says when the membership includes the plan", () => {
+    const { rerender } = render(
+      <PlanOffer
+        organisationId="org"
+        projectId="p"
+        plan={{
+          status: "NONE",
+          offer: { ...OFFER, on_sale: true, price_cents: 14900, membership_on_sale: true },
+          complimentary: false,
+          sections: [],
+        }}
+        hasAssessment
+        canWrite
+        paymentReturn={null}
+      />,
+    );
+    expect(screen.getByRole("link", { name: "ApprovalReady Plus" })).toHaveAttribute(
+      "href",
+      "/membership",
+    );
+    rerender(
+      <PlanOffer
+        organisationId="org"
+        projectId="p"
+        plan={{
+          status: "NONE",
+          offer: { ...OFFER, included_in_membership: true },
+          complimentary: false,
+          sections: [],
+        }}
+        hasAssessment
+        canWrite
+        paymentReturn={null}
+      />,
+    );
+    expect(screen.getByText(/Included in your ApprovalReady Plus membership/)).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "ApprovalReady Plus" })).toBeNull();
+    expect(screen.getByRole("button", { name: "Start my project plan" })).toBeInTheDocument();
   });
 });

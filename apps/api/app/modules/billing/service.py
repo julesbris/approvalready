@@ -51,6 +51,10 @@ LIVE_SUBSCRIPTION = (
     SubscriptionStatus.PAUSED,
 )
 STRIPE_INTERVAL = {PriceInterval.MONTH: "month", PriceInterval.YEAR: "year"}
+# ApprovalReady Plus: the membership sold with a free first month (card taken up front).
+MEMBERSHIP_KEY = "membership.plus"
+# What the membership includes: a project plan for every project at no extra cost.
+PLAN_INCLUDED_FEATURE = "plan.project.included"
 
 
 def utcnow() -> datetime:
@@ -304,6 +308,12 @@ async def allowance(db: AsyncSession, organisation_id: uuid.UUID, key: str) -> A
     return Allowance(key, feature.description, limit, enforced, plan)
 
 
+async def includes_project_plans(db: AsyncSession, organisation_id: uuid.UUID) -> bool:
+    """Whether the organisation's plan includes project plans (ApprovalReady Plus)."""
+    a = await allowance(db, organisation_id, PLAN_INCLUDED_FEATURE)
+    return a.plan is not None and (a.limit is None or a.limit > 0)
+
+
 async def require_allowance(
     db: AsyncSession, organisation_id: uuid.UUID, key: str, *, in_use: int
 ) -> None:
@@ -506,6 +516,42 @@ def grace_ends_at(sub: Subscription) -> datetime | None:
     return sub.past_due_since + PAST_DUE_GRACE
 
 
+async def membership_price(db: AsyncSession) -> tuple[Product, Price] | None:
+    """ApprovalReady Plus and its price, when on sale (monthly first, else yearly)."""
+    rows = sorted(
+        (
+            await db.execute(
+                select(Product, Price)
+                .join(Price, Price.product_id == Product.id)
+                .where(
+                    Product.key == MEMBERSHIP_KEY,
+                    Product.active.is_(True),
+                    Price.active.is_(True),
+                    Price.interval.in_((PriceInterval.MONTH, PriceInterval.YEAR)),
+                )
+            )
+        ).all(),
+        key=lambda r: r[1].interval != PriceInterval.MONTH,
+    )
+    return (rows[0][0], rows[0][1]) if rows else None
+
+
+async def trial_available(db: AsyncSession, organisation_id: uuid.UUID) -> bool:
+    """One free month per organisation: not if it has ever had the membership."""
+    had = (
+        await db.execute(
+            select(Subscription.id)
+            .join(Product, Product.id == Subscription.product_id)
+            .where(
+                Subscription.organisation_id == organisation_id,
+                Product.key == MEMBERSHIP_KEY,
+            )
+            .limit(1)
+        )
+    ).scalar_one_or_none()
+    return had is None
+
+
 async def checkout_for_plan(
     db: AsyncSession,
     stripe: StripeClient,
@@ -516,7 +562,11 @@ async def checkout_for_plan(
     success_url: str,
     cancel_url: str,
     meta: RequestMeta | None,
+    trial_days: int = 0,
 ) -> str:
+    """A Stripe Checkout page to start a plan. ApprovalReady Plus comes with ``trial_days``
+    free the first time: the card is taken now and charged automatically when they end
+    (Stripe cancels the plan instead if no card was saved)."""
     product = await get_product(db, price.product_id)
     if not price.active or not product.active or product.kind != plan_kind(organisation):
         raise ApiError(409, "price_unavailable", "This plan is not on sale.")
@@ -526,12 +576,27 @@ async def checkout_for_plan(
             "plan_exists",
             "You already have a plan. Manage or cancel it with the Manage billing button.",
         )
+    trial = (
+        trial_days
+        if trial_days > 0
+        and product.key == MEMBERSHIP_KEY
+        and await trial_available(db, organisation.id)
+        else 0
+    )
     customer = await ensure_customer(db, stripe, organisation, user)
     metadata = {
         "organisation_id": str(organisation.id),
         "product_id": str(product.id),
         "price_id": str(price.id),
     }
+    subscription_data: dict[str, object] = {"metadata": metadata}
+    params: dict[str, object] = {}
+    if trial:
+        subscription_data |= {
+            "trial_period_days": trial,
+            "trial_settings": {"end_behavior": {"missing_payment_method": "cancel"}},
+        }
+        params["payment_method_collection"] = "always"
     try:
         session = await stripe.create_checkout_session(
             {
@@ -540,7 +605,8 @@ async def checkout_for_plan(
                 "client_reference_id": str(organisation.id),
                 "line_items": [_price_line(product, price)],
                 "metadata": metadata,
-                "subscription_data": {"metadata": metadata},
+                "subscription_data": subscription_data,
+                **params,
                 "success_url": success_url,
                 "cancel_url": cancel_url,
             },
@@ -556,7 +622,7 @@ async def checkout_for_plan(
         target_type="price",
         target_id=price.id,
         meta=meta,
-        details={"product": product.key},
+        details={"product": product.key} | ({"trial_days": trial} if trial else {}),
     )
     return session.url
 

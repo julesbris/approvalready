@@ -26,6 +26,12 @@ class PlanOfferOut(BaseModel):
     currency: str | None
     product_name: str
     product_description: str
+    included_in_membership: bool = Field(
+        default=False, description="The organisation's ApprovalReady Plus includes it."
+    )
+    membership_on_sale: bool = Field(
+        default=False, description="ApprovalReady Plus (which includes plans) can be bought."
+    )
 
 
 class PlanFeeOut(BaseModel):

@@ -240,6 +240,23 @@ and applied by the worker; the browser never decides what was paid. Refunds are 
 Stripe dashboard and come back by webhook. To go live, swap in the live secret key and a live
 webhook endpoint's secret.
 
+### ApprovalReady Plus: the free first month
+
+The membership (`membership.plus`) is sold on the public page `/membership`, with a free first
+month: the customer adds a card on Stripe's checkout page, pays nothing, and Stripe charges it
+automatically when the trial ends (or cancels the plan if no card was saved). One free month
+per organisation. Members get every project plan included. To sell it:
+
+1. Payments must be on (above), and the customer portal must let customers cancel
+   (Settings → Billing → Customer portal → Cancellations: on).
+2. Give **ApprovalReady Plus** a monthly price at `/admin/billing` (placeholder A$29).
+3. Optional, in `.env`: `MEMBERSHIP_TRIAL_DAYS` (default 30; 7 for a week; 0 for no free
+   trial) and `MEMBERSHIP_TRIAL_REMINDER_DAYS` (default 7).
+
+The worker emails the organisation's billing managers when the trial starts and again
+`MEMBERSHIP_TRIAL_REMINDER_DAYS` before the first charge (`billing.trial_emails`, every 15
+minutes).
+
 ### Partner accounts (Milestone 14)
 
 The partner portal is served at `https://partners.<PRIMARY_DOMAIN>` (the `partners` DNS record

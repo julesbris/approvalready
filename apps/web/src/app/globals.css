@@ -2566,6 +2566,17 @@ a.card-title:hover {
 
 .whats-left-steps > li::before {
   content: counter(left);
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--ar-radius-pill);
+  background: var(--ar-primary);
+  color: var(--ar-on-primary);
+  font-family: var(--ar-font-display);
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
 
 /* --- Approval guides: the step-by-step plan under an assessment --- */
 
@@ -2757,6 +2768,7 @@ a.card-title:hover {
   font: inherit;
   max-height: 24rem;
   overflow: auto;
+}
 
 /* --- Project plan --- */
 
@@ -3004,4 +3016,79 @@ a.card-title:hover {
   font: inherit;
   line-height: 1.5;
   min-height: 16rem;
+}
+
+/* ApprovalReady Plus: the free-month sales page and its start page. */
+.plus-fine-print {
+  margin: 16px 0 0;
+  font-size: 0.9375rem;
+  opacity: 0.85;
+}
+
+.plus-timeline .example-rows li {
+  align-items: flex-start;
+  font-weight: 400;
+}
+
+.plus-amount {
+  font-family: var(--ar-font-display);
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--ar-heading);
+}
+
+.plus-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plus-benefits li {
+  position: relative;
+  padding-left: 32px;
+  font-size: 1.0625rem;
+}
+
+.plus-benefits li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.35em;
+  width: 12px;
+  height: 7px;
+  border-left: 3px solid var(--ar-accent);
+  border-bottom: 3px solid var(--ar-accent);
+  transform: rotate(-45deg);
+}
+
+.plus-faq {
+  display: grid;
+  gap: 24px;
+  max-width: 72ch;
+  margin: 0;
+}
+
+.plus-faq dt {
+  font-family: var(--ar-font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--ar-heading);
+}
+
+.plus-faq dd {
+  margin: 4px 0 0;
+  color: var(--ar-ink-muted);
+}
+
+.plus-start {
+  max-width: 640px;
+}
+
+.plus-start .plus-timeline {
+  margin: 16px 0 24px;
+  box-shadow: none;
+  border: 1px solid var(--ar-border);
 }

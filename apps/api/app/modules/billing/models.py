@@ -289,6 +289,9 @@ class Subscription(UUIDPrimaryKeyMixin, TimestampMixin, TenantMixin, Base):
         UniqueConstraint("organisation_id", "id"),
         UniqueConstraint("stripe_subscription_id"),
         enum_check("status", SubscriptionStatus),
+        Index(
+            "ix_subscription_trialing", "trial_end", postgresql_where=text("status = 'TRIALING'")
+        ),
     )
 
     product_id: Mapped[uuid.UUID] = mapped_column(
@@ -305,6 +308,11 @@ class Subscription(UUIDPrimaryKeyMixin, TimestampMixin, TenantMixin, Base):
     )
     canceled_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     past_due_since: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    # A free trial (ApprovalReady Plus): when it ends and the first charge is taken, and when
+    # we emailed to say it started and that the charge is coming (``billing.trials``).
+    trial_end: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    trial_welcome_sent_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    trial_reminder_sent_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     # When Stripe created the event last applied: older events arriving late are skipped.
     stripe_event_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
 
