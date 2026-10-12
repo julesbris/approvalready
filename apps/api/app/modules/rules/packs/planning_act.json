@@ -1,0 +1,1812 @@
+{
+ "key": "planning_act",
+ "title": "PlanningReady: Australian Capital Territory (approval pathways)",
+ "notes": "First sourced rules for the ACT, territory-wide. The ACT has no councils: the ACT Government (Territory Planning Authority, ACT Planning, Access Canberra) is the planning authority. Built on 2026-10-12 from ACT Planning pages, the 2026-27 fees and charges booklet, Access Canberra construction notes and an ACT Legislative Assembly answer. Every reference is UNVERIFIED and carries a summary, not the source's wording. Territory Plan zone policies and the Planning (Exempt Development) Regulation 2023 are not encoded.",
+ "organisations": [
+  {
+   "ref": "actplanning",
+   "name": "ACT Planning (City and Environment Directorate, ACT Government)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "ACT",
+   "website": "https://www.planning.act.gov.au"
+  },
+  {
+   "ref": "accesscbr",
+   "name": "Access Canberra (Construction Occupations Registrar)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "ACT",
+   "website": "https://www.accesscanberra.act.gov.au"
+  },
+  {
+   "ref": "actleg",
+   "name": "ACT Legislation Register (ACT Parliamentary Counsel's Office)",
+   "kind": "LEGISLATURE",
+   "jurisdiction": "ACT",
+   "website": "https://www.legislation.act.gov.au"
+  },
+  {
+   "ref": "actla",
+   "name": "ACT Legislative Assembly",
+   "kind": "LEGISLATURE",
+   "jurisdiction": "ACT",
+   "website": "https://www.parliament.act.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "check_da",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "Check if you're exempt from a DA (ACT Planning)",
+   "url": "https://www.planning.act.gov.au/applications-and-assessments/development-applications/check-if-you-need-a-da",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "lodge_da",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "Lodge a DA (ACT Planning)",
+   "url": "https://www.planning.act.gov.au/applications-and-assessments/development-applications/lodge-a-da",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "after_da",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "After you apply: DA timeframes (ACT Planning)",
+   "url": "https://www.planning.act.gov.au/applications-and-assessments/development-applications/after-you-apply",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "da_guide",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "Guide to development applications (ACT Planning)",
+   "url": "https://www.planning.act.gov.au/__data/assets/pdf_file/0015/2323023/guide-to-development-applications.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "fees",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "Fees and charges 2026-27: Planning, Lease Administration and Building Services (ACT Planning)",
+   "url": "https://www.planning.act.gov.au/__data/assets/pdf_file/0003/3092970/2026-27-Fees-and-Charges-Planning.pdf",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "ba",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "Building approvals (ACT Planning)",
+   "url": "https://www.planning.act.gov.au/applications-and-assessments/building-approvals",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "single",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "Single dwellings (ACT Planning)",
+   "url": "https://www.planning.act.gov.au/applications-and-assessments/assessment-approvals/single-dwellings",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "granny",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "Case study 2: Grant and his granny flat (ACT Planning)",
+   "url": "https://www.planning.act.gov.au/professionals/resources/resource-articles/case-study-2-grant-and-his-granny-flat",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cou_note",
+   "organisation": "accesscbr",
+   "jurisdiction": "ACT",
+   "title": "Construction Note 2025/04: Certificate of Occupancy and Use nomination at building approval",
+   "url": "https://www.accesscanberra.act.gov.au/__data/assets/pdf_file/0012/2918739/2025_04-Construction-Note-Certificate-of-Occupancy-and-Use-Requirement-for-nomination-at-Application-of-Building-Approval-under-Section-26-2b-of-the-Building-Act.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "bushfire_note",
+   "organisation": "accesscbr",
+   "jurisdiction": "ACT",
+   "title": "Construction Note 2026/04: Requirements for bushfire prone blocks on ACT leased land",
+   "url": "https://www.accesscanberra.act.gov.au/__data/assets/pdf_file/0004/3086230/202604-Construction-Note-Requirements-for-Bushfire-Prone-Blocks-on-ACT-leased-land.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "lvc",
+   "organisation": "actleg",
+   "jurisdiction": "ACT",
+   "title": "Planning (Lease Variation Charges) Determination 2026 (DI2026-142)",
+   "url": "https://www.legislation.act.gov.au/di/2026-142/",
+   "source_type": "LEGISLATION"
+  },
+  {
+   "ref": "territory_plan",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "The Territory Plan (ACT Planning)",
+   "url": "https://www.planning.act.gov.au/professionals/our-planning-system/the-territory-plan",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "assembly_qon",
+   "organisation": "actla",
+   "jurisdiction": "ACT",
+   "title": "Question on notice: Planning (secondary residences and dual occupancy), answered 23 November 2023",
+   "url": "https://questions.parliament.act.gov.au/details/ffe67ecda83440f4949c2db0763ee593",
+   "source_type": "WEBPAGE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "exempt_overview",
+   "document": "check_da",
+   "section": "Check if you're exempt from a DA",
+   "extracted_text": "[Summary, not the source's wording] Some projects don't need a development application if they meet the general criteria and the specific criteria in Schedule 1 of the Planning (Exempt Development) Regulation 2023. General criteria cover significant development, essential design elements, easements, plumbing and drainage, tree protection, environment, heritage, the crown lease, dwelling numbers and loose-fill asbestos. Examples of exempt categories include carports, pergolas, courtyard walls, demolition of single dwellings, driveways, fences up to 2.3 m in most cases, garages and sheds, solar and heating, home businesses within limits, decks, pools, water tanks up to 20 kL and single dwellings with conditions such as neighbour notification. Exempt work must still meet other laws including the Building Act 2004. A building certifier can give a formal exemption notice; the DA Gateway Team gives advice but not exemption approvals. Minor non-compliance may be covered by an exemption declaration.",
+   "interpretation": "Many single dwellings and minor works are exempt from a DA, but we can't check the Schedule 1 criteria, so a DA is MAY_APPLY. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "single_dwellings",
+   "document": "single",
+   "section": "Single dwellings",
+   "extracted_text": "[Summary, not the source's wording] A single dwelling generally won't need development approval if it meets set conditions, including that it will be the only dwelling on the block. If the conditions are not met, DA approval is needed.",
+   "interpretation": "A second dwelling on a block takes a house out of the exemption, so secondary residences need a DA. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "lodge_overview",
+   "document": "lodge_da",
+   "section": "Lodge a DA",
+   "extracted_text": "[Summary, not the source's wording] DAs are submitted through eDevelopment after registering with the Application for Access to Electronic Services. Applications need documents meeting the minimum documentation requirements, a letter of authorisation, a Development Outcomes Report (required for all DAs), a design response where applicable, and a greenhouse gas emissions statement if required. The application is checked for completeness, fees are paid, and it is then formally lodged. DA Gateway Team: 02 6205 2888, planningenquiries@act.gov.au.",
+   "interpretation": "How to lodge a DA in the ACT. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "da_timeframes",
+   "document": "after_da",
+   "section": "Timeframes",
+   "extracted_text": "[Summary, not the source's wording] Decision timeframes in working days: standard development 30 with no representations, 45 with representations; significant development 60; concurrent DAs 10 after the concurrent process. Public notification is 15 working days for most DAs, and two stages of 20 and 10 working days for significant development.",
+   "interpretation": "Statutory timeframes to quote in guides and outcomes. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "da_guide_overview",
+   "document": "da_guide",
+   "section": "Guide to development applications",
+   "extracted_text": "[Summary, not the source's wording] The Territory Plan is the key tool of the ACT's outcomes-focused planning system. The authority can give advice on proposals before a DA is lodged. Lodgement triggers public notification and entity referrals; the ACT Heritage Council and the Emergency Services Agency are possible referral entities. Most building work requires building approval under the Building Act 2004, assessed by private building certifiers. Development approval generally expires five years after it takes effect. Lease variation approvals generally end once the lease is varied or 2 years after the approval took effect. You can ask for reconsideration, and apply to ACAT for review, within 20 working days of the decision. A subdivision design application is a DA for creating or consolidating blocks or roads and is significant development with a 60 working day timeframe.",
+   "interpretation": "Core process facts for the ACT development application and its links to building approval and leases. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "fees_2026",
+   "document": "fees",
+   "section": "Fees and charges 2026-27",
+   "extracted_text": "[Summary, not the source's wording] Application for development approval: $147.02 up to $1,500 cost of works, then a base fee plus a percentage, for example $1,121.36 plus 0.585% over $150,000 for $150,001 to $250,000, and $1,747.00 plus 0.438% over $250,000 for $250,001 to $500,000. Single residential DA amendment $382.71 plus notification. Reconsideration $413.08. Exemption declaration for a non-compliant single dwelling $728.96. Lease variation, consolidation or subdivision $2,732.33 plus $362.02 per additional component. Unit titling of a two-unit residential development $2,851.52. Certificate of Occupancy and Use $361.53. Building levy 1.40% of the cost of class 1 and 2 work, 1.28% for other work, plus a training levy of 0.2% for work of $10,000 or more. Pre-lodgement meeting: nil.",
+   "interpretation": "Territory-wide 2026-27 fees. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "ba_overview",
+   "document": "ba",
+   "section": "Building approvals",
+   "extracted_text": "[Summary, not the source's wording] To get building approval you appoint a licensed building surveyor as your certifier, make sure the Appointment of a Certifier and Application for Building Approval form and the Appointment of Builder and Application for Commencement Notice form are lodged with Access Canberra, and pay the fees. The application includes a cost estimate under the Building (General) (Cost of Building Work) Determination. The certifier issues a commencement notice after building approval, then work can start.",
+   "interpretation": "Building approval in the ACT is given by private certifiers, not government. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "cou_nomination",
+   "document": "cou_note",
+   "section": "Construction Note 2025/04",
+   "extracted_text": "[Summary, not the source's wording] The owner applying for building approval must nominate which kind of Certificate of Occupancy (sections 69(1), 69(2) or 69(3), or 71(2) or 72(2)) they intend to apply for. The certifier should confirm the nomination before issuing the commencement notice. The approved form was amended to include it. Dated 11 September 2025.",
+   "interpretation": "Every building approval leads to a certificate of occupancy (or equivalent), chosen up front. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bushfire_reqs",
+   "document": "bushfire_note",
+   "section": "Construction Note 2026/04",
+   "extracted_text": "[Summary, not the source's wording] Rural areas are declared bushfire prone for AS 3959 purposes. Building work must meet the Bushfire Attack Level (BAL) set by the Single Dwelling Housing Development Control District Declaration (exempt work) or the Planning (District) Technical Specification and the notice of decision (DAs), which may require a site-specific BAL assessment by a bushfire consultant. The appointed certifier checks compliance and must report non-compliant bushfire construction to the Registrar. June 2026.",
+   "interpretation": "Bushfire prone blocks need building to a BAL rating, checked by the certifier. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "granny_case",
+   "document": "granny",
+   "section": "Case study 2",
+   "extracted_text": "[Summary, not the source's wording] Under the Residential Zones Policy a secondary residence is limited to 90 m2, must be single level, must be the only secondary residence on the block, and the block must be over 500 m2. In the case study, on an RZ1 Suburban block, the owner had to lodge a DA for the design, the secondary residence could not be separately titled or sold, and a lease variation was needed because the crown lease allowed only one dwelling.",
+   "interpretation": "Secondary residences need a DA, may need a lease variation, and can't be sold separately. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "lvc_2026",
+   "document": "lvc",
+   "section": "Schedules 1 and 2; commencement",
+   "extracted_text": "[Summary, not the source's wording] The determination commences on 1 July 2026 and applies to development applications submitted from 1 July 2026 to 30 June 2027. It assigns fixed Lease Variation Charge values to listed variations, based on land values only. Schedule 2 sets the charge for increasing the number of dwellings as the increased number of dwellings times an additional dwelling amount that depends on the suburb and the total approved dwellings, for example $180,750 in Ainslie for 2 dwellings. Schedule 1 includes lease consolidation and subdivision with $7,500 base amounts.",
+   "interpretation": "Adding a dwelling or subdividing can attract a large codified charge. Remissions (for example for secondary residences) are not in this instrument and were not checked. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "territory_plan_page",
+   "document": "territory_plan",
+   "section": "The Territory Plan",
+   "extracted_text": "[Summary, not the source's wording] The Territory Plan is the ACT's statutory planning document. The final Territory Plan came into effect on 27 September 2024. The legal plan is NI2023-540 on the ACT Legislation Register.",
+   "interpretation": "The planning scheme for the whole ACT. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "assembly_2023",
+   "document": "assembly_qon",
+   "section": "Answer published 23 November 2023",
+   "extracted_text": "[Summary, not the source's wording] A secondary residence can be no larger than 90 m2 and must meet other provisions of the Residential Zones Policy; this applies on RZ1 blocks over 500 m2. The definition was clarified so a secondary residence is subordinate to the principal dwelling, and mandatory plot ratio requirements were removed. The question refers to changes from 27 November 2023 allowing a second dwelling of up to 120 m2 on RZ1 blocks over 800 m2 that may be separately titled; the answer says a dual occupancy on an RZ1 block over 800 m2 can exceed 120 m2 but then cannot be unit titled.",
+   "interpretation": "Two different things: a secondary residence (up to 90 m2, not sold separately) and, since 27 November 2023, a dual occupancy on an RZ1 block over 800 m2 (second dwelling up to 120 m2 that can be unit titled and sold). Read from a summary; confirm against the Residential Zones Policy. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "planning.act.building",
+   "vertical": "PLANNING",
+   "jurisdiction": "ACT",
+   "title": "ACT: houses and extensions",
+   "description": "Development application or exemption, building approval and certificate of occupancy for houses, extensions and secondary residences.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, your crown lease or the development controls for your block, so we can't say whether your project is exempt, only which approvals you may need.",
+    "The Territory Plan's zone policies and the Planning (Exempt Development) Regulation 2023 are not encoded. ACTmapi shows your zone and overlays.",
+    "Constraints like heritage and bushfire come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with ACT Planning, a building certifier or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "da_or_exempt",
+     "title": "A development application may be needed, unless the work is exempt",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a development application (DA)",
+       "detail": "In the ACT many single houses and extensions are exempt from a DA if they meet every criterion in the Planning (Exempt Development) Regulation 2023, like setbacks, height, the crown lease and neighbour notification. If they don't, you lodge a DA on eDevelopment. A standard DA is decided in 30 working days, or 45 if neighbours comment. Ask your building certifier for a formal exemption notice if you think it's exempt.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_DEVELOPMENT_APPLICATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Development approval under the Planning Act 2023, assessed against the Territory Plan",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "SITE_PLAN",
+          "title": "Site plan with setbacks, heights and existing buildings"
+         },
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Floor plans and elevations"
+         },
+         {
+          "kind": "CROWN_LEASE",
+          "title": "Copy of your crown lease"
+         }
+        ],
+        "referral_categories": [
+         "building_certifier",
+         "town_planner",
+         "architect"
+        ],
+        "task": "Ask your building certifier whether the work is exempt from a DA"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exempt_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_timeframes",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "single_dwellings",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "MAY_APPLY because exempt status depends on criteria we don't collect."
+    },
+    {
+     "key": "building_approval",
+     "title": "Building work needs building approval from a private certifier",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You likely need building approval from a private certifier",
+       "detail": "Most building work in the ACT needs building approval under the Building Act 2004, even when it is exempt from a DA. You appoint a licensed building surveyor as your certifier. They assess the plans, issue the building approval and the commencement notice, and inspect the work. You pay the building levy (1.40% of the cost of a house) and the training levy (0.2% for work of $10,000 or more), plus the certifier's own fee.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_BUILDING_APPROVAL",
+         "authority": "A private licensed building surveyor (building certifier) you appoint",
+         "pathway": "Building approval under the Building Act 2004 (National Construction Code)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "ENGINEERING_DRAWINGS",
+          "title": "Structural engineering drawings"
+         },
+         {
+          "kind": "ENERGY_RATING",
+          "title": "Energy efficiency assessment"
+         },
+         {
+          "kind": "COST_ESTIMATE",
+          "title": "Cost of building work estimate"
+         }
+        ],
+        "referral_categories": [
+         "building_certifier",
+         "builder",
+         "architect"
+        ],
+        "task": "Appoint a licensed building certifier"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ba_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_guide_overview",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "certificate_of_occupancy",
+     "title": "A certificate of occupancy and use at the end",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You will need a certificate of occupancy and use before you move in",
+       "detail": "When you apply for building approval you nominate the kind of certificate of occupancy you will apply for. Once the work is finished and your certifier has done the final inspection, the certificate is issued. The fee is $361.53 (2026-27). Don't move in or use the building before you have it.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_CERTIFICATE_OF_OCCUPANCY",
+         "authority": "Construction Occupations Registrar (Access Canberra), after your certifier's final inspection",
+         "pathway": "Certificate of occupancy and use under the Building Act 2004",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "task": "Nominate the certificate of occupancy type on your building approval application"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "cou_nomination",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Whether every extension needs a new certificate was not confirmed."
+    },
+    {
+     "key": "heritage",
+     "title": "ACT Heritage Register places",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "heritage"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Heritage listing means you likely need a DA",
+       "detail": "If your place is on the ACT Heritage Register, or near one, the work is unlikely to be exempt. Your DA is referred to the ACT Heritage Council, and a proposal likely to have a significant adverse impact on a heritage place may need an environmental impact statement. Talk to ACT Planning before you design.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_DEVELOPMENT_APPLICATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Development approval under the Planning Act 2023, assessed against the Territory Plan",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "HERITAGE_IMPACT_STATEMENT",
+          "title": "Heritage impact statement"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Check the ACT Heritage Register and ask ACT Planning for pre-DA advice"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exempt_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_guide_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Heritage ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other constraint",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Heritage is a general exemption criterion; Heritage Register page not read this session."
+    },
+    {
+     "key": "bushfire",
+     "title": "Bushfire prone blocks",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "bushfire"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "You must build to a bushfire attack level",
+       "detail": "Rural areas in the ACT are declared bushfire prone, and some urban blocks have bushfire construction requirements too. Your building must meet the Bushfire Attack Level (BAL) in AS 3959-2018 set by the development controls or your DA conditions. A DA may require a site-specific BAL assessment by a bushfire consultant. Your certifier checks this.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "BUSHFIRE_ASSESSMENT",
+          "title": "Bushfire attack level (BAL) assessment"
+         }
+        ],
+        "referral_categories": [
+         "building_certifier",
+         "town_planner"
+        ],
+        "task": "Ask your certifier which BAL applies to your block"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bushfire_reqs",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_guide_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Bushfire ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Heritage only",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "vegetation",
+     "title": "Protected trees",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "vegetation"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Trees on or near your block can stop work being exempt",
+       "detail": "Tree protection is one of the general criteria for exempt development in the ACT. If your work could damage a protected tree, you may need a DA and tree approval. Ask ACT Planning or an arborist early.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_DEVELOPMENT_APPLICATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Development approval under the Planning Act 2023, assessed against the Territory Plan",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "ARBORIST_REPORT",
+          "title": "Arborist report"
+         }
+        ],
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Check for protected trees before you design"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exempt_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vegetation ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "vegetation"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other",
+       "facts": {
+        "planning.known_constraints": [
+         "steep_slope"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Tree Protection Act details not read this session."
+    },
+    {
+     "key": "easement",
+     "title": "Easements",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "easement"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Building over an easement can stop work being exempt",
+       "detail": "Easements are one of the general criteria for exempt development. Building on or over one usually needs a DA and the service owner's consent.",
+       "payload": {
+        "referral_categories": [
+         "town_planner",
+         "building_certifier"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exempt_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Easement",
+       "facts": {
+        "planning.known_constraints": [
+         "easement"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.act.secondary_residence",
+   "vertical": "PLANNING",
+   "jurisdiction": "ACT",
+   "title": "ACT: secondary residences (granny flats)",
+   "description": "Secondary residence rules in the Territory Plan's Residential Zones Policy.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, your crown lease or the development controls for your block, so we can't say whether your project is exempt, only which approvals you may need.",
+    "The Territory Plan's zone policies and the Planning (Exempt Development) Regulation 2023 are not encoded. ACTmapi shows your zone and overlays.",
+    "Constraints like heritage and bushfire come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with ACT Planning, a building certifier or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "secondary_da",
+     "title": "Secondary residences need a DA",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "secondary_dwelling"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You likely need a development application",
+       "detail": "A single house is only exempt when it is the only dwelling on the block, so a secondary residence (granny flat) needs a DA. You also need building approval from a certifier.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_DEVELOPMENT_APPLICATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Development approval under the Planning Act 2023, assessed against the Territory Plan",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "SITE_PLAN",
+          "title": "Site plan showing both dwellings"
+         },
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Floor plans and elevations"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Lodge a DA for the secondary residence on eDevelopment"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "single_dwellings",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "granny_case",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Granny flat",
+       "facts": {
+        "planning.development_type": "secondary_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "floor_area",
+     "title": "Secondary residences are limited to 90 m2",
+     "condition": {
+      "fact": "planning.secondary_dwelling_floor_area_m2",
+      "op": "less_equal",
+      "value": 90
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "At 90 m2 or less, your granny flat fits the size limit",
+       "detail": "The Residential Zones Policy limits a secondary residence to 90 m2. It must also be single level, the only secondary residence on the block, and on a block over 500 m2.",
+       "payload": {
+        "task": "Check your block is over 500 m2 and the design is single level"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Over 90 m2, it isn't a secondary residence",
+       "detail": "A secondary residence can't be larger than 90 m2. A bigger second home is a dual occupancy, which has different rules. On an RZ1 block over 800 m2, a second dwelling of up to 120 m2 may be allowed and unit titled. Get planning advice.",
+       "payload": {
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Reduce the size to 90 m2 or get advice on a dual occupancy"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "granny_case",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "assembly_2023",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "70 m2",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 70
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "110 m2",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 110
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "block_size",
+     "title": "Block must be over 500 m2",
+     "condition": {
+      "fact": "property.land_area_m2",
+      "op": "greater_than",
+      "value": 500
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your block is over 500 m2",
+       "detail": "In the RZ1 zone a secondary residence needs a block over 500 m2. Check your zone on ACTmapi; other residential zones have their own rules."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Your block may be too small for a secondary residence",
+       "detail": "In the RZ1 zone a secondary residence is only allowed on a block over 500 m2. Check your zone on ACTmapi and ask ACT Planning.",
+       "payload": {
+        "referral_categories": [
+         "town_planner"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "granny_case",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "assembly_2023",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "600 m2",
+       "facts": {
+        "property.land_area_m2": 600
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "450 m2",
+       "facts": {
+        "property.land_area_m2": 450
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Rules for zones other than RZ1 not confirmed."
+    },
+    {
+     "key": "not_separate_title",
+     "title": "Secondary residences can't be sold separately",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "secondary_dwelling"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You can't sell a secondary residence separately",
+       "detail": "A secondary residence can't be separately titled or sold. Since 27 November 2023, a different option exists on RZ1 blocks over 800 m2: a dual occupancy with a second dwelling of up to 120 m2, which can be unit titled and sold. If it is larger than 120 m2 it can't be unit titled.",
+       "payload": {
+        "referral_categories": [
+         "town_planner"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "granny_case",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "assembly_2023",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Granny flat",
+       "facts": {
+        "planning.development_type": "secondary_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Dual occupancy unit titling read from an Assembly question summary; confirm against the Residential Zones Policy."
+    },
+    {
+     "key": "lease_variation",
+     "title": "Your crown lease may need varying",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "secondary_dwelling"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Your crown lease may only allow one dwelling",
+       "detail": "Many ACT crown leases allow one dwelling. If yours does, you need a lease variation as well as the DA. The application fee is $2,732.33 (2026-27). A Lease Variation Charge may also apply: the charge for an extra dwelling is set by suburb and can be large. Ask the Leasing Team whether a remission applies to secondary residences.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_LEASE_VARIATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Variation of a crown lease under the Planning Act 2023, with any Lease Variation Charge",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "CROWN_LEASE",
+          "title": "Copy of your crown lease"
+         }
+        ],
+        "referral_categories": [
+         "lawyer",
+         "town_planner"
+        ],
+        "task": "Check the purpose clause of your crown lease"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "granny_case",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "lvc_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Granny flat",
+       "facts": {
+        "planning.development_type": "secondary_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Whether the Lease Variation Charge applies to secondary residences was not confirmed."
+    }
+   ]
+  },
+  {
+   "key": "planning.act.subdivision",
+   "vertical": "PLANNING",
+   "jurisdiction": "ACT",
+   "title": "ACT: subdivision, unit titling and lease variation",
+   "description": "Subdivision design applications, unit titling, lease variation and the Lease Variation Charge.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "subdivision"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, your crown lease or the development controls for your block, so we can't say whether your project is exempt, only which approvals you may need.",
+    "The Territory Plan's zone policies and the Planning (Exempt Development) Regulation 2023 are not encoded. ACTmapi shows your zone and overlays.",
+    "Constraints like heritage and bushfire come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with ACT Planning, a building certifier or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "subdivision",
+     "title": "Subdividing or unit titling",
+     "condition": {
+      "fact": "planning.proposed_lots",
+      "op": "greater_equal",
+      "value": 2
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You need approval to subdivide or unit title",
+       "detail": "In the ACT, land is leased from the Territory. Creating new blocks needs a subdivision design application, a significant DA decided in 60 working days. Splitting an existing residential block with two dwellings is usually done by unit titling, which needs approval and costs $2,851.52 for two units (2026-27). A lease variation ($2,732.33) and a Lease Variation Charge may also apply.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_SUBDIVISION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Subdivision design application (significant development) or lease variation and unit titling under the Planning Act 2023 and Unit Titles Act 2001",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "PLAN_OF_SUBDIVISION",
+          "title": "Proposed subdivision or units plan from a surveyor"
+         },
+         {
+          "kind": "CROWN_LEASE",
+          "title": "Copy of your crown lease"
+         }
+        ],
+        "referral_categories": [
+         "cadastral_surveyor",
+         "town_planner",
+         "lawyer"
+        ],
+        "task": "Engage a registered surveyor and ask ACT Planning which application you need"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "da_guide_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Two lots",
+       "facts": {
+        "planning.proposed_lots": 2
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "One lot",
+       "facts": {
+        "planning.proposed_lots": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Unit titling process steps not read this session."
+    },
+    {
+     "key": "subdivision_lease",
+     "title": "Lease variation and the Lease Variation Charge",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "subdivision"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Budget for a lease variation and possibly the Lease Variation Charge",
+       "detail": "Subdividing or consolidating usually means varying the crown lease. The application fee is $2,732.33 plus $362.02 per extra component (2026-27). If the variation adds value, for example more dwellings, a Lease Variation Charge may be payable before the lease is varied. Lease variation approvals end if the lease isn't varied within 2 years.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_LEASE_VARIATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Variation of a crown lease under the Planning Act 2023, with any Lease Variation Charge",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "lawyer"
+        ],
+        "task": "Ask ACT Planning's leasing team whether a Lease Variation Charge applies"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "fees_2026",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "lvc_2026",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "da_guide_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Lease Variation Charge read from DI2026-142 via a summary; remissions not checked."
+    },
+    {
+     "key": "bushfire_subdivision",
+     "title": "Bushfire and subdivision",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "bushfire"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Bushfire requirements affect subdivision design",
+       "detail": "On bushfire prone land, the ACT Emergency Services Agency may be a referral entity and new blocks may need bushfire construction levels. Design for this from the start.",
+       "payload": {
+        "referral_categories": [
+         "town_planner",
+         "cadastral_surveyor"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bushfire_reqs",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_guide_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Bushfire",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "planning.known_constraints": [
+         "easement"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.act.change_of_use",
+   "vertical": "PLANNING",
+   "jurisdiction": "ACT",
+   "title": "ACT: change of use",
+   "description": "Crown lease purpose, DA and building approval for a change of use.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "change_of_use"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, your crown lease or the development controls for your block, so we can't say whether your project is exempt, only which approvals you may need.",
+    "The Territory Plan's zone policies and the Planning (Exempt Development) Regulation 2023 are not encoded. ACTmapi shows your zone and overlays.",
+    "Constraints like heritage and bushfire come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with ACT Planning, a building certifier or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "change_of_use_lease",
+     "title": "A change of use may need a lease variation",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check your crown lease purpose clause first",
+       "detail": "In the ACT, the crown lease says what a block can be used for. If the new use isn't allowed by your lease, you need a lease variation, which is a DA ($2,732.33 application fee, 2026-27), and a Lease Variation Charge may apply. Small home businesses can be exempt within limits on staff, floor area and vehicles.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_LEASE_VARIATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Variation of a crown lease under the Planning Act 2023, with any Lease Variation Charge",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "CROWN_LEASE",
+          "title": "Copy of your crown lease"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "lawyer"
+        ],
+        "task": "Check the purpose clause of your crown lease"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exempt_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "da_guide_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "change_of_use_da",
+     "title": "A change of use may need a DA",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a development application",
+       "detail": "Whether the new use is allowed depends on your zone in the Territory Plan, which you can check on ACTmapi. If it needs approval, lodge a DA on eDevelopment.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_DEVELOPMENT_APPLICATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Development approval under the Planning Act 2023, assessed against the Territory Plan",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Check your zone on ACTmapi and ask the DA Gateway Team"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exempt_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_timeframes",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "change_of_use_building",
+     "title": "Building approval if work or classification changes",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need building approval and a new certificate of occupancy",
+       "detail": "If the new use needs building work or changes the building's classification under the National Construction Code, you need building approval from a private certifier and then a certificate of occupancy and use.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_BUILDING_APPROVAL",
+         "authority": "A private licensed building surveyor (building certifier) you appoint",
+         "pathway": "Building approval under the Building Act 2004 (National Construction Code)",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "building_certifier"
+        ],
+        "task": "Ask a building certifier whether the classification changes"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ba_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "cou_nomination",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.act.general",
+   "vertical": "PLANNING",
+   "jurisdiction": "ACT",
+   "title": "ACT: every project",
+   "description": "Steps that apply to every planning project in the ACT.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone, your crown lease or the development controls for your block, so we can't say whether your project is exempt, only which approvals you may need.",
+    "The Territory Plan's zone policies and the Planning (Exempt Development) Regulation 2023 are not encoded. ACTmapi shows your zone and overlays.",
+    "Constraints like heritage and bushfire come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with ACT Planning, a building certifier or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "actmapi_lookup",
+     "title": "Start with ACTmapi and the Territory Plan",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Look up your zone on ACTmapi",
+       "detail": "ACTmapi is free and shows your block's zone and overlays. Then read the zone policy in the Territory Plan (in force since 27 September 2024) and check your crown lease. ACT Planning gives free pre-lodgement meetings. DA Gateway Team: 02 6205 2888.",
+       "payload": {
+        "task": "Look up your block on ACTmapi"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "territory_plan_page",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_guide_overview",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Any project",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "exemption_declaration",
+     "title": "Exemption declarations for minor non-compliance",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "new_dwelling",
+       "extension",
+       "other"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Minor non-compliance may be fixed with an exemption declaration",
+       "detail": "If your house or extension is almost exempt but slightly breaches a setback or building envelope, you may be able to get an exemption declaration instead of a full DA. The fee is $728.96 (2026-27).",
+       "payload": {
+        "approval": {
+         "kind": "ACT_EXEMPTION_DECLARATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Exemption declaration under the Planning Act 2023 for minor non-compliance with exempt development criteria",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "building_certifier",
+         "town_planner"
+        ],
+        "task": "Ask your certifier whether an exemption declaration fits"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exempt_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "other_project",
+     "title": "Other projects",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "other"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Your project may be exempt, or may need a DA",
+       "detail": "Many small projects are exempt from a DA in the ACT, like most sheds, carports, pergolas, fences up to 2.3 m, decks, pools and solar panels, if they meet the criteria. Most building work still needs building approval from a certifier. Ask a certifier for a formal exemption notice.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_DEVELOPMENT_APPLICATION",
+         "authority": "Territory Planning Authority (ACT Planning)",
+         "pathway": "Development approval under the Planning Act 2023, assessed against the Territory Plan",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "building_certifier",
+         "town_planner"
+        ],
+        "task": "Ask a building certifier whether your project is exempt"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "exempt_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Other",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

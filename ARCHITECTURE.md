@@ -1170,3 +1170,19 @@ Heritage Register are CC BY 3.0 AU ("… from theLIST © State of Tasmania").
 | Selling and renting | Pack `property_tas` (`sell.tas.seller_disclosure`, `rent.tas.residential_tenancy`, bond lodgement) and checklists `rent.tas_*`, `sell.tas_before_sale`. |
 | Business, vehicles, vessels | Pack `business_tas`: food, liquor, outdoor dining, workers compensation, payroll tax, builder, plumbing and electrical licences (CBOS moved into Consumer Affairs Tasmania and Building Standards Tasmania on 1 October 2026), public health risk activities, childcare, vehicle registration and traders, MAST boat registration and licences. No Tasmanian business grant was open in 2026, so no grant rules. |
 | Tests | `tests/test_tas.py`. |
+
+## 52. Australian Capital Territory
+
+Content like the other states (§47-§51), gathered on 2026-10-12 with gaps listed per entry,
+plus **address lookups from ACTmapi** (`app/modules/lookups/act.py`, `ACT_ACTMAPI_BASE_URL`).
+Every layer used is CC BY 4.0 per its ACTmapi item ("<dataset> from ACTmapi © Australian
+Capital Territory").
+
+| Part | As built |
+|---|---|
+| Lookups | Address search: `ACTGOV_ADDRESSES/FeatureServer/0` by `STREET_NAME LIKE`, `STREET_NUMBER`, `STREET_TYPE` (spelt out) and `DIVISION` (suburb); each address carries its section and block. Blocks are named "Block 3 Section 7 Ainslie" (parcel id `BLOCK 3 SECTION 7 AINSLIE`; rural blocks use the district) and read from `ACTGOV_BLOCKS/FeatureServer/0`, which carries the area (`BLOCK_DERIVED_AREA`), the Territory Plan zone (`LAND_USE_POLICY_ZONES`) and overlays (`OVERLAY_PROVISION_ZONES`). Over the block: ACT Heritage Register (layer 1), Bushfire Prone Area 2026 and the 1% AEP flood extent. "DES" designated land is flagged as National Capital Authority land. No postcode in the ACT data: the ABS postal area fills it in. |
+| Councils | `councils/act_councils.json`: one entry, `act_government` (spatial name UNINCORPORATED ACT, as the ABS names it), lodging through eDevelopment. Pack `councils_act`; `states.json` ACT with the territory's DA fees. |
+| Planning | Pack `planning_act`: development applications under the Planning Act 2023 and Territory Plan, exempt development and exemption declarations, building approval from a private certifier, certificate of occupancy, secondary residences (90 m²), subdivision, lease variation (and the Lease Variation Charge), change of use, heritage, bushfire. |
+| Selling and renting | Pack `property_act` (`sell.act.seller_disclosure` with the required documents, `rent.act.residential_tenancy` with bond lodgement) and checklists `rent.act_*`, `sell.act_required_documents`. |
+| Business, vehicles, vessels | Pack `business_act`: food, liquor, outdoor dining, workers compensation, payroll tax, construction occupation licences, infection control (skin penetration), childcare, vehicle registration and dealers. The ACT doesn't register boats or license their drivers: one INFO rule says so. No ACT business grant was open, so no grant rules. |
+| Tests | `tests/test_act.py`. |

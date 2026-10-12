@@ -1,0 +1,68 @@
+{
+  "key": "rent.act_minimum_standards",
+  "vertical": "RENT",
+  "title": "ACT rental standards: insulation, smoke alarms and repairs",
+  "description": "Steps to meet the ACT ceiling insulation minimum standard and other safety basics before and during a tenancy. Summarised from act.gov.au and ACT Emergency Services Agency pages.",
+  "sources": [
+    {
+      "title": "Minimum housing standard for ceiling insulation in rental properties",
+      "organisation": "ACT Government",
+      "url": "https://www.act.gov.au/housing-planning-and-property/renting/minimum-housing-standard-for-ceiling-insulation-in-rental-properties"
+    },
+    {
+      "title": "Smoke alarms",
+      "organisation": "ACT Emergency Services Agency",
+      "url": "https://esa.act.gov.au/be-emergency-ready/smoke-alarms"
+    },
+    {
+      "title": "During a tenancy",
+      "organisation": "ACT Government",
+      "url": "https://www.act.gov.au/housing-planning-and-property/renting/during-a-tenancy"
+    }
+  ],
+  "items": [
+    {
+      "key": "check_insulation",
+      "title": "Check the ceiling insulation R-value",
+      "detail": "Below R2 or none means you must top up to at least R5."
+    },
+    {
+      "key": "exemption",
+      "title": "Check whether an exemption applies, and keep evidence",
+      "required": false
+    },
+    {
+      "key": "electrical_inspection",
+      "title": "Have a licensed electrician do an electrical safety inspection before insulation work"
+    },
+    {
+      "key": "certified_installer",
+      "title": "Use a certified insulation installer"
+    },
+    {
+      "key": "deadline",
+      "title": "Finish by 30 November 2026 (existing tenancies) or within 9 months of a new agreement"
+    },
+    {
+      "key": "records",
+      "title": "Keep the receipt showing the R-value, the installer's report or statutory declarations"
+    },
+    {
+      "key": "disclose",
+      "title": "Disclose compliance or exemption in ads and the agreement"
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Make sure smoke alarms comply with AS 3786 and work at the start of the tenancy"
+    },
+    {
+      "key": "repairs",
+      "title": "Fix known repairs before move-in; non-urgent repairs during a tenancy within 4 weeks"
+    },
+    {
+      "key": "pool",
+      "title": "Keep pool gates and covers closed and plan for a compliance certificate before 1 May 2028",
+      "required": false
+    }
+  ]
+}

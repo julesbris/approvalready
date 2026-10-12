@@ -1,0 +1,66 @@
+{
+  "key": "rent.act_end_of_tenancy",
+  "vertical": "RENT",
+  "title": "Ending an ACT tenancy",
+  "description": "Steps for ending an ACT tenancy and releasing the bond. Summarised from act.gov.au renting pages and the ACT Revenue Office.",
+  "sources": [
+    {
+      "title": "When landlords can end a tenancy",
+      "organisation": "ACT Government",
+      "url": "https://www.act.gov.au/housing-planning-and-property/renting/ending-a-tenancy-for-landlords"
+    },
+    {
+      "title": "Ending a tenancy",
+      "organisation": "ACT Government",
+      "url": "https://www.act.gov.au/housing-planning-and-property/renting/ending-a-tenancy"
+    },
+    {
+      "title": "Rental bonds forms",
+      "organisation": "ACT Revenue Office",
+      "url": "https://www.revenue.act.gov.au/rental-bonds/forms"
+    }
+  ],
+  "items": [
+    {
+      "key": "reason",
+      "title": "Confirm you have a ground: you can't end a tenancy for no reason"
+    },
+    {
+      "key": "fixed_term",
+      "title": "For a fixed term, check it has ended or a breach, ACAT order or posting clause applies",
+      "required": false
+    },
+    {
+      "key": "notice_period",
+      "title": "Give the right notice: 8 weeks to sell or move in, 12 weeks for major renovations, 26 weeks for change of use",
+      "required": false
+    },
+    {
+      "key": "proof",
+      "title": "Attach proof such as a sales contract, statutory declaration or quotes"
+    },
+    {
+      "key": "breach",
+      "title": "For a breach, give a notice to remedy before a notice to vacate",
+      "required": false
+    },
+    {
+      "key": "acat",
+      "title": "If the tenant doesn't leave, apply to ACAT",
+      "required": false
+    },
+    {
+      "key": "final_inspection",
+      "title": "Do the final inspection with the tenant against the start condition report"
+    },
+    {
+      "key": "bond_refund",
+      "title": "Lodge the ACT bond refund form, with reasons and a repair estimate for any claim"
+    },
+    {
+      "key": "dispute",
+      "title": "If the tenant disputes your claim, it goes to ACAT",
+      "required": false
+    }
+  ]
+}

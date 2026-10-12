@@ -360,6 +360,84 @@
         "Secondary residences: 60 m2 now; SPP Amendment 01/2026 proposes 90 m2 (exhibited June to July 2026, not yet decided).",
         "LISTmap URL not opened this session."
       ]
+    },
+    {
+      "state": "ACT",
+      "name": "Australian Capital Territory",
+      "checked_on": "2026-10-12",
+      "general_steps": [
+        "Look up your block's zone and overlays on ACTmapi and read the zone policy in the Territory Plan.",
+        "Check your crown lease: its purpose clause and how many dwellings it allows.",
+        "Check whether your work is exempt under the Planning (Exempt Development) Regulation 2023. A building certifier can give a formal exemption notice.",
+        "If it isn't exempt, book a free pre-lodgement meeting, then lodge a DA on eDevelopment. A standard DA takes 30 working days, or 45 if people comment.",
+        "Appoint a private licensed building certifier for building approval and pay the building and training levies.",
+        "Your builder gets a commencement notice from the certifier. Only then can work start.",
+        "After the final inspection, get the certificate of occupancy and use before you move in."
+      ],
+      "forms": [
+        "act-actmapi",
+        "act-exempt-development-regulation",
+        "act-edevelopment"
+      ],
+      "source": {
+        "url": "https://www.planning.act.gov.au/__data/assets/pdf_file/0015/2323023/guide-to-development-applications.pdf",
+        "title": "Guide to development applications (ACT Planning)"
+      },
+      "fees": {
+        "fee_year": "2026-27",
+        "schedule_url": "https://www.planning.act.gov.au/__data/assets/pdf_file/0003/3092970/2026-27-Fees-and-Charges-Planning.pdf",
+        "items": [
+          {
+            "label": "DA, cost up to $1,500",
+            "amount": "$147.02",
+            "note": "Minimum fee"
+          },
+          {
+            "label": "DA, $150,001 to $250,000",
+            "amount": "$1,121.36 plus 0.585% over $150,000"
+          },
+          {
+            "label": "DA, $250,001 to $500,000",
+            "amount": "$1,747.00 plus 0.438% over $250,000"
+          },
+          {
+            "label": "Exemption declaration, single dwelling",
+            "amount": "$728.96"
+          },
+          {
+            "label": "Lease variation",
+            "amount": "$2,732.33",
+            "note": "Plus $362.02 per extra component"
+          },
+          {
+            "label": "Unit titling, two units",
+            "amount": "$2,851.52"
+          },
+          {
+            "label": "Building levy (houses)",
+            "amount": "1.40% of cost",
+            "note": "Plus 0.2% training levy over $10,000"
+          },
+          {
+            "label": "Certificate of occupancy and use",
+            "amount": "$361.53"
+          }
+        ]
+      },
+      "planning_scheme_label": "Territory Plan",
+      "zoning_lookup_url": "https://www.actmapi.act.gov.au/",
+      "portal": {
+        "url": "https://edevelopment.act.gov.au/SignIn.aspx?ReturnUrl=%2fdefault.aspx",
+        "title": "eDevelopment (ACT development application portal)"
+      },
+      "gaps": [
+        "The ACT has no councils: the ACT Government handles planning and municipal services.",
+        "The Territory Planning Authority decides DAs under the Planning Act 2023 and the Territory Plan (new plan from 27 November 2023, final plan in force from 27 September 2024; NI2023-540).",
+        "Building approval is by private certifiers under the Building Act 2004.",
+        "All land is leasehold, so lease variations and the Lease Variation Charge matter.",
+        "Secondary residences are up to 90 m2 on RZ1 blocks over 500 m2 and can't be sold separately; since 27 November 2023 a dual occupancy on an RZ1 block over 800 m2 (second dwelling up to 120 m2) can be unit titled.",
+        "DA Gateway Team 02 6205 2888; Access Canberra 13 22 81."
+      ]
     }
   ]
 }

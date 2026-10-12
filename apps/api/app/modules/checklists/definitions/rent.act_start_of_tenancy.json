@@ -1,0 +1,85 @@
+{
+  "key": "rent.act_start_of_tenancy",
+  "vertical": "RENT",
+  "title": "Starting an ACT tenancy",
+  "description": "The documents and steps before and when an ACT tenant signs. Summarised from act.gov.au renting pages and the ACT Revenue Office.",
+  "sources": [
+    {
+      "title": "Starting a tenancy",
+      "organisation": "ACT Government",
+      "url": "https://www.act.gov.au/housing-planning-and-property/renting/starting-a-tenancy"
+    },
+    {
+      "title": "Before renting",
+      "organisation": "ACT Government",
+      "url": "https://www.act.gov.au/housing-planning-and-property/renting/before-renting"
+    },
+    {
+      "title": "How to lodge a bond or security deposit",
+      "organisation": "ACT Revenue Office",
+      "url": "https://www.revenue.act.gov.au/rental-bonds/how-to-lodge-a-bond-or-security-deposit"
+    }
+  ],
+  "items": [
+    {
+      "key": "ad_details",
+      "title": "Put the rent, EER, special conditions, accessibility and ceiling insulation compliance in your ad"
+    },
+    {
+      "key": "no_bidding",
+      "title": "Don't invite rent above the advertised price, take a holding deposit or charge to inspect"
+    },
+    {
+      "key": "agreement",
+      "title": "Prepare the agreement with the standard residential tenancy terms"
+    },
+    {
+      "key": "renting_book",
+      "title": "Give the tenant the ACT Renting Book or tell them where to find it"
+    },
+    {
+      "key": "eer",
+      "title": "Give the energy efficiency rating statement, if there is one",
+      "required": false
+    },
+    {
+      "key": "asbestos",
+      "title": "Give the asbestos assessment report or asbestos advice"
+    },
+    {
+      "key": "insulation_statement",
+      "title": "Give a statement on whether the home meets the ceiling insulation standard"
+    },
+    {
+      "key": "pool_info",
+      "title": "Give safety information for any regulated pool or spa",
+      "required": false
+    },
+    {
+      "key": "unit_certificate",
+      "title": "For a unit, give the unit title rental certificate",
+      "required": false
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Check smoke alarms comply with AS 3786 and work"
+    },
+    {
+      "key": "bond",
+      "title": "Take no more than 4 weeks' rent as bond and up to 2 weeks' rent in advance"
+    },
+    {
+      "key": "bond_lodge",
+      "title": "Lodge the bond with the Rental Bonds Office within 2 weeks (4 weeks for an agency)"
+    },
+    {
+      "key": "keys_receipts",
+      "title": "Give a signed copy of the agreement, receipts and one set of keys per tenant"
+    },
+    {
+      "key": "condition_report",
+      "title": "Give 2 copies of the condition report within 1 day of move-in",
+      "detail": "The ACT condition report form from the ACT Revenue Office can be used. The tenant has 2 weeks to return a signed copy."
+    }
+  ]
+}

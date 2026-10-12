@@ -1,0 +1,2032 @@
+{
+ "key": "property_act",
+ "title": "PropertyReady: selling and renting residential property in the ACT",
+ "notes": "First sourced rules for SellReady and RentReady in the Australian Capital Territory. Built from act.gov.au renting pages, the Access Canberra Reality Check guide, ACT Revenue Office, ACT Planning (pool safety reforms) and ACT Emergency Services Agency pages read on 2026-10-12. The shared web-fetch budget ran short: the Civil Law (Sale of Residential Property) Act 2003 and the Residential Tenancies Act 1997 were not read directly. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it.",
+ "organisations": [
+  {
+   "ref": "actgov",
+   "name": "ACT Government (act.gov.au)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "ACT",
+   "website": "https://www.act.gov.au"
+  },
+  {
+   "ref": "accesscanberra",
+   "name": "Access Canberra",
+   "kind": "REGULATOR",
+   "jurisdiction": "ACT",
+   "website": "https://www.accesscanberra.act.gov.au"
+  },
+  {
+   "ref": "actrevenue",
+   "name": "ACT Revenue Office",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "ACT",
+   "website": "https://www.revenue.act.gov.au"
+  },
+  {
+   "ref": "actplanning",
+   "name": "City and Environment Directorate (ACT Planning)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "ACT",
+   "website": "https://www.planning.act.gov.au"
+  },
+  {
+   "ref": "esa",
+   "name": "ACT Emergency Services Agency",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "ACT",
+   "website": "https://esa.act.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "reality_check",
+   "organisation": "accesscanberra",
+   "jurisdiction": "ACT",
+   "title": "Reality Check: a real estate guide for buyers and sellers in the ACT (third edition)",
+   "url": "https://www.accesscanberra.act.gov.au/__data/assets/pdf_file/0017/2312144/Reality-Check-A-real-estate-guide-for-buyers-and-sellers-in-the-ACT.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "pool_reforms",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "Home swimming pool safety reforms",
+   "url": "https://www.planning.act.gov.au/planning-projects/building-regulatory-system/home-swimming-pool-safety-reforms",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "esa_smoke",
+   "organisation": "esa",
+   "jurisdiction": "ACT",
+   "title": "Smoke alarms",
+   "url": "https://esa.act.gov.au/be-emergency-ready/smoke-alarms",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "revenue_duty",
+   "organisation": "actrevenue",
+   "jurisdiction": "ACT",
+   "title": "About conveyance duty (stamp duty)",
+   "url": "https://www.revenue.act.gov.au/rates-and-property-charges/conveyance-duty-stamp-duty/about-conveyance-duty-stamp-duty",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "planning_lvc",
+   "organisation": "actplanning",
+   "jurisdiction": "ACT",
+   "title": "Lease variation charge",
+   "url": "https://www.planning.act.gov.au/community/buy/leasing-and-titles/crown-leases/changes-to-a-crown-lease/lease-variation-charge",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rent_start",
+   "organisation": "actgov",
+   "jurisdiction": "ACT",
+   "title": "Starting a tenancy: leases, bond and condition reports",
+   "url": "https://www.act.gov.au/housing-planning-and-property/renting/starting-a-tenancy",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rent_before",
+   "organisation": "actgov",
+   "jurisdiction": "ACT",
+   "title": "Before renting: rental ads, condition checks and pets",
+   "url": "https://www.act.gov.au/housing-planning-and-property/renting/before-renting",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rent_during",
+   "organisation": "actgov",
+   "jurisdiction": "ACT",
+   "title": "During a tenancy: inspections, rent and repairs",
+   "url": "https://www.act.gov.au/housing-planning-and-property/renting/during-a-tenancy",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rent_increase",
+   "organisation": "actgov",
+   "jurisdiction": "ACT",
+   "title": "Rent increases",
+   "url": "https://www.act.gov.au/housing-planning-and-property/renting/rent-increases",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rent_insulation",
+   "organisation": "actgov",
+   "jurisdiction": "ACT",
+   "title": "Minimum housing standard for ceiling insulation in rental properties",
+   "url": "https://www.act.gov.au/housing-planning-and-property/renting/minimum-housing-standard-for-ceiling-insulation-in-rental-properties",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rent_ending",
+   "organisation": "actgov",
+   "jurisdiction": "ACT",
+   "title": "Ending a tenancy: giving notice, final inspections and bond release",
+   "url": "https://www.act.gov.au/housing-planning-and-property/renting/ending-a-tenancy",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rent_ending_landlord",
+   "organisation": "actgov",
+   "jurisdiction": "ACT",
+   "title": "When landlords can end a tenancy",
+   "url": "https://www.act.gov.au/housing-planning-and-property/renting/ending-a-tenancy-for-landlords",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rent_hub",
+   "organisation": "actgov",
+   "jurisdiction": "ACT",
+   "title": "Renting in the ACT",
+   "url": "https://www.act.gov.au/housing-planning-and-property/renting",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bond_lodge",
+   "organisation": "actrevenue",
+   "jurisdiction": "ACT",
+   "title": "How to lodge a bond or security deposit",
+   "url": "https://www.revenue.act.gov.au/rental-bonds/how-to-lodge-a-bond-or-security-deposit",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bond_forms",
+   "organisation": "actrevenue",
+   "jurisdiction": "ACT",
+   "title": "Rental bonds forms",
+   "url": "https://www.revenue.act.gov.au/rental-bonds/forms",
+   "source_type": "FORM"
+  }
+ ],
+ "references": [
+  {
+   "ref": "required_documents",
+   "document": "reality_check",
+   "section": "Documents the seller must have ready",
+   "extracted_text": "[Summary, not the source's wording] A seller must have a draft contract for the sale of residential property ready before the property is first offered for sale. The required documents include the Crown lease, certificate of title, deposited plan, building and lease conveyancing inquiries, the energy efficiency rating statement, and building and compliance and pest inspection reports. Units need extra documents. Building and compliance reports describe the structural soundness of the property; pest reports describe termite and other pest infestations. Buyers can usually rely on these reports for 180 days from when they are prepared. Sellers must provide an asbestos assessment report with the contract, or asbestos advice if there is no report.",
+   "interpretation": "Applies to every sale of residential property in the ACT under the Civil Law (Sale of Residential Property) Act 2003. The Act and the Civil Law (Sale of Residential Property) Regulation 2004 were not read directly, so the full list of required documents and exemptions is unconfirmed. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "unit_documents",
+   "document": "reality_check",
+   "section": "Units",
+   "extracted_text": "[Summary, not the source's wording] Unit sales need a unit title certificate issued by the owners corporation, which shows outstanding levies and other information. For multi-storey units, minutes of owners corporation and executive committee meetings for the last two years are required in place of some other reports.",
+   "interpretation": "Applies to units under the Unit Titles (Management) Act 2011; the section of that Act was not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "cooling_off",
+   "document": "reality_check",
+   "section": "Cooling-off period",
+   "extracted_text": "[Summary, not the source's wording] The buyer has a cooling-off period of five clear working days, not counting weekends and public holidays. A buyer who withdraws forfeits 0.25% of the purchase price ($250 per $100,000). There is no cooling-off if the property was sold at auction or by tender.",
+   "interpretation": "Waiving cooling-off (by a lawyer's certificate under section 17 of the Act) was not described in the text read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "auctions_agents",
+   "document": "reality_check",
+   "section": "Auctions and agents",
+   "extracted_text": "[Summary, not the source's wording] At an auction the conditions of sale must be displayed at the place of auction for at least 30 minutes before bidding starts. The auctioneer may make one seller bid, announced as a seller bid. If a property is passed in on a seller bid, the agent can't quote that amount in later marketing without disclosing the seller bid. Agents must put an estimated selling price in the sales agreement and must not underquote, overquote or use dummy bidding. Commissions are negotiable.",
+   "interpretation": "Used to tell sellers what to expect from their agent and auction. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "conveyance_duty",
+   "document": "revenue_duty",
+   "section": "About conveyance duty",
+   "extracted_text": "[Summary, not the source's wording] Conveyance duty is a tax paid by the buyer of property in the ACT. After settlement the transfer is lodged with Access Canberra within 14 days, with a Buyer Verification Declaration. The ACT Revenue Office emails a notice of assessment, and duty is payable 14 days after the title is registered. Payment is by BPAY or electronic funds transfer; late payment attracts interest and there are no payment plans.",
+   "interpretation": "Pointer for sellers: duty is the buyer's cost, but the transfer timing affects settlement. Rates were not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "lvc",
+   "document": "planning_lvc",
+   "section": "Lease variation charge",
+   "extracted_text": "[Summary, not the source's wording] Changing a Crown lease needs approval from the Territory Planning Authority. If you change your Crown lease to build or add a development, you pay a lease variation charge (LVC); the amount depends on the change, and some changes are exempt. A delegate of the Commissioner for ACT Revenue determines the charge and sends a notice of assessment to the applicant or lessee; for non-standard variations the final amount is set once the development application is approved. Remissions apply under several determinations, including one for RZ1 and RZ2 zones (2026) that also covers deferral. Contact the Development Assessment Leasing Team on 02 6207 5403 or actpladaleasing@act.gov.au.",
+   "interpretation": "Pointer for sellers whose lease has been, or is being, varied. The page doesn't mention sales or give amounts. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pools",
+   "document": "pool_reforms",
+   "section": "Home swimming pool safety reforms",
+   "extracted_text": "[Summary, not the source's wording] The scheme started on 1 May 2024 with a four-year transition. From 1 May 2024 owners must maintain pool barriers and keep doors, gates and covers giving access to the pool or spa closed when not in use. By 1 May 2028 every home pool and spa needs a barrier that meets current standards. Owners of pools built before 1 May 2013 must get a compliance certificate from an authorised person before 1 May 2028 and lodge it with the Government within 30 days of issue. Licensed ACT building surveyors (certifiers) are authorised persons. When selling during the transition, the seller must give the Pool Owners Guidance Material for pools built, altered or installed before 1 May 2023, plus one of: a swimming pool disclosure statement, a certificate of occupancy covering the pool and barrier less than five years old, a compliance certificate, or a Ministerial exemption certificate. Pool information must also be disclosed when leasing.",
+   "interpretation": "Applies to regulated swimming pools and spas in the ACT. The regulations and disclosure factsheet were not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "smoke",
+   "document": "esa_smoke",
+   "section": "Smoke alarms",
+   "extracted_text": "[Summary, not the source's wording] Working smoke alarms are compulsory in the ACT. Hard-wired (240-volt) alarms are legally required in houses built after 1 November 1994; homes built before then may use battery or wired alarms. Multi-level homes must have alarms on each level, interconnected. All rental properties must have a smoke alarm that complies with Australian Standard AS 3786. Replace alarms every 10 years. Photoelectric alarms are encouraged.",
+   "interpretation": "The page does not set a rule for sales of existing homes. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_start",
+   "document": "rent_start",
+   "section": "Starting a tenancy",
+   "extracted_text": "[Summary, not the source's wording] Standard residential tenancy terms in the Residential Tenancies Act 1997 apply to every ACT tenancy; other terms need ACAT approval. Before signing, the landlord must give the tenant the tenancy agreement with the standard terms, the Renting Book (or where to find it), the energy efficiency rating statement if there is one, an asbestos assessment report or asbestos advice, a statement on whether the home meets the ceiling insulation minimum standard, safety information for any regulated swimming pool, and for units a unit title rental certificate, with reasonable time to read them. There is no cooling-off once signed. The tenant pays the bond and may be asked for up to 2 weeks' rent in advance. The landlord gives a signed copy of the agreement, receipts for bond and rent, one set of keys per tenant and 2 copies of the condition report within 1 day of the tenant moving in. The tenant has 2 weeks to return a signed copy, or is taken to agree. The bond can't be more than 4 weeks' rent and must be lodged with the ACT Revenue Office; keeping a bond without lodging it is an offence.",
+   "interpretation": "Applies to residential tenancies under the Residential Tenancies Act 1997; the Act itself was not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_before",
+   "document": "rent_before",
+   "section": "Advertising, rent bidding and pets",
+   "extracted_text": "[Summary, not the source's wording] Every rental ad must state the rent, the energy efficiency rating, any special conditions, accessibility features and ceiling insulation compliance; publishing an ad without them is an offence. Landlords and agents must not ask for or invite offers above the advertised rent. They can't require a holding deposit or more than one bond, or charge to inspect the property or for information about it. A tenancy agreement can require the tenant to ask before getting a pet, but can't ban pets outright. To refuse a pet the landlord needs ACAT's approval. A landlord can't ask for extra bond or more inspections because of a pet, and can't refuse an applicant because of an assistance animal.",
+   "interpretation": "Applies when advertising and letting. The time limit for a landlord to seek ACAT approval to refuse a pet was not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_during",
+   "document": "rent_during",
+   "section": "Inspections, modifications, repairs and sale",
+   "extracted_text": "[Summary, not the source's wording] Standard inspections are allowed in the first month, in the final month and twice in each 12 months, with at least one week's written notice. To refuse a minor modification the landlord must apply to ACAT within 14 days, or is taken to have consented. Urgent repairs (such as a burst water service, gas leak or dangerous electrical fault) must be done as soon as practicable; non-urgent repairs within 4 weeks, with one week's written notice for access. The landlord must make sure working smoke alarms are installed at the start of the tenancy; the tenant checks and replaces batteries. Before showing the home to buyers the landlord must tell the tenant in writing that they intend to sell, give at least 48 hours' notice of each inspection, and the tenant needn't agree to more than 2 a week.",
+   "interpretation": "Applies during every residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_increase",
+   "document": "rent_increase",
+   "section": "Rent increases",
+   "extracted_text": "[Summary, not the source's wording] Rent can be increased only once every 12 months, including across a new consecutive agreement, with at least 8 weeks' notice. An increase can't be more than 10 per cent above the growth in the rents part of the Consumer Price Index for Canberra (for example, 2% growth allows 2.2%). If CPI doesn't change, rent can't go up. A bigger increase needs the tenant's written agreement or an ACAT order. Fixed-term agreements that started before 10 December 2024 may have different terms. The government rent increase calculator is unavailable while the ABS moves to monthly CPI.",
+   "interpretation": "Page last updated 14 July 2026. The current dollar or percentage threshold was not published. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_insulation",
+   "document": "rent_insulation",
+   "section": "Ceiling insulation minimum standard",
+   "extracted_text": "[Summary, not the source's wording] A rental home with no ceiling insulation, or insulation below R2, must be brought up to at least R5. Existing tenancies must comply by 30 November 2026; new tenancies within 9 months of signing. Permanent exemptions cover heritage-listed homes, lower-floor apartments, physical constraints, and homes where insulating costs over $10,000 (then up to $10,000 must still be spent, living areas and bedrooms first). Temporary exemptions include top-floor apartments where the owners corporation refuses, tenants who object in writing, former owners renting back for up to 12 months and homes to be demolished within 2 years. Landlords keep records such as installation receipts showing the R-value, an installer's report, an energy efficiency rating report or statutory declarations. Before installing, a licensed electrician must do an electrical safety inspection, and a Certificate of Electrical Safety goes to Access Canberra within 14 days. Use a certified installer. Compliance or exemption must be disclosed in ads and agreements. ACAT can order rent reductions, compensation or termination.",
+   "interpretation": "Applies to every ACT rental with a ceiling space. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_ending",
+   "document": "rent_ending",
+   "section": "Ending a tenancy",
+   "extracted_text": "[Summary, not the source's wording] Landlord and tenant must do a final inspection together against the condition report signed at the start. Either party can ask the ACT Revenue Office for the bond refund. A landlord claiming part of the bond completes a bond release application with a written statement of reasons and a written repair estimate; if the tenant disputes it, the dispute goes to ACAT. A tenant must give at least 3 weeks' written notice. When a tenant leaves early, the landlord must try to re-let as soon as possible to claim compensation.",
+   "interpretation": "Applies at the end of every residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_ending_landlord",
+   "document": "rent_ending_landlord",
+   "section": "When landlords can end a tenancy",
+   "extracted_text": "[Summary, not the source's wording] Landlords can't end a tenancy for no reason. For periodic tenancies: selling the home needs 8 weeks' notice and proof, such as a sales contract or statutory declaration; the landlord or close family moving in needs 8 weeks plus proof; major renovations the tenant can't stay through need 12 weeks plus quotes or plans; change of use needs 26 weeks plus proof; a landlord posted to the ACT needs 8 weeks plus employer proof. A fixed-term lease runs to the end of its term even if the home is sold, and can be ended early only for breach, by ACAT order or under a posting clause. Breaches need a notice to remedy before a notice to vacate. If the tenant doesn't leave, the landlord applies to ACAT.",
+   "interpretation": "Applies to residential tenancies; the Act was not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_lodge",
+   "document": "bond_lodge",
+   "section": "Lodging a bond",
+   "extracted_text": "[Summary, not the source's wording] Lessors and agencies must lodge the bond or security deposit with the Rental Bonds Office of the ACT Revenue Office. A lessor must lodge it within two weeks; an agency within four weeks.",
+   "interpretation": "Payment methods, fees and the Rental Bonds Portal steps were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_forms",
+   "document": "bond_forms",
+   "section": "Rental bonds forms",
+   "extracted_text": "[Summary, not the source's wording] The ACT Revenue Office publishes the Tenant Bond Lodgement Form, the Bond Refund Form, the Condition Report, a co-tenant change request, the Change of Lessor or Managing Agent Form, the Transfer of Rental Premises form and others, plus a link to the Rental Bonds Portal.",
+   "interpretation": "Lists the official forms used for ACT rental bonds. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "sell.act.seller_disclosure",
+   "vertical": "SELL",
+   "jurisdiction": "ACT",
+   "title": "ACT: selling a property",
+   "description": "Required documents under the Civil Law (Sale of Residential Property) Act 2003 (draft contract, Crown lease, inspection reports, EER statement, asbestos), cooling-off, auctions, agents, unit title documents, unapproved work, smoke alarms, pool disclosure, tenanted sales, and conveyance duty and lease variation charge pointers.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "ACT"
+   },
+   "limitations": [
+    "Built from the Access Canberra Reality Check guide and ACT Government pages; the Civil Law (Sale of Residential Property) Act 2003 and its regulation were not read directly.",
+    "Doesn't prepare the contract or decide which required documents or exemptions apply to your property; your conveyancer or lawyer does that.",
+    "Doesn't check off-the-plan sales, rural leases or commercial property.",
+    "Doesn't assess conveyance duty, the lease variation charge, capital gains tax or foreign resident withholding; it only points you to the ACT Revenue Office.",
+    "Not legal advice. Confirm with a conveyancer or lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "required_documents",
+     "title": "Required documents before the property is offered for sale",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Have the draft contract and required documents ready before you advertise",
+       "detail": "Under the Civil Law (Sale of Residential Property) Act 2003, you must have a draft contract ready, with the required documents attached, before the property is first offered for sale. They include the Crown lease, the certificate of title, the deposited plan, building and lease conveyancing inquiries, the energy efficiency rating (EER) statement, a building and compliance inspection report, a pest inspection report and an asbestos assessment report (or asbestos advice if there is no report). Buyers can usually rely on the inspection reports for 180 days from when they are prepared, so time them close to listing. Units need extra documents. Ask your conveyancer to order them now.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "CONTRACT_FOR_SALE",
+          "title": "Draft contract for sale with the required documents"
+         },
+         {
+          "kind": "BUILDING_INSPECTION_REPORT",
+          "title": "Building and compliance inspection report"
+         },
+         {
+          "kind": "PEST_INSPECTION_REPORT",
+          "title": "Pest inspection report"
+         },
+         {
+          "kind": "ENERGY_EFFICIENCY_RATING",
+          "title": "Energy efficiency rating (EER) statement"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Have your conveyancer prepare the draft contract and required documents before listing",
+        "checklists": [
+         "sell.act_required_documents"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "required_documents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ACT property",
+       "facts": {
+        "property.address.state": "ACT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "engage_conveyancer",
+     "title": "Getting a conveyancer or lawyer",
+     "condition": {
+      "fact": "sell.has_conveyancer",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "PROFESSIONAL_REQUIRED",
+       "title": "Choose a conveyancer or lawyer before you list",
+       "detail": "In the ACT the draft contract and required documents must be ready before the property is first offered for sale. A conveyancer or property lawyer orders the lease, title, conveyancing inquiries and reports and prepares the contract. Get quotes from two or three now.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Engage a conveyancer or property lawyer"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "required_documents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No conveyancer",
+       "facts": {
+        "sell.has_conveyancer": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has conveyancer",
+       "facts": {
+        "sell.has_conveyancer": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "agent_agreement",
+     "title": "Using a real estate agent",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "If you use an agent, check the estimated selling price in the agreement",
+       "detail": "Your agent must put an estimated selling price in the sales agreement and must not underquote, overquote or use dummy bidding. Commissions are negotiable, so compare quotes and check whether they include GST."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "auctions_agents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ACT property",
+       "facts": {
+        "property.address.state": "ACT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "cooling_off",
+     "title": "Buyer's cooling-off period",
+     "condition": {
+      "fact": "sell.method",
+      "op": "in",
+      "value": [
+       "private_treaty",
+       "expressions_of_interest",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Expect a 5 working day cooling-off period",
+       "detail": "For a private sale, the buyer has five clear working days to cool off, not counting weekends and public holidays. A buyer who pulls out forfeits 0.25% of the price ($250 for every $100,000). A buyer can waive cooling-off with an ACT section 17 cooling-off waiver certificate signed by their lawyer. Don't treat the sale as firm until cooling-off ends."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "No cooling-off at auction",
+       "detail": "There is no cooling-off when the property is sold at auction or by tender. Make sure the contract and required documents are final before auction day."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "cooling_off",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Private sale",
+       "facts": {
+        "sell.method": "private_treaty"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Auction",
+       "facts": {
+        "sell.method": "auction"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "auction_rules",
+     "title": "Auction day obligations",
+     "condition": {
+      "fact": "sell.method",
+      "op": "equals",
+      "value": "auction"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Display the conditions of sale for 30 minutes and expect only one seller bid",
+       "detail": "The conditions of sale must be on display at the auction for at least 30 minutes before bidding starts. The auctioneer can make one seller bid, and must announce it as a seller bid. If the property is passed in on a seller bid, your agent can't quote that amount in later marketing without saying it was a seller bid. Set your reserve in writing with your agent.",
+       "payload": {
+        "task": "Agree your reserve and auction conditions with your agent"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "auctions_agents",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "cooling_off",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Auction",
+       "facts": {
+        "sell.method": "auction"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Private sale",
+       "facts": {
+        "sell.method": "private_treaty"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "unit_title_documents",
+     "title": "Unit title documents",
+     "condition": {
+      "fact": "sell.body_corporate",
+      "op": "in",
+      "value": [
+       "yes",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Get the unit title certificate from the owners corporation",
+       "detail": "Selling a unit needs extra documents, including a unit title certificate from the owners corporation showing outstanding levies and other information. For a unit in a multi-storey building you also give minutes of owners corporation and executive committee meetings for the last two years. Ask your conveyancer to request these from the strata manager now, as they can take time.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "UNIT_TITLE_CERTIFICATE",
+          "title": "Unit title certificate from the owners corporation"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Request the unit title certificate and minutes",
+        "checklists": [
+         "sell.act_required_documents"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "unit_documents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Unit",
+       "facts": {
+        "sell.body_corporate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Freehold house",
+       "facts": {
+        "sell.body_corporate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "unapproved_work",
+     "title": "Building work without all approvals",
+     "condition": {
+      "fact": "sell.building_works_approvals",
+      "op": "in",
+      "value": [
+       "some",
+       "none",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Sort out approvals for building work before you list",
+       "detail": "The building and compliance inspection report and the building and lease conveyancing inquiries go to the buyer with the contract, so unapproved structures are likely to show up. Find the approvals you have, and ask a town planner or building certifier how to deal with work that wasn't approved before you list.",
+       "payload": {
+        "referral_categories": [
+         "town_planner",
+         "conveyancer"
+        ],
+        "task": "Check approvals for all building work"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "required_documents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Some approved",
+       "facts": {
+        "sell.building_works_approvals": "some"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "All approved",
+       "facts": {
+        "sell.building_works_approvals": "all"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "mortgage_discharge",
+     "title": "Discharging your mortgage",
+     "condition": {
+      "fact": "sell.has_mortgage",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Tell your lender you are selling",
+       "detail": "Your mortgage is normally discharged at settlement. Ask your lender for its discharge form and payout figure early, as lenders can take weeks.",
+       "payload": {
+        "task": "Ask your lender to start the mortgage discharge"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "required_documents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Mortgage",
+       "facts": {
+        "sell.has_mortgage": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No mortgage",
+       "facts": {
+        "sell.has_mortgage": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "selling_for_owner",
+     "title": "Selling on someone else's behalf",
+     "condition": {
+      "fact": "sell.is_owner",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Have your authority to sign ready",
+       "detail": "If you sell as an attorney, executor or for a company, give your conveyancer the power of attorney, grant of probate or other authority now so they can confirm who signs the contract.",
+       "payload": {
+        "referral_categories": [
+         "lawyer",
+         "conveyancer"
+        ],
+        "task": "Give your conveyancer your authority to sell"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "required_documents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not owner",
+       "facts": {
+        "sell.is_owner": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Owner",
+       "facts": {
+        "sell.is_owner": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms_on_sale",
+     "title": "Smoke alarms when you sell",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "ACT"
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Check the smoke alarms work before you list",
+       "detail": "Working smoke alarms are compulsory in the ACT. Houses built after 1 November 1994 need hard-wired (240-volt) alarms, and multi-level homes need interconnected alarms on each level. Replace alarms older than 10 years. Buyers and their inspectors will check them.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ACT house",
+       "facts": {
+        "property.address.state": "ACT",
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant land",
+       "facts": {
+        "property.address.state": "ACT",
+        "sell.property_type": "vacant_land"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_sale",
+     "title": "Pool or spa disclosure on sale",
+     "condition": {
+      "fact": "sell.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Give the buyer the pool safety documents",
+       "detail": "Until 1 May 2028, when you sell a home with a pool or spa built, altered or installed before 1 May 2023, give the buyer the Pool Owners Guidance Material plus one of: a swimming pool disclosure statement, a certificate of occupancy for the pool and barrier less than 5 years old, a compliance certificate from an authorised person, or a Ministerial exemption certificate (apply with the ACT application for a Ministerial exemption for a regulated swimming pool). Licensed ACT building surveyors are authorised persons. Every pool barrier must meet current standards by 1 May 2028, and gates and covers must be kept closed now.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "POOL_SAFETY_CERTIFICATE",
+          "title": "Swimming pool disclosure statement or compliance certificate"
+         }
+        ],
+        "referral_categories": [
+         "pool_safety_inspector",
+         "conveyancer"
+        ],
+        "task": "Get the pool disclosure documents for the contract"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pools",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "sell.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale",
+     "title": "Selling with a tenant in place",
+     "condition": {
+      "fact": "sell.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Tell your tenant in writing before you show buyers through",
+       "detail": "Before showing the home to buyers, tell the tenant in writing that you intend to sell. Give at least 48 hours' notice of each inspection; the tenant needn't agree to more than 2 a week. A fixed-term lease runs to its end even if you sell. For a periodic tenancy, you can end it to sell with 8 weeks' notice and proof such as the sales contract. You can't end a tenancy for no reason.",
+       "payload": {
+        "referral_categories": [
+         "property_manager",
+         "lawyer"
+        ],
+        "task": "Write to your tenant about the sale"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_during",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_ending_landlord",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "sell.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "sell.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale_rent_ready",
+     "title": "Managing the tenancy until settlement",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "CROSS_SELL",
+       "title": "Keep the tenancy on track until settlement with RentReady",
+       "detail": "Your tenant stays on through the sale, so ACT renting rules on entry, notices, bonds and the ceiling insulation standard still apply until settlement. RentReady walks you through them.",
+       "payload": {
+        "cross_sell": [
+         "RENT"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_during",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted house",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant house",
+       "facts": {
+        "sell.is_tenanted": false,
+        "sell.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "conveyance_duty",
+     "title": "Conveyance duty",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Conveyance duty is the buyer's cost, paid through the ACT Revenue Office",
+       "detail": "In the ACT the buyer pays conveyance duty (stamp duty). After settlement the transfer is lodged with Access Canberra within 14 days, and the ACT Revenue Office assesses duty, which is due 14 days after the title is registered. Ask your conveyancer how this affects your settlement timetable."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "conveyance_duty",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ACT property",
+       "facts": {
+        "property.address.state": "ACT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "lease_variation_charge",
+     "title": "Lease variation charge",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Check whether a lease variation charge is owing",
+       "detail": "If you change a Crown lease to build or add a development, a lease variation charge applies, assessed by the ACT Revenue Commissioner once the variation is approved. If your lease has been varied, or you have a variation under way, ask your conveyancer whether any charge or deferral is outstanding, as it can affect settlement. Questions go to the Development Assessment Leasing Team on 02 6207 5403."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "lvc",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ACT property",
+       "facts": {
+        "property.address.state": "ACT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "rent.act.residential_tenancy",
+   "vertical": "RENT",
+   "jurisdiction": "ACT",
+   "title": "ACT: renting out a home",
+   "description": "Standard residential tenancy terms and documents before signing, condition reports, ad rules and the rent bidding ban, bond limit and lodgement with the ACT Revenue Office, the ceiling insulation minimum standard, smoke alarms, pools, unit title rental certificates, rent increases, pets, minor modifications, inspections and ending a tenancy, from act.gov.au and the ACT Revenue Office.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "ACT"
+   },
+   "limitations": [
+    "Built from act.gov.au and ACT Revenue Office pages, not from the Residential Tenancies Act 1997 itself.",
+    "Written for ordinary residential tenancies. Occupancy agreements (share houses, boarding), community housing and short stays have different rules and are not checked.",
+    "The current rent increase limit is not shown because the government calculator was unavailable when read.",
+    "Doesn't cover family violence terminations, utilities or ACAT procedures.",
+    "Not legal advice. Confirm with the ACT Government, a property manager or a lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "tenancy_agreement",
+     "title": "Tenancy agreement and documents before signing",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Give the tenant the required documents before they sign",
+       "detail": "Every ACT tenancy includes the standard residential tenancy terms from the Residential Tenancies Act 1997; any other term needs ACAT approval. Before the tenant signs, give them the agreement, the ACT Renting Book, the energy efficiency rating statement if there is one, an asbestos assessment report or asbestos advice, a statement on the ceiling insulation standard, pool safety information if there is a regulated pool, and for a unit a unit title rental certificate. Within 1 day of move-in give 2 copies of the condition report (you can use the ACT condition report form); the tenant has 2 weeks to return a signed copy.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "Signed ACT residential tenancy agreement with the standard terms"
+         },
+         {
+          "kind": "ENTRY_CONDITION_REPORT",
+          "title": "Condition report given within 1 day of move-in"
+         }
+        ],
+        "task": "Prepare the agreement, documents and condition report",
+        "checklists": [
+         "rent.act_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_start",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ACT property",
+       "facts": {
+        "property.address.state": "ACT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "advertising",
+     "title": "Advertising and applications",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Put the required details in your rental ad",
+       "detail": "Every ACT rental ad must state the rent, the energy efficiency rating, any special conditions, accessibility features and whether the home meets the ceiling insulation standard. Leaving them out is an offence. Don't ask for or invite rent above the advertised price, don't take a holding deposit and don't charge to inspect or for information about the property.",
+       "payload": {
+        "task": "Check your ad includes the required details",
+        "checklists": [
+         "rent.act_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_before",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_limit",
+     "title": "How much bond you can ask for",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Ask for no more than 4 weeks' rent as bond",
+       "detail": "In the ACT the bond can't be more than 4 weeks' rent, and you can't take more than one bond or extra bond for a pet. You can ask for up to 2 weeks' rent in advance."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_start",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_before",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ACT property",
+       "facts": {
+        "property.address.state": "ACT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_lodgement",
+     "title": "Lodging the bond with the ACT Revenue Office",
+     "condition": {
+      "fact": "rent.bond_lodged",
+      "op": "in",
+      "value": [
+       "no",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Lodge the bond with the Rental Bonds Office within 2 weeks",
+       "detail": "Every ACT bond is held by the Rental Bonds Office at the ACT Revenue Office, not by you or your agent. A landlord must lodge it within 2 weeks of receiving it; an agency within 4 weeks. Lodge through the ACT Rental Bonds Portal, or the tenant can use the ACT tenant bond lodgement form if you agree. Keeping a bond without lodging it is an offence.",
+       "payload": {
+        "approval": {
+         "kind": "ACT_BOND_LODGEMENT",
+         "authority": "ACT Revenue Office (Rental Bonds Office)",
+         "pathway": "Lodge through the Rental Bonds Portal"
+        },
+        "task": "Lodge the bond with the ACT Revenue Office"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check the bond is lodged with the ACT Revenue Office",
+       "detail": "Any bond for an ACT rental must be lodged with the Rental Bonds Office within 2 weeks (4 weeks for an agency).",
+       "payload": {
+        "approval": {
+         "kind": "ACT_BOND_LODGEMENT",
+         "authority": "ACT Revenue Office (Rental Bonds Office)",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bond_lodge",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_start",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not lodged",
+       "facts": {
+        "rent.bond_lodged": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Unsure",
+       "facts": {
+        "rent.bond_lodged": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Lodged",
+       "facts": {
+        "rent.bond_lodged": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No bond",
+       "facts": {
+        "rent.bond_lodged": "no_bond"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "ceiling_insulation",
+     "title": "Ceiling insulation minimum standard",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Bring ceiling insulation up to R5 by 30 November 2026",
+       "detail": "If the ceiling has no insulation or insulation below R2, you must top it up to at least R5. Existing tenancies must comply by 30 November 2026, and new tenancies within 9 months of signing. Exemptions exist, for example heritage-listed homes, lower-floor apartments, and homes where the work costs over $10,000 (you must still spend up to $10,000). Have a licensed electrician do a safety inspection first, use a certified installer and keep the receipt showing the R-value. Work through the ACT landlord checklist for minimum energy efficiency standards.",
+       "payload": {
+        "task": "Check and upgrade ceiling insulation",
+        "checklists": [
+         "rent.act_minimum_standards"
+        ],
+        "referral_categories": [
+         "electrician",
+         "builder"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_insulation",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ACT property",
+       "facts": {
+        "property.address.state": "ACT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "known_repairs",
+     "title": "Known repairs",
+     "condition": {
+      "fact": "rent.known_repairs",
+      "op": "exists"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Fix known repairs before the tenant moves in",
+       "detail": "During a tenancy, urgent repairs (such as a gas leak or dangerous electrical fault) must be done as soon as practicable and other repairs within 4 weeks. Fix the repairs you listed now and record the finished condition on the condition report.",
+       "payload": {
+        "task": "Fix listed repairs before the tenancy starts",
+        "checklists": [
+         "rent.act_minimum_standards"
+        ],
+        "referral_categories": [
+         "builder",
+         "plumber",
+         "electrician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_during",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Repairs listed",
+       "facts": {
+        "rent.known_repairs": "Leaking shower"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None listed",
+       "facts": {},
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms",
+     "title": "Smoke alarms in rentals",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "ACT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Install working smoke alarms before the tenancy starts",
+       "detail": "Every ACT rental must have a smoke alarm that complies with Australian Standard AS 3786, working at the start of the tenancy. Houses built after 1 November 1994 need hard-wired alarms, and multi-level homes need interconnected alarms on each level. The tenant checks and replaces batteries during the tenancy.",
+       "payload": {
+        "task": "Check the smoke alarms before the tenant moves in",
+        "checklists": [
+         "rent.act_minimum_standards"
+        ],
+        "referral_categories": [
+         "smoke_alarm_technician",
+         "electrician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_during",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ACT property",
+       "facts": {
+        "property.address.state": "ACT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_lease",
+     "title": "Pool or spa in a rental",
+     "condition": {
+      "fact": "rent.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Give the tenant pool safety information and keep the barrier closed",
+       "detail": "Before signing, give the tenant safety information for any regulated pool or spa. Keep doors, gates and covers to the pool closed when not in use. Pools built before 1 May 2013 need a compliance certificate from an authorised person, lodged within 30 days of issue, before 1 May 2028, when every barrier must meet current standards.",
+       "payload": {
+        "task": "Check the pool barrier and give the tenant pool information",
+        "referral_categories": [
+         "pool_safety_inspector"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pools",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_start",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "rent.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "unit_title_rental_certificate",
+     "title": "Unit title rental certificate",
+     "condition": {
+      "fact": "rent.property_type",
+      "op": "in",
+      "value": [
+       "unit",
+       "townhouse"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Give the tenant a unit title rental certificate before they sign",
+       "detail": "If the home is in a units plan, you must give the tenant a unit title rental certificate before they sign the lease. Ask your owners corporation or strata manager for it.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "UNIT_TITLE_CERTIFICATE",
+          "title": "Unit title rental certificate"
+         }
+        ],
+        "task": "Get the unit title rental certificate",
+        "checklists": [
+         "rent.act_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_start",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Unit",
+       "facts": {
+        "rent.property_type": "unit"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "rent.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rent_increases",
+     "title": "Rent increases",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Increase rent once a year at most, within the CPI limit",
+       "detail": "You can increase the rent only once every 12 months, with at least 8 weeks' written notice. The increase can't be more than 10 per cent above the growth in the rents part of Canberra's CPI (for example, 2% growth allows 2.2%). A bigger increase needs the tenant's written agreement or an ACAT order. Check the Renting Book for how to work out the limit."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_increase",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pets",
+     "title": "Pet requests",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You need ACAT's approval to refuse a pet",
+       "detail": "Your agreement can require the tenant to ask before getting a pet, but can't ban pets. To refuse, you must get approval from ACAT. You can't ask for extra bond or more inspections because of a pet, and you can't refuse an assistance animal."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_before",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "minor_modifications",
+     "title": "Minor modifications",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Apply to ACAT within 14 days if you want to refuse a minor modification",
+       "detail": "If a tenant asks to make a minor modification and you want to refuse, you must apply to ACAT within 14 days. If you don't, you are taken to have agreed."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_during",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "entry_inspections",
+     "title": "Entry and inspections",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Inspect in the first and last months and twice a year, with a week's notice",
+       "detail": "Standard inspections are allowed in the first month, the final month and twice in each 12 months, with at least one week's written notice. Give one week's written notice before entering for non-urgent repairs, which must be done within 4 weeks."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_during",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "ending_tenancy",
+     "title": "Ending a tenancy",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "You need a reason and the right notice to end the tenancy",
+       "detail": "You can't end an ACT tenancy for no reason. For a periodic tenancy, selling or moving in yourself or close family needs 8 weeks' notice with proof, major renovations 12 weeks, and a change of use 26 weeks. A fixed term runs to its end unless there is a breach, an ACAT order or a posting clause. If the tenant doesn't leave after a valid notice, apply to ACAT. At the end, inspect together against the condition report and claim the bond on the ACT bond refund form.",
+       "payload": {
+        "task": "Check your ground and notice before ending the tenancy",
+        "checklists": [
+         "rent.act_end_of_tenancy"
+        ],
+        "referral_categories": [
+         "lawyer"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_ending_landlord",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_ending",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "self_managed",
+     "title": "Managing the tenancy yourself",
+     "condition": {
+      "fact": "rent.managed_by",
+      "op": "equals",
+      "value": "self"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "REFERRAL_CATEGORY",
+       "title": "A property manager can handle the tenancy paperwork",
+       "detail": "As a self-managing ACT landlord you prepare the agreement and required documents, lodge the bond within 2 weeks, meet the ceiling insulation standard, follow the ad and rent increase rules and apply to ACAT before refusing pets or modifications. If you hand over to an agent, or sell with the tenant in place, tell the Rental Bonds Office with the ACT change of lessor or managing agent form. A licensed property manager can do this for you.",
+       "payload": {
+        "referral_categories": [
+         "property_manager"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_start",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_insulation",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Self-managed",
+       "facts": {
+        "rent.managed_by": "self"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Agent",
+       "facts": {
+        "rent.managed_by": "agent"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
