@@ -6,6 +6,7 @@ import "@approvalready/ui/tokens.css";
 import "./globals.css";
 
 import { defaultBrand } from "@/lib/brand";
+import { PUBLIC_SITE_URL } from "@/lib/site";
 
 // The brand faces from the ApprovalReady.au design system (SIL Open Font License,
 // src/fonts/OFL.txt), served from our own origin so the Content Security Policy can keep
@@ -43,6 +44,8 @@ const jetbrainsMono = localFont({
 });
 
 export const metadata: Metadata = {
+  // Canonical links and share images resolve against the public site.
+  metadataBase: new URL(PUBLIC_SITE_URL),
   title: { default: defaultBrand.productName, template: `%s | ${defaultBrand.productName}` },
   description: defaultBrand.description,
 };

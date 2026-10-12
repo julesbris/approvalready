@@ -9,7 +9,8 @@ Regenerate the pack after editing ``approval_guides.json``::
 
     python -m app.modules.guidance.pack
 
-A test fails if the committed pack and the guides disagree.
+which also writes ``public_paths.json`` (where each guide's public page lives). A test
+fails if the committed pack and the guides disagree.
 """
 
 from __future__ import annotations
@@ -139,5 +140,9 @@ def render() -> str:
 
 
 if __name__ == "__main__":
+    from app.modules.guidance import public
+
     PACK_FILE.write_text(render(), encoding="utf-8")
     print(f"wrote {PACK_FILE}")
+    public.PATHS_FILE.write_text(public.render(), encoding="utf-8")
+    print(f"wrote {public.PATHS_FILE}")

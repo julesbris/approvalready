@@ -16,6 +16,8 @@ class GuideOut(BaseModel):
     product: str
     link_path: str
     card_path: str
+    # What the card shows, for the post's alt text.
+    card_alt: str
     last_posted_at: datetime | None
 
 

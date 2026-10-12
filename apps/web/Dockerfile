@@ -23,6 +23,8 @@ COPY --from=deps /repo/node_modules ./node_modules
 COPY package.json package-lock.json ./
 COPY packages ./packages
 COPY apps/web ./apps/web
+# The public guide pages are built from the API's guides (src/lib/publicGuides.ts).
+COPY apps/api/app/modules/guidance/*.json ./apps/api/app/modules/guidance/
 RUN npm run build --workspace @approvalready/web
 
 FROM node:${NODE_VERSION}-alpine AS runtime

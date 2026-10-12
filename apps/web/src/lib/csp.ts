@@ -68,11 +68,32 @@ export function staticCsp(isDev: boolean, scriptHashes: readonly string[]): stri
 
 const HASH = /^'sha256-[A-Za-z0-9+/]+={0,2}'$/;
 
-/** The script hashes from the build's manifest (`.next/csp-hashes.json`); bad entries dropped. */
-export function parseHashManifest(raw: string): string[] {
-  const data: unknown = JSON.parse(raw);
-  const list =
-    data && typeof data === "object" && "scriptHashes" in data ? data.scriptHashes : undefined;
+function hashList(list: unknown): string[] {
   if (!Array.isArray(list)) return [];
   return list.filter((h): h is string => typeof h === "string" && HASH.test(h));
+}
+
+/** The build's script hashes: each static page's own, and the list for any other page. */
+export interface HashManifest {
+  fallback: string[];
+  pages: Map<string, string[]>;
+}
+
+/** The script hashes from the build's manifest (`.next/csp-hashes.json`); bad entries dropped. */
+export function parseHashManifest(raw: string): HashManifest {
+  const data: unknown = JSON.parse(raw);
+  if (!data || typeof data !== "object") return { fallback: [], pages: new Map() };
+  const fallback = hashList("scriptHashes" in data ? data.scriptHashes : undefined);
+  const pages = new Map<string, string[]>();
+  const listed = "pages" in data ? data.pages : undefined;
+  if (listed && typeof listed === "object") {
+    for (const [route, hashes] of Object.entries(listed)) pages.set(route, hashList(hashes));
+  }
+  return { fallback, pages };
+}
+
+/** The hashes for a page: its own when it was prerendered, otherwise the fallback list. */
+export function hashesFor(manifest: HashManifest, pathname: string): string[] {
+  const route = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+  return manifest.pages.get(route) ?? manifest.fallback;
 }

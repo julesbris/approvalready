@@ -1,4 +1,4 @@
-import { nonceCsp, parseHashManifest, staticCsp, usesNonceCsp } from "./csp";
+import { hashesFor, nonceCsp, parseHashManifest, staticCsp, usesNonceCsp } from "./csp";
 
 describe("CSP", () => {
   it("nonce policy has no unsafe-inline scripts in production", () => {
@@ -30,8 +30,21 @@ describe("CSP", () => {
     const raw = JSON.stringify({
       scriptHashes: ["'sha256-AbC+/9='", "'unsafe-inline'", "sha256-noquotes", 7],
     });
-    expect(parseHashManifest(raw)).toEqual(["'sha256-AbC+/9='"]);
-    expect(parseHashManifest("{}")).toEqual([]);
+    expect(parseHashManifest(raw).fallback).toEqual(["'sha256-AbC+/9='"]);
+    expect(parseHashManifest("{}").fallback).toEqual([]);
+  });
+
+  it("gives each prerendered page only its own hashes", () => {
+    const manifest = parseHashManifest(
+      JSON.stringify({
+        scriptHashes: ["'sha256-shared='"],
+        pages: { "/guides/nsw": ["'sha256-nsw='", "nope"], "/": ["'sha256-home='"] },
+      }),
+    );
+    expect(hashesFor(manifest, "/guides/nsw")).toEqual(["'sha256-nsw='"]);
+    expect(hashesFor(manifest, "/guides/nsw/")).toEqual(["'sha256-nsw='"]);
+    expect(hashesFor(manifest, "/")).toEqual(["'sha256-home='"]);
+    expect(hashesFor(manifest, "/guides/missing")).toEqual(["'sha256-shared='"]);
   });
 
   it.each([

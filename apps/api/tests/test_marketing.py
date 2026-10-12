@@ -19,7 +19,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
 from app.modules.guidance.guides import guides as approval_guides
 from app.modules.marketing import catalogue, newsletter, service
-from app.modules.marketing.cards import render
+from app.modules.marketing.cards import CardFormat, alt_text, render
 from app.modules.marketing.meta import MetaClient, MetaError
 from app.modules.marketing.models import (
     Channel,
@@ -69,19 +69,48 @@ def test_drafts_link_to_the_guide_with_campaign_tags() -> None:
     email = catalogue.draft_for(approval, Channel.EMAIL, "https://app.approvalready.au")
     assert email.subject == "Guide: Register a company (Pty Ltd) with ASIC"
     assert "Step by step:" in email.body and "Who to contact:" in email.body
-    assert "/projects/new?vertical=BUSINESS&utm_source=email&utm_medium=email" in email.body
+    assert "/guides/australia/company-registration?utm_source=email&utm_medium=email" in email.body
+    assert "https://app.approvalready.au/projects/new?vertical=BUSINESS\n" in email.body + "\n"
+    pool = catalogue.find("approval-nsw-pool-compliance-certificate")
+    assert pool is not None and pool.area == "New South Wales"
+    fb = catalogue.draft_for(pool, Channel.FACEBOOK, "https://app.approvalready.au")
+    assert "https://app.approvalready.au/guides/nsw/pool-compliance-certificate?" in fb.body
+    assert "#SellingAHome" in fb.body and "#NSW" in fb.body
     assert "check the official page before you apply" in email.body
 
 
 @pytest.mark.parametrize(
-    "ref", ["guide-cairns-subdivision", "approval-education-care-service-approval"]
+    "ref",
+    [
+        "guide-cairns-subdivision",
+        "approval-education-care-service-approval",
+        "approval-nsw-pool-compliance-certificate",
+        "approval-vic-vessel-registration",
+        "approval-vehicle-import-approval",
+    ],
 )
-def test_cards_are_square_jpegs(ref: str) -> None:
+@pytest.mark.parametrize(
+    ("fmt", "size"),
+    [
+        (CardFormat.SQUARE, (1080, 1080)),
+        (CardFormat.PORTRAIT, (1080, 1350)),
+        (CardFormat.WIDE, (1200, 630)),
+    ],
+)
+def test_cards_come_in_every_size(ref: str, fmt: CardFormat, size: tuple[int, int]) -> None:
     guide = catalogue.find(ref)
     assert guide is not None
-    image = Image.open(io.BytesIO(render(guide)))
+    image = Image.open(io.BytesIO(render(guide, fmt)))
     assert image.format == "JPEG"
-    assert image.size == (1080, 1080)
+    assert image.size == size
+
+
+def test_cards_have_alt_text() -> None:
+    guide = catalogue.find("approval-nsw-pool-compliance-certificate")
+    assert guide is not None
+    alt = alt_text(guide)
+    assert alt.startswith("ApprovalReady step-by-step guide for New South Wales: Getting a pool")
+    assert "steps" in alt
 
 
 def test_links_are_signed_per_purpose() -> None:
@@ -482,6 +511,9 @@ async def test_social_posts_publish_retry_and_fail(api: ApiHarness, clean: None)
         "/v23.0/1234567890/photos",
         {"url": card, "caption": "Granny flats in Cairns"},
     ) in graph.calls
+    assert service.card_url(settings, guide.ref, Channel.INSTAGRAM).endswith(
+        "/guide-cards/guide-cairns-secondary-dwellings.portrait.jpg"
+    )
     async with factory() as db:
         posted = [await db.get(MarketingPost, i) for i in ids]
         assert [p.status for p in posted if p] == ["POSTED", "POSTED"]
@@ -589,6 +621,9 @@ async def test_cards_are_public(api: ApiHarness) -> None:
     r = await anon.get("/v1/marketing/cards/guide-cairns-subdivision.jpg")
     assert r.status_code == 200
     assert r.headers["content-type"] == "image/jpeg"
+    r = await anon.get("/v1/marketing/cards/approval-abn-registration.jpg?format=wide")
+    assert r.status_code == 200
+    assert Image.open(io.BytesIO(r.content)).size == (1200, 630)
     assert (await anon.get("/v1/marketing/cards/nope.jpg")).status_code == 404
 
 

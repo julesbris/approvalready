@@ -4,9 +4,9 @@ Two kinds of guide:
 
 * the public guide pages of the web app (``web_guides.json``, kept in step with
   ``apps/web/src/lib/guides.ts`` by a web test): posts link to the page;
-* the step-by-step approval guides (``guidance/approval_guides.json``): there is no public
-  page for these, so posts link to starting a free check in that product, and the email
-  carries the guide itself (steps, costs, timeframe, who to contact).
+* the step-by-step approval guides (``guidance/approval_guides.json``): posts link to the
+  guide's public page (``guidance/public.py``), and the email carries the guide itself
+  (steps, costs, timeframe, who to contact).
 
 Drafts are built from the guide's own reviewed text, never invented: staff edit them before
 anything is posted. Links carry ``utm_*`` tags so visits from each channel can be told apart.
@@ -21,6 +21,7 @@ from functools import cache
 from pathlib import Path
 from urllib.parse import urlencode, urlsplit
 
+from app.modules.guidance import public
 from app.modules.guidance.guides import ApprovalGuide
 from app.modules.guidance.guides import guides as approval_guides
 from app.modules.marketing.models import Channel
@@ -38,10 +39,24 @@ PRODUCT_NAMES: dict[str, str] = {
     Vertical.TRADE: "TradeReady",
 }
 
+# The scenario a guide is for, as the public guide pages and image cards name it.
+SCENARIOS: dict[str, str] = {
+    Vertical.PLANNING: "Building and planning",
+    Vertical.BUSINESS: "Starting a business",
+    Vertical.TRADE: "Importing and exporting",
+    Vertical.SELL: "Selling a home",
+    Vertical.RENT: "Renting out a home",
+    Vertical.VESSEL: "Boats and jet skis",
+    Vertical.GRANT: "Grants",
+}
+
 HASHTAGS: dict[str, tuple[str, ...]] = {
-    Vertical.PLANNING: ("#ApprovalReady", "#PlanningApproval", "#Cairns", "#Queensland"),
-    Vertical.BUSINESS: ("#ApprovalReady", "#SmallBusiness", "#StartABusiness", "#Queensland"),
+    Vertical.PLANNING: ("#ApprovalReady", "#PlanningApproval", "#BuildingApproval"),
+    Vertical.BUSINESS: ("#ApprovalReady", "#SmallBusiness", "#StartABusiness"),
     Vertical.TRADE: ("#ApprovalReady", "#Importing", "#Exporting", "#AustralianBusiness"),
+    Vertical.SELL: ("#ApprovalReady", "#SellingAHome", "#RealEstate"),
+    Vertical.RENT: ("#ApprovalReady", "#Landlords", "#PropertyInvestor"),
+    Vertical.VESSEL: ("#ApprovalReady", "#Boating", "#BoatLicence"),
 }
 DEFAULT_HASHTAGS = ("#ApprovalReady", "#Australia")
 
@@ -66,14 +81,18 @@ class Guide:
     steps: list[str] = field(default_factory=list)
     checked_on: str | None = None
     approval: ApprovalGuide | None = None
+    # Where the guide applies ("New South Wales") and how many official forms it links.
+    area: str | None = None
+    forms: int = 0
+    hashtags: tuple[str, ...] = ()
 
     @property
     def product(self) -> str:
         return PRODUCT_NAMES.get(self.vertical, "ApprovalReady")
 
     @property
-    def has_page(self) -> bool:
-        return self.approval is None
+    def scenario(self) -> str | None:
+        return SCENARIOS.get(self.vertical)
 
 
 def _approval_ref(kind: str) -> str:
@@ -95,18 +114,23 @@ def _catalogue() -> tuple[Guide, ...]:
         )
     for a in approval_guides():
         vertical = a.verticals[0]
+        state = public.state_of(a)
+        tags = HASHTAGS.get(vertical, DEFAULT_HASHTAGS)
         out.append(
             Guide(
                 ref=_approval_ref(a.kind),
                 title=a.title,
                 summary=a.summary,
                 vertical=vertical,
-                link_path=f"/projects/new?vertical={vertical}",
+                link_path=public.path_of(a),
                 cost=a.cost_summary,
                 timeframe=a.timeframe,
                 steps=[s.title for s in a.steps],
                 checked_on=a.checked_on.isoformat(),
                 approval=a,
+                area=state.name,
+                forms=len(a.forms),
+                hashtags=(*tags, state.hashtag) if state.hashtag not in tags else tags,
             )
         )
     return tuple(out)
@@ -171,24 +195,21 @@ def _social(guide: Guide, channel: Channel, url: str) -> str:
         if len(guide.steps) > STEP_LIMIT:
             lines.append(f"…and {len(guide.steps) - STEP_LIMIT} more.")
     lines.append("")
-    if guide.has_page:
-        lines.append("Read the full guide, with the official source for every point:")
+    if guide.approval is not None:
+        lines.append("Read the full guide, with every step, cost, form and contact:")
     else:
-        lines.append(
-            f"Get your own checklist with every step, cost and form in {guide.product}, "
-            "free to start:"
-        )
+        lines.append("Read the full guide, with the official source for every point:")
     if channel == Channel.INSTAGRAM:
         # Links in Instagram captions aren't clickable, so name the site instead.
         lines.append(f"Link in bio, or visit {_site(url)}")
     else:
         lines.append(url)
-    tags = HASHTAGS.get(guide.vertical, DEFAULT_HASHTAGS)
+    tags = guide.hashtags or HASHTAGS.get(guide.vertical, DEFAULT_HASHTAGS)
     lines += ["", " ".join(tags)]
     return _cut("\n".join(lines), CAPTION_LIMIT[channel])
 
 
-def _email(guide: Guide, url: str) -> str:
+def _email(guide: Guide, url: str, base_url: str) -> str:
     lines = [guide.title, "=" * min(len(guide.title), 60), "", guide.summary]
     a = guide.approval
     if a is not None:
@@ -223,8 +244,11 @@ def _email(guide: Guide, url: str) -> str:
             f"We gathered this from official websites on {a.checked_on.strftime('%-d %B %Y')}. "
             "Fees and rules change, so check the official page before you apply.",
             "",
-            f"Get your own checklist for your situation in {guide.product}, free to start:",
+            "Read the full guide, with every form linked:",
             url,
+            "",
+            f"Get your own checklist for your situation in {guide.product}, free to start: "
+            f"{base_url.rstrip('/')}/projects/new?vertical={guide.vertical}",
         ]
     else:
         lines += ["", "Read the full guide, with the official source for every point:", url]
@@ -244,7 +268,7 @@ def drafts(guide: Guide, base_url: str) -> list[Draft]:
         ),
         Draft(
             Channel.EMAIL,
-            _email(guide, link(base_url, guide, Channel.EMAIL)),
+            _email(guide, link(base_url, guide, Channel.EMAIL), base_url),
             subject=_cut(f"Guide: {guide.title}", SUBJECT_LIMIT),
         ),
     ]

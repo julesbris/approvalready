@@ -1579,6 +1579,19 @@
             "title": "Publisher",
             "type": "string"
           },
+          "slug": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slug"
+          },
           "sources": {
             "items": {
               "$ref": "#/components/schemas/GuideSource"
@@ -1642,6 +1655,7 @@
         },
         "required": [
           "kind",
+          "slug",
           "title",
           "summary",
           "authority",
@@ -3210,6 +3224,15 @@
           "FETCHED"
         ],
         "title": "CaptureMethod",
+        "type": "string"
+      },
+      "CardFormat": {
+        "enum": [
+          "square",
+          "portrait",
+          "wide"
+        ],
+        "title": "CardFormat",
         "type": "string"
       },
       "CatalogueOut": {
@@ -8259,6 +8282,10 @@
       },
       "GuideOut": {
         "properties": {
+          "card_alt": {
+            "title": "Card Alt",
+            "type": "string"
+          },
           "card_path": {
             "title": "Card Path",
             "type": "string"
@@ -8308,6 +8335,7 @@
           "product",
           "link_path",
           "card_path",
+          "card_alt",
           "last_posted_at"
         ],
         "title": "GuideOut",
@@ -31322,6 +31350,7 @@
     },
     "/v1/marketing/cards/{ref}.jpg": {
       "get": {
+        "description": "A guide's image: ``square`` for feed posts, ``portrait`` for Instagram, ``wide`` for\nlink previews and search results.",
         "operationId": "guide_card_v1_marketing_cards__ref__jpg_get",
         "parameters": [
           {
@@ -31331,6 +31360,15 @@
             "schema": {
               "title": "Ref",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/CardFormat",
+              "default": "square"
             }
           }
         ],

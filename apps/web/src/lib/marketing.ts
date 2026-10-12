@@ -84,10 +84,21 @@ export function timeInput(value: string): string {
   return value.slice(0, 5);
 }
 
-/** The guide ref in a card file name ("guide-x.jpg"), or null for anything else. */
+export type CardFormat = "square" | "portrait" | "wide";
+
+/**
+ * The guide ref and size in a card file name ("guide-x.jpg" is square, "guide-x.wide.jpg"
+ * and "guide-x.portrait.jpg" the other sizes), or null for anything else.
+ */
+export function cardFile(file: string): { ref: string; format: CardFormat } | null {
+  const match = /^([a-z0-9-]{1,120})(?:\.(wide|portrait))?\.jpg$/.exec(file);
+  if (!match?.[1]) return null;
+  return { ref: match[1], format: (match[2] as CardFormat | undefined) ?? "square" };
+}
+
+/** The guide ref in a card file name, or null for anything else. */
 export function cardRef(file: string): string | null {
-  const match = /^([a-z0-9-]{1,120})\.jpg$/.exec(file);
-  return match?.[1] ?? null;
+  return cardFile(file)?.ref ?? null;
 }
 
 export const SUBSCRIBER_STATUS_LABELS: Record<NewsletterSubscriberOut["status"], string> = {
