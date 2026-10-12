@@ -1,0 +1,71 @@
+{
+  "key": "rent.nt_start_of_tenancy",
+  "vertical": "RENT",
+  "title": "Starting a tenancy in the Northern Territory",
+  "description": "Steps before and at the start of an NT tenancy. Summarised from NT Consumer Affairs guidance.",
+  "sources": [
+    {
+      "title": "A Guide to Renting in the Northern Territory",
+      "organisation": "NT Consumer Affairs",
+      "url": "https://consumeraffairs.nt.gov.au/_resources/documents/for-consumers/residential-tenancies/guide-to-renting-in-the-nt.pdf"
+    },
+    {
+      "title": "Renting in the NT",
+      "organisation": "NT Consumer Affairs",
+      "url": "https://consumeraffairs.nt.gov.au/for-consumers/residential-tenancies"
+    },
+    {
+      "title": "Pools or spas at rental properties",
+      "organisation": "NT.GOV.AU",
+      "url": "https://nt.gov.au/property/swimming-pools-and-spas/if-you-sell-or-rent-your-home/pools-or-spas-at-rental-properties"
+    }
+  ],
+  "items": [
+    {
+      "key": "advertise",
+      "title": "Advertise at a fixed rent: rent bidding is banned"
+    },
+    {
+      "key": "applications",
+      "title": "Only ask applicants for the information NT Consumer Affairs approves"
+    },
+    {
+      "key": "agreement",
+      "title": "Sign a written tenancy agreement with the standard terms, at no cost to the tenant"
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Make sure approved photoelectric smoke alarms are fitted"
+    },
+    {
+      "key": "pool",
+      "title": "If there's a pool or spa, have a compliance certificate or acknowledgement notice in your name (the NT pool compliance certificate application)",
+      "required": false
+    },
+    {
+      "key": "repairs",
+      "title": "Make sure the home is clean, in reasonable repair, habitable and has adequate locks"
+    },
+    {
+      "key": "deposit",
+      "title": "Take a security deposit of no more than 4 weeks' rent and hold it in trust",
+      "detail": "The NT has no bond authority. Agents use a tenancy trust account."
+    },
+    {
+      "key": "receipt",
+      "title": "Give a receipt for the deposit and rent straight away (2 business days for transfers)"
+    },
+    {
+      "key": "condition_report",
+      "title": "Give the ingoing condition report within 3 business days of the tenant moving in"
+    },
+    {
+      "key": "condition_return",
+      "title": "Respond to the tenant's changes to the report within 5 business days"
+    },
+    {
+      "key": "records",
+      "title": "Keep copies of the agreement, condition report and receipts"
+    }
+  ]
+}

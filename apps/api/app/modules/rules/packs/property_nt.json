@@ -1,0 +1,1779 @@
+{
+ "key": "property_nt",
+ "title": "PropertyReady: selling and renting residential property in the Northern Territory",
+ "notes": "First sourced rules for SellReady and RentReady in the Northern Territory. Built from NT.GOV.AU and NT Consumer Affairs pages, including A Guide to Renting in the Northern Territory (version 4.3, February 2026), read on 2026-10-12. The approved contract of sale PDF, the unit title legislation and Territory Revenue Office pages couldn't be read; see the limitations.",
+ "organisations": [
+  {
+   "ref": "ntca",
+   "name": "NT Consumer Affairs",
+   "kind": "REGULATOR",
+   "jurisdiction": "NT",
+   "website": "https://consumeraffairs.nt.gov.au"
+  },
+  {
+   "ref": "ntgov",
+   "name": "NT.GOV.AU (Northern Territory Government)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "NT",
+   "website": "https://nt.gov.au"
+  },
+  {
+   "ref": "tro",
+   "name": "Territory Revenue Office (Department of Treasury and Finance)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "NT",
+   "website": "https://treasury.nt.gov.au/dtf/territory-revenue-office"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "ntgov_contract",
+   "organisation": "ntgov",
+   "jurisdiction": "NT",
+   "title": "Contract of sale",
+   "url": "https://nt.gov.au/property/buying-and-selling-a-home/get-help-with-the-contract/contract-of-sale",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ntgov_building_files",
+   "organisation": "ntgov",
+   "jurisdiction": "NT",
+   "title": "Access to building files",
+   "url": "https://nt.gov.au/property/building/access-building-files/access-to-building-files",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ntgov_coe",
+   "organisation": "ntgov",
+   "jurisdiction": "NT",
+   "title": "Certificate of existence",
+   "url": "https://nt.gov.au/property/building/get-a-building-certified/about-occupancy-certification/certificate-of-existence",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ntgov_smoke",
+   "organisation": "ntgov",
+   "jurisdiction": "NT",
+   "title": "Smoke alarms",
+   "url": "https://nt.gov.au/emergency/community-safety/fire-safety-at-home/smoke-alarms",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ntgov_pool_sale",
+   "organisation": "ntgov",
+   "jurisdiction": "NT",
+   "title": "Buying or selling property with pools or spas",
+   "url": "https://nt.gov.au/property/buying-and-selling-a-home/settle-the-sale/buying-or-selling-property-with-pools-or-spas",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ntgov_pool_rental",
+   "organisation": "ntgov",
+   "jurisdiction": "NT",
+   "title": "Pools or spas at rental properties",
+   "url": "https://nt.gov.au/property/swimming-pools-and-spas/if-you-sell-or-rent-your-home/pools-or-spas-at-rental-properties",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ntgov_pool_apply",
+   "organisation": "ntgov",
+   "jurisdiction": "NT",
+   "title": "Get a compliance certificate or acknowledgement notice",
+   "url": "https://nt.gov.au/property/homeowners-and-landlords/pool-or-spa/install-a-pool-or-spa/apply-for-a-compliance-certificate-or-acknowledgement-notice",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ntgov_unit",
+   "organisation": "ntgov",
+   "jurisdiction": "NT",
+   "title": "Buying a unit in a body corporate",
+   "url": "https://nt.gov.au/property/buying-and-selling-a-home/ways-to-buy-or-sell-a-home/buying-a-unit-in-a-body-corporate",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "tro_stamp_duty",
+   "organisation": "tro",
+   "jurisdiction": "NT",
+   "title": "Stamp duty",
+   "url": "https://treasury.nt.gov.au/dtf/territory-revenue-office/stamp-duty",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ntca_guide",
+   "organisation": "ntca",
+   "jurisdiction": "NT",
+   "title": "A Guide to Renting in the Northern Territory (version 4.3, February 2026)",
+   "url": "https://consumeraffairs.nt.gov.au/_resources/documents/for-consumers/residential-tenancies/guide-to-renting-in-the-nt.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ntca_renting",
+   "organisation": "ntca",
+   "jurisdiction": "NT",
+   "title": "Renting in the NT (forms and fact sheets)",
+   "url": "https://consumeraffairs.nt.gov.au/for-consumers/residential-tenancies",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ntgov_deposits",
+   "organisation": "ntgov",
+   "jurisdiction": "NT",
+   "title": "Security deposits/bonds",
+   "url": "https://nt.gov.au/property/renters/find-out-about-rental-costs/security-deposits-bonds",
+   "source_type": "WEBPAGE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "contract",
+   "document": "ntgov_contract",
+   "section": "Contract of sale",
+   "extracted_text": "[Summary, not the source's wording] A real estate agent must not prepare a contract for the sale of land unless the form is approved by the Registrar of Land, Business and Conveyancing Agents or by the Law Society Northern Territory. The contract must include the seller's name and address, the seller's conveyancer or solicitor, the property particulars, improvements and chattels included, the price, and the deposit and where it is held in trust. Fixtures and fittings are sold with the property unless recorded as excluded.",
+   "interpretation": "Applies to every NT sale. The approved contract form itself (PDF) couldn't be read, so its building, pool, smoke alarm and unit title clauses are not summarised. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "cooling_off",
+   "document": "ntgov_contract",
+   "section": "Cooling-off period",
+   "extracted_text": "[Summary, not the source's wording] For contracts not made at auction, the buyer has a cooling-off period of four business days and can cancel without penalty or explanation. It starts on the day the contract is last signed by either party and exchanged. It may be waived, reduced or extended by agreement with the seller.",
+   "interpretation": "Used to tell sellers the sale isn't firm until four business days after exchange, except at auction. What happens to the deposit on cooling-off was not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "building_files",
+   "document": "ntgov_building_files",
+   "section": "Access to building files",
+   "extracted_text": "[Summary, not the source's wording] Building files hold drainage plans, site plans, floor plans, building permits, occupancy certification, inspection reports, pest control certificates and engineering certificates. Owners, or anyone with the owner's written authority, can access them. Digital files are requested by email to bas.files@nt.gov.au with proof of ownership and the property address. The access fee is $7 per lot; staff paper copies are $2 per A3 or A4 sheet and $11 per A0 to A2 sheet. Digital access lasts 5 days.",
+   "interpretation": "Used to tell sellers how to find the permits and occupancy certificates for their buildings before listing. The page doesn't mention sales. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "certificate_of_existence",
+   "document": "ntgov_coe",
+   "section": "Certificate of existence",
+   "extracted_text": "[Summary, not the source's wording] A certificate of existence shows building work meets a minimum level of safety, health and amenity and is suitable to be occupied. It can only be granted for building work completed before 1 May 2016, for example work that was never granted a building permit, work finished after a permit expired, or work that didn't meet the technical standards. You must engage an NT registered building certifier, who supplies the application form, inspects the site, may require repairs and then recommends approval to the Director of Building Control.",
+   "interpretation": "Used as the route for regularising older unapproved work. Fees were not on the page. Work completed from 1 May 2016 needs another pathway, which was not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "smoke",
+   "document": "ntgov_smoke",
+   "section": "Smoke alarms when selling or leasing",
+   "extracted_text": "[Summary, not the source's wording] If you are selling or leasing your property you must install an approved photoelectric smoke alarm. Existing ionisation alarms don't have to be replaced until the premises is sold or rented, a tenancy agreement is renewed or extended, or the alarm stops working. Homes built before 7 January 1998 without alarms must have an approved photoelectric alarm; homes built after that should already have hardwired alarms; interconnection has been required for new or renovated homes since 1 May 2014. Tenants must keep alarms in working order and test each one at least once every 12 months and tell the owner or agent if one doesn't work.",
+   "interpretation": "The page was last updated in 2018 and gives no penalties; the Fire and Emergency Regulations were not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_sale",
+   "document": "ntgov_pool_sale",
+   "section": "Selling with a pool or spa",
+   "extracted_text": "[Summary, not the source's wording] For a pool built after 1 January 2003, the seller must give the Land Titles Office a copy of the pool compliance certificate in the seller's name with the transfer documents; if it is lost or in another name, apply to the Pool Fencing Unit for a reissue. For a pool built before 1 January 2003, the seller submits a compliance certificate or an acknowledgement notice in their name, or self-declares that the barrier meets the Community Safety Standard and applies for an acknowledgement notice. If the buyer disagrees that the barrier meets the standard, the seller must bring it up to standard. Getting documents can take five working days or longer if the barrier needs work. Buyers who take on an upgrade have three months to finish it. A seller no-pool statutory declaration is also published.",
+   "interpretation": "Applies under the Swimming Pool Safety Act 2004, which was not read directly. Fees were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_rental",
+   "document": "ntgov_pool_rental",
+   "section": "Rental properties with a pool or spa",
+   "extracted_text": "[Summary, not the source's wording] If you own a rental property with a pool or spa you must have a compliance certificate or acknowledgement notice for the pool safety barrier in your name before you rent it out. This applies to properties under 1.8 hectares, including units and townhouses, and to pools or spas holding 30 cm or more of water. Pools built after 1 January 2003 need a compliance certificate. You must keep the barrier to the conditions of the certificate or notice, respond to tenants' repair requests in a timely manner, and fence any portable pool a tenant installs that holds 30 cm or more.",
+   "interpretation": "Applies to every NT rental with a pool or spa. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_apply",
+   "document": "ntgov_pool_apply",
+   "section": "Applying for a compliance certificate or acknowledgement notice",
+   "extracted_text": "[Summary, not the source's wording] To get a compliance certificate, complete the application for a compliance certificate form, submit it to the Pool Fencing Unit and arrange an inspection by a pool safety adviser from the Pool Fencing Unit. If the barrier meets the Modified Australian Standard, a certificate is issued; if not, you get a written report, do the work and book a reinspection. For an acknowledgement notice (older pools), check the barrier against the Community Safety Standard guidelines, complete the declaration of compliance and submit it to the Pool Fencing Unit; no inspection is needed.",
+   "interpretation": "Fees, processing times and the Pool Fencing Unit's phone and email were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "unit_title",
+   "document": "ntgov_unit",
+   "section": "Body corporate certificate",
+   "extracted_text": "[Summary, not the source's wording] A buyer can get a body corporate certificate during conveyancing before buying. It gives information about the lot and the body corporate, including fees the former owner hasn't paid, planned building works, the body corporate's debts and legal claims. Buyers should check levies and sinking fund contributions, read the by-laws, and ask for the minutes of the last two or three annual general meetings, financial statements, committee minutes and any maintenance program.",
+   "interpretation": "Written for buyers. It doesn't name the statutory certificate, the section of the Unit Title Schemes Act 2009 or who issues it, so the seller's own disclosure duty is unconfirmed. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "tro",
+   "document": "tro_stamp_duty",
+   "section": "Stamp duty",
+   "extracted_text": "[Summary, not the source's wording] The Territory Revenue Office administers stamp duty on transfers of NT land.",
+   "interpretation": "Pointer only: the TRO stamp duty page was not read (fetch budget). No rates, concessions or settlement adjustments are stated. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_deposit",
+   "document": "ntca_guide",
+   "section": "Security deposits",
+   "extracted_text": "[Summary, not the source's wording] The security deposit can be no more than 4 weeks' rent. The landlord holds it in trust for the tenant. A receipt must be given immediately for cash, cheque or card. The landlord must return the deposit within 7 business days after the tenant vacates, less any amount lawfully kept, and to keep any of it must give the Notice of Landlord's Intention to Retain Security Deposit (RT08) within those 7 business days, or return it in full. Disputes go to NTCAT. The deposit can only be increased after 2 years and never above 4 weeks' rent. Pet bonds are not allowed.",
+   "interpretation": "From the Residential Tenancies Act 1999 as summarised by NT Consumer Affairs; the Act prevails. The NT has no bond authority: deposits are not lodged with a government body. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "deposit_trust",
+   "document": "ntgov_deposits",
+   "section": "Who holds the deposit",
+   "extracted_text": "[Summary, not the source's wording] A private landlord must hold the security deposit in trust. If it is paid to a real estate agent it is placed in a tenancy trust account. A tenant can ask in writing for the name of the account. A receipt is due immediately for cash, cheque or card payments, or within 2 business days for electronic transfers.",
+   "interpretation": "Confirms there is no NT bond lodgement scheme. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_agreement",
+   "document": "ntca_guide",
+   "section": "Tenancy agreement and applications",
+   "extracted_text": "[Summary, not the source's wording] A tenancy agreement includes the standard terms in the Act, the parties' names and addresses, the premises, start and end dates (or only a start date for a periodic tenancy), the rent and how it is paid, and other terms that don't conflict with the Act. There is no single required format; if there is no written agreement signed by both parties, the prescribed agreement in Schedule 2 of the Residential Tenancies Regulations 2000 applies. Landlords must not charge for preparing, extending or renewing an agreement. Rent bidding is prohibited (section 38A). Different rules may apply to tenancies entered into before 2 January 2024.",
+   "interpretation": "NT Consumer Affairs also publishes the approved information and documents a landlord may ask for in rental applications (version 2.2, February 2026), which was not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_condition",
+   "document": "ntca_guide",
+   "section": "Ingoing condition report",
+   "extracted_text": "[Summary, not the source's wording] The landlord gives the ingoing condition report within 3 business days after the tenant takes possession. The tenant has 5 business days to sign and return it or mark changes; no response means it is accepted. The landlord has 5 business days to respond to changes. If the landlord doesn't complete an ingoing report, no claim can be made against the tenant for cleaning, damage or lost ancillary property.",
+   "interpretation": "Applies to every residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_rent",
+   "document": "ntca_guide",
+   "section": "Rent increases (section 41)",
+   "extracted_text": "[Summary, not the source's wording] Rent can be increased only if the agreement allows it and states the amount or how it is worked out, with at least 30 days' written notice, and no sooner than 6 months after the tenancy began or the last increase. In a fixed term without a rent increase term, rent can only rise by agreement.",
+   "interpretation": "Applies to every residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_entry",
+   "document": "ntca_guide",
+   "section": "Entry and inspections",
+   "extracted_text": "[Summary, not the source's wording] Entry is between 7 am and 9 pm. Routine inspections need 7 days' notice and must be at least 3 months apart. Repairs, condition reports and showing the home to buyers need 24 hours' notice; showing to prospective tenants is allowed only in the last 28 days of the agreement. Inspections are generally done with the tenant present. Emergencies need no notice.",
+   "interpretation": "Applies to every residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_repairs",
+   "document": "ntca_guide",
+   "section": "Habitability and repairs",
+   "extracted_text": "[Summary, not the source's wording] The landlord must make sure the premises are habitable and meet health and safety requirements, are reasonably clean and in reasonable repair at the start and kept that way, and have sufficient locks. For emergency repairs, if the landlord doesn't act or arrange work within 5 business days of written notice the tenant can apply to NTCAT, and also if arranged work isn't done within 14 days.",
+   "interpretation": "Applies to every residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_pets",
+   "document": "ntca_guide",
+   "section": "Pets",
+   "extracted_text": "[Summary, not the source's wording] For agreements made after 1 January 2021, the tenant notifies the landlord in writing. If the landlord doesn't object in writing and apply to NTCAT within 14 days, the tenant may keep the pet. Pet bonds are not allowed.",
+   "interpretation": "Applies to agreements from 1 January 2021. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_ending",
+   "document": "ntca_guide",
+   "section": "Ending a tenancy",
+   "extracted_text": "[Summary, not the source's wording] A landlord can end a periodic tenancy with 60 days' written notice given at any time, and must give 60 days' written notice before the end date to not renew a fixed term. A tenant gives 14 days. For unpaid rent at least 14 days in arrears, the landlord can give a notice to remedy (RT03) allowing at least 8 days to pay; other breaches use a notice to remedy (RT04b) allowing at least 8 days, and an NTCAT application must be made within 14 days after the date in the notice. Shorter notices apply to uninhabitable premises and some employee housing.",
+   "interpretation": "The guide doesn't say whether a reason is needed for the 60-day notice. Confirm with NT Consumer Affairs. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_forms",
+   "document": "ntca_renting",
+   "section": "Residential tenancy forms",
+   "extracted_text": "[Summary, not the source's wording] NT Consumer Affairs publishes notices including RT03 (notice to remedy unpaid rent), RT04b (notice to remedy breach by tenant), RT05 (notice by landlord of intention to terminate), RT07 (withdrawal of notice), RT08 (notice of landlord's intention to retain security deposit), RT09 (notice of entry by landlord), RT10 (notice to tenant of rent increase), RT11 (notice of storage of goods) and RT13 (notice of intention to list a tenant on a tenancy database), plus the approved information and documents for rental applications and fact sheets on repairs, rent bidding, pets and abandoned goods. Contact NT Consumer Affairs on (08) 8999 1999 or 1800 019 319, consumer@nt.gov.au.",
+   "interpretation": "Whether each notice is compulsory was not stated; using them is safest. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "sell.nt.seller_disclosure",
+   "vertical": "SELL",
+   "jurisdiction": "NT",
+   "title": "Northern Territory: selling a property",
+   "description": "The approved contract of sale, the 4 business day cooling-off period, building files and unapproved work, smoke alarms, pool compliance certificates, body corporate records, tenanted sales and a Territory Revenue Office pointer, from NT.GOV.AU and NT Consumer Affairs pages.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "NT"
+   },
+   "limitations": [
+    "Built from NT.GOV.AU pages; the Agents Licensing Act, Law of Property Act, Unit Title Schemes Act 2009 and Swimming Pool Safety Act 2004 were not read directly.",
+    "The approved contract of sale couldn't be read, so its special conditions (building, pest, pool and smoke alarm clauses) aren't summarised.",
+    "Doesn't decide what unit title disclosure your sale needs; your conveyancer does that.",
+    "Doesn't assess stamp duty or other taxes; it only points you to the Territory Revenue Office.",
+    "Not legal advice. Confirm with a conveyancer or lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "contract_of_sale",
+     "title": "The NT approved contract of sale",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Sell on the NT approved contract of sale",
+       "detail": "NT agents can only use a contract form approved by the Registrar of Land, Business and Conveyancing Agents or the Law Society Northern Territory. The NT approved contract of sale sets out your name and address, your conveyancer or lawyer, the property, the improvements and chattels included, the price, and the deposit and who holds it in trust. Fixtures stay with the property unless the contract excludes them. Ask your conveyancer to prepare it and check the special conditions before you list.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "CONTRACT_FOR_SALE",
+          "title": "NT approved contract of sale prepared by your conveyancer or lawyer"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Ask your conveyancer to prepare the NT approved contract of sale",
+        "checklists": [
+         "sell.nt_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "contract",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "engage_conveyancer",
+     "title": "Getting a conveyancer or lawyer",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "sell.has_conveyancer",
+        "op": "equals",
+        "value": false
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "PROFESSIONAL_REQUIRED",
+       "title": "Choose a conveyancer or lawyer before you list",
+       "detail": "Your conveyancer prepares the NT approved contract of sale, gathers the pool and building paperwork the buyer and the Land Titles Office will need, and runs settlement. Get quotes from two or three NT conveyancers or property lawyers now.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Engage a conveyancer or property lawyer"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "contract",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No conveyancer",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.has_conveyancer": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has conveyancer",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.has_conveyancer": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "cooling_off",
+     "title": "Buyer's cooling-off period",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "sell.method",
+        "op": "in",
+        "value": [
+         "private_treaty",
+         "expressions_of_interest",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Expect a 4 business day cooling-off period",
+       "detail": "For a sale that isn't at auction, the buyer can cancel without penalty or reason within four business days. The period starts on the day the contract is last signed and exchanged. It can be waived, shortened or extended only if you both agree. Don't treat the sale as firm until it ends."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "No cooling-off at auction",
+       "detail": "A contract made at auction has no cooling-off period. Make sure the NT approved contract of sale and its special conditions are final before auction day."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "cooling_off",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Private sale",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.method": "private_treaty"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Auction",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.method": "auction"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "building_records",
+     "title": "Building permits and occupancy certificates",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "sell.building_works",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Get your building file before you list",
+       "detail": "Buyers and their conveyancers check that every building and addition has a permit and occupancy certification. Email Building Advisory Services at bas.files@nt.gov.au with proof that you own the property and its address to get access to the building file ($7 per lot). It holds plans, permits, occupancy certificates, inspection reports and pest and engineering certificates. Give copies to your conveyancer.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "OCCUPANCY_CERTIFICATE",
+          "title": "Building permits and occupancy certificates from the building file"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Request your building file from Building Advisory Services"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_files",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Recent work",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.building_works": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No work",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.building_works": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "unapproved_work",
+     "title": "Building work without all approvals",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "any": [
+         {
+          "fact": "sell.building_works_approvals",
+          "op": "in",
+          "value": [
+           "some",
+           "none",
+           "unsure"
+          ]
+         },
+         {
+          "fact": "sell.owner_builder_work",
+          "op": "in",
+          "value": [
+           "yes",
+           "unsure"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Deal with unapproved or uncertified work before you list",
+       "detail": "Work that never had a building permit, or that was finished after the permit expired, has no occupancy certification. For work completed before 1 May 2016 you can engage an NT registered building certifier to apply for a certificate of existence. The certifier inspects, may ask for repairs, and recommends approval to the Director of Building Control. Start early: this can take weeks. Tell your conveyancer about the work so the contract deals with it.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Ask a registered building certifier about a certificate of existence"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "certificate_of_existence",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "building_files",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Some approved",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.building_works_approvals": "some"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Owner-built",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.owner_builder_work": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "All approved, not owner-built",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.building_works_approvals": "all",
+        "sell.owner_builder_work": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms_on_sale",
+     "title": "Smoke alarms when you sell",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Fit approved photoelectric smoke alarms before you sell",
+       "detail": "When you sell a home in the NT you must have an approved photoelectric smoke alarm installed. Older ionisation alarms must be replaced on sale. Homes built after 7 January 1998 should already have hardwired alarms, and new or renovated homes since 1 May 2014 need interconnected alarms. Have an electrician check and replace alarms before settlement.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ],
+        "task": "Have photoelectric smoke alarms fitted before settlement"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT house",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant land",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.property_type": "vacant_land"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_sale",
+     "title": "Pool compliance certificate on sale",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "sell.has_pool",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Have a pool compliance certificate or acknowledgement notice in your name",
+       "detail": "Your conveyancer must give the Land Titles Office a copy of the pool compliance certificate in your name with the transfer. For a pool built after 1 January 2003 you need a compliance certificate: lodge the NT pool compliance certificate application with the Pool Fencing Unit and book an inspection by a pool safety adviser. For an older pool, an acknowledgement notice can do instead: check the barrier against the Community Safety Standard and lodge the NT pool declaration of compliance. If the certificate is lost or not in your name, ask the Pool Fencing Unit to reissue it. Allow at least 5 working days, longer if the barrier needs work.",
+       "payload": {
+        "approval": {
+         "kind": "NT_POOL_COMPLIANCE_CERTIFICATE",
+         "authority": "Pool Fencing Unit (NT Government), under the Swimming Pool Safety Act 2004",
+         "pathway": "Apply to the Pool Fencing Unit before settlement"
+        },
+        "referral_categories": [
+         "pool_safety_inspector",
+         "conveyancer"
+        ],
+        "task": "Get the pool compliance certificate or acknowledgement notice in your name"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "No pool certificate needed",
+       "detail": "You said there is no pool or spa, so no pool certificate was identified. Your conveyancer may ask you to sign the NT vendor no-pool statutory declaration for the transfer.",
+       "payload": {
+        "approval": {
+         "kind": "NT_POOL_COMPLIANCE_CERTIFICATE",
+         "authority": "Pool Fencing Unit (NT Government), under the Swimming Pool Safety Act 2004"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A pool certificate may be needed",
+       "detail": "If the property has a pool or spa, the seller must give the Land Titles Office a compliance certificate or acknowledgement notice in their name. Tell us whether there's a pool so we can check.",
+       "payload": {
+        "approval": {
+         "kind": "NT_POOL_COMPLIANCE_CERTIFICATE",
+         "authority": "Pool Fencing Unit (NT Government), under the Swimming Pool Safety Act 2004",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_sale",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pool_apply",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "unit_title",
+     "title": "Unit title schemes",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "sell.body_corporate",
+        "op": "in",
+        "value": [
+         "yes",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Have the body corporate records ready for buyers",
+       "detail": "Buyers of a unit or townhouse get a body corporate certificate during conveyancing. It shows unpaid levies, planned works, the body corporate's debts and any legal claims. Buyers will also ask for the by-laws, the last two or three AGM minutes, financial statements and the maintenance program. Give your conveyancer the body corporate manager's details now so nothing holds up the sale, and make sure your levies are paid.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Give your conveyancer the body corporate manager's contact"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "unit_title",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Unit",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.body_corporate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Freehold",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.body_corporate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale",
+     "title": "Selling with a tenant in place",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Give your tenant proper notice for viewings and any termination",
+       "detail": "You can enter to show the home to buyers with 24 hours' notice, between 7 am and 9 pm. To end a periodic tenancy you must give 60 days' written notice, and to not renew a fixed term you must give 60 days' notice before it ends. The tenant's security deposit stays in trust until it's refunded or transferred at settlement, so tell your conveyancer about it.",
+       "payload": {
+        "referral_categories": [
+         "property_manager",
+         "lawyer"
+        ],
+        "task": "Write to your tenant about the sale"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_entry",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_ending",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "property.address.state": "NT",
+        "sell.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "stamp_duty_pointer",
+     "title": "Stamp duty and the Territory Revenue Office",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Stamp duty is the buyer's cost, handled by the Territory Revenue Office",
+       "detail": "The Territory Revenue Office administers stamp duty on NT land transfers. The buyer normally pays it, but your conveyancer will deal with any adjustments at settlement. Check the Territory Revenue Office website if you're buying another home."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "tro",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "rent.nt.residential_tenancy",
+   "vertical": "RENT",
+   "jurisdiction": "NT",
+   "title": "Northern Territory: renting out a home",
+   "description": "The tenancy agreement, security deposit held in trust (the NT has no bond authority), condition reports, smoke alarms, pools, repairs, rent increases, entry, pets and ending a tenancy under the Residential Tenancies Act 1999, from NT Consumer Affairs guidance.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "NT"
+   },
+   "limitations": [
+    "Built from NT Consumer Affairs and NT.GOV.AU guidance, not the Residential Tenancies Act 1999 itself; the Act prevails.",
+    "Written for ordinary residential tenancies after 2 January 2024. Earlier tenancies, rooming houses, employee housing and short stays may differ.",
+    "Doesn't check the wording of notices or whether a termination is lawful.",
+    "Doesn't cover domestic and family violence terminations, tenancy databases or NTCAT processes.",
+    "Not legal advice. Confirm with NT Consumer Affairs (1800 019 319), a property manager or a lawyer."
+   ],
+   "rules": [
+    {
+     "key": "tenancy_agreement",
+     "title": "The tenancy agreement and applications",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Put the tenancy agreement in writing and follow the application rules",
+       "detail": "A written agreement must include the standard terms in the Residential Tenancies Act 1999, both parties' names and addresses, the premises, the dates, the rent and how it's paid. There is no compulsory form, but if there's no written agreement signed by both of you, the prescribed agreement in the regulations applies. You can't charge for preparing, extending or renewing it. Rent bidding is banned. Only ask applicants for the information NT Consumer Affairs approves.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "Written tenancy agreement signed by you and the tenant"
+         }
+        ],
+        "referral_categories": [
+         "property_manager"
+        ],
+        "task": "Prepare a written tenancy agreement",
+        "checklists": [
+         "rent.nt_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_agreement",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "security_deposit",
+     "title": "Security deposit (bond) held in trust",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Hold the security deposit in trust: the NT has no bond authority",
+       "detail": "In the NT you don't lodge the bond with a government body. You or your agent hold it in trust (agents use a tenancy trust account). It can be no more than 4 weeks' rent. Give a receipt straight away for cash, cheque or card, or within 2 business days for a transfer. When the tenant leaves, return it within 7 business days, or give the NT RT08 notice of intention to retain security deposit within that time for any amount you want to keep.",
+       "payload": {
+        "task": "Set up a trust account for the security deposit",
+        "checklists": [
+         "rent.nt_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_deposit",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "deposit_trust",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "self_managed_trust",
+     "title": "Self-managing landlords",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "rent.managed_by",
+        "op": "equals",
+        "value": "self"
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Keep the deposit separate from your own money",
+       "detail": "As a private landlord you must hold the deposit in trust. Don't spend it or mix it with your own funds. If the tenant asks in writing, tell them the name of the account. Disputes about the deposit go to NTCAT.",
+       "payload": {
+        "referral_categories": [
+         "property_manager"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "deposit_trust",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_deposit",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Self-managed",
+       "facts": {
+        "property.address.state": "NT",
+        "rent.managed_by": "self"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Agent",
+       "facts": {
+        "property.address.state": "NT",
+        "rent.managed_by": "agent"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "condition_report",
+     "title": "Ingoing condition report",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Give the tenant an ingoing condition report within 3 business days",
+       "detail": "Give the tenant a condition report within 3 business days after they move in. They have 5 business days to sign it or mark changes, and you have 5 business days to respond to changes. Without an ingoing report you can't claim against the tenant for cleaning, damage or missing items, so take dated photos too.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "CONDITION_REPORT",
+          "title": "Ingoing condition report with dated photos"
+         }
+        ],
+        "task": "Prepare the ingoing condition report",
+        "checklists": [
+         "rent.nt_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_condition",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms",
+     "title": "Smoke alarms for a rental",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Install approved photoelectric smoke alarms before you lease",
+       "detail": "When you lease, renew or extend a tenancy, the home must have an approved photoelectric smoke alarm. Older ionisation alarms must be replaced at that point. The tenant must keep alarms working, test each one at least once every 12 months and tell you if one fails.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician",
+         "electrician"
+        ],
+        "task": "Check the smoke alarms are approved photoelectric alarms"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "ionisation_alarms",
+     "title": "Ionisation smoke alarms",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "rent.smoke_alarms",
+        "op": "contains",
+        "value": "ionisation"
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Replace ionisation alarms before the next lease or renewal",
+       "detail": "You said the home has ionisation alarms. In the NT they must be replaced with approved photoelectric alarms when the home is rented or a tenancy is renewed or extended.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician",
+         "electrician"
+        ],
+        "task": "Replace ionisation smoke alarms with photoelectric alarms"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Ionisation",
+       "facts": {
+        "property.address.state": "NT",
+        "rent.smoke_alarms": [
+         "ionisation"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Photoelectric",
+       "facts": {
+        "property.address.state": "NT",
+        "rent.smoke_alarms": [
+         "photoelectric"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool",
+     "title": "Pool or spa at a rental",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "NT"
+       },
+       {
+        "fact": "rent.has_pool",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Have a pool compliance certificate or acknowledgement notice before you rent",
+       "detail": "You must have a compliance certificate or acknowledgement notice for the pool barrier in your name before you rent out the home. Pools built after 1 January 2003 need a compliance certificate: lodge the NT pool compliance certificate application with the Pool Fencing Unit and book an inspection. Older pools can use an acknowledgement notice through the NT pool declaration of compliance. Keep the barrier to the certificate's conditions and fix barrier faults quickly.",
+       "payload": {
+        "approval": {
+         "kind": "NT_POOL_COMPLIANCE_CERTIFICATE",
+         "authority": "Pool Fencing Unit (NT Government), under the Swimming Pool Safety Act 2004",
+         "pathway": "Apply to the Pool Fencing Unit before you rent"
+        },
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Get the pool compliance certificate or acknowledgement notice in your name"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "No pool certificate needed",
+       "detail": "You said there's no pool or spa. If a tenant sets up a portable pool or spa holding 30 cm or more of water, you must fence it and get a certificate.",
+       "payload": {
+        "approval": {
+         "kind": "NT_POOL_COMPLIANCE_CERTIFICATE",
+         "authority": "Pool Fencing Unit (NT Government), under the Swimming Pool Safety Act 2004"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A pool certificate may be needed",
+       "detail": "Rentals with a pool or spa need a compliance certificate or acknowledgement notice before they're let. Tell us whether there's a pool so we can check.",
+       "payload": {
+        "approval": {
+         "kind": "NT_POOL_COMPLIANCE_CERTIFICATE",
+         "authority": "Pool Fencing Unit (NT Government), under the Swimming Pool Safety Act 2004",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_rental",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pool_apply",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "property.address.state": "NT",
+        "rent.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "property.address.state": "NT",
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "repairs",
+     "title": "Habitable premises and repairs",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Keep the home habitable, clean and secure",
+       "detail": "The home must be habitable, meet health and safety requirements, be reasonably clean and in reasonable repair when the tenant moves in, and have enough locks. If you don't act on an emergency repair within 5 business days of written notice, or the work isn't done within 14 days, the tenant can apply to NTCAT.",
+       "payload": {
+        "referral_categories": [
+         "plumber",
+         "electrician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_repairs",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rent_increases",
+     "title": "Rent increases",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Increase rent only every 6 months, with 30 days' written notice",
+       "detail": "You can only increase rent if the agreement allows it and says how much or how it's worked out. Give at least 30 days' written notice using the NT RT10 notice to tenant of rent increase, and no sooner than 6 months after the tenancy started or the last increase. In a fixed term without a rent increase term, rent can only go up by agreement."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_rent",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "entry_inspections",
+     "title": "Entry and inspections",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Give 7 days' notice for routine inspections, at most every 3 months",
+       "detail": "Use the NT RT09 notice of entry by landlord. Routine inspections need 7 days' notice and must be at least 3 months apart. Repairs and showing the home to buyers need 24 hours' notice. Entry is only between 7 am and 9 pm."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_entry",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pets",
+     "title": "Pets",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Respond to a pet request within 14 days",
+       "detail": "If a tenant tells you in writing they want a pet, you must object in writing and apply to NTCAT within 14 days, or they can keep it. You can't ask for a pet bond."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_pets",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "ending_tenancy",
+     "title": "Ending a tenancy",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Give 60 days' notice to end or not renew a tenancy",
+       "detail": "To end a periodic tenancy, or to not renew a fixed term, give 60 days' written notice using the NT RT05 notice by landlord of intention to terminate. For rent at least 14 days behind, use the NT RT03 notice to remedy unpaid rent; for other breaches, the NT RT04b notice to remedy breach by tenant. Both give at least 8 days to fix the problem. At the end, return the deposit within 7 business days or give the NT RT08 notice of intention to retain security deposit.",
+       "payload": {
+        "referral_categories": [
+         "property_manager",
+         "lawyer"
+        ],
+        "checklists": [
+         "rent.nt_end_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_ending",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_deposit",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NT property",
+       "facts": {
+        "property.address.state": "NT"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+  "key": "sell.nt_before_sale",
+  "vertical": "SELL",
+  "title": "Before you sell in the Northern Territory",
+  "description": "What to get ready before you list an NT property. Summarised from NT.GOV.AU pages.",
+  "sources": [
+    {
+      "title": "Contract of sale",
+      "organisation": "NT.GOV.AU",
+      "url": "https://nt.gov.au/property/buying-and-selling-a-home/get-help-with-the-contract/contract-of-sale"
+    },
+    {
+      "title": "Buying or selling property with pools or spas",
+      "organisation": "NT.GOV.AU",
+      "url": "https://nt.gov.au/property/buying-and-selling-a-home/settle-the-sale/buying-or-selling-property-with-pools-or-spas"
+    },
+    {
+      "title": "Access to building files",
+      "organisation": "NT.GOV.AU",
+      "url": "https://nt.gov.au/property/building/access-building-files/access-to-building-files"
+    },
+    {
+      "title": "Smoke alarms",
+      "organisation": "NT.GOV.AU",
+      "url": "https://nt.gov.au/emergency/community-safety/fire-safety-at-home/smoke-alarms"
+    }
+  ],
+  "items": [
+    {
+      "key": "conveyancer",
+      "title": "Engage a conveyancer or property lawyer"
+    },
+    {
+      "key": "contract",
+      "title": "Have your conveyancer prepare the NT approved contract of sale",
+      "detail": "Agents can only use a form approved by the Registrar or the Law Society Northern Territory."
+    },
+    {
+      "key": "chattels",
+      "title": "List the chattels and any fixtures you want to exclude from the sale"
+    },
+    {
+      "key": "building_file",
+      "title": "Request your building file from Building Advisory Services (bas.files@nt.gov.au, $7 per lot)"
+    },
+    {
+      "key": "unapproved_work",
+      "title": "If any work was never approved, ask a registered building certifier about a certificate of existence",
+      "required": false
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Fit approved photoelectric smoke alarms"
+    },
+    {
+      "key": "pool_certificate",
+      "title": "If there's a pool, get a compliance certificate in your name using the NT pool compliance certificate application, or an acknowledgement notice using the NT pool declaration of compliance",
+      "required": false
+    },
+    {
+      "key": "no_pool",
+      "title": "If there's no pool, ask your conveyancer whether you need to sign the NT vendor no-pool statutory declaration",
+      "required": false
+    },
+    {
+      "key": "unit_title",
+      "title": "For a unit, give your conveyancer the body corporate manager's details and gather the by-laws, AGM minutes and levy notices",
+      "required": false
+    },
+    {
+      "key": "tenant_notice",
+      "title": "If tenanted, give 24 hours' notice for each viewing",
+      "required": false
+    },
+    {
+      "key": "cooling_off",
+      "title": "Plan for the buyer's 4 business day cooling-off period (none at auction)"
+    },
+    {
+      "key": "mortgage",
+      "title": "Tell your lender you are selling",
+      "required": false
+    }
+  ]
+}

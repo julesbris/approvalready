@@ -438,6 +438,86 @@
         "Secondary residences are up to 90 m2 on RZ1 blocks over 500 m2 and can't be sold separately; since 27 November 2023 a dual occupancy on an RZ1 block over 800 m2 (second dwelling up to 120 m2) can be unit titled.",
         "DA Gateway Team 02 6205 2888; Access Canberra 13 22 81."
       ]
+    },
+    {
+      "state": "NT",
+      "name": "Northern Territory",
+      "checked_on": "2026-10-12",
+      "general_steps": [
+        "Look up your zone and overlays on the free NT Atlas.",
+        "Check your zone's assessment table in the NT Planning Scheme 2020. A permitted use that meets every requirement, with no overlay, needs no development permit.",
+        "If you're unsure, book a meeting with an NT Government planner.",
+        "If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government decides, not your council.",
+        "Some applications are advertised for 7, 14 or 28 days. A decision takes about 8 weeks.",
+        "In a building control area, get a building permit from a registered building certifier before you start.",
+        "When the work is finished, get occupancy certification from your certifier before you move in."
+      ],
+      "forms": [
+        "nt-atlas",
+        "nt-planning-scheme-2020",
+        "nt-development-applications-online"
+      ],
+      "source": {
+        "url": "https://nt.gov.au/property/building-and-development/submit-a-development-application/development-one-stop-shop-applications-and-processes/development-applications",
+        "title": "Apply for a development permit (NT.GOV.AU)"
+      },
+      "fees": {
+        "fee_year": "2026-27",
+        "schedule_url": "https://nt.gov.au/property/land-planning-and-development/planning-applications-and-processes/development-and-planning-services-fees",
+        "items": [
+          {
+            "label": "Development permit, single dwelling on one lot",
+            "amount": "$269"
+          },
+          {
+            "label": "Development permit, cost $100,001 to $250,000",
+            "amount": "$810",
+            "note": "$269 up to $100,000; $1,175 to $1 million"
+          },
+          {
+            "label": "Use with no physical development",
+            "amount": "$290"
+          },
+          {
+            "label": "Subdivision or consolidation",
+            "amount": "$1,162 plus $56 per lot"
+          },
+          {
+            "label": "Advertising (exhibition)",
+            "amount": "$149",
+            "note": "Per exhibition period"
+          },
+          {
+            "label": "Variation of a development permit",
+            "amount": "$223 or 10% of the fee",
+            "note": "Whichever is more"
+          },
+          {
+            "label": "Certificate of compliance",
+            "amount": "$254",
+            "note": "Free for subdivision"
+          },
+          {
+            "label": "Planning certificate",
+            "amount": "$160",
+            "note": "Per lot"
+          }
+        ]
+      },
+      "planning_scheme_label": "NT Planning Scheme",
+      "zoning_lookup_url": "https://www.ntlis.nt.gov.au/imfPublic/imf.jsp?site=nt_atlas",
+      "portal": {
+        "url": "https://www.ntlis.nt.gov.au/planning/",
+        "title": "Development Applications Online (DAO)"
+      },
+      "gaps": [
+        "The NT has one territory-wide planning scheme, the NT Planning Scheme 2020, under the Planning Act 1999.",
+        "The Development Consent Authority (NT Government) decides development applications within its divisions and the Minister outside them; councils only comment as service authorities.",
+        "Building permits come from registered private building certifiers under the Building Act 1993, and are needed in declared building control areas (tier 1: Darwin, Alice Springs, Lake Bennett; tier 2 includes Katherine and Tennant Creek).",
+        "Independent units can be up to 75 m2 in certain zones (Amendment 94, 1 December 2023).",
+        "Fees are from the NT.GOV.AU fees page last modified 1 July 2026.",
+        "The NT Atlas link was taken from NT.GOV.AU (it publishes it as http; NR Maps wasn't checked)."
+      ]
     }
   ]
 }

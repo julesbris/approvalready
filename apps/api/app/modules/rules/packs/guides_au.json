@@ -160,6 +160,12 @@
       "jurisdiction": "ACT"
     },
     {
+      "ref": "nt_government_nt_gov_au",
+      "name": "NT Government (NT.GOV.AU)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NT"
+    },
+    {
       "ref": "city_of_hobart",
       "name": "City of Hobart",
       "kind": "STATE_AGENCY",
@@ -238,6 +244,12 @@
       "jurisdiction": "SA"
     },
     {
+      "ref": "city_of_darwin",
+      "name": "City of Darwin",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NT"
+    },
+    {
       "ref": "victorian_councils_and_the_victorian_department_of",
       "name": "Victorian councils and the Victorian Department of Health",
       "kind": "STATE_AGENCY",
@@ -304,6 +316,12 @@
       "jurisdiction": "VIC"
     },
     {
+      "ref": "nt_worksafe",
+      "name": "NT WorkSafe",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NT"
+    },
+    {
       "ref": "revenuewa",
       "name": "RevenueWA",
       "kind": "STATE_AGENCY",
@@ -338,6 +356,12 @@
       "name": "State Revenue Office Victoria and ABLIS",
       "kind": "STATE_AGENCY",
       "jurisdiction": "VIC"
+    },
+    {
+      "ref": "territory_revenue_office",
+      "name": "Territory Revenue Office",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NT"
     },
     {
       "ref": "energy_safe_victoria",
@@ -382,6 +406,12 @@
       "jurisdiction": "CTH"
     },
     {
+      "ref": "building_practitioners_board_nt",
+      "name": "Building Practitioners Board (NT)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NT"
+    },
+    {
       "ref": "therapeutic_goods_administration",
       "name": "Therapeutic Goods Administration",
       "kind": "CTH_AGENCY",
@@ -392,6 +422,12 @@
       "name": "National Environmental Protection Agency",
       "kind": "CTH_AGENCY",
       "jurisdiction": "CTH"
+    },
+    {
+      "ref": "plumbers_and_drainers_licensing_board_nt",
+      "name": "Plumbers and Drainers Licensing Board (NT)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NT"
     },
     {
       "ref": "australian_border_force",
@@ -488,6 +524,12 @@
       "name": "ACT Planning (ACT Government)",
       "kind": "STATE_AGENCY",
       "jurisdiction": "ACT"
+    },
+    {
+      "ref": "northern_territory_government",
+      "name": "Northern Territory Government",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NT"
     },
     {
       "ref": "state_planning_office_tasmania",
@@ -1530,6 +1572,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_food_business_registration_doc1",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Register a food business",
+      "url": "https://nt.gov.au/industry/hospitality/accommodation-and-food-businesses/register-food-business",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_food_business_registration_doc2",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Food business risk classification and fees",
+      "url": "https://nt.gov.au/industry/hospitality/accommodation-and-food-businesses/risk-classifications-and-fees",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "tas_food_business_registration_doc1",
       "organisation": "city_of_hobart",
       "jurisdiction": "TAS",
@@ -1607,6 +1665,22 @@
       "jurisdiction": "LGA:QLD_CAIRNS",
       "title": "FSANZ: Overview of food safety management tools (Standard 3.2.2A)",
       "url": "https://www.foodstandards.gov.au/business/food-safety/overview-food-safety-management-tools",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_liquor_licence_doc1",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Apply for a liquor licence",
+      "url": "https://nt.gov.au/industry/liquor/sell-supply-serve/licence-apply",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_liquor_licence_doc2",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Lodging liquor licence forms, fees and timeframes",
+      "url": "https://nt.gov.au/industry/liquor/sell-supply-serve/fees-and-processing-times",
       "source_type": "WEBPAGE"
     },
     {
@@ -1887,6 +1961,22 @@
       "jurisdiction": "TAS",
       "title": "ABLIS: Permit to Establish an Outdoor Dining Facility (Hobart)",
       "url": "https://ablis.business.gov.au/service/tas/permit-to-establish-an-outdoor-dining-facility-hobart-city-council/7972",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_outdoor_dining_permit_doc1",
+      "organisation": "city_of_darwin",
+      "jurisdiction": "NT",
+      "title": "Commercial outdoor activities permits (City of Darwin)",
+      "url": "https://www.darwin.nt.gov.au/node/61358",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_outdoor_dining_permit_doc2",
+      "organisation": "city_of_darwin",
+      "jurisdiction": "NT",
+      "title": "Property permits (City of Darwin)",
+      "url": "https://www.darwin.nt.gov.au/business/planning-development/permits/property-permits",
       "source_type": "WEBPAGE"
     },
     {
@@ -2218,6 +2308,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_workers_compensation_insurance_doc1",
+      "organisation": "nt_worksafe",
+      "jurisdiction": "NT",
+      "title": "Workers' compensation: information for businesses",
+      "url": "https://worksafe.nt.gov.au/workers-compensation/information-for-businesses",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "wa_payroll_tax_registration_doc1",
       "organisation": "revenuewa",
       "jurisdiction": "WA",
@@ -2279,6 +2377,14 @@
       "jurisdiction": "VIC",
       "title": "SRO: Payroll tax current rates",
       "url": "https://www.sro.vic.gov.au/about-us/rates-and-statistics/current-rates/payroll-tax-current-rates",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_payroll_tax_registration_doc1",
+      "organisation": "territory_revenue_office",
+      "jurisdiction": "NT",
+      "title": "Payroll tax rates and thresholds",
+      "url": "https://treasury.nt.gov.au/dtf/territory-revenue-office/payroll-tax/payroll-tax-rates-and-thresholds",
       "source_type": "WEBPAGE"
     },
     {
@@ -2375,6 +2481,30 @@
       "jurisdiction": "ACT",
       "title": "Open an early childhood education and care service",
       "url": "https://www.act.gov.au/education-and-training/education-service-providers/open-an-early-childhood-education-and-care-service",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_pool_compliance_certificate_doc1",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Get a compliance certificate or acknowledgement notice",
+      "url": "https://nt.gov.au/property/homeowners-and-landlords/pool-or-spa/install-a-pool-or-spa/apply-for-a-compliance-certificate-or-acknowledgement-notice",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_pool_compliance_certificate_doc2",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Buying or selling property with pools or spas",
+      "url": "https://nt.gov.au/property/buying-and-selling-a-home/settle-the-sale/buying-or-selling-property-with-pools-or-spas",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_pool_compliance_certificate_doc3",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Pools or spas at rental properties",
+      "url": "https://nt.gov.au/property/swimming-pools-and-spas/if-you-sell-or-rent-your-home/pools-or-spas-at-rental-properties",
       "source_type": "WEBPAGE"
     },
     {
@@ -2610,6 +2740,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_building_contractor_registration_doc1",
+      "organisation": "building_practitioners_board_nt",
+      "jurisdiction": "NT",
+      "title": "Practitioners (Building Practitioners Board)",
+      "url": "https://bpb.nt.gov.au/practitioners",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_building_contractor_registration_doc2",
+      "organisation": "building_practitioners_board_nt",
+      "jurisdiction": "NT",
+      "title": "Forms (Building Practitioners Board)",
+      "url": "https://bpb.nt.gov.au/application-forms",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "artg_inclusion_doc1",
       "organisation": "therapeutic_goods_administration",
       "jurisdiction": "CTH",
@@ -2714,6 +2860,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_plumber_licence_doc1",
+      "organisation": "plumbers_and_drainers_licensing_board_nt",
+      "jurisdiction": "NT",
+      "title": "Licensing (Plumbers and Drainers Licensing Board)",
+      "url": "https://plumberslicensing.nt.gov.au/licensing",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "eess_responsible_supplier_doc1",
       "organisation": "worksafe_queensland_electrical_safety_office",
       "jurisdiction": "QLD",
@@ -2759,6 +2913,30 @@
       "jurisdiction": "QLD",
       "title": "WorkSafe Queensland - Fees for electrical appliances",
       "url": "https://www.worksafe.qld.gov.au/safety-and-prevention/hazards/electricity/electrical-products-and-equipment/selling-electrical-equipment/equipment-certification-and-registration/fees-for-electrical-appliances",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_electrical_contractor_licence_doc1",
+      "organisation": "nt_worksafe",
+      "jurisdiction": "NT",
+      "title": "Electrical licensing",
+      "url": "https://worksafe.nt.gov.au/licensing-and-registration/electrical-licensing",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_electrical_contractor_licence_doc2",
+      "organisation": "nt_worksafe",
+      "jurisdiction": "NT",
+      "title": "Electrical contractor licence",
+      "url": "https://worksafe.nt.gov.au/licensing-and-registration/electrical-licensing/electrical-contractor-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_electrical_contractor_licence_doc3",
+      "organisation": "nt_worksafe",
+      "jurisdiction": "NT",
+      "title": "Licensing fees and charges",
+      "url": "https://worksafe.nt.gov.au/licensing-and-registration/licensing-fees-and-charges",
       "source_type": "WEBPAGE"
     },
     {
@@ -2898,6 +3076,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_personal_services_registration_doc1",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Register a hairdressing, beauty therapy or body art business",
+      "url": "https://nt.gov.au/industry/licences/register-a-hairdressing-beauty-therapy-or-body-art-business",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "vic_marine_licence_doc1",
       "organisation": "vicroads",
       "jurisdiction": "VIC",
@@ -3023,6 +3209,14 @@
       "jurisdiction": "CTH",
       "title": "DAFF: Self-assessed clearance cargo",
       "url": "https://www.agriculture.gov.au/import/before/self-assessed-clearance-cargo",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_education_care_service_approval_doc1",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Early childhood education and care: information for providers",
+      "url": "https://nt.gov.au/learning/early-childhood-education-and-care/information-for-providers",
       "source_type": "WEBPAGE"
     },
     {
@@ -3378,6 +3572,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_vehicle_registration_doc1",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Register an imported vehicle",
+      "url": "https://nt.gov.au/driving/rego/getting-an-nt-registration/register-an-imported-vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_vehicle_registration_doc2",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Register or transfer your vehicle",
+      "url": "https://nt.gov.au/driving/rego/getting-an-nt-registration/register-or-transfer-your-vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "vehicle_import_approval_doc1",
       "organisation": "department_of_infrastructure_transport_regional_de",
       "jurisdiction": "CTH",
@@ -3519,6 +3729,22 @@
       "jurisdiction": "CTH",
       "title": "ASEA: Asbestos banned in Australia",
       "url": "https://www.asbestossafety.gov.au/importing-and-exporting-asbestos/asbestos-banned-australia",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_motor_vehicle_dealer_licence_doc1",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Motor vehicle dealer licences",
+      "url": "https://nt.gov.au/industry/licences/motor-vehicle-dealer-licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_motor_vehicle_dealer_licence_doc2",
+      "organisation": "nt_government_nt_gov_au",
+      "jurisdiction": "NT",
+      "title": "Motor vehicle dealer licence fees",
+      "url": "https://nt.gov.au/industry/licences/motor-vehicle-dealer-licences/fees",
       "source_type": "WEBPAGE"
     },
     {
@@ -4378,6 +4604,30 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_development_permit_doc1",
+      "organisation": "northern_territory_government",
+      "jurisdiction": "NT",
+      "title": "Apply for a development permit (NT.GOV.AU)",
+      "url": "https://nt.gov.au/property/building-and-development/submit-a-development-application/development-one-stop-shop-applications-and-processes/development-applications",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_development_permit_doc2",
+      "organisation": "northern_territory_government",
+      "jurisdiction": "NT",
+      "title": "Assessment categories (NT.GOV.AU)",
+      "url": "https://nt.gov.au/property/land-planning-and-development/planning-applications-and-processes/check-if-you-need-planning-approval/assessment-categories",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_development_permit_doc3",
+      "organisation": "northern_territory_government",
+      "jurisdiction": "NT",
+      "title": "Development and planning services fees (NT.GOV.AU)",
+      "url": "https://nt.gov.au/property/land-planning-and-development/planning-applications-and-processes/development-and-planning-services-fees",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "tas_planning_permit_doc1",
       "organisation": "state_planning_office_tasmania",
       "jurisdiction": "TAS",
@@ -4674,6 +4924,30 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_building_permit_doc1",
+      "organisation": "northern_territory_government",
+      "jurisdiction": "NT",
+      "title": "Getting a building permit (NT.GOV.AU)",
+      "url": "https://nt.gov.au/property/building/build-or-renovate-your-home/building-and-renovating-permits-and-processes/getting-a-building-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_building_permit_doc2",
+      "organisation": "northern_territory_government",
+      "jurisdiction": "NT",
+      "title": "Building certification process (NT.GOV.AU)",
+      "url": "https://nt.gov.au/property/building/build-or-renovate-your-home/building-and-renovating-permits-and-processes/building-certification-process",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_building_permit_doc3",
+      "organisation": "northern_territory_government",
+      "jurisdiction": "NT",
+      "title": "Requirements in building control areas (NT.GOV.AU)",
+      "url": "https://nt.gov.au/property/building/build-in-a-controlled-area/building-control-areas/requirements-in-building-control-areas",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "vic_building_permit_doc1",
       "organisation": "building_and_plumbing_commission_victoria",
       "jurisdiction": "VIC",
@@ -4762,6 +5036,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_occupancy_permit_doc1",
+      "organisation": "northern_territory_government",
+      "jurisdiction": "NT",
+      "title": "Getting occupancy certification (NT.GOV.AU)",
+      "url": "https://nt.gov.au/property/building/build-or-renovate-your-home/building-and-renovating-permits-and-processes/getting-occupancy-certification",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "vic_subdivision_certification_doc3",
       "organisation": "department_of_transport_and_planning_victoria",
       "jurisdiction": "VIC",
@@ -4794,6 +5076,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "nt_subdivision_doc1",
+      "organisation": "northern_territory_government",
+      "jurisdiction": "NT",
+      "title": "Subdivide or consolidate land (NT.GOV.AU)",
+      "url": "https://nt.gov.au/property/land-planning-and-development/planning-applications-and-processes/subdivide-or-consolidate-land",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "tas_subdivision_sealing_doc1",
       "organisation": "your_local_council",
       "jurisdiction": "TAS",
@@ -4823,6 +5113,14 @@
       "jurisdiction": "ACT",
       "title": "ACT Legislative Assembly question on notice, Planning, answered 23 November 2023",
       "url": "https://questions.parliament.act.gov.au/details/ffe67ecda83440f4949c2db0763ee593",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_heritage_works_approval_doc1",
+      "organisation": "northern_territory_government",
+      "jurisdiction": "NT",
+      "title": "Heritage properties: building works and development (NT.GOV.AU)",
+      "url": "https://nt.gov.au/property/building/heritage-properties/heritage-properties-building-works-and-development",
       "source_type": "WEBPAGE"
     },
     {
@@ -5155,6 +5453,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The fee page doesn't state a financial year (last updated 2 January 2026). Processing times and penalties were not on the pages read. Mobile food van rules were not on the pages read."
     },
     {
+      "ref": "nt_food_business_registration_guide",
+      "document": "nt_food_business_registration_doc1",
+      "section": "Approval guide: NT_FOOD_BUSINESS_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering a food business with NT Health (NT Health Environmental Health (Food Act 2004 (NT))).\nIf your main business is selling food in the NT, register with NT Health's Environmental Health team before you open. You apply online, and the fee depends on your food safety risk class.\nTimeframe: Register before you open. Renew at least 30 days before expiry.\nCost: Free to $268 depending on risk class.\nBefore you start: Check whether you're exempt: low-risk packaged food sellers such as pharmacies, newsagencies and bottle shops don't register.\nBefore you start: Have your ID ready: it's verified online or in person with an environmental health officer.\nStep 1: Apply online. Complete the NT food business registration (online) through Territory Services and pay by MasterCard or Visa.\nStep 2: Get your risk class. An environmental health officer confirms your priority class at your next inspection.\nStep 3: Renew and update. Renew priority 1 and 2 every year and priority 3 every three years. Cancel within 14 days if you sell or close.\nFee: Priority 1 new registration: $268\nFee: Priority 2 new registration: $134\nFee: Priority 3 new registration: $67\nFee: Priority 4: Free\nContact: NT Health Environmental Health: https://health.nt.gov.au/professionals/environmental-health\nWatch out: Trading before you register is a breach of the Food Act 2004 (NT).\nWatch out: Fees change each year with CPI.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Food safety supervisor rules (Standard 3.2.2A) were not on the pages read. Environmental Health phone and email weren't on the pages read."
+    },
+    {
       "ref": "tas_food_business_registration_guide",
       "document": "tas_food_business_registration_doc1",
       "section": "Approval guide: TAS_FOOD_BUSINESS_REGISTRATION",
@@ -5202,6 +5507,13 @@
       "section": "Approval guide: FOOD_SAFETY_SUPERVISOR",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-11; a summary, not the source's wording] How to get: Food safety supervisor, food handler training and records (Standard 3.2.2A) (Cairns Regional Council (enforces in Cairns) under the Food Act 2006 (Qld) and Food Standards Code Standard 3.2.2A (Food Standards Australia New Zealand)).\nEvery licensed food business in Queensland must have a food safety supervisor and tell Council who it is. Since 8 December 2023, cafes, restaurants, caterers and similar businesses that handle unpackaged ready-to-eat potentially hazardous food must also use a certified supervisor (certificate under 5 years old), make sure every food handler is trained, and (for category one) keep records that prove key food safety controls.\nTimeframe: Appoint a certified supervisor before handling high-risk food; notify Council within 30 days of the licence being issued and within 14 days of any change.\nCost: No Council fee to notify. The supervisor course is paid to a registered training organisation (price varies). Council's I'M ALERT food handler course is free.\nBefore you start: Work out your category. Category one: caterers and food service businesses that make unpackaged potentially hazardous food into ready-to-eat food served without further processing (most cafes and restaurants). Category two: retailers of ready-to-eat potentially hazardous food that was handled unpackaged but not made on site (slicing, weighing, repacking, reheating and hot-holding do not count as making).\nBefore you start: Category one needs all three tools: a certified food safety supervisor, trained food handlers, and substantiation (records) of critical controls. Category two needs a certified supervisor and trained food handlers.\nBefore you start: Pick a supervisor who regularly handles food as part of their normal job and is reasonably available, meaning on site or easily contactable by phone while the business operates. Appointing someone who is never on site is not acceptable.\nBefore you start: The supervisor certificate must come from a registered training organisation (or an organisation recognised by the food regulator) and be less than 5 years old. Check the course units on training.gov.au.\nBefore you start: Every licensed food business in Queensland, not only category one and two, must have a food safety supervisor with relevant skills and authority to instruct staff.\nStep 1: Choose and train your food safety supervisor. Enrol your nominated supervisor in a food safety supervisor course with a registered training organisation. Keep a copy of the certificate on site; the supervisor must be able to show it to an authorised officer on request. Larger businesses with several sites need a supervisor reasonably available for each site, not necessarily one per store. (time: Before you handle high-risk unpackaged food; cost: Paid to the training provider)\nStep 2: Train every food handler. Before staff handle unpackaged potentially hazardous food, make sure they have completed a food safety training course or have equivalent skills and knowledge in safe food handling, food contamination, cleaning and sanitising, and personal hygiene. Cairns Regional Council subscribes to the free I'M ALERT online course, which gives a training acknowledgement form and certificate. Keep evidence of each person's training. (time: Before handling high-risk food; cost: I'M ALERT is free)\nStep 3: Set up records for critical controls (category one). Keep records, or another method you can demonstrate to an officer, showing you control receiving, storing, processing, displaying and transporting potentially hazardous food, plus cleaning and sanitising. Typical records are delivery and fridge temperature logs, cooking and cooling checks, and cleaning schedules. FSANZ publishes record templates in Safe Food Australia Appendix 8. (form: FSANZ record templates (Safe Food Australia Appendix 8))\nStep 4: Notify Cairns Regional Council of the supervisor. Give Council the supervisor's name and contact details within 30 days of your licence being issued. There is no fee. You can phone 1300 69 22 47, email regadmin@cairns.qld.gov.au or post to PO Box 359, Cairns QLD 4870. (time: Within 30 days of licence issue; cost: Free)\nStep 5: Keep Council updated. Notify Council within 14 days if a new person becomes supervisor, if the supervisor's contact details change, or if the supervisor stops being supervisor. (time: Within 14 days of the change; cost: Free)\nStep 6: Renew the supervisor certificate. The certificate must be less than 5 years old. Book a refresher course (if your provider offers one) or repeat the full course before it passes 5 years. (time: Every 5 years; cost: Paid to the training provider)\nContact: Cairns Regional Council (food safety supervisor notifications): 1300 69 22 47, regadmin@cairns.qld.gov.au, https://www.cairns.qld.gov.au/property-and-business/business/regulations-permits/food/food-safety-supervisor\nContact: Food Standards Australia New Zealand (guidance): https://www.foodstandards.gov.au/business/food-safety/food-safety-supervisor\nWatch out: Missing the 30-day notification after your licence is issued, or the 14-day notice after a change, is a breach; councils can issue fines for failing to notify.\nWatch out: A supervisor certificate older than 5 years does not count. Diarise the expiry date.\nWatch out: Naming an owner who is never on site, or does not handle food, as supervisor does not meet the 'reasonably available' test.\nWatch out: If your supervisor leaves, you must appoint and notify a replacement within 14 days. Train a second person as backup.\nWatch out: For category one, an officer can ask to see temperature and cleaning records; no records and no other way to show control is a breach.\nWatch out: Staff must be trained before they handle high-risk food, not after they start.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: How long category one records must be kept was not stated on the FSANZ overview page read; check Standard 3.2.2A or ask Council. The exact penalty amount for failing to notify Council of a supervisor was not published on the Cairns page. Another Queensland council (Townsville) says a fine may be issued. Cairns does not name a specific notification form on its page; it accepts phone, email or post. Which training units are accepted for the supervisor certificate in Queensland is not listed on Council's page; check with your training provider and training.gov.au."
+    },
+    {
+      "ref": "nt_liquor_licence_guide",
+      "document": "nt_liquor_licence_doc1",
+      "section": "Approval guide: NT_LIQUOR_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Applying for an NT liquor licence (Director of Liquor Licensing (Licensing NT)).\nSelling alcohol as part of your business in the NT needs a liquor licence with the right authority. You apply to Licensing NT, and the Director of Liquor Licensing or the Liquor Commission decides.\nTimeframe: Allow time for 14 days of advertising and any objections. A fast-track fee applies within 30 business days.\nCost: $247 for a new licence with an authority, plus $618 if fast-tracked.\nBefore you start: Check which authority fits your business on the licence types page.\nBefore you start: Gather the documents on the Licensing NT checklist.\nStep 1: Complete the form. Use the NT liquor licence application (all other risk), or the NT liquor licence application (low risk) for low risk licences.\nStep 2: Lodge and pay. Email liquorlicensing@nt.gov.au or lodge at a Territory Business Centre. If you pay by phone, include the receipt.\nStep 3: Advertise if asked. Licensing NT tells you if you must put up a sign and advertise for 14 consecutive days.\nStep 4: Get the decision. Licensing NT tells you the outcome. You can seek a review if refused.\nFee: New licence with authority: $247\nFee: Special or major event licence: $25\nFee: Fast-track: $618\nFee: Annual fee: See Licensing NT\nContact: Licensing NT: liquorlicensing@nt.gov.au, https://nt.gov.au/industry/licences/licensing-nt-contacts\nWatch out: Advertising over Christmas must finish before 13 December 2026 or start after 11 January 2027.\nWatch out: Every person serving alcohol needs RSA training.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Annual licence fees and standard processing times were not read. Whether online lodgement exists is unconfirmed."
     },
     {
       "ref": "sa_liquor_licence_guide",
@@ -5302,6 +5614,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Only Hobart's permit was read; other councils' fees and timeframes are not confirmed. Insurance requirements and processing times were not listed."
     },
     {
+      "ref": "nt_outdoor_dining_permit_guide",
+      "document": "nt_outdoor_dining_permit_doc1",
+      "section": "Approval guide: NT_OUTDOOR_DINING_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an outdoor dining permit from your NT council (Your local council (for example City of Darwin)).\nTables and chairs on the footpath or other council land need a permit from your council. In Darwin it's a commercial outdoor activities permit.\nTimeframe: Apply before you put furniture out; processing time wasn't published.\nCost: Fees weren't published on the pages read.\nBefore you start: Read your council's outdoor dining guidelines.\nBefore you start: If you'll serve alcohol outside, your liquor licence must cover the area.\nStep 1: Apply. In Darwin, lodge the NT City of Darwin commercial outdoor activities application. Elsewhere, ask your council.\nStep 2: Ask questions. Call City of Darwin on 8930 0300 or email property@darwin.nt.gov.au.\nFee: Permit fee: See your council\nContact: City of Darwin: 08 8930 0300, property@darwin.nt.gov.au, https://www.darwin.nt.gov.au/business/planning-development/permits/property-permits\nWatch out: Other NT councils have different rules.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Darwin's fees, insurance amount and processing time weren't on the pages read. Other councils' permits weren't researched."
+    },
+    {
       "ref": "act_outdoor_dining_permit_guide",
       "document": "act_outdoor_dining_permit_doc1",
       "section": "Approval guide: ACT_OUTDOOR_DINING_PERMIT",
@@ -5400,6 +5719,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The registration page was last reviewed in November 2023; the current list of authorised agents and the 2026-27 average premium rate weren't read. The registration steps are summarised from page headings; the exact online steps weren't read. Penalty amounts for failing to register weren't read."
     },
     {
+      "ref": "nt_workers_compensation_insurance_guide",
+      "document": "nt_workers_compensation_insurance_doc1",
+      "section": "Approval guide: NT_WORKERS_COMPENSATION_INSURANCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Workers' compensation insurance for NT employers (An insurer approved by NT WorkSafe).\nEvery NT employer who isn't a self-insurer must insure all workers with an insurer approved by NT WorkSafe. There's no government insurer.\nTimeframe: Have cover in place before your first worker starts.\nCost: Premiums are set by each insurer.\nBefore you start: List all full-time, part-time and casual workers and your wages estimate.\nBefore you start: Decide whether working directors or family members should be covered.\nStep 1: Find an approved insurer. Check NT WorkSafe's list of approved insurers.\nStep 2: Get quotes and buy a policy. Compare premiums. Disclose directors' and family members' details and pay if you want them covered.\nStep 3: Renew each year. Update your wages and worker details at renewal.\nFee: Premium: Varies: set by your insurer\nContact: NT WorkSafe: https://worksafe.nt.gov.au/contact-us\nWatch out: Directors aren't covered unless disclosed to the insurer.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Penalties for not insuring and any deadline weren't on the page read."
+    },
+    {
       "ref": "wa_payroll_tax_registration_guide",
       "document": "wa_payroll_tax_registration_doc1",
       "section": "Approval guide: WA_PAYROLL_TAX_REGISTRATION",
@@ -5440,6 +5766,13 @@
       "section": "Approval guide: VIC_PAYROLL_TAX_REGISTRATION",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Payroll tax registration (State Revenue Office Victoria) (State Revenue Office Victoria, under the Payroll Tax Act 2007 (Vic)).\nVictorian employers must register for payroll tax with the State Revenue Office (SRO) once their total Australian wages go over the payroll tax threshold. The general rate is 4.85%, with a lower rate for regional Victorian employers. Related businesses can be grouped and share one threshold.\nCost: 4.85% of taxable wages above the threshold (lower rate for regional employers). Registration is free.\nBefore you start: Wages include salaries, superannuation, fringe benefits, some contractor payments and other amounts; check the SRO's definition.\nBefore you start: Use the SRO's payroll tax threshold calculator, and include wages of any grouped businesses.\nStep 1: Check your wages against the threshold. Use the SRO threshold calculator each month as your wage bill grows. (cost: Free)\nStep 2: Register online with the SRO. Register as soon as your wages go over the monthly threshold. (form: SRO payroll tax registration)\nStep 3: Lodge returns and pay. Lodge monthly returns and an annual reconciliation, and pay the tax by the due dates.\nFee: Payroll tax rate: 4.85% of taxable wages above the threshold (Lower rate for regional Victorian employers)\nContact: State Revenue Office Victoria: https://www.sro.vic.gov.au\nWatch out: Businesses that share owners or staff may be grouped and share one threshold.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The SRO's current rates page couldn't be read (it loads with JavaScript). ABLIS gives a monthly threshold of A$75,000 from 1 July 2024; the threshold has since changed, so the current figure, the regional rate and the mental health and wellbeing surcharge weren't confirmed. The registration deadline (how many days after going over the threshold) wasn't confirmed. Lodgement frequency and due dates are summarised from the SRO's page titles, not read."
+    },
+    {
+      "ref": "nt_payroll_tax_registration_guide",
+      "document": "nt_payroll_tax_registration_doc1",
+      "section": "Approval guide: NT_PAYROLL_TAX_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering for NT payroll tax (Territory Revenue Office).\nEmployers whose Australia-wide wages are over $2,500,000 a year register with the Territory Revenue Office. The rate is 5.5%, or 6.5% for very large employers.\nTimeframe: Register once your wages pass the threshold; the deadline wasn't on the page read.\nCost: 5.5% of NT taxable wages over the threshold (6.5% if Australia-wide wages are $100 million or more).\nBefore you start: Work out your Australia-wide wages, including group members.\nStep 1: Check the threshold. $2,500,000 a year or $208,333 a month for 2026-27.\nStep 2: Register with the Territory Revenue Office. Call 1300 305 353 or use the Territory Revenue Office website.\nFee: Payroll tax rate: Varies: 5.5% or 6.5%\nContact: Territory Revenue Office: 1300 305 353, https://treasury.nt.gov.au/contacts\nWatch out: Grouped businesses share one threshold.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Registration deadline and online system weren't read."
     },
     {
       "ref": "vic_domestic_builder_registration_guide",
@@ -5498,6 +5831,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Application fees were not read."
     },
     {
+      "ref": "nt_pool_compliance_certificate_guide",
+      "document": "nt_pool_compliance_certificate_doc1",
+      "section": "Approval guide: NT_POOL_COMPLIANCE_CERTIFICATE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting a pool compliance certificate or acknowledgement notice in the Northern Territory (Pool Fencing Unit (NT Government), under the Swimming Pool Safety Act 2004).\nIf you sell or rent out an NT home with a pool or spa, you need a pool compliance certificate or acknowledgement notice in your name. Sellers hand a copy to the Land Titles Office with the transfer, and landlords need one before the tenant moves in. You apply to the Pool Fencing Unit.\nTimeframe: Allow at least 5 working days, longer if the barrier needs work and a reinspection.\nCost: Fees were not published on the pages read; ask the Pool Fencing Unit.\nBefore you start: Work out when the pool was built: pools built after 1 January 2003 need a compliance certificate; older pools can use an acknowledgement notice.\nBefore you start: Check whether a certificate already exists. If it's lost or in a previous owner's name, ask for a reissue.\nBefore you start: Rules apply to properties under 1.8 hectares and to pools or spas holding 30 cm or more of water.\nStep 1: Apply for a compliance certificate. Complete the NT pool compliance certificate application and submit it to the Pool Fencing Unit. (form: Application for a compliance certificate)\nStep 2: Have the barrier inspected. A pool safety adviser from the Pool Fencing Unit inspects the barrier against the Modified Australian Standard. If it fails, you get a written report, fix the barrier and book a reinspection.\nStep 3: Or, for an older pool, self-declare. For a pool built before 1 January 2003, check the barrier against the Community Safety Standard guidelines and lodge the NT pool declaration of compliance. No inspection is needed. (form: Declaration of compliance)\nStep 4: Use the certificate. Sellers give a copy to their conveyancer for the Land Titles Office. Landlords keep it before renting and maintain the barrier to its conditions.\nFee: Compliance certificate and inspection: See the Pool Fencing Unit\nFee: Acknowledgement notice: See the Pool Fencing Unit\nContact: Pool Fencing Unit: https://nt.gov.au/property/homeowners-and-landlords/pool-or-spa/install-a-pool-or-spa/pool-fencing-unit-contacts\nWatch out: If a buyer disagrees that the barrier meets the standard, the seller must bring it up to standard.\nWatch out: A certificate in a previous owner's name isn't enough: get it reissued in your name.\nWatch out: Landlords must fence any portable pool or spa a tenant sets up that holds 30 cm or more.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Fees for certificates, inspections and reinspections were not on the pages read. The Pool Fencing Unit contacts page couldn't be read (fetch budget), so no phone or email is given. The application form itself (N4) wasn't read; how to lodge it (email, post or counter) is unconfirmed."
+    },
+    {
       "ref": "nsw_tenancy_bond_lodgement_guide",
       "document": "nsw_tenancy_bond_lodgement_doc1",
       "section": "Approval guide: NSW_TENANCY_BOND_LODGEMENT",
@@ -5554,6 +5894,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Whether an identity inspection is needed for imports, and the unregistered vehicle permit fee, were not confirmed. Registration and MAI amounts were not read."
     },
     {
+      "ref": "nt_building_contractor_registration_guide",
+      "document": "nt_building_contractor_registration_doc1",
+      "section": "Approval guide: NT_BUILDING_CONTRACTOR_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering as a building contractor in the NT (Building Practitioners Board (NT)).\nBuilding houses, attached dwellings or Class 2 buildings where the work is $25,000 or more, and commercial building work, needs registration with the Building Practitioners Board.\nTimeframe: Processing time wasn't published.\nCost: $342 to apply, then $1,028 to $2,056 on approval.\nBefore you start: Choose residential or commercial, restricted or unrestricted.\nBefore you start: Collect evidence for each project you rely on.\nBefore you start: Arrange the insurance in Ministerial Determination No. S79.\nStep 1: Complete the form. Use the NT building contractor registration application (individual) or the NT building practitioner registration application (company), with a specific project details form for each project.\nStep 2: Lodge and pay. Lodge at a Territory Business Centre, by scanned email or by post to GPO Box 9800, Darwin NT 0801, and pay $342.\nStep 3: Pay the registration fee. When approved, pay $1,028 (2 years), $1,542 (3 years) or $2,056 (4 years).\nFee: Application: $342\nFee: Registration, 2 years: $1,028\nFee: Registration, 4 years: $2,056\nContact: Building Practitioners Board licensing officer: 1800 193 111, https://bpb.nt.gov.au/contacts\nWatch out: Interstate builders may apply under mutual recognition.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The board's email address wasn't on the pages read."
+    },
+    {
       "ref": "artg_inclusion_guide",
       "document": "artg_inclusion_doc1",
       "section": "Approval guide: ARTG_INCLUSION",
@@ -5575,11 +5922,25 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Processing time was not on the page."
     },
     {
+      "ref": "nt_plumber_licence_guide",
+      "document": "nt_plumber_licence_doc1",
+      "section": "Approval guide: NT_PLUMBER_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an NT plumbing and draining licence (Plumbers and Drainers Licensing Board (NT)).\nOnly plumbers with an advanced tradesman licence from the Plumbers and Drainers Licensing Board can contract for and carry out plumbing and draining work in the NT.\nTimeframe: Applications aren't processed until complete.\nCost: Fees weren't published on the page read.\nBefore you start: Hold an unconditional journeyman registration for two years.\nBefore you start: Get a statement of attainment for the 10 listed units of competency.\nStep 1: Get the forms. Download them from the Board's forms page or collect them at a Territory Business Centre.\nStep 2: Apply. Lodge the complete application with the Board.\nStep 3: Certifying plumbers. Register separately with the Building Practitioners Board if you'll certify work.\nFee: Licence fee: See the Plumbers and Drainers Licensing Board\nContact: Plumbers and Drainers Licensing Board: https://plumberslicensing.nt.gov.au/contacts\nWatch out: Incomplete applications aren't processed.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Fees, phone and email weren't on the page read."
+    },
+    {
       "ref": "eess_responsible_supplier_guide",
       "document": "eess_responsible_supplier_doc1",
       "section": "Approval guide: EESS_RESPONSIBLE_SUPPLIER",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-11; a summary, not the source's wording] How to get: Register as a responsible supplier for electrical equipment (EESS) (Electrical Safety Office, Office of Industrial Relations (Queensland) administers the EESS national platform for participating state and territory electrical safety regulators).\nIf you import or make household-type electrical equipment rated 50 V AC or more (or 120 V DC or more) to sell in Australia, you must be registered as a responsible supplier on the national Electrical Equipment Safety System (EESS) platform, register Level 2 and Level 3 equipment, and mark it with the RCM. Selling unregistered or unmarked in-scope equipment can lead to penalties and cancelled registration.\nTimeframe: Registration completes once payment clears (BPoint card or BPAY). Level 3 equipment also needs a certificate of conformity from a recognised certifier first, which takes longer.\nCost: From 1 July 2026: A$239.74 a year to register as a responsible supplier, plus A$89.85 for each Level 2 or Level 3 equipment registration per year (A$449.25 for 5 years). Level 1 registration is free and voluntary. No GST.\nBefore you start: Check whether your product is in scope: designed for household, personal or similar use, rated 50 V AC or more, or 120 V DC or more. Equipment rated 49 V AC or less, or 119 V DC or less, is Level 0 (out of scope).\nBefore you start: Work out the risk level using the 'EESS In-scope Equipment Definitions and Risk Levels' document. Level 1 is in scope but not in the Level 2 or 3 definitions; Level 2 and Level 3 are listed equipment types. Level 3 is the highest risk.\nBefore you start: You must be a legally identifiable Australian or New Zealand entity with an ABN (or NZ IRD number) and a physical address in Australia or New Zealand.\nBefore you start: Decide who will be your Authorised Officer. Whoever completes the registration form is treated as the Authorised Officer and makes the legal declaration that the equipment is electrically safe.\nBefore you start: Get test reports against the relevant Australian standard. For Level 2 you need a compliance folder; for Level 3 you need a certificate of conformity issued by a recognised external certification scheme (RECS) certifier or Energy Safe Victoria, listed on the national register.\nBefore you start: Plan where the compliance folder will be kept. You must record its exact location (at least a street address) and keep it for 5 years after the registration ends.\nStep 1: Register as a responsible supplier on the EESS platform. Your Authorised Officer enters your legal entity details, ABN, trading name, physical address and contact details on the EESS platform (which replaced the old registration database from 14 October 2024) and makes the responsible supplier declaration. You get a supplier username (format E followed by four digits). You can set up an Authorised Representative to register equipment for you. (time: Completes when payment clears; cost: A$239.74 per year)\nStep 2: Level 3: get a certificate of conformity. Have the equipment certified by a recognised certifier (eight RECS certifiers, or Energy Safe Victoria). The certificate can be held by anyone, often the overseas manufacturer, must list a current relevant safety standard, and must be listed on the national register. Certificates usually run 5 years. (cost: Certifier fees are set by the certifier (not published by the regulator))\nStep 3: Level 2: build your compliance folder. Compliance folders are mandatory for Level 2. They must hold test reports and other evidence the equipment meets the full relevant standard. The FAQ says Level 1 and Level 3 suppliers also need evidence of compliance with the full standard.\nStep 4: Register each Level 2 and Level 3 item or family. Register each item or family of equipment on the platform, give the Electrical Equipment Declaration, and choose a term of 1, 2 or 5 years. Level 3 registration cannot run past the certificate of conformity expiry date. Level 1 registration is optional and free. Do not register Level 2 or 3 equipment as Level 1. (cost: A$89.85 (1 year), A$179.70 (2 years), A$449.25 (5 years) per item or family)\nStep 5: Mark the equipment with the RCM. As responsible supplier, you authorise the Regulatory Compliance Mark. For Level 1 you may do so once you have evidence of compliance; for Level 2 and 3, once the equipment is registered. Follow AS/NZS 4417.1 (and 4417.2 for Level 3), which registered suppliers can download from the platform's Documents tab. You must not sell unmarked in-scope equipment. (time: Before sale)\nStep 6: Renew every year and keep details current. Responsible supplier registration is renewed annually. Keep your details accurate; false or misleading information can lead to penalties including cancellation. (time: Annually; cost: A$239.74 per year)\nFee: Responsible supplier registration: A$239.74 (Per year, from 1 July 2026. No GST.)\nFee: Level 2 or Level 3 equipment registration, 1 year: A$89.85 (From 1 July 2026)\nFee: Level 2 or Level 3 equipment registration, 2 years: A$179.70 (eess.gov.au figure; the WorkSafe Queensland page shows A$179.69)\nFee: Level 2 or Level 3 equipment registration, 5 years: A$449.25 (eess.gov.au figure; the WorkSafe Queensland page shows A$449.23. Level 3 term cannot exceed the certificate's expiry.)\nFee: Level 1 equipment registration: A$0.00 (Voluntary and free)\nContact: EESS Administration, Electrical Safety Office (Queensland): 1300 563 492, eessadmin@oir.qld.gov.au, https://www.eess.gov.au/about/contacts/contact-details/\nContact: WorkSafe Queensland: 1300 362 128, https://www.worksafe.qld.gov.au/contact\nContact: Australian Communications and Media Authority (for radio and EMC requirements that also use the RCM): 1300 850 115, info@acma.gov.au, https://www.acma.gov.au\nWatch out: Selling Level 2 or Level 3 equipment that is not registered carries penalties.\nWatch out: Registering Level 2 or 3 equipment as Level 1 is not permitted and could result in penalties.\nWatch out: You must not sell in-scope equipment without the RCM.\nWatch out: The responsible supplier must be a legally identifiable Australian or New Zealand entity with an ABN or NZ IRD number, so an overseas manufacturer cannot register in your place.\nWatch out: Giving inaccurate details or false or misleading information can lead to penalties, including cancellation of your registration.\nWatch out: Level 3 registration ends when the certificate of conformity expires, even if you paid for a longer term.\nWatch out: Plugs, cords and cord sets sold as an integral part of other equipment do not need separate registration if a valid certificate of conformity for them is listed on the national register.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The two official pages show slightly different 2-year and 5-year equipment fees (A$179.70 vs A$179.69 and A$449.25 vs A$449.23); confirm on the EESS platform when paying. The full list of Level 2 and Level 3 equipment types (the 'In-scope Equipment Definitions and Risk Levels' document) was not read, so examples of which products are Level 3 are not given. Penalty amounts for supplying unregistered or unmarked equipment were not stated on the pages read; they are set by each state or territory's electrical safety law. Fees charged by private certifiers for Level 3 certificates are not published by the regulator. No business hours were listed for the EESS phone line."
+    },
+    {
+      "ref": "nt_electrical_contractor_licence_guide",
+      "document": "nt_electrical_contractor_licence_doc1",
+      "section": "Approval guide: NT_ELECTRICAL_CONTRACTOR_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an NT electrical contractor licence (Electrical Safety Regulator (NT WorkSafe)).\nA business doing electrical work for a fee needs an electrical contractor licence from NT WorkSafe's Electrical Safety Regulator, under the Electrical Safety Act 2022.\nTimeframe: Licences last up to 3 years.\nCost: $521 for 1 year, $894 for 2 years or $1,169 for 3 years.\nBefore you start: Name a nominee with 2 years on an unrestricted electrical work licence and the contractor course units.\nBefore you start: Get $5,000,000 public and products liability insurance.\nBefore you start: Fill in the electrical workers register template.\nStep 1: Choose the form. Use the NT electrical contractor licence application (sole trader) or the NT electrical contractor licence application (company or partnership).\nStep 2: Lodge with ID. Lodge in person, by email or by post at a Territory Business Centre with identification.\nStep 3: Renew on time. Renewal fees are the same as new licences.\nFee: 1 year: $521\nFee: 2 years: $894\nFee: 3 years: $1,169\nContact: NT WorkSafe: https://worksafe.nt.gov.au/contact-us\nWatch out: The old Electrical Workers and Contractors Licensing Board no longer exists.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: NT WorkSafe's phone and email weren't on the pages read."
     },
     {
       "ref": "restricted_goods_permission_guide",
@@ -5603,6 +5964,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Tobacco permit application fees, processing times, validity period and 'fit and proper' criteria are not published on the ABF pages read. ODC vaping licence and permit fees were not found; the ODC fees page that loaded covers the medicinal cannabis scheme only. The task mentioned a tobacco 'licence'; the official pages describe a permit (written permission), not a separate licence. Penalty amounts for importing tobacco or vapes without permission were not stated on the pages read. The 1 September 2026 customs duty notice (ABF) was not read; the 1 September 2026 rates come from the ATO excise page and customs duty is set at the same excise-equivalent rate per the March 2026 ABF notice."
     },
     {
+      "ref": "nt_personal_services_registration_guide",
+      "document": "nt_personal_services_registration_doc1",
+      "section": "Approval guide: NT_PERSONAL_SERVICES_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering a hairdressing, beauty or body art business in the NT (NT Health Environmental Health).\nPaid hairdressing, beauty therapy and body art businesses (tattooing, piercing and body modification) must register with NT Health under the Public and Environmental Health Regulations 2014.\nTimeframe: Register before you open. Renew beauty and body art registrations yearly, 30 days before expiry.\nCost: $96 for hairdressing only; $149 for beauty therapy or body art.\nBefore you start: Read NT Health's guidelines on infection control for your services.\nStep 1: Apply online. Complete the NT hairdressing, beauty therapy or body art business registration (online) and pay by card.\nStep 2: Verify your identity. Online or in person with an environmental health officer.\nStep 3: Keep it current. Renew beauty and body art registrations every year. Apply again if you move. Cancel within 14 days if you sell or close.\nFee: Hairdressing only: $96\nFee: Beauty therapy or body art: $149\nContact: NT Health Environmental Health: https://health.nt.gov.au/professionals/environmental-health\nWatch out: Non-permanent make-up and spray tanning don't need registration.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Inspection practice and premises standards weren't on the page read."
+    },
+    {
       "ref": "vic_marine_licence_guide",
       "document": "vic_marine_licence_doc1",
       "section": "Approval guide: VIC_MARINE_LICENCE",
@@ -5622,6 +5990,13 @@
       "section": "Approval guide: BIOSECURITY_IMPORT_PERMIT",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-11; a summary, not the source's wording] How to get: Biosecurity import conditions and import permits (BICON) (Department of Agriculture, Fisheries and Forestry (DAFF)).\nBefore you import anything that could carry pests or disease (food, plant or animal products, timber, soil-contaminated goods, used machinery and many others), check the Biosecurity Import Conditions system (BICON). It tells you whether the goods are allowed, what documents and treatments they need, and whether you must hold an import permit before the goods arrive. Goods that need a permit but arrive without one are exported or destroyed.\nTimeframe: Permit applications are usually decided within 20 business days for standard (category 1) and 40 business days for non-standard (categories 2 to 5) after payment and a complete application.\nCost: Permit application charge A$135 plus an initial assessment fee of A$82 to A$655 depending on category (2026-27), plus A$42 per 15 minutes if assessment runs over. Inspections are charged at A$42 per 15 minutes in-office or A$70 per 15 minutes out-of-office in ordinary hours.\nBefore you start: Search BICON for your goods by description, tariff code or scientific name and answer the questions to reach the 'case' that matches your product. The case shows whether the goods are permitted, whether you need a permit, documents, treatment and inspection.\nBefore you start: Register a BICON account if you need to apply for a permit or want email alerts when a case changes. You need the account to apply for, track and manage permits.\nBefore you start: Check whether you can meet every condition of a standard permit. If you cannot, you must apply for a non-standard permit, which needs a more detailed risk assessment and takes longer.\nBefore you start: Line up supplier documents early. Manufacturer's declarations must come from the company that made the goods and are generally issued no more than six months before arrival. Treatment certificates must come from an approved provider.\nBefore you start: For sea containers, ask the packer for a packing declaration covering timber or bamboo packaging (ISPM 15 status), any unacceptable packing material and, for FCL containers, container cleanliness.\nBefore you start: Use packaging Australia accepts. Solid timber packaging must be treated and bark-free; straw is prohibited; used fruit, vegetable, meat or egg cartons and second-hand sacks are removed and destroyed.\nStep 1: Check import conditions in BICON. Open BICON, search for the commodity and answer the questions. Bookmark the case (Bookmark Options) to share it with your supplier or offshore treatment provider; the permanent link can be entered in the 'ICON Link' field when lodging documents in the Cargo Online Lodgement System (COLS). Note every document, treatment and permit requirement listed. (time: Same day; cost: Free)\nStep 2: Register a BICON account. Create a registered user account in BICON. DAFF offers a 15 minute 'Introduction to BICON' eLearning module and printable task cards in the BICON Help menu. (time: Same day; cost: Free)\nStep 3: Apply for the import permit in BICON (if the case says one is needed). Lodge an electronic permit application through BICON. Choose a standard permit only if you can meet all its fixed conditions; otherwise apply for a non-standard permit. Pay the application charge and the initial assessment fee for the category; DAFF will not start assessing until both are paid. The assessing officer will contact you if more information is needed. Paying does not guarantee a permit. (time: Usually 20 business days (standard, category 1) or 40 business days (non-standard, categories 2 to 5), longer if information is missing or the product is novel; cost: A$135 application charge plus A$82 to A$655 assessment fee)\nStep 4: Get the supporting documents from your supplier. Documents must be complete, legible, in English (or with an accredited translation), unaltered, dated, endorsed by an employee of the issuer and linked to the consignment by a unique identifier such as a container, bill or invoice number. Manufacturer's declarations must be on the manufacturer's letterhead with the signer's name and job title. Treatment certificates must show the provider's letterhead, goods treated, quantity, treatment date and, for fumigation, fumigant, dose, exposure time, minimum temperature and completion date. (time: Before shipment)\nStep 5: Prepare the container and packing declaration. Use a clean container. Have the packer issue a packing declaration on letterhead, signed by a named employee, stating any timber or bamboo packaging and whether it is ISPM 15 compliant, treated or untreated, and (for FCL containers) that the container is clean. Annual packing declarations can cover a year of shipments. Timber dunnage needs a valid treatment certificate. (time: At packing; form: Packing declaration fact sheet and templates)\nStep 6: Lodge the documents with your import declaration. Your broker or you lodge the import declaration in ICS and the biosecurity documents through COLS (or the Document Lodgement Service for SAC cargo). DAFF assesses the documents and issues a direction: release, or inspection, treatment, holding pending information or insect identification. (time: After cargo reporting; cost: Full import declaration charge A$48 (air) or A$71 (sea))\nStep 7: Book and attend any inspection. Book inspections through the Biosecurity Portal (recommended for importers, brokers and freight forwarders, and individuals without an ABN). Inspections happen at the port or airport of first entry or at an approved arrangement site. Some consignments are randomly selected under the Cargo Compliance Verification scheme; no inspection fee applies if those are found compliant. (time: Depends on availability; cost: A$42 per 15 minutes in-office or A$70 per 15 minutes out-of-office in ordinary hours; higher out of hours)\nStep 8: Deal with non-compliance. Contaminated containers or goods are treated, at your cost. Missing or inadequate packing declarations lead to inspection at an approved arrangement site. Goods that do not meet requirements and cannot be treated are directed for export or disposal at the importer's expense. Goods needing a permit that arrive without one are exported or destroyed. (cost: Treatment, storage and inspection fees at your cost)\nFee: Permit application charge: A$135 (Per application, 2026-27 (from 1 July 2026))\nFee: Initial assessment fee, category 1 (standard): A$82 (2026-27)\nFee: Initial assessment fee, category 2: A$164 (2026-27)\nFee: Initial assessment fee, category 3: A$327 (2026-27)\nFee: Initial assessment fee, category 4: A$491 (2026-27)\nFee: Initial assessment fee, category 5: A$655 (2026-27)\nFee: Additional permit assessment time: A$42 (Per 15 minutes or part, beyond the initial assessment period)\nFee: In-office service fee, ordinary hours: A$42 (Per 15 minutes per person, 2026-27)\nFee: Out-of-office (inspection) fee, ordinary hours: A$70 (Per 15 minutes per person, or A$1,351 daily; out of hours A$88 per 15 minutes continuous)\nFee: Out-of-office fee, weekend or departmental holiday: A$186 (First 30 minutes per person, then A$93 per 15 minutes)\nFee: Full import declaration charge, air / sea: A$48 / A$71 (Per declaration, 2026-27)\nFee: Approved arrangement application charge: A$215 (Only if you apply to run your own approved arrangement site)\nContact: DAFF Biosecurity Import Support (import conditions and permits): 1800 900 090, imports@aff.gov.au, https://www.agriculture.gov.au/biosecurity-trade/import/online-services/bicon\nContact: DAFF biosecurity cost recovery enquiries: BioCRIS@aff.gov.au, https://www.agriculture.gov.au/biosecurity-trade/import/goods/food/notices/ifn10-26\nContact: See. Secure. Report. (biosecurity concerns): 1800 798 636\nWatch out: Do not ship goods that need a permit until the permit is issued. Goods arriving without a required permit, even while the application is pending, are exported or destroyed.\nWatch out: Documents that only link to the consignment by package count, weight or date are not accepted; use container, bill, invoice or lot numbers.\nWatch out: Manufacturer's declarations older than about six months at arrival, or not issued by the actual manufacturer, can be rejected.\nWatch out: Untreated timber packaging or packaging with bark sends the container for treatment, with delays and charges.\nWatch out: If you cannot meet a standard permit's conditions exactly, a standard permit is the wrong permit; apply for a non-standard one.\nWatch out: A varied permit keeps its original expiry date, so apply for a new permit if yours is close to expiring.\nWatch out: If you are unprepared at an inspection it can be cancelled but still charged.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The DAFF standard permit page still shows an older total of A$209 (A$130 levy plus A$79 assessment); the current 2026-27 charges page shows A$135 plus A$82. The 2026-27 figures are used here. Permit variation fees are not published as a fixed amount; DAFF says to contact them. Permit validity periods vary by goods and are not published as a single figure. The 'Register an account in BICON' page could not be read (blocked to automated reading), so step-by-step registration screens are not described. DAFF's documentary requirements web page could not be read; the policy PDF (v4.1, July 2023) was used instead. Revised fixed fees for diagnostic (insect identification) activity on cargo are proposed from 1 November 2026 and were not yet published."
+    },
+    {
+      "ref": "nt_education_care_service_approval_guide",
+      "document": "nt_education_care_service_approval_doc1",
+      "section": "Approval guide: NT_EDUCATION_CARE_SERVICE_APPROVAL",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Provider and service approval from Quality Education and Care NT (Quality Education and Care NT (QECNT)).\nEarly childhood education and care services in the NT need provider approval and service approval from Quality Education and Care NT, the regulatory authority.\nTimeframe: Get approval before you operate.\nCost: Fees weren't published on the page read.\nBefore you start: Read ACECQA's guidance on opening a new service.\nStep 1: Contact QECNT. Email qualityecnt.det@education.nt.gov.au or call 08 8999 3561.\nStep 2: Apply for provider and service approval. Follow ACECQA's application process.\nFee: Approval fees: See ACECQA\nContact: Quality Education and Care NT: 08 8999 3561, qualityecnt.det@education.nt.gov.au\nWatch out: You can't operate before both approvals are in place.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Fees and the online application system weren't on the page read."
     },
     {
       "ref": "bmsb_treatment_guide",
@@ -5659,6 +6034,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The full list of risk foods in the Imported Food Control Order 2019 was not read; only example categories named on DAFF pages are given. The list of foods needing mandatory foreign government certification was not read. No official laboratory test prices or result turnaround times; these are set by each appointed laboratory. The FSANZ website itself was not read; Food Standards Code requirements are summarised from DAFF pages."
     },
     {
+      "ref": "nt_vehicle_registration_guide",
+      "document": "nt_vehicle_registration_doc1",
+      "section": "Approval guide: NT_VEHICLE_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering an imported vehicle in the NT (Motor Vehicle Registry (NT)).\nAn imported vehicle needs its federal import approval, a compliance inspection at a government inspection facility and registration at a Motor Vehicle Registry office.\nTimeframe: Allow time for inspection bookings.\nCost: Registration and stamp duty depend on the vehicle.\nBefore you start: Have the vehicle import approval and any engineering certificates.\nBefore you start: Bring evidence of identity, NT residency and ownership.\nStep 1: Inspection. Book a compliance inspection at a government vehicle inspection facility.\nStep 2: Apply. Complete the NT R11 application to register a vehicle and lodge it at an MVR office.\nStep 3: Pay. Pay registration and stamp duty for 1, 3, 6 or 12 months.\nFee: Registration: See the MVR registration fees page\nFee: Stamp duty: See the MVR duty calculator\nContact: Motor Vehicle Registry: 1300 654 628, mvr@nt.gov.au\nWatch out: Left-hand-drive vehicles registered in the NT may not be accepted in other states.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The V48 bulletin, fees and duty rate weren't read."
+    },
+    {
       "ref": "vehicle_import_approval_guide",
       "document": "vehicle_import_approval_doc1",
       "section": "Approval guide: VEHICLE_IMPORT_APPROVAL",
@@ -5671,6 +6053,13 @@
       "section": "Approval guide: VEHICLE_ASBESTOS_ASSURANCE",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-11; a summary, not the source's wording] How to get: Asbestos-free assurance for an imported vehicle (Australian Border Force (Department of Home Affairs), with the Asbestos Safety and Eradication Agency).\nAustralia bans importing anything containing asbestos, at any level, and the ABF actively targets imported cars and parts. As the owner you must be sure the car contains no asbestos before it ships. If the ABF flags your car you must give evidence; if that is not enough it will direct sampling and testing at the border at your cost, and asbestos parts are seized.\nTimeframe: No fixed timeframe. Sort it out in Japan before shipping; a border hold for sampling and testing adds days to weeks of storage and delay.\nCost: No government fee. You pay for any parts replacement, technical evidence, sampling by an independent competent person, NATA-accredited testing, and storage while held.\nBefore you start: The ban applies to every vehicle regardless of type, age, value or country of origin, and to temporary imports. Japan banning asbestos does not mean a Japanese car is free of it; aftermarket parts are a common source.\nBefore you start: List the high-risk parts the ABF names: brake pads and shoes, clutch linings, gaskets (cylinder head, extractors, exhaust), seals (fuel tank, mastic, windows), bonnet liners, heater and air conditioner housings, fibrous washers, sound deadening, firewalls, heat shields, wiring wrap, body seam sealers, bituminous coatings and insulation.\nBefore you start: Decide your assurance route before shipping: technical evidence from the manufacturer that OEM parts are asbestos-free, records of replacing at-risk parts with documented asbestos-free parts, or an accredited test report that clearly links to this specific car and the parts tested.\nBefore you start: A seller's, supplier's or mechanic's informal statement is not enough evidence. 'Asbestos-free' labels under overseas standards may still allow low levels that are illegal here.\nBefore you start: Keep every record (work orders, parts invoices, test reports) and make sure they name the VIN or chassis number. The ABF can ask for them at any time.\nStep 1: Assess the car's risk. Consider age, make, model, maintenance history and any aftermarket parts. Older cars and cars with replaced brakes, clutches or gaskets are higher risk. Ask your exporter or the selling dealer for service history. (time: Before you buy)\nStep 2: Remove or test suspect parts in Japan. The ABF prefers testing or removing suspect parts before shipment, and notes that replacing them may be cheaper than sampling and testing. Keep work records and evidence of the make, model and composition of replacement parts. Overseas sampling and testing must meet Australian laboratory reporting requirements. (time: Before shipping)\nStep 3: Make an honest declaration. Only make a 'no asbestos' declaration if you are certain, covering OEM and aftermarket parts and naturally contaminated materials. Your customs broker will ask about asbestos when lodging the import declaration.\nStep 4: Respond if the ABF flags the car. If the ABF considers the car at risk, you (or your broker) must give sufficient assurance with documents. If the evidence is not enough, the ABF directs sampling and testing at the border and supervises it while the car is under customs control. (time: Depends on how fast you supply evidence)\nStep 5: Arrange sampling and NATA-accredited testing if directed. You must engage a qualified, independent competent person to identify and sample suspect parts; the ABF does not take samples or remove asbestos. Analysis in Australia must be by a NATA-accredited laboratory. Storage costs while waiting are yours whether or not asbestos is found. (time: Days to weeks; cost: You pay sampling, testing and storage)\nStep 6: Deal with any positive result. Goods found to contain asbestos are seized and forfeited for disposal. Asbestos parts must be removed under ABF control before the car can be released, and you may face penalties.\nContact: Australian Border Force: 131 881, https://www.abf.gov.au\nContact: Asbestos Safety and Eradication Agency: 1300 326 148, enquiries@asbestossafety.gov.au, https://www.asbestossafety.gov.au\nWatch out: Zero tolerance: any level of asbestos is prohibited, including chrysotile (white) asbestos, and 'undisturbed' asbestos is not treated as safe.\nWatch out: Penalties under the Customs Act: section 233 up to 1,000 penalty units or three times the value of the goods, whichever is greater; section 233BAA up to 1,000 penalty units and/or 5 years' imprisonment; companies up to 5,000 penalty units or 15 times the value. The ABF can also issue infringement notices.\nWatch out: All delay, storage, sampling and testing costs fall on you, even if the test comes back clear.\nWatch out: Enthusiast car shows do not count as 'display', so you cannot get a permit to import an asbestos-containing car you plan to drive or show.\nWatch out: Aftermarket brake pads, clutch kits and gaskets bought cheaply overseas are a common cause of detections.\nWatch out: The ABF lists recent detections in imported cars, including a 1971 Mazda RX-2, so older Japanese cars are not exempt.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: No official asbestos 'certificate' format exists; the ABF accepts evidence. No official list of accepted Japanese laboratories was found. Whether a Japanese lab's report is accepted depends on it meeting Australian reporting requirements. The penalty unit dollar values in Customs Notice 2019/10 (A$210 then) are out of date; the Commonwealth penalty unit was A$330 from 7 November 2024 and was indexed on 1 July 2026. The ABF's general asbestos page did not load its body text for us. Industry estimate, not official: broker guides quote A$200 to A$500 or more for asbestos testing of an older car."
+    },
+    {
+      "ref": "nt_motor_vehicle_dealer_licence_guide",
+      "document": "nt_motor_vehicle_dealer_licence_doc1",
+      "section": "Approval guide: NT_MOTOR_VEHICLE_DEALER_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an NT motor vehicle dealer licence (NT Consumer Affairs licensing and compliance (Licensing NT)).\nBuying, selling or exchanging motor vehicles as a business in the NT needs a motor vehicle dealer licence. There's no minimum number of vehicles.\nTimeframe: Processing time wasn't published.\nCost: $596 to apply, $342 to grant and $342 a year (one car yard).\nBefore you start: Decide whether to apply as an individual, partnership or corporation.\nBefore you start: Your manager needs separate approval.\nStep 1: Apply. Lodge the NT motor vehicle dealer licence application (individual or partnership) or the NT motor vehicle dealer licence application (corporation).\nStep 2: Pay fees. Pay the $596 application fee, then $342 on grant.\nStep 3: Renew each year. Pay the $342 annual fee, plus $171 per extra car yard.\nFee: Application: $596\nFee: Grant (one yard): $342\nFee: Annual (one yard): $342\nFee: Manager approval: $81\nContact: Territory Business Centre: https://nt.gov.au/industry/business-support/contact-territory-business-centre\nWatch out: Licences can't be transferred to a buyer of your business.\nWatch out: Fines up to 500 penalty units for dealing without a licence.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The application pages and forms weren't opened; the form URLs come from search results."
     },
     {
       "ref": "vehicle_biosecurity_inspection_guide",
@@ -5897,6 +6286,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: How long a BASIX certificate stays valid before you lodge it couldn't be confirmed (the 'Certificate validity' page wasn't read)."
     },
     {
+      "ref": "nt_development_permit_guide",
+      "document": "nt_development_permit_doc1",
+      "section": "Approval guide: NT_DEVELOPMENT_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a development permit (Northern Territory) (Development Consent Authority, or the Minister outside its division areas).\nIn the NT, the NT Government's Development Consent Authority decides development applications, not councils. Under the NT Planning Scheme 2020, a permitted use that meets every requirement, with no overlay, needs no development permit. Merit and impact assessable uses, overlays and varied requirements need one. You lodge on Development Applications Online and it takes about 8 weeks.\nTimeframe: About 8 weeks, longer with exhibition (7, 14 or 28 days) or requests for more information.\nCost: 2026-27: $269 for a single dwelling on one lot, $290 for a change of use, more for larger projects, plus $149 if advertised. Fees are non-refundable.\nBefore you start: Look up your zone and overlays on the NT Atlas.\nBefore you start: Check your zone's assessment table in the NT Planning Scheme 2020. If your use is permitted, meets every requirement and no overlay applies, you don't need a permit.\nBefore you start: Book a meeting with an NT Government planner if you're unsure.\nBefore you start: Prepare dimensioned plans and an image of the development.\nBefore you start: Write a statement of effect using the NT statement of effect template.\nBefore you start: If you aren't the sole owner, get the NT landowner's authorisation form signed.\nStep 1: Check if you need a permit. Use the NT Atlas and the NT Planning Scheme 2020 to see whether your use is permitted, merit assessable or impact assessable, and whether an overlay applies. (cost: Free)\nStep 2: Talk to a planner. Book a meeting with Development Assessment Services before you lodge. (cost: Free)\nStep 3: Lodge on DAO. Lodge on NT Development Applications Online (DAO) with your statement of effect, plans, owner's authorisation and an image. Read the NT development permit lodgement guide first. Pay the application fee online. (cost: See the fees below)\nStep 4: Exhibition, if needed. Some applications are advertised for 7, 14 or 28 days, with a sign on the land and letters to neighbours. You pay the advertising fee before it starts. Council and service authorities are asked to comment. (time: 7, 14 or 28 days; cost: $149)\nStep 5: Decision. The Development Consent Authority (or the Minister) decides. You get a development permit with conditions, or a refusal. (time: About 8 weeks in total)\nStep 6: Review if needed. You can apply to the NT Civil and Administrative Tribunal (NTCAT) for a review within 28 days of being told of the decision.\nStep 7: Then get a building permit. A development permit doesn't let you build. You also need a building permit from a registered building certifier.\nFee: Single dwelling on one lot: $269 (2026-27)\nFee: Estimated cost $100,000 or less: $269 (2026-27)\nFee: Estimated cost over $100,000 to $250,000: $810 (2026-27)\nFee: Estimated cost over $250,000 to $1 million: $1,175 (2026-27)\nFee: Use with no physical development: $290 (2026-27)\nFee: Advertising (exhibition): $149 (Per exhibition period, if needed)\nFee: Variation of a development permit: $223 or 10% of the application fee, whichever is more (2026-27)\nFee: Compliance check: $402 or 20% of the application fee, whichever is more (2026-27)\nFee: Extension of a development permit: Varies: 50% of the development application fee\nContact: Development Assessment Services (NT Government): https://nt.gov.au/property/land-planning-and-development/contact-a-planner\nWatch out: Your council doesn't decide development applications in the NT. Lodge with the NT Government.\nWatch out: Overlays like flooding and storm surge can mean you need a permit even for a permitted use.\nWatch out: An impact assessable use can be refused even if it meets every requirement.\nWatch out: All fees are non-refundable, even if the application is refused or withdrawn.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Development Assessment Services phone and email weren't published on the page read; use the contact a planner page. The fees page doesn't state the fee year; it was last modified on 1 July 2026, so these are taken as 2026-27 fees. Which areas fall outside the Development Consent Authority's divisions wasn't checked."
+    },
+    {
       "ref": "tas_planning_permit_guide",
       "document": "tas_planning_permit_doc1",
       "section": "Approval guide: TAS_PLANNING_PERMIT",
@@ -5979,6 +6375,13 @@
       "section": "Approval guide: WA_DEMOLITION_PERMIT",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a demolition permit (Western Australia) (Your local government (permit authority) under the Building Act 2011).\nDemolishing a house, shed or other building in WA needs a demolition permit from your council. Asbestos must be removed safely, and services disconnected first. In a heritage-protected place you also need development approval.\nTimeframe: Usually 10 business days once complete.\nCost: $121.00 for a house or Class 10 building, plus the Building Services Levy (minimum $61.65).\nBefore you start: Check whether the place is heritage-protected on inHerit. If so, get development approval first.\nBefore you start: Arrange disconnection of power, gas, water and sewer.\nBefore you start: Get an asbestos survey. Licensed removalists must remove more than 10 m2 of bonded asbestos.\nBefore you start: Engage a licensed demolition contractor where required.\nStep 1: Prepare the application. Complete the WA BA5 demolition permit application with a site plan showing the buildings to be demolished, and evidence of service disconnections. (form: WA BA5 demolition permit application)\nStep 2: Lodge and pay. Lodge with your council and pay the application fee and Building Services Levy. (cost: From $182.65)\nStep 3: Council decides. Council issues the permit, often with conditions about dust, asbestos, hours and protecting neighbours. (time: Usually 10 business days)\nStep 4: Demolish and clean up. Follow the permit conditions and keep asbestos disposal receipts. Tell council when demolition is finished if the permit asks you to.\nFee: Demolition permit, house or Class 10: $121.00 (As charged from 8 July 2026)\nFee: Demolition permit, Class 2 to 9: $121.00 per storey\nFee: Building Services Levy: 0.137% of the value of work (minimum $61.65) (Collected with the permit fee)\nContact: Your local council's planning or building team: https://mycouncil.wa.gov.au/\nContact: Building and Energy (Government of Western Australia): https://www.wa.gov.au/organisation/building-and-energy/building-approvals\nWatch out: Demolishing a heritage-protected building without development approval is a serious offence.\nWatch out: Asbestos is common in WA homes built before 1990.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The 10 business day timeframe and the 10 m2 asbestos threshold weren't confirmed this session. The direct BA5 form link wasn't confirmed."
+    },
+    {
+      "ref": "nt_building_permit_guide",
+      "document": "nt_building_permit_doc1",
+      "section": "Approval guide: NT_BUILDING_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a building permit (Northern Territory) (A registered private building certifier).\nIn the NT's building control areas you need a building permit before you start building. You get it from a registered private building certifier, not the council. The certifier checks your plans against the National Construction Code and lodges the permit with the Director of Building Control.\nTimeframe: No statutory timeframe was found. The permit is valid for two years and can be extended.\nCost: Varies: the certifier sets the fee. No government building permit fee or levy was found on the pages read.\nBefore you start: Check whether your land is in a building control area on the NT Building Control Areas map.\nBefore you start: Get any development permit first. The certifier must be satisfied about planning compliance.\nBefore you start: Get plans to scale, structural engineer's certification and, if needed, a certified plumbing design.\nBefore you start: Have your registered builder's contract and fidelity fund certificate, or an owner builder certificate.\nStep 1: Check your building control area. Tier 1 areas are Darwin, Alice Springs and Lake Bennett. Tier 2 areas include Katherine, Tennant Creek, Batchelor, Jabiru and Yulara. Use the NT Building Control Areas map. (cost: Free)\nStep 2: Engage a certifier. Choose an NT registered building certifier. (cost: Varies: set by the certifier)\nStep 3: Give the certifier your documents. Plans, engineering, any development permit, and builder or owner builder details.\nStep 4: Building permit issued. The certifier issues the permit, gives you a copy and lodges it with the Director of Building Control.\nStep 5: Inspections. Usual inspections: footings and slab, frame, block work reinforcing, fire separation, wet areas and final. Don't go past a stage until the certifier says so.\nStep 6: Occupancy. When the work is finished, apply to your certifier for occupancy certification before you move in.\nFee: Building certifier's fee: Varies: set by the certifier\nFee: Development permit (if needed first): See the development permit guide ($269 for a single dwelling, 2026-27)\nContact: Building Advisory Services (NT Government): https://nt.gov.au/property/building/contacts/contact-building-advisory-services\nWatch out: Councils don't issue building permits in the NT.\nWatch out: The certifier doesn't supervise your site. You and your builder are responsible.\nWatch out: In tier 2 areas, houses can be part certified, with a builder's declaration instead of an occupancy permit.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Rules for land outside building control areas weren't read. Any building levy or government fee wasn't found on the pages read. Building Advisory Services phone and email weren't read."
     },
     {
       "ref": "tas_building_permit_guide",
@@ -6086,6 +6489,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: No statutory timeframe for issuing an occupation certificate was found."
     },
     {
+      "ref": "nt_occupancy_permit_guide",
+      "document": "nt_occupancy_permit_doc1",
+      "section": "Approval guide: NT_OCCUPANCY_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get occupancy certification (Northern Territory) (Your registered building certifier).\nIn the NT you can't legally move into a new building in a building control area until your certifier gives occupancy certification. The highest level is an occupancy permit. In tier 2 areas a house can be part certified, with a builder's declaration instead.\nTimeframe: Apply when the work is finished; no statutory timeframe was found.\nCost: Varies: set by your certifier.\nBefore you start: Make sure every inspection on your permit is done. Check your tier on the NT Building Control Areas map.\nBefore you start: Get the builder's declaration, inspection certificates and section 40 certificates.\nBefore you start: If you needed a development permit, it must be in place first.\nStep 1: Finish the work. Health, safety and amenity items must be in place and working. Painting and carpets don't need to be finished.\nStep 2: Apply to your certifier. Give your certifier the prescribed documents.\nStep 3: Certification issued. You get an occupancy permit, or a certificate of substantial compliance if there are minor variations or missing documents. The certifier lodges it with the Director of Building Control.\nStep 4: Appeal if needed. If you get a lower level of certification, you can appeal to the Building Appeals Board.\nFee: Certifier's fee: Varies: set by the certifier\nContact: Building Advisory Services (NT Government): https://nt.gov.au/property/building/contacts/contact-building-advisory-services\nWatch out: Living in a building without occupancy certification is not legal in a building control area.\nWatch out: A certificate of existence is only for work completed before 1 May 2016.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Fees and timeframes for occupancy certification weren't published on the page read."
+    },
+    {
       "ref": "vic_subdivision_certification_guide",
       "document": "vic_subdivision_certification_doc3",
       "section": "Approval guide: VIC_SUBDIVISION_CERTIFICATION",
@@ -6107,6 +6517,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: NSW Land Registry Services plan lodgement fees were not checked. Which subdivisions a registered certifier (rather than council) may certify was not confirmed in detail."
     },
     {
+      "ref": "nt_subdivision_guide",
+      "document": "nt_subdivision_doc1",
+      "section": "Approval guide: NT_SUBDIVISION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Subdivide land (Northern Territory) (Development Consent Authority, then the Surveyor-General and the Land Titles Office).\nTo subdivide in the NT you need a development permit, then a licensed surveyor, a certificate of compliance, Land Titles Office concurrence, Surveyor-General approval of the plan and new titles. Titles can be issued within 24 business hours of lodgement.\nTimeframe: About 8 weeks for the development permit, then works, survey and titles. Titles can be issued within 24 business hours.\nCost: 2026-27: $1,162 plus $56 per lot for the development permit, $149 if advertised, plus survey lodgement and title fees, surveyor costs and works.\nBefore you start: Check the minimum lot size for your zone in the NT Planning Scheme 2020 and your overlays on the NT Atlas.\nBefore you start: Engage a licensed surveyor.\nBefore you start: Rural and unzoned land also needs a land suitability assessment.\nBefore you start: Consider a pre-application forum, booked on NT Development Applications Online (DAO).\nStep 1: Pre-application forum (optional). Get early feedback from NT Government agencies, the council and Power and Water.\nStep 2: Development permit. Lodge on NT Development Applications Online (DAO) with a subdivision plan and a statement of effect, using the NT statement of effect template. (cost: $1,162 plus $56 per lot)\nStep 3: Lot numbers and addresses. Your licensed surveyor applies for the survey reference, lot numbers and addresses.\nStep 4: Do the works. Build access and extend power, water and sewer to meet the permit conditions.\nStep 5: Certificate of compliance. Show you've met the permit conditions (part 5 clearance). (cost: Free)\nStep 6: Land Titles Office concurrence. Get concurrence before lodging the survey plan.\nStep 7: Surveyor-General approval. Your surveyor lodges the plan for checking and approval.\nStep 8: Apply for titles. Lodge the approved plan, consents and the NT Land Titles Office application for separate titles (form 21) and pay the fee. (time: Within 24 business hours; cost: See the LTO forms and fees page)\nFee: Development permit, subdivision: $1,162 plus $56 per lot (2026-27)\nFee: Advertising (exhibition): $149 (If needed)\nFee: Certificate of compliance, subdivision: Free\nFee: Survey lodgement and title application fees: See the Land Titles Office forms and fees page\nFee: Surveyor, works and service connections: Varies: quoted by each provider\nContact: Development Assessment Services (NT Government): https://nt.gov.au/property/land-planning-and-development/contact-a-planner\nWatch out: You can't put an independent unit on its own unit title.\nWatch out: Paper titles are no longer issued.\nWatch out: Works must meet every permit condition before the certificate of compliance.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Survey lodgement and title fee amounts weren't read. Unit title scheme subdivisions use form 113 and an endorsement step not detailed here."
+    },
+    {
       "ref": "tas_subdivision_sealing_guide",
       "document": "tas_subdivision_sealing_doc1",
       "section": "Approval guide: TAS_SUBDIVISION_SEALING",
@@ -6126,6 +6543,13 @@
       "section": "Approval guide: ACT_SUBDIVISION",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Subdivide or unit title (ACT) (Territory Planning Authority (ACT Planning)).\nIn the ACT land is leased, not freehold. Creating new blocks needs a subdivision design application, a significant DA decided in 60 working days. Splitting a block with two homes is usually done by unit titling. Both usually involve varying the crown lease and may attract a Lease Variation Charge.\nTimeframe: 60 working days for a subdivision design application; unit titling timeframe not confirmed.\nCost: 2026-27: unit titling $2,851.52 for two units; lease variation $2,732.33; DA fee by cost of works; plus surveyor and any Lease Variation Charge.\nBefore you start: Check your zone on ACT ACTmapi and the subdivision and dual occupancy rules in the Territory Plan.\nBefore you start: Get a copy of your crown lease.\nBefore you start: Engage a registered surveyor and, if needed, a town planner and a lawyer.\nBefore you start: Ask ACT Planning for a pre-lodgement meeting.\nStep 1: Get advice. Ask the DA Gateway Team or Leasing Team which applications you need: subdivision design, lease variation, unit titling or a mix. (cost: Free)\nStep 2: Prepare the plans. Your surveyor prepares the subdivision or units plan.\nStep 3: Lodge. Lodge on the ACT eDevelopment portal and pay the fees.\nStep 4: Assessment and notification. Subdivision design applications are significant development: two notification stages of 20 and 10 working days. (time: 60 working days)\nStep 5: Lease variation and charge. If the lease is varied, pay any Lease Variation Charge. The approval ends if the lease isn't varied within 2 years.\nStep 6: New leases or unit titles. Once approved and conditions are met, the new leases or units plan are registered.\nFee: Unit titling, two-unit residential: $2,851.52 (2026-27)\nFee: Unit titling, three or four units (un-staged): $4,259.68 (2026-27)\nFee: Lease variation, consolidation or subdivision: $2,732.33 (Plus $362.02 per extra component, 2026-27)\nFee: Lease Variation Charge: Varies: fixed amounts by variation and suburb in the Planning (Lease Variation Charges) Determination 2026 (For example $180,750 in Ainslie for a second dwelling)\nFee: Surveyor and lawyer fees: Varies: quoted by each provider\nContact: ACT Planning DA Gateway Team: 02 6205 2888, planningenquiries@act.gov.au, https://www.planning.act.gov.au/contact\nContact: Access Canberra: 13 22 81, https://services.accesscanberra.act.gov.au/s/forms/land-planning-and-building-enquiry\nWatch out: A secondary residence (granny flat) can't be unit titled or sold separately.\nWatch out: Since 27 November 2023, a dual occupancy on an RZ1 block over 800 m2 can be unit titled if the second dwelling is 120 m2 or less.\nWatch out: The Lease Variation Charge can be large. Ask early.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: ACT Revenue Office Lease Variation Charge page couldn't be read; amounts are from the 2026 determination via a summary. Unit titling application steps and timeframe weren't read. Dual occupancy unit titling rule is from a summary of an Assembly answer, not the Territory Plan."
+    },
+    {
+      "ref": "nt_heritage_works_approval_guide",
+      "document": "nt_heritage_works_approval_doc1",
+      "section": "Approval guide: NT_HERITAGE_WORKS_APPROVAL",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get approval for work on a heritage place (Northern Territory) (Heritage Council (minor works) or the Minister for Lands, Planning and Environment (major works), through Heritage NT).\nWork on a declared heritage place in the NT is controlled by the Heritage Act 2011. Heritage NT decides whether your work is exempt, minor or major. Minor works are decided by the Heritage Council and major works by the Minister. Exempt work needs no approval.\nTimeframe: No timeframe is published. You are told of the decision in writing.\nCost: No application fee is published. Ask Heritage NT.\nBefore you start: Use the NT Heritage Register search to check whether your property is a declared heritage place.\nBefore you start: Call Heritage NT to talk about the work before you design it. Free conservation advice may be available.\nBefore you start: Check whether you also need a development permit and a building permit.\nStep 1: Check the register. Search the NT Heritage Register search for your property. (cost: Free)\nStep 2: Talk to Heritage NT. Discuss your plans with the Heritage Branch on 08 8999 5039 or heritage.branch@nt.gov.au.\nStep 3: Apply. Fill in the NT application to carry out work on a heritage place or object and send it to the Heritage Branch. (cost: See Heritage NT)\nStep 4: Category decided. Heritage NT decides if the work is exempt, minor or major. Minor works go to the Heritage Council and major works to the Minister.\nStep 5: Decision. You are told of the decision in writing. Approved work must follow the Burra Charter principles.\nFee: Heritage works application: See Heritage NT (No fee published)\nContact: Heritage Branch (Heritage NT): 08 8999 5039, heritage.branch@nt.gov.au, https://nt.gov.au/property/building/heritage-properties/heritage-properties-building-works-and-development\nWatch out: There is no strict line between minor and major works. Work likely to concern the public is treated as major.\nWatch out: Heritage approval doesn't replace a development permit or building permit.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Fees and timeframes aren't published. The department name on the contact (Lands, Planning and Environment) may be out of date. How heritage approval links with the development permit wasn't stated on the page."
     },
     {
       "ref": "tas_vehicle_registration_guide",

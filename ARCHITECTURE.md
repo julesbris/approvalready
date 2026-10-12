@@ -1186,3 +1186,20 @@ Capital Territory").
 | Selling and renting | Pack `property_act` (`sell.act.seller_disclosure` with the required documents, `rent.act.residential_tenancy` with bond lodgement) and checklists `rent.act_*`, `sell.act_required_documents`. |
 | Business, vehicles, vessels | Pack `business_act`: food, liquor, outdoor dining, workers compensation, payroll tax, construction occupation licences, infection control (skin penetration), childcare, vehicle registration and dealers. The ACT doesn't register boats or license their drivers: one INFO rule says so. No ACT business grant was open, so no grant rules. |
 | Tests | `tests/test_act.py`. |
+
+## 53. Northern Territory
+
+Content like the other states (§47-§52), gathered on 2026-10-12 with gaps listed per entry.
+**No address lookups:** the NT cadastre service is public but states no licence, and NT
+Government policy supplies land information only under a data licence agreement with no
+passing on; the planning zones folder needs a token and the hazard layers carry only a
+copyright notice. A licence from the custodian, or a hosted national address source
+(G-NAF) with national boundaries, would unlock the NT.
+
+| Part | As built |
+|---|---|
+| Councils | `councils/nt_councils.json`: all 18 councils (5 municipal, 3 shire, 10 regional; unincorporated areas left out). Spatial names are the national LGA layer's names (not confirmed against an NT layer). The NT Development Consent Authority, not councils, decides development applications, lodged through the NT Government's development applications online. Pack `councils_nt`; `states.json` NT with the 2026-27 DA fees and the NT Atlas for zones. |
+| Planning | Pack `planning_nt`: development permits under the Planning Act 1999 and NT Planning Scheme 2020, building permits in building control areas, occupancy permits, independent units (up to 75 m² in some zones), subdivision, change of use, heritage works approval. |
+| Selling and renting | Pack `property_nt` (`sell.nt.seller_disclosure`, `rent.nt.residential_tenancy`) and checklists `sell.nt_before_sale`, `rent.nt_*`. The NT has no bond authority: the landlord or agent holds the bond in trust, so there's no bond lodgement approval. |
+| Business, vehicles, vessels, grants | Pack `business_nt`: food, liquor, outdoor dining, workers compensation, payroll tax, building contractor registration, plumbing and electrical licences, personal services, childcare, vehicle registration and dealers. The NT doesn't register recreational boats or license their drivers: information rules plus safety equipment. Grow Your Business (open 9 October to 13 November 2026) as information. |
+| Tests | `tests/test_nt.py`. |
