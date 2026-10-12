@@ -155,7 +155,8 @@ GENERAL_STEPS: tuple[str, ...] = (
     "planning approval, some is code assessable and some is impact assessable.",
     "Talk to the council's planning team before you lodge, especially if the project is "
     "unusual. Many councils offer pre-lodgement meetings.",
-    "Prepare the application: the state's DA Form 1, owner's consent if you don't own the "
+    "Prepare the application: the state's DA Form 1 (DA Form 2 if it includes building "
+    "work), owner's consent if you don't own the "
     "land, plans, and a report showing how the project meets the planning scheme.",
     "Lodge it with the council and pay the application fee.",
     "Answer any information request from the council by the date it gives.",
@@ -163,6 +164,9 @@ GENERAL_STEPS: tuple[str, ...] = (
     "Building work usually also needs a building approval, normally from a private "
     "building certifier.",
 )
+# The state's development application forms (``guidance/official_forms.json``), used by
+# every council: DA Form 1 for most applications, DA Form 2 when it includes building work.
+STATE_FORMS: tuple[str, ...] = ("qld-da-form-1", "qld-da-form-2")
 GENERAL_SOURCE = CouncilSource(
     url="https://planning.statedevelopment.qld.gov.au/planning-framework/development-assessment/"
     "development-assessment-process",

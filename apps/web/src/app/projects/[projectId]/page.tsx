@@ -5,6 +5,7 @@ import type {
   CouncilOut,
   DocumentOut,
   MemberOut,
+  OfficialForm,
   ProjectDetailOut,
   ProjectPlanOut,
   PropertyOut,
@@ -64,9 +65,10 @@ export default async function ProjectPage({ params }: Props) {
     serverGet<ProjectPlanOut>(`${base}/projects/${projectId}/plan`),
   ]);
   const found = orNotFound(project);
-  const definitions = await serverGet<ChecklistDefinitionOut[]>(
-    `/checklists?vertical=${found.vertical}`,
-  );
+  const [definitions, forms] = await Promise.all([
+    serverGet<ChecklistDefinitionOut[]>(`/checklists?vertical=${found.vertical}`),
+    serverGet<OfficialForm[]>(`/guidance/forms?vertical=${found.vertical}`),
+  ]);
   // Planning projects: how to apply to the council the latest answers name.
   const latest = [...found.submissions].sort((a, b) => b.updated_at.localeCompare(a.updated_at))[0];
   let council: CouncilOut | undefined;
@@ -92,6 +94,7 @@ export default async function ProjectPage({ params }: Props) {
         vessels={vessels.ok ? vessels.data : undefined}
         checklists={checklists.ok ? checklists.data : undefined}
         checklistDefinitions={definitions.ok ? definitions.data : []}
+        forms={forms.ok ? forms.data : []}
         documents={orNotFound(documents)}
         council={council}
         whatsLeft={whatsLeft.ok ? whatsLeft.data : undefined}

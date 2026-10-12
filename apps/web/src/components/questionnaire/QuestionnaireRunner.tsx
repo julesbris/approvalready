@@ -4,6 +4,7 @@ import type {
   AddressMatchOut,
   AnswersResultOut,
   ApprovalGuideOut,
+  OfficialForm,
   AssessmentOut,
   CouncilOut,
   PrefillOut,
@@ -45,6 +46,8 @@ type Props = {
   assessment?: AssessmentOut | null;
   /** Step-by-step guides for the approvals that assessment found. */
   guides?: ApprovalGuideOut[];
+  /** The product's official forms, so every form the result names links to it. */
+  forms?: OfficialForm[];
 };
 
 /** The result under the answers, and whether answers changed since it was worked out. */
@@ -135,6 +138,7 @@ export function QuestionnaireRunner({
   autosaveDelayMs = 1200,
   assessment: initialAssessment = null,
   guides: initialGuides = [],
+  forms = [],
 }: Props) {
   // What we can look up is filled in straight away (and saved by the autosave below).
   const [start] = useState(() =>
@@ -709,6 +713,7 @@ export function QuestionnaireRunner({
             projectId={projectId}
             approvalMap={MAP_VERTICALS.has(questionnaire.vertical)}
             guides={result.guides}
+            forms={forms}
           >
             {shownCouncil ? <CouncilGuide council={shownCouncil} /> : null}
           </AssessmentReport>

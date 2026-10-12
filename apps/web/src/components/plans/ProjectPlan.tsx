@@ -295,6 +295,21 @@ function PlanSection(props: SectionProps) {
         </span>
       </div>
       {s.summary ? <p>{s.summary}</p> : null}
+      {s.forms.length > 0 ? (
+        <div className="plan-forms">
+          <p className="finding-label">Forms</p>
+          <ul className="guide-list form-list">
+            {s.forms.map((f) => (
+              <li key={f.url}>
+                <a href={f.url} rel="noopener noreferrer" target="_blank">
+                  {f.label}
+                </a>
+                <span className="muted"> · {f.publisher}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
       {s.timeframe || s.cost_summary ? (
         <dl className="review-list">
           {s.timeframe ? (

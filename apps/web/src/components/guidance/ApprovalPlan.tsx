@@ -1,5 +1,6 @@
 import type { ApprovalGuideOut } from "@approvalready/shared-types";
 
+import { FormLinks, FormList, FormText } from "@/components/guidance/FormText";
 import { phoneHref } from "@/lib/approvalGuides";
 import { formatDate } from "@/lib/questionnaire";
 
@@ -48,165 +49,176 @@ export function ApprovalGuideCard({
         </span>
       </summary>
       <div className="guide-body">
-        <div className="guide-head">
-          <CheckedBadge guide={guide} />
-        </div>
-        <p>{guide.summary}</p>
-        {guide.timeframe || guide.cost_summary ? (
-          <dl className="review-list">
-            {guide.timeframe ? (
-              <div>
-                <dt>How long</dt>
-                <dd>{guide.timeframe}</dd>
-              </div>
-            ) : null}
-            {guide.cost_summary ? (
-              <div>
-                <dt>What it costs</dt>
-                <dd>{guide.cost_summary}</dd>
-              </div>
-            ) : null}
-          </dl>
-        ) : null}
-
-        {guide.before_you_start.length > 0 ? (
-          <>
-            <h4 className="subsection-title">Before you start</h4>
-            <ul className="guide-list">
-              {guide.before_you_start.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </>
-        ) : null}
-
-        <h4 className="subsection-title">Step by step</h4>
-        <ol className="guide-steps">
-          {guide.steps.map((step) => (
-            <li key={step.title}>
-              <p className="guide-step-title">{step.title}</p>
-              <p>{step.detail}</p>
-              {step.timeframe || step.cost || step.form || step.url ? (
-                <p className="guide-step-meta muted">
-                  {[
-                    step.timeframe ? <span key="t">Time: {step.timeframe}</span> : null,
-                    step.cost ? <span key="c">Cost: {step.cost}</span> : null,
-                    step.form ? (
-                      <span key="f">
-                        Form: <External href={step.form.url}>{step.form.name}</External>
-                      </span>
-                    ) : null,
-                    step.url ? (
-                      <span key="u">
-                        <External href={step.url}>Official page</External>
-                      </span>
-                    ) : null,
-                  ].filter(Boolean)}
-                </p>
-              ) : null}
-            </li>
-          ))}
-        </ol>
-
-        {guide.fees.length > 0 ? (
-          <>
-            <h4 className="subsection-title">Fees and charges</h4>
-            <table className="guide-fees">
-              <caption className="muted">
-                As published by the authority when we checked on {formatDate(guide.checked_on)}.
-                Fees usually change each 1 July.
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">What for</th>
-                  <th scope="col">Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {guide.fees.map((fee) => (
-                  <tr key={`${fee.label}-${fee.amount}`}>
-                    <td>
-                      {fee.label}
-                      {fee.note ? <span className="muted"> ({fee.note})</span> : null}
-                    </td>
-                    <td className="guide-amount">{fee.amount}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : null}
-
-        {guide.watch_out.length > 0 ? (
-          <div className="notice notice-warning">
-            <p className="guide-step-title">Watch out for</p>
-            <ul className="guide-list">
-              {guide.watch_out.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+        <FormLinks forms={guide.forms}>
+          <div className="guide-head">
+            <CheckedBadge guide={guide} />
           </div>
-        ) : null}
+          <p>
+            <FormText text={guide.summary} />
+          </p>
+          {guide.timeframe || guide.cost_summary ? (
+            <dl className="review-list">
+              {guide.timeframe ? (
+                <div>
+                  <dt>How long</dt>
+                  <dd>{guide.timeframe}</dd>
+                </div>
+              ) : null}
+              {guide.cost_summary ? (
+                <div>
+                  <dt>What it costs</dt>
+                  <dd>{guide.cost_summary}</dd>
+                </div>
+              ) : null}
+            </dl>
+          ) : null}
 
-        {guide.contacts.length > 0 ? (
-          <>
-            <h4 className="subsection-title">Who to contact</h4>
-            <ul className="guide-contacts">
-              {guide.contacts.map((c) => {
-                const tel = c.phone ? phoneHref(c.phone) : null;
-                return (
-                  <li key={c.name}>
-                    <strong>{c.name}</strong>
-                    {c.phone ? (
-                      <span>
-                        {" "}
-                        · {tel ? <a href={tel}>{c.phone}</a> : c.phone}
-                      </span>
-                    ) : null}
-                    {c.email ? (
-                      <span>
-                        {" "}
-                        · <a href={`mailto:${c.email}`}>{c.email}</a>
-                      </span>
-                    ) : null}
-                    {c.url ? (
-                      <span>
-                        {" "}
-                        · <External href={c.url}>Website</External>
-                      </span>
-                    ) : null}
-                    {c.hours ? <span className="muted"> · {c.hours}</span> : null}
-                    {c.note ? <span className="muted"> · {c.note}</span> : null}
+          {guide.before_you_start.length > 0 ? (
+            <>
+              <h4 className="subsection-title">Before you start</h4>
+              <ul className="guide-list">
+                {guide.before_you_start.map((item) => (
+                  <li key={item}>
+                    <FormText text={item} />
                   </li>
-                );
-              })}
-            </ul>
-          </>
-        ) : null}
+                ))}
+              </ul>
+            </>
+          ) : null}
 
-        {guide.gaps.length > 0 ? (
-          <details className="guide-more">
-            <summary>What we couldn&apos;t confirm</summary>
-            <ul>
-              {guide.gaps.map((gap) => (
-                <li key={gap}>{gap}</li>
-              ))}
-            </ul>
-          </details>
-        ) : null}
-        <details className="guide-more">
-          <summary>Where this came from</summary>
-          <ul>
-            {guide.sources.map((source) => (
-              <li key={source.url}>
-                <External href={source.url}>{source.title}</External>
+          <FormList forms={guide.forms} />
+
+          <h4 className="subsection-title">Step by step</h4>
+          <ol className="guide-steps">
+            {guide.steps.map((step) => (
+              <li key={step.title}>
+                <p className="guide-step-title">
+                  <FormText text={step.title} />
+                </p>
+                <p>
+                  <FormText text={step.detail} />
+                </p>
+                {step.timeframe || step.cost || step.form || step.url ? (
+                  <p className="guide-step-meta muted">
+                    {[
+                      step.timeframe ? <span key="t">Time: {step.timeframe}</span> : null,
+                      step.cost ? <span key="c">Cost: {step.cost}</span> : null,
+                      step.form ? (
+                        <span key="f">
+                          Form: <External href={step.form.url}>{step.form.name}</External>
+                        </span>
+                      ) : null,
+                      step.url ? (
+                        <span key="u">
+                          <External href={step.url}>Official page</External>
+                        </span>
+                      ) : null,
+                    ].filter(Boolean)}
+                  </p>
+                ) : null}
               </li>
             ))}
-          </ul>
-          <p className="muted">
-            Gathered from official websites on {formatDate(guide.checked_on)}.
-          </p>
-        </details>
+          </ol>
+
+          {guide.fees.length > 0 ? (
+            <>
+              <h4 className="subsection-title">Fees and charges</h4>
+              <table className="guide-fees">
+                <caption className="muted">
+                  As published by the authority when we checked on {formatDate(guide.checked_on)}.
+                  Fees usually change each 1 July.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">What for</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {guide.fees.map((fee) => (
+                    <tr key={`${fee.label}-${fee.amount}`}>
+                      <td>
+                        {fee.label}
+                        {fee.note ? <span className="muted"> ({fee.note})</span> : null}
+                      </td>
+                      <td className="guide-amount">{fee.amount}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          ) : null}
+
+          {guide.watch_out.length > 0 ? (
+            <div className="notice notice-warning">
+              <p className="guide-step-title">Watch out for</p>
+              <ul className="guide-list">
+                {guide.watch_out.map((item) => (
+                  <li key={item}>
+                    <FormText text={item} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          {guide.contacts.length > 0 ? (
+            <>
+              <h4 className="subsection-title">Who to contact</h4>
+              <ul className="guide-contacts">
+                {guide.contacts.map((c) => {
+                  const tel = c.phone ? phoneHref(c.phone) : null;
+                  return (
+                    <li key={c.name}>
+                      <strong>{c.name}</strong>
+                      {c.phone ? (
+                        <span> · {tel ? <a href={tel}>{c.phone}</a> : c.phone}</span>
+                      ) : null}
+                      {c.email ? (
+                        <span>
+                          {" "}
+                          · <a href={`mailto:${c.email}`}>{c.email}</a>
+                        </span>
+                      ) : null}
+                      {c.url ? (
+                        <span>
+                          {" "}
+                          · <External href={c.url}>Website</External>
+                        </span>
+                      ) : null}
+                      {c.hours ? <span className="muted"> · {c.hours}</span> : null}
+                      {c.note ? <span className="muted"> · {c.note}</span> : null}
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          ) : null}
+
+          {guide.gaps.length > 0 ? (
+            <details className="guide-more">
+              <summary>What we couldn&apos;t confirm</summary>
+              <ul>
+                {guide.gaps.map((gap) => (
+                  <li key={gap}>{gap}</li>
+                ))}
+              </ul>
+            </details>
+          ) : null}
+          <details className="guide-more">
+            <summary>Where this came from</summary>
+            <ul>
+              {guide.sources.map((source) => (
+                <li key={source.url}>
+                  <External href={source.url}>{source.title}</External>
+                </li>
+              ))}
+            </ul>
+            <p className="muted">
+              Gathered from official websites on {formatDate(guide.checked_on)}.
+            </p>
+          </details>
+        </FormLinks>
       </div>
     </details>
   );
@@ -225,8 +237,8 @@ export function ApprovalPlan({ guides }: { guides: ApprovalGuideOut[] }) {
         Your step-by-step plan
       </h2>
       <p>
-        Everything the assessment found you may need, in the order to do it, with the forms,
-        fees, timeframes and who to contact for each.
+        Everything the assessment found you may need, in the order to do it, with a link to every
+        form, the fees, timeframes and who to contact for each.
       </p>
       {unchecked ? (
         <p className="muted">

@@ -1,5 +1,6 @@
 import type { CouncilOut } from "@approvalready/shared-types";
 
+import { FormList, FormText } from "@/components/guidance/FormText";
 import { LODGEMENT_LABELS, feesMayBeOutOfDate, telHref } from "@/lib/councils";
 import { formatDate } from "@/lib/questionnaire";
 
@@ -74,7 +75,9 @@ export function CouncilGuide({ council, level = 2 }: Props) {
       <Sub className="subsection-title">Steps</Sub>
       <ol className="council-steps">
         {steps.map((step) => (
-          <li key={step}>{step}</li>
+          <li key={step}>
+            <FormText text={step} forms={council.forms} />
+          </li>
         ))}
       </ol>
       {council.steps.length === 0 ? (
@@ -87,7 +90,9 @@ export function CouncilGuide({ council, level = 2 }: Props) {
           <summary>How applications work across Queensland</summary>
           <ol className="council-steps">
             {council.general_steps.map((step) => (
-              <li key={step}>{step}</li>
+              <li key={step}>
+                <FormText text={step} forms={council.forms} />
+              </li>
             ))}
           </ol>
           <p className="muted">
@@ -98,6 +103,8 @@ export function CouncilGuide({ council, level = 2 }: Props) {
           </p>
         </details>
       )}
+
+      <FormList forms={council.forms} title="Application forms" level={level === 2 ? 3 : 4} />
 
       {council.pre_lodgement && council.pre_lodgement.available !== null ? (
         <>

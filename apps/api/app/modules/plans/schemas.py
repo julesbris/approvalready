@@ -48,6 +48,14 @@ class PlanSourceOut(BaseModel):
     url: str
 
 
+class PlanFormOut(BaseModel):
+    label: str
+    code: str | None = None
+    name: str
+    publisher: str
+    url: str
+
+
 class PlanDocumentOut(BaseModel):
     id: uuid.UUID
     filename: str
@@ -113,6 +121,7 @@ class PlanSectionOut(BaseModel):
     watch_out: list[str] = []
     sources: list[PlanSourceOut] = []
     gaps: list[str] = []
+    forms: list[PlanFormOut] = Field(default=[], description="Official forms, linked.")
     checked_on: date | None = None
     verified: bool = False
     help: list[PlanHelpOut] = Field(default=[], description="Who can help, with partners.")

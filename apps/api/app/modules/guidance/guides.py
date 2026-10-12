@@ -27,6 +27,8 @@ from typing import Annotated
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
+from app.modules.guidance import forms as official_forms
+from app.modules.guidance.forms import FormId
 from app.modules.projects.models import Vertical
 from app.modules.rules.payload import CODE_PATTERN
 
@@ -104,6 +106,9 @@ class ApprovalGuide(_Strict):
     watch_out: list[Line] = Field(default_factory=list, max_length=12)
     sources: list[GuideSource] = Field(min_length=1)
     gaps: list[Line] = Field(default_factory=list)
+    # Every official form the guide names (``official_forms.json``), in the order to use them.
+    # Mentions of these forms anywhere in the guide become links to them.
+    forms: list[FormId] = Field(default_factory=list, max_length=30)
 
     @property
     def reference_section(self) -> str:
@@ -119,6 +124,10 @@ class Guides(_Strict):
         kinds = [g.kind for g in self.guides]
         if len(set(kinds)) != len(kinds):
             raise ValueError("duplicate guide kind")
+        for g in self.guides:
+            missing = official_forms.unknown(g.forms)
+            if missing:
+                raise ValueError(f"{g.kind}: unknown forms {missing}")
         return self
 
 

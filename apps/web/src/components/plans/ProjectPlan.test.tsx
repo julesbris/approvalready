@@ -62,6 +62,7 @@ function section(overrides: Partial<PlanSectionOut>): PlanSectionOut {
     watch_out: [],
     sources: [],
     gaps: [],
+    forms: [],
     checked_on: null,
     verified: false,
     help: [

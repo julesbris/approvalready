@@ -7,6 +7,7 @@ import type {
   CouncilOut,
   DocumentOut,
   MemberOut,
+  OfficialForm,
   ProjectDetailOut,
   ProjectOut,
   ProjectStatus,
@@ -51,6 +52,8 @@ type Props = {
   vessels?: VesselOut[];
   checklists?: ChecklistOut[];
   checklistDefinitions?: ChecklistDefinitionOut[];
+  /** The product's official forms, so checklist items that name a form link to it. */
+  forms?: OfficialForm[];
   documents?: DocumentOut[];
   /** For a planning project in a council we know: how to apply to it. */
   council?: CouncilOut;
@@ -358,6 +361,7 @@ export function ProjectWorkspace(props: Props) {
           checklists={props.checklists}
           definitions={props.checklistDefinitions ?? []}
           canWrite={canWrite}
+          forms={props.forms}
         />
       ) : null}
 
