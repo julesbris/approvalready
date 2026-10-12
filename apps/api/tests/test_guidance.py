@@ -17,7 +17,7 @@ from app.modules.tenancy.models import Organisation
 from tests.harness import ApiHarness, platform_user
 from tests.regulatory_helpers import ADMIN, snapshot, unique
 
-GUIDED_PACKS = ("trade_au", "business_qld_cairns")
+GUIDED_PACKS = ("trade_au", "business_qld_cairns", "planning_nsw", "property_nsw", "business_nsw")
 
 
 def _approval_kinds(pack_key: str) -> set[str]:

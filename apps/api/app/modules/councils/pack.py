@@ -86,7 +86,7 @@ def build(state: str = "QLD") -> dict[str, Any]:
     organisations: list[dict[str, Any]] = []
     documents: list[dict[str, Any]] = []
     references: list[dict[str, Any]] = []
-    seen_urls: set[str] = set()
+    seen_urls: dict[str, str] = {}
     for council in councils(state):
         organisations.append(
             {
@@ -98,12 +98,16 @@ def build(state: str = "QLD") -> dict[str, Any]:
             }
         )
         first_ref: str | None = None
+        shared_first: str | None = None
         fee_url = council.fees.schedule_url if council.fees else None
         for index, source in enumerate(council.sources, start=1):
             if source.url in seen_urls:
+                # A statewide page (a directory of every council) is one document; the
+                # council's reference can still point at it.
+                shared_first = shared_first or seen_urls[source.url]
                 continue
-            seen_urls.add(source.url)
             ref = _doc_ref(council, index)
+            seen_urls[source.url] = ref
             first_ref = first_ref or ref
             documents.append(
                 {
@@ -115,8 +119,7 @@ def build(state: str = "QLD") -> dict[str, Any]:
                     "source_type": "FEE_SCHEDULE" if source.url == fee_url else "WEBPAGE",
                 }
             )
-        if first_ref is None:
-            raise ValueError(f"{council.key}: every source page is shared with another council")
+        first_ref = first_ref or shared_first
         references.append(
             {
                 "ref": f"{council.key}_how_to_apply",

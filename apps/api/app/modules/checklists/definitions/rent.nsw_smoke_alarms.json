@@ -1,0 +1,58 @@
+{
+  "key": "rent.nsw_smoke_alarms",
+  "vertical": "RENT",
+  "title": "Smoke alarms in a NSW rental",
+  "description": "A landlord's smoke alarm duties for a NSW rental. Summarised from NSW Fair Trading and Fire and Rescue NSW pages on the Residential Tenancies Regulation 2019.",
+  "sources": [
+    {
+      "title": "Smoke alarms in a rental property",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/rules/smoke-alarms-a-rental-property"
+    },
+    {
+      "title": "Smoke alarms - what is the law?",
+      "organisation": "Fire and Rescue NSW",
+      "url": "https://www.fire.nsw.gov.au/page.php?id=439"
+    }
+  ],
+  "items": [
+    {
+      "key": "locations",
+      "title": "At least one alarm on every level, in the hallway near the bedrooms"
+    },
+    {
+      "key": "standard",
+      "title": "Every alarm meets AS 3786"
+    },
+    {
+      "key": "annual_check",
+      "title": "Check every alarm once a year"
+    },
+    {
+      "key": "batteries",
+      "title": "Replace removable batteries every year (lithium batteries as the manufacturer says)"
+    },
+    {
+      "key": "age",
+      "title": "Replace any alarm within 10 years of its manufacture date"
+    },
+    {
+      "key": "repair_two_days",
+      "title": "Repair or replace a faulty alarm within 2 business days of finding out"
+    },
+    {
+      "key": "hardwired",
+      "title": "Use a licensed electrician for hard-wired alarms",
+      "required": false
+    },
+    {
+      "key": "entry_notice",
+      "title": "Give 2 business days' notice to inspect and 1 hour's notice to repair"
+    },
+    {
+      "key": "records",
+      "title": "Keep a record of each check and repair",
+      "required": false
+    }
+  ]
+}

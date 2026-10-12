@@ -97,7 +97,7 @@ describe("lookups", () => {
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Add a property" }));
-    fireEvent.change(screen.getByLabelText("Find a Queensland address"), {
+    fireEvent.change(screen.getByLabelText("Find the address"), {
       target: { value: "34 Gilmore" },
     });
     fireEvent.click(await screen.findByRole("button", { name: MATCH.label }));

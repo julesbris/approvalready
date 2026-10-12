@@ -106,7 +106,10 @@ def test_pack_marks_every_extract_as_a_summary() -> None:
 def test_pack_names_only_real_checklists_and_categories() -> None:
     categories = {c.key: c for c in marketplace.load_bundled()}
     named: set[str] = set()
-    for rs in packs.load_file(PACK).rule_sets:
+    rule_sets = [
+        rs for name in ("property_qld", "property_nsw") for rs in packs.load_file(name).rule_sets
+    ]
+    for rs in rule_sets:
         for rule in rs.rules:
             for o in rule.outcomes:
                 payload = parse_payload(o.payload)

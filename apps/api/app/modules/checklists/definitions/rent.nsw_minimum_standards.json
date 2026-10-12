@@ -1,0 +1,66 @@
+{
+  "key": "rent.nsw_minimum_standards",
+  "vertical": "RENT",
+  "title": "NSW minimum standards for a rental",
+  "description": "The seven minimum standards a NSW rental must meet to be fit to live in, plus related safety checks. Summarised from NSW Fair Trading pages on section 52 of the Residential Tenancies Act 2010.",
+  "sources": [
+    {
+      "title": "Minimum standards for rental properties",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/rules/minimum-standards-for-rental-properties"
+    },
+    {
+      "title": "Getting repairs done on a rental property",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live/getting-repairs-done"
+    },
+    {
+      "title": "Window, deck, and balcony safety in a rental property",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/rules/window-deck-balcony-safety-rental-property"
+    }
+  ],
+  "items": [
+    {
+      "key": "structure",
+      "title": "Structurally sound"
+    },
+    {
+      "key": "lighting",
+      "title": "Adequate natural or artificial lighting in each room except storage rooms and garages"
+    },
+    {
+      "key": "ventilation",
+      "title": "Adequate ventilation"
+    },
+    {
+      "key": "power",
+      "title": "Electricity or gas supplied, with enough sockets for lighting, heating and appliances"
+    },
+    {
+      "key": "plumbing",
+      "title": "Adequate plumbing and drainage"
+    },
+    {
+      "key": "water",
+      "title": "Hot and cold water for drinking, washing and cleaning"
+    },
+    {
+      "key": "bathroom",
+      "title": "Bathroom and toilet facilities that allow privacy"
+    },
+    {
+      "key": "clean",
+      "title": "Reasonably clean when the tenant moves in"
+    },
+    {
+      "key": "urgent_repairs",
+      "title": "No outstanding urgent repairs, such as gas leaks, electrical faults, broken toilets or no hot water"
+    },
+    {
+      "key": "window_devices",
+      "title": "Window safety devices fitted if the building is strata",
+      "required": false
+    }
+  ]
+}

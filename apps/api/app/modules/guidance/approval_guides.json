@@ -6717,6 +6717,3105 @@
       "forms": [
         "austrade-emdg-sample"
       ]
+    },
+    {
+      "kind": "NSW_BUSHFIRE_ASSESSMENT",
+      "title": "Get a bush fire assessment for bush fire prone land (NSW)",
+      "summary": "If your land is bush fire prone, your application must show the work meets Planning for Bush Fire Protection 2019 (PBP). For a house, extension or granny flat that means a bush fire assessment report or a BAL certificate. Subdividing bush fire prone land also needs a bush fire safety authority from the NSW Rural Fire Service.",
+      "authority": "Accredited bush fire consultant or your council (BAL certificates); NSW Rural Fire Service (bush fire safety authorities and referrals)",
+      "publisher": "NSW Rural Fire Service",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "NSW",
+      "order": 610,
+      "checked_on": "2026-10-12",
+      "timeframe": "A consultant's report usually takes a few weeks. RFS referrals add to the DA assessment time.",
+      "cost_summary": "Consultant fees are set by the consultant. Integrated development adds $194 to council and $443 to the RFS (2026/27).",
+      "before_you_start": [
+        "Check whether your land is bush fire prone using the NSW RFS bush fire prone land check, or your section 10.7 planning certificate.",
+        "Have a site plan showing the building, boundaries and the vegetation around the site.",
+        "Know which pathway you are aiming for: complying development (CDC) is only possible up to BAL-29."
+      ],
+      "steps": [
+        {
+          "title": "Confirm the land is bush fire prone",
+          "detail": "Use the NSW RFS bush fire prone land check or look at your section 10.7 planning certificate. If the land isn't mapped as bush fire prone, you don't need this assessment.",
+          "cost": "Free online",
+          "url": "https://www.rfs.nsw.gov.au/plan-and-prepare/building-in-a-bush-fire-area/planning-for-bush-fire-protection/bush-fire-prone-land/check-bfpl"
+        },
+        {
+          "title": "Get a BAL assessment or bush fire assessment report",
+          "detail": "A BAL (bush fire attack level) measures how exposed your building will be to embers, radiant heat and flames. Only councils and accredited bush fire consultants can issue a BAL certificate; the RFS doesn't. For a DA, the report must show the proposal meets PBP 2019. For a single dwelling at BAL-29 or below, council may accept the NSW RFS Single Dwelling Application Kit.",
+          "cost": "Set by the consultant",
+          "url": "https://www.rfs.nsw.gov.au/__data/assets/pdf_file/0015/234024/BAL-Rating-Fact-Sheet.pdf"
+        },
+        {
+          "title": "Choose your pathway based on the BAL",
+          "detail": "Up to and including BAL-29, complying development may be possible, with a BAL certificate confirming the site isn't BAL-40 or the flame zone. At BAL-40 or BAL-FZ you must lodge a development application.",
+          "url": "https://www.rfs.nsw.gov.au/__data/assets/pdf_file/0005/174272/Planning-for-Bush-Fire-Protection-2019.pdf"
+        },
+        {
+          "title": "Lodge it with your application",
+          "detail": "Upload the report or BAL certificate with your DA or CDC on the NSW Planning Portal. For a DA, council must be satisfied the work meets PBP, or consult the RFS if it doesn't.",
+          "url": "https://www.planningportal.nsw.gov.au/"
+        },
+        {
+          "title": "Subdivision: RFS bush fire safety authority",
+          "detail": "Residential or rural residential subdivision of bush fire prone land needs a bush fire safety authority from the RFS under section 100B of the Rural Fires Act 1997. This makes the DA integrated development: council refers it to the RFS, and the RFS's terms become conditions of the consent.",
+          "cost": "Integrated development fees: $194 to council plus $443 to the RFS (2026/27)",
+          "url": "https://www.rfs.nsw.gov.au/__data/assets/pdf_file/0005/174272/Planning-for-Bush-Fire-Protection-2019.pdf"
+        },
+        {
+          "title": "Build to the BAL",
+          "detail": "Your builder must construct to the bush fire construction standard for your BAL and any conditions in the approval. Your certifier checks this before the occupation certificate."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Integrated development (consent authority)",
+          "amount": "$194",
+          "note": "2026/27, when an RFS bush fire safety authority is needed"
+        },
+        {
+          "label": "Integrated development (approval body, e.g. NSW RFS)",
+          "amount": "$443",
+          "note": "2026/27"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "NSW RFS Planning and Environment Services",
+          "phone": "1300 NSW RFS (1300 679 737)",
+          "email": "pes@rfs.nsw.gov.au",
+          "url": "https://www.rfs.nsw.gov.au/plan-and-prepare/building-in-a-bush-fire-area/planning-for-bush-fire-protection"
+        },
+        {
+          "name": "Your local council's duty planner",
+          "url": "https://www.olg.nsw.gov.au/public/find-my-council/",
+          "note": "Most councils offer phone advice or pre-lodgement meetings. Check your council's website."
+        }
+      ],
+      "watch_out": [
+        "BAL-40 and flame zone sites can't use complying development. Plan for a DA.",
+        "Building to a higher BAL can add a lot to construction costs. Get the BAL before you finalise the design.",
+        "PBP 2019 is the version in force. A draft PBP 2026 can't be relied on until it is adopted.",
+        "Don't ask the RFS for a BAL. Use an accredited consultant or council."
+      ],
+      "sources": [
+        {
+          "url": "https://www.rfs.nsw.gov.au/__data/assets/pdf_file/0005/174272/Planning-for-Bush-Fire-Protection-2019.pdf",
+          "title": "Planning for Bush Fire Protection 2019 (NSW RFS)"
+        },
+        {
+          "url": "https://www.rfs.nsw.gov.au/plan-and-prepare/building-in-a-bush-fire-area/planning-for-bush-fire-protection",
+          "title": "Planning for Bush Fire Protection (NSW RFS)"
+        },
+        {
+          "url": "https://www.rfs.nsw.gov.au/__data/assets/pdf_file/0015/234024/BAL-Rating-Fact-Sheet.pdf",
+          "title": "BAL Rating Fact Sheet (NSW RFS)"
+        },
+        {
+          "url": "https://www.planning.nsw.gov.au/sites/default/files/2026-06/schedule-planning-development-fees-charges-2026-27.pdf",
+          "title": "Schedule of planning and development fees and charges 2026/27 (DPHI)"
+        }
+      ],
+      "gaps": [
+        "Consultant and council fees for BAL certificates are not published statewide.",
+        "RFS processing times for bush fire safety authorities were not confirmed.",
+        "The FPAA accredited consultant directory (fpaa.com.au) is an industry body site and isn't linked here."
+      ],
+      "forms": [
+        "nsw-rfs-bush-fire-prone-land-check",
+        "nsw-rfs-single-dwelling-application-kit"
+      ]
+    },
+    {
+      "kind": "NSW_BASIX_CERTIFICATE",
+      "title": "Get a BASIX certificate (NSW)",
+      "summary": "BASIX sets water, energy and thermal comfort standards for homes in NSW. You need a BASIX certificate for every new home (including granny flats), renovations costing more than $50,000, and pools or spas of 40,000 litres or more. You make it yourself in the online BASIX tool.",
+      "authority": "NSW Department of Planning, Housing and Infrastructure",
+      "publisher": "Department of Planning, Housing and Infrastructure (NSW)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "NSW",
+      "order": 620,
+      "checked_on": "2026-10-12",
+      "timeframe": "Same day once your plans and specifications are ready.",
+      "cost_summary": "$50 for a single dwelling, $25 per dwelling for alterations and additions, plus a $5 Planning Portal fee and a merchant fee.",
+      "before_you_start": [
+        "Have your floor plans, elevations, window sizes and orientation, and the materials for walls, roof and floors.",
+        "Know your planned hot water system, lighting, appliances, rainwater tank and landscaping.",
+        "Register for a NSW Planning Portal account.",
+        "Download the Data Input Checklist from the BASIX pages."
+      ],
+      "steps": [
+        {
+          "title": "Log in to the BASIX tool",
+          "detail": "Open the NSW BASIX certificate tool from the Planning Portal and log in with your applicant or developer Portal account.",
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/basix"
+        },
+        {
+          "title": "Start a project and enter your design",
+          "detail": "Start a new project and enter the details from the Data Input Checklist. Your designer can do this for you.",
+          "url": "https://www.planningportal.nsw.gov.au/basix/about-basix/getting-basix-certificate"
+        },
+        {
+          "title": "Reach the targets",
+          "detail": "Select Calculate to see your water, energy and thermal comfort scores. Change the design or fittings until you pass every target."
+        },
+        {
+          "title": "Pay and print the certificate",
+          "detail": "Pay the certificate fee, then print the certificate and its list of commitments.",
+          "cost": "$50 single dwelling; $25 per dwelling for alterations and additions; plus $5 Portal fee",
+          "url": "https://www.planning.nsw.gov.au/support-hub/what-fee-basix-certificate"
+        },
+        {
+          "title": "Attach it to your applications",
+          "detail": "Attach the certificate to your DA or CDC, and to the construction certificate application. Show the BASIX commitments on your plans.",
+          "url": "https://www.planningportal.nsw.gov.au/basix/about-basix/BASIX-and-planning-approvals"
+        },
+        {
+          "title": "Build the commitments and get the completion receipt",
+          "detail": "Your builder must install everything the certificate commits to. Your certifier issues a BASIX completion receipt before the occupation certificate."
+        }
+      ],
+      "fees": [
+        {
+          "label": "BASIX certificate: single dwelling",
+          "amount": "$50",
+          "note": "Maximum"
+        },
+        {
+          "label": "BASIX certificate: multi-dwelling",
+          "amount": "$80 for the first two dwellings plus $35 each extra"
+        },
+        {
+          "label": "BASIX certificate: alterations and additions",
+          "amount": "$25 per dwelling"
+        },
+        {
+          "label": "Planning Portal fee",
+          "amount": "$5 per certificate",
+          "note": "Plus a merchant fee for your payment method"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "BASIX help line",
+          "phone": "1300 650 908",
+          "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+          "note": "Put 'BASIX' in the subject line if you email through the contact page."
+        },
+        {
+          "name": "NSW Planning Portal service desk",
+          "phone": "1300 305 695",
+          "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+          "hours": "9am to 5pm, Monday to Friday (not public holidays)",
+          "note": "For help using the Portal. Questions about your project go to your council or certifier."
+        }
+      ],
+      "watch_out": [
+        "If you change the design after the certificate, revise the certificate. Revising a valid certificate already lodged is free.",
+        "The certificate must match the plans you lodge, or the certifier will send it back.",
+        "Granny flats are new dwellings and need their own BASIX certificate."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/basix",
+          "title": "BASIX (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/basix/about-basix/getting-basix-certificate",
+          "title": "Getting a BASIX certificate (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/basix/about-basix/BASIX-and-planning-approvals",
+          "title": "BASIX and planning approvals (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.planning.nsw.gov.au/support-hub/what-fee-basix-certificate",
+          "title": "What is the fee for a BASIX certificate? (DPHI support hub)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+          "title": "Contact us (NSW Planning Portal)"
+        }
+      ],
+      "gaps": [
+        "How long a BASIX certificate stays valid before you lodge it couldn't be confirmed (the 'Certificate validity' page wasn't read)."
+      ],
+      "forms": [
+        "nsw-basix-tool"
+      ]
+    },
+    {
+      "kind": "NSW_COMPLYING_DEVELOPMENT_CERTIFICATE",
+      "title": "Get a complying development certificate (CDC) in NSW",
+      "summary": "A complying development certificate is a fast-track planning and building approval in one. If your house, extension, granny flat or change of use meets every standard in a State code, your council or a registered certifier can approve it in about 20 days (10 days for NSW Housing Pattern Book designs), without a development application.",
+      "authority": "Your local council or a registered certifier (you choose)",
+      "publisher": "Department of Planning, Housing and Infrastructure (NSW)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "NSW",
+      "order": 630,
+      "checked_on": "2026-10-12",
+      "timeframe": "About 20 days, or 10 days for NSW Housing Pattern Book development. Neighbours are notified 14 days before approval.",
+      "cost_summary": "The certifier sets the fee. The Planning Portal charges $43 to submit, plus the NSW BASIX certificate tool fee and any consultant reports.",
+      "before_you_start": [
+        "Order a section 10.7 planning certificate. CDCs aren't allowed on heritage items, in environmentally sensitive areas or at BAL-40 or flame zone bush fire risk, and flood control lots have extra rules.",
+        "Find the right code: the Housing Code (houses, extensions), the Low Rise Housing Diversity Code (dual occupancies, terraces), the Housing SEPP (granny flats, lot of 450 m2 or more) or the Codes SEPP change of use provisions.",
+        "Have a designer draw plans that meet every standard in that code (setbacks, height, site coverage, landscaping). One miss means a DA instead.",
+        "Get a BASIX certificate if it's a new dwelling or work over $50,000.",
+        "On bush fire prone land, get a BAL certificate showing BAL-29 or lower.",
+        "Have your certificate of title, site plan, design plans, structural plans and building specifications ready."
+      ],
+      "steps": [
+        {
+          "title": "Check that complying development fits",
+          "detail": "Check the land exclusions on your section 10.7 planning certificate and the standards of the relevant code. Your council can tell you which documents it expects.",
+          "url": "https://legislation.nsw.gov.au/view/html/inforce/current/epi-2008-0572"
+        },
+        {
+          "title": "Choose your certifier",
+          "detail": "You can ask council or a registered private certifier. Search the Building Certifiers Public Register to check a certifier's registration. Get a written quote: CDC fees are set by the certifier.",
+          "url": "https://applications.fairtrading.nsw.gov.au/bdcregister/"
+        },
+        {
+          "title": "Apply on the NSW Planning Portal",
+          "detail": "Log in and complete the NSW Planning Portal online CDC service. Upload the title, site plan, plans, structural plans, specifications, BASIX certificate and any other reports.",
+          "cost": "$43 Portal submission fee (2026/27)",
+          "form": {
+            "name": "NSW Planning Portal online CDC service",
+            "url": "https://www.planningportal.nsw.gov.au/onlinecdc"
+          },
+          "url": "https://www.planningportal.nsw.gov.au/onlinecdc"
+        },
+        {
+          "title": "Neighbours are notified",
+          "detail": "The certifier or council tells neighbours within 20 metres at least 14 days before the CDC can be approved. Talking to your neighbours early helps.",
+          "timeframe": "14 days before approval",
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/planning-approval-pathways/complying-development/what-tell-your-neighbours"
+        },
+        {
+          "title": "Get the decision",
+          "detail": "The certifier checks every standard and issues the CDC, with conditions, or refuses it. If refused, you can change the design or lodge a DA instead.",
+          "timeframe": "About 20 days (10 days for Pattern Book development)",
+          "url": "https://www.planning.nsw.gov.au/assess-and-regulate/development-assessment/planning-approval-pathways/complying-development"
+        },
+        {
+          "title": "Appoint a principal certifier and give notice",
+          "detail": "Before work starts, appoint a principal certifier (often the same certifier). They must tell council at least 2 days before work starts. You must also tell neighbours: at least 7 days before in metropolitan areas, or 2 days in rural and regional areas.",
+          "timeframe": "7 days (metro) or 2 days (regional) before work starts",
+          "url": "https://www.nsw.gov.au/housing-and-construction/building-or-renovating-a-home/preparing/approvals"
+        },
+        {
+          "title": "Build, have inspections, then get the occupation certificate",
+          "detail": "Your principal certifier inspects the work at set stages. Before anyone moves into a new building, you need an occupation certificate."
+        }
+      ],
+      "fees": [
+        {
+          "label": "CDC assessment fee",
+          "amount": "Varies: set by the council or certifier",
+          "note": "No statewide schedule. Get quotes."
+        },
+        {
+          "label": "Planning Portal CDC submission fee",
+          "amount": "$43",
+          "note": "2026/27"
+        },
+        {
+          "label": "Certificate registration on the Portal",
+          "amount": "$6"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "NSW Planning Portal service desk",
+          "phone": "1300 305 695",
+          "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+          "hours": "9am to 5pm, Monday to Friday (not public holidays)",
+          "note": "For help using the Portal. Questions about your project go to your council or certifier."
+        },
+        {
+          "name": "Your local council's duty planner",
+          "url": "https://www.olg.nsw.gov.au/public/find-my-council/",
+          "note": "Most councils offer phone advice or pre-lodgement meetings. Check your council's website."
+        }
+      ],
+      "watch_out": [
+        "A CDC is all or nothing: if any single standard isn't met, you need a DA.",
+        "A CDC doesn't need a separate construction certificate, but you still need a principal certifier and an occupation certificate.",
+        "Heritage items, environmentally sensitive land and BAL-40 or flame zone sites are excluded.",
+        "A lot with a granny flat can't later be subdivided.",
+        "Work started without a valid CDC is unauthorised and hard to fix later."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planning.nsw.gov.au/assess-and-regulate/development-assessment/planning-approval-pathways/complying-development",
+          "title": "Complying development (DPHI)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/onlinecdc",
+          "title": "Online complying development certificate (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/planning-approval-pathways/complying-development/what-tell-your-neighbours",
+          "title": "What to tell your neighbours (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-02/guide-to-complying-development.pdf",
+          "title": "Guide to Complying Development (DPHI)"
+        },
+        {
+          "url": "https://legislation.nsw.gov.au/view/html/inforce/current/epi-2008-0572",
+          "title": "State Environmental Planning Policy (Exempt and Complying Development Codes) 2008"
+        },
+        {
+          "url": "https://www.planning.nsw.gov.au/policy-and-legislation/housing/housing-sepp/secondary-dwellings",
+          "title": "Secondary dwellings (DPHI)"
+        },
+        {
+          "url": "https://www.nsw.gov.au/housing-and-construction/building-or-renovating-a-home/preparing/approvals",
+          "title": "Approvals for building or renovating (NSW Government)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/help-and-resources/nsw-planning-portal-service-fees",
+          "title": "NSW Planning Portal service fees"
+        }
+      ],
+      "gaps": [
+        "The statutory deadline for a certifier to decide a CDC (and whether it is calendar or business days) couldn't be read from the Regulation; the Department's page says 'as little as 20 days'.",
+        "Typical private certifier fees are not published by government.",
+        "The full flood control lot criteria (Codes SEPP Part 3) were not read."
+      ],
+      "forms": [
+        "nsw-planning-certificate-10-7",
+        "nsw-basix-tool",
+        "nsw-planning-portal-online-cdc"
+      ]
+    },
+    {
+      "kind": "NSW_DEVELOPMENT_APPLICATION",
+      "title": "Lodge a development application (DA) in NSW",
+      "summary": "If your project isn't exempt and can't be complying development, you need development consent from your council. You lodge the DA online on the NSW Planning Portal, council checks and assesses it (notifying neighbours if needed), and then approves it with conditions or refuses it. Building work then needs a construction certificate.",
+      "authority": "Your local council (some larger projects go to a planning panel or the Minister)",
+      "publisher": "Department of Planning, Housing and Infrastructure (NSW)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "NSW",
+      "order": 640,
+      "checked_on": "2026-10-12",
+      "timeframe": "Varies by council and project. Neighbour notification is 14 days, or 28 days for integrated development.",
+      "cost_summary": "Council DA fee based on estimated cost (for example $1,725 for a $300,000 house in 2026/27), plus notification, referral and consultant costs.",
+      "before_you_start": [
+        "Check your zone and controls on the NSW Planning Portal Spatial Viewer, and read the council's Local Environmental Plan (LEP) and Development Control Plan (DCP).",
+        "Order a section 10.7 planning certificate for heritage, bush fire, flood and other constraints.",
+        "Book a pre-lodgement meeting with council for anything unusual.",
+        "Prepare plans (site plan, floor plans, elevations, shadow diagrams if needed) and a statement of environmental effects.",
+        "Get signed owner's consent from every owner (company owners sign under section 127 of the Corporations Act).",
+        "Get a cost estimate: councils commonly accept your own estimate under $100,000 and ask for a quantity surveyor's report for larger projects.",
+        "Get a BASIX certificate for a new dwelling or work over $50,000, and a bush fire report if the land is bush fire prone.",
+        "Register for a NSW Planning Portal account or log in with your Service NSW account."
+      ],
+      "steps": [
+        {
+          "title": "Check the controls",
+          "detail": "Look up the zone on the Spatial Viewer and check the LEP land use table to make sure your use is allowed. Read the DCP for setbacks, height and parking.",
+          "cost": "Free",
+          "url": "https://www.planningportal.nsw.gov.au/spatialviewer/#/find-a-property/address"
+        },
+        {
+          "title": "Prepare your documents",
+          "detail": "Get the plans, statement of environmental effects, cost estimate, owner's consent, BASIX certificate and any specialist reports (bush fire, flood, heritage, traffic) your council's checklist asks for.",
+          "url": "https://www.planningportal.nsw.gov.au/local-development"
+        },
+        {
+          "title": "Lodge on the NSW Planning Portal",
+          "detail": "Start a NSW Planning Portal online DA, describe the development, give the estimated cost and upload your documents.",
+          "form": {
+            "name": "NSW Planning Portal online DA",
+            "url": "https://www.planningportal.nsw.gov.au/onlineDA"
+          },
+          "url": "https://www.service.nsw.gov.au/transaction/apply-development-consent"
+        },
+        {
+          "title": "Council checks it and sends an invoice",
+          "detail": "Council checks the application is complete, then issues an invoice for the DA fee through the Portal. The assessment clock starts once you pay. Some councils cancel unpaid applications after a few days.",
+          "cost": "DA fee from Schedule 4 of the EP&A Regulation 2021 (see fees)"
+        },
+        {
+          "title": "Notification and assessment",
+          "detail": "Council notifies neighbours if its community participation plan requires it (usually 14 days; 28 days for integrated development) and may ask you for more information. Integrated development (for example a bush fire safety authority) is referred to the relevant agency.",
+          "timeframe": "14 or 28 days of notification"
+        },
+        {
+          "title": "Get the decision",
+          "detail": "Council approves the DA with conditions, or refuses it. Read the conditions closely: some must be met before the construction certificate. If you disagree, you can ask council for a review or appeal to the Land and Environment Court.",
+          "cost": "Review fees apply, for example $263 for a dwelling house costing $100,000 or less"
+        },
+        {
+          "title": "Get a construction certificate and appoint a principal certifier",
+          "detail": "Before building work starts you need a construction certificate, a principal certifier, and notice to council at least 2 days before work starts.",
+          "url": "https://www.nsw.gov.au/housing-and-construction/building-or-renovating-a-home/preparing/approvals"
+        }
+      ],
+      "fees": [
+        {
+          "label": "DA fee: estimated cost up to $5,000",
+          "amount": "$153",
+          "note": "2026/27 maximum council fee"
+        },
+        {
+          "label": "DA fee: $5,001 to $50,000",
+          "amount": "$235 plus $3.00 per $1,000 (or part) over $5,000"
+        },
+        {
+          "label": "DA fee: $50,001 to $250,000",
+          "amount": "$488 plus $3.64 per $1,000 (or part) over $50,000"
+        },
+        {
+          "label": "DA fee: $250,001 to $500,000",
+          "amount": "$1,608 plus $2.34 per $1,000 (or part) over $250,000"
+        },
+        {
+          "label": "DA fee: $500,001 to $1 million",
+          "amount": "$2,420 plus $1.64 per $1,000 (or part) over $500,000"
+        },
+        {
+          "label": "DA fee: $1,000,001 to $10 million",
+          "amount": "$3,625 plus $1.44 per $1,000 (or part) over $1 million"
+        },
+        {
+          "label": "DA fee: over $10 million",
+          "amount": "$22,009 plus $1.19 per $1,000 (or part) over $10 million"
+        },
+        {
+          "label": "DA fee: dwelling house costing $100,000 or less",
+          "amount": "$631"
+        },
+        {
+          "label": "DA fee: no building work (for example change of use)",
+          "amount": "$395"
+        },
+        {
+          "label": "Subdivision DA (no new road)",
+          "amount": "$458 plus $53 per additional lot"
+        },
+        {
+          "label": "Subdivision DA (new public road)",
+          "amount": "$921 plus $65 per additional lot"
+        },
+        {
+          "label": "Integrated development or concurrence",
+          "amount": "$194 to council plus $443 to each agency"
+        },
+        {
+          "label": "Notification where council's community participation plan requires it",
+          "amount": "Up to $1,532"
+        },
+        {
+          "label": "Modify a consent (section 4.55(1))",
+          "amount": "$98"
+        },
+        {
+          "label": "Section 10.7 planning certificate",
+          "amount": "$74",
+          "note": "Plus $111 for section 10.7(5) advice"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's duty planner",
+          "url": "https://www.olg.nsw.gov.au/public/find-my-council/",
+          "note": "Most councils offer phone advice or pre-lodgement meetings. Check your council's website."
+        },
+        {
+          "name": "NSW Planning Portal service desk",
+          "phone": "1300 305 695",
+          "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+          "hours": "9am to 5pm, Monday to Friday (not public holidays)",
+          "note": "For help using the Portal. Questions about your project go to your council or certifier."
+        }
+      ],
+      "watch_out": [
+        "Approval isn't permission to build. You still need a construction certificate before work starts.",
+        "Respond to information requests by the date given, or council may decide on what it has.",
+        "Consents can include conditions requiring developer contributions or other payments. Ask council for an estimate early.",
+        "Fees in the schedule are maximums. Your council's fees and charges list has its actual fees."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planningportal.nsw.gov.au/local-development",
+          "title": "Local development (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.service.nsw.gov.au/transaction/apply-development-consent",
+          "title": "Apply for development consent (Service NSW)"
+        },
+        {
+          "url": "https://www.planning.nsw.gov.au/sites/default/files/2026-06/schedule-planning-development-fees-charges-2026-27.pdf",
+          "title": "Schedule of planning and development fees and charges 2026/27 (DPHI)"
+        },
+        {
+          "url": "https://www.nsw.gov.au/housing-and-construction/building-or-renovating-a-home/preparing/approvals",
+          "title": "Approvals for building or renovating (NSW Government)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+          "title": "Contact us (NSW Planning Portal)"
+        }
+      ],
+      "gaps": [
+        "The deemed refusal period (when you can appeal if council hasn't decided; commonly cited as 40 days, or 60 days for integrated, designated or concurrence DAs) couldn't be read from the EP&A Regulation 2021. Confirm before showing.",
+        "The Planning Portal service fee for lodging a DA is not listed on the Portal fees page.",
+        "Owner's consent requirements and cost estimate thresholds come from council pages (for example Hornsby) and vary by council. No statewide owner's consent form was found."
+      ],
+      "forms": [
+        "nsw-planning-certificate-10-7",
+        "nsw-basix-tool",
+        "nsw-planning-portal-online-da"
+      ]
+    },
+    {
+      "kind": "NSW_CONSTRUCTION_CERTIFICATE",
+      "title": "Get a construction certificate after a DA (NSW)",
+      "summary": "A construction certificate confirms your detailed building plans match the development consent and the Building Code of Australia. You need one before any building work starts under a DA. You don't need one for exempt development or with a CDC.",
+      "authority": "Your council or a registered certifier (you choose)",
+      "publisher": "Department of Planning, Housing and Infrastructure (NSW)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "NSW",
+      "order": 650,
+      "checked_on": "2026-10-12",
+      "timeframe": "Depends on the certifier and how complete your plans are.",
+      "cost_summary": "Certifier's fee (quoted), plus $47 Portal submission fee and $6 registration.",
+      "before_you_start": [
+        "Have your development consent and its conditions. Meet every condition that must be satisfied before the construction certificate (for example paying contributions or bonds).",
+        "Have construction drawings, structural engineering and specifications that match the approved plans.",
+        "Have your BASIX certificate.",
+        "If a licensed builder is doing the work, have their details; if you are an owner-builder, have your permit."
+      ],
+      "steps": [
+        {
+          "title": "Choose a certifier",
+          "detail": "Council or a registered private certifier can issue it. Check registration on the Building Certifiers Public Register and get a quote.",
+          "url": "https://applications.fairtrading.nsw.gov.au/bdcregister/"
+        },
+        {
+          "title": "Apply on the NSW Planning Portal",
+          "detail": "Lodge a NSW Planning Portal post-consent certificate application for a construction certificate and upload your drawings, engineering, specifications and BASIX certificate.",
+          "cost": "$47 Portal fee (2026/27)",
+          "form": {
+            "name": "NSW Planning Portal post-consent certificate application",
+            "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates"
+          },
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates"
+        },
+        {
+          "title": "Certifier assesses and issues the certificate",
+          "detail": "The certifier checks the plans against the consent and the Building Code of Australia, then issues the construction certificate."
+        },
+        {
+          "title": "Appoint a principal certifier and notify council",
+          "detail": "Appoint a principal certifier and tell them whether you are using a licensed builder or are an owner-builder. The principal certifier tells council at least 2 days before work starts.",
+          "timeframe": "At least 2 days before work starts",
+          "url": "https://www.nsw.gov.au/housing-and-construction/building-or-renovating-a-home/preparing/approvals"
+        },
+        {
+          "title": "Build with inspections",
+          "detail": "Your principal certifier inspects the work at the critical stages. At the end, apply for the occupation certificate."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Construction certificate",
+          "amount": "Varies: set by the council or certifier",
+          "note": "Get quotes"
+        },
+        {
+          "label": "Planning Portal submission fee",
+          "amount": "$47",
+          "note": "2026/27"
+        },
+        {
+          "label": "Certificate registration",
+          "amount": "$6"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "NSW Planning Portal service desk",
+          "phone": "1300 305 695",
+          "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+          "hours": "9am to 5pm, Monday to Friday (not public holidays)",
+          "note": "For help using the Portal. Questions about your project go to your council or certifier."
+        },
+        {
+          "name": "Your local council's duty planner",
+          "url": "https://www.olg.nsw.gov.au/public/find-my-council/",
+          "note": "Most councils offer phone advice or pre-lodgement meetings. Check your council's website."
+        }
+      ],
+      "watch_out": [
+        "A construction certificate issued after work has started is invalid, and then no occupation certificate can be issued.",
+        "Changes to the design may need a modification of the development consent first.",
+        "You choose and contract the certifier directly, even if your builder recommends one."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates",
+          "title": "Post consent certificates (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.nsw.gov.au/housing-and-construction/building-or-renovating-a-home/preparing/approvals",
+          "title": "Approvals for building or renovating (NSW Government)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/help-and-resources/nsw-planning-portal-service-fees",
+          "title": "NSW Planning Portal service fees"
+        }
+      ],
+      "gaps": [
+        "No statutory timeframe for issuing a construction certificate was found."
+      ],
+      "forms": [
+        "nsw-basix-tool",
+        "nsw-planning-portal-post-consent"
+      ]
+    },
+    {
+      "kind": "NSW_OCCUPATION_CERTIFICATE",
+      "title": "Get an occupation certificate before moving in (NSW)",
+      "summary": "An occupation certificate lets you occupy and use a new building, or a new part of a building, approved by a DA or CDC. Your principal certifier issues it after the final inspection when the work matches the approval.",
+      "authority": "Your principal certifier",
+      "publisher": "Department of Planning, Housing and Infrastructure (NSW)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "NSW",
+      "order": 660,
+      "checked_on": "2026-10-12",
+      "timeframe": "After the final inspection; depends on the certifier.",
+      "cost_summary": "Usually covered in the principal certifier's fee, plus $47 Portal submission fee and $6 registration.",
+      "before_you_start": [
+        "Finish all the work, including BASIX commitments, smoke alarms and any conditions that must be met before occupation.",
+        "Collect the certificates and documents your certifier asks for.",
+        "Have any fire safety certificate and the BASIX details ready."
+      ],
+      "steps": [
+        {
+          "title": "Book the final inspection",
+          "detail": "Ask your principal certifier for the final inspection once work is complete."
+        },
+        {
+          "title": "Apply on the NSW Planning Portal",
+          "detail": "Lodge a NSW Planning Portal post-consent certificate application for an occupation certificate and upload the documents your certifier asks for.",
+          "cost": "$47 Portal fee (2026/27)",
+          "form": {
+            "name": "NSW Planning Portal post-consent certificate application",
+            "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates"
+          },
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates"
+        },
+        {
+          "title": "Certifier issues the certificate",
+          "detail": "If the building is suitable to occupy and matches the approval, the certifier issues the occupation certificate. For staged work, a partial occupation certificate may be issued. A BASIX completion receipt is issued first."
+        },
+        {
+          "title": "Move in",
+          "detail": "Only occupy or use the building once you have the occupation certificate."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Occupation certificate",
+          "amount": "Varies: set by the certifier",
+          "note": "Often part of the principal certifier's package"
+        },
+        {
+          "label": "Planning Portal submission fee",
+          "amount": "$47",
+          "note": "2026/27"
+        },
+        {
+          "label": "Certificate registration",
+          "amount": "$6"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "NSW Planning Portal service desk",
+          "phone": "1300 305 695",
+          "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+          "hours": "9am to 5pm, Monday to Friday (not public holidays)",
+          "note": "For help using the Portal. Questions about your project go to your council or certifier."
+        }
+      ],
+      "watch_out": [
+        "If the construction certificate was issued after work started, no occupation certificate can be issued.",
+        "A subdivision certificate for new lots with new buildings generally needs the occupation certificate first."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates",
+          "title": "Post consent certificates (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.nsw.gov.au/housing-and-construction/building-or-renovating-a-home/preparing/approvals",
+          "title": "Approvals for building or renovating (NSW Government)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/basix/about-basix/BASIX-and-planning-approvals",
+          "title": "BASIX and planning approvals (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-02/guide-to-complying-development.pdf",
+          "title": "Guide to Complying Development (DPHI)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/help-and-resources/nsw-planning-portal-service-fees",
+          "title": "NSW Planning Portal service fees"
+        }
+      ],
+      "gaps": [
+        "No statutory timeframe for issuing an occupation certificate was found."
+      ],
+      "forms": [
+        "nsw-planning-portal-post-consent"
+      ]
+    },
+    {
+      "kind": "NSW_SUBDIVISION_CERTIFICATE",
+      "title": "Get a subdivision certificate and register the new lots (NSW)",
+      "summary": "After your subdivision DA is approved and the subdivision works are finished, a subdivision certificate confirms the consent conditions are met. It authorises NSW Land Registry Services to register the plan, which creates the new titles.",
+      "authority": "Your council, or a registered certifier where allowed",
+      "publisher": "Department of Planning, Housing and Infrastructure (NSW)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "NSW",
+      "order": 670,
+      "checked_on": "2026-10-12",
+      "timeframe": "Depends on council or certifier; plan registration follows.",
+      "cost_summary": "Council or certifier fee, plus $47 Portal submission fee and $6 registration. Land Registry Services charges its own lodgement fees.",
+      "before_you_start": [
+        "Have the development consent and complete every condition (works, contributions, service connections, easements).",
+        "Have a registered surveyor prepare the final plan of subdivision, including any easements the consent requires.",
+        "If there are new buildings, get their occupation certificates first."
+      ],
+      "steps": [
+        {
+          "title": "Finish the subdivision works",
+          "detail": "Complete roads, drainage and services as the consent requires. Some works need a subdivision works certificate first."
+        },
+        {
+          "title": "Apply on the NSW Planning Portal",
+          "detail": "Lodge a NSW Planning Portal post-consent certificate application for a subdivision certificate with the final plan and evidence that the conditions are met.",
+          "cost": "$47 Portal fee (2026/27)",
+          "form": {
+            "name": "NSW Planning Portal post-consent certificate application",
+            "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates"
+          },
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates"
+        },
+        {
+          "title": "Council or certifier issues the certificate",
+          "detail": "Once satisfied the subdivision meets the consent, the council or certifier issues the subdivision certificate."
+        },
+        {
+          "title": "Register the plan",
+          "detail": "Your surveyor or solicitor lodges the plan with NSW Land Registry Services, which registers it and issues the new titles."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Subdivision certificate",
+          "amount": "Varies: set by the council or certifier"
+        },
+        {
+          "label": "Planning Portal submission fee",
+          "amount": "$47",
+          "note": "2026/27"
+        },
+        {
+          "label": "Certificate registration",
+          "amount": "$6"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's duty planner",
+          "url": "https://www.olg.nsw.gov.au/public/find-my-council/",
+          "note": "Most councils offer phone advice or pre-lodgement meetings. Check your council's website."
+        },
+        {
+          "name": "NSW Planning Portal service desk",
+          "phone": "1300 305 695",
+          "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+          "hours": "9am to 5pm, Monday to Friday (not public holidays)",
+          "note": "For help using the Portal. Questions about your project go to your council or certifier."
+        }
+      ],
+      "watch_out": [
+        "Check every consent condition is met, including contributions and service connections, before you apply, or the certificate will be held up.",
+        "A lot with a granny flat can't be subdivided to separate it from the main house."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates",
+          "title": "Post consent certificates (NSW Planning Portal)"
+        },
+        {
+          "url": "https://www.planning.nsw.gov.au/policy-and-legislation/housing/housing-sepp/secondary-dwellings",
+          "title": "Secondary dwellings (DPHI)"
+        },
+        {
+          "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-02/guide-to-complying-development.pdf",
+          "title": "Guide to Complying Development (DPHI)"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/help-and-resources/nsw-planning-portal-service-fees",
+          "title": "NSW Planning Portal service fees"
+        }
+      ],
+      "gaps": [
+        "NSW Land Registry Services plan lodgement fees were not checked.",
+        "Which subdivisions a registered certifier (rather than council) may certify was not confirmed in detail."
+      ],
+      "forms": [
+        "nsw-planning-portal-post-consent"
+      ]
+    },
+    {
+      "kind": "NSW_TENANCY_BOND_LODGEMENT",
+      "title": "Lodging a rental bond in New South Wales",
+      "summary": "Every bond for a NSW residential tenancy is held by NSW Fair Trading (Rental Bonds), not by you or your agent. The bond can be at most 4 weeks' rent. You must offer the tenant Rental Bonds Online first, where they pay NSW Fair Trading directly; if they choose paper, you use the NSW Rental Bond Lodgement form after the agreement is signed. At the end of the tenancy the bond is claimed through the same service.",
+      "authority": "NSW Fair Trading (Rental Bonds)",
+      "publisher": "NSW Fair Trading",
+      "jurisdiction": "NSW",
+      "verticals": [
+        "RENT"
+      ],
+      "order": 300,
+      "checked_on": "2026-10-12",
+      "timeframe": "Registration needs one visit to a Service NSW Centre; an online bond is lodged as soon as the tenant pays.",
+      "cost_summary": "No lodgement fee was published on the pages read. The bond itself is at most 4 weeks' rent.",
+      "before_you_start": [
+        "Work out the bond: no more than 4 weeks' rent.",
+        "Self-managing landlords need a Rental Bonds Online account before the tenancy starts. Agents use their agency's account.",
+        "Check the tenant has internet access, a mobile phone, an email address and a BPay, Visa or MasterCard payment method. If not, use the paper form.",
+        "You can't require a tenant to use Rental Bonds Online. Doing so can bring a $2,200 fine."
+      ],
+      "steps": [
+        {
+          "title": "Register for Rental Bonds Online",
+          "detail": "Complete the Rental Bonds Online registration form and take it, with original proof of identity, to any Service NSW Centre (find one on the Service NSW website or call 13 77 88). Once your documents are checked you get emails with your Landlord Code and instructions to activate your account.",
+          "timeframe": "One visit, then account activation by email",
+          "form": {
+            "name": "Rental Bonds Online landlord or owner proof of identity and registration form",
+            "url": "https://www.nsw.gov.au/housing-and-construction/rental-forms-surveys-and-data/resources/rental-bonds-online-landlord-or-owner-proof-of-identity-registration-form"
+          },
+          "url": "https://nsw.gov.au/housing-and-construction/landlords/rental-bonds-online-for-landlords"
+        },
+        {
+          "title": "Invite the tenant to pay the bond online",
+          "detail": "Before the tenant signs, invite them to lodge the bond through Rental Bonds Online. The tenant creates an account and pays NSW Fair Trading directly by BPay, Visa or MasterCard. You get a notification when it is paid, and NSW Fair Trading sends the tenant a receipt.",
+          "url": "https://rbo.fairtrading.nsw.gov.au/agent/login"
+        },
+        {
+          "title": "Finalise the bond",
+          "detail": "Once the bond is paid and the agreement is signed, log in and complete the 'finalise the bond' task on your homepage. This allocates the bond number.",
+          "url": "https://rbo.fairtrading.nsw.gov.au/agent/login"
+        },
+        {
+          "title": "If the tenant chooses paper: use the NSW Rental Bond Lodgement form",
+          "detail": "Download the NSW Rental Bond Lodgement form from the Links section of your Rental Bonds Online account. Take the bond only after the agreement is signed. Have the tenant sign the form, give them a receipt (or note the payment on the agreement), don't keep the money or bank it in an account in the tenant's name, and lodge the form and bond by post or at a Service NSW Centre.",
+          "form": {
+            "name": "Rental Bond Lodgement form",
+            "url": "https://www.service.nsw.gov.au/transaction/lodge-rental-bond"
+          },
+          "url": "https://www.service.nsw.gov.au/transaction/lodge-rental-bond"
+        },
+        {
+          "title": "At the end, claim the bond",
+          "detail": "Submit the claim in Rental Bonds Online, entering any deduction (zero for a full refund). The tenant gets a 14-day notice of claim by email and SMS. If they don't agree, give them the final condition report and any quotes, invoices or receipts within 7 days of claiming; they can dispute by applying to the NSW Civil and Administrative Tribunal. A claim without the tenant's consent can only be made after the tenancy ends. Paper bonds are claimed with the Claim for Refund of Bond Money form by post or email.",
+          "timeframe": "Refund paid after the 14-day notice period if the tenant doesn't dispute",
+          "form": {
+            "name": "Claim for Refund of Bond Money",
+            "url": "https://www.nsw.gov.au/housing-and-construction/rental-forms-surveys-and-data/resources/claim-for-refund-of-bond-money-form"
+          }
+        }
+      ],
+      "fees": [
+        {
+          "label": "Lodging the bond",
+          "amount": "Free",
+          "note": "The bond itself can be at most 4 weeks' rent."
+        },
+        {
+          "label": "Fine for requiring a tenant to use Rental Bonds Online",
+          "amount": "$2,200"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Rental Bonds (NSW Fair Trading)",
+          "phone": "1800 990 724",
+          "email": "rbosupport@customerservice.nsw.gov.au",
+          "hours": "Monday to Friday, 8:30am to 5pm",
+          "note": "Bond claims: bondclaims@customerservice.nsw.gov.au. Post: Locked Bag 9000, Grafton NSW 2460."
+        },
+        {
+          "name": "Service NSW",
+          "phone": "13 77 88",
+          "url": "https://www.service.nsw.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Don't hold the bond yourself. Every NSW bond goes to NSW Fair Trading.",
+        "Don't take more than 4 weeks' rent as bond, and don't ask for a pet bond.",
+        "Paper bonds can't be claimed online; use the Claim for Refund of Bond Money form.",
+        "Keep the start and end condition reports and photos: they are your evidence for any claim."
+      ],
+      "sources": [
+        {
+          "url": "https://nsw.gov.au/housing-and-construction/landlords/rental-bonds-online-for-landlords",
+          "title": "Rental Bonds Online for self-managing landlords"
+        },
+        {
+          "url": "https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live/residential-rental-bonds/rental-bonds-online-for-tenants",
+          "title": "Rental Bonds Online for tenants"
+        },
+        {
+          "url": "https://www.service.nsw.gov.au/transaction/lodge-rental-bond",
+          "title": "Lodge a rental bond (Service NSW)"
+        }
+      ],
+      "gaps": [
+        "The deadline for depositing a bond paid directly to the landlord or agent (understood to be 10 working days under section 162 of the Residential Tenancies Act 2010) was not stated on the pages read and the section could not be loaded; confirm before relying on it.",
+        "No fee for lodging or claiming a bond was published on the pages read.",
+        "The Service NSW page for lodging a bond claim online (service.nsw.gov.au/transaction/lodge-residential-bond-claim-landlords-or-managing-agents) was found but not read."
+      ],
+      "forms": [
+        "nsw-rbo-landlord-registration",
+        "nsw-rental-bonds-online",
+        "nsw-rental-bond-lodgement",
+        "nsw-claim-refund-bond-money"
+      ]
+    },
+    {
+      "kind": "NSW_POOL_COMPLIANCE_CERTIFICATE",
+      "title": "Getting a pool certificate of compliance in New South Wales",
+      "summary": "A NSW home with a swimming or spa pool needs a pool certificate to be sold or leased. The pool must be on the NSW Swimming Pool Register. Your council or an accredited certifier inspects the pool barrier and issues a certificate of compliance (valid 3 years) or, if it fails, a certificate of non-compliance (valid 1 year). A sale contract can attach either; a lease needs a certificate of compliance (or an occupation certificate for a pool built in the last 3 years). Lots in strata or community schemes of more than two lots are exempt.",
+      "authority": "Local council or an accredited certifier",
+      "publisher": "NSW Fair Trading",
+      "jurisdiction": "NSW",
+      "verticals": [
+        "SELL",
+        "RENT"
+      ],
+      "order": 200,
+      "checked_on": "2026-10-12",
+      "timeframe": "Book the inspection well before you list or lease; a failed pool needs repairs and a reinspection.",
+      "cost_summary": "Set by the council or certifier. Example: Wollongong City Council charges $150 (incl. GST) for a compliance certificate and $100 per inspection.",
+      "before_you_start": [
+        "Check whether the pool is already on the NSW Swimming Pool Register and whether you hold a current certificate (compliance certificates last 3 years).",
+        "If the pool was built in the last 3 years, its occupation certificate may be enough (with evidence of registration for a sale).",
+        "Lots in strata or community schemes with more than two lots don't need the certificate for a sale or lease.",
+        "Walk the barrier first: gates should self-close and self-latch, and nothing climbable should be near the fence."
+      ],
+      "steps": [
+        {
+          "title": "Register the pool",
+          "detail": "Register the pool on the NSW Swimming Pool Register if it isn't already. Registration is required for a sale with an occupation certificate and for a lease.",
+          "url": "https://www.swimmingpoolregister.nsw.gov.au/"
+        },
+        {
+          "title": "Book an inspection",
+          "detail": "Apply to your council or engage an accredited certifier. Council's pool officer contacts you to take payment and arrange a time.",
+          "cost": "Example: $150 certificate and $100 per inspection at Wollongong",
+          "url": "https://wollongong.nsw.gov.au/plan-and-build/property-information/pool-certificates2"
+        },
+        {
+          "title": "Receive the certificate",
+          "detail": "If the pool passes you get a certificate of compliance, valid 3 years. If it fails you get a certificate of non-compliance listing the defects, valid 1 year; fix them and book a reinspection.",
+          "timeframe": "Report and certificate emailed after the inspection"
+        },
+        {
+          "title": "Selling: attach a pool document to the contract",
+          "detail": "Your conveyancer attaches the certificate of compliance, an occupation certificate with evidence of registration, or a certificate of non-compliance to the NSW contract for sale of land before marketing. With a non-compliance certificate, the buyer has 90 days after settlement to make the pool compliant.",
+          "url": "https://www.nsw.gov.au/housing-and-construction/property-professionals/working-as-an-agent/sales-contracts"
+        },
+        {
+          "title": "Leasing: give the tenant a copy",
+          "detail": "Give the tenant a copy of the certificate of compliance (or occupation certificate) when the agreement is signed. A certificate of non-compliance is not enough for a lease.",
+          "url": "https://www.nsw.gov.au/housing-and-construction/rules/information-a-tenant-should-get-at-start-of-a-tenancy"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Compliance certificate (Wollongong City Council)",
+          "amount": "$150 incl. GST",
+          "note": "Other councils and certifiers set their own fees"
+        },
+        {
+          "label": "Inspection (Wollongong City Council)",
+          "amount": "$100 incl. GST per inspection"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's swimming pool officer",
+          "note": "Find your council with the Office of Local Government's Find my council tool"
+        },
+        {
+          "name": "NSW Fair Trading",
+          "phone": "13 32 20",
+          "hours": "Monday to Friday, 8:30am to 5pm"
+        }
+      ],
+      "watch_out": [
+        "A certificate of non-compliance lets you sell but not lease.",
+        "Check the certificate will still be valid when the next lease is signed.",
+        "The buyer inherits the repairs with a non-compliance certificate, which can affect price."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/housing-and-construction/property-professionals/working-as-an-agent/sales-contracts",
+          "title": "Sales contracts – requirements for property agents"
+        },
+        {
+          "url": "https://www.federationcouncil.nsw.gov.au/Building-Planning/Building-Renovating/Swimming-Pools-Spas/Selling-or-leasing-property-with-a-Pool",
+          "title": "Selling or leasing property with a pool (Federation Council)"
+        },
+        {
+          "url": "https://wollongong.nsw.gov.au/plan-and-build/property-information/pool-certificates2",
+          "title": "Pool certificates (Wollongong City Council)"
+        },
+        {
+          "url": "https://legislation.nsw.gov.au/view/html/inforce/current/sl-2022-0485",
+          "title": "Conveyancing (Sale of Land) Regulation 2022, Schedule 1 item 15"
+        }
+      ],
+      "gaps": [
+        "The NSW Swimming Pool Register site did not load, so registration steps and any statewide inspection fee cap were not confirmed.",
+        "Fees are Wollongong's only; a statewide maximum fee under the Swimming Pools Regulation 2018 was not read.",
+        "The Swimming Pools Act 1992 was not read directly; the leasing rules come from council and NSW Fair Trading pages."
+      ],
+      "forms": [
+        "nsw-swimming-pool-register",
+        "nsw-contract-for-sale-of-land"
+      ]
+    },
+    {
+      "kind": "NSW_FOOD_BUSINESS_NOTIFICATION",
+      "title": "Notifying your food business (NSW)",
+      "summary": "Every food business in NSW must notify before it starts trading. Cafes, restaurants, takeaways, food trucks, bakeries that sell to the public, school canteens and childcare kitchens notify their local council, which then inspects you. Manufacturers, wholesalers and caterers that don't sell by retail notify the NSW Food Authority, and some of those need a Food Authority licence instead.",
+      "authority": "Your local council (retail food) or the NSW Food Authority, under the Food Act 2003 (NSW)",
+      "publisher": "business.gov.au (including ABLIS)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 160,
+      "checked_on": "2026-10-12",
+      "timeframe": "Notify before you open. Council usually inspects within the first year and then about once a year.",
+      "cost_summary": "Council notification fees vary (for example A$50 at one regional council in 2024). Council inspections are charged at each council's published rate; the Food Authority charges A$370 an hour (2026-27) for its own inspections and audits.",
+      "before_you_start": [
+        "Work out who you notify. Retail food outlets (cafes, restaurants, takeaways, food trucks, corner stores, retail bakeries), school canteens, children's services and manufacturers or caterers selling direct to consumers notify their council.",
+        "Wholesalers, food manufacturers, catering not sold by retail, importers not selling by retail and home businesses selling to other businesses notify the NSW Food Authority, and meat, dairy, seafood, egg and plant products businesses may need a Food Authority licence.",
+        "Have your premises fitted out to the Food Standards Code (Standard 3.2.3) before you trade: hand basins, cleanable surfaces, cold and hot holding.",
+        "Name your Food Safety Supervisor if you prepare and serve ready-to-eat food; councils ask for their details when you notify.",
+        "If you run a food truck or van, check your council's mobile food vending approval as well as the notification."
+      ],
+      "steps": [
+        {
+          "title": "Check your council's food business page",
+          "detail": "Search your council's website for 'food business registration' or 'food business notification'. Most councils have their own online form and fee.",
+          "timeframe": "15 minutes"
+        },
+        {
+          "title": "Notify council (retail food)",
+          "detail": "Complete your council's food business registration or notification form with the business owner, premises, food activities and Food Safety Supervisor details. Pay any fee.",
+          "timeframe": "Before you open",
+          "cost": "Varies by council"
+        },
+        {
+          "title": "Or notify the NSW Food Authority",
+          "detail": "If the Food Authority regulates you, use the online NSW Food Business Notification instead.",
+          "timeframe": "Before you trade",
+          "form": {
+            "name": "Food Business Notification (online)",
+            "url": "https://formsfa.bfs.dpi.nsw.gov.au/forms/12120"
+          },
+          "url": "https://formsfa.bfs.dpi.nsw.gov.au/forms/12120"
+        },
+        {
+          "title": "Prepare for inspection",
+          "detail": "An environmental health officer from council inspects against the Food Standards Code. Keep cleaning, temperature and training records ready. Improvement notices carry an administration fee (for example A$330 at Georges River Council).",
+          "timeframe": "Usually within months of opening",
+          "cost": "Council inspection fee"
+        },
+        {
+          "title": "Keep your details current",
+          "detail": "Tell council when the owner, Food Safety Supervisor or food activities change. A new owner must notify again."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Council notification",
+          "amount": "Varies by council",
+          "note": "Some councils charge nothing; Yass Valley charged A$50 from 1 July 2024."
+        },
+        {
+          "label": "NSW Food Authority inspection or audit",
+          "amount": "A$370 an hour",
+          "note": "2026-27, minimum half an hour."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "NSW Food Authority helpline",
+          "phone": "1300 552 406",
+          "email": "food.contact@dpird.nsw.gov.au",
+          "note": "For businesses the Food Authority regulates, and general food safety questions."
+        },
+        {
+          "name": "Your local council's environmental health team",
+          "note": "For retail food notification, inspections and fees."
+        }
+      ],
+      "watch_out": [
+        "Trading before you notify is an offence under the Food Act 2003.",
+        "Notification goes to one place: don't notify both council and the Food Authority unless told to.",
+        "Selling from a market stall or event usually needs the event council's temporary food stall approval as well.",
+        "Home-based food businesses need to check council planning rules as well as notifying."
+      ],
+      "sources": [
+        {
+          "url": "https://ablis.business.gov.au/service/nsw/food-business-notification/32263",
+          "title": "business.gov.au (ABLIS): Food Business Notification, NSW"
+        },
+        {
+          "url": "https://ablis.business.gov.au/service/nsw/food-business-notification-council-of-the-city-of-sydney/46323",
+          "title": "business.gov.au (ABLIS): Food Business Notification, City of Sydney"
+        },
+        {
+          "url": "https://www.yassvalley.nsw.gov.au/Our-Services/Public-health/Food-Business-and-Inspections",
+          "title": "Yass Valley Council: Food business and inspections"
+        },
+        {
+          "url": "https://www.georgesriver.nsw.gov.au/Services/Environmental-Health/Food/Retail-Food-Premises",
+          "title": "Georges River Council: Retail food premises"
+        }
+      ],
+      "gaps": [
+        "The NSW Food Authority's website blocks automated reading, so this guide relies on business.gov.au and council pages. Check foodauthority.nsw.gov.au before you rely on it.",
+        "Council notification and inspection fees are set by each council and were not collected statewide.",
+        "The maximum council inspection fee and any annual administration charge under the Food Regulation 2025 could not be read."
+      ],
+      "forms": [
+        "nsw-food-business-notification"
+      ]
+    },
+    {
+      "kind": "NSW_FOOD_SAFETY_SUPERVISOR",
+      "title": "Food Safety Supervisor (NSW)",
+      "summary": "If your business prepares and serves food that is ready to eat, needs temperature control and isn't sold in its original package, you must have at least one Food Safety Supervisor (FSS) at each premises. The FSS needs a certificate from an approved registered training organisation, valid for 5 years. Since 8 December 2023, food service businesses also need trained food handlers and, for most cafes and restaurants, records of key food safety controls (Standard 3.2.2A).",
+      "authority": "NSW Food Authority under the Food Act 2003 (NSW); councils enforce for retail businesses",
+      "publisher": "NSW Food Authority",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 165,
+      "checked_on": "2026-10-12",
+      "timeframe": "Have a certified FSS before you start trading. When a certificate expires, you have 30 days to recertify or appoint another FSS.",
+      "cost_summary": "The course is paid to the training organisation; prices vary.",
+      "before_you_start": [
+        "Check you're covered: cafes, restaurants, takeaways, pubs and clubs with food, mobile vendors, caterers, supermarkets, delis and bakeries serving ready-to-eat food usually are.",
+        "Pick someone who works on site regularly and can supervise food handling. One FSS is needed per premises.",
+        "Use a registered training organisation approved by the NSW Food Authority to issue the NSW FSS certificate; a general food safety course alone may not count.",
+        "Plan training for every food handler in safe handling, hygiene, cleaning and allergens."
+      ],
+      "steps": [
+        {
+          "title": "Enrol your FSS in an approved course",
+          "detail": "Book the Food Safety Supervisor course with an approved training organisation. On passing, the RTO issues the NSW FSS certificate.",
+          "timeframe": "1 to 2 days",
+          "cost": "Set by the provider"
+        },
+        {
+          "title": "Keep the certificate on the premises",
+          "detail": "Keep a copy of the current FSS certificate at the premises and show it to an authorised officer when asked."
+        },
+        {
+          "title": "Tell council who your FSS is",
+          "detail": "Give the FSS's name and certificate details when you notify your food business, and update council if the FSS changes."
+        },
+        {
+          "title": "Train all food handlers",
+          "detail": "Make sure every person handling unpackaged, potentially hazardous food has completed food safety training, and keep the evidence.",
+          "timeframe": "Before they start"
+        },
+        {
+          "title": "Keep food safety records (category one)",
+          "detail": "If you make potentially hazardous food into ready-to-eat food (most cafes and restaurants), record key controls such as receiving, cold storage, cooking and cooling temperatures.",
+          "timeframe": "Ongoing"
+        },
+        {
+          "title": "Renew before 5 years",
+          "detail": "FSS certificates expire 5 years after issue. Recertify or appoint another certified FSS within 30 days of expiry.",
+          "timeframe": "Every 5 years"
+        }
+      ],
+      "fees": [],
+      "contacts": [
+        {
+          "name": "NSW Food Authority helpline",
+          "phone": "1300 552 406",
+          "email": "food.contact@dpird.nsw.gov.au",
+          "note": "For businesses the Food Authority regulates, and general food safety questions."
+        }
+      ],
+      "watch_out": [
+        "Council officers can issue penalty notices if no certified FSS is appointed.",
+        "The FSS should be reasonably available while the business operates; a manager who is never on site is not enough.",
+        "Pages we read disagree about whether school canteens and childcare kitchens need an FSS: Georges River Council says they now do, while Singleton Council lists them as exempt. Ask your council."
+      ],
+      "sources": [
+        {
+          "url": "https://newcastle.nsw.gov.au/business/supporting-local-business-people/business-regulations/food-and-drink-business/food-safety-supervisor",
+          "title": "City of Newcastle: Food Safety Supervisor"
+        },
+        {
+          "url": "https://www.singleton.nsw.gov.au/Business/Operating-a-business/Regulation-and-Compliance-for-Food-Businesses/Food-Safety-Supervisor",
+          "title": "Singleton Council: Food Safety Supervisor"
+        },
+        {
+          "url": "https://www.georgesriver.nsw.gov.au/Services/Environmental-Health/Food/Retail-Food-Premises",
+          "title": "Georges River Council: Retail food premises (Standard 3.2.2A from 8 December 2023)"
+        }
+      ],
+      "gaps": [
+        "The NSW Food Authority's FSS pages block automated reading. The FSS certificate fee, the list of approved training organisations and penalty amounts were not confirmed.",
+        "Whether school canteens and children's services must appoint an FSS conflicts between council pages.",
+        "The 30-day replacement period appears as both '30 days' and '30 working days' on the City of Newcastle page."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "NSW_LIQUOR_LICENCE",
+      "title": "Liquor licence (NSW)",
+      "summary": "To sell or supply alcohol in NSW you need a liquor licence from Liquor & Gaming NSW. Restaurants and cafes usually need an on-premises licence; small bars (up to 120 patrons), hotels, bottle shops and producers have their own types, and limited licences cover one-off events. You apply online, notify neighbours and others, the application is advertised for up to 30 days, and a complete application is usually decided within 7 working days of that.",
+      "authority": "Liquor & Gaming NSW; the Independent Liquor and Gaming Authority decides some applications",
+      "publisher": "Liquor & Gaming NSW",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 170,
+      "checked_on": "2026-10-12",
+      "timeframe": "Allow 6 to 8 weeks: up to 30 days of advertising (14 days for a simple restaurant), then usually 7 working days; up to 12 weeks with objections or requests for information.",
+      "cost_summary": "Application A$965 for on-premises, A$483 small bar, A$965 general bar hotel, A$3,451 full hotel, A$2,760 packaged (from 15 March 2026). Then an annual fee, for example A$811 base for on-premises in 2026.",
+      "before_you_start": [
+        "Check whether you need a licence at all: a BYO restaurant may not, but still has responsibilities.",
+        "Use the licence type check on nsw.gov.au to choose the type. On-premises suits restaurants and cafes where alcohol isn't the main business.",
+        "Check your development consent allows the use and hours you want; some licence types need consent before you apply.",
+        "Get a National Police Check for the applicant and close associates, and ASIC company extracts for a company.",
+        "Complete RSA training and, for most new licensees and approved managers, Licensee Training (LT). Higher-risk venues trading after midnight need Advanced Licensee Training.",
+        "Some applications need a Statement of Risks and Potential Effects (SoRPE)."
+      ],
+      "steps": [
+        {
+          "title": "Choose your licence type",
+          "detail": "Use the licence selector and read the requirements page for that type.",
+          "timeframe": "1 day",
+          "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/licence-type-check"
+        },
+        {
+          "title": "Prepare documents",
+          "detail": "Gather the police check, company extracts, RSA and licensee training evidence, development consent, plans of the licensed area and any SoRPE or conditions form."
+        },
+        {
+          "title": "Lodge online",
+          "detail": "Submit the complete application through the NSW OneGov liquor portal and pay the fee.",
+          "cost": "A$483 to A$3,451 by type",
+          "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/liquor-licensing/apply-manage/apply-liquor-licence"
+        },
+        {
+          "title": "Notify stakeholders",
+          "detail": "After lodging, notify NSW Police, the local council and occupiers of nearby buildings (within 50 or 100 metres, depending on the application) as instructed.",
+          "timeframe": "Straight after lodging"
+        },
+        {
+          "title": "Public consultation",
+          "detail": "The application is advertised on the Liquor & Gaming noticeboard for up to 30 days (14 days for a simple restaurant).",
+          "timeframe": "14 to 30 days"
+        },
+        {
+          "title": "Decision and conditions",
+          "detail": "Complete applications are generally decided within 7 working days of consultation; with objections it can take up to 12 weeks. Display the mandatory signs and keep an incident register if required.",
+          "timeframe": "7 working days to 12 weeks"
+        },
+        {
+          "title": "Pay the annual fee",
+          "detail": "Annual licence fees are invoiced each year (due 29 May in 2026). New licences pay a pro-rata fee.",
+          "timeframe": "Each year"
+        }
+      ],
+      "fees": [
+        {
+          "label": "On-premises application",
+          "amount": "A$965",
+          "note": "A$376 licensing plus A$589 processing; from 15 March 2026, GST excluded."
+        },
+        {
+          "label": "Small bar application",
+          "amount": "A$483"
+        },
+        {
+          "label": "Hotel (general bar) application",
+          "amount": "A$965"
+        },
+        {
+          "label": "Hotel (full) application",
+          "amount": "A$3,451"
+        },
+        {
+          "label": "Packaged liquor application",
+          "amount": "A$2,760"
+        },
+        {
+          "label": "Producer or wholesaler application",
+          "amount": "A$965"
+        },
+        {
+          "label": "Limited licence, single function (online)",
+          "amount": "A$110"
+        },
+        {
+          "label": "Trade after midnight to 1:30am authorisation",
+          "amount": "A$3,451"
+        },
+        {
+          "label": "Annual base fee 2026: on-premises",
+          "amount": "A$811",
+          "note": "Small bar A$355, general bar A$557, full hotel A$1,111, packaged 1 to 3 outlets A$816."
+        },
+        {
+          "label": "RSA competency card",
+          "amount": "Varies: included in the RSA course fee",
+          "note": "Valid 5 years; the interim certificate lets you work for 90 days."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Liquor & Gaming NSW",
+          "phone": "1300 024 720",
+          "email": "contact.us@liquorandgaming.nsw.gov.au",
+          "hours": "Monday to Friday, 9am to 4pm"
+        }
+      ],
+      "watch_out": [
+        "Processing fees are not refunded if you withdraw or are refused.",
+        "Serving alcohol on footpath tables needs the outdoor area included in the licence as well as council approval.",
+        "Every person serving alcohol needs a current NSW RSA competency card; an interim certificate lasts 90 days.",
+        "Unpaid annual fees lead to suspension, then cancellation of the licence.",
+        "Live music venues can get an 80% discount on the annual base fee if they meet the published thresholds."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/liquor-licensing/apply-manage",
+          "title": "NSW Government: Apply for and manage a liquor licence"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/liquor-licensing/apply-manage/apply-liquor-licence",
+          "title": "NSW Government: How to apply for a liquor licence"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/liquor-licensing/apply-manage/fees/fee-schedule",
+          "title": "NSW Government: Liquor licence fees schedule (effective 15 March 2026)"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/liquor-licensing/apply-manage/fees/annual-fees",
+          "title": "NSW Government: Annual liquor licence fees for 2026"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/training/competency-cards",
+          "title": "NSW Government: Get or renew a competency card"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/training/lt-alt",
+          "title": "NSW Government: Licensee Training and Advanced Licensee Training"
+        }
+      ],
+      "gaps": [
+        "The exact OneGov liquor portal address was not shown on the page read; use the 'Apply online' link on the how-to-apply page.",
+        "Training course prices are set by providers and were not collected.",
+        "The fee schedule lists no separate 'general bar' licence; the general bar figures are for a hotel (general bar) licence."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "NSW_FOOTPATH_DINING_APPROVAL",
+      "title": "Footpath dining approval (NSW)",
+      "summary": "Outdoor dining on the footpath is permanently exempt from a development application in NSW for cafes, restaurants, pubs and small bars. You still need your council's approval to use the footway under section 125 of the Roads Act 1993 (or Transport for NSW's agreement on a classified road), and on community land an approval under section 68 of the Local Government Act 1993.",
+      "authority": "Your local council (roads authority); Transport for NSW for classified roads",
+      "publisher": "Department of Planning, Housing and Infrastructure (NSW)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 180,
+      "checked_on": "2026-10-12",
+      "timeframe": "Depends on your council; many process applications through the NSW Planning Portal.",
+      "cost_summary": "Council application and footway rental fees vary by council.",
+      "before_you_start": [
+        "Your premises must already be approved to operate as a food and drink premises.",
+        "Measure the footpath and draw a plan showing tables, chairs, barriers and the clear path left for pedestrians.",
+        "Read your council's outdoor dining policy or guidelines for widths, furniture and hours.",
+        "Get public liability insurance; councils usually ask for a certificate noting council's interest.",
+        "If you'll serve alcohol outside, ask Liquor & Gaming NSW about including the area in your licence."
+      ],
+      "steps": [
+        {
+          "title": "Check council's outdoor dining rules",
+          "detail": "Find your council's outdoor dining or footway trading page and policy.",
+          "timeframe": "1 hour"
+        },
+        {
+          "title": "Apply for footway approval",
+          "detail": "Apply to council, through the NSW Planning Portal where your council uses it, with your plan, insurance and details of furniture and hours.",
+          "timeframe": "Varies by council",
+          "cost": "Council fee",
+          "url": "https://www.planningportal.nsw.gov.au/development-assessment/codes-sepp/nsw-outdoor-dining-trial"
+        },
+        {
+          "title": "Classified road check",
+          "detail": "If the footpath is on a classified (main) road, council or you must get Transport for NSW's agreement."
+        },
+        {
+          "title": "Set up to the approval",
+          "detail": "Keep tables and chairs inside the approved area and follow the conditions, including hours and pack-up."
+        }
+      ],
+      "fees": [],
+      "contacts": [
+        {
+          "name": "Your local council",
+          "note": "Footway dining approvals and fees."
+        }
+      ],
+      "watch_out": [
+        "Exempt development only covers planning; trading on the footpath without the Roads Act approval can lead to fines and removal.",
+        "Approvals usually end when the business is sold; the new owner applies again.",
+        "Heaters, umbrellas and screens may need separate approval."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planningportal.nsw.gov.au/development-assessment/codes-sepp/nsw-outdoor-dining-trial",
+          "title": "NSW Planning Portal: NSW Outdoor Dining"
+        },
+        {
+          "url": "https://www.planningportal.nsw.gov.au/approval-pathways/exempt-development/footpath-dining-and-mobile-food-vending",
+          "title": "NSW Planning Portal: Footpath dining and mobile food vending"
+        }
+      ],
+      "gaps": [
+        "Application and footway fees are set by each council and were not collected statewide.",
+        "Statewide processing times were not published."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "NSW_TOBACCO_RETAIL_LICENCE",
+      "title": "Tobacco and smoking products licence (NSW)",
+      "summary": "Since 1 July 2025 every retailer and wholesaler selling tobacco or other smoking products in NSW needs a licence from NSW Health. You apply online through Service NSW, pay A$1,100, and renew each year. Shops, cafes and venues must not sell vapes at all; only pharmacies can supply them for therapeutic use.",
+      "authority": "NSW Health (applications through Service NSW)",
+      "publisher": "NSW Health",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 185,
+      "checked_on": "2026-10-12",
+      "timeframe": "The online form takes about 20 minutes; the national police check can take several weeks.",
+      "cost_summary": "A$1,100 per licence, renewed each year.",
+      "before_you_start": [
+        "Create a MyServiceNSW account.",
+        "Arrange a National Police Check early; it can take weeks.",
+        "Each sales outlet needs to be covered; check whether you need more than one licence.",
+        "Learn the retail rules: no sales to under-18s, display bans and signage."
+      ],
+      "steps": [
+        {
+          "title": "Apply online",
+          "detail": "Log in to MyServiceNSW and complete the NSW tobacco licence application.",
+          "timeframe": "About 20 minutes",
+          "cost": "A$1,100",
+          "form": {
+            "name": "Tobacco and smoking products licence application",
+            "url": "https://www.service.nsw.gov.au/services/tobacco-retailers"
+          },
+          "url": "https://www.service.nsw.gov.au/services/tobacco-retailers"
+        },
+        {
+          "title": "Complete the police check",
+          "detail": "Provide the National Police Check as asked.",
+          "timeframe": "Several weeks"
+        },
+        {
+          "title": "Start selling only once licensed",
+          "detail": "Don't sell tobacco or smoking products until the licence is granted."
+        },
+        {
+          "title": "Renew every year",
+          "detail": "Renew before the licence ends.",
+          "timeframe": "Yearly",
+          "cost": "A$1,100"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Tobacco licence",
+          "amount": "A$1,100",
+          "note": "Per licence, renewed annually."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "NSW Health tobacco licensing",
+          "url": "https://www.health.nsw.gov.au/tobacco/Pages/tobacco-licensing.aspx"
+        }
+      ],
+      "watch_out": [
+        "Selling without a licence carries maximum penalties of A$660,000 for an individual and A$880,000 for a corporation.",
+        "Selling any vaping product from a non-pharmacy business is illegal."
+      ],
+      "sources": [
+        {
+          "url": "https://www.health.nsw.gov.au/tobacco/Pages/tobacco-licensing.aspx",
+          "title": "NSW Health: NSW tobacco licensing scheme"
+        }
+      ],
+      "gaps": [
+        "Whether one licence covers several outlets was not confirmed.",
+        "Processing time for a decision was not published."
+      ],
+      "forms": [
+        "nsw-tobacco-licence"
+      ]
+    },
+    {
+      "kind": "NSW_WORKERS_COMPENSATION_POLICY",
+      "title": "Workers' insurance with icare (NSW)",
+      "summary": "NSW employers must hold a workers compensation (workers insurance) policy through icare before their workers start. The only exemption is if you pay A$7,500 or less in wages a year and don't employ an apprentice or trainee or belong to a group. The minimum premium is A$225.",
+      "authority": "icare NSW (regulated by the State Insurance Regulatory Authority)",
+      "publisher": "icare NSW (Insurance and Care NSW)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 190,
+      "checked_on": "2026-10-12",
+      "timeframe": "Take out the policy before your first employee starts.",
+      "cost_summary": "Premiums depend on your industry classification (WIC) and wages; minimum A$225.",
+      "before_you_start": [
+        "Work out your Workers Compensation Industry Classification (WIC) for your main business activity.",
+        "Estimate total wages for the year, including apprentices, trainees and some contractors, using icare's wages definition manual.",
+        "If you use contractors, check whether they count as workers for insurance purposes."
+      ],
+      "steps": [
+        {
+          "title": "Get an indicative quote",
+          "detail": "Use icare's online quote tool with your WIC, number of employees and wages.",
+          "timeframe": "15 minutes",
+          "url": "https://www.service.nsw.gov.au/transaction/get-a-quote-for-workers-insurance"
+        },
+        {
+          "title": "Take out the policy",
+          "detail": "Request a policy from icare online or by phone before anyone starts work.",
+          "timeframe": "Before day one",
+          "cost": "From A$225"
+        },
+        {
+          "title": "Display and inform",
+          "detail": "Tell workers how to report an injury and keep a register of injuries."
+        },
+        {
+          "title": "Declare actual wages each year",
+          "detail": "At renewal, declare actual wages so the premium is adjusted.",
+          "timeframe": "Yearly"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Minimum premium",
+          "amount": "A$225"
+        },
+        {
+          "label": "Injury notification admin fee (exempt employers)",
+          "amount": "A$175 per injury"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "icare",
+          "phone": "13 44 22",
+          "hours": "Monday to Friday, 7am to 7pm",
+          "url": "https://www.icare.nsw.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Not holding a required policy can mean fines up to A$55,000 and/or six months' imprisonment, plus paying back avoided premiums.",
+        "If your wages rise above A$7,500 or you hire an apprentice, contact icare immediately.",
+        "Each state has its own scheme: workers in other states may need cover there."
+      ],
+      "sources": [
+        {
+          "url": "https://www.icare.nsw.gov.au/employers/who-needs-workers-insurance/who-needs-a-policy",
+          "title": "icare: Who needs a policy"
+        },
+        {
+          "url": "https://www.service.nsw.gov.au/transaction/get-a-quote-for-workers-insurance",
+          "title": "Service NSW: Get a quote for workers insurance"
+        }
+      ],
+      "gaps": [
+        "Premium rates by industry were not collected."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "NSW_PAYROLL_TAX_REGISTRATION",
+      "title": "Payroll tax registration (NSW)",
+      "summary": "Payroll tax applies when your total Australian wages pass the NSW tax-free threshold of A$1.2 million a year. You must register with Revenue NSW within 7 days after the month in which your wages pass the monthly threshold, then lodge monthly returns. The rate is 5.45% of NSW wages above the threshold.",
+      "authority": "Revenue NSW",
+      "publisher": "Revenue NSW",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 205,
+      "checked_on": "2026-10-12",
+      "timeframe": "Register within 7 days after the end of the month your wages first pass the monthly threshold.",
+      "cost_summary": "No fee to register. Tax is 5.45% of taxable NSW wages over the threshold (2026-27).",
+      "before_you_start": [
+        "Monitor monthly wages, including super, allowances, fringe benefits and some contractor payments.",
+        "Check whether you are grouped with related businesses: grouped wages share one threshold.",
+        "Have your ABN, addresses, bank details, employee numbers, grouping details and wages for the current and previous four years ready."
+      ],
+      "steps": [
+        {
+          "title": "Check the monthly threshold",
+          "detail": "For 2026-27 it is A$101,918 for a 31-day month, A$98,630 for a 30-day month and A$92,055 for a 28-day month.",
+          "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/lodge-and-pay-returns/thresholds-and-rates"
+        },
+        {
+          "title": "Register online",
+          "detail": "Complete the Revenue NSW payroll tax registration form in one sitting (it can't be saved). You get a lodgement reference and, if new, a Client ID.",
+          "timeframe": "Within 7 days after the month",
+          "form": {
+            "name": "Register for payroll tax (online form)",
+            "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/getting-started/register-for-payroll-tax"
+          }
+        },
+        {
+          "title": "Lodge monthly returns",
+          "detail": "Lodge and pay through Payroll Tax Online each month.",
+          "timeframe": "Monthly"
+        },
+        {
+          "title": "Lodge the annual reconciliation",
+          "detail": "Lodge the annual return after 30 June.",
+          "timeframe": "Yearly"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Payroll tax rate",
+          "amount": "5.45%",
+          "note": "2025-26 and 2026-27"
+        },
+        {
+          "label": "Annual threshold",
+          "amount": "A$1,200,000"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Revenue NSW",
+          "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax"
+        }
+      ],
+      "watch_out": [
+        "Late registration can mean interest and penalty tax.",
+        "Apprentice and trainee wages may be exempt or rebated; check Revenue NSW."
+      ],
+      "sources": [
+        {
+          "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/getting-started/register-for-payroll-tax",
+          "title": "Revenue NSW: Register for payroll tax"
+        },
+        {
+          "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/lodge-and-pay-returns/thresholds-and-rates",
+          "title": "Revenue NSW: Payroll tax thresholds and rates"
+        }
+      ],
+      "gaps": [],
+      "forms": [
+        "nsw-payroll-tax-registration"
+      ]
+    },
+    {
+      "kind": "NSW_CONTRACTOR_LICENCE",
+      "title": "Contractor licence for residential building work (NSW)",
+      "summary": "In NSW you need a contractor licence from Building Commission NSW to contract for residential building or trade work worth more than A$5,000 in labour and materials, including GST. The work must be supervised by someone with an endorsed licence or a qualified supervisor certificate. Licences are for 1, 3 or 5 years and you apply in person at Service NSW.",
+      "authority": "Building Commission NSW, under the Home Building Act 1989",
+      "publisher": "Building Commission NSW",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 120,
+      "checked_on": "2026-10-12",
+      "timeframe": "Apply well before you quote. Processing times weren't published; incomplete applications take longer.",
+      "cost_summary": "Individual building contractor licence A$883 for 1 year to A$2,890 for 5 years (2026-27).",
+      "before_you_start": [
+        "Hold the approved qualifications and experience for the category before you apply.",
+        "Decide whether the licence is in your own name, a company's or a partnership's; each has its own form and fee.",
+        "Jobs over A$20,000 also need home building compensation cover, and you need icare eligibility first."
+      ],
+      "steps": [
+        {
+          "title": "Confirm your category and class",
+          "detail": "Check the building category and the class that matches your qualifications on the categories of work page.",
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/categories-of-work"
+        },
+        {
+          "title": "Get a National Police Check",
+          "detail": "Individual applicants need a police check no older than 4 months when they apply.",
+          "timeframe": "Up to 2 weeks"
+        },
+        {
+          "title": "Complete the application form",
+          "detail": "Download the NSW individual contractor licence application from Service NSW (company and partnership forms are separate). Attach ID, a passport photo, original qualifications and evidence of experience.",
+          "form": {
+            "name": "Apply for an individual contractor licence",
+            "url": "https://www.service.nsw.gov.au/transaction/apply-individual-contractor-licence"
+          }
+        },
+        {
+          "title": "Lodge in person at Service NSW",
+          "detail": "Book an appointment and lodge at a Service NSW Centre, paying the fee.",
+          "cost": "See fees"
+        },
+        {
+          "title": "Wait for assessment",
+          "detail": "Missing or incomplete information slows the assessment. Don't contract for the work until the licence is issued."
+        },
+        {
+          "title": "Renew on time",
+          "detail": "Lodge renewals on or before expiry. You can restore within 3 months of expiry.",
+          "timeframe": "Every 1, 3 or 5 years"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Individual building contractor licence",
+          "amount": "A$883 (1 yr), A$1,654 (3 yrs), A$2,890 (5 yrs)",
+          "note": "2026-27 new application"
+        },
+        {
+          "label": "Individual trade or specialist contractor licence",
+          "amount": "A$403 (1 yr), A$803 (3 yrs), A$1,235 (5 yrs)"
+        },
+        {
+          "label": "Company building contractor licence",
+          "amount": "A$1,763 (1 yr), A$2,821 (3 yrs), A$4,928 (5 yrs)"
+        },
+        {
+          "label": "Company trade or specialist contractor licence",
+          "amount": "A$641 (1 yr), A$1,355 (3 yrs), A$2,374 (5 yrs)"
+        },
+        {
+          "label": "Partnership building contractor licence",
+          "amount": "A$1,469 (1 yr), A$2,253 (3 yrs), A$3,787 (5 yrs)"
+        },
+        {
+          "label": "Building qualified supervisor certificate",
+          "amount": "A$181 (1 yr), A$321 (3 yrs), A$547 (5 yrs)"
+        },
+        {
+          "label": "Trade or specialist qualified supervisor certificate",
+          "amount": "A$172 (1 yr), A$291 (3 yrs), A$501 (5 yrs)"
+        },
+        {
+          "label": "Tradesperson certificate",
+          "amount": "A$142 (1 yr), A$190 (3 yrs), A$329 (5 yrs)"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building Commission NSW",
+          "phone": "13 27 00",
+          "hours": "Monday to Friday, 8:30am to 5pm"
+        },
+        {
+          "name": "Service NSW",
+          "phone": "13 77 88",
+          "url": "https://www.service.nsw.gov.au"
+        }
+      ],
+      "watch_out": [
+        "The A$5,000 threshold includes GST, labour and materials, and applies to subcontracted parts of bigger jobs too.",
+        "Specialist work (plumbing, gasfitting, electrical, air conditioning) needs its own licence whatever the value, so subcontract it if you don't hold it.",
+        "Unlicensed contracting is an offence and you may be unable to recover payment."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/general-building-work",
+          "title": "NSW Government: General building work"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/categories-of-work",
+          "title": "NSW Government: Categories and classes of building and trade work"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/assessment-process-and-time-frames/fees-for-licences-and-certificates",
+          "title": "NSW Government: Fees for contractor licences, supervision and tradesperson certificates (2026-27)"
+        },
+        {
+          "url": "https://www.service.nsw.gov.au/transaction/apply-individual-contractor-licence",
+          "title": "Service NSW: Apply for an individual contractor licence"
+        }
+      ],
+      "gaps": [
+        "Processing times and the assessment fee split were not published on the pages read."
+      ],
+      "forms": [
+        "nsw-individual-contractor-licence"
+      ]
+    },
+    {
+      "kind": "NSW_PLUMBING_GASFITTING_LICENCE",
+      "title": "Plumbing, draining and gasfitting licence (NSW)",
+      "summary": "Plumbing, draining and gasfitting are specialist work in NSW. You need a contractor licence or certificate in that category from Building Commission NSW for any job, whatever its value, and whether it is residential, commercial or industrial. A trade or specialist contractor licence costs A$403 for 1 year.",
+      "authority": "Building Commission NSW",
+      "publisher": "Building Commission NSW",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 121,
+      "checked_on": "2026-10-12",
+      "timeframe": "Apply before you take on work; processing times weren't published.",
+      "cost_summary": "Individual trade or specialist contractor licence A$403 for 1 year, A$1,235 for 5 years (2026-27).",
+      "before_you_start": [
+        "Check which classes you need: plumbing, draining and gasfitting are separate classes within the category.",
+        "Have your trade qualifications and evidence of experience ready.",
+        "Employees doing the work need a qualified supervisor or tradesperson certificate."
+      ],
+      "steps": [
+        {
+          "title": "Confirm your category and class",
+          "detail": "Check the plumbing, draining and gasfitting category and the class that matches your qualifications on the categories of work page.",
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/categories-of-work"
+        },
+        {
+          "title": "Get a National Police Check",
+          "detail": "Individual applicants need a police check no older than 4 months when they apply.",
+          "timeframe": "Up to 2 weeks"
+        },
+        {
+          "title": "Complete the application form",
+          "detail": "Download the NSW individual contractor licence application from Service NSW (company and partnership forms are separate). Attach ID, a passport photo, original qualifications and evidence of experience.",
+          "form": {
+            "name": "Apply for an individual contractor licence",
+            "url": "https://www.service.nsw.gov.au/transaction/apply-individual-contractor-licence"
+          }
+        },
+        {
+          "title": "Lodge in person at Service NSW",
+          "detail": "Book an appointment and lodge at a Service NSW Centre, paying the fee.",
+          "cost": "See fees"
+        },
+        {
+          "title": "Wait for assessment",
+          "detail": "Missing or incomplete information slows the assessment. Don't contract for the work until the licence is issued."
+        },
+        {
+          "title": "Renew on time",
+          "detail": "Lodge renewals on or before expiry. You can restore within 3 months of expiry.",
+          "timeframe": "Every 1, 3 or 5 years"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Individual building contractor licence",
+          "amount": "A$883 (1 yr), A$1,654 (3 yrs), A$2,890 (5 yrs)",
+          "note": "2026-27 new application"
+        },
+        {
+          "label": "Individual trade or specialist contractor licence",
+          "amount": "A$403 (1 yr), A$803 (3 yrs), A$1,235 (5 yrs)"
+        },
+        {
+          "label": "Company building contractor licence",
+          "amount": "A$1,763 (1 yr), A$2,821 (3 yrs), A$4,928 (5 yrs)"
+        },
+        {
+          "label": "Company trade or specialist contractor licence",
+          "amount": "A$641 (1 yr), A$1,355 (3 yrs), A$2,374 (5 yrs)"
+        },
+        {
+          "label": "Partnership building contractor licence",
+          "amount": "A$1,469 (1 yr), A$2,253 (3 yrs), A$3,787 (5 yrs)"
+        },
+        {
+          "label": "Building qualified supervisor certificate",
+          "amount": "A$181 (1 yr), A$321 (3 yrs), A$547 (5 yrs)"
+        },
+        {
+          "label": "Trade or specialist qualified supervisor certificate",
+          "amount": "A$172 (1 yr), A$291 (3 yrs), A$501 (5 yrs)"
+        },
+        {
+          "label": "Tradesperson certificate",
+          "amount": "A$142 (1 yr), A$190 (3 yrs), A$329 (5 yrs)"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building Commission NSW",
+          "phone": "13 27 00",
+          "hours": "Monday to Friday, 8:30am to 5pm"
+        },
+        {
+          "name": "Service NSW",
+          "phone": "13 77 88",
+          "url": "https://www.service.nsw.gov.au"
+        }
+      ],
+      "watch_out": [
+        "There is no value threshold for specialist work: even a small repair needs a licence.",
+        "Residential plumbing jobs over A$20,000 may also need home building compensation cover."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/general-building-work",
+          "title": "NSW Government: General building work"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/categories-of-work",
+          "title": "NSW Government: Categories and classes of building and trade work"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/assessment-process-and-time-frames/fees-for-licences-and-certificates",
+          "title": "NSW Government: Fees for contractor licences, supervision and tradesperson certificates (2026-27)"
+        },
+        {
+          "url": "https://www.service.nsw.gov.au/transaction/apply-individual-contractor-licence",
+          "title": "Service NSW: Apply for an individual contractor licence"
+        }
+      ],
+      "gaps": [
+        "Notification and compliance certificate steps for each plumbing job were not covered on the pages read."
+      ],
+      "forms": [
+        "nsw-individual-contractor-licence"
+      ]
+    },
+    {
+      "kind": "NSW_ELECTRICAL_CONTRACTOR_LICENCE",
+      "title": "Electrical contractor licence (NSW)",
+      "summary": "Electrical work is specialist work in NSW. A business contracting to do electrical work needs an electrical contractor licence from Building Commission NSW, and the electricians need a qualified supervisor or tradesperson certificate, whatever the value of the job.",
+      "authority": "Building Commission NSW",
+      "publisher": "Building Commission NSW",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 122,
+      "checked_on": "2026-10-12",
+      "timeframe": "Apply before you take on work; processing times weren't published.",
+      "cost_summary": "Individual trade or specialist contractor licence A$403 for 1 year; qualified supervisor certificate A$172 for 1 year (2026-27).",
+      "before_you_start": [
+        "Hold the approved electrical qualifications and experience for the class you want.",
+        "Decide whether the business licence will be in your name or a company's.",
+        "Arrange public liability insurance."
+      ],
+      "steps": [
+        {
+          "title": "Confirm your category and class",
+          "detail": "Check the electrical category and the class that matches your qualifications on the categories of work page.",
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/categories-of-work"
+        },
+        {
+          "title": "Get a National Police Check",
+          "detail": "Individual applicants need a police check no older than 4 months when they apply.",
+          "timeframe": "Up to 2 weeks"
+        },
+        {
+          "title": "Complete the application form",
+          "detail": "Download the NSW individual contractor licence application from Service NSW (company and partnership forms are separate). Attach ID, a passport photo, original qualifications and evidence of experience.",
+          "form": {
+            "name": "Apply for an individual contractor licence",
+            "url": "https://www.service.nsw.gov.au/transaction/apply-individual-contractor-licence"
+          }
+        },
+        {
+          "title": "Lodge in person at Service NSW",
+          "detail": "Book an appointment and lodge at a Service NSW Centre, paying the fee.",
+          "cost": "See fees"
+        },
+        {
+          "title": "Wait for assessment",
+          "detail": "Missing or incomplete information slows the assessment. Don't contract for the work until the licence is issued."
+        },
+        {
+          "title": "Renew on time",
+          "detail": "Lodge renewals on or before expiry. You can restore within 3 months of expiry.",
+          "timeframe": "Every 1, 3 or 5 years"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Individual building contractor licence",
+          "amount": "A$883 (1 yr), A$1,654 (3 yrs), A$2,890 (5 yrs)",
+          "note": "2026-27 new application"
+        },
+        {
+          "label": "Individual trade or specialist contractor licence",
+          "amount": "A$403 (1 yr), A$803 (3 yrs), A$1,235 (5 yrs)"
+        },
+        {
+          "label": "Company building contractor licence",
+          "amount": "A$1,763 (1 yr), A$2,821 (3 yrs), A$4,928 (5 yrs)"
+        },
+        {
+          "label": "Company trade or specialist contractor licence",
+          "amount": "A$641 (1 yr), A$1,355 (3 yrs), A$2,374 (5 yrs)"
+        },
+        {
+          "label": "Partnership building contractor licence",
+          "amount": "A$1,469 (1 yr), A$2,253 (3 yrs), A$3,787 (5 yrs)"
+        },
+        {
+          "label": "Building qualified supervisor certificate",
+          "amount": "A$181 (1 yr), A$321 (3 yrs), A$547 (5 yrs)"
+        },
+        {
+          "label": "Trade or specialist qualified supervisor certificate",
+          "amount": "A$172 (1 yr), A$291 (3 yrs), A$501 (5 yrs)"
+        },
+        {
+          "label": "Tradesperson certificate",
+          "amount": "A$142 (1 yr), A$190 (3 yrs), A$329 (5 yrs)"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building Commission NSW",
+          "phone": "13 27 00",
+          "hours": "Monday to Friday, 8:30am to 5pm"
+        },
+        {
+          "name": "Service NSW",
+          "phone": "13 77 88",
+          "url": "https://www.service.nsw.gov.au"
+        }
+      ],
+      "watch_out": [
+        "There is no value threshold for electrical work.",
+        "Disconnecting and reconnecting fixed electrical equipment is a separate specialist category."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/general-building-work",
+          "title": "NSW Government: General building work"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/categories-of-work",
+          "title": "NSW Government: Categories and classes of building and trade work"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/assessment-process-and-time-frames/fees-for-licences-and-certificates",
+          "title": "NSW Government: Fees for contractor licences, supervision and tradesperson certificates (2026-27)"
+        },
+        {
+          "url": "https://www.service.nsw.gov.au/transaction/apply-individual-contractor-licence",
+          "title": "Service NSW: Apply for an individual contractor licence"
+        }
+      ],
+      "gaps": [
+        "Certificate of compliance for electrical work (CCEW) obligations were not read for this guide."
+      ],
+      "forms": [
+        "nsw-individual-contractor-licence"
+      ]
+    },
+    {
+      "kind": "NSW_HOME_BUILDING_COMPENSATION",
+      "title": "Home building compensation cover (icare HBCF)",
+      "summary": "Before you start work or take a deposit on a home building job worth more than A$20,000 including GST, you must have home building compensation (HBC) cover for that job. icare's Home Building Compensation Fund is the only provider. First apply to icare for eligibility, then buy a certificate of insurance for each job and give it to the owner.",
+      "authority": "icare HBCF, regulated by the State Insurance Regulatory Authority (SIRA)",
+      "publisher": "State Insurance Regulatory Authority (NSW)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 123,
+      "checked_on": "2026-10-12",
+      "timeframe": "Get eligibility before you quote big jobs; buy each job's certificate before any deposit.",
+      "cost_summary": "Premiums depend on the job and your eligibility; not published as a flat fee.",
+      "before_you_start": [
+        "Hold the right NSW contractor licence.",
+        "Prepare financial statements for icare's eligibility assessment.",
+        "Covered work includes new homes, renovations and apartments up to 3 storeys done for a homeowner, developer or owner-builder."
+      ],
+      "steps": [
+        {
+          "title": "Apply for eligibility",
+          "detail": "Apply to icare HBCF for an eligibility limit based on your finances and experience.",
+          "url": "https://www.icare.nsw.gov.au/builders-and-homeowners/builders-and-distributors/apply-for-insurance"
+        },
+        {
+          "title": "Buy cover for each job",
+          "detail": "For each job over A$20,000, buy a certificate of insurance before starting work or taking any payment."
+        },
+        {
+          "title": "Give the certificate to the owner",
+          "detail": "Give the homeowner a copy with the contract."
+        }
+      ],
+      "fees": [],
+      "contacts": [
+        {
+          "name": "icare HBCF",
+          "url": "https://www.icare.nsw.gov.au/builders-and-homeowners/builders-and-distributors/what-we-do"
+        }
+      ],
+      "watch_out": [
+        "Working without required cover is an offence and you can't use the Security of Payment Act to claim payment.",
+        "Building Commission NSW can take disciplinary action."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sira.nsw.gov.au/home-building-compensation/home-building-compensation-for-builders-and-tradies",
+          "title": "SIRA: Home building compensation for builders and tradies"
+        }
+      ],
+      "gaps": [
+        "icare's eligibility process, documents and timeframes weren't read directly.",
+        "Premium rates weren't collected."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "NSW_SKIN_PENETRATION_NOTIFICATION",
+      "title": "Skin penetration premises notification (NSW)",
+      "summary": "Tattooing, cosmetic tattooing, piercing, waxing, electrolysis, dry needling, manicures and pedicures and similar procedures are skin penetration under the NSW Public Health Regulation 2022. Notify your local council with the Notification of Skin Penetration Procedures. Council may charge up to A$105, inspects you, and you must follow the hygiene, sharps and sterilising rules.",
+      "authority": "Your local council, under the Public Health Act 2010 and Public Health Regulation 2022 (NSW Health sets the rules)",
+      "publisher": "NSW Health",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 150,
+      "checked_on": "2026-10-12",
+      "timeframe": "Notify before you start; tell council within 7 days of any change.",
+      "cost_summary": "Council fee up to A$105, plus any council inspection fees.",
+      "before_you_start": [
+        "List every procedure you'll offer; the form asks you to tick them.",
+        "Check with council that the premises has the approvals it needs (for example development consent for a beauty salon or tattoo studio).",
+        "Set up hand basins, single-use needles and a sharps container, and a cleaning and sterilising process.",
+        "Mobile operators list each council area they'll work in."
+      ],
+      "steps": [
+        {
+          "title": "Complete the notification form",
+          "detail": "Fill in the Notification of Skin Penetration Procedures with business, premises and procedure details.",
+          "timeframe": "30 minutes",
+          "form": {
+            "name": "Notification of Skin Penetration Procedures",
+            "url": "https://www.health.nsw.gov.au/phact/Documents/notification-form-skin-penetration.pdf"
+          }
+        },
+        {
+          "title": "Lodge with council and pay",
+          "detail": "Send it to your council with the fee; some councils have their own online version.",
+          "cost": "Up to A$105"
+        },
+        {
+          "title": "Council inspection",
+          "detail": "An environmental health officer inspects against the Public Health Regulation 2022."
+        },
+        {
+          "title": "Notify changes",
+          "detail": "Tell council within 7 days of any change of details.",
+          "timeframe": "Within 7 days"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Notification fee",
+          "amount": "Up to A$105",
+          "note": "Set by council."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's environmental health team"
+        }
+      ],
+      "watch_out": [
+        "Body art tattooing also needs NSW Police tattoo licences.",
+        "Cosmetic lasers and IPL need separate radiation licences from the NSW EPA."
+      ],
+      "sources": [
+        {
+          "url": "https://www.health.nsw.gov.au/environment/skinpenetration/Pages/default.aspx",
+          "title": "NSW Health: Skin penetration"
+        },
+        {
+          "url": "https://www.health.nsw.gov.au/phact/Documents/notification-form-skin-penetration.pdf",
+          "title": "NSW Health: Notification of Skin Penetration Procedures (form)"
+        }
+      ],
+      "gaps": [
+        "Council inspection fees vary and were not collected."
+      ],
+      "forms": [
+        "nsw-skin-penetration-notification"
+      ]
+    },
+    {
+      "kind": "NSW_TATTOO_LICENCE",
+      "title": "Tattoo master and tattooist licences (NSW)",
+      "summary": "Running a body art tattooing business in NSW needs a tattoo master licence for the premises, and every person who tattoos, including apprentices, needs a tattooist licence. Both are issued by NSW Police's Security Licensing & Enforcement Directorate (SLED) and you apply online through Service NSW. Cosmetic tattooing such as permanent eyebrows or eyeliner doesn't need these licences.",
+      "authority": "NSW Police Force, Security Licensing & Enforcement Directorate, under the Tattoo Industry Act 2012",
+      "publisher": "NSW Police Force (Security Licensing & Enforcement Directorate)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 151,
+      "checked_on": "2026-10-12",
+      "timeframe": "Allow several weeks for checks; if asked, have fingerprints taken within 42 days.",
+      "cost_summary": "Master licence A$640 (1 year) to A$2,440 (5 years); tattooist licence A$190 (1 year) to A$640 (5 years). Both include a A$40 fingerprint fee.",
+      "before_you_start": [
+        "You must be 18 or over, an Australian citizen, permanent resident or New Zealand citizen, and not a member of a declared criminal organisation.",
+        "Have two types of ID; close associates need three each and consent forms.",
+        "Nominate a premises manager for the studio.",
+        "Notify council about the skin penetration premises as well."
+      ],
+      "steps": [
+        {
+          "title": "Apply for the tattoo master licence",
+          "detail": "Complete the NSW tattoo master licence application online with MyServiceNSW, nominating the premises and manager.",
+          "cost": "A$640 to A$2,440",
+          "form": {
+            "name": "Apply for a tattoo master licence",
+            "url": "https://www.service.nsw.gov.au/transaction/apply-tattoo-parlour-operator-licence"
+          },
+          "url": "https://www.service.nsw.gov.au/transaction/apply-tattoo-parlour-operator-licence"
+        },
+        {
+          "title": "Each artist applies for a tattooist licence",
+          "detail": "Every tattooist and apprentice completes the NSW tattooist licence application online with ID and details of their tattooing employment.",
+          "cost": "A$190 to A$640",
+          "form": {
+            "name": "Apply for a tattooist licence",
+            "url": "https://www.service.nsw.gov.au/transaction/apply-for-a-tattooist-licence"
+          },
+          "url": "https://www.service.nsw.gov.au/transaction/apply-for-a-tattooist-licence"
+        },
+        {
+          "title": "Fingerprints if asked",
+          "detail": "SLED may ask you to have finger and palm prints taken at a police station within 42 days.",
+          "timeframe": "Within 42 days"
+        },
+        {
+          "title": "Receive licence cards",
+          "detail": "Licence cards and a Licensing Information Certificate are mailed once granted."
+        },
+        {
+          "title": "Renew",
+          "detail": "Renewal notices are emailed about 60 days before expiry.",
+          "timeframe": "Every 1, 3 or 5 years"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Tattoo master licence (new)",
+          "amount": "A$640 (1 yr), A$1,540 (3 yrs), A$2,440 (5 yrs)",
+          "note": "Includes A$40 fingerprint fee."
+        },
+        {
+          "label": "Tattooist licence (new)",
+          "amount": "A$190 (1 yr), A$415 (3 yrs), A$640 (5 yrs)",
+          "note": "Includes A$40 fingerprint fee."
+        },
+        {
+          "label": "Master licence renewal",
+          "amount": "A$550 (1 yr), A$1,375 (3 yrs), A$2,200 (5 yrs)"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "NSW Police SLED",
+          "phone": "1300 362 001",
+          "url": "https://www.police.nsw.gov.au/online_services/sled"
+        }
+      ],
+      "watch_out": [
+        "Tattooing without a licence, including as an apprentice, is an offence.",
+        "The fingerprint fee is refunded if you were already fingerprinted for a NSW security, tattoo or commercial agent licence."
+      ],
+      "sources": [
+        {
+          "url": "https://www.police.nsw.gov.au/online_services/sled/tattoo_industry_licences/tattoo_industry_licences_custom_links/tattoo_master_licences",
+          "title": "NSW Police: Tattoo master licences"
+        },
+        {
+          "url": "https://www.police.nsw.gov.au/online_services/sled/tattoo_industry_licences/tattoo_industry_licences_custom_links/tattooist_licences",
+          "title": "NSW Police: Tattooist licences"
+        },
+        {
+          "url": "https://www.service.nsw.gov.au/transaction/apply-tattoo-parlour-operator-licence",
+          "title": "Service NSW: Apply for a tattoo master licence"
+        }
+      ],
+      "gaps": [
+        "Processing times weren't published.",
+        "Rules for mobile tattooists weren't covered on the pages read."
+      ],
+      "forms": [
+        "nsw-tattoo-master-licence",
+        "nsw-tattooist-licence"
+      ]
+    },
+    {
+      "kind": "NSW_EDUCATION_CARE_SERVICE_APPROVAL",
+      "title": "Provider and service approval for education and care (NSW)",
+      "summary": "To run long day care, preschool, outside school hours care or family day care in NSW you need a provider approval and then a service approval under the Education and Care Services National Law. You apply through the NQA IT System to the NSW Early Learning Commission (NSW Department of Education), which has 60 days to decide a provider approval and 90 days for a service approval.",
+      "authority": "NSW Early Learning Commission (NSW Department of Education), the regulatory authority under the National Law",
+      "publisher": "NSW Department of Education (NSW Early Learning Commission)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "NSW",
+      "order": 140,
+      "checked_on": "2026-10-12",
+      "timeframe": "Provider approval up to 60 days; service approval up to 90 days (the clock stops while you provide more information).",
+      "cost_summary": "NSW fees: provider approval A$1,093; centre-based service approval A$2,187 (small) to A$5,489 (extra-large); family day care service approval A$3,289; then an annual service fee.",
+      "before_you_start": [
+        "Get development consent and any council approvals for the premises before the service approval visit; construction must be finished.",
+        "People with management or control must be fit and proper and may face an interview or knowledge assessment.",
+        "Prepare the policies and procedures under regulations 168 and 169.",
+        "If you'll offer Child Care Subsidy, apply for CCS approval through the same system."
+      ],
+      "steps": [
+        {
+          "title": "Apply for provider approval",
+          "detail": "Lodge the provider approval application through the NQA IT System.",
+          "timeframe": "Up to 60 days",
+          "cost": "A$1,093"
+        },
+        {
+          "title": "Apply for service approval",
+          "detail": "Lodge the service approval for your service type with the checklist and policies.",
+          "timeframe": "Up to 90 days",
+          "cost": "A$2,187 to A$5,489"
+        },
+        {
+          "title": "Respond to requests",
+          "detail": "Provide missing information within 14 days of a written request or the application may be invalid.",
+          "timeframe": "14 days"
+        },
+        {
+          "title": "Pre-approval visit",
+          "detail": "The Commission may visit once construction is complete and the service is ready to operate."
+        },
+        {
+          "title": "Decision and review",
+          "detail": "If refused, ask for internal review within 14 days, then NCAT."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Provider approval application",
+          "amount": "A$1,093",
+          "note": "ACECQA NSW and Vic fees page, published June 2026."
+        },
+        {
+          "label": "Service approval, centre-based",
+          "amount": "A$2,187 small, A$3,289 medium, A$4,392 large, A$5,489 extra-large"
+        },
+        {
+          "label": "Service approval, family day care",
+          "amount": "A$3,289"
+        },
+        {
+          "label": "Annual service fee, small not-for-profit provider",
+          "amount": "A$1,087 small to A$2,732 extra-large"
+        },
+        {
+          "label": "Annual service fee, small for-profit provider",
+          "amount": "A$1,811 small to A$4,554 extra-large"
+        },
+        {
+          "label": "Annual service fee, large for-profit provider",
+          "amount": "A$3,623 small to A$9,109 extra-large"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "NSW Early Learning Commission",
+          "phone": "1800 619 113",
+          "email": "information@earlylearningcommission.nsw.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Occasional care and mobile services are regulated under NSW law with different forms.",
+        "Fees rose from 1 July 2026, with bigger increases for large for-profit providers."
+      ],
+      "sources": [
+        {
+          "url": "https://education.nsw.gov.au/early-childhood-education/operating-an-early-childhood-education-service/setting-up-a-new-service/steps-to-set-up-a-new-service",
+          "title": "NSW Department of Education: Steps to set up a new service"
+        },
+        {
+          "url": "https://education.nsw.gov.au/early-childhood-education/operating-an-early-childhood-education-service/setting-up-a-new-service/fees",
+          "title": "NSW Department of Education: Fees"
+        },
+        {
+          "url": "https://www.acecqa.gov.au/test-indexed-fees-nsw-and-vic",
+          "title": "ACECQA: Indexed fees, NSW and Vic"
+        }
+      ],
+      "gaps": [
+        "ACECQA's NSW fees page doesn't state the fee year and its address contains 'test'; it was published 24 June 2026, so the fees are most likely 2026-27.",
+        "The place numbers for small, medium and large services weren't confirmed."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "NSW_VEHICLE_REGISTRATION",
+      "title": "Registering an imported vehicle in NSW",
+      "summary": "Once your imported vehicle has cleared customs, take it straight to an Authorised Unregistered Vehicle Inspection Station (AUVIS) for a safety and identity check (blue slip). Buy a CTP green slip, then lodge the Transport for NSW Application for Registration at a Service NSW Centre with your import approval, proof of ownership and ID. You pay registration, motor vehicle tax, plates and stamp duty.",
+      "authority": "Transport for NSW, through Service NSW",
+      "publisher": "Transport for NSW",
+      "verticals": [
+        "TRADE"
+      ],
+      "jurisdiction": "NSW",
+      "order": 480,
+      "checked_on": "2026-10-12",
+      "timeframe": "Usually one AUVIS visit and one Service NSW visit once the vehicle has cleared customs.",
+      "cost_summary": "Blue slip A$82; registration fee A$84 plus motor vehicle tax by weight (A$391 for a 1,151 to 1,500 kg private car); plates A$32 or more; CTP green slip from an insurer; stamp duty A$3 per A$100 up to A$44,999.",
+      "before_you_start": [
+        "Have your Vehicle Import Approval and, for vehicles that need it, the Register of Approved Vehicles entry.",
+        "Light vehicles must be right-hand drive unless 25 years or older (or over 4.5 tonnes GVM).",
+        "Bring proof of entitlement (bill of sale or overseas registration certificate) and proof of identity.",
+        "Vehicles 5 tonnes or more, with power brakes, trailers over 2 tonnes and big buses go to a heavy vehicle inspection station instead of an AUVIS.",
+        "Check the PPSR if you bought the vehicle from an Australian importer."
+      ],
+      "steps": [
+        {
+          "title": "Drive or tow straight to inspection",
+          "detail": "After customs clearance you may drive directly to a weighbridge (for models not normally sold here) and/or an AUVIS without registration, as long as you don't break the journey. For other trips apply for a permit with the NSW Unregistered Vehicle Permit Application.",
+          "timeframe": "1 day",
+          "form": {
+            "name": "Form 1019 Unregistered Vehicle Permit Application",
+            "url": "https://tfnswforms.transport.nsw.gov.au/45070190-unregistered-vehicle-permit.pdf"
+          }
+        },
+        {
+          "title": "Get the AUVIS inspection (blue slip)",
+          "detail": "The examiner checks safety and identity and completes the personal import plate order if needed. Fit any import plate and return for re-inspection.",
+          "timeframe": "Same day if it passes",
+          "cost": "A$82"
+        },
+        {
+          "title": "Buy a CTP green slip",
+          "detail": "Buy CTP insurance from a licensed insurer, leaving the plate number blank.",
+          "cost": "Varies by insurer"
+        },
+        {
+          "title": "Lodge the application at Service NSW",
+          "detail": "Complete the Transport for NSW Application for Registration and lodge it in person with the AUVIS report, green slip, import approval, ownership proof and ID.",
+          "timeframe": "One visit",
+          "form": {
+            "name": "Form 1009 Application for Registration",
+            "url": "https://tfnswforms.transport.nsw.gov.au/45070093-registration.pdf"
+          },
+          "url": "https://www.service.nsw.gov.au/transaction/apply-to-register-a-personally-imported-vehicle"
+        },
+        {
+          "title": "Pay registration, tax and stamp duty",
+          "detail": "Duty is on the higher of price paid and market value, including GST: A$3 per A$100 up to A$44,999; A$1,350 plus A$5 per A$100 above that for vehicles of A$45,000 or more.",
+          "cost": "See fees",
+          "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/motor-vehicle-duty"
+        },
+        {
+          "title": "Fit plates",
+          "detail": "Fit the number plates before driving."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Safety and identity check (blue slip), light vehicle",
+          "amount": "A$82",
+          "note": "Including GST, from 1 July 2026."
+        },
+        {
+          "label": "Registration fee",
+          "amount": "A$84 a year"
+        },
+        {
+          "label": "Motor vehicle tax, private car 971 to 1,150 kg",
+          "amount": "A$322"
+        },
+        {
+          "label": "Motor vehicle tax, private car 1,151 to 1,500 kg",
+          "amount": "A$391"
+        },
+        {
+          "label": "Motor vehicle tax, private car 1,501 to 2,500 kg",
+          "amount": "A$596"
+        },
+        {
+          "label": "Standard number plates (car)",
+          "amount": "A$32",
+          "note": "General issue plates listed at A$58 elsewhere on the page."
+        },
+        {
+          "label": "Stamp duty, up to A$44,999",
+          "amount": "A$3 per A$100"
+        },
+        {
+          "label": "Stamp duty, A$45,000 or more",
+          "amount": "A$1,350 plus A$5 per A$100 over A$45,000"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Service NSW",
+          "phone": "13 77 88",
+          "url": "https://www.service.nsw.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Driving unregistered other than straight to inspection is an offence and you may have no CTP cover.",
+        "Undervaluing the vehicle can mean penalty tax up to 90% of the unpaid duty.",
+        "A personal import is limited to one vehicle per five years.",
+        "From 1 September 2026 to 31 August 2027 a one-off A$100 discount applies to private light vehicle registration."
+      ],
+      "sources": [
+        {
+          "url": "https://www.service.nsw.gov.au/transaction/apply-to-register-a-personally-imported-vehicle",
+          "title": "Service NSW: Apply to register a personally imported vehicle"
+        },
+        {
+          "url": "https://www.nsw.gov.au/sites/default/files/2021-07/vsi-04-registration-imported-vehicles.pdf",
+          "title": "Transport for NSW VSI.04: Registration of imported vehicles (Rev. 10, September 2025)"
+        },
+        {
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/driving-nsw/vehicle-registration/fees-concessions-and-forms/vehicle-registration-fees",
+          "title": "NSW Government: Vehicle registration fees"
+        },
+        {
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/driving-nsw/vehicle-registration/fees-concessions-and-forms/vehicle-safety-check-and-inspection-fees",
+          "title": "NSW Government: Vehicle safety check and inspection fees (from 1 July 2026)"
+        },
+        {
+          "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/motor-vehicle-duty",
+          "title": "Revenue NSW: Motor vehicle duty"
+        },
+        {
+          "url": "https://www.transport.nsw.gov.au/news-and-events/application-forms/vehicle-registration-forms",
+          "title": "Transport for NSW: Vehicle registration forms"
+        }
+      ],
+      "gaps": [
+        "The registration fees page says fees rose 2.65% from 1 July 2026 but doesn't say whether the listed amounts already include the rise.",
+        "CTP green slip prices vary by insurer and weren't collected; use SIRA's Green Slip Price Check.",
+        "The unregistered vehicle permit fee wasn't read.",
+        "The AUVIS fee for a personally imported vehicle isn't listed separately; the A$82 blue slip fee is the closest published fee."
+      ],
+      "forms": [
+        "nsw-tfnsw-form-1019",
+        "nsw-tfnsw-form-1009"
+      ]
+    },
+    {
+      "kind": "NSW_MOTOR_DEALER_LICENCE",
+      "title": "Motor dealer licence (NSW)",
+      "summary": "Buying, selling or exchanging vehicles as a business in NSW, including imported vehicles, needs a motor dealer licence from NSW Fair Trading. You need council approval to run a dealership at your premises, and Fair Trading checks your finances and police record. It aims to decide within 30 business days.",
+      "authority": "NSW Fair Trading, under the Motor Dealers and Repairers Act 2013",
+      "publisher": "NSW Fair Trading",
+      "verticals": [
+        "TRADE"
+      ],
+      "jurisdiction": "NSW",
+      "order": 490,
+      "checked_on": "2026-10-12",
+      "timeframe": "NSW Fair Trading aims to assess applications within 30 business days.",
+      "cost_summary": "New licence for one place of business A$1,893 (1 year) to A$4,941 (5 years), plus a compensation fund contribution of A$1,200 to A$2,582 (2026-27).",
+      "before_you_start": [
+        "Get council approval to run a motor dealer business at your nominated premises.",
+        "Have proof of identity, business details and an ABN or ACN.",
+        "Decide on a retail dealer licence or a wholesale licence (wholesalers can't sell to the public).",
+        "Dealing in written-off light vehicles needs specific authority.",
+        "If you'll repair vehicles for customers, ask NSW Fair Trading about a motor vehicle repairer licence too."
+      ],
+      "steps": [
+        {
+          "title": "Get council approval",
+          "detail": "Confirm your premises is approved for a motor dealership."
+        },
+        {
+          "title": "Apply online or in person",
+          "detail": "Complete the NSW motor dealer licence application online through Service NSW, or lodge the individual or corporation form at a Service NSW Centre.",
+          "cost": "From A$1,865 online",
+          "form": {
+            "name": "Apply for a motor dealer licence",
+            "url": "https://www.service.nsw.gov.au/transaction/apply-for-a-motor-dealer-licence"
+          },
+          "url": "https://www.service.nsw.gov.au/transaction/apply-for-a-motor-dealer-licence"
+        },
+        {
+          "title": "Pay the compensation fund contribution",
+          "detail": "Paid per place of business with the application.",
+          "cost": "A$1,200 for 1 year"
+        },
+        {
+          "title": "Checks and decision",
+          "detail": "Fair Trading carries out financial and police checks.",
+          "timeframe": "About 30 business days"
+        },
+        {
+          "title": "Keep a dealer's register",
+          "detail": "Record every vehicle you buy and sell in the motor dealer's register."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Motor dealer licence, 1 year",
+          "amount": "A$1,893",
+          "note": "A$1,865 if lodged online; per place of business."
+        },
+        {
+          "label": "Motor dealer licence, 3 years",
+          "amount": "A$3,077",
+          "note": "A$3,049 online."
+        },
+        {
+          "label": "Motor dealer licence, 5 years",
+          "amount": "A$4,941",
+          "note": "A$4,913 online."
+        },
+        {
+          "label": "Compensation fund contribution (new)",
+          "amount": "A$1,200 (1 yr), A$1,549 (3 yrs), A$2,582 (5 yrs)"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "NSW Fair Trading business licensing",
+          "phone": "13 32 20",
+          "email": "businesslicensing@customerservice.nsw.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Selling vehicles as a business without a licence is an offence.",
+        "Imported vehicles must be on the Register of Approved Vehicles before first sale where that applies."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/working-as-a-motor-dealer/motor-dealer-licence",
+          "title": "NSW Government: Motor dealer licence"
+        },
+        {
+          "url": "https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/working-as-a-motor-dealer/licensing-fees",
+          "title": "NSW Government: Motor dealer licensing fees (2026-27)"
+        }
+      ],
+      "gaps": [
+        "The page didn't state how many sales a year make you a dealer.",
+        "Motor vehicle repairer licence requirements and fees weren't read."
+      ],
+      "forms": [
+        "nsw-motor-dealer-licence"
+      ]
+    },
+    {
+      "kind": "NSW_VESSEL_REGISTRATION",
+      "title": "Registering a boat in NSW",
+      "summary": "In NSW a recreational vessel must be registered with Transport for NSW if it has an engine of 4 kW or more, is 5.5 m or longer, is a personal watercraft, or needs a mooring or marina berth. You lodge the NSW Application for Vessel Registration in person at a service centre with a HIN (Boatcode) certificate, proof of purchase and ID. Registration lasts 12 months.",
+      "authority": "Transport for NSW (Maritime)",
+      "publisher": "Transport for NSW",
+      "verticals": [
+        "VESSEL"
+      ],
+      "jurisdiction": "NSW",
+      "order": 600,
+      "checked_on": "2026-10-12",
+      "timeframe": "One visit to a service centre once you have the HIN certificate; registration lasts 12 months.",
+      "cost_summary": "12-month registration from A$94 (up to 3 m) rising with length; A$512 for a PWC (from 1 July 2026). Concession holders pay 50%.",
+      "before_you_start": [
+        "You must be 16 or older to register a vessel.",
+        "Get a HIN (Boatcode) certificate from a Boat Code Agent if the vessel needs one.",
+        "Powerboats and PWCs designed to carry more than 2 people need an Australian Builders Plate.",
+        "Have proof of purchase showing the seller, buyer, date, vessel description and 'received payment in full'; a statutory declaration can fill gaps.",
+        "If the vessel was previously used commercially or has an AMSA UVI, get a Letter of Agreement from Transport for NSW first."
+      ],
+      "steps": [
+        {
+          "title": "Book a Boat Code inspection if needed",
+          "detail": "A Boat Code Agent inspects the vessel and issues the HIN certificate."
+        },
+        {
+          "title": "Complete the application",
+          "detail": "Fill in the NSW Application for Vessel Registration.",
+          "form": {
+            "name": "Application for Vessel Registration",
+            "url": "https://tfnswforms.transport.nsw.gov.au/45072014-application-for-vessel-registration.pdf"
+          }
+        },
+        {
+          "title": "Lodge in person and pay",
+          "detail": "Book an appointment and lodge at a service centre with your documents and fee.",
+          "timeframe": "One visit",
+          "cost": "From A$94",
+          "url": "https://www.service.nsw.gov.au/transaction/apply-for-a-vessel-registration"
+        },
+        {
+          "title": "Display the registration number",
+          "detail": "Display the number on the vessel as instructed."
+        },
+        {
+          "title": "Renew each year",
+          "detail": "Registration lasts 12 months.",
+          "timeframe": "Yearly"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Up to 3.00 m",
+          "amount": "A$94",
+          "note": "12 months, from 1 July 2026; concession A$46."
+        },
+        {
+          "label": "4.51 to 5.00 m",
+          "amount": "A$154"
+        },
+        {
+          "label": "5.51 to 6.00 m",
+          "amount": "A$184"
+        },
+        {
+          "label": "7.51 to 8.00 m",
+          "amount": "A$263"
+        },
+        {
+          "label": "9.51 to 10.00 m",
+          "amount": "A$327"
+        },
+        {
+          "label": "Maximum fee",
+          "amount": "A$1,064"
+        },
+        {
+          "label": "Personal watercraft",
+          "amount": "A$512",
+          "note": "Concession A$256."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Transport for NSW maritime enquiries",
+          "phone": "13 12 36"
+        },
+        {
+          "name": "Service NSW",
+          "phone": "13 77 88",
+          "url": "https://www.service.nsw.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Using an unregistered vessel that must be registered is an offence.",
+        "Domestic commercial vessels under the national law don't need NSW registration; they go through AMSA."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/boat-and-vessel-registration/how-to-register",
+          "title": "NSW Government: How to register a vessel"
+        },
+        {
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/boat-and-vessel-registration/fees-and-concessions",
+          "title": "NSW Government: Fees and concessions for boat and vessel registration"
+        },
+        {
+          "url": "https://www.service.nsw.gov.au/transaction/apply-for-a-vessel-registration",
+          "title": "Service NSW: Apply for a vessel registration"
+        }
+      ],
+      "gaps": [
+        "No deadline for registering after purchase was stated.",
+        "Boat Code Agent inspection fees weren't collected."
+      ],
+      "forms": [
+        "nsw-vessel-registration"
+      ]
+    },
+    {
+      "kind": "NSW_BOAT_LICENCE",
+      "title": "General boat licence (NSW)",
+      "summary": "You need a NSW general boat licence to drive a recreational powered vessel at 10 knots (18.5 km/h) or more. You can apply from age 12. Show practical experience with a logbook or approved course, pass the knowledge test, then apply and pay.",
+      "authority": "Transport for NSW (Maritime)",
+      "publisher": "Transport for NSW",
+      "verticals": [
+        "VESSEL"
+      ],
+      "jurisdiction": "NSW",
+      "order": 610,
+      "checked_on": "2026-10-12",
+      "timeframe": "Complete a logbook or a practical course, then the test and application.",
+      "cost_summary": "Knowledge test A$44; licence A$82 for 1 year or A$372 for 5 years (from 1 July 2026, age 16 and over).",
+      "before_you_start": [
+        "Licence holders under 16 have restrictions.",
+        "Choose a logbook with an experienced skipper or an approved practical course with an Authorised Training Provider."
+      ],
+      "steps": [
+        {
+          "title": "Get practical experience",
+          "detail": "Complete the practical logbook or an approved practical course.",
+          "cost": "Course price set by provider"
+        },
+        {
+          "title": "Pass the knowledge test",
+          "detail": "Book the boating knowledge test at a service centre or with an Authorised Training Provider.",
+          "cost": "A$44"
+        },
+        {
+          "title": "Apply and pay",
+          "detail": "Submit your application with documents and fee.",
+          "cost": "A$82 (1 yr) or A$372 (5 yrs)",
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/maritime-licences/boat-and-pwc-licences/get-boat-or-pwc-licence"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Boat licence, 1 year",
+          "amount": "A$82"
+        },
+        {
+          "label": "Boat licence, 5 years",
+          "amount": "A$372"
+        },
+        {
+          "label": "Boat Licence Knowledge Test",
+          "amount": "A$44"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Transport for NSW maritime enquiries",
+          "phone": "13 12 36"
+        }
+      ],
+      "watch_out": [
+        "Driving at 10 knots or more without a licence is an offence.",
+        "Jet skis need a separate PWC licence."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/maritime-licences/boat-and-pwc-licences/get-boat-or-pwc-licence",
+          "title": "NSW Government: Get a boat or PWC licence"
+        },
+        {
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/maritime-licences/boat-and-pwc-licences/licence-and-test-fees",
+          "title": "NSW Government: Fees for boat or PWC licence"
+        }
+      ],
+      "gaps": [
+        "Fees for licence holders under 16 weren't listed in what we read."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "NSW_PWC_LICENCE",
+      "title": "Personal watercraft (jet ski) licence (NSW)",
+      "summary": "Anyone driving a personal watercraft in NSW needs a PWC licence, at any speed. You must hold a general boat licence first, then pass the PWC test.",
+      "authority": "Transport for NSW (Maritime)",
+      "publisher": "Transport for NSW",
+      "verticals": [
+        "VESSEL"
+      ],
+      "jurisdiction": "NSW",
+      "order": 611,
+      "checked_on": "2026-10-12",
+      "timeframe": "After your boat licence: a practical course or logbook and the PWC test.",
+      "cost_summary": "PWC licence A$260 for 1 year or A$1,104 for 5 years (from 1 July 2026).",
+      "before_you_start": [
+        "Hold a NSW general boat licence first."
+      ],
+      "steps": [
+        {
+          "title": "Get your boat licence",
+          "detail": "Complete the general boat licence first."
+        },
+        {
+          "title": "Pass the PWC test",
+          "detail": "Show PWC practical experience and pass the PWC knowledge test."
+        },
+        {
+          "title": "Apply and pay",
+          "detail": "Apply for the PWC licence.",
+          "cost": "A$260 (1 yr) or A$1,104 (5 yrs)",
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/maritime-licences/boat-and-pwc-licences/get-boat-or-pwc-licence"
+        }
+      ],
+      "fees": [
+        {
+          "label": "PWC licence, 1 year",
+          "amount": "A$260"
+        },
+        {
+          "label": "PWC licence, 5 years",
+          "amount": "A$1,104"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Transport for NSW maritime enquiries",
+          "phone": "13 12 36"
+        }
+      ],
+      "watch_out": [
+        "A PWC must also be registered, whatever its engine power."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/maritime-licences/boat-and-pwc-licences/licence-and-test-fees",
+          "title": "NSW Government: Fees for boat or PWC licence"
+        }
+      ],
+      "gaps": [
+        "The PWC knowledge test fee wasn't listed separately."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "NSW_MOORING_LICENCE",
+      "title": "Private mooring licence (NSW)",
+      "summary": "To keep your boat on a private mooring on NSW waters you need a private mooring licence from Transport for NSW. Licences are issued only to individuals, for registered vessels 5.2 m or longer. Search the Private Mooring Map and apply online; where no site is free you join a waiting list.",
+      "authority": "Transport for NSW (Maritime)",
+      "publisher": "Transport for NSW",
+      "verticals": [
+        "VESSEL"
+      ],
+      "jurisdiction": "NSW",
+      "order": 620,
+      "checked_on": "2026-10-12",
+      "timeframe": "Immediate where a site is free; waiting lists in busy areas. You must reply to an offer within 14 days.",
+      "cost_summary": "Annual fee by vessel length and area, for example A$285 (up to 7 m, rest of state), A$426 (rest of Sydney and Pittwater) or A$664 (east Sydney Harbour). You also pay to buy, install and service the mooring.",
+      "before_you_start": [
+        "The vessel must be 5.2 m or longer and registered in NSW in your name.",
+        "You can hold up to two moorings.",
+        "Have a recent photo of the vessel and proof of identity.",
+        "A mooring contractor must confirm the mooring suits your vessel when installed."
+      ],
+      "steps": [
+        {
+          "title": "Search the Private Mooring Map",
+          "detail": "Check availability in the area you want.",
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/using-waterways-boating-and-transport-information/mooring-type-licence-and-fees/private-mooring-licence-and-rules"
+        },
+        {
+          "title": "Apply online",
+          "detail": "Lodge the NSW private mooring licence application through the map with the vessel photo and ID, and pay the licence and establishment fees by credit card.",
+          "cost": "From A$285 a year",
+          "form": {
+            "name": "Apply for a private mooring licence",
+            "url": "https://www.service.nsw.gov.au/transaction/apply-for-a-private-mooring-licence"
+          }
+        },
+        {
+          "title": "Or join the waiting list",
+          "detail": "Where nothing is free, join the wait list. Declining a second offer removes you.",
+          "cost": "Priority wait list fee A$285 to A$664"
+        },
+        {
+          "title": "Install the mooring",
+          "detail": "Have a mooring contractor install the apparatus to suit your vessel."
+        },
+        {
+          "title": "Renew yearly",
+          "detail": "The licence lasts 12 months and is renewed by paying the annual fee.",
+          "timeframe": "Yearly"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Up to 7 m, rest of state",
+          "amount": "A$285",
+          "note": "Per year; 50% concession for eligible holders."
+        },
+        {
+          "label": "Up to 7 m, rest of Sydney and Pittwater",
+          "amount": "A$426"
+        },
+        {
+          "label": "Up to 7 m, east Sydney Harbour",
+          "amount": "A$664"
+        },
+        {
+          "label": "10.01 to 11 m, rest of state",
+          "amount": "A$533"
+        },
+        {
+          "label": "Each metre over 25 m",
+          "amount": "A$113 to A$442 by area"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Transport for NSW maritime enquiries",
+          "phone": "13 12 36"
+        }
+      ],
+      "watch_out": [
+        "A licence isn't a lease of the seabed and doesn't guarantee tenure.",
+        "In priority wait list areas licences generally can't be transferred with a boat sale."
+      ],
+      "sources": [
+        {
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/using-waterways-boating-and-transport-information/mooring-type-licence-and-fees/private-mooring-licence-and-rules",
+          "title": "NSW Government: Private mooring licence and rules"
+        },
+        {
+          "url": "https://www.nsw.gov.au/driving-boating-and-transport/using-waterways-boating-and-transport-information/mooring-type-licence-and-fees/mooring-fees-and-charges",
+          "title": "NSW Government: Mooring fees"
+        }
+      ],
+      "gaps": [
+        "The mooring fees page doesn't state the fee year (last modified 1 July 2026).",
+        "The application and establishment fee amounts weren't listed."
+      ],
+      "forms": [
+        "nsw-private-mooring-licence"
+      ]
     }
   ]
 }

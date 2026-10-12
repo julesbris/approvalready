@@ -1,0 +1,91 @@
+{
+  "key": "rent.nsw_start_of_tenancy",
+  "vertical": "RENT",
+  "title": "Starting a NSW tenancy",
+  "description": "The paperwork and steps before and when a NSW tenant signs. Summarised from NSW Fair Trading, Service NSW and the Residential Tenancies Act 2010.",
+  "sources": [
+    {
+      "title": "Information a tenant should get at the start of a tenancy",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/rules/information-a-tenant-should-get-at-start-of-a-tenancy"
+    },
+    {
+      "title": "What tenants need to be told about a rental property",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/rules/what-tenants-need-to-be-told-about-a-rental-property"
+    },
+    {
+      "title": "Rental property condition reports",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/rules/rental-property-condition-reports"
+    },
+    {
+      "title": "Rental Bonds Online for self-managing landlords",
+      "organisation": "NSW Fair Trading",
+      "url": "https://nsw.gov.au/housing-and-construction/landlords/rental-bonds-online-for-landlords"
+    },
+    {
+      "title": "How and when to pay rent",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live/how-and-when-to-pay-rent"
+    }
+  ],
+  "items": [
+    {
+      "key": "disclosures",
+      "title": "Tell the tenant about any prepared sale contract, mortgagee action or strata renewal committee"
+    },
+    {
+      "key": "material_facts",
+      "title": "Disclose material facts such as recent flooding or bushfire, loose-fill asbestos or serious health and safety risks"
+    },
+    {
+      "key": "tis",
+      "title": "Give the NSW Tenant Information Statement before the tenant signs"
+    },
+    {
+      "key": "agreement",
+      "title": "Prepare the agreement on the NSW standard residential tenancy agreement"
+    },
+    {
+      "key": "condition_report",
+      "title": "Complete the NSW residential tenancy condition report and give two copies (or one electronic copy) with the agreement",
+      "detail": "Take dated photos. The tenant returns a copy within 7 days of moving in."
+    },
+    {
+      "key": "strata_bylaws",
+      "title": "Give the tenant the strata by-laws",
+      "required": false
+    },
+    {
+      "key": "pool_certificate",
+      "title": "Give the tenant a copy of the pool certificate of compliance",
+      "required": false
+    },
+    {
+      "key": "bond",
+      "title": "Invite the tenant to pay the bond through Rental Bonds Online, at most 4 weeks' rent"
+    },
+    {
+      "key": "rent_payment",
+      "title": "Set up fee-free rent payment by bank transfer and Centrepay"
+    },
+    {
+      "key": "rent_in_advance",
+      "title": "Ask for no more than 2 weeks' rent in advance"
+    },
+    {
+      "key": "contact_details",
+      "title": "Give your contact details in writing, or include them in the agreement"
+    },
+    {
+      "key": "water_meter",
+      "title": "Record the water meter reading in the condition report",
+      "required": false
+    },
+    {
+      "key": "signed_copy",
+      "title": "Give the tenant a copy of the signed agreement"
+    }
+  ]
+}
