@@ -26,6 +26,12 @@ class PlanOfferOut(BaseModel):
     currency: str | None
     product_name: str
     product_description: str
+    included_in_membership: bool = Field(
+        default=False, description="The organisation's ApprovalReady Plus includes it."
+    )
+    membership_on_sale: bool = Field(
+        default=False, description="ApprovalReady Plus (which includes plans) can be bought."
+    )
 
 
 class PlanFeeOut(BaseModel):
@@ -45,6 +51,14 @@ class PlanContactOut(BaseModel):
 
 class PlanSourceOut(BaseModel):
     title: str
+    url: str
+
+
+class PlanFormOut(BaseModel):
+    label: str
+    code: str | None = None
+    name: str
+    publisher: str
     url: str
 
 
@@ -113,6 +127,7 @@ class PlanSectionOut(BaseModel):
     watch_out: list[str] = []
     sources: list[PlanSourceOut] = []
     gaps: list[str] = []
+    forms: list[PlanFormOut] = Field(default=[], description="Official forms, linked.")
     checked_on: date | None = None
     verified: bool = False
     help: list[PlanHelpOut] = Field(default=[], description="Who can help, with partners.")

@@ -38,7 +38,7 @@
           "cost": "Name reservation fee applies (amount not confirmed)",
           "form": {
             "name": "Form 410 Application for reservation of a name",
-            "url": "https://www.asic.gov.au/for-business/registering-a-company/steps-to-register-a-company/"
+            "url": "https://www.asic.gov.au/regulatory-resources/forms/forms-folder/410-application-for-reservation-of-a-name"
           },
           "url": "https://business.gov.au/registrations/register-a-company"
         },
@@ -155,6 +155,9 @@
         "Name reservation fee, late payment fee amounts and special purpose company review fee were not confirmed.",
         "The ABRS director ID phone number 13 62 50 comes from a 2024 ABRS flyer hosted by ASIC; the current ABRS contact page could not be read.",
         "The dollar value of a penalty unit was not confirmed."
+      ],
+      "forms": [
+        "asic-form-410"
       ]
     },
     {
@@ -691,7 +694,7 @@
           "detail": "Have plans and specifications prepared for the fit-out. Where the certifier relies on another professional (for example a structural engineer or fire engineer), that person provides a Form 15 compliance certificate for building design or specification.",
           "form": {
             "name": "Form 15: Compliance certificate for building design or specification",
-            "url": "https://www.hpw.qld.gov.au/__data/assets/pdf_file/0026/9773/form15compliancecertificateforbuildingdesignorspecification.pdf"
+            "url": "https://www.housing.qld.gov.au/__data/assets/pdf_file/0026/9773/form15compliancecertificateforbuildingdesignorspecification.pdf"
           },
           "url": "https://www.cairns.qld.gov.au/building-planning-business/building-and-renovating/building-and-certifiers"
         },
@@ -725,16 +728,16 @@
           "detail": "The certifier (or a competent person) inspects the work at the stages set in the approval, as required by section 44 of the Building Regulation 2021. Competent persons may provide Form 16 inspection certificates for particular aspects.",
           "form": {
             "name": "Form 16: Inspection certificate / aspect certificate",
-            "url": "https://www.hpw.qld.gov.au/__data/assets/pdf_file/0028/9775/form16inspectioncertificateaspectcertificateqbcclicenseeaspectcertificate.pdf"
+            "url": "https://www.housing.qld.gov.au/__data/assets/pdf_file/0028/9775/form16inspectioncertificateaspectcertificateqbcclicenseeaspectcertificate.pdf"
           },
           "url": "https://www.business.qld.gov.au/industries/building-property-development/building-construction/approvals-inspections"
         },
         {
           "title": "Final certificate before you open",
-          "detail": "At completion the certifier issues the final paperwork and lodges it with Council: a certificate of classification (Form 11) for commercial buildings, or a final inspection certificate (Form 21) where that applies. Your food licence final inspection usually follows once the fit-out is certified.",
+          "detail": "At completion the certifier issues the final paperwork and lodges it with Council: a certificate of occupancy (Form 11) for commercial buildings, or a final inspection certificate (Form 21) where that applies. Your food licence final inspection usually follows once the fit-out is certified.",
           "form": {
             "name": "Form 21: Final inspection certificate",
-            "url": "https://www.hpw.qld.gov.au/__data/assets/pdf_file/0029/9785/form21finalinspectioncertificate.pdf"
+            "url": "https://www.housing.qld.gov.au/__data/assets/pdf_file/0029/9785/form21finalinspectioncertificate.pdf"
           },
           "url": "https://www.cairns.qld.gov.au/building-planning-business/building-and-renovating/building-and-certifiers"
         }
@@ -844,6 +847,15 @@
         "Business Queensland's exemptions page lists only residential-type examples; whether a given non-structural commercial fit-out is exempt must be confirmed with a certifier against the Building Regulation 2021.",
         "The current fire service referral fee for fit-outs was not confirmed (a 'Fee Advice for Building Development Application Referrals' PDF effective 1 July 2026 exists on fire.qld.gov.au but was not read).",
         "Notifiable plumbing work (lodged with QBCC by the plumber) and its lodgement deadline were not confirmed on the pages read."
+      ],
+      "forms": [
+        "qld-da-form-2",
+        "qld-building-form-56",
+        "qld-building-form-15",
+        "qld-building-form-16",
+        "qld-building-form-21",
+        "qld-building-form-11",
+        "cairns-plumbing-forms"
       ]
     },
     {
@@ -1016,6 +1028,9 @@
         "Processing timeframes for builder and general trade licences were not published on the pages read.",
         "Specific technical qualifications for each builder class (for example diploma or certificate IV requirements) are on individual class pages that were not read.",
         "Whether the A$3,300 threshold includes GST was not stated on the page read."
+      ],
+      "forms": [
+        "qbcc-contractor-application"
       ]
     },
     {
@@ -1159,6 +1174,11 @@
         "Fees for backflow prevention and thermostatic mixing valve endorsements and for mutual recognition were not listed.",
         "Contractor licence fees shown are from a page last published 1 July 2025; 2026-27 amounts may be higher.",
         "The occupational fee page's 'last reviewed' date (2021) conflicts with its statement that fees increased on 1 July 2026; confirm with QBCC."
+      ],
+      "forms": [
+        "qbcc-evidence-of-experience",
+        "qbcc-occ-plumber-drainer",
+        "qbcc-contractor-application"
       ]
     },
     {
@@ -1430,6 +1450,9 @@
         "No Ahpra page read says in so many words that businesses are not registered; this is inferred from Ahpra registering individual practitioners and students only. State or territory rules for private health facilities, pharmacy ownership or similar were not researched.",
         "Ahpra phone hours and dollar amounts of advertising penalties were not confirmed.",
         "Which allied health professions can apply online for a Medicare provider number, and the paper form for non-medical practitioners, were not confirmed."
+      ],
+      "forms": [
+        "services-australia-hw019"
       ]
     },
     {
@@ -1589,6 +1612,9 @@
         "The number of approved places for small, medium and large centre-based services was not found; only extra-large (101 or more places, or 61 or more family day care educators) was confirmed.",
         "No Cairns or Far North Queensland regional office contact was confirmed on the pages read.",
         "The exact NQA IT System login URL was not confirmed on a page read; search ACECQA for 'NQA IT System'."
+      ],
+      "forms": [
+        "qld-ecec-ar01"
       ]
     },
     {
@@ -1735,6 +1761,9 @@
         "Under this Act there is a business (premises) licence only; Queensland Health's guide describes no separate 'operator licence'. Individuals instead need the HLTINF005 qualification. Tattoo operator licences under the Tattoo Industry Act 2013 are separate and their fees were not researched here.",
         "The dollar value of a penalty unit was not confirmed on the pages read.",
         "Cairns' page meta description conflicts with its body text about hairdressing and beauty; the body text (and Queensland Health) say they are not higher risk."
+      ],
+      "forms": [
+        "cairns-pas-application"
       ]
     },
     {
@@ -1963,6 +1992,9 @@
         "Penalties for operating without a food business licence were not stated on the pages read.",
         "The renewal due date shown (30 September) is for the 2026 renewal round; later years may differ.",
         "How often a food safety program must be audited is set by Council case by case; no standard frequency is published."
+      ],
+      "forms": [
+        "cairns-food-business-forms"
       ]
     },
     {
@@ -2275,6 +2307,13 @@
         "Whether the bar licence uses the same 735.30 fee unit base as other commercial other licences is inferred from the regulation's wording ('commercial other licence, not artisan producer'); confirm with OLGR.",
         "No deadline was found on the pages read for new staff to complete RSA after starting work, or for RSA refreshers.",
         "The difference between a 'standard' and 'full' community impact statement is explained in OLGR Guideline 38, which was not read."
+      ],
+      "forms": [
+        "olgr-form-1",
+        "olgr-form-5",
+        "olgr-form-6",
+        "olgr-form-18",
+        "olgr-form-3"
       ]
     },
     {
@@ -2416,6 +2455,9 @@
         "The form does not say whether rental per square metre is charged yearly; the fee register calls it 'annual rental fees', so assume per year.",
         "Which streets fall in rental Areas A to G is set out in Council's policy or maps, which were not read; ask Council for your area.",
         "Minimum pedestrian clearance widths are in the Best Practice Use of Footpaths Policy (2018 update), which was not read in full."
+      ],
+      "forms": [
+        "cairns-footpath-dining"
       ]
     },
     {
@@ -2613,7 +2655,7 @@
           "timeframe": "Lodge paper forms within 14 days",
           "form": {
             "name": "Tax file number declaration",
-            "url": "https://www.ato.gov.au/forms-and-instructions/tfn-declaration/payer-information-and-obligations"
+            "url": "https://www.ato.gov.au/forms-and-instructions/tfn-declaration"
           },
           "url": "https://www.ato.gov.au/businesses-and-organisations/hiring-and-paying-your-workers/engaging-a-worker/hiring-a-new-worker"
         },
@@ -2758,6 +2800,11 @@
         "STP sub-pages (who is exempt, low-cost options for micro employers) were not read in detail.",
         "Workers compensation and payroll tax are state-based and are not covered here.",
         "Penalty amounts for not registering for PAYG withholding or late STP reporting were not confirmed."
+      ],
+      "forms": [
+        "ato-nat-3377",
+        "ato-tfn-declaration",
+        "ato-super-choice"
       ]
     },
     {
@@ -3292,6 +3339,9 @@
         "No phone number for the ozone team was found on the pages read.",
         "The detailed small air conditioner restriction (refrigerant charge 2.6 kg or less) was not fully described on the page read; check the Regulations for which gases are restricted.",
         "Product stewardship scheme membership costs are not published on the regulator page."
+      ],
+      "forms": [
+        "dcceew-eqpl"
       ]
     },
     {
@@ -3444,6 +3494,9 @@
         "Penalty amounts for supplying unregistered or unmarked equipment were not stated on the pages read; they are set by each state or territory's electrical safety law.",
         "Fees charged by private certifiers for Level 3 certificates are not published by the regulator.",
         "No business hours were listed for the EESS phone line."
+      ],
+      "forms": [
+        "eess-registration"
       ]
     },
     {
@@ -3579,6 +3632,11 @@
         "Police certification fees and processing times are set by each state and were not confirmed.",
         "Penalty amounts for importing prohibited firearms or weapons were not stated on the pages read.",
         "No ABF phone number for firearms permits was found on the pages read."
+      ],
+      "forms": [
+        "abf-b710",
+        "abf-b709a",
+        "abf-b709b"
       ]
     },
     {
@@ -3728,6 +3786,10 @@
         "The task mentioned a tobacco 'licence'; the official pages describe a permit (written permission), not a separate licence.",
         "Penalty amounts for importing tobacco or vapes without permission were not stated on the pages read.",
         "The 1 September 2026 customs duty notice (ABF) was not read; the 1 September 2026 rates come from the ATO excise page and customs duty is set at the same excise-equivalent rate per the March 2026 ABF notice."
+      ],
+      "forms": [
+        "odc-vaping-licence",
+        "odc-vaping-permission"
       ]
     },
     {
@@ -4247,7 +4309,7 @@
           "timeframe": "Up to 5 working days",
           "form": {
             "name": "B322 ICS EFT Client Authorisation",
-            "url": "https://www.abf.gov.au/form-listing/forms/B322.pdf"
+            "url": "https://www.abf.gov.au/form-listing/forms/b322.pdf"
           },
           "url": "https://www.abf.gov.au/form-listing/forms/B322.pdf"
         },
@@ -4341,6 +4403,11 @@
         "No numbered ABF form for ICS client registration itself was found; registration is done online. Form B323 (Digital Certificate Enquiry) and B322 (EFT authority) are the relevant numbered forms.",
         "Commercial EDI software options and their costs are not listed by the ABF.",
         "DigiCert is a private company acting as the Gatekeeper certificate authority for the ABF; its pages were used because the ABF links to it."
+      ],
+      "forms": [
+        "abf-b322",
+        "abf-cargo-support",
+        "abf-b323"
       ]
     },
     {
@@ -4373,11 +4440,11 @@
           "url": "https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/in-detail/rules-for-specific-transactions/international-transactions/deferred-gst"
         },
         {
-          "title": "Apply on form NAT 75136",
-          "detail": "Complete the online form 'Application for approval to defer GST on imported goods' (NAT 75136). It checks your eligibility first; if you are eligible, continue on the same form. Save it to a desktop or laptop with the latest Adobe Acrobat. GST group members need the group representative to also be approved and lodging monthly online.",
+          "title": "Apply on form NAT 75163",
+          "detail": "Complete the online form 'Application for approval to defer GST on imported goods' (NAT 75163). It checks your eligibility first; if you are eligible, continue on the same form. Save it to a desktop or laptop with the latest Adobe Acrobat. GST group members need the group representative to also be approved and lodging monthly online.",
           "timeframe": "Not published",
           "form": {
-            "name": "NAT 75136 Application for approval to defer GST on imported goods",
+            "name": "NAT 75163 Application for approval to defer GST on imported goods",
             "url": "https://www.ato.gov.au/forms-and-instructions/gst-application-for-approval-to-defer-gst-on-imported-goods"
           },
           "url": "https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/in-detail/rules-for-specific-transactions/international-transactions/deferred-gst"
@@ -4439,9 +4506,12 @@
         }
       ],
       "gaps": [
-        "The ATO does not publish an approval timeframe for NAT 75136.",
+        "The ATO does not publish an approval timeframe for NAT 75163.",
         "The ATO phone number for deferred GST enquiries was not read on an official page today.",
         "The ATO page shows label G11 in its example but does not discuss G10 for capital imports; G10 versus G11 depends on whether the goods are capital purchases (general BAS rules, not confirmed on the page read)."
+      ],
+      "forms": [
+        "ato-nat-75163"
       ]
     },
     {
@@ -4482,7 +4552,7 @@
           "cost": "Free from the ABF (a broker may charge to prepare it)",
           "form": {
             "name": "B102 Application for Advance Ruling (Tariff)",
-            "url": "https://www.abf.gov.au/importing-exporting-and-manufacturing/tariff-classification/tariff-advice-system"
+            "url": "https://www.abf.gov.au/form-listing/forms/b102.pdf"
           },
           "url": "https://www.abf.gov.au/importing-exporting-and-manufacturing/tariff-classification/tariff-advice-system"
         },
@@ -4515,7 +4585,7 @@
           "timeframe": "Before release",
           "form": {
             "name": "B322 ICS EFT Client Authorisation",
-            "url": "https://www.abf.gov.au/form-listing/forms/B322.pdf"
+            "url": "https://www.abf.gov.au/form-listing/forms/b322.pdf"
           },
           "url": "https://www.abf.gov.au/importing-exporting-and-manufacturing/importing/cost-of-importing-goods/charges/import-processing-charge"
         },
@@ -4746,6 +4816,14 @@
         "Dollar value of a Commonwealth penalty unit was not read on an official page today; it is set by s4AA of the Crimes Act 1914 and indexed.",
         "Tariff Concession Order processing times and how to quote a TCO on the declaration were not stated on the page read.",
         "Customs broker fees are not set by government. Industry estimate, not official: brokers commonly charge a few hundred dollars per entry; ask for a written quote."
+      ],
+      "forms": [
+        "abf-b374",
+        "abf-b650",
+        "abf-b102",
+        "abf-b322",
+        "abf-cargo-support",
+        "abf-b443"
       ]
     },
     {
@@ -4941,6 +5019,10 @@
         "The list of foods needing mandatory foreign government certification was not read.",
         "No official laboratory test prices or result turnaround times; these are set by each appointed laboratory.",
         "The FSANZ website itself was not read; Food Standards Code requirements are summarised from DAFF pages."
+      ],
+      "forms": [
+        "daff-ifis-lab-nomination",
+        "daff-ifis-request-inspection"
       ]
     },
     {
@@ -4998,7 +5080,7 @@
           "cost": "See fees",
           "form": {
             "name": "Single Road Vehicle Approval (ROVER online form)",
-            "url": "https://rover.infrastructure.gov.au"
+            "url": "https://www.infrastructure.gov.au/infrastructure-transport-vehicles/vehicles/importing-road-vehicle-australia"
           },
           "url": "https://www.infrastructure.gov.au/sites/default/files/documents/guide-to-concessional-rav-entry-approvals-may2025.pdf"
         },
@@ -5164,6 +5246,9 @@
         "We found no official per-person or per-year limit on the number of older vehicle or SEVs approvals an individual can hold (other than the personal effects 5-year rule and up to 30 identical vehicles per application). Importing to sell has separate consequences (see QLD_MOTOR_DEALER_LICENCE).",
         "No official validity period for an approval, or deadline to ship after approval, is stated in the guides we read.",
         "Industry estimate, not official: some broker guides say assessment can take up to 60 business days; the legislated limit in the department's guide is 30 business days excluding information requests."
+      ],
+      "forms": [
+        "rover-srva"
       ]
     },
     {
@@ -5654,6 +5739,9 @@
         "Customs broker fees, wharf, port and storage charges are not set by government. Industry estimate, not official: broker guides quote A$400 to A$800 for broker fees and A$500 to A$1,000 for port and wharf charges.",
         "The ABF pages do not state the payment methods accepted at counters.",
         "The DCCEEW air-conditioning page was last updated in 2021 and does not give licence fees."
+      ],
+      "forms": [
+        "abf-b650"
       ]
     },
     {
@@ -5804,7 +5892,7 @@
           "timeframe": "1 day",
           "form": {
             "name": "F3523 Unregistered vehicle permit application",
-            "url": "https://www.support.transport.qld.gov.au/qt/formsdat.nsf/forms/QF3523/$file/F3523_CFD.pdf"
+            "url": "https://www.publications.qld.gov.au/dataset/transport-f3523"
           },
           "url": "https://www.qld.gov.au/transport/buying/unregistered/uvp"
         },
@@ -5832,7 +5920,7 @@
           "timeframe": "One visit",
           "form": {
             "name": "F3518 Vehicle Registration Application (only at QGAP, courts or police)",
-            "url": "https://www.support.transport.qld.gov.au/qt/formsdat.nsf/Forms/QF3518"
+            "url": "https://www.publications.qld.gov.au/dataset/transport-f3518"
           },
           "url": "https://www.qld.gov.au/transport/registration/register/vehicle"
         },
@@ -5982,6 +6070,12 @@
         "Registration fees for rotary-engine cars and 6-month terms were not listed on the fees page.",
         "The unregistered vehicle permit fee amount was not on the permit page.",
         "Queensland duty page does not say how market value is set for a used import; ask TMR whether to bring the invoice, customs value or a valuation."
+      ],
+      "forms": [
+        "tmr-f5225",
+        "tmr-f3503",
+        "tmr-f3523",
+        "tmr-f3518"
       ]
     },
     {
@@ -6503,6 +6597,13 @@
         "No ABF phone number was found on the current pages read; the 2012 guide lists 1300 558 099 for cargo support but this was not confirmed as current.",
         "Customs broker fees for lodging an EDN are commercial and not published by government.",
         "Whether your carrier or terminal needs the EDN before receiving goods was not confirmed on a current ABF page; ask your freight forwarder."
+      ],
+      "forms": [
+        "abf-b957",
+        "abf-b957a",
+        "abf-b611",
+        "abf-cargo-support",
+        "abf-b111"
       ]
     },
     {
@@ -6612,6 +6713,9 @@
         "Representative body tier details (up to A$50,000 a year) were not covered in depth.",
         "Payment timing (when grant money is paid after milestone reports) was not stated on the pages read.",
         "The full list of 27 Tier 3 key markets and the detailed eligible expense limits in the grant guidelines were not read."
+      ],
+      "forms": [
+        "austrade-emdg-sample"
       ]
     }
   ]

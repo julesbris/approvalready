@@ -35,6 +35,7 @@ from app.modules.checklists.models import ItemStatus
 from app.modules.councils import directory as councils
 from app.modules.documents.service import list_evidence
 from app.modules.grants import service as grants
+from app.modules.guidance import forms as official_forms
 from app.modules.guidance import guides as guidance
 from app.modules.projects.models import Project, Task, TaskSource, TaskStatus, Vertical
 from app.modules.regulatory.models import SourceReference, VerificationStatus
@@ -104,6 +105,8 @@ class Section:
     watch_out: list[str] = field(default_factory=list)
     sources: list[dict[str, str]] = field(default_factory=list)
     gaps: list[str] = field(default_factory=list)
+    # The official forms this part names, each with a direct link ({"label", "url", ...}).
+    forms: list[dict[str, str | None]] = field(default_factory=list)
     # Gathered from official websites on this date; ``verified`` once our team checked it.
     checked_on: str | None = None
     verified: bool = False
@@ -125,6 +128,7 @@ class Section:
             "watch_out": list(self.watch_out),
             "sources": list(self.sources),
             "gaps": list(self.gaps),
+            "forms": list(self.forms),
             "checked_on": self.checked_on,
             "verified": self.verified,
         }
@@ -215,6 +219,31 @@ def _guide_section(
         gaps=list(guide.gaps),
         checked_on=guide.checked_on.isoformat(),
     )
+
+
+def _link_forms(section: Section, scope: list[official_forms.OfficialForm], every: bool) -> None:
+    """Point each step that names a form at that form (unless it already links somewhere),
+    and list the forms the section names: all of ``scope`` when ``every`` (a guide's own
+    list), otherwise the ones its text mentions."""
+    named: list[official_forms.OfficialForm] = list(scope) if every else []
+
+    def note(text: str | None) -> list[official_forms.OfficialForm]:
+        hits = official_forms.mentioned(text, scope)
+        named.extend(f for f in hits if f not in named)
+        return hits
+
+    note(section.summary)
+    for step in section.steps:
+        hits = note(" ".join(x for x in (step.title, step.detail) if x))
+        if hits and not step.link_url and not step.link_label:
+            step.link_url = hits[0].url
+            step.link_label = hits[0].label
+    for line in section.watch_out:
+        note(line)
+    section.forms = [
+        {"label": f.label, "code": f.code, "name": f.name, "publisher": f.publisher, "url": f.url}
+        for f in named
+    ]
 
 
 def _bare_section(entry: approval_map.MapEntry, categories: list[str]) -> Section:
@@ -522,6 +551,16 @@ async def build(
                 ],
             )
         )
+
+    vertical_forms = official_forms.for_vertical(vertical)
+    for s in sections:
+        guide = (
+            found.get(s.key.removeprefix("approval:")) if s.kind == SectionKind.APPROVAL else None
+        )
+        if guide is not None:
+            _link_forms(s, official_forms.by_ids(guide.forms), every=True)
+        else:
+            _link_forms(s, vertical_forms, every=False)
 
     checked = await verified_sections(
         db,

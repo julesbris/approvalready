@@ -1,6 +1,7 @@
 import type {
   AIJobOut,
   ApprovalGuideOut,
+  OfficialForm,
   AIStatusOut,
   AssessmentOut,
   AssessmentReviewOut,
@@ -88,6 +89,10 @@ export default async function AssessmentPage({ params, searchParams }: Props) {
     kinds.length > 0
       ? await serverGet<ApprovalGuideOut[]>(`/guidance/approvals?${guideQuery(kinds, vertical)}`)
       : null;
+  // The product's official forms, so every form the findings name links to it.
+  const forms = vertical
+    ? await serverGet<OfficialForm[]>(`/guidance/forms?vertical=${vertical}`)
+    : null;
   const canWrite = session.permissions.includes("project.write");
   const review = reviewState.ok ? reviewState.data : null;
   const openReview = (reviews.ok ? reviews.data : []).find((r) => isOpen(r.status)) ?? null;
@@ -109,6 +114,7 @@ export default async function AssessmentPage({ params, searchParams }: Props) {
         overrides={review?.overrides}
         approvalMap={project.ok && MAP_VERTICALS.has(project.data.vertical)}
         guides={guides?.ok ? guides.data : []}
+        forms={forms?.ok ? forms.data : []}
         helpAction={
           <div className="button-row">
             {canWrite && latestId === assessment.id ? (

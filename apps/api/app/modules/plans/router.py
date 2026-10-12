@@ -22,6 +22,7 @@ from app.api.deps import DbDep, MetaDep, OrgContext, SettingsDep, require_org_pe
 from app.core.errors import ApiError, not_found
 from app.modules.billing import service as billing
 from app.modules.billing.catalogue import load_bundled
+from app.modules.billing.models import Price, Product
 from app.modules.billing.router import StripeDep
 from app.modules.leads.service import _open_categories
 from app.modules.marketplace.models import MarketplaceCategory
@@ -59,15 +60,37 @@ Write = Annotated[OrgContext, Depends(require_org_permission(Perm.PROJECT_WRITE)
 FOLLOW_UP_DAYS = 3
 
 
-async def _offer(db: DbDep, settings: SettingsDep) -> PlanOfferOut:
+async def _price(
+    db: DbDep, settings: SettingsDep, organisation_id: uuid.UUID
+) -> tuple[Product, Price] | None:
+    """What starting a plan costs this organisation: nothing while payments are off, no price
+    is set, or its ApprovalReady Plus membership includes plans."""
+    if not settings.payments_enabled:
+        return None
+    if await billing.includes_project_plans(db, organisation_id):
+        return None
+    return await service.plan_price(db)
+
+
+async def _offer(db: DbDep, settings: SettingsDep, organisation_id: uuid.UUID) -> PlanOfferOut:
     product = next(p for p in load_bundled().products if p.key == service.PRODUCT_KEY)
-    price = await service.plan_price(db) if settings.payments_enabled else None
+    included = settings.payments_enabled and await billing.includes_project_plans(
+        db, organisation_id
+    )
+    price = None if included else await _price(db, settings, organisation_id)
+    membership = (
+        settings.payments_enabled
+        and not included
+        and await billing.membership_price(db) is not None
+    )
     return PlanOfferOut(
         on_sale=price is not None,
         price_cents=price[1].amount_cents if price else None,
         currency=price[1].currency if price else None,
         product_name=product.name,
         product_description=product.description,
+        included_in_membership=included,
+        membership_on_sale=membership,
     )
 
 
@@ -127,7 +150,7 @@ def step_out(
 async def _plan_out(
     db: DbDep, settings: SettingsDep, project: Project, plan: ProjectPlan | None
 ) -> ProjectPlanOut:
-    offer = await _offer(db, settings)
+    offer = await _offer(db, settings, project.organisation_id)
     if plan is None:
         return ProjectPlanOut(status="NONE", offer=offer)
     base: dict[str, Any] = {
@@ -244,8 +267,8 @@ async def start_plan(
     page, and the plan starts once Stripe confirms payment; otherwise it starts now."""
     project = await _project(ctx, db, project_id)
     price = None
-    if settings.payments_enabled and stripe is not None:
-        price = await service.plan_price(db)
+    if stripe is not None:
+        price = await _price(db, settings, project.organisation_id)
     plan = await service.start(db, project, price=price, actor_id=ctx.auth.user.id, meta=meta)
     url = None
     if plan.status == PlanStatus.PAYMENT_PENDING:

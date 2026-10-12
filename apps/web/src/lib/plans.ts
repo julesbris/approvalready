@@ -115,6 +115,7 @@ export function putStep(plan: ProjectPlanOut, step: PlanStepOut): ProjectPlanOut
         watch_out: [],
         sources: [],
         gaps: [],
+        forms: [],
         help: [],
         verified: false,
         steps: [step],

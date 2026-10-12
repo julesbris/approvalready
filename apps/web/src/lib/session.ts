@@ -55,3 +55,18 @@ export function orNotFound<T>(result: ServerResult<T>): T {
   if (result.status === 404 || result.status === 403) notFound();
   throw new Error(`API request failed (${result.status})`);
 }
+
+/** GET a public API path server-side, without the browser's cookies (public pages). */
+export async function publicGet<T>(path: string): Promise<ServerResult<T>> {
+  try {
+    const response = await fetch(`${apiBaseUrl()}/v1${path}`, {
+      headers: { accept: "application/json" },
+      cache: "no-store",
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!response.ok) return { ok: false, status: response.status };
+    return { ok: true, data: (await response.json()) as T };
+  } catch {
+    return { ok: false, status: 0 };
+  }
+}

@@ -4,6 +4,7 @@ import type {
   AssessmentOut,
   Certainty,
   FindingOut,
+  OfficialForm,
   OverrideOut,
 } from "@approvalready/shared-types";
 import Link from "next/link";
@@ -24,7 +25,9 @@ import {
 } from "@/lib/assessment";
 import { GrantMatches } from "@/components/assessments/GrantMatches";
 import { ApprovalPlan } from "@/components/guidance/ApprovalPlan";
+import { FormLinks, FormList, FormText } from "@/components/guidance/FormText";
 import { formatDateTime, verticalName } from "@/lib/labels";
+import { formsMentioned } from "@/lib/officialForms";
 import { formatDate } from "@/lib/questionnaire";
 import { type ReviewedFinding, applyOverrides } from "@/lib/review";
 
@@ -67,7 +70,9 @@ function Finding({
     <li className="finding" id={`finding-${finding.id}`}>
       <div className="finding-head">
         <div>
-          <h3 className="finding-title">{finding.title ?? finding.rule_title}</h3>
+          <h3 className="finding-title">
+            <FormText text={finding.title ?? finding.rule_title} />
+          </h3>
           <p className="muted">
             {finding.outcome_type ? `${OUTCOME_LABELS[finding.outcome_type]} · ` : ""}
             {finding.rule_title}
@@ -75,7 +80,11 @@ function Finding({
         </div>
         <ConfidenceBadge level={finding.confidence} />
       </div>
-      {finding.detail ? <p>{finding.detail}</p> : null}
+      {finding.detail ? (
+        <p>
+          <FormText text={finding.detail} />
+        </p>
+      ) : null}
       <ReviewerChange finding={finding} />
       {finding.missing_facts.length > 0 ? (
         <div>
@@ -167,7 +176,11 @@ function ApprovalMap({
                     <p className="muted">
                       {e.authority ?? "Authority not stated"} · {CONFIDENCE_LABELS[e.confidence]}
                     </p>
-                    {e.pathway ? <p>{e.pathway}</p> : null}
+                    {e.pathway ? (
+                      <p>
+                        <FormText text={e.pathway} />
+                      </p>
+                    ) : null}
                     {e.finding_ids.some((id) => changed.has(id)) ? (
                       <p className="notice">
                         A professional reviewer changed a finding behind this. See their change
@@ -191,14 +204,26 @@ function Requirements({
   assessment,
   map,
   changed,
+  forms,
 }: {
   assessment: AssessmentOut;
   map: boolean;
   changed: Set<string>;
+  /** The product's official forms: the ones the requirements name are listed with links. */
+  forms: OfficialForm[];
 }) {
   const approvals = assessment.approval_requirements;
   const evidence = assessment.evidence_requirements;
   if (approvals.length === 0 && evidence.length === 0) return null;
+  const named = formsMentioned(
+    [
+      ...approvals.flatMap((a) => [a.title, a.pathway]),
+      ...(map ? assessment.approval_map.map((e) => e.pathway) : []),
+      ...evidence.flatMap((e) => [e.title, e.detail]),
+      ...assessment.finding_list.flatMap((f) => [f.title, f.detail]),
+    ],
+    forms,
+  );
   return (
     <section className="panel" aria-labelledby="requirements-title">
       <h2 id="requirements-title" className="section-title">
@@ -220,7 +245,11 @@ function Requirements({
                 </div>
                 <ConfidenceBadge level={a.confidence} />
               </div>
-              {a.pathway ? <p>{a.pathway}</p> : null}
+              {a.pathway ? (
+                <p>
+                  <FormText text={a.pathway} />
+                </p>
+              ) : null}
             </li>
           ))}
         </ul>
@@ -231,13 +260,19 @@ function Requirements({
           <ul>
             {evidence.map((e) => (
               <li key={e.id}>
-                {e.title}
-                {e.detail ? <span className="muted"> · {e.detail}</span> : null}
+                <FormText text={e.title} />
+                {e.detail ? (
+                  <span className="muted">
+                    {" "}
+                    · <FormText text={e.detail} />
+                  </span>
+                ) : null}
               </li>
             ))}
           </ul>
         </>
       ) : null}
+      <FormList forms={named} level={3} />
     </section>
   );
 }
@@ -252,6 +287,7 @@ export function AssessmentReport({
   helpAction,
   approvalMap = false,
   guides = [],
+  forms = [],
   embedded = false,
   children,
 }: {
@@ -270,6 +306,8 @@ export function AssessmentReport({
   approvalMap?: boolean;
   /** Step-by-step guides for the approvals found, in the order to do them. */
   guides?: ApprovalGuideOut[];
+  /** The product's official forms, so every form the findings name links to it. */
+  forms?: OfficialForm[];
   /** Interactive panels (evidence, report downloads) shown after the requirements. */
   children?: ReactNode;
   /**
@@ -284,189 +322,187 @@ export function AssessmentReport({
   const needsInfo = assessment.rule_sets.filter((rs) => rs.scope === "NEEDS_INFORMATION");
   const sources = uniqueSources(assessment.finding_list);
   return (
-    <div className="assessment">
-      {embedded ? null : (
-        <section className="page-head" aria-labelledby="assessment-title">
-          <div>
-            <h1 id="assessment-title" className="page-title">
-              Assessment
-            </h1>
-            <p className="muted">
-              As at {formatDate(assessment.assessed_on)} · Run{" "}
-              {formatDateTime(assessment.created_at)}
-            </p>
-          </div>
-          <ConfidenceBadge level={assessment.overall_confidence} />
-        </section>
-      )}
+    <FormLinks forms={forms}>
+      <div className="assessment">
+        {embedded ? null : (
+          <section className="page-head" aria-labelledby="assessment-title">
+            <div>
+              <h1 id="assessment-title" className="page-title">
+                Assessment
+              </h1>
+              <p className="muted">
+                As at {formatDate(assessment.assessed_on)} · Run{" "}
+                {formatDateTime(assessment.created_at)}
+              </p>
+            </div>
+            <ConfidenceBadge level={assessment.overall_confidence} />
+          </section>
+        )}
 
-      <p className="notice">
-        This is general information worked out from your answers and the sources listed, not legal
-        or professional advice. Check with the approving authority or a qualified professional
-        before you act on it.
-      </p>
-
-      {intro}
-
-      {embedded ? null : assessment.status === "NO_APPLICABLE_RULES" ? (
-        <section className="panel">
-          <p>
-            We don&apos;t have reviewed rules that cover your situation yet, so we can&apos;t say
-            whether approval is needed. This does not mean none is needed.
-          </p>
-        </section>
-      ) : (
-        <p>
-          <strong>Overall: {CONFIDENCE_LABELS[assessment.overall_confidence]}.</strong>{" "}
-          {CONFIDENCE_HELP[assessment.overall_confidence]}
+        <p className="notice">
+          This is general information worked out from your answers and the sources listed, not legal
+          or professional advice. Check with the approving authority or a qualified professional
+          before you act on it.
         </p>
-      )}
 
-      {assessment.grant_matches && assessment.grant_matches.length > 0 ? (
-        <GrantMatches matches={assessment.grant_matches} labels={labels} />
-      ) : null}
+        {intro}
 
-      <Requirements
-        assessment={assessment}
-        map={approvalMap}
-        changed={new Set(reviewed.filter((f) => f.override).map((f) => f.id))}
-      />
-
-      <ApprovalPlan guides={guides} />
-
-      {children}
-
-      {needsInfo.length > 0 ? (
-        <section className="panel" aria-labelledby="scope-title">
-          <h2 id="scope-title" className="section-title">
-            We couldn&apos;t check everything
-          </h2>
-          {needsInfo.map((rs) => (
-            <p key={rs.rule_set_id}>
-              {rs.title}: we need{" "}
-              {rs.missing_facts.map((f) => factLabel(f, labels)).join(", ") || "more information"}{" "}
-              to know whether these rules apply to you.
+        {embedded ? null : assessment.status === "NO_APPLICABLE_RULES" ? (
+          <section className="panel">
+            <p>
+              We don&apos;t have reviewed rules that cover your situation yet, so we can&apos;t say
+              whether approval is needed. This does not mean none is needed.
             </p>
-          ))}
-        </section>
-      ) : null}
+          </section>
+        ) : (
+          <p>
+            <strong>Overall: {CONFIDENCE_LABELS[assessment.overall_confidence]}.</strong>{" "}
+            {CONFIDENCE_HELP[assessment.overall_confidence]}
+          </p>
+        )}
 
-      {(
-        [
-          ["action", "What you may need to do", groups.action],
-          ["missing", "What we need to know", groups.missing],
-          ["other", "Other findings", groups.other],
-        ] as const
-      ).map(([key, title, list]) =>
-        list.length > 0 ? (
-          <section key={key} className="panel" aria-labelledby={`findings-${key}`}>
-            <h2 id={`findings-${key}`} className="section-title">
-              {title}
+        {assessment.grant_matches && assessment.grant_matches.length > 0 ? (
+          <GrantMatches matches={assessment.grant_matches} labels={labels} />
+        ) : null}
+
+        <Requirements
+          assessment={assessment}
+          map={approvalMap}
+          changed={new Set(reviewed.filter((f) => f.override).map((f) => f.id))}
+          forms={forms}
+        />
+
+        <ApprovalPlan guides={guides} />
+
+        {children}
+
+        {needsInfo.length > 0 ? (
+          <section className="panel" aria-labelledby="scope-title">
+            <h2 id="scope-title" className="section-title">
+              We couldn&apos;t check everything
+            </h2>
+            {needsInfo.map((rs) => (
+              <p key={rs.rule_set_id}>
+                {rs.title}: we need{" "}
+                {rs.missing_facts.map((f) => factLabel(f, labels)).join(", ") || "more information"}{" "}
+                to know whether these rules apply to you.
+              </p>
+            ))}
+          </section>
+        ) : null}
+
+        {(
+          [
+            ["action", "What you may need to do", groups.action],
+            ["missing", "What we need to know", groups.missing],
+            ["other", "Other findings", groups.other],
+          ] as const
+        ).map(([key, title, list]) =>
+          list.length > 0 ? (
+            <section key={key} className="panel" aria-labelledby={`findings-${key}`}>
+              <h2 id={`findings-${key}`} className="section-title">
+                {title}
+              </h2>
+              <ul className="finding-list">
+                {list.map((f) => (
+                  <Finding key={f.id} finding={f} labels={labels} actions={findingActions?.(f)} />
+                ))}
+              </ul>
+            </section>
+          ) : null,
+        )}
+
+        {assessment.referral_categories.length > 0 ? (
+          <section className="panel" aria-labelledby="help-title">
+            <h2 id="help-title" className="section-title">
+              Who can help
+            </h2>
+            <ul>
+              {assessment.referral_categories.map((c) => (
+                <li key={c.key}>
+                  {c.label}
+                  {c.description ? <span className="muted"> · {c.description}</span> : null}
+                </li>
+              ))}
+            </ul>
+            <p className="muted">
+              These are kinds of professional, not recommendations of particular businesses.
+            </p>
+            {helpAction}
+          </section>
+        ) : null}
+
+        {(assessment.cross_sell ?? []).length > 0 ? (
+          <section className="panel" aria-labelledby="cross-sell-title">
+            <h2 id="cross-sell-title" className="section-title">
+              You might also need
             </h2>
             <ul className="finding-list">
-              {list.map((f) => (
-                <Finding
-                  key={f.id}
-                  finding={f}
-                  labels={labels}
-                  actions={findingActions?.(f)}
-                />
+              {(assessment.cross_sell ?? []).map((offer) => (
+                <li key={offer.vertical} className="card">
+                  <p className="card-title">{offer.title}</p>
+                  {offer.detail ? <p>{offer.detail}</p> : null}
+                  {projectId ? (
+                    <Link
+                      className="button button-secondary"
+                      href={`/projects/new?vertical=${offer.vertical}`}
+                    >
+                      Start a {verticalName(offer.vertical)} project
+                    </Link>
+                  ) : (
+                    <p className="muted">Suggests {verticalName(offer.vertical)}.</p>
+                  )}
+                </li>
               ))}
             </ul>
           </section>
-        ) : null,
-      )}
+        ) : null}
 
-      {assessment.referral_categories.length > 0 ? (
-        <section className="panel" aria-labelledby="help-title">
-          <h2 id="help-title" className="section-title">
-            Who can help
-          </h2>
-          <ul>
-            {assessment.referral_categories.map((c) => (
-              <li key={c.key}>
-                {c.label}
-                {c.description ? <span className="muted"> · {c.description}</span> : null}
-              </li>
-            ))}
-          </ul>
-          <p className="muted">
-            These are kinds of professional, not recommendations of particular businesses.
+        {sources.length > 0 ? (
+          <section className="panel" aria-labelledby="sources-title">
+            <h2 id="sources-title" className="section-title">
+              Sources
+            </h2>
+            <ul className="sources">
+              {sources.map((s) => (
+                <li key={s.reference_id}>
+                  <a href={s.url} rel="noopener noreferrer" target="_blank">
+                    {s.citation}
+                  </a>{" "}
+                  <span className="muted">
+                    {s.organisation_name} · {VERIFICATION_LABELS[s.verification_status]}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {assessment.limitations.length > 0 ? (
+          <section className="panel" aria-labelledby="limitations-title">
+            <h2 id="limitations-title" className="section-title">
+              What this assessment doesn&apos;t check
+            </h2>
+            <ul>
+              {assessment.limitations.map((text) => (
+                <li key={text}>{text}</li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {projectId && !embedded && (groups.missing.length > 0 || needsInfo.length > 0) ? (
+          <p>
+            <Link href={`/projects/${projectId}/questionnaire`}>Update your answers</Link> and your
+            result is worked out again.
           </p>
-          {helpAction}
-        </section>
-      ) : null}
+        ) : null}
 
-      {(assessment.cross_sell ?? []).length > 0 ? (
-        <section className="panel" aria-labelledby="cross-sell-title">
-          <h2 id="cross-sell-title" className="section-title">
-            You might also need
-          </h2>
-          <ul className="finding-list">
-            {(assessment.cross_sell ?? []).map((offer) => (
-              <li key={offer.vertical} className="card">
-                <p className="card-title">{offer.title}</p>
-                {offer.detail ? <p>{offer.detail}</p> : null}
-                {projectId ? (
-                  <Link
-                    className="button button-secondary"
-                    href={`/projects/new?vertical=${offer.vertical}`}
-                  >
-                    Start a {verticalName(offer.vertical)} project
-                  </Link>
-                ) : (
-                  <p className="muted">Suggests {verticalName(offer.vertical)}.</p>
-                )}
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {sources.length > 0 ? (
-        <section className="panel" aria-labelledby="sources-title">
-          <h2 id="sources-title" className="section-title">
-            Sources
-          </h2>
-          <ul className="sources">
-            {sources.map((s) => (
-              <li key={s.reference_id}>
-                <a href={s.url} rel="noopener noreferrer" target="_blank">
-                  {s.citation}
-                </a>{" "}
-                <span className="muted">
-                  {s.organisation_name} · {VERIFICATION_LABELS[s.verification_status]}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {assessment.limitations.length > 0 ? (
-        <section className="panel" aria-labelledby="limitations-title">
-          <h2 id="limitations-title" className="section-title">
-            What this assessment doesn&apos;t check
-          </h2>
-          <ul>
-            {assessment.limitations.map((text) => (
-              <li key={text}>{text}</li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {projectId && !embedded && (groups.missing.length > 0 || needsInfo.length > 0) ? (
-        <p>
-          <Link href={`/projects/${projectId}/questionnaire`}>Update your answers</Link> and your
-          result is worked out again.
+        <p className="form-aside">
+          Reference for support: assessment {assessment.id.slice(0, 8)} · facts{" "}
+          {assessment.facts_hash.slice(0, 12)} · {assessment.engine_version}
         </p>
-      ) : null}
-
-      <p className="form-aside">
-        Reference for support: assessment {assessment.id.slice(0, 8)} · facts{" "}
-        {assessment.facts_hash.slice(0, 12)} · {assessment.engine_version}
-      </p>
-    </div>
+      </div>
+    </FormLinks>
   );
 }

@@ -1,5 +1,6 @@
 import type {
   ApprovalGuideOut,
+  OfficialForm,
   AssessmentOut,
   PrefillOut,
   ProjectDetailOut,
@@ -54,6 +55,8 @@ export default async function QuestionnairePage({ params }: Props) {
           `/guidance/approvals?${guideQuery(kinds, project.vertical)}`,
         )
       : null;
+  // The product's official forms, so every form the result names links to it.
+  const forms = await serverGet<OfficialForm[]>(`/guidance/forms?vertical=${project.vertical}`);
   return (
     <AppShell session={session}>
       <div className="flow">
@@ -70,6 +73,7 @@ export default async function QuestionnairePage({ params }: Props) {
             suggestions={prefill?.ok ? prefill.data.suggestions : []}
             assessment={assessment}
             guides={guides?.ok ? guides.data : []}
+            forms={forms.ok ? forms.data : []}
           />
         ) : canWrite ? (
           <StartQuestionnaire organisationId={orgId} projectId={projectId} />

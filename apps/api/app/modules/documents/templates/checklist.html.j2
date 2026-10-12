@@ -82,6 +82,15 @@
 </table>
 {% endif %}
 
+{% if s.forms %}
+<h3>Forms</h3>
+<ul>
+  {% for f in s.forms %}
+  <li><strong>{{ f.label }}</strong> ({{ f.publisher }}): {{ f.url }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
 {% if s.fees %}
 <h3>Fees</h3>
 <table>

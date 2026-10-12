@@ -1476,6 +1476,13 @@
             "title": "Fees",
             "type": "array"
           },
+          "forms": {
+            "items": {
+              "$ref": "#/components/schemas/OfficialForm"
+            },
+            "title": "Forms",
+            "type": "array"
+          },
           "gaps": {
             "items": {
               "maxLength": 600,
@@ -1587,6 +1594,7 @@
           "watch_out",
           "sources",
           "gaps",
+          "forms",
           "checked"
         ],
         "title": "ApprovalGuideOut",
@@ -4824,6 +4832,13 @@
               }
             ]
           },
+          "forms": {
+            "items": {
+              "$ref": "#/components/schemas/OfficialForm"
+            },
+            "title": "Forms",
+            "type": "array"
+          },
           "gaps": {
             "items": {
               "maxLength": 500,
@@ -4949,7 +4964,8 @@
           "gaps",
           "checked",
           "general_steps",
-          "general_source"
+          "general_source",
+          "forms"
         ],
         "title": "CouncilOut",
         "type": "object"
@@ -11469,6 +11485,89 @@
         "title": "OfferUpdate",
         "type": "object"
       },
+      "OfficialForm": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code"
+          },
+          "id": {
+            "maxLength": 60,
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "title": "Id",
+            "type": "string"
+          },
+          "mentions": {
+            "items": {
+              "maxLength": 300,
+              "minLength": 1,
+              "type": "string"
+            },
+            "title": "Mentions",
+            "type": "array"
+          },
+          "name": {
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 300,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "publisher": {
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Publisher",
+            "type": "string"
+          },
+          "url": {
+            "maxLength": 2000,
+            "pattern": "^https://[^\\s]+$",
+            "title": "Url",
+            "type": "string"
+          },
+          "verticals": {
+            "items": {
+              "$ref": "#/components/schemas/Vertical"
+            },
+            "title": "Verticals",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "code",
+          "name",
+          "publisher",
+          "url",
+          "mentions",
+          "verticals",
+          "note"
+        ],
+        "title": "OfficialForm",
+        "type": "object"
+      },
       "OpsStatusOut": {
         "properties": {
           "alert_email_count": {
@@ -13651,6 +13750,45 @@
         "title": "PlanFeeOut",
         "type": "object"
       },
+      "PlanFormOut": {
+        "properties": {
+          "code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Code"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "publisher": {
+            "title": "Publisher",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "name",
+          "publisher",
+          "url"
+        ],
+        "title": "PlanFormOut",
+        "type": "object"
+      },
       "PlanHelpOut": {
         "properties": {
           "description": {
@@ -13709,6 +13847,18 @@
               }
             ],
             "title": "Currency"
+          },
+          "included_in_membership": {
+            "default": false,
+            "description": "The organisation's ApprovalReady Plus includes it.",
+            "title": "Included In Membership",
+            "type": "boolean"
+          },
+          "membership_on_sale": {
+            "default": false,
+            "description": "ApprovalReady Plus (which includes plans) can be bought.",
+            "title": "Membership On Sale",
+            "type": "boolean"
           },
           "on_sale": {
             "description": "A price is set and payments are on: starting it charges.",
@@ -13936,6 +14086,15 @@
               "$ref": "#/components/schemas/PlanFeeOut"
             },
             "title": "Fees",
+            "type": "array"
+          },
+          "forms": {
+            "default": [],
+            "description": "Official forms, linked.",
+            "items": {
+              "$ref": "#/components/schemas/PlanFormOut"
+            },
+            "title": "Forms",
             "type": "array"
           },
           "gaps": {
@@ -14446,6 +14605,121 @@
           }
         },
         "title": "PlanStepUpdate",
+        "type": "object"
+      },
+      "PlusMembershipOut": {
+        "description": "The membership for one organisation: the offer, and where the organisation stands.",
+        "properties": {
+          "offer": {
+            "$ref": "#/components/schemas/PlusOfferOut"
+          },
+          "other_plan": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A different plan the organisation already has (cancel it first).",
+            "title": "Other Plan"
+          },
+          "subscription": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SubscriptionOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "trial_available": {
+            "description": "Starting now begins with the free trial.",
+            "title": "Trial Available",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "offer",
+          "trial_available",
+          "other_plan",
+          "subscription"
+        ],
+        "title": "PlusMembershipOut",
+        "type": "object"
+      },
+      "PlusOfferOut": {
+        "description": "ApprovalReady Plus as sold on the public sales page.",
+        "properties": {
+          "amount_cents": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Amount Cents"
+          },
+          "currency": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Currency"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "interval": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PriceInterval"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "on_sale": {
+            "description": "Payments are on and staff have set a price.",
+            "title": "On Sale",
+            "type": "boolean"
+          },
+          "product_name": {
+            "title": "Product Name",
+            "type": "string"
+          },
+          "reminder_days": {
+            "description": "Days before the first charge we email a reminder.",
+            "title": "Reminder Days",
+            "type": "integer"
+          },
+          "trial_days": {
+            "description": "Days free before the first charge (0: no trial).",
+            "title": "Trial Days",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "on_sale",
+          "product_name",
+          "description",
+          "amount_cents",
+          "currency",
+          "interval",
+          "trial_days",
+          "reminder_days"
+        ],
+        "title": "PlusOfferOut",
         "type": "object"
       },
       "PolicyDocument": {
@@ -22753,6 +23027,19 @@
           },
           "status": {
             "$ref": "#/components/schemas/SubscriptionStatus"
+          },
+          "trial_end": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "On a free trial: when it ends and the first charge is taken.",
+            "title": "Trial End"
           }
         },
         "required": [
@@ -29911,6 +30198,28 @@
         ]
       }
     },
+    "/v1/billing/membership": {
+      "get": {
+        "description": "ApprovalReady Plus for the public sales page: price, free days, reminder. No sign-in.",
+        "operationId": "membership_offer_v1_billing_membership_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlusOfferOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Membership Offer",
+        "tags": [
+          "billing"
+        ]
+      }
+    },
     "/v1/checklists": {
       "get": {
         "description": "Checklists a project can add, from the reviewed files (optionally for one vertical).",
@@ -30101,6 +30410,60 @@
           }
         },
         "summary": "Approval Guides",
+        "tags": [
+          "guidance"
+        ]
+      }
+    },
+    "/v1/guidance/forms": {
+      "get": {
+        "description": "Official forms with a direct link to each: the ones a product's findings, checklists\nand plan steps can name when ``vertical`` is given, otherwise all of them.",
+        "operationId": "forms_v1_guidance_forms_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "vertical",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vertical"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Vertical"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/OfficialForm"
+                  },
+                  "title": "Response Forms V1 Guidance Forms Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Forms",
         "tags": [
           "guidance"
         ]
@@ -31297,6 +31660,94 @@
           }
         },
         "summary": "Plan Checkout",
+        "tags": [
+          "billing"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/billing/membership": {
+      "get": {
+        "description": "The membership offer and where this organisation stands with it.",
+        "operationId": "membership_v1_organisations__organisation_id__billing_membership_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlusMembershipOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Membership",
+        "tags": [
+          "billing"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/billing/membership/checkout": {
+      "post": {
+        "description": "Stripe Checkout for ApprovalReady Plus: the card is saved now, and the first month is\nfree when the organisation hasn't had a trial before.",
+        "operationId": "membership_checkout_v1_organisations__organisation_id__billing_membership_checkout_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RedirectOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Membership Checkout",
         "tags": [
           "billing"
         ]
