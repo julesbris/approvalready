@@ -1,0 +1,2563 @@
+{
+ "key": "property_nsw",
+ "title": "PropertyReady: selling and renting residential property in New South Wales",
+ "notes": "First sourced rules for SellReady and RentReady in NSW. Built from NSW Fair Trading (nsw.gov.au), Service NSW, Revenue NSW, Fire and Rescue NSW and council pages, and from the Conveyancing (Sale of Land) Regulation 2022 Schedule 1 and Residential Tenancies Act 2010 section 26 read on legislation.nsw.gov.au on 2026-10-12. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The Conveyancing Act 1919, the Residential Tenancies Act 2010 and Regulation 2019 (beyond the sections cited), the Swimming Pools Act 1992 and the Property and Stock Agents Act 2002 are not otherwise encoded.",
+ "organisations": [
+  {
+   "ref": "nsw_fair_trading",
+   "name": "NSW Fair Trading",
+   "kind": "REGULATOR",
+   "jurisdiction": "NSW",
+   "website": "https://www.nsw.gov.au/departments-and-agencies/fair-trading"
+  },
+  {
+   "ref": "nsw_pco",
+   "name": "NSW Parliamentary Counsel's Office (NSW Legislation)",
+   "kind": "LEGISLATURE",
+   "jurisdiction": "NSW",
+   "website": "https://legislation.nsw.gov.au"
+  },
+  {
+   "ref": "frnsw",
+   "name": "Fire and Rescue NSW",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "NSW",
+   "website": "https://www.fire.nsw.gov.au"
+  },
+  {
+   "ref": "service_nsw",
+   "name": "Service NSW",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "NSW",
+   "website": "https://www.service.nsw.gov.au"
+  },
+  {
+   "ref": "revenue_nsw",
+   "name": "Revenue NSW",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "NSW",
+   "website": "https://www.revenue.nsw.gov.au"
+  },
+  {
+   "ref": "federation_council",
+   "name": "Federation Council",
+   "kind": "COUNCIL",
+   "jurisdiction": "NSW",
+   "website": "https://www.federationcouncil.nsw.gov.au"
+  },
+  {
+   "ref": "wollongong_council",
+   "name": "Wollongong City Council",
+   "kind": "COUNCIL",
+   "jurisdiction": "NSW",
+   "website": "https://wollongong.nsw.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "ft_sales_contracts",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Sales contracts – requirements for property agents",
+   "url": "https://www.nsw.gov.au/housing-and-construction/property-professionals/working-as-an-agent/sales-contracts",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_contracts_deposits",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Contracts and deposits when buying property in NSW",
+   "url": "https://www.nsw.gov.au/housing-and-construction/buying-and-selling-property/buying-property-nsw/contracts-and-deposits",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "sale_of_land_reg",
+   "organisation": "nsw_pco",
+   "jurisdiction": "NSW",
+   "title": "Conveyancing (Sale of Land) Regulation 2022",
+   "url": "https://legislation.nsw.gov.au/view/html/inforce/current/sl-2022-0485",
+   "source_type": "REGULATION"
+  },
+  {
+   "ref": "ft_misrepresentation",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Misrepresentation – information for property agents",
+   "url": "https://www.nsw.gov.au/housing-and-construction/property-professionals/working-as-an-agent/misrepresentation",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_lfai",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "About loose-fill asbestos insulation",
+   "url": "https://www.nsw.gov.au/housing-and-construction/safety-home/loose-fill-asbestos-insulation/about-loose-fill-asbestos-insulation",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "frnsw_smoke_alarms",
+   "organisation": "frnsw",
+   "jurisdiction": "NSW",
+   "title": "Smoke alarms - what is the law?",
+   "url": "https://www.fire.nsw.gov.au/page.php?id=439",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "federation_pools",
+   "organisation": "federation_council",
+   "jurisdiction": "NSW",
+   "title": "Selling or leasing property with a pool",
+   "url": "https://www.federationcouncil.nsw.gov.au/Building-Planning/Building-Renovating/Swimming-Pools-Spas/Selling-or-leasing-property-with-a-Pool",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "wollongong_pools",
+   "organisation": "wollongong_council",
+   "jurisdiction": "NSW",
+   "title": "Pool certificates",
+   "url": "https://wollongong.nsw.gov.au/plan-and-build/property-information/pool-certificates2",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "sns_planning_certificate",
+   "organisation": "service_nsw",
+   "jurisdiction": "NSW",
+   "title": "Apply online for a planning certificate (zoning certificate)",
+   "url": "https://www.service.nsw.gov.au/transaction/apply-online-zoning-certificate",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "revenue_land_tax_clearance",
+   "organisation": "revenue_nsw",
+   "jurisdiction": "NSW",
+   "title": "Understand land tax clearance",
+   "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/land-tax/buying-or-selling-a-property/understand-land-tax-clearance",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_access_notice",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Minimum notice periods for access to rental property",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/minimum-notice-periods-for-access-to-rental-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_ending_notice",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Minimum notice periods for ending a residential tenancy",
+   "url": "https://www.nsw.gov.au/rules/minimum-notice-periods-for-ending-a-residential-tenancy",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_landlord_ending",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Landlord ending a tenancy",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/landlord-ending-a-tenancy",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_tenant_told",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "What tenants need to be told about a rental property",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/what-tenants-need-to-be-told-about-a-rental-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_start_info",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Information a tenant should get at the start of a tenancy",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/information-a-tenant-should-get-at-start-of-a-tenancy",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_condition_reports",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Rental property condition reports",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/rental-property-condition-reports",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_agreements",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Residential tenancy agreements",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/residential-tenancy-agreements",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "rta_2010",
+   "organisation": "nsw_pco",
+   "jurisdiction": "NSW",
+   "title": "Residential Tenancies Act 2010",
+   "url": "https://legislation.nsw.gov.au/view/html/inforce/current/act-2010-042",
+   "source_type": "LEGISLATION"
+  },
+  {
+   "ref": "ft_rbo_landlords",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Rental Bonds Online for self-managing landlords",
+   "url": "https://nsw.gov.au/housing-and-construction/landlords/rental-bonds-online-for-landlords",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_rbo_tenants",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Rental Bonds Online for tenants",
+   "url": "https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live/residential-rental-bonds/rental-bonds-online-for-tenants",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "sns_lodge_bond",
+   "organisation": "service_nsw",
+   "jurisdiction": "NSW",
+   "title": "Lodge a rental bond",
+   "url": "https://www.service.nsw.gov.au/transaction/lodge-rental-bond",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ft_smoke_alarms_rental",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Smoke alarms in a rental property",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/smoke-alarms-a-rental-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_minimum_standards",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Minimum standards for rental properties",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/minimum-standards-for-rental-properties",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_window_safety",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Window, deck, and balcony safety in a rental property",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/window-deck-balcony-safety-rental-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_rent_increases",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "What landlords should know about rent increases",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/what-landlords-should-know-about-rent-increases",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_pay_rent",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "How and when to pay rent",
+   "url": "https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live/how-and-when-to-pay-rent",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_pets",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Keeping a pet in a rental property",
+   "url": "https://www.nsw.gov.au/housing-and-construction/rules/pets-in-rentals",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_repairs",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "Getting repairs done on a rental property",
+   "url": "https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live/getting-repairs-done",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "ft_water",
+   "organisation": "nsw_fair_trading",
+   "jurisdiction": "NSW",
+   "title": "How to improve water efficiency in rental properties",
+   "url": "https://www.nsw.gov.au/housing-and-construction/landlords/how-to-improve-water-efficiency-rental-properties",
+   "source_type": "GUIDELINE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "contract_before_marketing",
+   "document": "ft_sales_contracts",
+   "section": "Offering property for sale; prescribed documents",
+   "extracted_text": "[Summary, not the source's wording] Residential property cannot be offered for sale until a contract for sale has been prepared. Advertising, signs, auction notices and showing the address to a prospective buyer can count as offering it. The draft contract is prepared by an Australian legal practitioner or licensed conveyancer and is available for inspection at the agent's office. Under section 52A of the Conveyancing Act 1919 and Schedule 1 of the Conveyancing (Sale of Land) Regulation 2022 the contract must attach prescribed documents, including the property certificate (title search), drainage diagrams, the council planning certificate, dealings creating easements, profits a prendre, restrictions on use or positive covenants, and the smoke alarm and loose-fill asbestos notices unless printed in the contract. If a prescribed document is missing, the buyer may rescind within 14 days of exchange. The contract must include the prescribed cooling-off statement.",
+   "interpretation": "Applies to every residential sale in NSW: the contract with its attachments has to exist before marketing starts. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_in_contract",
+   "document": "ft_sales_contracts",
+   "section": "Swimming and spa pools",
+   "extracted_text": "[Summary, not the source's wording] For land with a swimming or spa pool, the contract must attach a valid certificate of compliance, or a relevant occupation certificate and evidence of pool registration, or a valid certificate of non-compliance. This does not apply to lots in strata or community schemes with more than two lots, or to off-the-plan contracts.",
+   "interpretation": "One of the three pool documents goes in the contract before marketing. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "sale_reg_schedule1",
+   "document": "sale_of_land_reg",
+   "section": "Schedule 1, Part 1, items 5 to 9, 15 and 16",
+   "extracted_text": "[Summary, not the source's wording] Prescribed documents for a lot in a freehold strata scheme include a property certificate for the lot and the common property, the strata plan showing the lot and any by-laws in force; for a leasehold strata lot, the registered leases of the lot and common property and the by-laws; plus any strata development contract and registered strata management statement. Item 15 requires, for land with a swimming pool to which the Swimming Pools Act 1992 applies, a valid certificate of compliance, or a relevant occupation certificate and evidence of registration, or a valid certificate of non-compliance, except for lots in strata or community schemes of more than 2 lots and off-the-plan contracts. Item 16 sets the smoke alarm warning and the loose-fill asbestos insulation warning, which advises buyers of residential premises built before 1985 to search the loose-fill asbestos register and ask the council whether it holds records of loose-fill asbestos.",
+   "interpretation": "Read from the regulation itself; used for strata documents, pool documents and the two warnings. Read from the legislation on 2026-10-12; the summary is not the legislation's wording. Replace this with the exact text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "cooling_off",
+   "document": "ft_contracts_deposits",
+   "section": "Cooling-off period",
+   "extracted_text": "[Summary, not the source's wording] A buyer of residential property has a 5 business day cooling-off period after exchange (10 business days for off-the-plan), ending at 5pm on the fifth business day after exchange. A buyer who withdraws forfeits 0.25% of the price. There is no cooling-off period at auction or when contracts are exchanged on the same day as an auction that was passed in. A buyer can waive it with a section 66W certificate, and it can be shortened or extended by agreement. Sellers have no cooling-off period.",
+   "interpretation": "Explains what the seller should expect after exchange. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "agent_material_facts",
+   "document": "ft_misrepresentation",
+   "section": "Section 52 and prescribed material facts",
+   "extracted_text": "[Summary, not the source's wording] Under section 52 of the Property and Stock Agents Act 2002 an agent must not induce a person to enter a contract by a false statement or by failing to disclose a prescribed material fact that the agent knows or ought reasonably to know. Clause 60 of the Property and Stock Agents Regulation 2022 prescribes, for sales: flooding from a natural weather event or bush fire within the last 5 years; significant health or safety risks; listing on the loose-fill asbestos insulation register; a murder or manslaughter on the property within the last 5 years; use for manufacturing, cultivating or supplying prohibited drugs or plants within the last 2 years; external combustible cladding subject to a fire safety or building product rectification order or notice of intention; a lodged development or complying development application for cladding rectification; and building work rectification, prohibition or stop work orders under the Residential Apartment Buildings (Compliance and Enforcement Powers) Act 2020. The penalty can be up to $110,000.",
+   "interpretation": "The duty is on the agent, so the seller needs to tell the agent what they know. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "lfai_register",
+   "document": "ft_lfai",
+   "section": "Loose-fill asbestos insulation register",
+   "extracted_text": "[Summary, not the source's wording] NSW keeps a public register of residential properties confirmed to contain loose-fill asbestos insulation, under the Home Building Act 1989. Anyone can search it by street address. Loose-fill asbestos was installed in an unknown number of pre-1980s NSW homes; Fair Trading recommends a trained or qualified asbestos assessor take samples. Service NSW (13 77 88) handles loose-fill program enquiries.",
+   "interpretation": "Used to point sellers and landlords to the register search. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "smoke_alarms_law",
+   "document": "frnsw_smoke_alarms",
+   "section": "Smoke alarms - what is the law?",
+   "extracted_text": "[Summary, not the source's wording] Under the Environmental Planning and Assessment (Development Certification and Fire Safety) Regulation 2021, smoke alarms complying with AS 3786 must be installed in all buildings in NSW where people sleep: on every level of the home, including levels without bedrooms, in hallways near bedrooms (or between the bedroom area and the rest of the home). Fire and Rescue NSW recommends an alarm in every bedroom. Since 23 March 2020 landlords and agents must repair a faulty alarm within 2 business days, check alarms yearly, replace alarms within 10 years of manufacture and replace batteries yearly (or as the manufacturer says for lithium).",
+   "interpretation": "Applies to every home, so to every dwelling sold or let. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_sale_lease_council",
+   "document": "federation_pools",
+   "section": "Selling or leasing property with a pool",
+   "extracted_text": "[Summary, not the source's wording] When selling, one of a certificate of compliance, an occupation certificate plus evidence of registration, or a certificate of non-compliance goes with the contract. With a non-compliance certificate the buyer has 90 days after settlement to make the pool compliant. When leasing, the landlord or agent must make sure the pool is on the NSW Swimming Pool Register and give the tenant a copy of the certificate of compliance or occupation certificate. Lots in strata or community schemes of more than two lots are exempt.",
+   "interpretation": "Council guidance; confirm against the Swimming Pools Act 1992, which is not encoded. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_certificates",
+   "document": "wollongong_pools",
+   "section": "Pool certificates",
+   "extracted_text": "[Summary, not the source's wording] Certificates of compliance last three years; certificates of non-compliance last one year. Pool certificates can be issued by the council or an accredited certifier. For a lease, a certificate of compliance or an occupation certificate (pools built less than three years ago) should be included with the lease. Wollongong's fees (incl. GST) are $150 for a compliance certificate and $100 per inspection.",
+   "interpretation": "Fees are Wollongong's; other councils and certifiers may differ. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "planning_certificate",
+   "document": "sns_planning_certificate",
+   "section": "Planning certificate 10.7",
+   "extracted_text": "[Summary, not the source's wording] A section 10.7 planning certificate (also called a zoning certificate) shows the controls, requirements and restrictions that may apply to how a property is used. A 10.7(2) certificate covers zoning and planning controls; a 10.7(2) and (5) certificate adds advice from other authorities. It is issued by the local council and can be applied for through the NSW Planning Portal where the council accepts online applications.",
+   "interpretation": "The planning certificate is one of the prescribed documents in the contract. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "land_tax_clearance",
+   "document": "revenue_land_tax_clearance",
+   "section": "Land tax clearance",
+   "extracted_text": "[Summary, not the source's wording] A land tax clearance certificate under section 47 of the Land Tax Management Act 1956 shows whether there is unpaid land tax on the property. The seller gives it to the buyer, ideally at least two weeks before settlement; it must be for the settlement year or issued no more than three months before it is given. Unpaid land tax should be paid by settlement or the buyer may become liable. Revenue NSW also has a page on surcharge land tax for foreign owners.",
+   "interpretation": "Pointer only: whether land tax applies to a property is not assessed. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "sale_access",
+   "document": "ft_access_notice",
+   "section": "Access to show prospective buyers and take photos",
+   "extracted_text": "[Summary, not the source's wording] Showing the property to prospective buyers needs 14 days' written notice before the first inspection; after that the tenant does not have to agree to more than 2 inspections a week, with 48 hours' notice each time. Photos or video for advertising need reasonable notice and a chance for the tenant to move belongings, once in a 28 day period before marketing starts. Routine inspections need 7 days' written notice, up to 4 times in 12 months; repairs need at least 2 days' notice; a valuation needs 7 days' notice, once in 12 months; prospective tenants may be shown through only in the last 14 days of the tenancy, with reasonable notice.",
+   "interpretation": "Used for selling with a tenant and for entry during a tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "ending_notice_periods",
+   "document": "ft_ending_notice",
+   "section": "Landlord and tenant notice periods",
+   "extracted_text": "[Summary, not the source's wording] Landlord notice: proposed sale, significant renovations or repairs, change of use, landlord or family moving in and similar grounds need 60 days for a fixed term of 6 months or less, and 90 days for a longer fixed term or a periodic agreement; actual sale (contract requiring vacant possession) needs 30 days; breach or non-payment of rent or water or utility charges need 14 days. Tenant notice: 21 days to end a periodic agreement, 14 days at the end of a fixed term. Some grounds need a Tribunal application.",
+   "interpretation": "Used to tell the landlord how much notice each ground needs. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "landlord_ending_grounds",
+   "document": "ft_landlord_ending",
+   "section": "Reasonable grounds and evidence",
+   "extracted_text": "[Summary, not the source's wording] From 19 May 2025 a landlord can end a residential tenancy only on a listed ground, including for tenancies that started before that date; notices properly given before 19 May 2025 remain valid. Grounds include breach, non-payment of rent, water or utility charges, actual sale, proposed sale, significant renovations or repairs, demolition, change of use for at least 12 months, the landlord or family moving in, and others. Some grounds need supporting documents: for an actual sale, the contract or a statement from the solicitor or conveyancer; for a proposed sale, the proposed contract or the agency agreement; for renovations or moving in, a signed and dated statement. False or misleading documents are an offence, and missing documents can make the notice invalid. A posted notice needs 7 extra working days.",
+   "interpretation": "No-grounds terminations no longer exist in NSW. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "tenant_disclosures",
+   "document": "ft_tenant_told",
+   "section": "Before signing; material facts",
+   "extracted_text": "[Summary, not the source's wording] Before the tenant signs, the landlord or agent must tell them if a contract for sale has been prepared, if a mortgagee is taking court action for possession, or if a strata renewal committee is established, and give strata by-laws for a strata property. They must not induce the tenant by false statements or by knowingly hiding material facts, including: flooding from a natural weather event or bushfire in the last 5 years; significant health or safety risks; a serious violent crime in the last 5 years; listing on the loose-fill asbestos register; drug manufacture or cultivation in the last 2 years; cladding orders or rectification applications; scheduled strata rectification or major common property repairs during the fixed term; zoning that prevents a parking permit where only paid parking is available; different council waste services; and a driveway or walkway others can legally use. If not followed, the tenant can end the tenancy or apply to the Tribunal.",
+   "interpretation": "Applies before every new tenancy agreement is signed. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "start_documents",
+   "document": "ft_start_info",
+   "section": "Documents before signing and at signing",
+   "extracted_text": "[Summary, not the source's wording] Before the tenant signs or moves in, the landlord or agent gives the Tenant Information Statement, the proposed agreement on the standard form, a completed condition report (two copies or one electronic copy), strata by-laws if applicable, and an invitation to lodge the bond through Rental Bonds Online. When the agreement is signed, the tenant gets the signed agreement and certificates of compliance for any swimming or spa pool. Landlord contact details are given in writing or in the agreement, and changes notified within 14 days.",
+   "interpretation": "The core start-of-tenancy paperwork. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "condition_report",
+   "document": "ft_condition_reports",
+   "section": "Condition reports",
+   "extracted_text": "[Summary, not the source's wording] The landlord or agent completes the condition report before the tenant moves in and gives two paper copies or one electronic copy before or when the agreement is given to the tenant to sign. The tenant returns one completed copy within 7 days of moving in. The report is completed again at the end and is evidence of the property's condition.",
+   "interpretation": "The baseline for any bond claim. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "standard_terms",
+   "document": "ft_agreements",
+   "section": "Standard agreement and terms that cannot change",
+   "extracted_text": "[Summary, not the source's wording] Landlords must ensure the agreement is in writing and should use the standard agreement. Every agreement contains standard terms that cannot be changed or removed, including the landlord paying rates, taxes and charges, no more than one rent increase a year, the ways tenants must be offered to pay rent, the pet application process, the grounds for ending the agreement and the landlord's responsibility to repair smoke alarms.",
+   "interpretation": "Use the standard form; don't try to contract out of the standard terms. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "tis_section_26",
+   "document": "rta_2010",
+   "section": "Section 26(4)",
+   "extracted_text": "[Summary, not the source's wording] A landlord or landlord's agent must give a tenant an information statement in the approved form before the tenant enters into the residential tenancy agreement. Maximum penalty 20 penalty units.",
+   "interpretation": "The Tenant Information Statement is a legal requirement, not just good practice. Read from the legislation on 2026-10-12; the summary is not the legislation's wording. Replace this with the exact text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rbo_landlords",
+   "document": "ft_rbo_landlords",
+   "section": "Rental Bonds Online for self-managing landlords",
+   "extracted_text": "[Summary, not the source's wording] Self-managing landlords register for Rental Bonds Online by taking the proof of identity and registration form and original ID to a Service NSW Centre, then activate their account with the Landlord Code they are emailed. Landlords must offer Rental Bonds Online as the first option for new tenants but cannot require a tenant to use it (fine of $2,200). The tenant pays the bond directly to NSW Fair Trading by BPay, Visa or MasterCard and the landlord finalises the bond online. At the end, the landlord submits a claim online; the tenant gets a 14-day notice of claim; if the tenant does not consent, the landlord gives them the end condition report and any quotes, invoices or receipts within 7 days. Paper bonds are claimed with the Claim for Refund of Bond Money form. Rental Bonds: 1800 990 724.",
+   "interpretation": "How bonds are lodged and claimed in NSW. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_max",
+   "document": "ft_rbo_tenants",
+   "section": "Maximum bond",
+   "extracted_text": "[Summary, not the source's wording] The bond cannot be more than 4 weeks' rent. NSW Fair Trading issues the tenant a receipt when the bond money is received. A paper-based lodgement form is available on request.",
+   "interpretation": "Caps the bond at 4 weeks' rent. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_paper",
+   "document": "sns_lodge_bond",
+   "section": "Paper bond lodgement",
+   "extracted_text": "[Summary, not the source's wording] Landlords and agents must offer Rental Bonds Online. If the tenant can't use it or chooses paper, download the Rental Bond Lodgement form from the Rental Bonds Online account, have the tenant sign it and lodge it with the bond by post or at a Service NSW Centre. With the paper method the bond can be taken only after the agreement is signed, can't be kept or banked in an account in the tenant's name, and a receipt (or payment details noted on the agreement) must be given to the tenant.",
+   "interpretation": "The page does not give the deadline for depositing a bond paid to the landlord. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rental_smoke_alarms",
+   "document": "ft_smoke_alarms_rental",
+   "section": "Landlord smoke alarm duties",
+   "extracted_text": "[Summary, not the source's wording] Landlords must make sure smoke alarms (including heat alarms) are working and cannot pass this to the tenant. They check alarms every year, replace removable batteries every year (lithium batteries as the manufacturer says), replace alarms within 10 years of manufacture, and repair or replace a faulty alarm within two business days of finding out. Hard-wired alarms are repaired by a licensed electrician. Entry needs at least 2 business days' notice to inspect and at least 1 hour's notice to repair. At least one alarm is needed on each storey in a hallway outside bedrooms or other suitable place. Some strata properties are exempt if four conditions are met. Residential Tenancies Regulation 2019 sections 13 to 21 and Residential Tenancies Act 2010 section 64A.",
+   "interpretation": "The landlord's yearly smoke alarm routine. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "minimum_standards",
+   "document": "ft_minimum_standards",
+   "section": "Minimum standards",
+   "extracted_text": "[Summary, not the source's wording] A rental must be fit to live in and, at minimum: be structurally sound; have adequate natural or artificial lighting in each room except storage rooms and garages; have adequate ventilation; be supplied with electricity or gas and have enough sockets for lighting, heating and appliances; have adequate plumbing and drainage; have a water connection that can supply hot and cold water for drinking, washing and cleaning; and have bathroom facilities, including toilet and washing facilities, that allow privacy. The standards apply to all rented homes and must be kept up throughout the tenancy. The property must also be reasonably clean. Residential Tenancies Act 2010 section 52.",
+   "interpretation": "A home can meet the seven standards and still be unfit for other reasons. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "window_safety",
+   "document": "ft_window_safety",
+   "section": "Window safety devices",
+   "extracted_text": "[Summary, not the source's wording] All residential strata buildings must have window safety devices that can limit the window opening to less than 12.5 cm. Landlords must allow window safety devices to be installed for child safety if the tenant asks. Faults to decks or balconies should be noted on the condition report.",
+   "interpretation": "Mainly affects units and townhouses in strata buildings. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_increases",
+   "document": "ft_rent_increases",
+   "section": "Rent increases",
+   "extracted_text": "[Summary, not the source's wording] From 31 October 2024 rent cannot be increased within the first 12 months of a tenancy agreement or more than once in 12 months, for fixed term and periodic agreements, and a renewed agreement with the same landlord and at least one same tenant is treated as the same tenancy. At least 60 days' written notice is needed, stating the new rent and the date it starts, signed, dated and addressed to the tenant; email is acceptable and NSW Fair Trading has a form. Fair Trading: 13 32 20.",
+   "interpretation": "The 12 months run from the last increase, not the new lease. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_payment",
+   "document": "ft_pay_rent",
+   "section": "Paying rent",
+   "extracted_text": "[Summary, not the source's wording] Landlords and agents must offer two standard ways to pay rent at no cost to the tenant: an approved electronic bank transfer (EFT, direct debit or BPAY) and, from 2 March 2026, Centrepay. No fees can be charged or passed on for standard methods; a fee can be charged only if the tenant chooses a non-standard method. Rent can be asked for at most 2 weeks in advance.",
+   "interpretation": "Set up fee-free payment before the tenancy starts. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pets",
+   "document": "ft_pets",
+   "section": "Pets in rentals",
+   "extracted_text": "[Summary, not the source's wording] From 19 May 2025 tenants apply to keep a pet using the pet application form. The landlord has 21 days to respond (7 extra working days if posted); no response means the pet is approved without conditions. Refusal is allowed only for listed reasons, such as more than four animals and the number is unreasonable, inadequate fencing or open space, the animal can't be kept humanely, highly probable damage beyond the bond, breaking other laws or by-laws, the landlord living in the home, or the tenant not agreeing to reasonable conditions. Reasonable conditions may include no indoor access for outdoor animals, or professional carpet cleaning or fumigation at the end. No pet bond, higher rent, higher bond or insurance can be required. Strata approval may also be needed; a by-law banning all pets is invalid.",
+   "interpretation": "Have a plan for answering pet applications within 21 days. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "urgent_repairs",
+   "document": "ft_repairs",
+   "section": "Urgent and non-urgent repairs",
+   "extracted_text": "[Summary, not the source's wording] Urgent repairs include gas leaks, dangerous electrical faults, loss of gas, electricity or water, burst water services or serious leaks, blocked or broken toilets, flooding, serious storm, fire or roof damage, and failure of a stove or oven, heater or air conditioner, hot water service or smoke alarm. If the landlord or agent can't be reached, the tenant may arrange urgent repairs and be reimbursed up to $1,000 within 14 days of their notice. Non-urgent repairs are arranged by the landlord or agent to keep the property in reasonable condition.",
+   "interpretation": "Known repairs should be sorted into urgent and non-urgent. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "water_charges",
+   "document": "ft_water",
+   "section": "Water efficiency and charges",
+   "extracted_text": "[Summary, not the source's wording] To pass on water usage charges the property must meet water efficiency measures: since 23 March 2025, dual flush toilets with at least a 3-star WELS rating; shower heads with a maximum flow of 9 litres a minute; internal kitchen and bathroom basin taps with a maximum flow of 9 litres a minute; and no leaking taps or toilets at the start of the tenancy. Record the water meter reading in the condition report. Request payment within 3 months of the bill being issued and give the tenant at least 21 days to pay.",
+   "interpretation": "Without the efficiency measures, water usage can't be passed on. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "sell.nsw.vendor_disclosure",
+   "vertical": "SELL",
+   "jurisdiction": "NSW",
+   "title": "New South Wales: selling a property",
+   "description": "The contract for sale and its prescribed documents before marketing, cooling-off, material facts, loose-fill asbestos, strata documents, pool certificates, smoke alarms, selling with a tenant and land tax clearance, from NSW Fair Trading, NSW legislation, Service NSW, Revenue NSW, Fire and Rescue NSW and council guidance.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "NSW"
+   },
+   "limitations": [
+    "Built from NSW Fair Trading, Service NSW, Revenue NSW, Fire and Rescue NSW and council web pages and Schedule 1 of the Conveyancing (Sale of Land) Regulation 2022; the Conveyancing Act 1919 and the vendor warranties are not encoded.",
+    "Doesn't prepare the contract or decide which prescribed documents apply to your property; your conveyancer or solicitor does that.",
+    "Doesn't check off-the-plan sales, which have extra disclosure rules and a 10 business day cooling-off period.",
+    "Doesn't decide whether a pool is covered by the Swimming Pools Act 1992 or whether a strata scheme has more than two lots.",
+    "Doesn't assess land tax, surcharge land tax, transfer duty, capital gains tax or foreign resident capital gains withholding; it only points you to them.",
+    "Commercial leases are not residential tenancies; the tenancy findings are for homes only.",
+    "Not legal advice. Confirm with a conveyancer or solicitor before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "contract_before_marketing",
+     "title": "Contract for sale with prescribed documents before marketing",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NSW"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Have the contract for sale ready before you advertise",
+       "detail": "In NSW you can't advertise or show the property until a contract for sale has been prepared by a solicitor or licensed conveyancer. It must attach the prescribed documents: a title search (property certificate), the section 10.7 planning certificate from council, a sewer drainage diagram, any easements, covenants or restrictions, and the smoke alarm and loose-fill asbestos warnings. If a prescribed document is missing, the buyer may be able to cancel within 14 days of exchange. Ask your conveyancer to order these now.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "CONTRACT_FOR_SALE",
+          "title": "NSW contract for sale of land prepared by your conveyancer or solicitor"
+         },
+         {
+          "kind": "TITLE_SEARCH",
+          "title": "Property certificate (title search)"
+         },
+         {
+          "kind": "PLANNING_CERTIFICATE",
+          "title": "Section 10.7 planning certificate from council"
+         },
+         {
+          "kind": "DRAINAGE_DIAGRAM",
+          "title": "Sewer drainage diagram"
+         },
+         {
+          "kind": "SURVEY_PLAN",
+          "title": "Registered plan and any easement or covenant documents"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Ask your conveyancer to prepare the contract for sale before listing",
+        "checklists": [
+         "sell.nsw_disclosure"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "contract_before_marketing",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "sale_reg_schedule1",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "planning_certificate",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "engage_conveyancer",
+     "title": "Engaging a conveyancer or solicitor",
+     "condition": {
+      "fact": "sell.has_conveyancer",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "PROFESSIONAL_REQUIRED",
+       "title": "Engage a conveyancer or solicitor before you list",
+       "detail": "The NSW contract for sale must be prepared by a solicitor or licensed conveyancer, and it has to exist before the property is advertised. Engage one now so the contract and its documents are ready by your listing date.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Engage a conveyancer or solicitor"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "contract_before_marketing",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No conveyancer",
+       "facts": {
+        "sell.has_conveyancer": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has conveyancer",
+       "facts": {
+        "sell.has_conveyancer": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "cooling_off",
+     "title": "Cooling-off period after exchange",
+     "condition": {
+      "fact": "sell.method",
+      "op": "in",
+      "value": [
+       "private_treaty",
+       "expressions_of_interest",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Expect a 5 business day cooling-off period after exchange",
+       "detail": "For a private sale the buyer usually has until 5pm on the fifth business day after exchange to withdraw, and forfeits 0.25% of the price if they do. The buyer can waive it with a section 66W certificate, or you can agree to shorten or extend it. You, as seller, have no cooling-off period. Plan your next steps (and any purchase of your own) around this."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "No cooling-off period at auction",
+       "detail": "A buyer at auction, or one who exchanges on the same day as a passed-in auction, has no cooling-off period. The contract and its prescribed documents still need to be ready before marketing starts."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "cooling_off",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Private treaty",
+       "facts": {
+        "sell.method": "private_treaty"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Auction",
+       "facts": {
+        "sell.method": "auction"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "material_facts",
+     "title": "Material facts your agent must disclose",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NSW"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Tell your agent about any material facts",
+       "detail": "NSW agents must not hide prescribed material facts from buyers, with penalties up to $110,000. They include flooding or bushfire in the last 5 years, significant health or safety risks, listing on the loose-fill asbestos register, a murder or manslaughter in the last 5 years, drug manufacture or cultivation in the last 2 years, and cladding or building rectification orders. Write down what you know and give it to your agent and conveyancer before marketing.",
+       "payload": {
+        "task": "List any material facts for your agent",
+        "checklists": [
+         "sell.nsw_disclosure"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "agent_material_facts",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "loose_fill_asbestos",
+     "title": "Loose-fill asbestos insulation register",
+     "condition": {
+      "fact": "sell.property_type",
+      "op": "not_in",
+      "value": [
+       "vacant_land",
+       "commercial"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Search the loose-fill asbestos (Mr Fluffy) register",
+       "detail": "The NSW contract carries a loose-fill asbestos warning, and listing on the register is a material fact your agent must disclose. Search the register by street address before you list. If the home was built before 1980 and you are unsure about ceiling insulation, a qualified asbestos assessor can take a sample. Service NSW (13 77 88) handles loose-fill enquiries.",
+       "payload": {
+        "task": "Search the loose-fill asbestos register for your address",
+        "checklists": [
+         "sell.nsw_disclosure"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "lfai_register",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "agent_material_facts",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "sale_reg_schedule1",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "House",
+       "facts": {
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant land",
+       "facts": {
+        "sell.property_type": "vacant_land"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "strata_documents",
+     "title": "Strata documents in the contract",
+     "condition": {
+      "fact": "sell.body_corporate",
+      "op": "in",
+      "value": [
+       "yes",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Attach the strata plan, by-laws and common property title",
+       "detail": "For a lot in a strata scheme the contract must attach a property certificate for the lot and for the common property, the strata plan showing the lot and the by-laws in force (for leasehold strata, the registered leases instead of the property certificates), plus any strata development contract or strata management statement. If you are not sure whether it is strata, your conveyancer can tell from the title search.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "STRATA_PLAN",
+          "title": "Strata plan showing the lot"
+         },
+         {
+          "kind": "STRATA_BY_LAWS",
+          "title": "By-laws in force for the strata scheme"
+         },
+         {
+          "kind": "TITLE_SEARCH",
+          "title": "Property certificates for the lot and the common property"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Ask your conveyancer to get the strata documents"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Is the property in a strata or community scheme?",
+       "detail": "Strata and community scheme lots need extra documents in the NSW contract. Tell us whether the property is part of one."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "sale_reg_schedule1",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Strata lot",
+       "facts": {
+        "sell.body_corporate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "sell.body_corporate": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Freehold house",
+       "facts": {
+        "sell.body_corporate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_sale",
+     "title": "Pool certificate in the contract",
+     "condition": {
+      "fact": "sell.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Attach a pool certificate to the contract",
+       "detail": "If the property has a swimming or spa pool, the contract must attach one of: a valid certificate of compliance, an occupation certificate with evidence the pool is on the NSW Swimming Pool Register, or a valid certificate of non-compliance. Lots in strata or community schemes of more than two lots are exempt. Check your pool is registered and your certificate is still valid (3 years) before listing.",
+       "payload": {
+        "approval": {
+         "kind": "NSW_POOL_COMPLIANCE_CERTIFICATE",
+         "authority": "Local council or an accredited certifier",
+         "pathway": "Pool barrier inspection, then certificate of compliance or non-compliance"
+        },
+        "evidence": [
+         {
+          "kind": "POOL_SAFETY_CERTIFICATE",
+          "title": "Pool certificate of compliance, occupation certificate with registration, or certificate of non-compliance"
+         }
+        ],
+        "checklists": [
+         "sell.nsw_disclosure"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_in_contract",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "sale_reg_schedule1",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pool_sale_lease_council",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "sell.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_certificate_missing",
+     "title": "No current pool certificate for the sale",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.pool_certificate",
+        "op": "in",
+        "value": [
+         "no",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "PROFESSIONAL_REQUIRED",
+       "title": "Book a pool inspection before you list",
+       "detail": "Without a current certificate, book an inspection with your council or an accredited certifier. If the pool passes you get a certificate of compliance (valid 3 years); if it fails you get a certificate of non-compliance (valid 1 year), which can go in the contract instead, and the buyer then has 90 days after settlement to fix the pool. Council fees vary (Wollongong charges $150 for a certificate and $100 per inspection).",
+       "payload": {
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Book a pool barrier inspection"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_certificates",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pool_sale_lease_council",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pool_in_contract",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No certificate",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has certificate",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Certificate not answered",
+       "facts": {
+        "sell.has_pool": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms_on_sale",
+     "title": "Smoke alarms in a home for sale",
+     "condition": {
+      "fact": "sell.property_type",
+      "op": "not_in",
+      "value": [
+       "vacant_land",
+       "commercial"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Check the smoke alarms before you sell",
+       "detail": "Every NSW home must have working smoke alarms (AS 3786) on every level, in hallways near bedrooms, and the contract carries a smoke alarm warning. Check every alarm works and is under 10 years old before you list; Fire and Rescue NSW also recommends one in every bedroom.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ],
+        "task": "Test the smoke alarms and replace any over 10 years old",
+        "checklists": [
+         "sell.nsw_disclosure"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_alarms_law",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "sale_reg_schedule1",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "House",
+       "facts": {
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Unit",
+       "facts": {
+        "sell.property_type": "unit"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant land",
+       "facts": {
+        "sell.property_type": "vacant_land"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Commercial",
+       "facts": {
+        "sell.property_type": "commercial"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale",
+     "title": "Selling a home with a tenant in it",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Give your tenant 14 days' written notice before the first inspection",
+       "detail": "Give the tenant 14 days' written notice before the first buyer inspection; after that they need agree to no more than 2 inspections a week, with 48 hours' notice each. Photos for advertising need reasonable notice, once in 28 days. The tenancy continues after the sale unless it is ended on a ground: proposed sale needs 60 days' notice (fixed term of 6 months or less) or 90 days (longer fixed term or periodic), and an actual sale requiring vacant possession needs 30 days, each with the supporting documents (proposed contract or agency agreement, or the signed contract or a conveyancer's statement).",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "Current tenancy agreement"
+         }
+        ],
+        "referral_categories": [
+         "property_manager",
+         "conveyancer"
+        ],
+        "task": "Give the tenant written notice of the sale before the first inspection"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "sale_access",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "ending_notice_periods",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "landlord_ending_grounds",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted house",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant house",
+       "facts": {
+        "sell.is_tenanted": false,
+        "sell.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Commercial lease",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "commercial"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Tenancy not answered",
+       "facts": {
+        "sell.property_type": "house"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale_rent_ready",
+     "title": "Managing the tenancy until settlement",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "CROSS_SELL",
+       "title": "Keep the tenancy on track until settlement with RentReady",
+       "detail": "Your tenant stays on through the sale, so the NSW tenancy rules still apply until the buyer takes over: access notices, repairs, rent, smoke alarms and the bond. RentReady keeps that checklist for you.",
+       "payload": {
+        "cross_sell": [
+         "RENT"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "sale_access",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted house",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant house",
+       "facts": {
+        "sell.is_tenanted": false,
+        "sell.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "land_tax_clearance",
+     "title": "Land tax clearance at settlement",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NSW"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Check whether you need a land tax clearance certificate",
+       "detail": "If land tax may apply to the property (for example an investment property), your conveyancer usually gives the buyer a land tax clearance certificate from Revenue NSW before settlement, and any unpaid land tax is paid by settlement. Foreign owners should also check Revenue NSW's surcharge land tax page. Ask your conveyancer whether this applies to you.",
+       "payload": {
+        "task": "Ask your conveyancer about land tax clearance"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "land_tax_clearance",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "rent.nsw.residential_tenancy",
+   "vertical": "RENT",
+   "jurisdiction": "NSW",
+   "title": "New South Wales: renting out a home",
+   "description": "The standard agreement, Tenant Information Statement, condition reports, disclosures, Rental Bonds Online, minimum standards, smoke alarms, pools, rent payment and increases, access, pets, water charges, repairs and ending a tenancy on a ground, from NSW Fair Trading, NSW legislation, Service NSW, Fire and Rescue NSW and council guidance.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "NSW"
+   },
+   "limitations": [
+    "Built from NSW Fair Trading, Service NSW, Fire and Rescue NSW and council web pages and section 26 of the Residential Tenancies Act 2010, not from the whole Act or the Residential Tenancies Regulation 2019.",
+    "Written for ordinary residential tenancies. Boarding houses, rooms in the owner's home, social housing, student accommodation and short-term rental accommodation have different rules and are not checked.",
+    "Doesn't check each minimum standard at the property, the wording of termination notices, or whether a particular ground applies; it gives you the list to work through.",
+    "Doesn't check rental application rules, rent bidding, modifications, domestic violence terminations or Tribunal processes.",
+    "Doesn't decide whether a pool is covered by the Swimming Pools Act 1992 or is in a strata scheme of more than two lots.",
+    "Not legal advice. Confirm with NSW Fair Trading (13 32 20), a property manager or a solicitor before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "tenancy_agreement",
+     "title": "Standard agreement, Tenant Information Statement and condition report",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NSW"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Use the NSW standard residential tenancy agreement",
+       "detail": "Before the tenant signs, give them the NSW Tenant Information Statement, the proposed agreement on the NSW standard residential tenancy agreement, a completed NSW residential tenancy condition report (two paper copies or one electronic copy) and any strata by-laws. The tenant returns the condition report within 7 days of moving in. Give your contact details in writing, and the signed agreement once it is signed.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "NSW standard residential tenancy agreement"
+         },
+         {
+          "kind": "TENANT_INFORMATION_STATEMENT",
+          "title": "NSW Tenant Information Statement given before signing"
+         },
+         {
+          "kind": "ENTRY_CONDITION_REPORT",
+          "title": "NSW residential tenancy condition report with photos"
+         }
+        ],
+        "checklists": [
+         "rent.nsw_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "start_documents",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "condition_report",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "standard_terms",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "tis_section_26",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "landlord_disclosures",
+     "title": "What you must tell a new tenant",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Tell prospective tenants the required facts before they sign",
+       "detail": "Before a tenant signs, tell them if a contract for sale has been prepared, if a mortgagee is taking possession action, or if there is a strata renewal committee, and give strata by-laws. Don't hide material facts, including flooding or bushfire in the last 5 years, listing on the loose-fill asbestos register, significant health or safety risks, a serious violent crime in the last 5 years, drug manufacture in the last 2 years, cladding orders, planned strata rectification work, parking permit limits, different council waste services and shared driveways. If you don't, the tenant can end the tenancy.",
+       "payload": {
+        "task": "Write down the disclosures for the new tenant",
+        "checklists": [
+         "rent.nsw_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "tenant_disclosures",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "lfai_register",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Looking for a tenant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Already tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_new_tenancy",
+     "title": "Bond for a new tenancy",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Take the bond through Rental Bonds Online, at most 4 weeks' rent",
+       "detail": "Register for Rental Bonds Online (self-managing landlords take the Rental Bonds Online registration form and ID to a Service NSW Centre) and offer it to the tenant first; the tenant pays NSW Fair Trading directly and you finalise it online. You can't force a tenant to use it; if they choose paper, use the NSW Rental Bond Lodgement form after the agreement is signed. The bond can't be more than 4 weeks' rent.",
+       "payload": {
+        "task": "Register for Rental Bonds Online",
+        "checklists": [
+         "rent.nsw_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rbo_landlords",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_max",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_paper",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Looking for a tenant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Already tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_lodgement",
+     "title": "Bond lodged with NSW Fair Trading",
+     "condition": {
+      "all": [
+       {
+        "fact": "rent.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "rent.bond_lodged",
+        "op": "in",
+        "value": [
+         "no",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Make sure the bond is lodged with NSW Fair Trading",
+       "detail": "Every bond for a NSW tenancy must be held by NSW Fair Trading, not by you or your agent. If the tenant paid you directly, lodge it now with the NSW Rental Bond Lodgement form (by post or at a Service NSW Centre), give the tenant a receipt, and check the bond is no more than 4 weeks' rent. If you are not sure it was lodged, check Rental Bonds Online or ask Rental Bonds on 1800 990 724.",
+       "payload": {
+        "approval": {
+         "kind": "NSW_TENANCY_BOND_LODGEMENT",
+         "authority": "NSW Fair Trading (Rental Bonds)",
+         "pathway": "Rental Bonds Online, or the paper Rental Bond Lodgement form"
+        },
+        "task": "Check the bond is lodged with NSW Fair Trading"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rbo_landlords",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_paper",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_max",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not lodged",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Lodged",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No bond",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "no_bond"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Bond not answered",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "minimum_standards",
+     "title": "Minimum standards: fit to live in",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NSW"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make sure the home meets the 7 minimum standards",
+       "detail": "Every NSW rental must be fit to live in and reasonably clean, and at minimum: structurally sound; adequately lit and ventilated; supplied with electricity or gas with enough sockets; with adequate plumbing and drainage; with hot and cold water for drinking, washing and cleaning; and with private bathroom and toilet facilities. These must be kept up for the whole tenancy. Walk through the checklist and fix gaps before the tenant moves in.",
+       "payload": {
+        "task": "Walk through the NSW minimum standards",
+        "checklists": [
+         "rent.nsw_minimum_standards"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "minimum_standards",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms",
+     "title": "Smoke alarms in the rental",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NSW"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Check every smoke alarm each year and fix faults within 2 business days",
+       "detail": "NSW landlords must keep smoke alarms working: at least one on each storey near the bedrooms, checked every year, removable batteries replaced every year, alarms replaced within 10 years of manufacture, and any faulty alarm repaired within 2 business days of finding out (by a licensed electrician if hard-wired). Give 2 business days' notice to inspect and 1 hour's notice to repair.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician",
+         "electrician"
+        ],
+        "task": "Book the yearly smoke alarm check",
+        "checklists": [
+         "rent.nsw_smoke_alarms"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rental_smoke_alarms",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "smoke_alarms_law",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarm_ionisation",
+     "title": "Ionisation smoke alarms",
+     "condition": {
+      "fact": "rent.smoke_alarms",
+      "op": "contains",
+      "value": "ionisation"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Consider replacing ionisation alarms with photoelectric ones",
+       "detail": "NSW rules for rentals require working alarms that meet AS 3786. They do not say existing alarms must be photoelectric. When an ionisation alarm reaches 10 years or fails, replacing it with a photoelectric alarm is worth considering; check with a licensed electrician.",
+       "payload": {
+        "referral_categories": [
+         "electrician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_alarms_law",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rental_smoke_alarms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Ionisation",
+       "facts": {
+        "rent.smoke_alarms": [
+         "ionisation"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Photoelectric only",
+       "facts": {
+        "rent.smoke_alarms": [
+         "photoelectric"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_lease",
+     "title": "Pool certificate before leasing",
+     "condition": {
+      "all": [
+       {
+        "fact": "rent.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "rent.pool_certificate",
+        "op": "in",
+        "value": [
+         "no",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Get a pool certificate of compliance before the lease",
+       "detail": "For a rental with a pool, the pool must be on the NSW Swimming Pool Register and the tenant must get a copy of a valid certificate of compliance (or an occupation certificate for a pool under 3 years old) when the agreement is signed. A certificate of non-compliance is not enough for a lease. Lots in strata or community schemes of more than two lots are exempt. Book an inspection with your council or an accredited certifier.",
+       "payload": {
+        "approval": {
+         "kind": "NSW_POOL_COMPLIANCE_CERTIFICATE",
+         "authority": "Local council or an accredited certifier",
+         "pathway": "Register the pool, then a pool barrier inspection"
+        },
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Get a pool certificate of compliance before the next lease"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check the pool certificate",
+       "detail": "A NSW rental with a pool needs a valid certificate of compliance given to the tenant at signing. Tell us whether you have one.",
+       "payload": {
+        "approval": {
+         "kind": "NSW_POOL_COMPLIANCE_CERTIFICATE",
+         "authority": "Local council or an accredited certifier",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_sale_lease_council",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pool_certificates",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "start_documents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Certificate not answered",
+       "facts": {
+        "rent.has_pool": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_certificate_current",
+     "title": "Keeping the pool certificate current",
+     "condition": {
+      "all": [
+       {
+        "fact": "rent.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "rent.pool_certificate",
+        "op": "equals",
+        "value": "yes"
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Note when the pool certificate expires",
+       "detail": "A certificate of compliance lasts 3 years. Make sure it will still be valid when each new agreement is signed, give the tenant a copy, and keep the pool registered on the NSW Swimming Pool Register.",
+       "payload": {
+        "task": "Note the pool certificate's expiry date"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_certificates",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pool_sale_lease_council",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "rent_payment",
+     "title": "Fee-free ways to pay rent",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NSW"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Offer fee-free bank transfer and Centrepay for rent",
+       "detail": "You must offer two ways to pay rent at no cost to the tenant: electronic bank transfer (EFT, direct debit or BPAY) and, from 2 March 2026, Centrepay. You can't charge or pass on fees for these. You can ask for at most 2 weeks' rent in advance.",
+       "payload": {
+        "task": "Set up fee-free rent payment options"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_payment",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "standard_terms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rent_increases",
+     "title": "Rent increases",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Rent can rise at most once every 12 months, with 60 days' notice",
+       "detail": "Rent can't go up in the first 12 months of a tenancy or more than once in any 12 months, even if the lease is renewed with the same tenant. Give at least 60 days' written notice stating the new rent and the date it starts, signed and dated. NSW Fair Trading has a notice form, or you can write your own.",
+       "payload": {
+        "task": "Diary the earliest date the rent can next change"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_increases",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "entry_notices",
+     "title": "Access and inspections",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Give the right notice before you enter",
+       "detail": "Routine inspections need 7 days' written notice, up to 4 times in 12 months. Repairs need at least 2 days' notice; a valuation 7 days, once a year; smoke alarm checks 2 business days. Prospective tenants can be shown through only in the last 14 days of the tenancy, with reasonable notice."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "sale_access",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rental_smoke_alarms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pets",
+     "title": "Pet applications",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Answer any pet application within 21 days",
+       "detail": "Since 19 May 2025 tenants apply to keep a pet using the NSW pet application form. You have 21 days to respond or the pet is approved without conditions. You can refuse only for listed reasons, such as inadequate fencing or space, highly probable damage beyond the bond, or other laws or by-laws. You can set reasonable conditions but can't ask for a pet bond, more rent, a bigger bond or insurance."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pets",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "standard_terms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "water_charges",
+     "title": "Passing on water usage charges",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NSW"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Meet the water efficiency rules before charging for water",
+       "detail": "You can pass on water usage charges only if the home has dual flush toilets with at least a 3-star WELS rating (required since 23 March 2025), shower heads and kitchen and basin taps of no more than 9 litres a minute, and no leaks. Record the meter reading in the condition report, ask for payment within 3 months of the bill and give the tenant at least 21 days to pay.",
+       "payload": {
+        "task": "Check the toilets, showers and taps meet the water efficiency rules"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "water_charges",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "window_safety_strata",
+     "title": "Window safety devices in strata buildings",
+     "condition": {
+      "fact": "rent.property_type",
+      "op": "in",
+      "value": [
+       "unit",
+       "townhouse"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Check the window safety devices if the building is strata",
+       "detail": "All residential strata buildings in NSW must have window safety devices that limit the opening to less than 12.5 cm, and you must allow devices to be installed if your tenant asks. Note any deck or balcony faults on the condition report."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "window_safety",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Unit",
+       "facts": {
+        "rent.property_type": "unit"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "rent.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "known_repairs",
+     "title": "Known repairs",
+     "condition": {
+      "fact": "rent.known_repairs",
+      "op": "exists"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Sort the known repairs into urgent and non-urgent",
+       "detail": "Urgent repairs, such as a gas leak, a dangerous electrical fault, a burst pipe, a broken toilet, no hot water, a failed stove, heater or smoke alarm, or serious storm or roof damage, must be fixed quickly. If you can't be reached the tenant can arrange them and you must repay up to $1,000 within 14 days. Fix anything needed to meet the minimum standards before the tenant moves in.",
+       "payload": {
+        "referral_categories": [
+         "plumber",
+         "electrician",
+         "builder"
+        ],
+        "task": "Arrange the known repairs",
+        "checklists": [
+         "rent.nsw_minimum_standards"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "urgent_repairs",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "minimum_standards",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Repairs listed",
+       "facts": {
+        "rent.known_repairs": "Leaking tap in the laundry"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None listed",
+       "facts": {},
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "ending_tenancy",
+     "title": "Ending a tenancy on a ground",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "You can only end a NSW tenancy on a listed ground",
+       "detail": "Since 19 May 2025 NSW landlords can't end a tenancy without a reason, even at the end of a fixed term. You need a listed ground, such as sale, significant renovations, the owner or family moving in, change of use, breach or unpaid rent, the right notice (for example 90 days for most grounds on a periodic or longer fixed term agreement, 60 days on a fixed term of 6 months or less, 30 days after a sale contract requiring vacant possession, 14 days for breach or arrears) and, for many grounds, supporting documents. Tenants give 21 days to end a periodic agreement.",
+       "payload": {
+        "task": "Check the ground, notice period and documents before giving notice",
+        "checklists": [
+         "rent.nsw_end_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "landlord_ending_grounds",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "ending_notice_periods",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "end_of_tenancy_bond",
+     "title": "Final condition report and bond claim",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "At the end: final condition report and the bond claim",
+       "detail": "When the tenant moves out, complete the condition report again and compare it with the start. Claim the bond through Rental Bonds Online (or the Claim for Refund of Bond Money form for a paper bond). The tenant gets 14 days to respond; if they don't agree, give them the condition report and quotes, invoices or receipts within 7 days of claiming.",
+       "payload": {
+        "checklists": [
+         "rent.nsw_end_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rbo_landlords",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "condition_report",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "self_managed",
+     "title": "Managing the tenancy yourself",
+     "condition": {
+      "fact": "rent.managed_by",
+      "op": "equals",
+      "value": "self"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "REFERRAL_CATEGORY",
+       "title": "A property manager can handle the tenancy paperwork",
+       "detail": "As a self-managing NSW landlord you register for Rental Bonds Online, prepare the agreement, Tenant Information Statement and condition report, handle repairs and smoke alarms, and give the correct notices. A property manager can do this for you.",
+       "payload": {
+        "referral_categories": [
+         "property_manager"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rbo_landlords",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "start_documents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Self-managed",
+       "facts": {
+        "rent.managed_by": "self"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Agent",
+       "facts": {
+        "rent.managed_by": "agent"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,3525 @@
+{
+  "key": "business_nsw",
+  "title": "NSW: BusinessReady, vehicle registration, VesselReady and GrantReady (licences, insurance, tax, trades, personal services, childcare, imported vehicles, boats, grants)",
+  "notes": "First sourced NSW rules for BusinessReady, TradeReady (vehicles), VesselReady and GrantReady. Built from NSW Government (nsw.gov.au), Service NSW, NSW Health, Liquor & Gaming NSW, Building Commission NSW, SIRA, icare, Revenue NSW, NSW Police, NSW Department of Education, ACECQA, Transport for NSW, NSW Planning Portal, Investment NSW and business.gov.au pages read on 2026-10-12. The NSW Food Authority's own site could not be read (it blocks automated reading), so food rules rely on business.gov.au (ABLIS) and council pages. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it.",
+  "organisations": [
+    {
+      "ref": "nsw_food_authority",
+      "name": "NSW Food Authority",
+      "kind": "REGULATOR",
+      "jurisdiction": "NSW",
+      "website": "https://www.foodauthority.nsw.gov.au"
+    },
+    {
+      "ref": "business_gov",
+      "name": "business.gov.au (including ABLIS)",
+      "kind": "CTH_AGENCY",
+      "jurisdiction": "CTH",
+      "website": "https://business.gov.au"
+    },
+    {
+      "ref": "liquor_gaming_nsw",
+      "name": "Liquor & Gaming NSW",
+      "kind": "REGULATOR",
+      "jurisdiction": "NSW",
+      "website": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming"
+    },
+    {
+      "ref": "dphi",
+      "name": "Department of Planning, Housing and Infrastructure (NSW)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.planning.nsw.gov.au"
+    },
+    {
+      "ref": "nsw_24hour",
+      "name": "Office of the 24-Hour Economy Commissioner (NSW)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.nsw.gov.au/business-and-economy/office-of-24-hour-economy-commissioner"
+    },
+    {
+      "ref": "nsw_health",
+      "name": "NSW Health",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.health.nsw.gov.au"
+    },
+    {
+      "ref": "icare",
+      "name": "icare NSW (Insurance and Care NSW)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.icare.nsw.gov.au"
+    },
+    {
+      "ref": "sira",
+      "name": "State Insurance Regulatory Authority (NSW)",
+      "kind": "REGULATOR",
+      "jurisdiction": "NSW",
+      "website": "https://www.sira.nsw.gov.au"
+    },
+    {
+      "ref": "revenue_nsw",
+      "name": "Revenue NSW",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.revenue.nsw.gov.au"
+    },
+    {
+      "ref": "building_commission",
+      "name": "Building Commission NSW",
+      "kind": "REGULATOR",
+      "jurisdiction": "NSW",
+      "website": "https://www.nsw.gov.au/departments-and-agencies/building-commission"
+    },
+    {
+      "ref": "service_nsw",
+      "name": "Service NSW",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.service.nsw.gov.au"
+    },
+    {
+      "ref": "nsw_police_sled",
+      "name": "NSW Police Force (Security Licensing & Enforcement Directorate)",
+      "kind": "REGULATOR",
+      "jurisdiction": "NSW",
+      "website": "https://www.police.nsw.gov.au"
+    },
+    {
+      "ref": "nsw_education",
+      "name": "NSW Department of Education (NSW Early Learning Commission)",
+      "kind": "REGULATOR",
+      "jurisdiction": "NSW",
+      "website": "https://education.nsw.gov.au/early-childhood-education"
+    },
+    {
+      "ref": "acecqa",
+      "name": "Australian Children's Education and Care Quality Authority (ACECQA)",
+      "kind": "REGULATOR",
+      "jurisdiction": "CTH",
+      "website": "https://www.acecqa.gov.au"
+    },
+    {
+      "ref": "tfnsw",
+      "name": "Transport for NSW",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.transport.nsw.gov.au"
+    },
+    {
+      "ref": "nsw_fair_trading",
+      "name": "NSW Fair Trading",
+      "kind": "REGULATOR",
+      "jurisdiction": "NSW",
+      "website": "https://www.nsw.gov.au/departments-and-agencies/fair-trading"
+    },
+    {
+      "ref": "investment_nsw",
+      "name": "Investment NSW (Premier's Department)",
+      "kind": "GRANT_BODY",
+      "jurisdiction": "NSW",
+      "website": "https://www.nsw.gov.au/departments-and-agencies/investment-nsw"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "ablis_food_notification",
+      "organisation": "business_gov",
+      "jurisdiction": "CTH",
+      "title": "Food Business Notification (NSW)",
+      "url": "https://ablis.business.gov.au/service/nsw/food-business-notification/32263",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "newcastle_fss",
+      "organisation": "nsw_food_authority",
+      "jurisdiction": "NSW",
+      "title": "Food Safety Supervisor (City of Newcastle, on the NSW scheme)",
+      "url": "https://newcastle.nsw.gov.au/business/supporting-local-business-people/business-regulations/food-and-drink-business/food-safety-supervisor",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "lg_apply_manage",
+      "organisation": "liquor_gaming_nsw",
+      "jurisdiction": "NSW",
+      "title": "Apply for and manage a liquor licence",
+      "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/liquor-licensing/apply-manage",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "lg_apply",
+      "organisation": "liquor_gaming_nsw",
+      "jurisdiction": "NSW",
+      "title": "How to apply for a liquor licence",
+      "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/liquor-licensing/apply-manage/apply-liquor-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "lg_fee_schedule",
+      "organisation": "liquor_gaming_nsw",
+      "jurisdiction": "NSW",
+      "title": "Liquor licence fees schedule",
+      "url": "https://www.nsw.gov.au/business-and-economy/liquor-and-gaming/liquor-licensing/apply-manage/fees/fee-schedule",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "outdoor_dining",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "NSW Outdoor Dining (NSW Planning Portal)",
+      "url": "https://www.planningportal.nsw.gov.au/development-assessment/codes-sepp/nsw-outdoor-dining-trial",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vibrancy",
+      "organisation": "nsw_24hour",
+      "jurisdiction": "NSW",
+      "title": "Vibrancy Reforms",
+      "url": "https://www.nsw.gov.au/business-and-economy/office-of-24-hour-economy-commissioner/vibrancy-reforms",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tobacco_licensing",
+      "organisation": "nsw_health",
+      "jurisdiction": "NSW",
+      "title": "NSW tobacco licensing scheme",
+      "url": "https://www.health.nsw.gov.au/tobacco/Pages/tobacco-licensing.aspx",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "signage_exempt",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Advertising and signage (exempt development)",
+      "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/planning-approval-pathways/exempt-development/advertising-and-signage",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "icare_who_needs",
+      "organisation": "icare",
+      "jurisdiction": "NSW",
+      "title": "Who needs a policy",
+      "url": "https://www.icare.nsw.gov.au/employers/who-needs-workers-insurance/who-needs-a-policy",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "payroll_register",
+      "organisation": "revenue_nsw",
+      "jurisdiction": "NSW",
+      "title": "Register for payroll tax",
+      "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/getting-started/register-for-payroll-tax",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "payroll_rates",
+      "organisation": "revenue_nsw",
+      "jurisdiction": "NSW",
+      "title": "Payroll tax thresholds and rates",
+      "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/lodge-and-pay-returns/thresholds-and-rates",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "bc_general_building",
+      "organisation": "building_commission",
+      "jurisdiction": "NSW",
+      "title": "General building work",
+      "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/general-building-work",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "bc_categories",
+      "organisation": "building_commission",
+      "jurisdiction": "NSW",
+      "title": "Categories and classes of building and trade work",
+      "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/categories-of-work",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "bc_fees",
+      "organisation": "building_commission",
+      "jurisdiction": "NSW",
+      "title": "Fees for contractor licences, supervision and tradesperson certificates",
+      "url": "https://www.nsw.gov.au/business-and-economy/licences-and-credentials/building-and-trade-licences-and-registrations/assessment-process-and-time-frames/fees-for-licences-and-certificates",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "sira_hbc_builders",
+      "organisation": "sira",
+      "jurisdiction": "NSW",
+      "title": "Home building compensation: for builders and tradies",
+      "url": "https://www.sira.nsw.gov.au/home-building-compensation/home-building-compensation-for-builders-and-tradies",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "skin_pen",
+      "organisation": "nsw_health",
+      "jurisdiction": "NSW",
+      "title": "Skin penetration",
+      "url": "https://www.health.nsw.gov.au/environment/skinpenetration/Pages/default.aspx",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "skin_pen_form",
+      "organisation": "nsw_health",
+      "jurisdiction": "NSW",
+      "title": "Notification of Skin Penetration Procedures (form)",
+      "url": "https://www.health.nsw.gov.au/phact/Documents/notification-form-skin-penetration.pdf",
+      "source_type": "FORM"
+    },
+    {
+      "ref": "sled_master",
+      "organisation": "nsw_police_sled",
+      "jurisdiction": "NSW",
+      "title": "Tattoo Master Licences",
+      "url": "https://www.police.nsw.gov.au/online_services/sled/tattoo_industry_licences/tattoo_industry_licences_custom_links/tattoo_master_licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sled_tattooist",
+      "organisation": "nsw_police_sled",
+      "jurisdiction": "NSW",
+      "title": "Tattooist Licences",
+      "url": "https://www.police.nsw.gov.au/online_services/sled/tattoo_industry_licences/tattoo_industry_licences_custom_links/tattooist_licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ece_steps",
+      "organisation": "nsw_education",
+      "jurisdiction": "NSW",
+      "title": "Steps to set up a new service",
+      "url": "https://education.nsw.gov.au/early-childhood-education/operating-an-early-childhood-education-service/setting-up-a-new-service/steps-to-set-up-a-new-service",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "snsw_import_rego",
+      "organisation": "service_nsw",
+      "jurisdiction": "NSW",
+      "title": "Apply to register a personally imported vehicle",
+      "url": "https://www.service.nsw.gov.au/transaction/apply-to-register-a-personally-imported-vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tfnsw_vsi04",
+      "organisation": "tfnsw",
+      "jurisdiction": "NSW",
+      "title": "VSI.04 Registration of imported vehicles (Rev. 10, September 2025)",
+      "url": "https://www.nsw.gov.au/sites/default/files/2021-07/vsi-04-registration-imported-vehicles.pdf",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "revenue_mv_duty",
+      "organisation": "revenue_nsw",
+      "jurisdiction": "NSW",
+      "title": "Motor vehicle duty",
+      "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/motor-vehicle-duty",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ft_motor_dealer",
+      "organisation": "nsw_fair_trading",
+      "jurisdiction": "NSW",
+      "title": "Motor dealer licence",
+      "url": "https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/working-as-a-motor-dealer/motor-dealer-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ft_motor_dealer_fees",
+      "organisation": "nsw_fair_trading",
+      "jurisdiction": "NSW",
+      "title": "Motor dealer licensing fees",
+      "url": "https://www.nsw.gov.au/business-and-economy/running-a-business/industry-specific-business-requirements/working-as-a-motor-dealer/licensing-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "tfnsw_vessel_rego",
+      "organisation": "tfnsw",
+      "jurisdiction": "NSW",
+      "title": "How to register a vessel",
+      "url": "https://www.nsw.gov.au/driving-boating-and-transport/boat-and-vessel-registration/how-to-register",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tfnsw_boat_licence",
+      "organisation": "tfnsw",
+      "jurisdiction": "NSW",
+      "title": "Get a boat or personal watercraft (PWC) licence",
+      "url": "https://www.nsw.gov.au/driving-boating-and-transport/maritime-licences/boat-and-pwc-licences/get-boat-or-pwc-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tfnsw_mooring",
+      "organisation": "tfnsw",
+      "jurisdiction": "NSW",
+      "title": "Private mooring licence and rules",
+      "url": "https://www.nsw.gov.au/driving-boating-and-transport/using-waterways-boating-and-transport-information/mooring-type-licence-and-fees/private-mooring-licence-and-rules",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "mvp_ventures",
+      "organisation": "investment_nsw",
+      "jurisdiction": "NSW",
+      "title": "MVP Ventures Program",
+      "url": "https://www.nsw.gov.au/business-and-economy/innovation/grants-and-programs/mvp-ventures-program",
+      "source_type": "GRANT_GUIDELINES"
+    },
+    {
+      "ref": "imaf_stage1",
+      "organisation": "investment_nsw",
+      "jurisdiction": "NSW",
+      "title": "Innovative Manufacturing Adoption Fund (Stage 1)",
+      "url": "https://www.nsw.gov.au/grants-and-funding/innovative-manufacturing-adoption-fund-stage-1",
+      "source_type": "GRANT_GUIDELINES"
+    }
+  ],
+  "references": [
+    {
+      "ref": "nsw_food_notify",
+      "document": "ablis_food_notification",
+      "section": "Who must notify",
+      "extracted_text": "[Summary, not the source's wording] You must notify your council or the NSW Food Authority if you intend to operate a food business. Retail food outlets such as cafes, restaurants, takeaways, food trucks and retail bakeries, school canteens, children's services and manufacturers or caterers that sell directly to consumers notify their council. Manufacturers, wholesalers, catering not sold by retail, food importers not selling by retail and similar businesses notify the NSW Food Authority. The online Food Business Notification form is at formsfa.bfs.dpi.nsw.gov.au/forms/12120. The Food Authority's inspection or audit fee for 2026-27 is $370 an hour. Legislation: Food Act 2003 (NSW) and Food Regulation 2025 (NSW).",
+      "interpretation": "Every NSW food business must notify before it trades; most retail businesses notify their council, which also inspects and charges fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_fss",
+      "document": "newcastle_fss",
+      "section": "Who needs a Food Safety Supervisor",
+      "extracted_text": "[Summary, not the source's wording] Retail, hospitality and food service businesses must appoint at least one Food Safety Supervisor per premises when the food they prepare and serve is ready to eat, potentially hazardous (needs temperature control) and not sold in the supplier's original package. Examples include cafes, restaurants, takeaways, pubs and clubs with food, mobile vendors, caterers, supermarkets, delis and school canteens. Food Safety Supervisor certificates expire 5 years from issue; when one expires the business has 30 days to renew the training or appoint another certified supervisor.",
+      "interpretation": "Businesses that prepare and serve unpackaged ready-to-eat food need a certified Food Safety Supervisor at each premises. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_liquor_types",
+      "document": "lg_apply_manage",
+      "section": "Liquor licence types",
+      "extracted_text": "[Summary, not the source's wording] NSW liquor licence types include small bar (up to 120 patrons, no gaming or takeaway), general bar, on-premises (alcohol sold where another product or service is the main business, such as a restaurant), club, hotel, producer or wholesaler, packaged liquor (bottle shops), and limited licences for special events, trade fairs and functions. Some situations, such as BYO restaurants, may not need a licence.",
+      "interpretation": "Selling or supplying alcohol in NSW needs a licence from Liquor & Gaming NSW unless an exemption applies. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_liquor_apply",
+      "document": "lg_apply",
+      "section": "How to apply",
+      "extracted_text": "[Summary, not the source's wording] Check whether you need a licence, choose a licence type, check whether you need council development approval first, prepare documents such as a recent National Police Check, ASIC company extracts and RSA and licensee training, and a Statement of Risks and Potential Effects where required, then lodge online through the NSW OneGov liquor portal. After lodging you generally notify stakeholders such as NSW Police, the local consent authority and occupiers of nearby buildings. The application is advertised for up to 30 days (14 days for straightforward restaurants). A complete application is generally decided within 7 working days, or up to 12 weeks if more information is needed or there are objections.",
+      "interpretation": "The NSW liquor licence process: choose a type, lodge online, notify stakeholders, public consultation, decision. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_liquor_fees",
+      "document": "lg_fee_schedule",
+      "section": "Application fees (effective 15 March 2026)",
+      "extracted_text": "[Summary, not the source's wording] Total application fees: on-premises $965; small bar $483; hotel (general bar) $965; full hotel $3,451; packaged $2,760; producer or wholesaler $965; limited licence single function (online) $110. Processing fees are not refunded if an application is withdrawn or refused. Fees exclude GST.",
+      "interpretation": "Application fees by licence type as published for 2026. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_outdoor_dining",
+      "document": "outdoor_dining",
+      "section": "Outdoor dining approvals",
+      "extracted_text": "[Summary, not the source's wording] Outdoor dining on the footpath is permanently exempt development for food and drink premises, including pubs and small bars, so no development application is needed. Councils approve the use of the footway under section 125 of the Roads Act 1993 (or section 138 where council is not the roads authority), or under section 68 of the Local Government Act 1993 for community land. Many councils take applications through the NSW Planning Portal.",
+      "interpretation": "A cafe or restaurant needs council approval under the Roads Act to put tables on the footpath, but not a development application. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_vibrancy",
+      "document": "vibrancy",
+      "section": "Live music and sound",
+      "extracted_text": "[Summary, not the source's wording] Since 1 July 2024 Liquor & Gaming NSW is the lead regulator for entertainment sound from licensed venues, and music-related and noise conditions in development consents have been switched off for licensed venues. Low-impact indoor and outdoor music within set hours and frequencies is exempt development under the Cultural SEPP. Unlicensed venues remain under council rules. Eligible live music venues can get an 80% liquor licence fee reduction and extra trading hours (subject to development consent).",
+      "interpretation": "Live music at a licensed venue is regulated mainly through the liquor licence; unlicensed venues should check with council. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_tobacco_licence",
+      "document": "tobacco_licensing",
+      "section": "Who needs a licence",
+      "extracted_text": "[Summary, not the source's wording] Since 1 July 2025 retailers and wholesalers must have a licence to sell tobacco and non-tobacco smoking products in NSW. Apply through Service NSW with a MyServiceNSW account. The fee is $1,100 per licence and licences are renewed each year. Selling without a licence carries maximum penalties of $660,000 for an individual and $880,000 for a corporation. Vapes may only be sold by pharmacies for therapeutic use; tobacconists, supermarkets and convenience stores must not sell any vaping goods.",
+      "interpretation": "Any business selling tobacco or smoking products in NSW needs a tobacco licence from NSW Health. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_signage",
+      "document": "signage_exempt",
+      "section": "Business identification signs",
+      "extracted_text": "[Summary, not the source's wording] Business identification signs can be exempt development if they meet the standards: written consent of the landowner, securely fixed, no more than 3 signs for a building with one commercial tenant and 6 signs in total on a building, 1 sign for a home business in a residential zone. Any part projecting over a public road or footpath needs approval under section 138 of the Roads Act 1993. Exempt development does not apply on State heritage listed land.",
+      "interpretation": "Most simple shop signs need no approval if they meet the exempt standards; others need council approval. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_icare",
+      "document": "icare_who_needs",
+      "section": "Who needs a policy",
+      "extracted_text": "[Summary, not the source's wording] NSW employers must hold a workers insurance policy unless exempt. You do not need a policy if you pay $7,500 or less in annual wages, unless you employ an apprentice or trainee or are part of a group. Not holding a required policy can lead to fines up to $55,000 and/or six months' imprisonment. The minimum premium is $225.",
+      "interpretation": "A NSW business with employees needs an icare workers insurance policy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_payroll_register",
+      "document": "payroll_register",
+      "section": "When to register",
+      "extracted_text": "[Summary, not the source's wording] Register for payroll tax within 7 days after the month in which your total Australian wages go above the monthly threshold. For 2026-27 the threshold is $101,918 for a 31-day month, $98,630 for a 30-day month and $92,055 for a 28-day month. Register with Revenue NSW's online form.",
+      "interpretation": "Employers whose Australian wages pass the threshold must register with Revenue NSW. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_payroll_rates",
+      "document": "payroll_rates",
+      "section": "Thresholds and rates",
+      "extracted_text": "[Summary, not the source's wording] The annual tax-free threshold is $1,200,000 and the rate is 5.45% for 2025-26 and 2026-27.",
+      "interpretation": "Payroll tax applies to NSW wages above $1.2 million a year. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_contractor_threshold",
+      "document": "bc_general_building",
+      "section": "When you need a licence",
+      "extracted_text": "[Summary, not the source's wording] Under the Home Building Act 1989 you need a contractor licence for residential building or trade work valued at more than $5,000 in labour and materials (including GST). Work must be supervised by the holder of an endorsed contractor licence or qualified supervisor certificate. Licences and certificates are for 1, 3 or 5 years. Applicants need the approved qualifications and experience and a National Police Check no older than 4 months.",
+      "interpretation": "Residential building work over $5,000 including GST needs a NSW contractor licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_specialist_work",
+      "document": "bc_categories",
+      "section": "Specialist work",
+      "extracted_text": "[Summary, not the source's wording] Specialist work is air conditioning and refrigeration, electrical, plumbing, draining and gasfitting, disconnection and reconnection of fixed electrical equipment, and medical gas and mechanical services. Specialist work needs a licence or certificate regardless of the cost of the work, whether residential, commercial or industrial.",
+      "interpretation": "Plumbing, gasfitting and electrical work need a NSW licence whatever the job is worth. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_trade_fees",
+      "document": "bc_fees",
+      "section": "New application fees (July 2026 to June 2027)",
+      "extracted_text": "[Summary, not the source's wording] Individual building contractor licence $883 (1 year), $1,654 (3 years), $2,890 (5 years). Individual trade or specialist contractor licence $403, $803, $1,235. Company building contractor licence $1,763, $2,821, $4,928. Company trade or specialist contractor licence $641, $1,355, $2,374. Building qualified supervisor certificate $181, $321, $547. Trade or specialist qualified supervisor certificate $172, $291, $501. Tradesperson certificate $142, $190, $329.",
+      "interpretation": "Fees for NSW building and trade licences for 2026-27. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_hbc",
+      "document": "sira_hbc_builders",
+      "section": "When you need cover",
+      "extracted_text": "[Summary, not the source's wording] All building businesses must have home building compensation insurance for home building projects valued over $20,000 (including GST), done directly for a developer, homeowner or owner-builder, before starting work or taking payments including deposits. Before buying project insurance you must apply to icare for eligibility; icare HBCF is the only insurer. Failing to insure is an offence, and you cannot claim under the Security of Payment Act.",
+      "interpretation": "A licensed builder or tradie doing residential work over $20,000 needs HBCF cover for each job. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_skin_pen",
+      "document": "skin_pen",
+      "section": "Skin penetration procedures",
+      "extracted_text": "[Summary, not the source's wording] Skin penetration procedures include acupuncture, beauty treatments, body, nose and ear piercing, cosmetic enhancements, colonic lavage and tattooing. Notify your local council about premises where skin penetration is performed, using the notification form; mobile operators also notify. Hairdressing and other grooming that does not deliberately pierce the skin is not regulated under this legislation.",
+      "interpretation": "Tattoo, piercing and beauty premises that pierce the skin must notify their council. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_skin_pen_form",
+      "document": "skin_pen_form",
+      "section": "Notification form",
+      "extracted_text": "[Summary, not the source's wording] The Notification of Skin Penetration Procedures is made under section 38(2) of the Public Health Act 2010 and section 42 of the Public Health Regulation 2022, to the local council. The council may charge a fee not exceeding $105. Changes of particulars must be notified within 7 days. Procedures listed include tattooing, cosmetic tattooing, body piercing, waxing, dry needling, electrolysis, and manicures and pedicures.",
+      "interpretation": "The council notification covers waxing, manicures and pedicures as well as tattooing and piercing. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_tattoo_master",
+      "document": "sled_master",
+      "section": "Master licence",
+      "extracted_text": "[Summary, not the source's wording] A tattoo master licence is needed to carry on a body art tattooing business at specified premises. New master licence fees: $640 (1 year), $1,540 (3 years), $2,440 (5 years), including a $40 fingerprint fee. SLED may ask you to have fingerprints and palm prints taken at a police station within 42 days. Help: 1300 362 001.",
+      "interpretation": "A tattoo studio business needs a tattoo master licence from NSW Police. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_tattooist",
+      "document": "sled_tattooist",
+      "section": "Tattooist licence",
+      "extracted_text": "[Summary, not the source's wording] You need a tattooist licence to perform body art tattooing in NSW, including as an apprentice. Fees: $190 (1 year), $415 (3 years), $640 (5 years). Cosmetic tattooing (permanent eyeliner, eyebrows or other permanent make-up) and procedures by a medical practitioner do not need a tattooist licence.",
+      "interpretation": "Each person who does body art tattooing needs a tattooist licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_ece_steps",
+      "document": "ece_steps",
+      "section": "Steps to set up a new service",
+      "extracted_text": "[Summary, not the source's wording] Get a provider approval before a service approval (60-day assessment timeline). Long day care, family day care, outside school hours care and preschools are regulated under the National Quality Framework and applications go through the NQA IT System. The NSW Early Learning Commission has a 90-day timeline for service approval decisions, may require an interview or knowledge assessment and may arrange a pre-approval visit once construction is finished.",
+      "interpretation": "Education and care services in NSW need provider and service approvals from the NSW regulatory authority. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_import_rego",
+      "document": "snsw_import_rego",
+      "section": "Registering a personally imported vehicle",
+      "extracted_text": "[Summary, not the source's wording] To register a personally imported vehicle you need the Vehicle Import Approval, proof of entitlement (bill of sale or overseas registration certificate), proof of identity, an AUVIS inspection report, a CTP green slip, and the Application for Registration (Form 1009), lodged at a Service NSW Centre. After customs clearance you may drive directly to a weighbridge and/or an AUVIS station without registration, as long as you don't break the journey. Heavy vehicles go to a heavy vehicle inspection station instead.",
+      "interpretation": "An imported vehicle is registered in person at Service NSW after an AUVIS inspection. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_vsi04",
+      "document": "tfnsw_vsi04",
+      "section": "Imported vehicles",
+      "extracted_text": "[Summary, not the source's wording] Registration of an imported vehicle needs an import approval (unless imported before 1 January 1989), Form 1009, proof of identity, proof of entitlement, CTP insurance and an inspection report. Vehicles must generally be right-hand drive; a light vehicle 25 years or older may be registered in left-hand drive. Older vehicles must be entered on the Register of Approved Vehicles before registration.",
+      "interpretation": "Transport for NSW's rules for imported vehicles. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_mv_duty",
+      "document": "revenue_mv_duty",
+      "section": "Duty rates",
+      "extracted_text": "[Summary, not the source's wording] Motor vehicle duty is $3 for every $100 of value up to $44,999, and $1,350 plus $5 for every $100 above that for vehicles of $45,000 or more. Duty applies when an imported second-hand vehicle is registered in NSW for the first time. For used vehicles duty is on the sale price or market value, whichever is higher, including GST.",
+      "interpretation": "Stamp duty is paid when an imported vehicle is first registered in NSW. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_motor_dealer",
+      "document": "ft_motor_dealer",
+      "section": "Who needs a licence",
+      "extracted_text": "[Summary, not the source's wording] You need a motor dealer licence for buying, selling or exchanging motor vehicles as a retailer or wholesaler, including cars, motorcycles, caravans and some trailers. Applicants need council approval to run a motor dealer business at the business address. NSW Fair Trading carries out financial and police checks and aims to assess applications within 30 business days. Licences are for 1, 3 or 5 years. Apply online through Service NSW or in person.",
+      "interpretation": "Selling imported vehicles as a business in NSW needs a motor dealer licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_motor_dealer_fees",
+      "document": "ft_motor_dealer_fees",
+      "section": "Fees 2026-27",
+      "extracted_text": "[Summary, not the source's wording] New motor dealer licence, one place of business: $1,893 (1 year), $3,077 (3 years), $4,941 (5 years), $28 less if lodged online. Compensation fund contribution per place of business for a new licence: $1,200 (1 year), $1,549 (3 years), $2,582 (5 years).",
+      "interpretation": "Motor dealer licence fees for 2026-27. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_vessel_rego",
+      "document": "tfnsw_vessel_rego",
+      "section": "Which vessels must be registered",
+      "extracted_text": "[Summary, not the source's wording] A vessel must be registered if it has an engine of 4 kW or more, is 5.5 m or longer (with or without an engine), is a personal watercraft, or needs a mooring licence or marina berth. You need a HIN (Boatcode) certificate, an Australian Builders Plate for powerboats and PWCs designed for more than 2 people, proof of purchase, proof of identity and the fee, and lodge the Application for Vessel Registration in person at a service centre. Registration lasts 12 months. Domestic commercial vessels operating under the national law do not need NSW registration.",
+      "interpretation": "Recreational boats with 4 kW or more, boats 5.5 m or longer and all PWCs must be registered in NSW. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_boat_licence",
+      "document": "tfnsw_boat_licence",
+      "section": "When you need a licence",
+      "extracted_text": "[Summary, not the source's wording] You need a boat licence to drive a recreational vessel at 10 knots (18.5 km/h) or more, and a PWC licence to drive any personal watercraft; you must hold a general boat licence before getting a PWC licence. You can apply from age 12, with restrictions under 16. Steps: show practical experience through a logbook or an approved practical course, pass the knowledge test, then apply.",
+      "interpretation": "Driving a powered boat at 10 knots or more needs a NSW boat licence; a jet ski needs a PWC licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_mooring",
+      "document": "tfnsw_mooring",
+      "section": "Private mooring licences",
+      "extracted_text": "[Summary, not the source's wording] A private mooring licence lets you moor your vessel on navigable waters. Licences are only issued to individuals. The vessel must be at least 5.2 m long and registered in NSW (or hold a certificate of operation or UVI under the national law). Apply online through the Private Mooring Map; join a waiting list where no site is available. The licence is valid for 12 months and renewed on payment of the annual fee.",
+      "interpretation": "Keeping a boat of 5.2 m or more on a private mooring needs a Transport for NSW mooring licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "mvp_eligibility",
+      "document": "mvp_ventures",
+      "section": "Eligibility (Round 3, FY2025-26)",
+      "extracted_text": "[Summary, not the source's wording] Applicants must have an active ABN, be headquartered in NSW, be an Australian company under the Corporations Act 2001 or a registered Aboriginal and/or Torres Strait Islander corporation, hold the intellectual property or rights to commercialise, have aggregated turnover of $400,000 or less in each of the three financial years before applying, and have 10 or fewer full-time equivalent employees including founders. Grants are $20,000 to $50,000 (Stream 1, 50% co-contribution) or $20,000 to $75,000 (Stream 2, 25% co-contribution, for majority women-owned, regional or Aboriginal-owned businesses). Projects must move the product along Technology Readiness Levels 3 to 9 within 12 months. Round 3 opened 9 March 2026 and closed 10 April 2026.",
+      "interpretation": "MVP Ventures funds very small NSW innovation companies to commercialise a product. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "imaf_eligibility",
+      "document": "imaf_stage1",
+      "section": "Eligibility (Stage 1)",
+      "extracted_text": "[Summary, not the source's wording] Applicants must have an active ABN, be an Australian corporation headquartered in NSW, operate a manufacturing facility in NSW in a manufacturing industry, have turnover of at least $1 million in each of the two financial years before applying, and have between 10 and 100 full-time equivalent employees. Grants are $10,000 to $50,000 with a minimum 50% cash co-contribution, for feasibility studies, business cases, pilots and prototyping, assessing equipment or software, and certification work by an external provider. Activities that began before submission are not funded. Applications opened 20 August 2026 and close 13 October 2026 at 5pm.",
+      "interpretation": "IMAF Stage 1 funds NSW manufacturers to investigate adopting advanced technology. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "business.nsw.general",
+      "vertical": "BUSINESS",
+      "jurisdiction": "NSW",
+      "title": "New South Wales: business licences, insurance and tax",
+      "description": "Licences, notifications, insurance and tax most NSW businesses check: food, liquor, footpath dining, tobacco, signs, live music, workers' insurance and payroll tax.",
+      "applies_when": {
+        "fact": "business.state",
+        "op": "equals",
+        "value": "NSW"
+      },
+      "limitations": [
+        "Built from NSW Government, NSW Health, Liquor & Gaming NSW, icare, Revenue NSW and business.gov.au web pages, not from the Acts themselves.",
+        "Does not decide which liquor licence you need, or whether an exemption (such as BYO) applies.",
+        "Does not check whether your food business needs a NSW Food Authority licence instead of a council notification (for example meat, dairy, seafood or plant products manufacturing, or catering for vulnerable people).",
+        "We don't ask whether you will sell tobacco, so the tobacco licence is shown as something to check for shops and venues.",
+        "Does not check development consent for the use of your premises or a fit-out.",
+        "Not legal or tax advice. Confirm with the regulator or a qualified professional before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "food_business_notification",
+          "title": "Food business notification",
+          "condition": {
+            "fact": "business.handles_food",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Notify your food business before you start trading",
+              "detail": "Every food business in NSW must notify before it trades. Cafes, restaurants, takeaways, food trucks, retail bakeries and other businesses that sell to the public notify their local council, which inspects you and charges inspection fees. Manufacturers, wholesalers and caterers that don't sell by retail notify the NSW Food Authority online.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_FOOD_BUSINESS_NOTIFICATION",
+                  "authority": "Your local council (retail) or the NSW Food Authority",
+                  "pathway": "Notify before you start trading"
+                },
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Notify your council or the NSW Food Authority of your food business"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food business notification not identified",
+              "detail": "You said you won't handle food, so no food business notification was identified.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_FOOD_BUSINESS_NOTIFICATION",
+                  "authority": "Your local council (retail) or the NSW Food Authority",
+                  "pathway": "Needed if you handle food for sale"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food business notification may be needed",
+              "detail": "Every NSW food business must notify its council or the NSW Food Authority. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_FOOD_BUSINESS_NOTIFICATION",
+                  "authority": "Your local council (retail) or the NSW Food Authority",
+                  "pathway": "Needed if you handle food for sale",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_food_notify",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "prepare_on_site"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No food",
+              "facts": {
+                "business.handles_food": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "food_safety_supervisor",
+          "title": "Food Safety Supervisor",
+          "condition": {
+            "all": [
+              {
+                "fact": "business.handles_food",
+                "op": "equals",
+                "value": true
+              },
+              {
+                "any": [
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "prepare_on_site"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "serve_on_premises"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "mobile_food"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Appoint a certified Food Safety Supervisor",
+              "detail": "If you prepare and serve unpackaged, ready-to-eat food that needs temperature control, you need at least one Food Safety Supervisor at each premises, with a certificate less than 5 years old. Since 8 December 2023 Standard 3.2.2A also requires trained food handlers and, for most cafes and restaurants, records of key food safety controls.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "NSW Food Authority (councils enforce for retail)",
+                  "pathway": "Train a supervisor with an approved training organisation"
+                },
+                "evidence": [
+                  {
+                    "kind": "FOOD_SAFETY_SUPERVISOR",
+                    "title": "Food Safety Supervisor certificate (kept on the premises)"
+                  },
+                  {
+                    "kind": "FOOD_HANDLER_TRAINING",
+                    "title": "Food handler training records"
+                  }
+                ],
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Get a Food Safety Supervisor certificate before you open"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food Safety Supervisor not identified",
+              "detail": "From your answers you won't prepare or serve unpackaged ready-to-eat food, so a Food Safety Supervisor was not identified.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "NSW Food Authority (councils enforce for retail)",
+                  "pathway": "Needed if you prepare and serve ready-to-eat food"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A Food Safety Supervisor may be needed",
+              "detail": "Businesses that prepare and serve ready-to-eat food need a certified Food Safety Supervisor. Answer the food questions so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "NSW Food Authority (councils enforce for retail)",
+                  "pathway": "Needed if you prepare and serve ready-to-eat food",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_fss",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Restaurant",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "prepare_on_site",
+                  "serve_on_premises"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Packaged food only",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "sell_packaged"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "liquor_licence",
+          "title": "Liquor licence",
+          "condition": {
+            "fact": "business.sells_alcohol",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a NSW liquor licence",
+              "detail": "Selling or serving alcohol in NSW needs a liquor licence from Liquor & Gaming NSW. Restaurants and cafes usually need an on-premises licence ($965 to apply); small bars, hotels and bottle shops need other types. Applications are advertised for up to 30 days. Staff who serve alcohol need a current NSW RSA competency card.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_LIQUOR_LICENCE",
+                  "authority": "Liquor & Gaming NSW",
+                  "pathway": "Apply online after checking development consent"
+                },
+                "evidence": [
+                  {
+                    "kind": "RSA_COMPETENCY_CARD",
+                    "title": "NSW RSA competency card for each person serving alcohol"
+                  }
+                ],
+                "referral_categories": [
+                  "liquor_licensing_consultant",
+                  "lawyer"
+                ],
+                "task": "Choose a licence type and apply to Liquor & Gaming NSW"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Liquor licence not identified",
+              "detail": "You said you won't sell or serve alcohol. A BYO restaurant may not need a licence but still has responsibilities.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_LIQUOR_LICENCE",
+                  "authority": "Liquor & Gaming NSW",
+                  "pathway": "Needed if you sell or supply alcohol"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A liquor licence may be needed",
+              "detail": "Selling or serving alcohol in NSW needs a licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_LIQUOR_LICENCE",
+                  "authority": "Liquor & Gaming NSW",
+                  "pathway": "Needed if you sell or supply alcohol",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_liquor_types",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_liquor_apply",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_liquor_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Sells alcohol",
+              "facts": {
+                "business.sells_alcohol": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No alcohol",
+              "facts": {
+                "business.sells_alcohol": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "footpath_dining",
+          "title": "Footpath dining approval",
+          "condition": {
+            "fact": "business.footpath_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need council approval to use the footpath",
+              "detail": "Outdoor dining on the footpath is exempt from a development application in NSW, but you still need your council's approval to use the footway under section 125 of the Roads Act 1993. On a classified (main) road Transport for NSW must also agree. If you serve alcohol outside, the area must also be covered by your liquor licence.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_FOOTPATH_DINING_APPROVAL",
+                  "authority": "Your local council",
+                  "pathway": "Roads Act section 125 approval"
+                },
+                "evidence": [
+                  {
+                    "kind": "SITE_PLAN",
+                    "title": "Plan of the footpath area with tables, chairs and clearances"
+                  },
+                  {
+                    "kind": "PUBLIC_LIABILITY_INSURANCE",
+                    "title": "Public liability insurance certificate"
+                  }
+                ],
+                "task": "Apply to your council for footpath dining approval"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Footpath dining approval not identified",
+              "detail": "You said you won't use the footpath for your business.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_FOOTPATH_DINING_APPROVAL",
+                  "authority": "Your local council",
+                  "pathway": "Needed to put tables or goods on the footpath"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Footpath approval may be needed",
+              "detail": "Using the footpath for tables, chairs or goods needs council approval. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_FOOTPATH_DINING_APPROVAL",
+                  "authority": "Your local council",
+                  "pathway": "Needed to put tables or goods on the footpath",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_outdoor_dining",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Footpath tables",
+              "facts": {
+                "business.footpath_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Indoors only",
+              "facts": {
+                "business.footpath_use": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "live_music",
+          "title": "Live music and entertainment",
+          "condition": {
+            "fact": "business.live_music_or_events",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Check the rules for live music and events",
+              "detail": "At a licensed venue, Liquor & Gaming NSW regulates entertainment sound and most music-related conditions in development consents no longer apply. Low-impact music within set hours can be exempt development. If your venue isn't licensed, check your development consent and any noise conditions with your council. Live music venues can get an 80% discount on liquor licence fees."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_vibrancy",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Live music",
+              "facts": {
+                "business.live_music_or_events": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No music",
+              "facts": {
+                "business.live_music_or_events": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "tobacco_licence",
+          "title": "Tobacco and smoking products licence",
+          "condition": {
+            "fact": "business.activity",
+            "op": "in",
+            "value": [
+              "retail",
+              "food_service",
+              "accommodation",
+              "entertainment"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "If you'll sell tobacco, you need a licence first",
+              "detail": "Since 1 July 2025 every NSW business that sells tobacco or other smoking products needs a licence from NSW Health, applied for through Service NSW ($1,100 a year). Selling without one can cost up to $660,000 for an individual. Shops, cafes and venues must not sell vapes at all; only pharmacies can.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_TOBACCO_RETAIL_LICENCE",
+                  "authority": "NSW Health (apply through Service NSW)",
+                  "pathway": "Only if you will sell tobacco or smoking products",
+                  "certainty": "MAY_APPLY"
+                },
+                "task": "If you'll sell tobacco, apply for a tobacco licence before you start"
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Selling tobacco needs a licence",
+              "detail": "Any NSW business that sells tobacco or smoking products needs a NSW Health licence. Tell us what kind of business it is so we can check this."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_tobacco_licence",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Corner shop",
+              "facts": {
+                "business.activity": "retail"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.activity": "trades"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "business_signs",
+          "title": "Business signs",
+          "condition": {
+            "fact": "business.premises_type",
+            "op": "in",
+            "value": [
+              "leased_commercial",
+              "owned_commercial",
+              "home"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Check whether your signs need approval",
+              "detail": "Simple business identification signs are exempt development if they meet the NSW standards: the landowner agrees in writing, no more than 3 signs for a single-tenant building (1 for a home business in a residential zone), and they are securely fixed. A sign that projects over the footpath needs council approval under section 138 of the Roads Act. Bigger, illuminated or heritage-site signs usually need a development application."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_signage",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Shop",
+              "facts": {
+                "business.premises_type": "leased_commercial"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Online",
+              "facts": {
+                "business.premises_type": "online"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "workers_compensation",
+          "title": "Workers' insurance (icare)",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "not_equals",
+            "value": "NONE"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an icare workers insurance policy",
+              "detail": "NSW employers must hold a workers compensation (workers insurance) policy with icare before their workers start. The only exemption is paying $7,500 or less in wages a year, and it doesn't apply if you employ an apprentice or trainee. Not insuring can mean fines up to $55,000.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_WORKERS_COMPENSATION_POLICY",
+                  "authority": "icare NSW",
+                  "pathway": "Take out a policy before your first employee starts"
+                },
+                "referral_categories": [
+                  "insurance_broker",
+                  "whs_consultant"
+                ],
+                "task": "Take out an icare workers insurance policy"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Workers' insurance not identified",
+              "detail": "You said only you will work in the business. You need a policy once you employ workers.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_WORKERS_COMPENSATION_POLICY",
+                  "authority": "icare NSW",
+                  "pathway": "Needed once you employ workers"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A workers' insurance policy may be needed",
+              "detail": "NSW employers need an icare policy. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_WORKERS_COMPENSATION_POLICY",
+                  "authority": "icare NSW",
+                  "pathway": "Needed once you employ workers",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_icare",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Employees",
+              "facts": {
+                "business.employee_band": "5_19"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Just me",
+              "facts": {
+                "business.employee_band": "NONE"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "payroll_tax",
+          "title": "Payroll tax registration",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "in",
+            "value": [
+              "20_199",
+              "200_PLUS"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You may need to register for NSW payroll tax",
+              "detail": "With 20 or more employees your wages may pass the NSW payroll tax threshold of $1.2 million a year (about $101,918 in a 31-day month in 2026-27). Register with Revenue NSW within 7 days after the month your total Australian wages pass the monthly threshold. The rate is 5.45%.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_PAYROLL_TAX_REGISTRATION",
+                  "authority": "Revenue NSW",
+                  "pathway": "Register online within 7 days after the month you pass the threshold"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Check your monthly wages against the NSW payroll tax threshold"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Payroll tax is unlikely for now",
+              "detail": "Payroll tax applies when your total Australian wages pass $1.2 million a year. With fewer than 20 employees most businesses are under it, but keep an eye on it as you grow, and remember wages of related businesses can be grouped."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_payroll_register",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_payroll_rates",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "50 staff",
+              "facts": {
+                "business.employee_band": "20_199"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small team",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.nsw.trades",
+      "vertical": "BUSINESS",
+      "jurisdiction": "NSW",
+      "title": "New South Wales: trade licences and home building insurance",
+      "description": "Contractor licences for residential building work and specialist trades, and home building compensation cover, from Building Commission NSW and SIRA pages.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "trades"
+          }
+        ]
+      },
+      "limitations": [
+        "Our questionnaire asks about building work over $3,300 (the Queensland threshold). NSW's threshold is more than $5,000 including GST, so a builder whose jobs are all between $3,300 and $5,000 doesn't need a NSW contractor licence.",
+        "Does not decide which licence category or class you need, or check your qualifications.",
+        "Does not cover air conditioning and refrigeration, medical gas, pest management or asbestos licences, or gasfitting on its own (we don't ask about it).",
+        "Home building compensation is checked from the kind of work only; we don't ask whether your jobs are residential or over $20,000.",
+        "Not legal advice. Confirm with Building Commission NSW (13 27 00)."
+      ],
+      "rules": [
+        {
+          "key": "contractor_licence",
+          "title": "Contractor licence for residential building work",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "building_over_3300"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You likely need a NSW contractor licence",
+              "detail": "Residential building work worth more than $5,000 (labour and materials, including GST) needs a contractor licence from Building Commission NSW, and the work must be supervised by someone with an endorsed licence or qualified supervisor certificate. An individual building contractor licence costs $883 for 1 year in 2026-27.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_CONTRACTOR_LICENCE",
+                  "authority": "Building Commission NSW",
+                  "pathway": "Apply in person at Service NSW with your qualifications",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "accountant",
+                  "lawyer"
+                ],
+                "task": "Apply for a NSW contractor licence in the right category"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Contractor licence for building work not identified",
+              "detail": "You said you won't do larger building jobs. In NSW residential jobs over $5,000 including GST need a contractor licence.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_CONTRACTOR_LICENCE",
+                  "authority": "Building Commission NSW",
+                  "pathway": "Needed for residential work over $5,000"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A contractor licence may be needed",
+              "detail": "Residential building work over $5,000 needs a NSW contractor licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_CONTRACTOR_LICENCE",
+                  "authority": "Building Commission NSW",
+                  "pathway": "Needed for residential work over $5,000",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_contractor_threshold",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_trade_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small jobs",
+              "facts": {
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "home_building_compensation",
+          "title": "Home building compensation insurance",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "building_over_3300"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Residential jobs over $20,000 need HBCF cover",
+              "detail": "Before you start work or take a deposit on any home building job worth more than $20,000 including GST, you must get home building compensation cover for that job from icare HBCF. First apply to icare for eligibility. Without it you can't use the Security of Payment Act to claim payment.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_HOME_BUILDING_COMPENSATION",
+                  "authority": "icare HBCF (regulated by SIRA)",
+                  "pathway": "Eligibility first, then a certificate for each job",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "insurance_broker"
+                ],
+                "task": "Apply to icare HBCF for eligibility before quoting big residential jobs"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Home building compensation not identified",
+              "detail": "You said you won't do larger building jobs. Cover is needed only for home building jobs over $20,000.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_HOME_BUILDING_COMPENSATION",
+                  "authority": "icare HBCF (regulated by SIRA)",
+                  "pathway": "Needed for home building jobs over $20,000"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_hbc",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "plumbing_licence",
+          "title": "Plumbing, drainage and gasfitting licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "plumbing_drainage"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a NSW plumbing licence",
+              "detail": "Plumbing, draining and gasfitting are specialist work in NSW. They need a contractor licence or certificate in that category whatever the job is worth, for residential, commercial and industrial work. Gasfitting is a separate class: check your licence covers it.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_PLUMBING_GASFITTING_LICENCE",
+                  "authority": "Building Commission NSW",
+                  "pathway": "Contractor licence or certificate in the plumbing category"
+                },
+                "task": "Apply for a NSW plumbing contractor licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Plumbing licence not identified",
+              "detail": "You said you won't do plumbing or drainage work.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_PLUMBING_GASFITTING_LICENCE",
+                  "authority": "Building Commission NSW",
+                  "pathway": "Needed for any plumbing, draining or gasfitting"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_specialist_work",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_trade_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "electrical_licence",
+          "title": "Electrical contractor licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "electrical"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a NSW electrical licence",
+              "detail": "Electrical work is specialist work in NSW. A business contracting to do it needs an electrical contractor licence, and the workers need a qualified supervisor certificate or tradesperson certificate, whatever the job is worth.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_ELECTRICAL_CONTRACTOR_LICENCE",
+                  "authority": "Building Commission NSW",
+                  "pathway": "Contractor licence for the business, certificates for workers"
+                },
+                "referral_categories": [
+                  "insurance_broker"
+                ],
+                "task": "Apply for a NSW electrical contractor licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Electrical licence not identified",
+              "detail": "You said you won't do electrical work.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_ELECTRICAL_CONTRACTOR_LICENCE",
+                  "authority": "Building Commission NSW",
+                  "pathway": "Needed for any electrical work"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_specialist_work",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_trade_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "other_specialist_trades",
+          "title": "Other trades",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "other_trade"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Check whether your trade is licensed in NSW",
+              "detail": "Air conditioning and refrigeration, gasfitting, disconnecting and reconnecting fixed electrical equipment, and medical gas and mechanical services are specialist work and need a licence whatever the job is worth. Other trades such as carpentry, painting, tiling or landscaping need a contractor licence for residential jobs over $5,000 including GST."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_specialist_work",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_contractor_threshold",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Other trade",
+              "facts": {
+                "business.trade_work": [
+                  "other_trade"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.nsw.personal_appearance",
+      "vertical": "BUSINESS",
+      "jurisdiction": "NSW",
+      "title": "New South Wales: tattoo, piercing and beauty businesses",
+      "description": "Council notification of skin penetration premises and tattoo industry licences, from NSW Health and NSW Police pages.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "personal_services"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from NSW Health and NSW Police web pages and the NSW Health notification form, not from the Public Health Act 2010, Public Health Regulation 2022 or Tattoo Industry Act 2012 themselves.",
+        "Does not cover radiation licences from the NSW EPA for cosmetic lasers and IPL (including laser tattoo removal).",
+        "Does not cover development consent for a beauty or tattoo premises, or council rules for hairdressers.",
+        "Not legal advice. Confirm with your council or NSW Police (SLED)."
+      ],
+      "rules": [
+        {
+          "key": "skin_penetration_notification",
+          "title": "Skin penetration premises notification",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattooing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "body_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "ear_nose_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "implants_or_scarring"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Notify your council about your skin penetration premises",
+              "detail": "Tattooing, piercing (including ear and nose), implants and similar procedures are skin penetration under the NSW Public Health Regulation 2022. Notify your local council with the Notification of Skin Penetration Procedures before you start. Council may charge up to $105, inspects your premises and expects you to follow the sharps, cleaning and sterilising rules. Mobile operators notify too.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_SKIN_PENETRATION_NOTIFICATION",
+                  "authority": "Your local council",
+                  "pathway": "Lodge the notification form with council"
+                },
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Notify your council of your skin penetration premises"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Tattoo and piercing rules not identified",
+              "detail": "You said you won't tattoo or pierce. Hairdressing is not skin penetration, but some beauty treatments are (see the beauty finding if it applies)."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A council notification may be needed",
+              "detail": "Tattooing, piercing and similar services must be notified to council. Tell us which services you'll offer so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_SKIN_PENETRATION_NOTIFICATION",
+                  "authority": "Your local council",
+                  "pathway": "Needed for tattooing, piercing and similar",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_skin_pen",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_skin_pen_form",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Piercing studio",
+              "facts": {
+                "business.personal_services": [
+                  "body_piercing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair salon",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "beauty_skin_penetration",
+          "title": "Beauty treatments that pierce the skin",
+          "condition": {
+            "fact": "business.personal_services",
+            "op": "contains",
+            "value": "beauty"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Beauty treatments may need a council notification",
+              "detail": "The NSW notification covers beauty treatments such as waxing, manicures and pedicures, electrolysis, dry needling, cosmetic tattooing and cosmetic enhancements. If you'll offer any of these, notify your council with the Notification of Skin Penetration Procedures before you start.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_SKIN_PENETRATION_NOTIFICATION",
+                  "authority": "Your local council",
+                  "pathway": "Lodge the notification form with council"
+                },
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Check with council whether your beauty treatments need notifying"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_skin_pen",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_skin_pen_form",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Beauty salon",
+              "facts": {
+                "business.personal_services": [
+                  "beauty"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair salon",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "tattoo_licences",
+          "title": "Tattoo industry licences",
+          "condition": {
+            "fact": "business.personal_services",
+            "op": "contains",
+            "value": "tattooing"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need tattoo industry licences from NSW Police",
+              "detail": "Running a body art tattooing business needs a tattoo master licence ($640 for 1 year), and everyone who tattoos, including apprentices, needs a tattooist licence ($190 for 1 year). Apply through Service NSW; NSW Police's Security Licensing & Enforcement Directorate decides and may take fingerprints. Cosmetic tattooing (permanent make-up) doesn't need these licences.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_TATTOO_LICENCE",
+                  "authority": "NSW Police Force (Security Licensing & Enforcement Directorate)",
+                  "pathway": "Master licence for the business, tattooist licence for each artist"
+                },
+                "task": "Apply for a tattoo master licence and tattooist licences"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Tattoo licences not identified",
+              "detail": "You said you won't do tattooing.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_TATTOO_LICENCE",
+                  "authority": "NSW Police Force (Security Licensing & Enforcement Directorate)",
+                  "pathway": "Needed for body art tattooing"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Tattoo licences may be needed",
+              "detail": "Body art tattooing needs NSW Police licences. Tell us which services you'll offer so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_TATTOO_LICENCE",
+                  "authority": "NSW Police Force (Security Licensing & Enforcement Directorate)",
+                  "pathway": "Needed for body art tattooing",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_tattoo_master",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_tattooist",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tattoo studio",
+              "facts": {
+                "business.personal_services": [
+                  "tattooing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Piercing only",
+              "facts": {
+                "business.personal_services": [
+                  "body_piercing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.nsw.education_care",
+      "vertical": "BUSINESS",
+      "jurisdiction": "NSW",
+      "title": "New South Wales: education and care services",
+      "description": "Provider and service approvals for long day care, preschool, outside school hours care and family day care, from the NSW Department of Education's guidance.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "childcare_education"
+          }
+        ]
+      },
+      "limitations": [
+        "Does not cover occasional care and mobile services (regulated under NSW law with their own forms), schools, tutoring, or working with children checks.",
+        "Not legal advice. Confirm with the NSW Early Learning Commission."
+      ],
+      "rules": [
+        {
+          "key": "provider_and_service_approval",
+          "title": "Provider and service approval",
+          "condition": {
+            "fact": "business.education_care_service",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a provider approval and a service approval",
+              "detail": "Running long day care, preschool, outside school hours care or family day care in NSW needs a provider approval and then a service approval under the Education and Care Services National Law, lodged through the NQA IT System. The NSW Early Learning Commission takes up to 60 days for a provider and 90 days for a service decision.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "NSW Department of Education (NSW Early Learning Commission)",
+                  "pathway": "Provider approval, then service approval, through NQA ITS"
+                },
+                "referral_categories": [
+                  "education_care_consultant",
+                  "lawyer"
+                ],
+                "task": "Prepare the provider and service approval applications"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Service approval not identified",
+              "detail": "You said you won't run long day care, family day care, preschool or outside school hours care.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "NSW Department of Education (NSW Early Learning Commission)",
+                  "pathway": "Needed to run an education and care service"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A service approval may be needed",
+              "detail": "Education and care services need provider and service approvals. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "NSW Department of Education (NSW Early Learning Commission)",
+                  "pathway": "Needed to run an education and care service",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_ece_steps",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Long day care",
+              "facts": {
+                "business.education_care_service": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Tutoring",
+              "facts": {
+                "business.education_care_service": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "trade.nsw.vehicles",
+      "vertical": "TRADE",
+      "jurisdiction": "NSW",
+      "title": "New South Wales: registering and selling imported vehicles",
+      "description": "Registering an imported vehicle with Transport for NSW through Service NSW, and the NSW Fair Trading motor dealer licence for selling, from NSW Government pages.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "trade.direction",
+            "op": "in",
+            "value": [
+              "import",
+              "both"
+            ]
+          },
+          {
+            "fact": "trade.goods_categories",
+            "op": "contains",
+            "value": "vehicles"
+          },
+          {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "NSW"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Service NSW, Transport for NSW, Revenue NSW and NSW Fair Trading pages, not from the Road Transport Act 2013 or the Motor Dealers and Repairers Act 2013.",
+        "Covers light vehicles; heavy vehicles, trailers over 2 tonnes and buses use a heavy vehicle inspection station and are not covered in detail.",
+        "Does not cover conditional or historic registration, or motor vehicle repairer licences for repair businesses.",
+        "Not legal advice. Confirm with Service NSW (13 77 88) or NSW Fair Trading (13 32 20)."
+      ],
+      "rules": [
+        {
+          "key": "nsw_registration",
+          "title": "Registering the vehicle in NSW",
+          "condition": {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get an AUVIS inspection and register the vehicle at Service NSW",
+              "detail": "Once the vehicle has cleared customs, take it to an Authorised Unregistered Vehicle Inspection Station (AUVIS) for a safety and identity check (blue slip, A$82). Buy a CTP green slip, then lodge the Transport for NSW Application for Registration at a Service NSW Centre. You pay registration (A$84 plus motor vehicle tax by weight, for example A$391 for a 1,151 to 1,500 kg car) and stamp duty of A$3 per A$100 of value up to A$44,999.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_VEHICLE_REGISTRATION",
+                  "authority": "Transport for NSW (through Service NSW)",
+                  "pathway": "AUVIS inspection, CTP green slip, then register in person"
+                },
+                "task": "Book an AUVIS inspection and register the vehicle at Service NSW"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_import_rego",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_vsi04",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_mv_duty",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "NSW",
+              "facts": {
+                "trade.vehicle_state": "NSW"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Queensland",
+              "facts": {
+                "trade.vehicle_state": "QLD"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "nsw_motor_dealer",
+          "title": "Selling imported vehicles in NSW",
+          "condition": {
+            "all": [
+              {
+                "fact": "trade.vehicle_purpose",
+                "op": "equals",
+                "value": "sell"
+              },
+              {
+                "fact": "trade.vehicle_state",
+                "op": "equals",
+                "value": "NSW"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a NSW motor dealer licence to sell imported vehicles",
+              "detail": "Buying and selling vehicles as a business in NSW needs a motor dealer licence from NSW Fair Trading (A$1,893 for 1 year plus a A$1,200 compensation fund contribution in 2026-27). You need council approval to run a dealership at your premises. If you'll also repair vehicles for customers, ask NSW Fair Trading about a motor vehicle repairer licence.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_MOTOR_DEALER_LICENCE",
+                  "authority": "NSW Fair Trading",
+                  "pathway": "Apply online through Service NSW"
+                },
+                "referral_categories": [
+                  "lawyer"
+                ],
+                "task": "Apply for a NSW motor dealer licence before selling imported vehicles"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Motor dealer licence not identified",
+              "detail": "You said the vehicle is for your own use.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_MOTOR_DEALER_LICENCE",
+                  "authority": "NSW Fair Trading",
+                  "pathway": "Needed to buy and sell vehicles as a business"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_motor_dealer",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_motor_dealer_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Sell in NSW",
+              "facts": {
+                "trade.vehicle_purpose": "sell",
+                "trade.vehicle_state": "NSW"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Own use",
+              "facts": {
+                "trade.vehicle_purpose": "own_use",
+                "trade.vehicle_state": "NSW"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Purpose not answered",
+              "facts": {
+                "trade.vehicle_state": "NSW"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vessel.nsw.registration",
+      "vertical": "VESSEL",
+      "jurisdiction": "NSW",
+      "title": "New South Wales: boat registration, licences and moorings",
+      "description": "Recreational vessel registration, boat and PWC licences and private mooring licences in NSW, and where commercial vessels fit, from Transport for NSW pages.",
+      "applies_when": {
+        "fact": "vessel.home_state",
+        "op": "equals",
+        "value": "NSW"
+      },
+      "limitations": [
+        "Built from Transport for NSW pages, not from the Marine Safety Act 1998 or regulation.",
+        "We don't ask how fast you'll drive, so the boat licence is shown as likely for any powered recreational boat; it is needed at 10 knots or more.",
+        "We don't ask where you'll keep the boat, so the mooring licence is shown as something to check for boats 5.2 m or longer.",
+        "Doesn't cover commercial mooring licences, aquatic licences for events, or boats from other states visiting NSW.",
+        "Not legal advice. Check with Transport for NSW (13 12 36) before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "recreational_registration",
+          "title": "Recreational vessel registration",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "fact": "vessel.propulsion",
+                        "op": "not_in",
+                        "value": [
+                          "sail",
+                          "manual"
+                        ]
+                      },
+                      {
+                        "fact": "vessel.engine_kw",
+                        "op": "greater_equal",
+                        "value": 4
+                      }
+                    ]
+                  },
+                  {
+                    "fact": "vessel.length_m",
+                    "op": "greater_equal",
+                    "value": 5.5
+                  },
+                  {
+                    "fact": "vessel.type",
+                    "op": "equals",
+                    "value": "personal_watercraft"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register the boat with Transport for NSW",
+              "detail": "In NSW a recreational vessel must be registered if it has an engine of 4 kW or more, is 5.5 m or longer, or is a personal watercraft. Lodge the NSW Application for Vessel Registration in person at a service centre with a HIN (Boatcode) certificate, proof of purchase and ID. A 12-month registration costs from A$94 (up to 3 m) and A$512 for a PWC.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_VESSEL_REGISTRATION",
+                  "authority": "Transport for NSW",
+                  "pathway": "Lodge in person at a service centre"
+                },
+                "task": "Register the boat with Transport for NSW"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "NSW registration not identified",
+              "detail": "From your answers this isn't a recreational vessel with 4 kW or more, 5.5 m or longer, or a jet ski. Domestic commercial vessels are certified through AMSA instead of being registered by NSW.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_VESSEL_REGISTRATION",
+                  "authority": "Transport for NSW"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "NSW registration may be needed",
+              "detail": "Recreational vessels with 4 kW or more, 5.5 m or longer, or PWCs must be registered in NSW. Tell us the engine power and length so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_VESSEL_REGISTRATION",
+                  "authority": "Transport for NSW",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_vessel_rego",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tinny 30 kW",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.propulsion": "outboard",
+                "vessel.engine_kw": 30,
+                "vessel.length_m": 4.2
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small sailing dinghy",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.propulsion": "sail",
+                "vessel.type": "sail",
+                "vessel.length_m": 4
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Commercial",
+              "facts": {
+                "vessel.commercial_use": true,
+                "vessel.propulsion": "outboard",
+                "vessel.engine_kw": 40
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Power not answered",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.propulsion": "outboard",
+                "vessel.type": "motor",
+                "vessel.length_m": 4
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "boat_licence",
+          "title": "General boat licence",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "fact": "vessel.propulsion",
+                "op": "not_in",
+                "value": [
+                  "sail",
+                  "manual"
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "The driver needs a boat licence to go 10 knots or faster",
+              "detail": "In NSW you need a general boat licence to drive a recreational powered vessel at 10 knots (18.5 km/h) or more. You can apply from age 12. Complete a logbook or approved practical course, pass the knowledge test (A$44), then pay for the licence (A$82 for 1 year, A$372 for 5 years).",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_BOAT_LICENCE",
+                  "authority": "Transport for NSW",
+                  "pathway": "Practical experience, knowledge test, then apply"
+                },
+                "referral_categories": [
+                  "maritime_trainer"
+                ]
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "A boat licence wasn't identified",
+              "detail": "From your answers this isn't a powered recreational vessel. Commercial operators need AMSA certificates of competency instead.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_BOAT_LICENCE",
+                  "authority": "Transport for NSW"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_boat_licence",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Recreational outboard",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.propulsion": "outboard"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Kayak",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.propulsion": "manual"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "pwc_licence",
+          "title": "Personal watercraft licence",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "fact": "vessel.type",
+                "op": "equals",
+                "value": "personal_watercraft"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "The rider needs a PWC licence",
+              "detail": "Anyone driving a personal watercraft (jet ski) in NSW needs a PWC licence, whatever the speed. You must hold a general boat licence first, then pass the PWC test. A PWC licence costs A$260 for 1 year or A$1,104 for 5 years.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_PWC_LICENCE",
+                  "authority": "Transport for NSW",
+                  "pathway": "Hold a boat licence, then pass the PWC test"
+                },
+                "referral_categories": [
+                  "maritime_trainer"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_boat_licence",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Recreational jet ski",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "personal_watercraft"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Motor boat",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "motor"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "mooring_licence",
+          "title": "Private mooring licence",
+          "condition": {
+            "fact": "vessel.length_m",
+            "op": "greater_equal",
+            "value": 5.2
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "If you'll keep the boat on a mooring, you need a mooring licence",
+              "detail": "A private mooring on NSW waters needs a Transport for NSW mooring licence, issued only to individuals, for registered vessels 5.2 m or longer. Search the Private Mooring Map and apply online; busy areas have waiting lists. Annual fees start at A$285 for a boat up to 7 m outside Sydney.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_MOORING_LICENCE",
+                  "authority": "Transport for NSW",
+                  "pathway": "Apply through the Private Mooring Map",
+                  "certainty": "MAY_APPLY"
+                },
+                "task": "Decide where you'll keep the boat and check mooring availability"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Private moorings are for boats 5.2 m or longer",
+              "detail": "Your boat is under 5.2 m, so it isn't eligible for a private mooring licence. Most small boats are kept on a trailer or in a marina."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_mooring",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "7 m cruiser",
+              "facts": {
+                "vessel.length_m": 7
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "4 m tinny",
+              "facts": {
+                "vessel.length_m": 4
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Length not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "commercial_through_amsa",
+          "title": "Commercial vessels in NSW",
+          "condition": {
+            "fact": "vessel.commercial_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "NSW doesn't register domestic commercial vessels",
+              "detail": "Transport for NSW says domestic commercial vessels operating under the national law don't need NSW registration. Follow the AMSA steps in this report. If the vessel was previously used commercially and you want to register it in NSW, you need a Letter of Agreement from Transport for NSW."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "nsw_vessel_rego",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Commercial",
+              "facts": {
+                "vessel.commercial_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Recreational",
+              "facts": {
+                "vessel.commercial_use": false
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grant.nsw.mvp_ventures",
+      "vertical": "GRANT",
+      "jurisdiction": "NSW",
+      "title": "MVP Ventures Program (NSW)",
+      "description": "Eligibility criteria for MVP Ventures, from the Investment NSW program page for Round 3. Each rule is one criterion and matches when it is met.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "grant.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "grant.applicant_type",
+            "op": "in",
+            "value": [
+              "business",
+              "primary_producer"
+            ]
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the Round 3 program page, not the full guidelines; a future round may change the criteria.",
+        "Our employee bands don't line up with the 10 full-time equivalent limit: a business with 5 to 19 employees needs to check its FTE count.",
+        "Doesn't check NSW headquarters, intellectual property ownership, Technology Readiness Level or the Stream 2 ownership tests.",
+        "Meeting these criteria doesn't mean an application will succeed: the program is competitive. Not financial or legal advice."
+      ],
+      "rules": [
+        {
+          "key": "company",
+          "title": "An Australian company",
+          "condition": {
+            "fact": "grant.entity_type",
+            "op": "equals",
+            "value": "COMPANY"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You're a company",
+              "detail": "MVP Ventures is for Australian companies (or registered Aboriginal and Torres Strait Islander corporations)."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "MVP Ventures needs a company",
+              "detail": "Sole traders, partnerships and trusts weren't eligible in Round 3. A registered Aboriginal and/or Torres Strait Islander corporation can apply."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "Round 3 required an Australian company or a registered Aboriginal and Torres Strait Islander corporation."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "mvp_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Company",
+              "facts": {
+                "grant.entity_type": "COMPANY"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Sole trader",
+              "facts": {
+                "grant.entity_type": "SOLE_TRADER"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "abn",
+          "title": "Active ABN",
+          "condition": {
+            "fact": "grant.has_abn",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You have an ABN",
+              "detail": "Round 3 required an active ABN."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "MVP Ventures needs an active ABN",
+              "detail": "Get an ABN before you apply."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "Round 3 required an active ABN."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "mvp_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "ABN",
+              "facts": {
+                "grant.has_abn": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No ABN",
+              "facts": {
+                "grant.has_abn": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "small_team",
+          "title": "10 or fewer full-time equivalent employees",
+          "condition": {
+            "fact": "grant.employee_band",
+            "op": "in",
+            "value": [
+              "NONE",
+              "1_4",
+              "5_19"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Your team may be small enough",
+              "detail": "Round 3 required 10 or fewer full-time equivalent employees including founders. If you have 5 to 19 staff, check your FTE count."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "MVP Ventures is for teams of 10 or fewer",
+              "detail": "Round 3 required 10 or fewer full-time equivalent employees including founders."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "Round 3 required 10 or fewer full-time equivalent employees."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "mvp_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "1 to 4",
+              "facts": {
+                "grant.employee_band": "1_4"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "20 to 199",
+              "facts": {
+                "grant.employee_band": "20_199"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "turnover_400k",
+          "title": "Turnover of $400,000 or less",
+          "condition": {
+            "fact": "grant.annual_turnover_cents",
+            "op": "less_equal",
+            "value": 40000000
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Your turnover is in range",
+              "detail": "Round 3 required aggregated turnover of $400,000 or less in each of the three financial years before applying."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Your turnover is too high for MVP Ventures",
+              "detail": "Round 3 required aggregated turnover of $400,000 or less in each of the last three financial years."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "Round 3 required turnover of $400,000 or less."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "mvp_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "$150k",
+              "facts": {
+                "grant.annual_turnover_cents": 15000000
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "$900k",
+              "facts": {
+                "grant.annual_turnover_cents": 90000000
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "innovative_product",
+          "title": "An innovative product to commercialise",
+          "condition": {
+            "fact": "grant.innovative",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You have an innovative product",
+              "detail": "MVP Ventures funds pre-market development and commercialisation of an innovative product you own the rights to."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "MVP Ventures is for innovative products",
+              "detail": "The program funds commercialising a new product, moving it along Technology Readiness Levels 3 to 9."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "MVP Ventures is for commercialising an innovative product."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "mvp_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Innovative",
+              "facts": {
+                "grant.innovative": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Not innovative",
+              "facts": {
+                "grant.innovative": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "co_contribution",
+          "title": "Co-contribution",
+          "condition": {
+            "fact": "grant.co_contribution_available",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You can co-contribute",
+              "detail": "Stream 1 needs at least 50% of the project cost from you; Stream 2 needs at least 25%."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "MVP Ventures needs a co-contribution",
+              "detail": "Stream 1 needs at least 50% of the project cost from you; Stream 2 at least 25%."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "MVP Ventures needs a co-contribution of 25% or 50%."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "mvp_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Can contribute",
+              "facts": {
+                "grant.co_contribution_available": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Can't",
+              "facts": {
+                "grant.co_contribution_available": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grant.nsw.innovative_manufacturing_adoption",
+      "vertical": "GRANT",
+      "jurisdiction": "NSW",
+      "title": "Innovative Manufacturing Adoption Fund, Stage 1 (NSW)",
+      "description": "Eligibility criteria for IMAF Stage 1 (Discover and Feasibility), from the program page. Each rule is one criterion and matches when it is met.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "grant.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "grant.applicant_type",
+            "op": "in",
+            "value": [
+              "business",
+              "primary_producer"
+            ]
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the program page, not the full guidelines.",
+        "We don't ask whether you are a manufacturer or run a manufacturing facility in NSW; the fund is only for manufacturers.",
+        "Our employee bands don't line up with the 10 to 100 full-time equivalent range: check your FTE count.",
+        "Meeting these criteria doesn't mean an application will succeed: the fund is competitive. Not financial or legal advice."
+      ],
+      "rules": [
+        {
+          "key": "company",
+          "title": "An Australian corporation",
+          "condition": {
+            "fact": "grant.entity_type",
+            "op": "equals",
+            "value": "COMPANY"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You're a company",
+              "detail": "IMAF is for Australian corporations headquartered in NSW."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "IMAF needs a company",
+              "detail": "Sole traders, partnerships and trusts aren't eligible: applicants must be Australian corporations."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "IMAF requires an Australian corporation."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "imaf_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Company",
+              "facts": {
+                "grant.entity_type": "COMPANY"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Trust",
+              "facts": {
+                "grant.entity_type": "TRUST"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "turnover_1m",
+          "title": "Turnover of at least $1 million",
+          "condition": {
+            "fact": "grant.annual_turnover_cents",
+            "op": "greater_equal",
+            "value": 100000000
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Your turnover is in range",
+              "detail": "IMAF requires turnover of at least $1 million in each of the two financial years before applying."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Your turnover is below IMAF's minimum",
+              "detail": "IMAF requires turnover of at least $1 million in each of the last two financial years."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "IMAF requires turnover of at least $1 million."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "imaf_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "$3m",
+              "facts": {
+                "grant.annual_turnover_cents": 300000000
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "$500k",
+              "facts": {
+                "grant.annual_turnover_cents": 50000000
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "employees_10_100",
+          "title": "10 to 100 full-time equivalent employees",
+          "condition": {
+            "fact": "grant.employee_band",
+            "op": "in",
+            "value": [
+              "5_19",
+              "20_199"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Your workforce may be in range",
+              "detail": "IMAF requires 10 to 100 full-time equivalent employees. Check your FTE count if you are near either end."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Your workforce is outside IMAF's range",
+              "detail": "IMAF requires between 10 and 100 full-time equivalent employees."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "IMAF requires 10 to 100 full-time equivalent employees."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "imaf_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "20 to 199",
+              "facts": {
+                "grant.employee_band": "20_199"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "1 to 4",
+              "facts": {
+                "grant.employee_band": "1_4"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "co_contribution",
+          "title": "50% cash co-contribution",
+          "condition": {
+            "fact": "grant.co_contribution_available",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You can co-contribute",
+              "detail": "IMAF needs at least a 50% cash co-contribution to the eligible project cost."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "IMAF needs a 50% co-contribution",
+              "detail": "You must pay at least half the eligible project cost in cash."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "IMAF needs a 50% cash co-contribution."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "imaf_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Can contribute",
+              "facts": {
+                "grant.co_contribution_available": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Can't",
+              "facts": {
+                "grant.co_contribution_available": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "not_started",
+          "title": "Project not started",
+          "condition": {
+            "fact": "grant.project_started",
+            "op": "equals",
+            "value": false
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Your project hasn't started",
+              "detail": "IMAF doesn't fund activities that began before you applied."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Started projects aren't funded",
+              "detail": "IMAF doesn't fund activities that began before you submitted the application."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "IMAF doesn't fund activities already under way."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "imaf_eligibility",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Not started",
+              "facts": {
+                "grant.project_started": false
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Started",
+              "facts": {
+                "grant.project_started": true
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "grant_programs": [
+    {
+      "key": "grant.nsw.mvp_ventures",
+      "title": "MVP Ventures Program (NSW)",
+      "administrator": "investment_nsw",
+      "jurisdiction": "NSW",
+      "url": "https://www.nsw.gov.au/business-and-economy/innovation/grants-and-programs/mvp-ventures-program",
+      "rule_set": "grant.nsw.mvp_ventures",
+      "summary": "Competitive grants for early-stage NSW companies with 10 or fewer staff and turnover of $400,000 or less to take an innovative product to market.",
+      "funding_summary": "$20,000 to $50,000 (Stream 1, you fund at least 50%) or $20,000 to $75,000 (Stream 2, you fund at least 25%).",
+      "min_amount_cents": 2000000,
+      "max_amount_cents": 7500000,
+      "rounds": [
+        {
+          "title": "Round 3 (2025-26)",
+          "status": "CLOSED",
+          "opens_on": "2026-03-09",
+          "closes_on": "2026-04-10",
+          "dates_note": "Opened 9am 9 March 2026 and closed 5pm 10 April 2026. No later round was announced when read on 2026-10-12.",
+          "reference": "mvp_eligibility"
+        }
+      ]
+    },
+    {
+      "key": "grant.nsw.innovative_manufacturing_adoption",
+      "title": "Innovative Manufacturing Adoption Fund, Stage 1 (NSW)",
+      "administrator": "investment_nsw",
+      "jurisdiction": "NSW",
+      "url": "https://www.nsw.gov.au/grants-and-funding/innovative-manufacturing-adoption-fund-stage-1",
+      "rule_set": "grant.nsw.innovative_manufacturing_adoption",
+      "summary": "Grants for NSW manufacturers with 10 to 100 staff to pay an external provider to investigate adopting advanced manufacturing technology: feasibility studies, business cases, pilots, prototyping and certification.",
+      "funding_summary": "$10,000 to $50,000, covering up to 50% of eligible costs; you fund at least 50% in cash.",
+      "min_amount_cents": 1000000,
+      "max_amount_cents": 5000000,
+      "rounds": [
+        {
+          "title": "Stage 1 (Discover and Feasibility)",
+          "status": "OPEN",
+          "opens_on": "2026-08-20",
+          "closes_on": "2026-10-13",
+          "dates_note": "Opened 20 August 2026; closes 5pm 13 October 2026 (the day after this was read). Stage 2 may fund equipment later.",
+          "reference": "imaf_eligibility"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1802 @@
+{
+  "key": "planning_nsw",
+  "title": "PlanningReady: New South Wales (approval pathways)",
+  "notes": "First sourced rules for NSW, statewide. Built on 2026-10-12 from NSW Planning Portal and Department of Planning, Housing and Infrastructure pages, the Codes SEPP (clauses 1.17A and 1.19A read directly), the 2026/27 fee schedule and Planning for Bush Fire Protection 2019. Every reference is UNVERIFIED and carries a summary, not the source's wording. Council LEPs, zones and code development standards are not encoded.",
+  "organisations": [
+    {
+      "ref": "dphi",
+      "name": "Department of Planning, Housing and Infrastructure (NSW)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.planning.nsw.gov.au"
+    },
+    {
+      "ref": "nsw_legislation",
+      "name": "NSW Legislation (Parliamentary Counsel's Office)",
+      "kind": "LEGISLATURE",
+      "jurisdiction": "NSW",
+      "website": "https://legislation.nsw.gov.au"
+    },
+    {
+      "ref": "nsw_rfs",
+      "name": "NSW Rural Fire Service",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.rfs.nsw.gov.au"
+    },
+    {
+      "ref": "nsw_gov",
+      "name": "NSW Government (nsw.gov.au)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NSW",
+      "website": "https://www.nsw.gov.au"
+    },
+    {
+      "ref": "wingecarribee",
+      "name": "Wingecarribee Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NSW_WINGECARRIBEE",
+      "website": "https://www.wsc.nsw.gov.au"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "codes_sepp",
+      "organisation": "nsw_legislation",
+      "jurisdiction": "NSW",
+      "title": "State Environmental Planning Policy (Exempt and Complying Development Codes) 2008",
+      "url": "https://legislation.nsw.gov.au/view/html/inforce/current/epi-2008-0572",
+      "source_type": "REGULATION",
+      "version_label": "Current version as read on 2026-10-12"
+    },
+    {
+      "ref": "dphi_complying",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Complying development (NSW Department of Planning, Housing and Infrastructure)",
+      "url": "https://www.planning.nsw.gov.au/assess-and-regulate/development-assessment/planning-approval-pathways/complying-development",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "cdc_guide",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Guide to Complying Development",
+      "url": "https://www.planning.nsw.gov.au/sites/default/files/2023-02/guide-to-complying-development.pdf",
+      "source_type": "GUIDELINE",
+      "version_label": "February 2023 publication"
+    },
+    {
+      "ref": "portal_cdc_neighbours",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "What to tell your neighbours (complying development), NSW Planning Portal",
+      "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/planning-approval-pathways/complying-development/what-tell-your-neighbours",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "portal_exempt",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Exempt development, NSW Planning Portal",
+      "url": "https://www.planningportal.nsw.gov.au/development-assessment/planning-approval-pathways/exempt-development",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "portal_cou_exempt",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Change of use (exempt development), NSW Planning Portal",
+      "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/planning-approval-pathways/exempt-development/change-use",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "portal_cou_cdc",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Change of use of a building (complying development), NSW Planning Portal",
+      "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/planning-approval-pathways/complying-development/change-use-building",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "portal_local_dev",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Local development, NSW Planning Portal",
+      "url": "https://www.planningportal.nsw.gov.au/local-development",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "portal_post_consent",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Post consent certificates, NSW Planning Portal",
+      "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/post-consent-certificates",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "dphi_secondary",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Secondary dwellings (Housing SEPP), NSW Department of Planning, Housing and Infrastructure",
+      "url": "https://www.planning.nsw.gov.au/policy-and-legislation/housing/housing-sepp/secondary-dwellings",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "wsc_secondary",
+      "organisation": "wingecarribee",
+      "jurisdiction": "LGA:NSW_WINGECARRIBEE",
+      "title": "Secondary Dwellings (Granny Flats), Wingecarribee Shire Council",
+      "url": "https://www.wsc.nsw.gov.au/Plan-and-Build/Do-I-need-approval/Secondary-Dwellings-Granny-Flats",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "portal_basix",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "BASIX, NSW Planning Portal",
+      "url": "https://www.planningportal.nsw.gov.au/development-and-assessment/basix",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "portal_basix_approvals",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "BASIX and planning approvals, NSW Planning Portal",
+      "url": "https://www.planningportal.nsw.gov.au/basix/about-basix/BASIX-and-planning-approvals",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "fees_2026",
+      "organisation": "dphi",
+      "jurisdiction": "NSW",
+      "title": "Schedule of planning and development fees and charges for 2026/27 financial year",
+      "url": "https://www.planning.nsw.gov.au/sites/default/files/2026-06/schedule-planning-development-fees-charges-2026-27.pdf",
+      "source_type": "FEE_SCHEDULE",
+      "version_label": "2026/27 (DPHI-MC-FS-V1.0)",
+      "effective_from": "2026-07-01"
+    },
+    {
+      "ref": "pbp_2019",
+      "organisation": "nsw_rfs",
+      "jurisdiction": "NSW",
+      "title": "Planning for Bush Fire Protection 2019",
+      "url": "https://www.rfs.nsw.gov.au/__data/assets/pdf_file/0005/174272/Planning-for-Bush-Fire-Protection-2019.pdf",
+      "source_type": "GUIDELINE",
+      "version_label": "PBP 2019, adopted 1 March 2020 (with 2022 and 2025 addenda)",
+      "effective_from": "2020-03-01"
+    },
+    {
+      "ref": "nsw_approvals",
+      "organisation": "nsw_gov",
+      "jurisdiction": "NSW",
+      "title": "Approvals (building or renovating a home), NSW Government",
+      "url": "https://www.nsw.gov.au/housing-and-construction/building-or-renovating-a-home/preparing/approvals",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "planning_certificate",
+      "organisation": "nsw_gov",
+      "jurisdiction": "NSW",
+      "title": "Apply online for a planning certificate, Service NSW",
+      "url": "https://www.service.nsw.gov.au/transaction/apply-online-zoning-certificate",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "codes_sepp_1_17a",
+      "document": "codes_sepp",
+      "section": "Part 1, clause 1.17A",
+      "clause": "1.17A(1)(c)-(e)",
+      "extracted_text": "[Summary, not the source's wording] To be complying development the development must not be on land that is a wilderness area, must not be on land that comprises a State Heritage Register item or a heritage item identified by an environmental planning instrument (unless it has a heritage exemption), and, except as otherwise provided, must not be on land within an environmentally sensitive area.",
+      "interpretation": "A CDC is not available on a heritage item or in an environmentally sensitive area; a development application is needed instead. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "codes_sepp_1_19a",
+      "document": "codes_sepp",
+      "section": "Part 1, clause 1.19A",
+      "clause": "1.19A(1)(a)",
+      "extracted_text": "[Summary, not the source's wording] On bush fire prone land, complying development (other than under the Housing Alterations Code and some listed minor development) must not be carried out on land in bush fire attack level-40 (BAL-40) or the flame zone (BAL-FZ).",
+      "interpretation": "BAL-40 and BAL-FZ sites need a development application. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "dphi_cdc_pathway",
+      "document": "dphi_complying",
+      "section": "Complying development",
+      "extracted_text": "[Summary, not the source's wording] Complying development is a combined planning and construction approval for straightforward development, determined by a council or an accredited certifier. Approvals can be issued in as little as 20 days, or 10 days for NSW Housing Pattern Book development. Codes include the Housing Code, the Low Rise Housing Diversity Code and the Pattern Book Development Code 2025.",
+      "interpretation": "A CDC is an alternative to a DA plus construction certificate when every development standard in the relevant code is met. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "cdc_guide_flood",
+      "document": "cdc_guide",
+      "section": "Land exclusions: flood control lots",
+      "extracted_text": "[Summary, not the source's wording] Complying development may be possible on land where flood risks are identified, provided certain criteria are met. Further input from council or a hydraulic engineer is required. All complying development applications are lodged through the NSW Planning Portal and a principal certifier must be appointed before construction starts.",
+      "interpretation": "Flood-affected lots can still use a CDC only if the flood control lot criteria are met; otherwise a DA is needed. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "portal_cdc_notice",
+      "document": "portal_cdc_neighbours",
+      "section": "Neighbour notification",
+      "extracted_text": "[Summary, not the source's wording] A certifier or council must inform neighbours within a 20 metre radius 14 days before a CDC can be approved. Before construction starts the applicant must give neighbours at least 7 days' notice in metropolitan areas, or 2 days in rural and regional areas and residential release areas.",
+      "interpretation": "CDC notice periods. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "portal_exempt_rules",
+      "document": "portal_exempt",
+      "section": "Exempt development",
+      "extracted_text": "[Summary, not the source's wording] Exempt development does not need planning or construction approval from a council or private certifier. It covers minor renovations and low impact works such as decks, garden sheds, carports, fences and painting. Works must meet the development standards in the Codes SEPP, be structurally adequate and meet the Building Code of Australia. Exempt development cannot be carried out in a wilderness area, critical habitat, or on land with a State Heritage Register item or an interim heritage order.",
+      "interpretation": "Small works that meet every standard need no approval at all. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "portal_cou_exempt_table",
+      "document": "portal_cou_exempt",
+      "section": "Change of use",
+      "extracted_text": "[Summary, not the source's wording] Planning approval is not required for changes of use that stay within the business categories in the page's table: category 1 (business, office, shop, public administration premises, kiosks as a proposed use), category 2 (landscaping, hardware, garden centre, plant nursery, rural supplies, timber yards; vehicle sales or hire as an existing use only), category 3 (industrial, packaging, warehouse or distribution, wholesale; self-storage as a proposed use only). A change between retail shop types is a change of tenant, not a change of use.",
+      "interpretation": "A change of use within one category can be exempt development; outside the categories a CDC or DA is needed. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "portal_cou_cdc_text",
+      "document": "portal_cou_cdc",
+      "section": "Change of use of a building",
+      "extracted_text": "[Summary, not the source's wording] Complying development may be an option where a change of use cannot meet the exempt development provisions, subject to land-based exclusions and local variations in the Codes SEPP.",
+      "interpretation": "Second step down the change-of-use ladder before a DA. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "portal_local_dev_da",
+      "document": "portal_local_dev",
+      "section": "Local development",
+      "extracted_text": "[Summary, not the source's wording] Local development is the most common type of development in NSW and needs development consent, usually from the local council. Check zoning in the LEP and SEPPs (Spatial Viewer), register for a Planning Portal account and lodge online. A DA includes a description, the estimated cost, a plan of the land, a sketch and a statement of environmental effects. Advertised development is notified for 14 or 28 days.",
+      "interpretation": "A DA through the NSW Planning Portal is the default pathway when exempt or complying development does not fit. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "portal_post_consent_certs",
+      "document": "portal_post_consent",
+      "section": "Post consent certificates",
+      "extracted_text": "[Summary, not the source's wording] A construction certificate must be obtained before building work starts after a development consent (not needed for exempt or complying development). An occupation certificate must be obtained to occupy and use a new building or part of one. A subdivision certificate is obtained after subdivision works are complete, certifies the subdivision meets the consent conditions and authorises registration with NSW Land Registry Services.",
+      "interpretation": "The three certificates that follow a DA. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "dphi_secondary_rules",
+      "document": "dphi_secondary",
+      "section": "Secondary dwellings",
+      "extracted_text": "[Summary, not the source's wording] A secondary dwelling (granny flat) is a self-contained dwelling within, attached to or separate from the main home on the same site. It may be built with consent or as complying development under the Housing SEPP. Complying development needs a lot of at least 450 m2 (unless the secondary dwelling is entirely within an existing dwelling house). Secondary dwellings are permitted in zones R1 to R5 and may be allowed in other zones by the council's LEP. A lot with a secondary dwelling cannot be subdivided; only one principal and one secondary dwelling are allowed.",
+      "interpretation": "Lot size decides whether a CDC is possible; subdivision is not. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wsc_secondary_floor",
+      "document": "wsc_secondary",
+      "section": "Maximum floor area",
+      "extracted_text": "[Summary, not the source's wording] For R5 zones the limit is 60 m2 under clause 52 of the Housing SEPP 2021 (Chapter 3, secondary dwellings). In some zones in this council area the floor area must not exceed the greater of 60 m2 or 33% of the principal dwelling's floor area.",
+      "interpretation": "Supports a 60 m2 general limit with local variations; the Housing SEPP text itself could not be read. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "basix_requirement",
+      "document": "portal_basix",
+      "section": "BASIX",
+      "extracted_text": "[Summary, not the source's wording] BASIX standards cover water, energy and thermal performance. A BASIX certificate is needed for new homes and all new residential development, renovations costing more than $50,000, and swimming pools and spas of 40,000 litres or more. Certificates are made in the BASIX tool with a Planning Portal account.",
+      "interpretation": "Who needs BASIX. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "basix_lodging",
+      "document": "portal_basix_approvals",
+      "section": "BASIX and planning approvals",
+      "extracted_text": "[Summary, not the source's wording] Attach the BASIX certificate to the DA or CDC application, and to the construction certificate application. A certifier issues a BASIX completion receipt before the occupation certificate. You generate a certificate and pay the fee; revising a valid certificate lodged with the consent authority is free.",
+      "interpretation": "When the BASIX certificate is needed in the process. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "fees_da",
+      "document": "fees_2026",
+      "section": "Part 2, development application fees",
+      "extracted_text": "[Summary, not the source's wording] 2026/27 maximum DA fees by estimated development cost: up to $5,000 $153; $5,001-$50,000 $235 plus $3.00 per $1,000 over $5,000; $50,001-$250,000 $488 plus $3.64 per $1,000 over $50,000; $250,001-$500,000 $1,608 plus $2.34 per $1,000 over $250,000; $500,001-$1m $2,420 plus $1.64 per $1,000 over $500,000; $1m-$10m $3,625 plus $1.44 per $1,000 over $1m; over $10m $22,009 plus $1.19 per $1,000 over $10m. Dwelling house of $100,000 or less $631. No building work (such as change of use) $395. Subdivision with a new public road $921 plus $65 per additional lot; without a new road $458 plus $53 per additional lot; strata $458 plus $65 per additional lot. Section 10.7 planning certificate $74, plus $111 for section 10.7(5) advice.",
+      "interpretation": "Maximum fees councils can charge for DAs in 2026/27. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "pbp_requirements",
+      "document": "pbp_2019",
+      "section": "Sections 1.4, 2.1, 2.4",
+      "extracted_text": "[Summary, not the source's wording] Applications for development on bush fire prone land should include a bush fire assessment report showing the proposal meets PBP. For development other than subdivision, EP&A Act s4.14 requires the consent authority to be satisfied the development conforms to PBP (or to consult the RFS). Residential and rural residential subdivision of bush fire prone land needs a bush fire safety authority from the NSW RFS under Rural Fires Act s100B and is integrated development. Complying development can be carried out on bush fire prone land up to and including BAL-29, and is not permitted at BAL-40 or BAL-FZ.",
+      "interpretation": "Bush fire prone land always needs a bush fire assessment; subdivision needs an RFS bush fire safety authority. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "nsw_gov_certifier",
+      "document": "nsw_approvals",
+      "section": "Approvals",
+      "extracted_text": "[Summary, not the source's wording] If your work needs a DA or CDC, you need to appoint a principal certifier before work starts. The principal certifier must notify council at least two days before work commences. A construction certificate is not needed if you have a CDC. Your certifier decides whether an occupation certificate can be issued when work is complete.",
+      "interpretation": "Steps between approval and moving in. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "planning_cert_info",
+      "document": "planning_certificate",
+      "section": "Planning certificate",
+      "extracted_text": "[Summary, not the source's wording] A section 10.7 planning certificate, issued by the local council, sets out the controls, requirements and restrictions that apply to how a property can be used. You can apply online through the NSW Planning Portal if your council accepts online applications.",
+      "interpretation": "The certificate shows zone and constraints such as heritage, bush fire and flood. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "planning.nsw.building",
+      "vertical": "PLANNING",
+      "jurisdiction": "NSW",
+      "title": "NSW: houses, extensions and granny flats",
+      "description": "Approval pathways in New South Wales for new houses, extensions and secondary dwellings: exempt development, complying development certificates, development applications and the certificates that follow.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension"
+            ]
+          }
+        ]
+      },
+      "limitations": [
+        "We don't know your zone or your council's Local Environmental Plan (LEP), so we can't say which pathway applies, only which ones may.",
+        "We don't check the development standards in the complying development codes (setbacks, height, site coverage, landscaping).",
+        "Constraints like heritage, bush fire and flooding come from your answers. Your section 10.7 planning certificate is the official record.",
+        "Not legal advice. Confirm with your council, a registered certifier or a town planner before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "complying_development_option",
+          "title": "A complying development certificate may be possible",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "notes": "Every house, extension or granny flat in NSW starts here. Certainty is MAY_APPLY because we don't know the zone or whether every code standard is met.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You may be able to use the fast-track complying development pathway (CDC)",
+              "detail": "A complying development certificate (CDC) is planning and building approval in one. Your council or a registered certifier can issue it, usually in about 20 days (10 days for NSW Housing Pattern Book designs), if the work meets every standard in a State code: the Housing Code for houses and extensions, the Low Rise Housing Diversity Code for dual occupancies and terraces, or the Housing SEPP for granny flats. It is not available on heritage items, in environmentally sensitive areas or at BAL-40 or flame zone bush fire risk. If any standard is not met, you need a development application instead.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_COMPLYING_DEVELOPMENT_CERTIFICATE",
+                  "authority": "Your council or a registered certifier",
+                  "pathway": "Complying development under the Codes SEPP or Housing SEPP 2021",
+                  "certainty": "MAY_APPLY"
+                },
+                "evidence": [
+                  {
+                    "kind": "SITE_PLAN",
+                    "title": "Site plan with setbacks, heights and existing buildings"
+                  },
+                  {
+                    "kind": "ARCHITECTURAL_PLANS",
+                    "title": "Floor plans, elevations and sections"
+                  },
+                  {
+                    "kind": "PLANNING_CERTIFICATE",
+                    "title": "Section 10.7 planning certificate for the lot"
+                  }
+                ],
+                "referral_categories": [
+                  "building_certifier",
+                  "architect"
+                ],
+                "task": "Ask a registered certifier whether your design meets the complying development code"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "dphi_cdc_pathway",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "codes_sepp_1_17a",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "New house",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Subdivision",
+              "facts": {
+                "planning.development_type": "subdivision"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "development_application_option",
+          "title": "A development application is needed if a CDC doesn't fit",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "If your project isn't exempt or complying development, you need a development application (DA)",
+              "detail": "Most building work that can't meet a complying development code needs development consent from your council. You lodge the DA on the NSW Planning Portal with plans, a statement of environmental effects, owner's consent and a cost estimate. Whether your zone allows the use comes from the council's Local Environmental Plan (LEP), which we haven't checked.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_DEVELOPMENT_APPLICATION",
+                  "authority": "Your local council",
+                  "pathway": "Development application (local development) on the NSW Planning Portal",
+                  "certainty": "MAY_APPLY"
+                },
+                "evidence": [
+                  {
+                    "kind": "STATEMENT_OF_ENVIRONMENTAL_EFFECTS",
+                    "title": "Statement of environmental effects"
+                  },
+                  {
+                    "kind": "OWNERS_CONSENT",
+                    "title": "Signed consent of every owner of the land"
+                  },
+                  {
+                    "kind": "COST_ESTIMATE",
+                    "title": "Estimated development cost report"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner",
+                  "architect"
+                ],
+                "task": "Check your zone and controls on the NSW Planning Portal Spatial Viewer"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_local_dev_da",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Extension",
+              "facts": {
+                "planning.development_type": "extension"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Change of use",
+              "facts": {
+                "planning.development_type": "change_of_use"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "exempt_small_works",
+          "title": "Small works may be exempt development",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "extension"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Small additions like decks, carports and sheds may need no approval",
+              "detail": "Exempt development needs no planning or building approval if it meets every standard in the Codes SEPP and the Building Code of Australia. Decks, garden sheds, carports, fences and similar small works can qualify. It is not available on State heritage listed land, in critical habitat or wilderness. A habitable room extension is usually not exempt. Check the standards for your exact work before you start.",
+              "payload": {
+                "task": "Check the exempt development standards for your work on the NSW Planning Portal"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_exempt_rules",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Extension",
+              "facts": {
+                "planning.development_type": "extension"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "New house",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "heritage",
+          "title": "Heritage item or conservation area",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "heritage"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "notes": "Clause 1.17A was read directly, but customers can't tell a heritage item from a conservation area, so capped at likely.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Heritage: you will probably need a development application, not a CDC",
+              "detail": "Complying development can't be carried out on a heritage item listed in the State Heritage Register or in the council's LEP. In a heritage conservation area the codes also restrict complying development. Your section 10.7 planning certificate says which applies. Expect council to ask for a heritage impact statement.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_DEVELOPMENT_APPLICATION",
+                  "authority": "Your local council",
+                  "pathway": "Development application (heritage item or conservation area)"
+                },
+                "evidence": [
+                  {
+                    "kind": "HERITAGE_IMPACT_STATEMENT",
+                    "title": "Heritage impact statement"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner",
+                  "architect"
+                ],
+                "task": "Order a section 10.7 planning certificate to confirm the heritage listing"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "codes_sepp_1_17a",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "portal_exempt_rules",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Heritage ticked",
+              "facts": {
+                "planning.known_constraints": [
+                  "heritage",
+                  "easement"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Other constraint",
+              "facts": {
+                "planning.known_constraints": [
+                  "flooding"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "flood_control_lot",
+          "title": "Flood-affected land",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "flooding"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Flooding: a CDC is only possible if the flood control lot rules are met",
+              "detail": "If council applies flood-related controls to your lot (a flood control lot), complying development is only possible when extra flood criteria are met, usually with a report from an engineer. Otherwise you need a development application. Your section 10.7 planning certificate says whether flood controls apply.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_DEVELOPMENT_APPLICATION",
+                  "authority": "Your local council",
+                  "pathway": "DA if the flood control lot criteria for complying development are not met"
+                },
+                "evidence": [
+                  {
+                    "kind": "FLOOD_REPORT",
+                    "title": "Flood report or certificate from a suitably qualified engineer"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Ask council for flood information for your lot"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "cdc_guide_flood",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Flooding ticked",
+              "facts": {
+                "planning.known_constraints": [
+                  "flooding"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Bushfire only",
+              "facts": {
+                "planning.known_constraints": [
+                  "bushfire"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "bush_fire_prone_land",
+          "title": "Bush fire prone land",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "bushfire"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Bush fire prone land: you need a bush fire assessment",
+              "detail": "On bush fire prone land your application needs a bush fire assessment showing it meets Planning for Bush Fire Protection 2019. For a CDC you need a BAL certificate from council or an accredited bush fire consultant showing the site is BAL-29 or lower. At BAL-40 or the flame zone (BAL-FZ) a CDC is not allowed and you need a development application. Building costs rise with the BAL rating.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_BUSHFIRE_ASSESSMENT",
+                  "authority": "Accredited bush fire consultant or council (NSW RFS for referrals)",
+                  "pathway": "Bush fire assessment report or BAL certificate under PBP 2019",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "evidence": [
+                  {
+                    "kind": "BUSHFIRE_ASSESSMENT_REPORT",
+                    "title": "Bush fire assessment report or BAL certificate"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner",
+                  "building_certifier"
+                ],
+                "task": "Check whether your land is bush fire prone with the NSW RFS online tool"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "pbp_requirements",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "codes_sepp_1_19a",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Bushfire ticked",
+              "facts": {
+                "planning.known_constraints": [
+                  "bushfire"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Heritage only",
+              "facts": {
+                "planning.known_constraints": [
+                  "heritage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "construction_certificate",
+          "title": "Construction certificate after a DA",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "If you go the DA route, you need a construction certificate before building",
+              "detail": "After development consent, a construction certificate confirms your building plans match the consent and the Building Code of Australia. Work can't start until it is issued, a principal certifier is appointed and council is told at least 2 days before work starts. You don't need one with a CDC or for exempt work.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_CONSTRUCTION_CERTIFICATE",
+                  "authority": "Your council or a registered certifier",
+                  "pathway": "Construction certificate on the NSW Planning Portal after development consent",
+                  "certainty": "MAY_APPLY"
+                },
+                "evidence": [
+                  {
+                    "kind": "CONSTRUCTION_PLANS",
+                    "title": "Construction drawings, engineering and specifications"
+                  }
+                ],
+                "referral_categories": [
+                  "building_certifier",
+                  "builder"
+                ],
+                "task": "Choose and appoint a principal certifier before work starts"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_post_consent_certs",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_gov_certifier",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Granny flat",
+              "facts": {
+                "planning.development_type": "secondary_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Subdivision",
+              "facts": {
+                "planning.development_type": "subdivision"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "occupation_certificate",
+          "title": "Occupation certificate before moving in",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You need an occupation certificate before anyone lives in the new dwelling",
+              "detail": "An occupation certificate must be obtained to occupy and use a new building. Your principal certifier issues it after the final inspection, once the work matches the approval and the BASIX commitments are met.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_OCCUPATION_CERTIFICATE",
+                  "authority": "Your principal certifier",
+                  "pathway": "Occupation certificate on the NSW Planning Portal"
+                },
+                "referral_categories": [
+                  "building_certifier"
+                ]
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "An occupation certificate may be needed for the new part of the building",
+              "detail": "An occupation certificate is needed to occupy and use a new building or a new part of a building approved by a DA or CDC. Exempt work doesn't need one.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_OCCUPATION_CERTIFICATE",
+                  "authority": "Your principal certifier",
+                  "pathway": "Occupation certificate on the NSW Planning Portal",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_post_consent_certs",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "nsw_gov_certifier",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "New house",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Extension",
+              "facts": {
+                "planning.development_type": "extension"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "basix",
+          "title": "BASIX certificate",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You need a BASIX certificate for a new dwelling",
+              "detail": "Every new home in NSW, including a granny flat, needs a BASIX certificate showing it meets the water, energy and thermal comfort standards. You make it in the online BASIX tool and attach it to your DA or CDC, and again to the construction certificate.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_BASIX_CERTIFICATE",
+                  "authority": "NSW Department of Planning, Housing and Infrastructure (online BASIX tool)",
+                  "pathway": "NSW BASIX certificate tool on the Planning Portal"
+                },
+                "referral_categories": [
+                  "architect"
+                ],
+                "task": "Create a BASIX certificate before you lodge"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A BASIX certificate is needed if the work costs more than $50,000",
+              "detail": "Renovations and additions costing more than $50,000, and pools or spas of 40,000 litres or more, need a BASIX certificate.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_BASIX_CERTIFICATE",
+                  "authority": "NSW Department of Planning, Housing and Infrastructure (online BASIX tool)",
+                  "pathway": "NSW BASIX certificate tool on the Planning Portal",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "basix_requirement",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "basix_lodging",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Granny flat",
+              "facts": {
+                "planning.development_type": "secondary_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Extension",
+              "facts": {
+                "planning.development_type": "extension"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.nsw.secondary_dwelling",
+      "vertical": "PLANNING",
+      "jurisdiction": "NSW",
+      "title": "NSW: secondary dwellings (granny flats)",
+      "description": "Secondary dwellings under the State Environmental Planning Policy (Housing) 2021.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "secondary_dwelling"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the Department's secondary dwellings page and one council page, not from the full text of the Housing SEPP, which we couldn't read.",
+        "Doesn't check setbacks, height, private open space or whether your zone permits secondary dwellings.",
+        "Not legal advice. Confirm with your council or a registered certifier."
+      ],
+      "rules": [
+        {
+          "key": "cdc_lot_size",
+          "title": "Lot size for a granny flat CDC",
+          "condition": {
+            "fact": "property.land_area_m2",
+            "op": "greater_equal",
+            "value": 450
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Your lot meets the 450 m2 minimum for a granny flat CDC",
+              "detail": "A secondary dwelling can be complying development on a lot of at least 450 m2 if it meets the other Housing SEPP standards, such as floor area, setbacks and height."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Under 450 m2: a granny flat CDC is not available",
+              "detail": "On a lot smaller than 450 m2 a secondary dwelling can't be complying development unless it is built entirely inside the existing house. You would need a development application, if your council's LEP allows it.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_DEVELOPMENT_APPLICATION",
+                  "authority": "Your local council",
+                  "pathway": "Development application for a secondary dwelling"
+                },
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Ask council whether a secondary dwelling is allowed on your lot"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "dphi_secondary_rules",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "600 m2",
+              "facts": {
+                "property.land_area_m2": {
+                  "$decimal": "600"
+                }
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "400 m2",
+              "facts": {
+                "property.land_area_m2": {
+                  "$decimal": "400"
+                }
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not known",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "principal_dwelling",
+          "title": "Granny flat goes with a main house",
+          "condition": {
+            "fact": "property.has_existing_dwelling",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "One principal dwelling and one secondary dwelling are allowed",
+              "detail": "A secondary dwelling sits on the same lot as the main home. The lot can have only one of each, and it can't then be subdivided to separate them."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "There is no main house yet",
+              "detail": "A secondary dwelling is defined as being on the same site as a principal dwelling. If there is no house yet, plan both together, for example a new house and granny flat in one application."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "dphi_secondary_rules",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "House on lot",
+              "facts": {
+                "property.has_existing_dwelling": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Vacant lot",
+              "facts": {
+                "property.has_existing_dwelling": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not known",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "floor_area",
+          "title": "Granny flat floor area",
+          "condition": {
+            "fact": "planning.secondary_dwelling_floor_area_m2",
+            "op": "less_equal",
+            "value": 60
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "notes": "60 m2 confirmed only through a council page citing Housing SEPP clause 52; the SEPP text itself could not be read.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Within the usual 60 m2 limit",
+              "detail": "The Housing SEPP generally limits a secondary dwelling to 60 m2. Some council LEPs allow more."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Over 60 m2: check your council's limit",
+              "detail": "The Housing SEPP generally limits a secondary dwelling to 60 m2. Some councils allow a larger one (for example the greater of 60 m2 or a share of the main house), but a bigger granny flat may need a DA or may not be allowed.",
+              "payload": {
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Check the maximum granny flat size with your council"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wsc_secondary_floor",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "dphi_secondary_rules",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "55 m2",
+              "facts": {
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "55"
+                }
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "80 m2",
+              "facts": {
+                "planning.secondary_dwelling_floor_area_m2": {
+                  "$decimal": "80"
+                }
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not known",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.nsw.subdivision",
+      "vertical": "PLANNING",
+      "jurisdiction": "NSW",
+      "title": "NSW: subdivision",
+      "description": "Subdividing land in New South Wales: development application, bush fire safety authority and subdivision certificate.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "subdivision"
+          }
+        ]
+      },
+      "limitations": [
+        "We don't check the minimum lot size in your council's LEP or whether your subdivision could be exempt or complying development.",
+        "We don't calculate developer contributions or water and sewer charges.",
+        "Not legal advice. Confirm with your council, a surveyor or a town planner."
+      ],
+      "rules": [
+        {
+          "key": "subdivision_da",
+          "title": "Development application to subdivide",
+          "condition": {
+            "fact": "planning.proposed_lots",
+            "op": "greater_equal",
+            "value": 2
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "notes": "Some subdivision (for example boundary adjustments or some strata subdivision) can be exempt or complying development; not encoded.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Subdividing land usually needs a development application",
+              "detail": "Creating new lots usually needs development consent from council. The council's LEP sets the minimum lot size for your zone. Council's DA fee for 2026/27 is up to $458 plus $53 per additional lot ($921 plus $65 per lot if a new public road is created). Developer contributions and water and sewer charges may also apply.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_DEVELOPMENT_APPLICATION",
+                  "authority": "Your local council",
+                  "pathway": "Development application for subdivision on the NSW Planning Portal"
+                },
+                "evidence": [
+                  {
+                    "kind": "PROPOSAL_PLAN",
+                    "title": "Plan of proposed subdivision showing lot areas and dimensions"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner",
+                  "cadastral_surveyor"
+                ],
+                "task": "Check the minimum lot size for your zone in the council's LEP"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_local_dev_da",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "fees_da",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Two lots",
+              "facts": {
+                "planning.proposed_lots": 2
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "One lot",
+              "facts": {
+                "planning.proposed_lots": 1
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "subdivision_certificate",
+          "title": "Subdivision certificate to register the new lots",
+          "condition": {
+            "fact": "planning.proposed_lots",
+            "op": "greater_equal",
+            "value": 2
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You need a subdivision certificate before the new lots can be registered",
+              "detail": "After the subdivision works are done, a subdivision certificate confirms the consent conditions are met and lets NSW Land Registry Services register the plan, creating the new titles.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_SUBDIVISION_CERTIFICATE",
+                  "authority": "Your council or a registered certifier",
+                  "pathway": "Subdivision certificate on the NSW Planning Portal"
+                },
+                "evidence": [
+                  {
+                    "kind": "PLAN_OF_SUBDIVISION",
+                    "title": "Final plan of subdivision from a registered surveyor"
+                  }
+                ],
+                "referral_categories": [
+                  "cadastral_surveyor"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_post_consent_certs",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Three lots",
+              "facts": {
+                "planning.proposed_lots": 3
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "One lot",
+              "facts": {
+                "planning.proposed_lots": 1
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "bush_fire_safety_authority",
+          "title": "Subdividing bush fire prone land",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "bushfire"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Bush fire prone land: the NSW RFS must approve the subdivision",
+              "detail": "Residential subdivision of bush fire prone land needs a bush fire safety authority from the NSW Rural Fire Service. That makes it integrated development: council refers your DA to the RFS, and you pay extra referral fees. Include a bush fire assessment report showing the subdivision meets Planning for Bush Fire Protection 2019.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_BUSHFIRE_ASSESSMENT",
+                  "authority": "NSW Rural Fire Service",
+                  "pathway": "Bush fire safety authority (Rural Fires Act s100B), integrated development"
+                },
+                "evidence": [
+                  {
+                    "kind": "BUSHFIRE_ASSESSMENT_REPORT",
+                    "title": "Bush fire assessment report for the subdivision"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "pbp_requirements",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Bushfire ticked",
+              "facts": {
+                "planning.known_constraints": [
+                  "bushfire"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Flooding only",
+              "facts": {
+                "planning.known_constraints": [
+                  "flooding"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.nsw.change_of_use",
+      "vertical": "PLANNING",
+      "jurisdiction": "NSW",
+      "title": "NSW: change of use",
+      "description": "Changing how a building is used in New South Wales: exempt, complying or a development application.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "change_of_use"
+          }
+        ]
+      },
+      "limitations": [
+        "We can't read your current and proposed uses against the Codes SEPP tables, so all three pathways are shown as possible.",
+        "Changing a building's Building Code class (for example to a home or food premises) may also need building work approval and fire safety upgrades.",
+        "Not legal advice. Confirm with your council, a registered certifier or a town planner."
+      ],
+      "rules": [
+        {
+          "key": "exempt_change_of_use",
+          "title": "Change of use within the same business category",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "change_of_use"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Some changes of use need no approval",
+              "detail": "Under the Codes SEPP, changing between uses in the same business category is exempt development. For example, a shop can become an office or business premises, or one industrial or warehouse use can become another. Changing from one kind of shop to another is a change of tenant, not a change of use. Minor internal work like painting and new carpet can be done at the same time. It isn't available on State heritage listed land.",
+              "payload": {
+                "task": "Check the exempt change of use table on the NSW Planning Portal"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_cou_exempt_table",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Change of use",
+              "facts": {
+                "planning.development_type": "change_of_use"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "New house",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "complying_change_of_use",
+          "title": "Change of use as complying development",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "change_of_use"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "If it isn't exempt, a CDC may cover the change of use",
+              "detail": "Where a change of use can't meet the exempt standards, it may be complying development under the Codes SEPP, approved by council or a registered certifier. Land exclusions and local variations apply.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_COMPLYING_DEVELOPMENT_CERTIFICATE",
+                  "authority": "Your council or a registered certifier",
+                  "pathway": "Complying development change of use under the Codes SEPP",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "building_certifier"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_cou_cdc_text",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Change of use",
+              "facts": {
+                "planning.development_type": "change_of_use"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Subdivision",
+              "facts": {
+                "planning.development_type": "subdivision"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "da_change_of_use",
+          "title": "Change of use by development application",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "change_of_use"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Otherwise, a change of use needs a development application",
+              "detail": "If the new use is neither exempt nor complying development, you need a DA, and the use must be allowed in your zone under the council's LEP. A DA with no building work costs up to $395 in council fees in 2026/27.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_DEVELOPMENT_APPLICATION",
+                  "authority": "Your local council",
+                  "pathway": "Development application for change of use",
+                  "certainty": "MAY_APPLY"
+                },
+                "evidence": [
+                  {
+                    "kind": "STATEMENT_OF_ENVIRONMENTAL_EFFECTS",
+                    "title": "Statement of environmental effects describing the new use, hours, staff and parking"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Check the new use is permitted in your zone in the council's LEP"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_local_dev_da",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "fees_da",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Change of use",
+              "facts": {
+                "planning.development_type": "change_of_use"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Extension",
+              "facts": {
+                "planning.development_type": "extension"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.nsw.general",
+      "vertical": "PLANNING",
+      "jurisdiction": "NSW",
+      "title": "NSW: every planning project",
+      "description": "Steps that apply to any planning project in New South Wales.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "NSW"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension",
+              "subdivision",
+              "change_of_use",
+              "other"
+            ]
+          }
+        ]
+      },
+      "limitations": [
+        "We don't look up your council or zone. Not legal advice."
+      ],
+      "rules": [
+        {
+          "key": "planning_certificate",
+          "title": "Section 10.7 planning certificate",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension",
+              "subdivision",
+              "change_of_use",
+              "other"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Start with a section 10.7 planning certificate",
+              "detail": "Your council's section 10.7 planning certificate shows the zone and whether heritage, bush fire, flood or other controls apply to the lot. It costs up to $74 ($185 with the extra section 10.7(5) advice) in 2026/27 and you can order it on the NSW Planning Portal. The Planning Portal Spatial Viewer shows zoning for free.",
+              "payload": {
+                "evidence": [
+                  {
+                    "kind": "PLANNING_CERTIFICATE",
+                    "title": "Section 10.7 planning certificate"
+                  }
+                ],
+                "task": "Order a section 10.7 planning certificate from your council"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "planning_cert_info",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "fees_da",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Other project",
+              "facts": {
+                "planning.development_type": "other"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Unexpected value",
+              "facts": {
+                "planning.development_type": "demolition"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "other_project",
+          "title": "Other projects",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "other"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Your project may need a development application",
+              "detail": "In NSW, work is either exempt (no approval), complying development (a CDC from council or a certifier) or needs a development application to council. Check the exempt and complying development codes first. If neither fits, lodge a DA on the NSW Planning Portal.",
+              "payload": {
+                "approval": {
+                  "kind": "NSW_DEVELOPMENT_APPLICATION",
+                  "authority": "Your local council",
+                  "pathway": "Exempt, complying or development application",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "town_planner"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "portal_local_dev_da",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "portal_exempt_rules",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Other",
+              "facts": {
+                "planning.development_type": "other"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Subdivision",
+              "facts": {
+                "planning.development_type": "subdivision"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

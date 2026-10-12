@@ -73,7 +73,7 @@ def build() -> dict[str, Any]:
     organisations: dict[str, dict[str, Any]] = {}
     documents: list[dict[str, Any]] = []
     references: list[dict[str, Any]] = []
-    seen_urls: set[str] = set()
+    seen_urls: dict[str, str] = {}
     for guide in guides():
         org = _org_ref(guide.publisher)
         organisations.setdefault(
@@ -86,11 +86,14 @@ def build() -> dict[str, Any]:
             },
         )
         first_ref: str | None = None
+        shared_first: str | None = None
         for index, source in enumerate(guide.sources, start=1):
             if source.url in seen_urls:
+                # Already a document of an earlier guide: the reference can point at it.
+                shared_first = shared_first or seen_urls[source.url]
                 continue
-            seen_urls.add(source.url)
             ref = f"{guide.kind.lower()}_doc{index}"
+            seen_urls[source.url] = ref
             first_ref = first_ref or ref
             documents.append(
                 {
@@ -102,8 +105,7 @@ def build() -> dict[str, Any]:
                     "source_type": "WEBPAGE",
                 }
             )
-        if first_ref is None:
-            raise ValueError(f"{guide.kind}: every source page is shared with another guide")
+        first_ref = first_ref or shared_first
         references.append(
             {
                 "ref": f"{guide.kind.lower()}_guide",

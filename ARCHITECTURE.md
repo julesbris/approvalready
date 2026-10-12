@@ -1086,3 +1086,20 @@ one lookup module. No migration, no new settings.
 | Guides | Guide jurisdictions may be any state or `LGA:<STATE>_<AREA>`. A state's approvals use kinds prefixed with the state (`NSW_DEVELOPMENT_APPLICATION`) so they never pick up another state's guide. |
 | Web | `lib/coverage.ts` lists the states we look up (`LOOKUP_STATE_CODES`, kept in step with `Lookups.states`); address search, the site panel and parcel checks use it and pass the state. |
 | Tests | `tests/test_states.py` (state from text and postcode, search across states, councils by state, packs and questionnaire in step, every state with councils has its basics); web `coverage.test.ts`, `QuestionField.test.tsx`, CouncilGuide with a state's portal and fees. |
+
+## 47. New South Wales
+
+The first state after Queensland, on the groundwork in §46. Content was gathered from NSW
+Government sites on 2026-10-12; every pack, guide and council entry lists what couldn't be
+confirmed in its gaps.
+
+| Part | As built |
+|---|---|
+| Councils | `councils/nsw_councils.json`: all 128 NSW councils (spatial names as the NSW LGA layer spells them, upper case), pack `councils_nsw`. `states.json` NSW: DA steps, the 2026-27 DA fee bands set by the EP&A Regulation, the NSW Planning Portal as the lodgement portal, "Local Environmental Plan" and the Planning Portal spatial viewer. |
+| Planning | Pack `planning_nsw`: exempt development, complying development certificates, development applications, construction, occupation and subdivision certificates, BASIX and bush fire assessment, keyed on `property.address.state = NSW`. Kinds `NSW_*`, each with a guide. |
+| Selling and renting | Pack `property_nsw` (`sell.nsw.vendor_disclosure`, `rent.nsw.residential_tenancy`) and checklists `rent.nsw_*`, `sell.nsw_disclosure`. |
+| Business, vehicles, vessels, grants | Pack `business_nsw`: food, liquor, footpath, workers' insurance, payroll tax, trades licences and home building compensation, personal appearance, education and care, imported vehicle registration and motor dealers (`trade.vehicle_state = NSW`), boat registration and licences (`vessel.home_state = NSW`), two NSW grant programs. |
+| Forms | NSW forms in `guidance/official_forms.json` (`nsw-` ids, mentions starting with NSW or a full form name). |
+| Lookups | `lookups/nsw.py` (`NswSpatial`): address search on the NSW Spatial Services address points (prefix match), lot from the cadastre (`200//DP1287229`), council and suburb from the admin boundaries, zone from the Planning Portal's land zoning layer, and overlays from the LEP heritage, State Heritage Register, bush fire prone land, flood planning and coastal layers. Settings `nsw_spatial_base_url`, `nsw_planning_base_url` (defaults are the public services, no key). The property report shows the zone and NSW hazards. |
+| Pack builders | A reference whose every source page is shared with another council or guide keeps the first one rather than failing the build. |
+| Tests | `tests/test_nsw.py` (parsing, address search, parcel with zone and overlays and a failed layer, exact match, 128 councils, every NSW approval has a guide, packs load). |

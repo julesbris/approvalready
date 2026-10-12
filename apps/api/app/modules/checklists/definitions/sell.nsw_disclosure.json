@@ -1,0 +1,104 @@
+{
+  "key": "sell.nsw_disclosure",
+  "vertical": "SELL",
+  "title": "NSW contract for sale and disclosure documents",
+  "description": "What a NSW seller usually gathers so the contract for sale, with its prescribed documents, is ready before the property is advertised. Summarised from NSW Fair Trading, the Conveyancing (Sale of Land) Regulation 2022 and Service NSW; your conveyancer or solicitor confirms what applies to your sale.",
+  "sources": [
+    {
+      "title": "Sales contracts – requirements for property agents",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/property-professionals/working-as-an-agent/sales-contracts"
+    },
+    {
+      "title": "Conveyancing (Sale of Land) Regulation 2022",
+      "organisation": "NSW Parliamentary Counsel's Office",
+      "url": "https://legislation.nsw.gov.au/view/html/inforce/current/sl-2022-0485"
+    },
+    {
+      "title": "Misrepresentation – information for property agents",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/property-professionals/working-as-an-agent/misrepresentation"
+    },
+    {
+      "title": "Apply online for a planning certificate",
+      "organisation": "Service NSW",
+      "url": "https://www.service.nsw.gov.au/transaction/apply-online-zoning-certificate"
+    },
+    {
+      "title": "About loose-fill asbestos insulation",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/safety-home/loose-fill-asbestos-insulation/about-loose-fill-asbestos-insulation"
+    }
+  ],
+  "items": [
+    {
+      "key": "engage_conveyancer",
+      "title": "Engage a solicitor or licensed conveyancer to prepare the NSW contract for sale of land"
+    },
+    {
+      "key": "contract_before_marketing",
+      "title": "Have the contract ready before any advertising, signboard or open home",
+      "detail": "In NSW a home can't be offered for sale until the contract has been prepared. Your agent keeps a copy for buyers to inspect."
+    },
+    {
+      "key": "title_search",
+      "title": "Get the property certificate (title search) and the registered plan"
+    },
+    {
+      "key": "planning_certificate",
+      "title": "Order the section 10.7 planning certificate from council",
+      "detail": "Apply through the NSW Planning Portal if your council accepts online applications."
+    },
+    {
+      "key": "drainage_diagram",
+      "title": "Get the sewer drainage diagram"
+    },
+    {
+      "key": "easements",
+      "title": "Collect documents for any easements, covenants or restrictions on use"
+    },
+    {
+      "key": "warnings",
+      "title": "Check the contract includes the smoke alarm and loose-fill asbestos warnings"
+    },
+    {
+      "key": "lfai_search",
+      "title": "Search the loose-fill asbestos insulation register for your address"
+    },
+    {
+      "key": "material_facts",
+      "title": "Write down any material facts and give them to your agent",
+      "detail": "For example flooding or bushfire in the last 5 years, significant health or safety risks, a murder or manslaughter in the last 5 years, drug manufacture in the last 2 years, or cladding or building rectification orders."
+    },
+    {
+      "key": "strata",
+      "title": "For a strata lot, get the strata plan, by-laws and property certificate for the common property",
+      "required": false
+    },
+    {
+      "key": "pool",
+      "title": "If there is a pool, attach a certificate of compliance, an occupation certificate with registration, or a certificate of non-compliance",
+      "detail": "Not needed for lots in strata or community schemes of more than two lots.",
+      "required": false
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Test the smoke alarms on every level and replace any over 10 years old"
+    },
+    {
+      "key": "tenant_notice",
+      "title": "If tenanted, give the tenant 14 days' written notice before the first inspection",
+      "required": false
+    },
+    {
+      "key": "land_tax",
+      "title": "Ask your conveyancer whether a land tax clearance certificate is needed",
+      "required": false
+    },
+    {
+      "key": "cooling_off",
+      "title": "Agree with your conveyancer how the cooling-off period will be handled",
+      "detail": "Private sales usually have 5 business days; auctions have none."
+    }
+  ]
+}

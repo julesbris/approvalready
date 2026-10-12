@@ -51,7 +51,7 @@ def _spatial_names() -> list[str]:
 def test_every_council_area_has_an_entry() -> None:
     names = _spatial_names()
     assert len(names) == 78
-    assert sorted(c.spatial_name for c in directory.councils()) == sorted(names)
+    assert sorted(c.spatial_name for c in directory.councils("QLD")) == sorted(names)
     for name in names:
         council = directory.for_local_authority(name)
         assert council is not None, name
@@ -107,20 +107,23 @@ def test_planning_questionnaire_offers_every_council() -> None:
     planning = next(d for d in load_bundled() if d.key == "planning.general")
     question = next(q for q in planning.questions() if q.key == "property.lga")
     options = {o.value: o.label for o in question.options}
-    assert options.pop("other") == "A council outside Queensland"
+    assert options.pop("other") == "A council not listed here"
     assert options == {c.key: c.name for c in directory.councils()}
 
 
 def test_pack_is_in_step_with_the_directory() -> None:
-    assert pack.PACK_FILE.read_text(encoding="utf-8") == pack.render(), (
-        "Run `python -m app.modules.councils.pack` after editing qld_councils.json"
-    )
-    loaded = packs.load_file(pack.PACK_KEY)
-    assert loaded.rule_sets == []
-    assert len(loaded.organisations) == len(directory.councils())
-    sections = {r.section for r in loaded.references}
-    assert sections == {c.reference_section for c in directory.councils()}
-    assert all(r.extracted_text.startswith("[Gathered by ApprovalReady") for r in loaded.references)
+    for state in directory.states():
+        assert pack.pack_file(state).read_text(encoding="utf-8") == pack.render(state), (
+            "Run `python -m app.modules.councils.pack` after editing a councils file"
+        )
+        loaded = packs.load_file(pack.pack_key(state))
+        assert loaded.rule_sets == []
+        assert len(loaded.organisations) == len(directory.councils(state))
+        sections = {r.section for r in loaded.references}
+        assert sections == {c.reference_section for c in directory.councils(state)}
+        assert all(
+            r.extracted_text.startswith("[Gathered by ApprovalReady") for r in loaded.references
+        )
 
 
 @pytest.mark.asyncio
@@ -131,7 +134,7 @@ async def test_api_lists_and_shows_councils(api: ApiHarness) -> None:
     user = await api.user()
     r = await user.get("/v1/councils")
     assert r.status_code == 200, r.text
-    assert len(r.json()) == 78
+    assert len(r.json()) == len(directory.councils())
     assert {"key": "cairns", "name": directory.by_key("cairns").name, "state": "QLD"} in r.json()  # type: ignore[union-attr]
 
     r = await user.get("/v1/councils/toowoomba")

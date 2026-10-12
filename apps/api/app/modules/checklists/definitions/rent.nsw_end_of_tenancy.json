@@ -1,0 +1,66 @@
+{
+  "key": "rent.nsw_end_of_tenancy",
+  "vertical": "RENT",
+  "title": "Ending a NSW tenancy",
+  "description": "Steps for ending a NSW tenancy on a ground and closing out the bond. Summarised from NSW Fair Trading pages.",
+  "sources": [
+    {
+      "title": "Landlord ending a tenancy",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/housing-and-construction/rules/landlord-ending-a-tenancy"
+    },
+    {
+      "title": "Minimum notice periods for ending a residential tenancy",
+      "organisation": "NSW Fair Trading",
+      "url": "https://www.nsw.gov.au/rules/minimum-notice-periods-for-ending-a-residential-tenancy"
+    },
+    {
+      "title": "Rental Bonds Online for self-managing landlords",
+      "organisation": "NSW Fair Trading",
+      "url": "https://nsw.gov.au/housing-and-construction/landlords/rental-bonds-online-for-landlords"
+    }
+  ],
+  "items": [
+    {
+      "key": "ground",
+      "title": "Identify the ground for ending the tenancy",
+      "detail": "Since 19 May 2025 there is no ending a tenancy without a reason, even at the end of a fixed term.",
+      "required": false
+    },
+    {
+      "key": "notice_period",
+      "title": "Check the notice period for that ground and agreement type",
+      "detail": "For example 90 days for a proposed sale on a periodic agreement, 30 days after a sale contract requiring vacant possession, 14 days for breach or unpaid rent.",
+      "required": false
+    },
+    {
+      "key": "evidence",
+      "title": "Attach the supporting documents the ground needs",
+      "detail": "For example the proposed contract or agency agreement for a proposed sale, or a signed and dated statement for renovations or moving in.",
+      "required": false
+    },
+    {
+      "key": "posting",
+      "title": "Allow 7 extra working days if you post the notice",
+      "required": false
+    },
+    {
+      "key": "final_inspection",
+      "title": "Complete the final condition report with the tenant and take photos"
+    },
+    {
+      "key": "bond_claim",
+      "title": "Claim the bond through Rental Bonds Online, or the Claim for Refund of Bond Money form for a paper bond"
+    },
+    {
+      "key": "evidence_to_tenant",
+      "title": "If the tenant doesn't agree, give them the condition report and quotes or invoices within 7 days of claiming",
+      "required": false
+    },
+    {
+      "key": "keys",
+      "title": "Get all keys back and note the water meter reading",
+      "required": false
+    }
+  ]
+}

@@ -469,7 +469,7 @@ describe("QuestionnaireRunner", () => {
         autosaveDelayMs={5}
       />,
     );
-    fireEvent.change(screen.getByLabelText("Find a Queensland address"), {
+    fireEvent.change(screen.getByLabelText("Find the address"), {
       target: { value: "34 Gilmore St" },
     });
     fireEvent.click(await screen.findByRole("button", { name: /34 Gilmore Street/ }));

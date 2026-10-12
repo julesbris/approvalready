@@ -61,6 +61,15 @@ QPS_URL = "https://www.police.qld.gov.au/maps-and-statistics"
 OSM_SOURCE = "OpenStreetMap (© OpenStreetMap contributors, ODbL)"
 OSM_URL = "https://www.openstreetmap.org/copyright"
 CADASTRE_URL = "https://qldglobe.information.qld.gov.au/"
+# Where anyone can see a state's land and planning maps, for the states we look up.
+STATE_MAP_URLS = {
+    "QLD": CADASTRE_URL,
+    "NSW": "https://www.planningportal.nsw.gov.au/spatialviewer/",
+}
+STATE_HAZARDS_INTRO = {
+    "NSW": "Zoning, heritage, bush fire prone land, flood planning areas and the coastal "
+    "use area mapped by the NSW Government over this land.",
+}
 
 
 @dataclass(frozen=True)
@@ -131,6 +140,15 @@ def land_section(
         facts.append(ReportFact(label="Land area", value=f"{Decimal(area).normalize():,f} m²"))
     if parcel and parcel.tenure:
         facts.append(ReportFact(label="Tenure", value=parcel.tenure))
+    if parcel and parcel.zone:
+        facts.append(
+            ReportFact(
+                label="Zone",
+                value=parcel.zone,
+                note="From the state's planning maps. The council's planning certificate is "
+                "the official statement.",
+            )
+        )
     if council:
         facts.append(ReportFact(label="Council", value=council))
     home = [
@@ -145,19 +163,20 @@ def land_section(
         facts.append(ReportFact(label="The home", value=value))
     sources = []
     if parcel:
-        sources.append(ReportSource(name=parcel.source, url=CADASTRE_URL, as_at=_today()))
+        url = STATE_MAP_URLS.get(parcel.state, CADASTRE_URL)
+        sources.append(ReportSource(name=parcel.source, url=url, as_at=_today()))
     return ReportSection(
         key="land",
         title="The land",
         intro="The property as the state's land records describe it.",
-        status="ok" if parcel or subject.state != "QLD" else "partial",
+        status="ok" if parcel or subject.state not in STATE_MAP_URLS else "partial",
         facts=facts,
         sources=sources,
     )
 
 
 def hazards_section(
-    parcel: ParcelReport | None, parcel_failed: bool, flood: bool | None
+    parcel: ParcelReport | None, parcel_failed: bool, flood: bool | None, state: str = "QLD"
 ) -> ReportSection:
     items = []
     if parcel:
@@ -184,10 +203,30 @@ def hazards_section(
             )
         )
     status = "ok"
-    if parcel_failed or (parcel and parcel.overlays_failed) or flood is None:
+    qld = state == "QLD"
+    if parcel_failed or (parcel and parcel.overlays_failed) or (flood is None and qld):
         status = "partial"
-    if parcel is None and flood is None:
+    if parcel is None and (flood is None or not qld):
         status = "unavailable"
+    if not qld:
+        return ReportSection(
+            key="hazards",
+            title="Planning and hazards",
+            intro=STATE_HAZARDS_INTRO.get(state, "Hazards mapped by the state over this land."),
+            status=status,
+            facts=facts,
+            items=items,
+            links=[
+                ReportLink(label=n.label, url=n.where_to_check, why=n.why)
+                for n in not_checked
+                if n.where_to_check
+            ],
+            sources=[
+                ReportSource(name=parcel.source, url=STATE_MAP_URLS.get(state, ""), as_at=_today())
+            ]
+            if parcel
+            else [],
+        )
     return ReportSection(
         key="hazards",
         title="Planning and hazards",
@@ -672,7 +711,7 @@ async def build_report(lookups: Lookups, subject: Subject) -> PropertyReportOut:
     )
     sections = [
         land_section(subject, parcel, council_name),
-        hazards_section(parcel, parcel_failed, flood),
+        hazards_section(parcel, parcel_failed, flood, subject.state),
         schools_section(catchments, schools),
         places_section(places),
         people_section(suburb, census),
@@ -681,7 +720,8 @@ async def build_report(lookups: Lookups, subject: Subject) -> PropertyReportOut:
         checks_section(subject, council.website if council else None),
     ]
     if not qld:
-        sections = [s for s in sections if s.key in {"land", "nearby", "market", "checks"}]
+        kept = {"land", "nearby", "market", "checks"} | ({"hazards"} if mapped else set())
+        sections = [s for s in sections if s.key in kept]
     return PropertyReportOut(
         property_id=subject.property_id,
         address=subject.address,
