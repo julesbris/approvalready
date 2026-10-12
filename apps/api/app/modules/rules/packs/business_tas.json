@@ -1,0 +1,2411 @@
+{
+  "key": "business_tas",
+  "title": "TAS: BusinessReady, vehicle registration and VesselReady (licences, insurance, tax, trades, personal services, childcare, imported vehicles, boats)",
+  "notes": "First sourced Tasmanian rules for BusinessReady, TradeReady (vehicles) and VesselReady. Built from Department of Health, City of Hobart, Liquor and Gaming Branch, WorkSafe Tasmania, State Revenue Office, CBOS (now Consumer Affairs Tasmania and Building Standards Tasmania, from 1 October 2026), Transport Tasmania, Service Tasmania and MAST pages, ABLIS entries and the Occupational Licensing (Building Services Work) Regulations 2016, read on 2026-10-12. No Tasmanian Government business grant was confirmed open or recurring for 2026 (the Accelerating Trade Grant Program was closed with no 2026-27 round announced), so there are no GrantReady rule sets. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it.",
+  "organisations": [
+    {
+      "ref": "tas_health",
+      "name": "Department of Health (Tasmania)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS",
+      "website": "https://www.health.tas.gov.au"
+    },
+    {
+      "ref": "hobart",
+      "name": "City of Hobart",
+      "kind": "COUNCIL",
+      "jurisdiction": "TAS",
+      "website": "https://www.hobartcity.com.au"
+    },
+    {
+      "ref": "tas_lgb",
+      "name": "Liquor and Gaming Branch (Department of Treasury and Finance, Tasmania)",
+      "kind": "REGULATOR",
+      "jurisdiction": "TAS",
+      "website": "https://www.treasury.tas.gov.au"
+    },
+    {
+      "ref": "worksafe_tas",
+      "name": "WorkSafe Tasmania",
+      "kind": "REGULATOR",
+      "jurisdiction": "TAS",
+      "website": "https://worksafe.tas.gov.au"
+    },
+    {
+      "ref": "tas_sro",
+      "name": "State Revenue Office (Tasmania)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS",
+      "website": "https://www.sro.tas.gov.au"
+    },
+    {
+      "ref": "cbos",
+      "name": "Consumer, Building and Occupational Services (now Consumer Affairs Tasmania and Building Standards Tasmania)",
+      "kind": "REGULATOR",
+      "jurisdiction": "TAS",
+      "website": "https://consumeraffairs.tas.gov.au"
+    },
+    {
+      "ref": "ablis",
+      "name": "Australian Business Licence and Information Service (business.gov.au)",
+      "kind": "CTH_AGENCY",
+      "jurisdiction": "CTH",
+      "website": "https://ablis.business.gov.au"
+    },
+    {
+      "ref": "transport_tas",
+      "name": "Transport Tasmania",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS",
+      "website": "https://www.transport.tas.gov.au"
+    },
+    {
+      "ref": "service_tas",
+      "name": "Service Tasmania",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS",
+      "website": "https://www.service.tas.gov.au"
+    },
+    {
+      "ref": "mast",
+      "name": "Marine and Safety Tasmania (MAST)",
+      "kind": "REGULATOR",
+      "jurisdiction": "TAS",
+      "website": "https://mast.tas.gov.au"
+    },
+    {
+      "ref": "tas_legislation",
+      "name": "Tasmanian Legislation (Office of Parliamentary Counsel)",
+      "kind": "LEGISLATURE",
+      "jurisdiction": "TAS",
+      "website": "https://www.legislation.tas.gov.au"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "hobart_food",
+      "organisation": "hobart",
+      "jurisdiction": "TAS",
+      "title": "Food businesses (City of Hobart)",
+      "url": "https://www.hobartcity.com.au/Business/Food-and-beverage-businesses/Food-businesses",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "health_food",
+      "organisation": "tas_health",
+      "jurisdiction": "TAS",
+      "title": "Food safety for businesses and community organisations",
+      "url": "https://www.health.tas.gov.au/health-topics/food-safety/food-safety-businesses-and-community-organisations",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "lgb_apply",
+      "organisation": "tas_lgb",
+      "jurisdiction": "TAS",
+      "title": "Liquor licences: submitting an application",
+      "url": "https://www.treasury.tas.gov.au/liquor-and-gaming/liquor/licences/submitting-an-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "lgb_fees",
+      "organisation": "tas_lgb",
+      "jurisdiction": "TAS",
+      "title": "Liquor fees",
+      "url": "https://www.treasury.tas.gov.au/liquor-and-gaming/fees/liquor-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "ablis_outdoor_hobart",
+      "organisation": "ablis",
+      "jurisdiction": "TAS",
+      "title": "Permit to Establish an Outdoor Dining Facility: Hobart City Council (ABLIS)",
+      "url": "https://ablis.business.gov.au/service/tas/permit-to-establish-an-outdoor-dining-facility-hobart-city-council/7972",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "worksafe_guide",
+      "organisation": "worksafe_tas",
+      "jurisdiction": "TAS",
+      "title": "A Guide to Workers Rehabilitation and Compensation in Tasmania (December 2024)",
+      "url": "https://www.worksafe.tas.gov.au/__data/assets/pdf_file/0005/541157/Guide-to-Workers-Rehab-and-Comp-in-Tas_Dec-2024.pdf",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "sro_rates",
+      "organisation": "tas_sro",
+      "jurisdiction": "TAS",
+      "title": "Payroll tax rates and thresholds",
+      "url": "https://www.sro.tas.gov.au/payroll-tax/rates-thresholds",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ablis_bsp",
+      "organisation": "ablis",
+      "jurisdiction": "TAS",
+      "title": "Building Services Provider Licences: Tasmania (ABLIS)",
+      "url": "https://ablis.business.gov.au/service/tas/building-services-provider-licence/7394",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ol_bsw_regs",
+      "organisation": "tas_legislation",
+      "jurisdiction": "TAS",
+      "title": "Occupational Licensing (Building Services Work) Regulations 2016",
+      "url": "https://www.legislation.tas.gov.au/view/whole/html/inforce/current/sr-2016-112",
+      "source_type": "REGULATION"
+    },
+    {
+      "ref": "cbos_fees",
+      "organisation": "cbos",
+      "jurisdiction": "TAS",
+      "title": "Licence fees (Consumer Affairs Tasmania, formerly CBOS)",
+      "url": "https://consumeraffairs.tas.gov.au/topics/licensing-and-registration/fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "cbos_resi_guide",
+      "organisation": "cbos",
+      "jurisdiction": "TAS",
+      "title": "Residential building consumer guide (July 2024, version 2.0)",
+      "url": "https://www.cbos.tas.gov.au/__data/assets/pdf_file/0020/405038/Residential_Consumer_Guide_Digital_Final.PDF",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "ablis_plumbing",
+      "organisation": "ablis",
+      "jurisdiction": "TAS",
+      "title": "Plumbing Contractor Licence: Tasmania (ABLIS)",
+      "url": "https://ablis.business.gov.au/service/tas/plumbing-contractor-licence/7833",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ablis_electrical",
+      "organisation": "ablis",
+      "jurisdiction": "TAS",
+      "title": "Electrical Practitioner's Licence: Tasmania (ABLIS)",
+      "url": "https://ablis.business.gov.au/service/tas/electrical-practitioner-licence/7711",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ablis_phra",
+      "organisation": "ablis",
+      "jurisdiction": "TAS",
+      "title": "Licence to Carry Out a Public Health Risk Activity: Tasmania (ABLIS)",
+      "url": "https://ablis.business.gov.au/service/tas/licence-to-carry-out-a-public-health-risk-activity/7877",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ablis_phra_hobart",
+      "organisation": "ablis",
+      "jurisdiction": "TAS",
+      "title": "Registration of Premises Used for a Public Health Risk Activity: Hobart City Council (ABLIS)",
+      "url": "https://ablis.business.gov.au/service/tas/registration-of-premises-used-for-a-public-health-risk-activity-hobart-city-council/9028",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ablis_ecu",
+      "organisation": "ablis",
+      "jurisdiction": "TAS",
+      "title": "Service Approval: Tasmania (ABLIS)",
+      "url": "https://ablis.business.gov.au/service/tas/service-approval/30066",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "transport_import",
+      "organisation": "transport_tas",
+      "jurisdiction": "TAS",
+      "title": "Importing a road vehicle",
+      "url": "https://www.transport.tas.gov.au/registration/buying_selling_or_transferring/importing_a_road_vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "service_import",
+      "organisation": "service_tas",
+      "jurisdiction": "TAS",
+      "title": "Apply to register an imported vehicle",
+      "url": "https://service.tas.gov.au/services/transport/vehicle-registration/apply-to-register-an-imported-vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "transport_fees",
+      "organisation": "transport_tas",
+      "jurisdiction": "TAS",
+      "title": "Registration fees",
+      "url": "https://www.transport.tas.gov.au/registration/registration_fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "transport_duty",
+      "organisation": "transport_tas",
+      "jurisdiction": "TAS",
+      "title": "Motor vehicle duty rates",
+      "url": "https://www.transport.tas.gov.au/registration/registration_fees/accordion/duty_rates",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "ablis_mvt",
+      "organisation": "ablis",
+      "jurisdiction": "TAS",
+      "title": "Motor Vehicle Trader Licence: Tasmania (ABLIS)",
+      "url": "https://ablis.business.gov.au/service/tas/motor-vehicle-trader-licence/7849",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "mast_how_register",
+      "organisation": "mast",
+      "jurisdiction": "TAS",
+      "title": "How to register a motor boat or personal water craft",
+      "url": "https://mast.tas.gov.au/recreational-boating/how-to-register-a-boat/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "mast_fees",
+      "organisation": "mast",
+      "jurisdiction": "TAS",
+      "title": "Forms and fees",
+      "url": "https://mast.tas.gov.au/fees-and-forms/",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "mast_licensing",
+      "organisation": "mast",
+      "jurisdiction": "TAS",
+      "title": "Licensing (recreational boating)",
+      "url": "https://mast.tas.gov.au/recreational-boating/licensing/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "mast_licence",
+      "organisation": "mast",
+      "jurisdiction": "TAS",
+      "title": "How to obtain a motor boat licence",
+      "url": "https://mast.tas.gov.au/recreational-boating/licensing/licence-registration/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "mast_pwc",
+      "organisation": "mast",
+      "jurisdiction": "TAS",
+      "title": "Personal water craft endorsement",
+      "url": "https://mast.tas.gov.au/recreational-boating/licensing/pwcs/",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "tas_food_hobart",
+      "document": "hobart_food",
+      "section": "Registering a food business",
+      "extracted_text": "[Summary, not the source's wording] The City of Hobart says food premises must be registered by the local council under the Food Act 2003. One online food business application is used for notification, registration and taking over an existing business. For a first registration an Environmental Health Officer inspects the premises before the certificate of registration is issued, and the certificate is needed before opening. Annual fees and inspection frequency depend on the risk class (low, medium or high); registrations expire on 31 May each year and the council sends a renewal form. Certain businesses may need a food safety supervisor under the national Food Safety Standard. Mobile food trucks also need a licence.",
+      "interpretation": "Tasmanian food businesses register with their council before opening; Hobart is used as the worked example. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_food_health",
+      "document": "health_food",
+      "section": "Resources for food businesses",
+      "extracted_text": "[Summary, not the source's wording] The Department of Health links resources on establishing a food business, the Tasmanian food business risk classification system, guidelines for mobile food businesses, a food safety program template and free DoFoodSafely training. Public Health Hotline 1800 671 738, public.health@dhhs.tas.gov.au.",
+      "interpretation": "State guidance and contacts supporting council food registration and food safety supervisors. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_liquor_apply",
+      "document": "lgb_apply",
+      "section": "Submitting an application",
+      "extracted_text": "[Summary, not the source's wording] Complete the Liquor Licence Application Form, answer all mandatory questions, sign the authority and consent section and lodge it with plans showing the licensed area in red, council planning approval to sell liquor at the premises, RSA accreditation, proof of identity, the fee, a business plan, proof of tenure, photographs and a menu where relevant. Give public notice in a local newspaper and at the premises; interested parties have 14 days to lodge submissions. The Commissioner for Licensing decides and may refer to the Tasmanian Liquor and Gaming Commission. Outcome usually within 4 to 6 weeks of a complete application. Lodge by email to licensing@treasury.tas.gov.au or post to GPO Box 1374, Hobart TAS 7001.",
+      "interpretation": "Selling alcohol in Tasmania needs a licence from the Commissioner for Licensing. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_liquor_fees",
+      "document": "lgb_fees",
+      "section": "Liquor licence fees",
+      "extracted_text": "[Summary, not the source's wording] On-licence: application $1,568.00, annual $774.20. On-licence operating as a restaurant: application $784.00, annual $509.60. Off-licence: application $1,568.00, annual $774.20. Permits include out-of-hours, special, on, off and small producer's permits. Page published 1 July 2026; no fee year stated.",
+      "interpretation": "Current Tasmanian liquor licence fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_outdoor_hobart",
+      "document": "ablis_outdoor_hobart",
+      "section": "Outdoor dining permit (Hobart)",
+      "extracted_text": "[Summary, not the source's wording] A permit is needed to place furniture or goods (tables, chairs, umbrellas, screens, heaters, awnings, lighting, planter boxes) on public land for outdoor dining. 2026-27 fees vary by location from $91.00 to $225.00 per square metre, plus a $300.00 application fee. Councils may set dimension requirements for pedestrian movement. Legislation: Local Government Act 1993 and Public Spaces By-Law 4 2018. City of Hobart 03 6238 2711, coh@hobartcity.com.au.",
+      "interpretation": "Footpath dining in Tasmania needs a council permit; Hobart is the worked example. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_workers_comp",
+      "document": "worksafe_guide",
+      "section": "Employer insurance obligations",
+      "extracted_text": "[Summary, not the source's wording] Under section 97(1) of the Workers Rehabilitation and Compensation Act 1988 an employer must either take out an insurance policy with a licensed insurer to cover workers compensation claims by its workers or hold a permit to self-insure from the WorkCover Tasmania Board. A worker is a person who works under a contract of service or a training agreement.",
+      "interpretation": "Every Tasmanian employer needs workers compensation insurance from a licensed insurer. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_payroll",
+      "document": "sro_rates",
+      "section": "Rates and thresholds 2026-27",
+      "extracted_text": "[Summary, not the source's wording] For 2026-27: wages up to $1,250,000 at 0%; $1,250,001 to $2,000,000 at 4%; $2,000,001 and above at 6.1%. Monthly thresholds are worked out by days in the month. Rates current from 1 July 2026.",
+      "interpretation": "Tasmanian payroll tax starts once Australian wages pass $1.25 million a year. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_bsp_ablis",
+      "document": "ablis_bsp",
+      "section": "Building services provider licence",
+      "extracted_text": "[Summary, not the source's wording] A building services provider is someone who performs building or demolition work, design work or assessment and certification work. Categories include builder, architect, engineer, building designer, building services designer, building surveyor, permit authority, body corporate and partnership; bodies corporate and partnerships nominate a licensed person. Applicants need qualifications, experience and competencies, capacity and fitness (including a sound financial background), insurance and continuing professional development. Apply online; approval 21 business days. CBOS 1300 654 499, cbos.info@justice.tas.gov.au. Legislation: Occupational Licensing Act 2005; Occupational Licensing (Building Services Work) Regulations 2016.",
+      "interpretation": "Builders in Tasmania need a building services provider licence from CBOS. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_bsp_regs",
+      "document": "ol_bsw_regs",
+      "section": "Regulation 4 and Schedule 1",
+      "extracted_text": "[Summary, not the source's wording] Building, demolition, design and assessment work in Part 1 of Schedule 1 is prescribed work. Part 2 of Schedule 1 excludes work that is low-risk work within the meaning of the Building Act 2016, and work the Building Act 2016 does not require to be performed by a licensed builder. No dollar threshold is set in these regulations.",
+      "interpretation": "Low-risk building work doesn't need a licence; most other building work does. The exact line is in the Building Act 2016. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_cbos_fees",
+      "document": "cbos_fees",
+      "section": "Licence fees from 1 July 2026",
+      "extracted_text": "[Summary, not the source's wording] Builder: 1-year $470.40, 3-year $1,231.95. Plumber practitioner or certifier: 1-year $133.28, 3-year $352.80. Plumbing contractor (sole trader): 1-year $529.20, 3-year $1,499.40. Electrical practitioner 3-year $411.60; electrical contractor 1-year $646.80; provisional 1-year $294.00. Motor vehicle trader: application $225.40, licence $1,932.56. A notice says CBOS moved into Consumer Affairs Tasmania and Building Standards Tasmania from 1 October 2026.",
+      "interpretation": "Current Tasmanian occupational licence fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_resi_guide",
+      "document": "cbos_resi_guide",
+      "section": "Contracts, cooling off and deposits",
+      "extracted_text": "[Summary, not the source's wording] The Residential Building Work Contracts and Dispute Resolution Act 2016 applies to residential building work with a contract price of $20,000 or more. Contracts must be in writing, dated and signed, and include the builder's licence number, a description of the work with plans and specifications, the price, the completion date and the statutory warranties. The builder gives the owner a signed copy and the guide within 5 business days. The owner may withdraw within 5 business days. Deposits: 10% for $20,000 to $50,000, 5% for $50,000 or more, 20% where off-site work is over half the price. No more than 50% of the price until half the work is done.",
+      "interpretation": "Home building contracts of $20,000 or more in Tasmania must follow these rules. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_plumbing_ablis",
+      "document": "ablis_plumbing",
+      "section": "Plumbing contractor licence",
+      "extracted_text": "[Summary, not the source's wording] Needed to enter contracts to provide plumbing or gas-fitting work to the public, business or government. Requirements: fit and proper, strong and stable financial background, qualifications and competencies, at least $5 million insurance for any one occurrence, and a nominated practitioner licence holder. Apply online; approval 21 business days. Legislation: Occupational Licensing Act 2005; Occupational Licensing (Plumbing Work) Regulations 2021.",
+      "interpretation": "Plumbing contractors in Tasmania need a CBOS contractor licence as well as practitioner licences. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_electrical_ablis",
+      "document": "ablis_electrical",
+      "section": "Electrical practitioner licence",
+      "extracted_text": "[Summary, not the source's wording] Needed to carry out electrical work, including as an employee. 2026-27 fees: $411.60 for a triennial full licence, $294.00 a year for a provisional licence. Approval 21 business days. Legislation: Occupational Licensing Act 2005; Occupational Licensing (Electrical Work) Regulations 2018.",
+      "interpretation": "Electricians in Tasmania need a CBOS electrical practitioner licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_phra_licence",
+      "document": "ablis_phra",
+      "section": "Licence to carry out a public health risk activity",
+      "extracted_text": "[Summary, not the source's wording] Needed to carry out an activity involving a public health risk, such as tattooing and other skin penetration and body modification procedures, or other activities that may transmit disease. Issued by the local council under the Public Health Act 1997; the activities covered may vary between councils. Duration 12 months.",
+      "interpretation": "People who tattoo or pierce in Tasmania need a council licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_phra_premises",
+      "document": "ablis_phra_hobart",
+      "section": "Premises registration (Hobart)",
+      "extracted_text": "[Summary, not the source's wording] Registration of premises where public health risk activities, including skin penetration such as tattooing, body or ear piercing and acupuncture, are carried out. It covers the premises only; operators need a separate licence. Lodge before commencing business. 2026-27 fee $186.00; expires 31 March each year. City of Hobart Environmental Health 03 6238 2711, coh@hobartcity.com.au.",
+      "interpretation": "Tattoo and piercing premises must be registered with the council; Hobart is the worked example. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_ecu",
+      "document": "ablis_ecu",
+      "section": "Service approval",
+      "extracted_text": "[Summary, not the source's wording] Service approval is needed to operate a family day care or centre-based service for children under 13; a provider approval must be applied for or granted first. Regulator: Education and Care Unit, Department for Education, Children and Young People. Processing 90 days unless extended with agreement. Apply through an NQA ITS account. Contact 03 6165 5425, 1800 816 057, ecu.comment@decyp.tas.gov.au, GPO Box 169, Hobart TAS 7001. Legislation: Education and Care Services National Law (Application) Act 2011.",
+      "interpretation": "The Education and Care Unit approves education and care services in Tasmania. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_import_rego",
+      "document": "transport_import",
+      "section": "Registering an imported vehicle",
+      "extracted_text": "[Summary, not the source's wording] Have the vehicle inspected at an Approved Inspection Station; a passed vehicle gets a passed inspection report. Attend a Service Tasmania outlet with the Vehicle Import Approval, the passed AIS report, proof of entitlement and a Tasmanian licence or evidence of identity. Some vehicles must be certified by an Approved Vehicle Certifier. Left-hand drive vehicles must be at least 30 years old. Updated 20 July 2026.",
+      "interpretation": "Imported vehicles are inspected at an AIS and registered at Service Tasmania. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_import_service",
+      "document": "service_import",
+      "section": "Steps and documents",
+      "extracted_text": "[Summary, not the source's wording] Get import approval; take it to an Approved Inspection Station; complete the application on the back of the inspection report; enter the vehicle on the Register of Approved Vehicles if it has no Australian registration history; then register and pay at a Service Tasmania centre. Bring the import or concessional RAV approval, passed AIS report, proof of entitlement, Tasmanian driver licence or proof of identity, and payment. Service Tasmania 1300 135 513. Personal cheques not accepted from 1 November 2026.",
+      "interpretation": "Service Tasmania's checklist for registering an imported vehicle. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_rego_fees",
+      "document": "transport_fees",
+      "section": "Light vehicle fees current at 1 July 2026",
+      "extracted_text": "[Summary, not the source's wording] 4-cylinder car (Premium 1): $669.23 to establish (including a $26.46 plate fee), $642.77 to renew for 12 months. MAIB premium Class 1 motor car $305.00 including GST and the $20 duty ($244.00 for pensioners). Duty is payable to establish registration of most vehicles.",
+      "interpretation": "Typical Tasmanian registration and MAIB cost for a car. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_duty",
+      "document": "transport_duty",
+      "section": "Light vehicle duty",
+      "extracted_text": "[Summary, not the source's wording] $20 for a value of $600 or less; $3 per $100 above $600; passenger vehicles for up to 8 people valued over $35,000 to $40,000: $1,050 plus $11 per $100 over $35,000; over $40,000: $4 per $100 of the whole value. Heavy vehicles: 1% over $2,000.",
+      "interpretation": "Motor vehicle duty paid when you register a vehicle in Tasmania. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_mvt",
+      "document": "ablis_mvt",
+      "section": "Motor vehicle trader licence",
+      "extracted_text": "[Summary, not the source's wording] Needed for buying, selling or exchanging more than six vehicles in a 12-month period, or otherwise carrying on a motor vehicle trading business; employees of a trader don't need one. Applicants must be 18 or older, fit and proper and consent to a police check. Three-year licence. 2026-27 fees: application $225.40, licence $1,932.56. Approval 40 business days. Legislation: Motor Vehicle Traders Act 2011, Motor Vehicle Traders Regulations 2022. A pre-sale disclosure statement template is published by CBOS.",
+      "interpretation": "Trading more than six vehicles a year in Tasmania needs a CBOS motor vehicle trader licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_mast_rego",
+      "document": "mast_how_register",
+      "section": "Registration",
+      "extracted_text": "[Summary, not the source's wording] Motor boats with a motor of 4 hp or more, and personal water craft, must be registered with MAST before use. Only a person 16 or older can apply. Complete the Application for Registration of a Recreational Vessel (available from MAST or Service Tasmania) and lodge it with evidence of identity and proof of ownership, and pay the fee. A certificate is mailed; renewals are mailed in November. Numbers at least 150 mm on planing motor boats, 75 mm on non-planing boats and PWCs; PWCs need a safe operation sticker.",
+      "interpretation": "Recreational motor boats of 4 hp or more and all PWCs must be registered with MAST. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_mast_fees",
+      "document": "mast_fees",
+      "section": "Recreational fees",
+      "extracted_text": "[Summary, not the source's wording] Recreational vessel registration $95.50 (to 31/12/2026), renewing 31 December each year. Transfer of ownership $33.32; duplicate certificate $9.80; personalised vessel identifier $19.60. Motor boat licence and PWC endorsement fees vary with the days to the common expiry of 30 June 2027. Duplicate licence $5.00; optional plastic card $5.00.",
+      "interpretation": "Current MAST registration and licence fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_mast_licensing",
+      "document": "mast_licensing",
+      "section": "When a licence is needed",
+      "extracted_text": "[Summary, not the source's wording] A motor boat licence is required to operate a vessel of 4 hp or more, except a hire and drive vessel. Practical training and assessment must be completed through a MAST-approved training provider. To operate a PWC you need a current motor boat licence and a PWC endorsement.",
+      "interpretation": "Operating a boat of 4 hp or more in Tasmania needs a motor boat licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_mast_licence",
+      "document": "mast_licence",
+      "section": "Obtaining a licence",
+      "extracted_text": "[Summary, not the source's wording] Motor boat licences and PWC endorsement courses can only be obtained by training with an approved provider. Study the Safe Boating Handbook ($5.00). Provisional licences are available for ages 12 to 17. Licences last three years pro rata; all currently expire 30 June 2027. Interstate licence holders can operate in Tasmania for up to three months; licences expired less than six years can be recognised using the Application for Mutual Recognition of a Motor Boat Licence.",
+      "interpretation": "How to get a Tasmanian motor boat licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "tas_mast_pwc",
+      "document": "mast_pwc",
+      "section": "PWC endorsement",
+      "extracted_text": "[Summary, not the source's wording] To operate a PWC you must hold a current motor boat licence. A PWC endorsement is only gained by completing a PWC practical course with an accredited provider. Providers: Boatbiz (Greater Hobart and southern Tasmania), David's Boat Licensing (northern Tasmania), Aquacraft Boat and JetSki Licences (north and north east), Boat Licences Tasmania (north west and north). Fees apply.",
+      "interpretation": "Jet ski riders in Tasmania need a PWC endorsement. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "business.tas.general",
+      "vertical": "BUSINESS",
+      "jurisdiction": "TAS",
+      "title": "Tasmania: business licences, insurance and tax",
+      "description": "Registrations, licences, insurance and tax most Tasmanian businesses check: food business registration with council, food safety supervisors, liquor licences, outdoor dining permits, workers compensation insurance and payroll tax.",
+      "applies_when": {
+        "fact": "business.state",
+        "op": "equals",
+        "value": "TAS"
+      },
+      "limitations": [
+        "Built from Department of Health, City of Hobart, Department of Treasury and Finance, WorkSafe Tasmania and State Revenue Office pages, not from the Acts themselves.",
+        "Council details (forms, fees, renewal dates) come from the City of Hobart as an example. Other Tasmanian councils run the same registrations with their own forms and fees.",
+        "Does not decide which liquor licence you need. We use the on-licence operating as a restaurant as the example; bars, bottle shops and clubs use other licence types.",
+        "Does not check planning approval for the use of your premises or a fit-out.",
+        "Not legal or tax advice. Confirm with the regulator or a qualified professional before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "food_business_registration",
+          "title": "Food business registration",
+          "condition": {
+            "fact": "business.handles_food",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register your food business with your council before you open",
+              "detail": "Under the Food Act 2003 (Tas), food premises must be registered by the local council. Apply to your council's environmental health team before you open: for a first registration an Environmental Health Officer inspects the premises before issuing the certificate of registration, and you need the certificate before you trade. Annual fees depend on your risk class (low, medium or high). In Hobart, registrations expire on 31 May each year and the council sends a renewal form. Food vans also need registration.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "Your local council (under the Food Act 2003 (Tas))",
+                  "pathway": "Apply to your council and pass an inspection"
+                },
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Register your food business with your local council"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food business registration not identified",
+              "detail": "You said you won't handle food, so no food business registration was identified.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "Your local council (under the Food Act 2003 (Tas))",
+                  "pathway": "Needed if you sell food"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food business registration may be needed",
+              "detail": "Food businesses in Tasmania must be registered with their council before they open. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "Your local council (under the Food Act 2003 (Tas))",
+                  "pathway": "Needed if you sell food",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_food_hobart",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_food_health",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "prepare_on_site"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No food",
+              "facts": {
+                "business.handles_food": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "food_safety_supervisor",
+          "title": "Food safety supervisor",
+          "condition": {
+            "all": [
+              {
+                "fact": "business.handles_food",
+                "op": "equals",
+                "value": true
+              },
+              {
+                "any": [
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "prepare_on_site"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "serve_on_premises"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "sell_unpackaged"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "mobile_food"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Appoint a certified food safety supervisor and train your food handlers",
+              "detail": "The national Food Safety Standard 3.2.2A applies in Tasmania. Cafes, restaurants, takeaways, caterers and food vans that handle unpackaged, potentially hazardous food must appoint a certified food safety supervisor, and food handlers must be trained. Your council's Environmental Health Officer checks this. The Department of Health lists food safety supervisor courses, and its DoFoodSafely course is free.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "Your local council (Standard 3.2.2A of the Food Standards Code)",
+                  "pathway": "Appoint a supervisor before you trade",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Appoint a certified food safety supervisor and train your food handlers"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food safety supervisor not identified",
+              "detail": "From your answers you won't prepare, serve or sell unpackaged food, so Standard 3.2.2A wasn't identified.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "Your local council (Standard 3.2.2A of the Food Standards Code)",
+                  "pathway": "Needed if you handle unpackaged, high-risk food"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food safety supervisor may be needed",
+              "detail": "Businesses that prepare or serve unpackaged, high-risk food need a food safety supervisor. Tell us what food you'll handle so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "Your local council (Standard 3.2.2A of the Food Standards Code)",
+                  "pathway": "Needed if you handle unpackaged, high-risk food",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_food_hobart",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_food_health",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Restaurant",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "serve_on_premises"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Packaged only",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "sell_packaged"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "liquor_licence",
+          "title": "Liquor licence",
+          "condition": {
+            "fact": "business.sells_alcohol",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a Tasmanian liquor licence from the Commissioner for Licensing",
+              "detail": "Selling alcohol in Tasmania needs a licence from the Commissioner for Licensing, through the Liquor and Gaming Branch of the Department of Treasury and Finance. Fill in the Tasmanian Liquor Licence Application Form and email it to licensing@treasury.tas.gov.au with plans showing the licensed area in red, council planning approval to sell liquor at the premises, your RSA certificate, ID, a business plan, proof of tenure, photos and a menu. You must advertise in a local newspaper and at the premises; people then have 14 days to support or object. A complete application takes about 4 to 6 weeks. An on-licence for a restaurant costs $784 to apply and $509.60 a year.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_LIQUOR_LICENCE",
+                  "authority": "Commissioner for Licensing (Liquor and Gaming Branch, Department of Treasury and Finance)",
+                  "pathway": "Apply to the Commissioner for Licensing by email or post"
+                },
+                "evidence": [
+                  {
+                    "kind": "RSA_COMPETENCY",
+                    "title": "Responsible service of alcohol certificate to lodge with the application"
+                  }
+                ],
+                "referral_categories": [
+                  "liquor_licensing_consultant",
+                  "lawyer"
+                ],
+                "task": "Choose a licence type and apply to the Liquor and Gaming Branch"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Liquor licence not identified",
+              "detail": "You said you won't sell or serve alcohol.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_LIQUOR_LICENCE",
+                  "authority": "Commissioner for Licensing (Liquor and Gaming Branch, Department of Treasury and Finance)",
+                  "pathway": "Needed if you sell or supply alcohol"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A liquor licence may be needed",
+              "detail": "Selling or serving alcohol in Tasmania needs a licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_LIQUOR_LICENCE",
+                  "authority": "Commissioner for Licensing (Liquor and Gaming Branch, Department of Treasury and Finance)",
+                  "pathway": "Needed if you sell or supply alcohol",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_liquor_apply",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_liquor_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Bar",
+              "facts": {
+                "business.sells_alcohol": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Dry cafe",
+              "facts": {
+                "business.sells_alcohol": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "outdoor_dining",
+          "title": "Outdoor dining permit",
+          "condition": {
+            "fact": "business.footpath_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get an outdoor dining permit from your council",
+              "detail": "Tables, chairs, umbrellas, screens, heaters or planter boxes on a footpath or other council land need a permit from your council. In Hobart this is a permit to occupy a public space (outdoor dining) under the council's Public Spaces By-law: the 2026-27 application fee is $300, plus $91 to $225 per square metre depending on location. Councils set clearances you must keep for people walking past. If you'll serve alcohol outside, your liquor licence plans must show that area too.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_OUTDOOR_DINING_PERMIT",
+                  "authority": "Your local council",
+                  "pathway": "Apply to your council"
+                },
+                "task": "Apply to your council for an outdoor dining permit"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Outdoor dining permit not identified",
+              "detail": "You said you won't use the footpath or other public space, so no outdoor dining permit was identified.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_OUTDOOR_DINING_PERMIT",
+                  "authority": "Your local council",
+                  "pathway": "Needed to put furniture on a footpath or public space"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A outdoor dining permit may be needed",
+              "detail": "Using a footpath for tables or displays needs a council permit in Tasmania. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_OUTDOOR_DINING_PERMIT",
+                  "authority": "Your local council",
+                  "pathway": "Needed to put furniture on a footpath or public space",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_outdoor_hobart",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Footpath tables",
+              "facts": {
+                "business.footpath_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No footpath",
+              "facts": {
+                "business.footpath_use": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "workers_compensation",
+          "title": "Workers compensation insurance",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "not_equals",
+            "value": "NONE"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Take out workers compensation insurance with a licensed insurer",
+              "detail": "Every Tasmanian employer must take out a workers compensation insurance policy with an insurer licensed by WorkSafe Tasmania, or hold a permit to self-insure, to cover its workers. A worker is anyone working under a contract of service or a training agreement. WorkSafe Tasmania publishes the list of licensed insurers; you buy the policy from the insurer directly, not from WorkSafe.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_WORKERS_COMPENSATION_INSURANCE",
+                  "authority": "WorkSafe Tasmania (licensed insurers under the Workers Rehabilitation and Compensation Act 1988)",
+                  "pathway": "Buy a policy from a licensed insurer before your first worker starts"
+                },
+                "referral_categories": [
+                  "insurance_broker",
+                  "whs_consultant"
+                ],
+                "task": "Take out workers compensation insurance with a licensed insurer"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Workers compensation insurance not identified",
+              "detail": "You said you won't employ anyone. If you take on workers later, insure them before they start.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_WORKERS_COMPENSATION_INSURANCE",
+                  "authority": "WorkSafe Tasmania (licensed insurers under the Workers Rehabilitation and Compensation Act 1988)",
+                  "pathway": "Needed when you employ workers in Tasmania"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A workers compensation insurance may be needed",
+              "detail": "Tasmanian employers must hold workers compensation insurance. Tell us how many people you employ so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_WORKERS_COMPENSATION_INSURANCE",
+                  "authority": "WorkSafe Tasmania (licensed insurers under the Workers Rehabilitation and Compensation Act 1988)",
+                  "pathway": "Needed when you employ workers in Tasmania",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_workers_comp",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Employs staff",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No staff",
+              "facts": {
+                "business.employee_band": "NONE"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "payroll_tax",
+          "title": "Payroll tax",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "in",
+            "value": [
+              "20_199",
+              "200_PLUS"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Check whether you must register for Tasmanian payroll tax",
+              "detail": "Tasmanian payroll tax applies once your total Australian taxable wages (including grouped businesses) pass $1.25 million a year and you pay wages in Tasmania. For 2026-27 the rate is 4% on wages between $1.25 million and $2 million, and 6.1% above $2 million. Register with the State Revenue Office once you pass the threshold. With 20 or more staff you may be near it.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_PAYROLL_TAX_REGISTRATION",
+                  "authority": "State Revenue Office (Department of Treasury and Finance, Tasmania)",
+                  "pathway": "Register with the State Revenue Office when wages pass the threshold",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Check your wages against the Tasmanian payroll tax threshold"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Payroll tax is unlikely at your size",
+              "detail": "Tasmanian payroll tax only applies once Australian wages pass $1.25 million a year. Keep an eye on it as you grow; grouped businesses count together."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_payroll",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Large employer",
+              "facts": {
+                "business.employee_band": "20_199"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small employer",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.tas.trades",
+      "vertical": "BUSINESS",
+      "jurisdiction": "TAS",
+      "title": "Tasmania: builder, plumbing and electrical licences",
+      "description": "Building services provider (builder) licences, residential building work contract rules, and plumbing and electrical licences from CBOS (now Consumer Affairs Tasmania and Building Standards Tasmania).",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "TAS"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "trades"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from ABLIS, the CBOS fee schedule (now on consumeraffairs.tas.gov.au), the CBOS residential building consumer guide and the Occupational Licensing (Building Services Work) Regulations 2016. The CBOS licence pages themselves could not be read.",
+        "The exact line between work that needs a licensed builder and low-risk work that doesn't is set by the Building Act 2016 and the Director's determination on categories of building work, which we didn't read. Our question uses a $3,300 line set for Queensland, so builder licensing is shown as likely, not certain.",
+        "CBOS's functions moved to Consumer Affairs Tasmania and Building Standards Tasmania on 1 October 2026; which new agency runs each licence was not confirmed.",
+        "Gas fitting has no separate answer in our questions; it is shown under 'other trade'.",
+        "Not legal advice. Confirm with CBOS (1300 654 499) before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "builder_licence",
+          "title": "Builder licence",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.trade_work",
+                "op": "contains",
+                "value": "building_over_3300"
+              },
+              {
+                "fact": "business.trade_work",
+                "op": "contains",
+                "value": "building_small"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You likely need a Tasmanian builder licence",
+              "detail": "In Tasmania anyone who performs building work, other than low-risk work under the Building Act 2016, must hold a building services provider licence as a builder under the Occupational Licensing Act 2005. Companies and partnerships nominate a licensed person. You need the right qualifications, experience and competencies, a sound financial background, insurance and ongoing professional development. Apply online through the Tasmanian occupational licence online application. A three-year builder licence costs $1,231.95 and approval takes about 21 business days.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_BUILDER_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)",
+                  "pathway": "Apply online to CBOS",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "accountant",
+                  "lawyer"
+                ],
+                "task": "Apply for a Tasmanian builder licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Builder licence not identified",
+              "detail": "You said you won't do building work.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_BUILDER_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)",
+                  "pathway": "Needed to do building work that isn't low-risk work"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A builder licence may be needed",
+              "detail": "Builders in Tasmania need a CBOS licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_BUILDER_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)",
+                  "pathway": "Needed to do building work that isn't low-risk work",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_bsp_ablis",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_bsp_regs",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_cbos_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small jobs",
+              "facts": {
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician only",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "residential_building_contract",
+          "title": "Residential building work contracts",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "building_over_3300"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Use a written contract for home building jobs of $20,000 or more",
+              "detail": "Under the Residential Building Work Contracts and Dispute Resolution Act 2016, residential building work with a contract price of $20,000 or more needs a written, dated contract signed by you and the owner. It must include your licence number, a clear description of the work with plans and specifications, the price and how it's worked out, the completion date and the statutory warranties. Give the owner a signed copy and the CBOS residential building consumer guide within 5 business days. The owner can cool off within 5 business days. Deposits are capped at 10% for contracts from $20,000 to $50,000 and 5% for $50,000 or more, and you can't ask for more than 50% of the price until half the work is done.",
+              "payload": {
+                "referral_categories": [
+                  "lawyer"
+                ],
+                "task": "Prepare a compliant residential building contract and give the owner the consumer guide"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Residential contract rules not identified",
+              "detail": "You said you won't do larger building jobs. Home building contracts of $20,000 or more must follow the residential contract rules."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_resi_guide",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician only",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "plumbing_licence",
+          "title": "Plumbing licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "plumbing_drainage"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a plumber's licence, and a contractor licence to contract with the public",
+              "detail": "Plumbing work in Tasmania must be done by a licensed plumber practitioner under the Occupational Licensing Act 2005. To contract plumbing work to the public, a business or government, you also need a plumbing contractor licence: you must be fit and proper, financially sound, hold at least $5 million public liability insurance for any one occurrence and nominate a licensed practitioner as manager. Apply online through the Tasmanian occupational licence online application; approval takes about 21 business days. From 1 July 2026 a three-year practitioner licence costs $352.80 and a three-year sole trader contractor licence $1,499.40.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_PLUMBING_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)",
+                  "pathway": "Apply online to CBOS"
+                },
+                "task": "Apply for a Tasmanian plumbing practitioner and contractor licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Plumbing licence not identified",
+              "detail": "You said you won't do plumbing or drainage work.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_PLUMBING_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_plumbing_ablis",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_cbos_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "electrical_licence",
+          "title": "Electrical licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "electrical"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an electrical practitioner licence, and a contractor licence to run the business",
+              "detail": "Anyone who does electrical work in Tasmania, including employees, needs an electrical practitioner licence under the Occupational Licensing Act 2005 and the Occupational Licensing (Electrical Work) Regulations 2018. A business that contracts electrical work also needs an electrical contractor licence. Apply online through the Tasmanian occupational licence online application; approval takes about 21 business days. In 2026-27 a three-year practitioner licence costs $411.60 and a one-year contractor licence $646.80.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_ELECTRICAL_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)",
+                  "pathway": "Apply online to CBOS"
+                },
+                "task": "Apply for a Tasmanian electrical practitioner and contractor licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Electrical licence not identified",
+              "detail": "You said you won't do electrical work.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_ELECTRICAL_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_electrical_ablis",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_cbos_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "other_trade_licences",
+          "title": "Other trade licences",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "other_trade"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Check whether your trade needs a Tasmanian occupational licence",
+              "detail": "Gas fitting, roof plumbing, automotive gas fitting and other building trades are licensed in Tasmania under the Occupational Licensing Act 2005. Check with CBOS on 1300 654 499 or cbos.info@justice.tas.gov.au before you start work or take on contracts.",
+              "payload": {
+                "task": "Check whether your trade needs a Tasmanian occupational licence"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_plumbing_ablis",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Other trade",
+              "facts": {
+                "business.trade_work": [
+                  "other_trade"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.tas.personal_appearance",
+      "vertical": "BUSINESS",
+      "jurisdiction": "TAS",
+      "title": "Tasmania: tattoo, piercing and skin penetration businesses",
+      "description": "Council licences for people who carry out public health risk activities (tattooing, body and ear piercing and other skin penetration) and registration of the premises, under the Public Health Act 1997 (Tas).",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "TAS"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "personal_services"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from ABLIS entries for the licence and for City of Hobart premises registration. The Department of Health's guidelines for public health risk activities were not read.",
+        "Which activities need a licence can vary between councils. We treat beauty treatments and tattoo removal as something to check, not as certain.",
+        "Cosmetic injectables and lasers are regulated as health and radiation matters and are not covered.",
+        "Not legal advice. Check with your council's environmental health team."
+      ],
+      "rules": [
+        {
+          "key": "public_health_risk_activity",
+          "title": "Public health risk activity licence",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattooing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "body_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "ear_nose_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "implants_or_scarring"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get a council licence for yourself and register your premises",
+              "detail": "Under the Public Health Act 1997 (Tas), tattooing, body or ear piercing and other skin penetration are public health risk activities. Each person who does them needs a licence from the council, and the premises must be registered with the council as well. Apply before you start trading. Both last 12 months; in Hobart, premises registration costs $186 in 2026-27 and expires on 31 March each year. The council's Environmental Health Officers check hygiene, sterilising and sharps disposal.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_PUBLIC_HEALTH_RISK_ACTIVITY_LICENCE",
+                  "authority": "Your local council (under the Public Health Act 1997 (Tas))",
+                  "pathway": "Apply to your council before you open"
+                },
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Apply to your council for an operator licence and premises registration"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Public health risk activity licence not identified",
+              "detail": "From your answers you won't do tattooing, piercing or other skin penetration.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_PUBLIC_HEALTH_RISK_ACTIVITY_LICENCE",
+                  "authority": "Your local council (under the Public Health Act 1997 (Tas))",
+                  "pathway": "Needed for tattooing, piercing and other skin penetration"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A public health risk activity licence may be needed",
+              "detail": "Tattooing and piercing need a council licence and premises registration in Tasmania. Tell us which services you'll offer so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_PUBLIC_HEALTH_RISK_ACTIVITY_LICENCE",
+                  "authority": "Your local council (under the Public Health Act 1997 (Tas))",
+                  "pathway": "Needed for tattooing, piercing and other skin penetration",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_phra_licence",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_phra_premises",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tattoo studio",
+              "facts": {
+                "business.personal_services": [
+                  "tattooing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Ear piercing",
+              "facts": {
+                "business.personal_services": [
+                  "ear_nose_piercing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair only",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "other_skin_procedures",
+          "title": "Other skin procedures",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "beauty"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattoo_removal"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Ask your council whether your treatments are public health risk activities",
+              "detail": "Councils can treat other procedures that pierce the skin or could spread disease, such as some beauty treatments and tattoo removal, as public health risk activities that need a licence and premises registration. Ask your council's environmental health team before you fit out or open.",
+              "payload": {
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Ask your council about public health risk activity licensing"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Other skin procedures not identified",
+              "detail": "From your answers you won't offer beauty treatments or tattoo removal."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_phra_licence",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Beauty salon",
+              "facts": {
+                "business.personal_services": [
+                  "beauty"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair only",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.tas.education_care",
+      "vertical": "BUSINESS",
+      "jurisdiction": "TAS",
+      "title": "Tasmania: childcare and education and care services",
+      "description": "Provider and service approval under the Education and Care Services National Law, with the Education and Care Unit (Department for Education, Children and Young People) as Tasmania's regulatory authority.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "TAS"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "childcare_education"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the ABLIS service approval entry for Tasmania, not the National Law or regulations. Application fees are set nationally by ACECQA and were not read.",
+        "Does not cover school registration or services outside the National Law.",
+        "Does not check planning approval for a childcare centre.",
+        "Not legal advice. Talk to the Education and Care Unit before you commit to premises."
+      ],
+      "rules": [
+        {
+          "key": "provider_and_service_approval",
+          "title": "Provider and service approval",
+          "condition": {
+            "fact": "business.education_care_service",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need provider approval and service approval",
+              "detail": "Centre-based care (such as long day care and outside school hours care) and family day care for children under 13 in Tasmania run under the Education and Care Services National Law. The Education and Care Unit in the Department for Education, Children and Young People is Tasmania's regulatory authority. Get provider approval first (it's recognised nationally), then apply for service approval for each service through the National Quality Agenda IT System (NQA ITS), with details and written consent of your nominated supervisors. The Unit has 90 days to decide unless you agree to extend.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Education and Care Unit (Department for Education, Children and Young People)",
+                  "pathway": "Apply online through the NQA IT System"
+                },
+                "referral_categories": [
+                  "education_care_consultant",
+                  "lawyer"
+                ],
+                "task": "Apply for provider approval, then service approval"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Provider and service approval not identified",
+              "detail": "You said you won't run an education and care service under the National Law.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Education and Care Unit (Department for Education, Children and Young People)",
+                  "pathway": "Needed for centre-based and family day care services"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A provider and service approval may be needed",
+              "detail": "Education and care services in Tasmania need provider and service approval. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Education and Care Unit (Department for Education, Children and Young People)",
+                  "pathway": "Needed for centre-based and family day care services",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_ecu",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Childcare centre",
+              "facts": {
+                "business.education_care_service": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Tutoring",
+              "facts": {
+                "business.education_care_service": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "trade.tas.vehicles",
+      "vertical": "TRADE",
+      "jurisdiction": "TAS",
+      "title": "Tasmania: registering and selling imported vehicles",
+      "description": "Inspecting and registering an imported vehicle in Tasmania (Approved Inspection Station, Service Tasmania, MAIB premium and motor vehicle duty), and the motor vehicle trader licence for resale.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "trade.direction",
+            "op": "in",
+            "value": [
+              "import",
+              "both"
+            ]
+          },
+          {
+            "fact": "trade.goods_categories",
+            "op": "contains",
+            "value": "vehicles"
+          },
+          {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "TAS"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Transport Tasmania, Service Tasmania and ABLIS pages, not from the Vehicle and Traffic Act 1999 or the Motor Vehicle Traders Act 2011.",
+        "Approved Inspection Station fees are set by each station and were not published on the pages read.",
+        "Registration example is a 4-cylinder car at the 2026-27 rates; other vehicles cost more or less. Fire and road safety levies were not priced on the page read.",
+        "Doesn't cover heavy vehicles, conditional registration or special interest vehicles.",
+        "Not legal advice. Confirm with Service Tasmania (1300 135 513) or CBOS (1300 654 499)."
+      ],
+      "rules": [
+        {
+          "key": "tas_registration",
+          "title": "Registering the vehicle in Tasmania",
+          "condition": {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "TAS"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get the vehicle inspected at an Approved Inspection Station, then register it at Service Tasmania",
+              "detail": "Book an inspection directly with an Approved Inspection Station (AIS) and take your Vehicle Import Approval (or concessional RAV entry approval). If the vehicle passes, complete the registration application on the back of the passed inspection report. Vehicles with no Australian registration history may first need to be entered on the Register of Approved Vehicles. Then take the report, the import approval, proof of entitlement and your Tasmanian driver licence or ID to a Service Tasmania centre. You pay the registration fee (a 4-cylinder car is $669.23 to establish in 2026-27, including plates), the MAIB premium ($305 for a car) and motor vehicle duty: $3 for every $100 of value, or 4% for passenger vehicles over $40,000. Left-hand drive vehicles must be at least 30 years old.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_VEHICLE_REGISTRATION",
+                  "authority": "Transport Tasmania, through Service Tasmania",
+                  "pathway": "AIS inspection, then register in person at Service Tasmania"
+                },
+                "task": "Book an Approved Inspection Station inspection and register the vehicle at Service Tasmania"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_import_rego",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_import_service",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_rego_fees",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_duty",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tasmania",
+              "facts": {
+                "trade.vehicle_state": "TAS"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Queensland",
+              "facts": {
+                "trade.vehicle_state": "QLD"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "tas_motor_vehicle_trader",
+          "title": "Selling imported vehicles in Tasmania",
+          "condition": {
+            "all": [
+              {
+                "fact": "trade.vehicle_purpose",
+                "op": "equals",
+                "value": "sell"
+              },
+              {
+                "fact": "trade.vehicle_state",
+                "op": "equals",
+                "value": "TAS"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a motor vehicle trader licence to sell imported vehicles",
+              "detail": "In Tasmania you need a motor vehicle trader licence under the Motor Vehicle Traders Act 2011 if you buy, sell or exchange more than six vehicles in 12 months, or otherwise carry on a vehicle trading business. You must be 18 or older and a fit and proper person, and consent to a police check. Apply online through the Tasmanian occupational licence online application. In 2026-27 the application fee is $225.40 and the three-year licence $1,932.56. Approval can take 40 business days. Licensed traders give buyers the Tasmanian motor vehicle trader pre-sale disclosure statement.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_MOTOR_VEHICLE_TRADER_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)",
+                  "pathway": "Apply online to CBOS before you start selling"
+                },
+                "referral_categories": [
+                  "lawyer"
+                ],
+                "task": "Apply to CBOS for a motor vehicle trader licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Tasmanian trader licence not identified",
+              "detail": "You said the vehicle is for your own use, so a trader licence wasn't identified. Buying, selling or exchanging more than six vehicles in 12 months would need one.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_MOTOR_VEHICLE_TRADER_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)",
+                  "pathway": "Needed to trade more than six vehicles in 12 months"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A motor vehicle trader licence may be needed",
+              "detail": "Trading more than six vehicles in 12 months in Tasmania needs a motor vehicle trader licence. Tell us whether you'll sell the vehicle so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_MOTOR_VEHICLE_TRADER_LICENCE",
+                  "authority": "Consumer, Building and Occupational Services (CBOS), Department of Justice (now Consumer Affairs Tasmania and Building Standards Tasmania)",
+                  "pathway": "Needed to trade more than six vehicles in 12 months",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_mvt",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Selling in Tasmania",
+              "facts": {
+                "trade.vehicle_purpose": "sell",
+                "trade.vehicle_state": "TAS"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Own use",
+              "facts": {
+                "trade.vehicle_purpose": "own_use",
+                "trade.vehicle_state": "TAS"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Purpose not answered",
+              "facts": {
+                "trade.vehicle_state": "TAS"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vessel.tas.registration",
+      "vertical": "VESSEL",
+      "jurisdiction": "TAS",
+      "title": "Tasmania: boat registration, motor boat licence and PWC endorsement",
+      "description": "Recreational boat registration and the motor boat licence (with the personal watercraft endorsement) from Marine and Safety Tasmania (MAST), and where commercial vessels fit.",
+      "applies_when": {
+        "fact": "vessel.home_state",
+        "op": "equals",
+        "value": "TAS"
+      },
+      "limitations": [
+        "Built from MAST web pages, not from the Marine Safety (Motor Boats and Licences) By-laws.",
+        "MAST's 4 horsepower line is about 2.98 kW; we use your engine power in kW, so an engine right on the line may be shown wrongly.",
+        "The motor boat licence and PWC endorsement fees are worked out by MAST to a common expiry date (30 June 2027) and weren't published as dollar amounts.",
+        "Hire and drive boats don't need a licence and aren't covered. Boats visiting from interstate are only covered for licences (3 months' recognition).",
+        "Not legal advice. Check with MAST (1300 135 513) before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "recreational_registration",
+          "title": "Recreational boat registration",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "any": [
+                  {
+                    "fact": "vessel.type",
+                    "op": "equals",
+                    "value": "personal_watercraft"
+                  },
+                  {
+                    "all": [
+                      {
+                        "fact": "vessel.propulsion",
+                        "op": "in",
+                        "value": [
+                          "inboard",
+                          "outboard",
+                          "sterndrive",
+                          "jet",
+                          "sail_auxiliary",
+                          "other"
+                        ]
+                      },
+                      {
+                        "fact": "vessel.engine_kw",
+                        "op": "greater_equal",
+                        "value": 2.98
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register the boat with MAST",
+              "detail": "In Tasmania, recreational boats with a motor of 4 horsepower or more, and all personal watercraft (jet skis), must be registered with MAST before use. You must be 16 or older. Fill in the MAST Application for Registration of a Recreational Vessel and lodge it with evidence of identity and proof of ownership, at MAST or a Service Tasmania centre. Registration costs $95.50 a year (to 31 December 2026) and renews each 31 December. MAST mails your certificate. Display the numbers on each side: at least 150 mm high on a planing boat, 75 mm on a non-planing boat or PWC.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_VESSEL_REGISTRATION",
+                  "authority": "Marine and Safety Tasmania (MAST)",
+                  "pathway": "Lodge at MAST or Service Tasmania"
+                },
+                "task": "Register the boat with MAST"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Tasmanian registration not identified",
+              "detail": "From your answers this isn't a recreational boat with a motor of 4 horsepower or more, or a personal watercraft, so MAST registration wasn't identified. Domestic commercial vessels are certified through AMSA instead.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_VESSEL_REGISTRATION",
+                  "authority": "Marine and Safety Tasmania (MAST)"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Tasmanian registration may be needed",
+              "detail": "Recreational boats with a motor of 4 horsepower (about 3 kW) or more, and personal watercraft, must be registered with MAST. Tell us the boat type, engine power and whether it's for commercial use so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_VESSEL_REGISTRATION",
+                  "authority": "Marine and Safety Tasmania (MAST)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_mast_rego",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_mast_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tinny with 15 hp outboard",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "motor",
+                "vessel.propulsion": "outboard",
+                "vessel.engine_kw": 11
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Jet ski",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "personal_watercraft",
+                "vessel.propulsion": "jet"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Kayak",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "paddle",
+                "vessel.propulsion": "manual"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Tiny electric motor",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "motor",
+                "vessel.propulsion": "outboard",
+                "vessel.engine_kw": 1.5
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Commercial",
+              "facts": {
+                "vessel.commercial_use": true,
+                "vessel.propulsion": "outboard",
+                "vessel.engine_kw": 50
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Engine power not answered",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "motor",
+                "vessel.propulsion": "outboard"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "motor_boat_licence",
+          "title": "Motor boat licence",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "any": [
+                  {
+                    "fact": "vessel.type",
+                    "op": "equals",
+                    "value": "personal_watercraft"
+                  },
+                  {
+                    "all": [
+                      {
+                        "fact": "vessel.propulsion",
+                        "op": "in",
+                        "value": [
+                          "inboard",
+                          "outboard",
+                          "sterndrive",
+                          "jet",
+                          "sail_auxiliary",
+                          "other"
+                        ]
+                      },
+                      {
+                        "fact": "vessel.engine_kw",
+                        "op": "greater_equal",
+                        "value": 2.98
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a Tasmanian motor boat licence",
+              "detail": "A motor boat licence is needed to operate a vessel of 4 horsepower or more in Tasmania (hire and drive boats excepted). Study the Safe Boating Handbook, then complete practical training and assessment with a MAST-approved training provider. The licence lasts up to three years: all licences currently expire on 30 June 2027 and the fee is worked out pro rata to that date. People aged 12 to 17 can get a provisional licence. Interstate licence holders can operate for up to 3 months; to transfer, lodge the MAST Application for Mutual Recognition of a Motor Boat Licence.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_MOTOR_BOAT_LICENCE",
+                  "authority": "Marine and Safety Tasmania (MAST)",
+                  "pathway": "Train and be assessed with a MAST-approved provider"
+                },
+                "referral_categories": [
+                  "maritime_trainer"
+                ],
+                "task": "Book motor boat licence training with a MAST-approved provider"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Motor boat licence not identified",
+              "detail": "From your answers the boat doesn't have a motor of 4 horsepower or more, so a recreational motor boat licence wasn't identified. Commercial skippers need an AMSA certificate of competency instead.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_MOTOR_BOAT_LICENCE",
+                  "authority": "Marine and Safety Tasmania (MAST)"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A motor boat licence may be needed",
+              "detail": "Operating a boat of 4 horsepower or more in Tasmania needs a motor boat licence. Tell us how the boat is powered so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_MOTOR_BOAT_LICENCE",
+                  "authority": "Marine and Safety Tasmania (MAST)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_mast_licence",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "tas_mast_licensing",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Runabout",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "motor",
+                "vessel.propulsion": "outboard",
+                "vessel.engine_kw": 60
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Sailing dinghy",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "sail",
+                "vessel.propulsion": "sail"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "pwc_endorsement",
+          "title": "Personal watercraft endorsement",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "fact": "vessel.type",
+                "op": "equals",
+                "value": "personal_watercraft"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a PWC endorsement on your motor boat licence",
+              "detail": "To ride a personal watercraft (jet ski) in Tasmania you need a current motor boat licence plus a PWC endorsement. The endorsement is only gained by passing a PWC practical course with a MAST-accredited provider. MAST lists providers for Greater Hobart and the south, the north, the north east and the north west. Fees are worked out to the common expiry date of 30 June 2027.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_MOTOR_BOAT_LICENCE",
+                  "authority": "Marine and Safety Tasmania (MAST)",
+                  "pathway": "PWC practical course with a MAST-accredited provider"
+                },
+                "referral_categories": [
+                  "maritime_trainer"
+                ],
+                "task": "Complete a PWC practical course with a MAST-accredited provider"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "PWC endorsement not identified",
+              "detail": "From your answers this isn't a personal watercraft.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_MOTOR_BOAT_LICENCE",
+                  "authority": "Marine and Safety Tasmania (MAST)"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A PWC endorsement may be needed",
+              "detail": "Riding a jet ski in Tasmania needs a PWC endorsement on your motor boat licence. Tell us the type of vessel so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "TAS_MOTOR_BOAT_LICENCE",
+                  "authority": "Marine and Safety Tasmania (MAST)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_mast_pwc",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Jet ski",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "personal_watercraft"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Runabout",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "motor"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "commercial_through_amsa",
+          "title": "Commercial vessels",
+          "condition": {
+            "fact": "vessel.commercial_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Commercial vessels are regulated by AMSA, not MAST recreational registration",
+              "detail": "A boat used for business, hire or carrying paying passengers is a domestic commercial vessel. It needs AMSA certification and a unique vessel identifier instead of MAST recreational registration, and its skipper needs an AMSA certificate of competency. MAST publishes separate commercial vessel and port fees."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "tas_mast_rego",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Charter boat",
+              "facts": {
+                "vessel.commercial_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Recreational",
+              "facts": {
+                "vessel.commercial_use": false
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

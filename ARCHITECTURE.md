@@ -1154,3 +1154,19 @@ overlay layers are listed in the research notes for when it does.
 | Selling and renting | Pack `property_sa` (`sell.sa.vendor_statement`, `rent.sa.residential_tenancy`) and checklists `rent.sa_*`, `sell.sa_form_1`. |
 | Business, vehicles, vessels | Pack `business_sa`: food, liquor, outdoor dining, ReturnToWorkSA, payroll tax, building work contractor licence and indemnity insurance ($20,000 from 10 November 2025), plumbing, gas and electrical licence, tattoo notification, childcare (Education Standards Board), vehicle registration and second-hand dealers, boat registration and boat operator's licence. No SA business grant was open or recurring in 2026, so there are no grant rules. |
 | Tests | `tests/test_sa.py`; `tests/test_state_packs.py` loads and publishes every state pack the way the deploy does (the WA deploy stopped on a warning that claimed "likely required", which only the rule gate catches; fixed here). |
+
+## 51. Tasmania
+
+Content like the other states (§47-§50), gathered on 2026-10-12 with gaps listed per entry,
+plus **address lookups from the LIST** (Land Tasmania; `app/modules/lookups/tas.py`,
+`TAS_LIST_BASE_URL`). Address geocodes, cadastral parcels, council areas and the Tasmanian
+Heritage Register are CC BY 3.0 AU ("… from theLIST © State of Tasmania").
+
+| Part | As built |
+|---|---|
+| Lookups | Address search: `Public/SearchService` layer 7, `ADDRESS LIKE '50 MACQUARIE STREET HOB%'` (street types spelt out). The address point's PID finds the title in `Public/OpenDataWFS` layer 14; parcels are named by certificate of title ("CT 142916/1", `VOLUME`/`FOLIO`) and the area is `COMP_AREA`. Council from layer 28 (`NAME`, matched to `spatial_name`). Heritage: `HT/HT_Public` layer 0. **No zone or planning overlays:** the Tasmanian Planning Scheme layers (`Public/PlanningOnline` 13-15) state no licence, so the report points to the LIST map until Land Tasmania (listhelp@nre.tas.gov.au) confirms the terms; the layer ids and fields are in the research notes. |
+| Councils | `councils/tas_councils.json`: all 29 councils, spatial names from the LIST LGA layer (GLAMORGAN-SPRING BAY, WARATAH-WYNYARD, BREAK O'DAY). 28 use the Tasmanian Planning Scheme with their own Local Provisions Schedule; Kingborough is still on its 2015 interim scheme. Pack `councils_tas`. |
+| Planning | Pack `planning_tas`: planning permits (exempt, permitted, discretionary) under LUPAA, building and plumbing permits and certificates of likely compliance under the Building Act 2016, occupancy permits, secondary residences, subdivision and sealing, change of use, heritage works. |
+| Selling and renting | Pack `property_tas` (`sell.tas.seller_disclosure`, `rent.tas.residential_tenancy`, bond lodgement) and checklists `rent.tas_*`, `sell.tas_before_sale`. |
+| Business, vehicles, vessels | Pack `business_tas`: food, liquor, outdoor dining, workers compensation, payroll tax, builder, plumbing and electrical licences (CBOS moved into Consumer Affairs Tasmania and Building Standards Tasmania on 1 October 2026), public health risk activities, childcare, vehicle registration and traders, MAST boat registration and licences. No Tasmanian business grant was open in 2026, so no grant rules. |
+| Tests | `tests/test_tas.py`. |

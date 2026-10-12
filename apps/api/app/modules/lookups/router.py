@@ -184,7 +184,8 @@ async def search_addresses(
     )
 
 
-@router.get("/parcels/{lot_plan}", response_model=ParcelOut)
+# ``path``: NSW ("1//DP123456") and Tasmanian ("142916/1") parcel ids contain slashes.
+@router.get("/parcels/{lot_plan:path}", response_model=ParcelOut)
 async def get_parcel(
     lot_plan: str,
     ctx: Read,

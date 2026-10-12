@@ -206,6 +206,9 @@ class Settings(BaseSettings):
     # (app/modules/lookups/vic.py).
     vic_geocoder_base_url: str = "https://corp-geo.mapshare.vic.gov.au/arcgis/rest/services"
     vic_planning_base_url: str = "https://plan-gis.mapshare.vic.gov.au/arcgis/rest/services"
+    # The LIST (Land Tasmania) addresses, titles, council areas and the Tasmanian Heritage
+    # Register for Tasmanian addresses (app/modules/lookups/tas.py).
+    tas_list_base_url: str = "https://services.thelist.tas.gov.au/arcgis/rest/services"
     # ABS postal areas, for the postcode of a Queensland address (app/modules/lookups/abs.py).
     abs_geo_base_url: str = "https://geo.abs.gov.au/arcgis/rest/services"
     # The AMSA page that links the current list of domestic commercial vessels with a vessel

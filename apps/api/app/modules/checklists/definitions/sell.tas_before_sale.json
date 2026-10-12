@@ -1,0 +1,76 @@
+{
+  "key": "sell.tas_before_sale",
+  "vertical": "SELL",
+  "title": "Getting ready to sell in Tasmania",
+  "description": "What to gather before you list a Tasmanian home. Tasmania has no compulsory vendor statement, so buyers rely on the contract, council records and inspections. Summarised from Consumer Affairs Tasmania and council guidance.",
+  "sources": [
+    {
+      "title": "Advice when buying or selling property",
+      "organisation": "Consumer Affairs Tasmania",
+      "url": "https://consumeraffairs.tas.gov.au/topics/housing/buying-selling-property/advice-buying-selling-property"
+    },
+    {
+      "title": "Build, buy, sell smart",
+      "organisation": "Huon Valley Council",
+      "url": "https://www.huonvalley.tas.gov.au/development/build-buy-sell-smart/"
+    }
+  ],
+  "items": [
+    {
+      "key": "conveyancer",
+      "title": "Engage a licensed conveyancer or lawyer"
+    },
+    {
+      "key": "contract",
+      "title": "Have them prepare the Tasmanian standard contract for the sale of real estate, and decide on optional clauses such as vendor disclosure and cooling-off"
+    },
+    {
+      "key": "title",
+      "title": "Give them your title details and any easements or covenants you know of"
+    },
+    {
+      "key": "land_info_certificate",
+      "title": "Order a 337 certificate (land information certificate) from your council",
+      "detail": "Shows completion certificates, occupancy permits and enforcement action."
+    },
+    {
+      "key": "building_records",
+      "title": "Gather building and plumbing permits and certificates of completion for work on the property"
+    },
+    {
+      "key": "unapproved_work",
+      "title": "Ask a building surveyor about any work without approvals",
+      "detail": "A certificate of substantial compliance may be possible.",
+      "required": false
+    },
+    {
+      "key": "mortgage",
+      "title": "Ask your lender for the discharge form and payout figure",
+      "required": false
+    },
+    {
+      "key": "strata",
+      "title": "Give your conveyancer the body corporate manager's contact",
+      "required": false
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Test the smoke alarms and replace any replaceable-battery alarms"
+    },
+    {
+      "key": "pool",
+      "title": "Check the pool barrier and gate self-close and latch",
+      "required": false
+    },
+    {
+      "key": "tenant",
+      "title": "If tenanted, check the lease end date and notice rules",
+      "required": false
+    },
+    {
+      "key": "authority",
+      "title": "Have your power of attorney, probate or other authority to sell ready",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,1930 @@
+{
+ "key": "planning_tas",
+ "title": "PlanningReady: Tasmania (approval pathways)",
+ "notes": "First sourced rules for Tasmania, statewide. Built on 2026-10-12 from State Planning Office, PlanBuild Tasmania, CBOS, Heritage Tasmania and Tasmania Fire Service pages, with Kingborough and Central Highlands 2026-27 fee schedules as fee examples. Every reference is UNVERIFIED and carries a summary, not the source's wording. Tasmanian Planning Scheme zones, codes and Local Provisions Schedules are not encoded.",
+ "organisations": [
+  {
+   "ref": "spo",
+   "name": "State Planning Office (Tasmania)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "TAS",
+   "website": "https://www.stateplanning.tas.gov.au"
+  },
+  {
+   "ref": "planbuild",
+   "name": "PlanBuild Tasmania (Tasmanian Government)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "TAS",
+   "website": "https://www.planbuild.tas.gov.au"
+  },
+  {
+   "ref": "cbos",
+   "name": "Consumer, Building and Occupational Services (CBOS), Department of Justice",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "TAS",
+   "website": "https://www.cbos.tas.gov.au"
+  },
+  {
+   "ref": "heritage",
+   "name": "Heritage Tasmania (Tasmanian Heritage Council)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "TAS",
+   "website": "https://heritage.tas.gov.au"
+  },
+  {
+   "ref": "tfs",
+   "name": "Tasmania Fire Service",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "TAS",
+   "website": "https://www.fire.tas.gov.au"
+  },
+  {
+   "ref": "kingborough",
+   "name": "Kingborough Council",
+   "kind": "COUNCIL",
+   "jurisdiction": "LGA:TAS_KINGBOROUGH",
+   "website": "https://www.kingborough.tas.gov.au"
+  },
+  {
+   "ref": "centralhighlands",
+   "name": "Central Highlands Council",
+   "kind": "COUNCIL",
+   "jurisdiction": "LGA:TAS_CENTRAL_HIGHLANDS",
+   "website": "https://centralhighlands.tas.gov.au"
+  },
+  {
+   "ref": "georgetown",
+   "name": "George Town Council",
+   "kind": "COUNCIL",
+   "jurisdiction": "LGA:TAS_GEORGE_TOWN",
+   "website": "https://georgetown.tas.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "pathways",
+   "organisation": "spo",
+   "jurisdiction": "TAS",
+   "title": "Council assessment pathways (State Planning Office)",
+   "url": "https://www.stateplanning.tas.gov.au/getting-started/council-assessment-pathways",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "permits",
+   "organisation": "spo",
+   "jurisdiction": "TAS",
+   "title": "Permits: Tasmanian Planning Scheme (State Planning Office)",
+   "url": "https://www.stateplanning.tas.gov.au/planning-system/tasmanian-planning-scheme/permits",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "housing",
+   "organisation": "spo",
+   "jurisdiction": "TAS",
+   "title": "Housing (State Planning Office)",
+   "url": "https://www.stateplanning.tas.gov.au/topics/housing",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "spp_0126",
+   "organisation": "spo",
+   "jurisdiction": "TAS",
+   "title": "SPP Amendment 01/2026: Secondary Residences (State Planning Office)",
+   "url": "https://www.stateplanning.tas.gov.au/have-your-say/consultations/state-planning-provisions-amendments/spp-amendment-012026-secondary-residences",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bp",
+   "organisation": "planbuild",
+   "jurisdiction": "TAS",
+   "title": "Building and plumbing (PlanBuild Tasmania)",
+   "url": "https://www.planbuild.tas.gov.au/enquiry-service/property-development/building-and-plumbing",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "planbuild_clc_guide",
+   "organisation": "planbuild",
+   "jurisdiction": "TAS",
+   "title": "Application for Certificate of Likely Compliance (Building): user guide (PlanBuild Tasmania)",
+   "url": "https://www.planbuild.tas.gov.au/__data/assets/pdf_file/0004/757075/Application-for-Certificate-of-Likely-Compliance-Building-User-Guide.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "act_guide",
+   "organisation": "cbos",
+   "jurisdiction": "TAS",
+   "title": "Guide to the Building Act 2016 (CBOS)",
+   "url": "https://www.cbos.tas.gov.au/__data/assets/pdf_file/0003/405039/Guide_to_the_Building_Act_2016.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "kingborough_fees",
+   "organisation": "kingborough",
+   "jurisdiction": "LGA:TAS_KINGBOROUGH",
+   "title": "Kingborough Council fees and charges 2026-27",
+   "url": "https://assets.kingborough.tas.gov.au/uploads/2025/06/KC-Fees-Charges-2026-27-1.pdf",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "ch_fees",
+   "organisation": "centralhighlands",
+   "jurisdiction": "LGA:TAS_CENTRAL_HIGHLANDS",
+   "title": "Central Highlands Council building and plumbing fees 2026-2027",
+   "url": "https://centralhighlands.tas.gov.au/wp-content/uploads/Building-Plumbing-Fees-2026-2027.pdf",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "heritage_approval",
+   "organisation": "heritage",
+   "jurisdiction": "TAS",
+   "title": "Getting approval: works to heritage places (Heritage Tasmania)",
+   "url": "https://heritage.tas.gov.au/works-and-development/getting-approval",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "subdiv_gt",
+   "organisation": "georgetown",
+   "jurisdiction": "LGA:TAS_GEORGE_TOWN",
+   "title": "Subdivisions and strata (George Town Council)",
+   "url": "https://georgetown.tas.gov.au/subdivisions-strata",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "tfs_bushfire",
+   "organisation": "tfs",
+   "jurisdiction": "TAS",
+   "title": "Planning and Building in Bushfire-Prone Areas for Owners and Builders, June 2020 (Tasmania Fire Service)",
+   "url": "https://www.fire.tas.gov.au/userfiles/madisons/file/20200903%20-%20Building%20for%20Bushfire%20Booklet%209/200233%20TFS%20Building%20for%20Bushfire%20booklet_9%20June.pdf",
+   "source_type": "GUIDELINE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "pathways_overview",
+   "document": "pathways",
+   "section": "Council assessment pathways",
+   "extracted_text": "[Summary, not the source's wording] Some use and development is exempt under clause 4 of the Tasmanian Planning Scheme. Each zone table classes the use classes as No Permit Required, Permitted, Discretionary or Prohibited. Planning approval is needed for Permitted or Discretionary use and development. A Permitted application that relies only on Acceptable Solutions must be approved and is not advertised. Discretionary applications rely on Performance Criteria. Councils decide Permitted applications within 28 days and Discretionary within 42 days; the clock stops while further information is provided, and may be longer where Heritage Tasmania or the EPA is involved.",
+   "interpretation": "Which category applies depends on the zone, the codes and the design, which we don't know, so a planning permit is MAY_APPLY for building projects. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "permits_detail",
+   "document": "permits",
+   "section": "Permits",
+   "extracted_text": "[Summary, not the source's wording] Discretionary applications are publicly exhibited for 14 calendar days and anyone can make a representation, which council must consider. The applicant and anyone who made a representation can appeal a discretionary decision to TASCAT within 14 days of being notified. Requests for more information must be made within 14 days (Permitted) or 21 days (Discretionary). The assessment clock starts once the invoice is paid. A permit lapses after 2 years if not substantially commenced, and council can grant two 2-year extensions.",
+   "interpretation": "Statutory timeframes and appeal rights to quote in outcomes and guides. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "secondary_current",
+   "document": "housing",
+   "section": "Secondary residences",
+   "extracted_text": "[Summary, not the source's wording] Secondary residences (granny flats or ancillary dwellings) are an additional small dwelling on the same site as the main house, with a floor area of not more than 60 m2 and no separate connections to services like electricity, water or sewerage. The requirements are currently being amended.",
+   "interpretation": "Today's limit is 60 m2. Larger outbuildings used as homes are a second dwelling, assessed as multiple dwellings. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "secondary_amendment",
+   "document": "spp_0126",
+   "section": "SPP Amendment 01/2026",
+   "extracted_text": "[Summary, not the source's wording] Draft amendment 01/2026 would raise the allowable gross floor area for a secondary residence from 60 m2 to 90 m2. A 90 m2 secondary residence can't be applied for until the amendment takes effect. If a zone allows a single dwelling, a secondary residence can be added, and you may not need planning approval if it meets the requirements and every development standard for the zone, though codes like flood-prone areas or heritage may still apply. Building and plumbing approval will be needed. Public exhibition ran from 10 June to 22 July 2026; the Minister's decision had not started.",
+   "interpretation": "Use 60 m2 until the amendment is approved; mention the proposed 90 m2. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "building_categories",
+   "document": "bp",
+   "section": "Building and plumbing categories",
+   "extracted_text": "[Summary, not the source's wording] Building work has four categories. Category 1 low risk work can be done by the owner or a competent person without a permit. Category 2 low risk work must be done by a licensed builder, with no approval but compliance with the National Construction Code. Category 3 notifiable work needs licensed designers and builders and a building surveyor's Certificate of Likely Compliance before work starts. Category 4 permit work needs a Certificate of Likely Compliance and a building or demolition permit from the council's permit authority. Plumbing work follows the same four categories; notifiable plumbing needs a Certificate of Likely Compliance from the permit authority and permit plumbing also needs a plumbing permit. Each of the 29 councils has a permit authority.",
+   "interpretation": "New houses, granny flats and most extensions are notifiable or permit work, so a building surveyor's certificate is likely. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "act_guide_process",
+   "document": "act_guide",
+   "section": "Permit work, notifiable work, completion",
+   "extracted_text": "[Summary, not the source's wording] For permit work the building surveyor issues a certificate of likely compliance within 21 days, which expires after 12 months. The permit authority must deal with the building permit application within 7 days or an agreed period. The builder lodges a start work notice and must not begin until the building surveyor's start work authorisation. Mandatory notification stages are inspected within one day of notice. At completion, the owner applies to the permit authority for a certificate of completion with the occupancy permit issued by the building surveyor. Owners must not allow occupation until an occupancy permit is issued where one is required. The Building Administration Fee and the Building and Construction Industry Training levy are payable where the work is worth over $20,000. Permit plumbing work gets a certificate of likely compliance within 21 days and a plumbing permit from the permit authority.",
+   "interpretation": "The Act's sequence for building and plumbing approval and completion. The guide dates from 2017 and may be out of date in places. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "kingborough_fees_2026",
+   "document": "kingborough_fees",
+   "section": "Planning, building and plumbing fees 2026-27",
+   "extracted_text": "[Summary, not the source's wording] Single dwelling permitted $526; discretionary $652 plus a $441 public notification fee; residential alterations or ancillary dwellings $411; subdivision $959 plus $223 per lot; sealing of final plan $465 per plan; change of use only $382. Building permit application $243 (under $40,000) or $488; Industry Training Levy 0.2% and Building Permit Levy 0.1% where cost exceeds $20,000; certificate of completion (building) $106; plumbing permit or notifiable plumbing $462; certificate of completion (plumbing) $108.",
+   "interpretation": "An example council's 2026-27 fees. Every council sets its own. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "ch_fees_2026",
+   "document": "ch_fees",
+   "section": "Building and plumbing fees 2026-2027",
+   "extracted_text": "[Summary, not the source's wording] Building permit for a dwelling $320; notifiable building work for a dwelling $240; plumbing assessment for a Class 1 building including certificate of likely compliance and completion certificate $540; Building Administration Fee 0.1% of the estimated cost where work is worth $20,000 or more; Tasmanian Building and Construction levy 0.2% where work is worth more than $20,000.",
+   "interpretation": "A second example of council fees; confirms the levy rates. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "heritage_works",
+   "document": "heritage_approval",
+   "section": "Getting approval",
+   "extracted_text": "[Summary, not the source's wording] Works to a place on the Tasmanian Heritage Register need a minor works approval (called a certificate of exemption before 1 January 2025) or approval from the Tasmanian Heritage Council. Without a minor works approval, you lodge a development application with council, which forwards it to the Heritage Council. Heritage advisers give free advice on 1300 850 332.",
+   "interpretation": "Heritage-listed places add a Heritage Council step. Local heritage codes in the planning scheme are a separate council matter. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "subdivision_process",
+   "document": "subdiv_gt",
+   "section": "Subdivisions and strata",
+   "extracted_text": "[Summary, not the source's wording] A development application (planning permit) is needed to subdivide. Engineering drawings for roads, water, sewer, stormwater and other services are approved before works. After works and practical completion, a surveyor provides the final plan of survey and council seals it once permit conditions are met and fees are paid. The sealed plan goes to the Land Titles Office for registration. Public open space contributions are generally about 5% of land value under section 117 of the Local Government (Building and Miscellaneous Provisions) Act 1993.",
+   "interpretation": "Subdivision is a planning permit followed by sealing of the final plan by council. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bushfire_guide",
+   "document": "tfs_bushfire",
+   "section": "Planning and building in bushfire-prone areas",
+   "extracted_text": "[Summary, not the source's wording] New development in a bushfire-prone area needs a bushfire hazard management plan unless an exemption applies, usually at the building stage, and the Tasmania Fire Service recommends including it with any planning application. Land within 100 m of bushfire-prone vegetation is treated as bushfire-prone where there is no overlay. A TFS-accredited bushfire hazard practitioner sets the bushfire attack level (BAL) and prepares the plan. Building must meet AS 3959. Private access needs a carriageway at least 4 m wide and a reliable firefighting water supply.",
+   "interpretation": "Bushfire-prone land adds a bushfire hazard management plan and BAL construction. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "planning.tas.building",
+   "vertical": "PLANNING",
+   "jurisdiction": "TAS",
+   "title": "Tasmania: houses, extensions and granny flats",
+   "description": "Planning permit, certificate of likely compliance, building and plumbing permits and occupancy for new houses, extensions and secondary residences in Tasmania.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or which codes apply to your land, so we can't say whether your project is exempt, no permit required, permitted or discretionary.",
+    "The Tasmanian Planning Scheme's zone and code rules are not encoded. The LIST map (LISTmap) shows your zone and code overlays.",
+    "Constraints like heritage, bushfire, flooding and landslip come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "planning_permit_option",
+     "title": "A planning permit may be needed, depending on zone and codes",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified. MAY_APPLY because we don't know the zone, codes or design.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a planning permit",
+       "detail": "In Tasmania the Tasmanian Planning Scheme decides whether your project is exempt, no permit required, permitted or discretionary. A house that meets every acceptable solution in a residential zone may need no permit or be permitted, decided in 28 days. If it relies on performance criteria it is discretionary: it is advertised for 14 days and decided in 42 days. Look up your zone and codes on the LIST map, then ask your council.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "SITE_PLAN",
+          "title": "Site plan with setbacks, heights and existing buildings"
+         },
+         {
+          "kind": "CERTIFICATE_OF_TITLE",
+          "title": "Current title search with folio plan and any schedule of easements"
+         },
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Floor plans and elevations"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Look up your zone and code overlays on the LIST map and ask council whether you need a planning permit"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "permits_detail",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "certificate_of_likely_compliance",
+     "title": "Building work needs a building surveyor's certificate",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified. Some small extensions may be low risk work; LIKELY not REQUIRED.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You likely need a certificate of likely compliance",
+       "detail": "A new house, granny flat or most extensions is notifiable or permit building work under the Building Act 2016. You engage a licensed building surveyor, who checks the plans against the National Construction Code and issues a certificate of likely compliance before work starts (within 21 days for permit work). Your designer supplies a Tasmanian Form 35 certificate of the responsible designer with the plans.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_CERTIFICATE_OF_LIKELY_COMPLIANCE",
+         "authority": "A licensed building surveyor you engage",
+         "pathway": "Certificate of likely compliance under the Building Act 2016 (notifiable or permit building work)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Design documents and the designer's certificate"
+         },
+         {
+          "kind": "ENGINEERING_DRAWINGS",
+          "title": "Structural engineering and soil report"
+         },
+         {
+          "kind": "ENERGY_RATING",
+          "title": "Energy efficiency assessment"
+         }
+        ],
+        "referral_categories": [
+         "building_certifier",
+         "architect",
+         "builder"
+        ],
+        "task": "Engage a licensed building surveyor"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_categories",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "act_guide_process",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "building_permit",
+     "title": "Permit building work needs a building permit",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified. Whether a typical new house is notifiable or permit work depends on the Director's Determination and wasn't confirmed; MAY_APPLY.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a building permit from council",
+       "detail": "If your building surveyor classes the work as permit work (category 4), you also need a building permit from your council's permit authority. The surveyor's certificate of likely compliance goes with the Tasmanian Form 2 building work application. Council must deal with it within 7 days or an agreed period. Levies apply where the work is worth over $20,000: 0.1% Building Permit Levy and 0.2% training levy.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_BUILDING_PERMIT",
+         "authority": "Your council's permit authority",
+         "pathway": "Building permit under the Building Act 2016 (permit building work)",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "building_certifier"
+        ],
+        "task": "Ask your building surveyor whether the work is notifiable or permit work"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_categories",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "act_guide_process",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "kingborough_fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "plumbing_permit",
+     "title": "Plumbing for a new home",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "new_dwelling",
+       "secondary_dwelling"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You likely need plumbing approval",
+       "detail": "New bathrooms, kitchens and sewer or stormwater connections are notifiable or permit plumbing work. A licensed plumber does the work and council's permit authority issues a certificate of likely compliance and, for permit work, a plumbing permit before work starts. Apply with the Tasmanian Form 3 plumbing work application. Plumbing fees are about $460 to $540 at many councils.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLUMBING_PERMIT",
+         "authority": "Your council's permit authority",
+         "pathway": "Plumbing permit and certificate of likely compliance under the Building Act 2016",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "HYDRAULIC_PLANS",
+          "title": "Plumbing (hydraulic) design drawings"
+         }
+        ],
+        "referral_categories": [
+         "plumber"
+        ],
+        "task": "Have your plumber or designer lodge the plumbing application with council"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_categories",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "act_guide_process",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "kingborough_fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Granny flat",
+       "facts": {
+        "planning.development_type": "secondary_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "plumbing_extension",
+     "title": "Plumbing for an extension",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "extension"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need plumbing approval",
+       "detail": "If your extension adds or moves a bathroom, laundry, kitchen or drains, it is likely notifiable or permit plumbing work and needs approval from council's permit authority before work starts.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLUMBING_PERMIT",
+         "authority": "Your council's permit authority",
+         "pathway": "Plumbing permit and certificate of likely compliance under the Building Act 2016",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "plumber"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_categories",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "occupancy",
+     "title": "Occupancy permit and certificate of completion",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You need an occupancy permit before you move in",
+       "detail": "When the work is finished, your building surveyor inspects it and issues an occupancy permit where one is required. For permit work you then apply to council's permit authority for a certificate of completion. Don't move in or let anyone live there until the occupancy permit is issued.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_OCCUPANCY_PERMIT",
+         "authority": "Your building surveyor (occupancy permit) and council's permit authority (certificate of completion)",
+         "pathway": "Occupancy permit and certificate of completion under the Building Act 2016",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "task": "Book the final inspection with your building surveyor"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "act_guide_process",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "kingborough_fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "heritage",
+     "title": "Heritage-listed places",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "heritage"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified. 'Heritage listing' may be local only (planning scheme code), not the state register; LIKELY_REQUIRED kept because both need approval.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Heritage listing means you likely need a planning permit and heritage approval",
+       "detail": "If your place is on the Tasmanian Heritage Register, works need a minor works approval or approval from the Tasmanian Heritage Council. Most go through a council development application that council refers to the Heritage Council, which can add time. If your place is in the planning scheme's Local Historic Heritage Code, council assesses it as part of your planning permit. Call Heritage Tasmania's free heritage advisers on 1300 850 332 first.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_HERITAGE_WORKS_APPROVAL",
+         "authority": "Tasmanian Heritage Council (through Heritage Tasmania)",
+         "pathway": "Minor works approval or Heritage Council approval under the Historic Cultural Heritage Act 1995",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "HERITAGE_IMPACT_STATEMENT",
+          "title": "Heritage impact statement for major works"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Call a Heritage Tasmania heritage adviser before you design"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "heritage_works",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pathways_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Heritage ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other constraint",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "heritage_planning",
+     "title": "Heritage codes need a planning permit",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "heritage"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A heritage code makes a planning permit likely",
+       "detail": "Work to a heritage place or in a heritage precinct is rarely exempt. Expect a planning permit, often discretionary, with 14 days of advertising and a 42-day decision.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "town_planner"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "heritage_works",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "permits_detail",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Heritage ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Bushfire",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bushfire",
+     "title": "Bushfire-prone areas",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "bushfire"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "You'll need a bushfire hazard management plan",
+       "detail": "New buildings in bushfire-prone areas need a bushfire hazard management plan and a bushfire attack level (BAL) assessment by a Tasmania Fire Service accredited bushfire hazard practitioner, unless an exemption applies. It is usually needed for building approval, and should go with any planning application. Higher BALs mean more expensive construction to AS 3959.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "BUSHFIRE_ASSESSMENT",
+          "title": "Bushfire hazard management plan and BAL assessment"
+         }
+        ],
+        "referral_categories": [
+         "building_certifier",
+         "town_planner"
+        ],
+        "task": "Engage an accredited bushfire hazard practitioner"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bushfire_guide",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Bushfire ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Heritage only",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "flooding",
+     "title": "Flood-prone areas",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "flooding"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified. Code name from knowledge of the State Planning Provisions, not read this session.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "A flood code may apply",
+       "detail": "If your land is in a flood-prone area, the Flood-Prone Areas Hazard Code in the planning scheme can apply and may make your project discretionary. Council may ask for a flood hazard report and set floor levels. Check the overlays on the LIST map and ask council.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Ask council about flood levels for your land"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "secondary_amendment",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Flooding ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other",
+       "facts": {
+        "planning.known_constraints": [
+         "easement"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "landslip",
+     "title": "Landslip hazard",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "steep_slope"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified. Landslip Hazard Code name from knowledge of the State Planning Provisions, not read this session.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "A landslip code may apply on steep land",
+       "detail": "Steep land may be in a landslip hazard area under the planning scheme's Landslip Hazard Code. Council may need a landslip or geotechnical report, and the building surveyor will want a soil and site assessment. Check the landslip overlay on the LIST map.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "GEOTECHNICAL_REPORT",
+          "title": "Geotechnical or landslip risk report"
+         }
+        ],
+        "referral_categories": [
+         "geotechnical_engineer",
+         "town_planner"
+        ],
+        "task": "Check the landslip hazard overlay on the LIST map"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Steep slope",
+       "facts": {
+        "planning.known_constraints": [
+         "steep_slope"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Flooding",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "vegetation",
+     "title": "Native vegetation",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "vegetation"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified. Natural Assets Code detail from knowledge, not read this session.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Clearing native vegetation may need a planning permit",
+       "detail": "If your land is in a priority vegetation area under the planning scheme's natural assets code, clearing vegetation for building may need a planning permit and a vegetation report. Ask council before you clear.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Ask council whether a vegetation code applies"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vegetation ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "vegetation"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other",
+       "facts": {
+        "planning.known_constraints": [
+         "steep_slope"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.tas.secondary",
+   "vertical": "PLANNING",
+   "jurisdiction": "TAS",
+   "title": "Tasmania: secondary residences (granny flats)",
+   "description": "Secondary residence rules in the State Planning Provisions.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or which codes apply to your land, so we can't say whether your project is exempt, no permit required, permitted or discretionary.",
+    "The Tasmanian Planning Scheme's zone and code rules are not encoded. The LIST map (LISTmap) shows your zone and code overlays.",
+    "Constraints like heritage, bushfire, flooding and landslip come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "floor_area",
+     "title": "Secondary residences up to 60 m2",
+     "condition": {
+      "fact": "planning.secondary_dwelling_floor_area_m2",
+      "op": "less_equal",
+      "value": 60
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified. 60 m2 current; 90 m2 under SPP Amendment 01/2026, not in effect at 2026-10-12.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "At 60 m2 or less, it can be a secondary residence",
+       "detail": "Under the State Planning Provisions a secondary residence (granny flat) can be up to 60 m2 and must not have its own electricity, water or sewer connections. If your zone allows a single dwelling and the design meets every development standard, you may not need a planning permit, unless a code like heritage or flooding applies. You still need building and plumbing approval. A change to allow 90 m2 is proposed but not yet in effect.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme (may be no permit required if every standard is met)",
+         "certainty": "MAY_APPLY"
+        },
+        "task": "Check your design against the secondary residence rules and ask council to confirm"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Over 60 m2, it isn't a secondary residence yet",
+       "detail": "Today a secondary residence can be no more than 60 m2. A larger one is treated as a second dwelling, which usually needs a discretionary planning permit and may not be allowed in your zone. SPP Amendment 01/2026 proposes 90 m2, but you can't apply on that basis until it takes effect.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme (multiple dwellings)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Reduce to 60 m2 or get planning advice on a second dwelling"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "secondary_current",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "secondary_amendment",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "50 m2",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 50
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "80 m2",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 80
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "existing_home",
+     "title": "A secondary residence goes with a main house",
+     "condition": {
+      "fact": "property.has_existing_dwelling",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your granny flat would sit with your existing house",
+       "detail": "A secondary residence is an extra small dwelling on the same site as the main house, sharing its service connections."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Without a house, it isn't a secondary residence",
+       "detail": "A secondary residence has to go with a main house on the same site. Build the house first or apply for both together, or get planning advice.",
+       "payload": {
+        "referral_categories": [
+         "town_planner"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "secondary_current",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Has house",
+       "facts": {
+        "property.has_existing_dwelling": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "property.has_existing_dwelling": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.tas.subdivision",
+   "vertical": "PLANNING",
+   "jurisdiction": "TAS",
+   "title": "Tasmania: subdivision",
+   "description": "Planning permit and sealing of the final plan for subdivisions in Tasmania.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "subdivision"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or which codes apply to your land, so we can't say whether your project is exempt, no permit required, permitted or discretionary.",
+    "The Tasmanian Planning Scheme's zone and code rules are not encoded. The LIST map (LISTmap) shows your zone and code overlays.",
+    "Constraints like heritage, bushfire, flooding and landslip come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "subdivision_permit",
+     "title": "Subdividing needs a planning permit",
+     "condition": {
+      "fact": "planning.proposed_lots",
+      "op": "greater_equal",
+      "value": 2
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified. Whether every subdivision is discretionary wasn't confirmed.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You need a planning permit to subdivide",
+       "detail": "Subdivision needs a planning permit from council under the Tasmanian Planning Scheme. A registered land surveyor usually prepares the plan. Most subdivisions are discretionary: advertised for 14 days and decided in 42 days. Example fee: $959 plus $223 per lot at Kingborough Council in 2026-27.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "PLAN_OF_SUBDIVISION",
+          "title": "Proposed plan of subdivision from a registered land surveyor"
+         },
+         {
+          "kind": "CERTIFICATE_OF_TITLE",
+          "title": "Current title search"
+         }
+        ],
+        "referral_categories": [
+         "cadastral_surveyor",
+         "town_planner"
+        ],
+        "task": "Engage a registered land surveyor to prepare the subdivision plan"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "subdivision_process",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "permits_detail",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "kingborough_fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Two lots",
+       "facts": {
+        "planning.proposed_lots": 2
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "One lot",
+       "facts": {
+        "planning.proposed_lots": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "sealing",
+     "title": "Sealing the final plan",
+     "condition": {
+      "fact": "planning.proposed_lots",
+      "op": "greater_equal",
+      "value": 2
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Council must seal your final plan before new titles",
+       "detail": "Once the permit conditions and any works are done, your surveyor gives council the final plan of survey. Council seals it when conditions are met and fees are paid. The sealed plan is then lodged with the Land Titles Office to create the new titles. Budget for a public open space contribution (often about 5% of land value) and TasWater and engineering costs.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_SUBDIVISION_SEALING",
+         "authority": "Your local council (seals the final plan), then the Land Titles Office (registers it)",
+         "pathway": "Sealing of the final plan under the Local Government (Building and Miscellaneous Provisions) Act 1993",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "cadastral_surveyor",
+         "lawyer"
+        ],
+        "task": "Budget for works, open space contribution and the sealing fee"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "subdivision_process",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "kingborough_fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Three lots",
+       "facts": {
+        "planning.proposed_lots": 3
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "One lot",
+       "facts": {
+        "planning.proposed_lots": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bushfire_subdivision",
+     "title": "Bushfire and subdivision",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "bushfire"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Bushfire-prone land affects subdivision design",
+       "detail": "Subdividing bushfire-prone land usually needs a bushfire hazard management plan from an accredited practitioner, covering access, water supply and hazard management areas for each lot.",
+       "payload": {
+        "referral_categories": [
+         "town_planner",
+         "cadastral_surveyor"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bushfire_guide",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Bushfire",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "planning.known_constraints": [
+         "easement"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.tas.change_of_use",
+   "vertical": "PLANNING",
+   "jurisdiction": "TAS",
+   "title": "Tasmania: change of use",
+   "description": "Planning permit, building approval and occupancy permit for a change of use.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "change_of_use"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or which codes apply to your land, so we can't say whether your project is exempt, no permit required, permitted or discretionary.",
+    "The Tasmanian Planning Scheme's zone and code rules are not encoded. The LIST map (LISTmap) shows your zone and code overlays.",
+    "Constraints like heritage, bushfire, flooding and landslip come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "change_of_use_planning",
+     "title": "A change of use may need a planning permit",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a planning permit for the new use",
+       "detail": "Each zone in the Tasmanian Planning Scheme says whether a use is no permit required, permitted, discretionary or prohibited. Check your zone on the LIST map and the use table for the zone, then ask council. Example fee: $382 for a change of use only at Kingborough Council in 2026-27.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Check the use table for your zone"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "kingborough_fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "change_of_use_building",
+     "title": "Building approval for a change of use",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need building approval and an occupancy permit",
+       "detail": "If the new use changes the building's class under the National Construction Code, or needs building work, a building surveyor must assess it and you may need a building permit and an occupancy permit before people use it.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_CERTIFICATE_OF_LIKELY_COMPLIANCE",
+         "authority": "A licensed building surveyor you engage",
+         "pathway": "Certificate of likely compliance under the Building Act 2016 (notifiable or permit building work)",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "building_certifier"
+        ],
+        "task": "Ask a building surveyor whether the building's class changes"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_categories",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "act_guide_process",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "change_of_use_occupancy",
+     "title": "Occupancy permit for a change of use",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need an occupancy permit",
+       "detail": "If building work or a change of class is involved, don't open or occupy until your building surveyor issues an occupancy permit.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_OCCUPANCY_PERMIT",
+         "authority": "Your building surveyor (occupancy permit) and council's permit authority (certificate of completion)",
+         "pathway": "Occupancy permit and certificate of completion under the Building Act 2016",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "act_guide_process",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.tas.general",
+   "vertical": "PLANNING",
+   "jurisdiction": "TAS",
+   "title": "Tasmania: every project",
+   "description": "Steps that apply to every planning project in Tasmania.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or which codes apply to your land, so we can't say whether your project is exempt, no permit required, permitted or discretionary.",
+    "The Tasmanian Planning Scheme's zone and code rules are not encoded. The LIST map (LISTmap) shows your zone and code overlays.",
+    "Constraints like heritage, bushfire, flooding and landslip come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, a building surveyor or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "list_lookup",
+     "title": "Start with the LIST map",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Look up your zone and codes on the LIST map",
+       "detail": "The free LIST map (LISTmap) shows your zone and code overlays under the Tasmanian Planning Scheme. PlanBuild Tasmania's free property enquiry service also gives a property report. Then read your zone in the scheme and ask your council's duty planner.",
+       "payload": {
+        "task": "Look up your property on the LIST map"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Any project",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "other_project",
+     "title": "Other projects",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "other"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Your project may need a planning permit",
+       "detail": "Some minor work is exempt under clause 4 of the Tasmanian Planning Scheme, and some building work is low risk. We can't tell from the description. Ask your council whether you need a planning permit, and a building surveyor whether the work is low risk, notifiable or permit work.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_PLANNING_PERMIT",
+         "authority": "Your local council (the planning authority)",
+         "pathway": "Planning permit under the Land Use Planning and Approvals Act 1993, assessed against the Tasmanian Planning Scheme",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner",
+         "building_certifier"
+        ],
+        "task": "Ask council whether your project is exempt"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "building_categories",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Other",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "other_project_building",
+     "title": "Building approval for other projects",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "other"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a building surveyor's certificate",
+       "detail": "Sheds, decks, carports and similar work can be low risk, notifiable or permit work depending on size and location. Notifiable and permit work need a certificate of likely compliance from a building surveyor before work starts.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_CERTIFICATE_OF_LIKELY_COMPLIANCE",
+         "authority": "A licensed building surveyor you engage",
+         "pathway": "Certificate of likely compliance under the Building Act 2016 (notifiable or permit building work)",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "building_certifier"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "building_categories",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Other",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

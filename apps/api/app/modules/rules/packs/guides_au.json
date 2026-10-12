@@ -46,6 +46,12 @@
       "jurisdiction": "NSW"
     },
     {
+      "ref": "consumer_building_and_occupational_services_depart",
+      "name": "Consumer, Building and Occupational Services (Department of Justice, Tasmania)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
       "ref": "consumer_and_business_services_attorney_general_s_",
       "name": "Consumer and Business Services (Attorney-General's Department, SA)",
       "kind": "STATE_AGENCY",
@@ -100,6 +106,12 @@
       "jurisdiction": "QLD"
     },
     {
+      "ref": "department_for_education_children_and_young_people",
+      "name": "Department for Education, Children and Young People (Tasmania)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
       "ref": "victorian_early_childhood_regulatory_authority",
       "name": "Victorian Early Childhood Regulatory Authority",
       "kind": "STATE_AGENCY",
@@ -142,10 +154,28 @@
       "jurisdiction": "NSW"
     },
     {
+      "ref": "city_of_hobart",
+      "name": "City of Hobart",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
+      "ref": "department_of_health_tasmania",
+      "name": "Department of Health (Tasmania)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
       "ref": "nsw_food_authority",
       "name": "NSW Food Authority",
       "kind": "STATE_AGENCY",
       "jurisdiction": "NSW"
+    },
+    {
+      "ref": "department_of_treasury_and_finance_tasmania",
+      "name": "Department of Treasury and Finance (Tasmania)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
     },
     {
       "ref": "racing_gaming_and_liquor",
@@ -208,6 +238,12 @@
       "jurisdiction": "SA"
     },
     {
+      "ref": "worksafe_tasmania",
+      "name": "WorkSafe Tasmania",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
       "ref": "workcover_wa",
       "name": "WorkCover WA",
       "kind": "STATE_AGENCY",
@@ -262,6 +298,12 @@
       "jurisdiction": "SA"
     },
     {
+      "ref": "state_revenue_office_tasmania",
+      "name": "State Revenue Office (Tasmania)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
       "ref": "state_revenue_office_victoria_and_ablis",
       "name": "State Revenue Office Victoria and ABLIS",
       "kind": "STATE_AGENCY",
@@ -290,6 +332,12 @@
       "name": "Consumer Affairs Victoria",
       "kind": "STATE_AGENCY",
       "jurisdiction": "VIC"
+    },
+    {
+      "ref": "consumer_affairs_tasmania",
+      "name": "Consumer Affairs Tasmania",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
     },
     {
       "ref": "australian_industrial_chemicals_introduction_schem",
@@ -376,6 +424,12 @@
       "jurisdiction": "CTH"
     },
     {
+      "ref": "marine_and_safety_tasmania_mast",
+      "name": "Marine and Safety Tasmania (MAST)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
       "ref": "department_of_planning_lands_and_heritage_western_",
       "name": "Department of Planning, Lands and Heritage (Western Australia)",
       "kind": "STATE_AGENCY",
@@ -394,10 +448,28 @@
       "jurisdiction": "VIC"
     },
     {
+      "ref": "state_planning_office_tasmania",
+      "name": "State Planning Office (Tasmania)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
       "ref": "plansa_government_of_south_australia",
       "name": "PlanSA (Government of South Australia)",
       "kind": "STATE_AGENCY",
       "jurisdiction": "SA"
+    },
+    {
+      "ref": "heritage_tasmania",
+      "name": "Heritage Tasmania",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
+      "ref": "consumer_building_and_occupational_services_cbos_t",
+      "name": "Consumer, Building and Occupational Services (CBOS), Tasmania",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
     },
     {
       "ref": "building_and_plumbing_commission_victoria",
@@ -410,6 +482,18 @@
       "name": "Building and Energy (Government of Western Australia)",
       "kind": "STATE_AGENCY",
       "jurisdiction": "WA"
+    },
+    {
+      "ref": "your_local_council",
+      "name": "Your local council",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
+    },
+    {
+      "ref": "transport_tasmania",
+      "name": "Transport Tasmania",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "TAS"
     }
   ],
   "documents": [
@@ -734,6 +818,38 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "tas_builder_licence_doc1",
+      "organisation": "consumer_building_and_occupational_services_depart",
+      "jurisdiction": "TAS",
+      "title": "ABLIS: Building Services Provider Licences",
+      "url": "https://ablis.business.gov.au/service/tas/building-services-provider-licence/7394",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_builder_licence_doc2",
+      "organisation": "consumer_building_and_occupational_services_depart",
+      "jurisdiction": "TAS",
+      "title": "Licence fees",
+      "url": "https://consumeraffairs.tas.gov.au/topics/licensing-and-registration/fees",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_builder_licence_doc3",
+      "organisation": "consumer_building_and_occupational_services_depart",
+      "jurisdiction": "TAS",
+      "title": "Occupational Licensing (Building Services Work) Regulations 2016",
+      "url": "https://www.legislation.tas.gov.au/view/whole/html/inforce/current/sr-2016-112",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_builder_licence_doc4",
+      "organisation": "consumer_building_and_occupational_services_depart",
+      "jurisdiction": "TAS",
+      "title": "CBOS residential building consumer guide",
+      "url": "https://www.cbos.tas.gov.au/__data/assets/pdf_file/0020/405038/Residential_Consumer_Guide_Digital_Final.PDF",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "sa_building_work_contractor_licence_doc1",
       "organisation": "consumer_and_business_services_attorney_general_s_",
       "jurisdiction": "SA",
@@ -814,6 +930,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "tas_plumbing_licence_doc1",
+      "organisation": "consumer_building_and_occupational_services_depart",
+      "jurisdiction": "TAS",
+      "title": "ABLIS: Plumbing Contractor Licence",
+      "url": "https://ablis.business.gov.au/service/tas/plumbing-contractor-licence/7833",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "sa_plumbing_gas_electrical_licence_doc1",
       "organisation": "consumer_and_business_services_attorney_general_s_",
       "jurisdiction": "SA",
@@ -851,6 +975,14 @@
       "jurisdiction": "WA",
       "title": "Electrical contractor's licence application",
       "url": "https://www.wa.gov.au/government/multi-step-guides/electrical-contractor-licensing/electrical-contractors-licence-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_electrical_licence_doc1",
+      "organisation": "consumer_building_and_occupational_services_depart",
+      "jurisdiction": "TAS",
+      "title": "ABLIS: Electrical Practitioner's Licence",
+      "url": "https://ablis.business.gov.au/service/tas/electrical-practitioner-licence/7711",
       "source_type": "WEBPAGE"
     },
     {
@@ -1075,6 +1207,14 @@
       "jurisdiction": "QLD",
       "title": "ACECQA: Increases to fees and offence penalties (extra-large category)",
       "url": "https://www.acecqa.gov.au/sites/default/files/2023-09/Increases%20to%20fees%20and%20offence%20penalties%2091_92.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_education_care_service_approval_doc1",
+      "organisation": "department_for_education_children_and_young_people",
+      "jurisdiction": "TAS",
+      "title": "ABLIS: Service Approval (Tasmania)",
+      "url": "https://ablis.business.gov.au/service/tas/service-approval/30066",
       "source_type": "WEBPAGE"
     },
     {
@@ -1326,6 +1466,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "tas_food_business_registration_doc1",
+      "organisation": "city_of_hobart",
+      "jurisdiction": "TAS",
+      "title": "City of Hobart: Food businesses",
+      "url": "https://www.hobartcity.com.au/Business/Food-and-beverage-businesses/Food-businesses",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_food_business_registration_doc2",
+      "organisation": "city_of_hobart",
+      "jurisdiction": "TAS",
+      "title": "Department of Health: Food safety for businesses",
+      "url": "https://www.health.tas.gov.au/health-topics/food-safety/food-safety-businesses-and-community-organisations",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "wa_food_business_registration_doc1",
       "organisation": "department_of_health_wa",
       "jurisdiction": "WA",
@@ -1403,6 +1559,22 @@
       "jurisdiction": "SA",
       "title": "Application fees: restaurant and catering licence",
       "url": "https://www.sa.gov.au/topics/business-and-trade/liquor/apply/restaurant-and-catering/drawer-restaurant-and-catering-licence-fees",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_liquor_licence_doc1",
+      "organisation": "department_of_treasury_and_finance_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Liquor licences: submitting an application",
+      "url": "https://www.treasury.tas.gov.au/liquor-and-gaming/liquor/licences/submitting-an-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_liquor_licence_doc2",
+      "organisation": "department_of_treasury_and_finance_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Liquor fees",
+      "url": "https://www.treasury.tas.gov.au/liquor-and-gaming/fees/liquor-fees",
       "source_type": "WEBPAGE"
     },
     {
@@ -1566,6 +1738,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "tas_public_health_risk_activity_licence_doc1",
+      "organisation": "city_of_hobart",
+      "jurisdiction": "TAS",
+      "title": "ABLIS: Licence to Carry Out a Public Health Risk Activity",
+      "url": "https://ablis.business.gov.au/service/tas/licence-to-carry-out-a-public-health-risk-activity/7877",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_public_health_risk_activity_licence_doc2",
+      "organisation": "city_of_hobart",
+      "jurisdiction": "TAS",
+      "title": "ABLIS: Registration of Premises Used for a Public Health Risk Activity (Hobart)",
+      "url": "https://ablis.business.gov.au/service/tas/registration-of-premises-used-for-a-public-health-risk-activity-hobart-city-council/9028",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "wa_alfresco_dining_permit_doc1",
       "organisation": "city_of_perth_example",
       "jurisdiction": "WA",
@@ -1614,6 +1802,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "tas_outdoor_dining_permit_doc1",
+      "organisation": "city_of_hobart",
+      "jurisdiction": "TAS",
+      "title": "ABLIS: Permit to Establish an Outdoor Dining Facility (Hobart)",
+      "url": "https://ablis.business.gov.au/service/tas/permit-to-establish-an-outdoor-dining-facility-hobart-city-council/7972",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "nsw_tobacco_retail_licence_doc1",
       "organisation": "nsw_health",
       "jurisdiction": "NSW",
@@ -1643,6 +1839,22 @@
       "jurisdiction": "SA",
       "title": "ReturnToWorkSA: Register for cover",
       "url": "https://www.rtwsa.com/insurance/insurance-with-us/register",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_workers_compensation_insurance_doc1",
+      "organisation": "worksafe_tasmania",
+      "jurisdiction": "TAS",
+      "title": "A Guide to Workers Rehabilitation and Compensation in Tasmania",
+      "url": "https://www.worksafe.tas.gov.au/__data/assets/pdf_file/0005/541157/Guide-to-Workers-Rehab-and-Comp-in-Tas_Dec-2024.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_workers_compensation_insurance_doc2",
+      "organisation": "worksafe_tasmania",
+      "jurisdiction": "TAS",
+      "title": "WorkSafe Tasmania: List of licensed insurers",
+      "url": "https://worksafe.tas.gov.au/topics/compensation/workers-compensation/information-for-licensed-insurers/list-of-licensed-insurers",
       "source_type": "WEBPAGE"
     },
     {
@@ -1926,6 +2138,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "tas_payroll_tax_registration_doc1",
+      "organisation": "state_revenue_office_tasmania",
+      "jurisdiction": "TAS",
+      "title": "State Revenue Office: Rates and thresholds",
+      "url": "https://www.sro.tas.gov.au/payroll-tax/rates-thresholds",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "vic_payroll_tax_registration_doc1",
       "organisation": "state_revenue_office_victoria_and_ablis",
       "jurisdiction": "VIC",
@@ -2107,6 +2327,30 @@
       "jurisdiction": "VIC",
       "title": "New changes to the rental laws",
       "url": "https://www.consumer.vic.gov.au/housing/renting/new-changes-to-the-rental-laws",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_bond_lodgement_doc1",
+      "organisation": "consumer_affairs_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Rental bond lodgement",
+      "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/bonds/lodgement",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_bond_lodgement_doc2",
+      "organisation": "consumer_affairs_tasmania",
+      "jurisdiction": "TAS",
+      "title": "MyBond: owners",
+      "url": "https://consumeraffairs.tas.gov.au/topics/housing/mybond/owners",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_bond_lodgement_doc3",
+      "organisation": "consumer_affairs_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Residential Tenancy Act 1997, section 25",
+      "url": "https://www.legislation.tas.gov.au/view/whole/html/inforce/current/act-1997-082",
       "source_type": "WEBPAGE"
     },
     {
@@ -3686,6 +3930,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "tas_vessel_registration_doc1",
+      "organisation": "marine_and_safety_tasmania_mast",
+      "jurisdiction": "TAS",
+      "title": "MAST: How to register a motor boat or PWC",
+      "url": "https://mast.tas.gov.au/recreational-boating/how-to-register-a-boat/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_vessel_registration_doc2",
+      "organisation": "marine_and_safety_tasmania_mast",
+      "jurisdiction": "TAS",
+      "title": "MAST: Forms and fees",
+      "url": "https://mast.tas.gov.au/fees-and-forms/",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "wa_vessel_registration_doc1",
       "organisation": "department_of_transport_and_major_infrastructure",
       "jurisdiction": "WA",
@@ -3806,6 +4066,30 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "tas_motor_boat_licence_doc1",
+      "organisation": "marine_and_safety_tasmania_mast",
+      "jurisdiction": "TAS",
+      "title": "MAST: Licensing",
+      "url": "https://mast.tas.gov.au/recreational-boating/licensing/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_motor_boat_licence_doc2",
+      "organisation": "marine_and_safety_tasmania_mast",
+      "jurisdiction": "TAS",
+      "title": "MAST: How to obtain a motor boat licence",
+      "url": "https://mast.tas.gov.au/recreational-boating/licensing/licence-registration/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_motor_boat_licence_doc3",
+      "organisation": "marine_and_safety_tasmania_mast",
+      "jurisdiction": "TAS",
+      "title": "MAST: PWC endorsement",
+      "url": "https://mast.tas.gov.au/recreational-boating/licensing/pwcs/",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "wa_skippers_ticket_doc1",
       "organisation": "department_of_transport_and_major_infrastructure",
       "jurisdiction": "WA",
@@ -3883,6 +4167,38 @@
       "jurisdiction": "NSW",
       "title": "Contact us (NSW Planning Portal)",
       "url": "https://www.planningportal.nsw.gov.au/support/contact-us",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_planning_permit_doc1",
+      "organisation": "state_planning_office_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Council assessment pathways (State Planning Office)",
+      "url": "https://www.stateplanning.tas.gov.au/getting-started/council-assessment-pathways",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_planning_permit_doc2",
+      "organisation": "state_planning_office_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Permits: Tasmanian Planning Scheme (State Planning Office)",
+      "url": "https://www.stateplanning.tas.gov.au/planning-system/tasmanian-planning-scheme/permits",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_planning_permit_doc3",
+      "organisation": "state_planning_office_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Housing (State Planning Office)",
+      "url": "https://www.stateplanning.tas.gov.au/topics/housing",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_planning_permit_doc4",
+      "organisation": "state_planning_office_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Kingborough Council fees and charges 2026-27",
+      "url": "https://assets.kingborough.tas.gov.au/uploads/2025/06/KC-Fees-Charges-2026-27-1.pdf",
       "source_type": "WEBPAGE"
     },
     {
@@ -3979,6 +4295,46 @@
       "jurisdiction": "NSW",
       "title": "NSW Government: Mooring fees",
       "url": "https://www.nsw.gov.au/driving-boating-and-transport/using-waterways-boating-and-transport-information/mooring-type-licence-and-fees/mooring-fees-and-charges",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_heritage_works_approval_doc1",
+      "organisation": "heritage_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Getting approval: works to heritage places (Heritage Tasmania)",
+      "url": "https://heritage.tas.gov.au/works-and-development/getting-approval",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_certificate_of_likely_compliance_doc1",
+      "organisation": "consumer_building_and_occupational_services_cbos_t",
+      "jurisdiction": "TAS",
+      "title": "Building and plumbing (PlanBuild Tasmania)",
+      "url": "https://www.planbuild.tas.gov.au/enquiry-service/property-development/building-and-plumbing",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_certificate_of_likely_compliance_doc2",
+      "organisation": "consumer_building_and_occupational_services_cbos_t",
+      "jurisdiction": "TAS",
+      "title": "Guide to the Building Act 2016 (CBOS)",
+      "url": "https://www.cbos.tas.gov.au/__data/assets/pdf_file/0003/405039/Guide_to_the_Building_Act_2016.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_certificate_of_likely_compliance_doc3",
+      "organisation": "consumer_building_and_occupational_services_cbos_t",
+      "jurisdiction": "TAS",
+      "title": "Application for Certificate of Likely Compliance (Building): user guide (PlanBuild Tasmania)",
+      "url": "https://www.planbuild.tas.gov.au/__data/assets/pdf_file/0004/757075/Application-for-Certificate-of-Likely-Compliance-Building-User-Guide.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_certificate_of_likely_compliance_doc4",
+      "organisation": "consumer_building_and_occupational_services_cbos_t",
+      "jurisdiction": "TAS",
+      "title": "Central Highlands Council building and plumbing fees 2026-2027",
+      "url": "https://centralhighlands.tas.gov.au/wp-content/uploads/Building-Plumbing-Fees-2026-2027.pdf",
       "source_type": "WEBPAGE"
     },
     {
@@ -4166,11 +4522,67 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "tas_subdivision_sealing_doc1",
+      "organisation": "your_local_council",
+      "jurisdiction": "TAS",
+      "title": "Subdivisions and strata (George Town Council)",
+      "url": "https://georgetown.tas.gov.au/subdivisions-strata",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_subdivision_sealing_doc4",
+      "organisation": "your_local_council",
+      "jurisdiction": "TAS",
+      "title": "Planning and Building in Bushfire-Prone Areas (Tasmania Fire Service)",
+      "url": "https://www.fire.tas.gov.au/userfiles/madisons/file/20200903%20-%20Building%20for%20Bushfire%20Booklet%209/200233%20TFS%20Building%20for%20Bushfire%20booklet_9%20June.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "wa_subdivision_approval_doc1",
       "organisation": "department_of_planning_lands_and_heritage_western_",
       "jurisdiction": "WA",
       "title": "Guide to subdivision applications and fees (WAPC)",
       "url": "https://www.wa.gov.au/system/files/2023-07/guide_to_subdivision_applications_and_fees_june2023.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_vehicle_registration_doc1",
+      "organisation": "transport_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Transport Tasmania: Importing a road vehicle",
+      "url": "https://www.transport.tas.gov.au/registration/buying_selling_or_transferring/importing_a_road_vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_vehicle_registration_doc2",
+      "organisation": "transport_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Service Tasmania: Apply to register an imported vehicle",
+      "url": "https://service.tas.gov.au/services/transport/vehicle-registration/apply-to-register-an-imported-vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_vehicle_registration_doc3",
+      "organisation": "transport_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Registration fees",
+      "url": "https://www.transport.tas.gov.au/registration/registration_fees",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_vehicle_registration_doc4",
+      "organisation": "transport_tasmania",
+      "jurisdiction": "TAS",
+      "title": "Motor vehicle duty rates",
+      "url": "https://www.transport.tas.gov.au/registration/registration_fees/accordion/duty_rates",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_motor_vehicle_trader_licence_doc1",
+      "organisation": "consumer_building_and_occupational_services_depart",
+      "jurisdiction": "TAS",
+      "title": "ABLIS: Motor Vehicle Trader Licence",
+      "url": "https://ablis.business.gov.au/service/tas/motor-vehicle-trader-licence/7849",
       "source_type": "WEBPAGE"
     }
   ],
@@ -4232,6 +4644,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Processing times and the assessment fee split were not published on the pages read."
     },
     {
+      "ref": "tas_builder_licence_guide",
+      "document": "tas_builder_licence_doc1",
+      "section": "Approval guide: TAS_BUILDER_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting a builder licence (TAS) (CBOS (now Consumer Affairs Tasmania and Building Standards Tasmania)).\nIn Tasmania anyone who performs building work, other than low-risk work under the Building Act 2016, must hold a building services provider licence as a builder under the Occupational Licensing Act 2005. Companies and partnerships nominate a licensed person.\nTimeframe: About 21 business days.\nCost: Builder licence from 1 July 2026: $470.40 for 1 year or $1,231.95 for 3 years.\nBefore you start: Check your qualifications, experience and competencies match the builder licence category you need.\nBefore you start: Arrange the insurance the licence requires.\nBefore you start: Have proof of identity ready for CBOS.\nBefore you start: Plan for continuing professional development each year.\nStep 1: Apply online. Use the Tasmanian occupational licence online application and choose the builder category. (time: 1 hour)\nStep 2: Pay the fee. Pay the licence fee for 1 or 3 years. (cost: $1,231.95)\nStep 3: Wait for approval. CBOS assesses your qualifications, fitness and finances. (time: 21 business days)\nStep 4: Renew on time. Renew online before your licence expires.\nFee: Builder licence (1 year): $470.40 (From 1 July 2026)\nFee: Builder licence (3 years): $1,231.95 (From 1 July 2026)\nContact: CBOS (now Consumer Affairs Tasmania and Building Standards Tasmania): 1300 654 499, cbos.info@justice.tas.gov.au\nWatch out: Home building jobs of $20,000 or more also need a written contract that meets the Residential Building Work Contracts and Dispute Resolution Act 2016, and you must give the owner the CBOS residential building consumer guide.\nWatch out: Licensed builders from other states may be covered by automatic mutual recognition.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The CBOS builder licence pages could not be read, so builder categories and insurance amounts are not confirmed. The exact line between low-risk work and work needing a licensed builder is set by the Building Act 2016 and a Director's determination, which we didn't read. CBOS's functions moved into Consumer Affairs Tasmania and Building Standards Tasmania on 1 October 2026; which new agency handles this licence, and whether the phone and email changed, was not confirmed."
+    },
+    {
       "ref": "sa_building_work_contractor_licence_guide",
       "document": "sa_building_work_contractor_licence_doc1",
       "section": "Approval guide: SA_BUILDING_WORK_CONTRACTOR_LICENCE",
@@ -4251,6 +4670,13 @@
       "section": "Approval guide: WA_PLUMBING_LICENCE",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Plumbing contractor's licence (WA) (Plumbers Licensing Board (through Building and Energy, LGIRS)).\nPlumbing businesses in WA need a plumbing contractor's licence from the Plumbers Licensing Board, which lets you take responsibility for plumbing work and supervise tradespeople. You must first hold a tradesperson's licence (or a drainage plumbing tradesperson's licence) and complete business units of competency.\nTimeframe: Usually 4 to 6 weeks. Licences last 3 years.\nCost: Plumbing contractor's licence A$928; tradesperson's licence A$334 (3 years, 2026-27, excluding GST).\nBefore you start: Hold a tradesperson's licence and your statements of competency (water supply, sanitary and/or drainage).\nBefore you start: Complete the business unit 'Establish legal and risk management requirements of small business' and the units for your category.\nBefore you start: Get a police check dated within 3 months and a passport-style photo.\nStep 1: Check the units for your category. Read the requirements for your chosen contractor category. (time: 30 minutes)\nStep 2: Apply. Apply online, or post Plumbers Licensing Board Form 101 to Licensing Services, Locked Bag 14, Cloisters Square WA 6850, or lodge in person at Cannington. (cost: A$928; form: Apply for a new plumbing contractor's licence)\nStep 3: Wait for your licence. You'll be emailed when it's finalised. (time: 4 to 6 weeks)\nFee: Plumbing contractor's licence: A$928 (Registration A$846 plus application A$82; 3 years.)\nFee: Tradesperson's licence: A$334 (3 years.)\nContact: Plumbers Licensing Board (Licensing Services): 1300 489 099, plumbers@lgirs.wa.gov.au\nWatch out: Gas fitting needs a separate gas licence from Building and Energy.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: A direct PDF link for Plumbers Licensing Board Form 101 was not captured."
+    },
+    {
+      "ref": "tas_plumbing_licence_guide",
+      "document": "tas_plumbing_licence_doc1",
+      "section": "Approval guide: TAS_PLUMBING_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Plumbing licences (TAS) (CBOS (now Consumer Affairs Tasmania and Building Standards Tasmania)).\nPlumbing work in Tasmania must be done by a licensed plumber practitioner. To contract plumbing work to the public, a business or government, you also need a plumbing contractor licence.\nTimeframe: About 21 business days.\nCost: From 1 July 2026: practitioner $352.80 for 3 years; sole trader contractor $1,499.40 for 3 years.\nBefore you start: Check your qualifications match the type of plumbing work you'll do.\nBefore you start: Contractors need at least $5 million public liability insurance for any one occurrence.\nBefore you start: Contractors nominate a licensed practitioner as manager.\nStep 1: Apply online. Use the Tasmanian occupational licence online application for your practitioner licence, and your contractor licence if you'll contract work. (time: 1 hour)\nStep 2: Prove your identity. Follow CBOS's proof of identity steps.\nStep 3: Pay and wait for approval. Pay the fees for each licence. (time: 21 business days; cost: $1,499.40)\nFee: Plumber practitioner (1 year): $133.28\nFee: Plumber practitioner (3 years): $352.80\nFee: Plumbing contractor, sole trader (1 year): $529.20\nFee: Plumbing contractor, sole trader (3 years): $1,499.40\nContact: CBOS (now Consumer Affairs Tasmania and Building Standards Tasmania): 1300 654 499, cbos.info@justice.tas.gov.au\nWatch out: Interstate plumbers may be covered by automatic mutual recognition; CBOS publishes a guide.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Company contractor fees were not read. CBOS's functions moved into Consumer Affairs Tasmania and Building Standards Tasmania on 1 October 2026; which new agency handles this licence, and whether the phone and email changed, was not confirmed."
     },
     {
       "ref": "nsw_plumbing_gasfitting_licence_guide",
@@ -4286,6 +4712,13 @@
       "section": "Approval guide: WA_ELECTRICAL_CONTRACTOR_LICENCE",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Electrical contractor's licence (WA) (Building and Energy (LGIRS)).\nTo carry on a business of electrical work in WA you need an electrical contractor's licence from Building and Energy. The applicant or an employee must hold a WA electrician's licence and act as nominee, a management representative must understand the regulations, and you need public liability insurance.\nTimeframe: No set processing time; you'll be emailed when the licence is finalised.\nCost: A$795 for 1 year or A$2,101 for 3 years (2026-27, excluding GST).\nBefore you start: Your nominee needs a WA electrician's licence and the Electrical Contractor Training Program modules on legislative and electrical requirements.\nBefore you start: Your management representative needs the General Legislative Requirements and Establishing a Contracting Business modules (usually within the last 5 years).\nBefore you start: Get a public liability certificate of currency in the legal entity's name, issued within 30 days.\nStep 1: Complete the training. Finish the Electrical Contractor Training Program modules. (time: Days to weeks; cost: Set by provider)\nStep 2: Apply. Apply online, or lodge Form R013A (individual), Form R013B (partnership) or Form R013C (company) by post or in person. (cost: A$795 or A$2,101; form: Electrical contractor's licence application)\nStep 3: Keep insurance current. Maintain public liability insurance while licensed. (time: Ongoing)\nFee: Electrical contractor's licence, 1 year: A$795\nFee: Electrical contractor's licence, 3 years: A$2,101\nFee: Electrician's licence: A$218 (1 year) or A$714 (5 years)\nContact: Building and Energy Licensing Services (electrical): (08) 6251 2000, electricallicensing@lgirs.wa.gov.au\nWatch out: The certificate of currency must be in the entity's legal name, not a trust or trading name.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Minimum insurance amount was not stated on the page read."
+    },
+    {
+      "ref": "tas_electrical_licence_guide",
+      "document": "tas_electrical_licence_doc1",
+      "section": "Approval guide: TAS_ELECTRICAL_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Electrical licences (TAS) (CBOS (now Consumer Affairs Tasmania and Building Standards Tasmania)).\nAnyone who does electrical work in Tasmania, including employees, needs an electrical practitioner licence. A business that contracts electrical work also needs an electrical contractor licence.\nTimeframe: About 21 business days.\nCost: 2026-27: practitioner $411.60 for 3 years; contractor $646.80 a year.\nBefore you start: Check you meet the qualification, experience and training requirements.\nBefore you start: Plan for continuing professional development.\nStep 1: Apply online. Use the Tasmanian occupational licence online application for a practitioner licence, and a contractor licence if you'll contract work. (time: 1 hour)\nStep 2: Pay and wait for approval. Pay the fees for each licence. (time: 21 business days; cost: $411.60)\nFee: Electrical practitioner (3 years): $411.60\nFee: Electrical contractor (1 year): $646.80\nFee: Provisional licence (1 year): $294\nContact: CBOS (now Consumer Affairs Tasmania and Building Standards Tasmania): 1300 654 499, cbos.info@justice.tas.gov.au\nWatch out: Interstate electricians may be covered by automatic mutual recognition.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Electrical contractor licence requirements (such as insurance) were not on the pages read. CBOS's functions moved into Consumer Affairs Tasmania and Building Standards Tasmania on 1 October 2026; which new agency handles this licence, and whether the phone and email changed, was not confirmed."
     },
     {
       "ref": "electrical_contractor_licence_guide",
@@ -4358,6 +4791,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: ACECQA's Qld fees page does not state the fee year and its address contains 'test'; it was published 25 June 2026, so the fees are most likely 2026-27. Confirm before paying. The number of approved places for small, medium and large centre-based services was not found; only extra-large (101 or more places, or 61 or more family day care educators) was confirmed. No Cairns or Far North Queensland regional office contact was confirmed on the pages read. The exact NQA IT System login URL was not confirmed on a page read; search ACECQA for 'NQA IT System'."
     },
     {
+      "ref": "tas_education_care_service_approval_guide",
+      "document": "tas_education_care_service_approval_doc1",
+      "section": "Approval guide: TAS_EDUCATION_CARE_SERVICE_APPROVAL",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Approval to run an education and care service (TAS) (Education and Care Unit (Department for Education, Children and Young People)).\nCentre-based care and family day care for children under 13 in Tasmania run under the Education and Care Services National Law. The Education and Care Unit in the Department for Education, Children and Young People is the regulatory authority. You need provider approval, then service approval for each service.\nTimeframe: Up to 90 days for service approval, unless you agree to extend.\nCost: Application fees are set nationally and indexed each year by ACECQA.\nBefore you start: Talk to the Education and Care Unit before you commit to premises.\nBefore you start: Choose your nominated supervisors and get their written consent.\nBefore you start: Read ACECQA's guide to opening a new service.\nStep 1: Create an NQA ITS account. Set up an account in the National Quality Agenda IT System. (time: 30 minutes)\nStep 2: Apply for provider approval. Apply for provider approval first; it's recognised nationally. (cost: See the ACECQA fee schedule)\nStep 3: Apply for service approval. Apply for each service with your nominated supervisors' details and consent. (time: Up to 90 days; cost: See the ACECQA fee schedule)\nFee: Provider and service approval: See the ACECQA fee schedule\nContact: Education and Care Unit: 1800 816 057, ecu.comment@decyp.tas.gov.au, https://educationandcare.tas.gov.au/child-care-services/\nWatch out: You can't operate until both approvals are granted.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: ACECQA's 2026-27 fee amounts were not read."
+    },
+    {
       "ref": "higher_risk_pas_licence_guide",
       "document": "higher_risk_pas_licence_doc1",
       "section": "Approval guide: HIGHER_RISK_PAS_LICENCE",
@@ -4428,6 +4868,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The NSW Food Authority's website blocks automated reading, so this guide relies on business.gov.au and council pages. Check foodauthority.nsw.gov.au before you rely on it. Council notification and inspection fees are set by each council and were not collected statewide. The maximum council inspection fee and any annual administration charge under the Food Regulation 2025 could not be read."
     },
     {
+      "ref": "tas_food_business_registration_guide",
+      "document": "tas_food_business_registration_doc1",
+      "section": "Approval guide: TAS_FOOD_BUSINESS_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering a food business with your council (TAS) (Your local council, under the Food Act 2003 (Tas)).\nUnder the Food Act 2003 (Tas), food premises must be registered by the local council before they open. You apply to your council's environmental health team, an Environmental Health Officer inspects the premises, and the council issues a certificate of registration. You need the certificate before you trade.\nTimeframe: Allow time for an inspection before you open. Talk to your council's Environmental Health Officer early.\nCost: Annual fee set by each council, based on your risk class.\nBefore you start: Find your council: it's the one where your premises is.\nBefore you start: Fit out your premises to the Food Standards Code (Standard 3.2.3) before the inspection.\nBefore you start: Work out whether you need a food safety supervisor under Standard 3.2.2A.\nBefore you start: Buying an existing food business? Many councils offer a pre-purchase inspection.\nStep 1: Find your council's food business page. Search your council's website for 'food business registration'. The Department of Health lists state resources and the food business risk classification system. (time: 15 minutes)\nStep 2: Lodge the application. Lodge your council's food business application with your business, premises and food activity details. In Hobart one online form covers notification, registration and taking over a business. (time: Before you open; cost: Varies: set by each council)\nStep 3: Pass the inspection. For a first registration, an Environmental Health Officer inspects your premises before the certificate is issued. (time: Before you open)\nStep 4: Renew each year. Registrations are annual. In Hobart they expire on 31 May and the council sends you a renewal form and fee. (time: Yearly)\nFee: Food business registration (annual): Varies: set by each council by risk class (low, medium or high)\nContact: Your council's environmental health team\nContact: City of Hobart (example council): 03 6238 2711, coh@hobartcity.com.au\nContact: Public Health Hotline (Department of Health): 1800 671 738, public.health@dhhs.tas.gov.au\nWatch out: Opening before you have the certificate of registration breaks the Food Act 2003.\nWatch out: Food vans need registration too; ask your council how it handles mobile food businesses.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Council fees were not read; Hobart's fees are on its fees and charges page. The Department of Health's 'Establishing a food business' and mobile food business guidelines were not read, so how food vans are registered across councils is not confirmed."
+    },
+    {
       "ref": "wa_food_business_registration_guide",
       "document": "wa_food_business_registration_doc1",
       "section": "Approval guide: WA_FOOD_BUSINESS_REGISTRATION",
@@ -4440,6 +4887,13 @@
       "section": "Approval guide: SA_FOOD_SAFETY_SUPERVISOR",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Appointing a food safety supervisor (SA) (Your local council, under Standard 3.2.2A of the Food Standards Code).\nCafes, restaurants, takeaways, caterers, supermarkets and food vans that handle unpackaged, potentially hazardous food must meet Food Safety Standard 3.2.2A. You must appoint a certified food safety supervisor and make sure food handlers are trained.\nTimeframe: Have a certified supervisor in place before you open.\nCost: Training course fees are set by registered training organisations.\nBefore you start: Check whether your business falls under Standard 3.2.2A (category one or two).\nBefore you start: Choose who will be your supervisor: they should be on site and reasonably available while food is handled.\nStep 1: Get your supervisor certified. Your supervisor completes a recognised food safety supervisor course with a registered training organisation and gets a certificate. (time: 1 to 2 days; cost: Varies: set by the training provider)\nStep 2: Train your food handlers. Every food handler who handles high-risk unpackaged food completes a food safety training course or shows equivalent knowledge. (time: Before they handle food)\nStep 3: Keep records. Keep the supervisor's certificate on site and, if you're category one, records of key food safety controls. (time: Ongoing)\nFee: Supervisor certificate course: Varies: set by the training provider\nContact: Your council's environmental health team\nContact: SA Health: 08 8226 6000, https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/public+health/food+safety+for+businesses/starting+a+food+business\nWatch out: Your council can check your supervisor certificate and training at inspections.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: SA Health's detailed Standard 3.2.2A pages were not read; certificate renewal periods are not confirmed here."
+    },
+    {
+      "ref": "tas_food_safety_supervisor_guide",
+      "document": "tas_food_business_registration_doc1",
+      "section": "Approval guide: TAS_FOOD_SAFETY_SUPERVISOR",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Appointing a food safety supervisor (TAS) (Your local council, under Standard 3.2.2A of the Food Standards Code).\nThe national Food Safety Standard 3.2.2A applies in Tasmania. Cafes, restaurants, takeaways, caterers and food vans that handle unpackaged, potentially hazardous food must appoint a certified food safety supervisor and make sure food handlers are trained.\nTimeframe: Have a certified supervisor in place before you open.\nCost: Course fees are set by registered training organisations; DoFoodSafely handler training is free.\nBefore you start: Check whether your business falls under Standard 3.2.2A (category one or two).\nBefore you start: Choose who will be your supervisor: they should be on site while food is handled.\nStep 1: Get your supervisor certified. Your supervisor completes a recognised food safety supervisor course with a registered training organisation. The Department of Health lists course information. (time: 1 to 2 days; cost: Varies: set by the training provider)\nStep 2: Train your food handlers. Food handlers complete food safety training, such as the free DoFoodSafely course, or show equivalent knowledge. (time: Before they handle food; cost: Free)\nStep 3: Keep records. Keep the supervisor's certificate on site and keep any records the standard requires. (time: Ongoing)\nFee: Supervisor certificate course: Varies: set by the training provider\nFee: DoFoodSafely handler training: Free\nContact: Your council's environmental health team\nContact: Public Health Hotline (Department of Health): 1800 671 738, public.health@dhhs.tas.gov.au\nWatch out: Your council can check your supervisor certificate and training at inspections.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The Department of Health's food safety supervisor page could not be read; certificate renewal periods are not confirmed here."
     },
     {
       "ref": "nsw_food_safety_supervisor_guide",
@@ -4470,6 +4924,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Annual fees and other licence classes (on premises, small venue, general and hotel) were not read. RSA training rules were not on the page read."
     },
     {
+      "ref": "tas_liquor_licence_guide",
+      "document": "tas_liquor_licence_doc1",
+      "section": "Approval guide: TAS_LIQUOR_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting a liquor licence (TAS) (Commissioner for Licensing (Liquor and Gaming Branch, Department of Treasury and Finance)).\nSelling alcohol in Tasmania needs a licence from the Commissioner for Licensing, through the Liquor and Gaming Branch of the Department of Treasury and Finance. Restaurants use an on-licence operating as a restaurant; bars, bottle shops and clubs use other licence types.\nTimeframe: About 4 to 6 weeks from a complete application, longer if there are objections.\nCost: On-licence (restaurant): $784 to apply and $509.60 a year. Other on- and off-licences: $1,568 to apply and $774.20 a year.\nBefore you start: Get council planning approval to sell liquor at the premises first.\nBefore you start: Draw plans showing the licensed area in red.\nBefore you start: Get your responsible service of alcohol (RSA) certificate.\nBefore you start: Prepare ID, a business plan, proof of tenure, photos and your menu.\nStep 1: Complete the application. Fill in the Tasmanian Liquor Licence Application Form. Answer every mandatory question and sign the authority and consent section. (time: 1 to 2 hours)\nStep 2: Lodge it with your documents. Email it to licensing@treasury.tas.gov.au (PDF or Word; photos as JPEG or PNG) or post it to the Commissioner for Licensing, Liquor and Gaming Branch, GPO Box 1374, Hobart TAS 7001, with the fee. (cost: $784)\nStep 3: Advertise. Give public notice in your local newspaper and at the premises. People have 14 days from advertising to lodge submissions for or against; you can respond to objections. (time: 14 days)\nStep 4: Get the decision. The Commissioner for Licensing decides, or refers it to the Tasmanian Liquor and Gaming Commission. (time: 4 to 6 weeks)\nFee: On-licence (operating as a restaurant): application: $784\nFee: On-licence (operating as a restaurant): annual: $509.60\nFee: On-licence: application: $1,568\nFee: On-licence: annual: $774.20\nFee: Off-licence: application: $1,568\nFee: Off-licence: annual: $774.20\nFee: Special permit (annual): $509.60\nContact: Liquor and Gaming Branch (Department of Treasury and Finance): licensing@treasury.tas.gov.au\nWatch out: Your council can restrict trading hours or add conditions when it gives planning approval.\nWatch out: Incomplete applications, objections and public holidays slow things down.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The fee page doesn't state a fee year; it was published 1 July 2026. The application form PDF was not opened; its link came from a search of the Treasury site. No phone number was on the page read."
+    },
+    {
       "ref": "wa_liquor_licence_guide",
       "document": "wa_liquor_licence_doc1",
       "section": "Approval guide: WA_LIQUOR_LICENCE",
@@ -4496,6 +4957,13 @@
       "section": "Approval guide: LIQUOR_LICENCE",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-11; a summary, not the source's wording] How to get: Liquor licence (Queensland) (Office of Liquor and Gaming Regulation (OLGR), Department of Justice (Queensland); Commissioner for Liquor and Gaming decides).\nTo sell or supply alcohol in Queensland you need a liquor licence or permit from the Office of Liquor and Gaming Regulation (OLGR). Cafes and restaurants usually need a commercial other (subsidiary on-premises) licence; small bars, hotels, nightclubs and bottle shops need other types. Most new applications take around 3 months and need advertising, a community impact statement unless waived, and trained staff.\nTimeframe: Most new applications are finalised in around 3 months if everything is lodged and there are no issues; longer if you also apply for gaming machines or there are objections.\nCost: An application fee (set each 1 July in OLGR's fee list) plus a criminal history check fee, then an annual licence fee due by 31 July. The 2026-27 base annual fee for a commercial other licence is 735.30 fee units, about A$833. Extra annual fee components apply for late trading hours and poor compliance history.\nBefore you start: Pick the licence type. Commercial other (subsidiary on-premises): restaurants, cafes, function centres and similar where alcohol is secondary to the main business. Bar licence: small venues where drinking is the main business, seating up to 60. Commercial hotel: hotels and taverns, on and off-premises sales, needs a commercial kitchen and more than 60 seats. Nightclub: live entertainment is the main business. Subsidiary off-premises: takeaway alcohol secondary to the business.\nBefore you start: Restaurants (not cafes) whose main activity is meals can ask for a takeaway wine condition: up to 1.5 litres (two bottles) sold only with a takeaway meal, 10am to 10pm. No other takeaway alcohol is allowed.\nBefore you start: Check your development (planning) approval. It may restrict liquor or takeaway sales, and OLGR asks for town planning consent with the application.\nBefore you start: You, and every person with a financial interest, must be fit and proper. Each individual party completes a personal details schedule and pays for a criminal history check.\nBefore you start: Line up training: an individual licensee and every approved manager needs a current RMLV certificate (renew every 3 years); everyone who serves alcohol needs an RSA certificate.\nBefore you start: Prepare a scale 1:100 layout plan of the licensed area, a location plan, a current title search, the registered survey plan and (for companies) a current company extract. Have your menu ready if you serve food.\nStep 1: Confirm the licence type and conditions. Use Business Queensland's licence types page or the Business Launchpad to confirm which licence fits. Check the conditions that come with it, such as meal service requirements for restaurants, trading hours and the need for a licensee or approved manager on site.\nStep 2: Prepare the application pack. Complete Form 1 (application for a liquor licence), Form 5 (personal details schedule) for each individual party, and Form 6 (registration of financial interest). Attach the 1:100 layout plan, location plan, town planning consent, title search, survey plan and company extract. Tick the options for a craft beer and artisan spirits promotional condition or takeaway wine with meals if you want them. Add an extended trading hours or catering endorsement (Form 18) request if needed. (form: Form 1: Application for a liquor licence)\nStep 3: Prepare a community impact statement (or ask for a waiver). New licences (except community other) and some variations need a community impact statement covering your facilities, the local community area, positive and negative health and social impacts, harm mitigation, and evidence the area will not suffer from too many venues. Hotels, nightclubs, special facilities and trading after 2am also need consultation with residents and businesses within 200 m, a broader community survey and at least 8 key community advisers. Restaurants and cafes in a commercial complex that do not trade between midnight and 1am and have no amplified entertainment may ask the Commissioner in writing to waive it.\nStep 4: Check whether you need a risk-assessed management plan. Some applications need a risk-assessed management plan (RAMP) describing how you will run the venue safely. Check OLGR's RAMP guidance for your licence type.\nStep 5: Lodge and pay. Lodge the application with the prescribed application fee and criminal history check fee. OLGR's fee list is current from 1 July each year. The OLGR client portal is for existing licensees; new applicants follow the lodgement instructions on the application form. (cost: Application fee per OLGR's current fee list)\nStep 6: Advertise the application. After lodging, OLGR may ask you to place a notice on each street frontage for 28 days, using the wording, size and timing OLGR sets. Your application also appears on OLGR's public register. Local government, police and members of the public can comment or object. (time: 28 days; cost: At your expense)\nStep 7: Assessment and decision. OLGR assesses whether you are fit and proper, whether the premises are suitable, community impact, and any objections. If refused you can seek a review at the Queensland Civil and Administrative Tribunal (QCAT). (time: Around 3 months in total)\nStep 8: Train staff before you trade. Make sure the individual licensee and approved managers hold RMLV (an RMLV holder is treated as RSA trained) and that every person who serves or supplies alcohol, including glass collectors and floor staff, holds RSA. (time: RMLV every 3 years; cost: Paid to training providers)\nStep 9: Pay the annual fee each year. Annual fees are charged in advance each financial year and are due by 31 July. Your first fee is pro-rata to 30 June. Pay through the OLGR client portal. If you do not pay on time the licence is suspended, and cancelled if still unpaid 28 days after suspension. (time: Due 31 July each year; cost: From 735.30 fee units for a commercial other licence (2026-27))\nStep 10: One-off events. Licensed hotels, nightclubs and subsidiary licensees catering at public events such as festivals need a commercial public event permit. Clubs and community groups selling to the public at one-off events such as fetes need a community liquor permit (check the exemption self-assessment first). Private functions away from your premises need a catering endorsement on your licence.\nFee: Annual base fee: commercial other licence (includes subsidiary on-premises and bar), not artisan producer: 735.30 fee units (about A$833) (Liquor Regulation 2002 s 36A; fee unit A$1.133 from 1 July 2026; final amount on your fee notice)\nFee: Annual base fee: commercial hotel licence: 3,977 fee units (about A$4,506) (Plus 4,418 fee units for each detached bottle shop)\nFee: Annual base fee: nightclub licence: 3,977 fee units (about A$4,506) (Liquor Regulation 2002 s 36A)\nFee: Annual base fee: artisan producer licence: 1,068 fee units (about A$1,210) (Liquor Regulation 2002 s 36A)\nFee: Annual base fee: community other licence: 371.10 fee units (about A$420) (Liquor Regulation 2002 s 36A)\nFee: Annual risk component: trading midnight to 1am: 2,761 fee units (weekends only) or 3,682 fee units (other) (Liquor Regulation 2002 s 36B, added to the base fee)\nFee: Annual risk component: compliance history: 7,140, 14,290 or 28,570 fee units (Depends on the type of contravention, s 36CA)\nFee: Any application not listed in Schedule 1: 114.50 fee units (about A$130) (Liquor Regulation 2002 s 36D(2))\nContact: Office of Liquor and Gaming Regulation, Licensing: 1300 072 322, OLGRlicensing@justice.qld.gov.au, https://www.justice.qld.gov.au/about-us/services/liquor-gaming/contact-us\nContact: OLGR client portal: https://secure.olgr.qld.gov.au/portal/Account/LogOn?ReturnUrl=%2fportal\nWatch out: You cannot sell or supply alcohol until the licence is granted. Allow about 3 months and do not take function bookings that rely on it.\nWatch out: Buying a licensed business: lodge a transfer (Form 3) 6 to 8 weeks before settlement. The new operator cannot sell alcohol until the transfer is approved.\nWatch out: Unpaid annual fees suspend the licence (and any gaming licence), and it is cancelled if still unpaid 28 days later.\nWatch out: Licensed cafes cannot get the takeaway wine condition; only restaurants whose main activity is meals can.\nWatch out: Check your planning approval: a development condition that restricts liquor or takeaway sales must be changed with Council first.\nWatch out: Serving alcohol on a footpath dining area needs the licensed area to cover it, and Cairns Council needs to see your liquor licence at least 7 days before the footpath permit starts.\nWatch out: Staff without current RSA, or a manager without RMLV, is a breach of the Liquor Act 1992.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: OLGR's current application fee list (publications.qld.gov.au, current as at 1 July 2026) would not load, and the Schedule 1 application fee table in the Liquor Regulation 2002 could not be read, so application fees for each licence type, the community liquor permit, commercial public event permit and approved manager approval are not confirmed. Dollar figures for annual fees are calculated from fee units at A$1.133 (the general fee unit value from 1 July 2026 to 30 June 2027) and may differ slightly due to the regulation's rounding rules; your OLGR fee notice is the final amount. Whether the bar licence uses the same 735.30 fee unit base as other commercial other licences is inferred from the regulation's wording ('commercial other licence, not artisan producer'); confirm with OLGR. No deadline was found on the pages read for new staff to complete RSA after starting work, or for RSA refreshers. The difference between a 'standard' and 'full' community impact statement is explained in OLGR Guideline 38, which was not read."
+    },
+    {
+      "ref": "tas_public_health_risk_activity_licence_guide",
+      "document": "tas_public_health_risk_activity_licence_doc1",
+      "section": "Approval guide: TAS_PUBLIC_HEALTH_RISK_ACTIVITY_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Tattooing, piercing and skin penetration licences (TAS) (Your local council, under the Public Health Act 1997 (Tas)).\nUnder the Public Health Act 1997 (Tas), tattooing, body or ear piercing and other skin penetration are public health risk activities. Each person who does them needs a licence from the council, and the premises must be registered with the council too.\nTimeframe: Apply before you start. Both the licence and registration last 12 months.\nCost: Hobart premises registration 2026-27: $186. Operator licence fees vary by council.\nBefore you start: Plan hand basins, sterilising and sharps disposal into your fit-out.\nBefore you start: Ask your council's Environmental Health Officer which of your services count as public health risk activities.\nStep 1: Register the premises. Lodge your council's public health risk activity premises application. Hobart has an online form and a PDF. (time: Before you open; cost: $186)\nStep 2: Licence each operator. Each person who tattoos or pierces applies to the council for a licence to carry out a public health risk activity. (time: Before they start; cost: Varies: set by each council)\nStep 3: Renew each year. In Hobart, premises registrations expire on 31 March each year. (time: Yearly)\nFee: Premises registration, Hobart (2026-27): $186\nFee: Operator licence: Varies: set by each council\nContact: Your council's environmental health team\nContact: City of Hobart (example council): 03 6238 2711, coh@hobartcity.com.au\nWatch out: The activities that need a licence can vary between councils.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The Department of Health's public health risk activity guidelines were not read. Operator licence fees were not listed."
     },
     {
       "ref": "wa_alfresco_dining_permit_guide",
@@ -4533,6 +5001,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: No council outdoor dining page was read; fees, insurance amounts and timeframes are not confirmed."
     },
     {
+      "ref": "tas_outdoor_dining_permit_guide",
+      "document": "tas_outdoor_dining_permit_doc1",
+      "section": "Approval guide: TAS_OUTDOOR_DINING_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an outdoor dining permit (TAS) (Your local council).\nTables, chairs, umbrellas, screens, heaters or planter boxes on a footpath or other council land need a permit from your council. Each Tasmanian council sets its own rules and fees. In Hobart it's a permit to occupy a public space for outdoor dining.\nTimeframe: Varies by council.\nCost: Hobart 2026-27: $300 to apply plus $91 to $225 per square metre.\nBefore you start: Measure the footpath and draw a plan of where your furniture will go, leaving room for people to walk past.\nBefore you start: Ask your insurer about public liability cover; many councils ask for it.\nBefore you start: If you'll serve alcohol outside, include the area in your liquor licence plans.\nStep 1: Check your council's rules. Search your council's website for 'outdoor dining permit'. Hobart's permits are under its Public Spaces By-law. (time: 15 minutes)\nStep 2: Apply to the council. Lodge the council's application with your plan. Hobart has an online form and a PDF. (cost: $300)\nStep 3: Pay the area fee. Hobart charges by square metre, depending on location. (cost: Varies: $91 to $225 per square metre in Hobart)\nFee: Hobart application fee (2026-27): $300\nFee: Hobart occupation fee (2026-27): Varies: $91 to $225 per square metre (Depends on location)\nFee: Other councils: Varies: set by each council\nContact: Your council's customer service team\nContact: City of Hobart (example council): 03 6238 2711, coh@hobartcity.com.au\nWatch out: Furniture outside your permitted area can lead to fines or the permit being cancelled.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Only Hobart's permit was read; other councils' fees and timeframes are not confirmed. Insurance requirements and processing times were not listed."
+    },
+    {
       "ref": "nsw_tobacco_retail_licence_guide",
       "document": "nsw_tobacco_retail_licence_doc1",
       "section": "Approval guide: NSW_TOBACCO_RETAIL_LICENCE",
@@ -4552,6 +5027,13 @@
       "section": "Approval guide: SA_WORKERS_COMPENSATION_REGISTRATION",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering with ReturnToWorkSA (ReturnToWorkSA).\nSA employers must register for work injury insurance with ReturnToWorkSA within 14 days of employing workers who usually work in, or are based in, SA. Registration is online and you get your certificate straight away.\nTimeframe: Within 14 days of employing. Online registration is immediate.\nCost: No registration fee is listed; you pay a premium based on your wages and industry.\nBefore you start: Have your ABN, business details and an estimate of wages for the year ready.\nBefore you start: Check if you're under the wage threshold: $16,806 in total wages for 2026-27.\nStep 1: Register online. Complete ReturnToWorkSA's online registration. You can also register by phone or before you hire. (time: About 20 minutes)\nStep 2: Save your certificate. You get your certificate of registration at the end of the online process. (time: Immediately)\nStep 3: Pay your premium. Your premium is calculated from your wages and industry. (cost: Varies: based on wages and industry)\nFee: Registration: Free (No fee listed; premiums apply)\nFee: Premium: Varies: based on wages and industry\nContact: ReturnToWorkSA: 13 18 55, premium@rtwsa.com\nWatch out: If you're under the wage threshold and a worker is injured, you must report it, register and pay the minimum premium.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Premium rates and the minimum premium amount were not read."
+    },
+    {
+      "ref": "tas_workers_compensation_insurance_guide",
+      "document": "tas_workers_compensation_insurance_doc1",
+      "section": "Approval guide: TAS_WORKERS_COMPENSATION_INSURANCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Workers compensation insurance (TAS) (WorkSafe Tasmania (licensed insurers, Workers Rehabilitation and Compensation Act 1988)).\nEvery Tasmanian employer must take out a workers compensation insurance policy with an insurer licensed by WorkSafe Tasmania, or hold a permit to self-insure. You buy the policy from the insurer, not from WorkSafe.\nTimeframe: Have a policy in place before your first worker starts.\nCost: Premiums are set by the insurer based on your wages and industry.\nBefore you start: Estimate your wages for the year.\nBefore you start: Check who counts as a worker: anyone working under a contract of service or a training agreement.\nStep 1: Choose a licensed insurer. Pick an insurer from WorkSafe Tasmania's list of licensed insurers, or ask an insurance broker. (time: A few days)\nStep 2: Take out the policy. Give the insurer your wages and business details and pay the premium. (time: Before you employ; cost: Varies: set by the insurer)\nStep 3: Keep it current. Renew each year and update the insurer if your wages or work change. (time: Yearly)\nFee: Insurance premium: Varies: set by the insurer based on wages and industry\nContact: WorkSafe Tasmania: wst.info@justice.tas.gov.au, https://worksafe.tas.gov.au\nWatch out: Large employers can apply to the WorkCover Tasmania Board for a permit to self-insure instead.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The WorkSafe page for employers couldn't be read in full; penalties for not insuring and the helpline number were not confirmed. The list of licensed insurers was not read."
     },
     {
       "ref": "wa_workers_compensation_policy_guide",
@@ -4624,6 +5106,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The registration page (timeframe for registering after passing the threshold) was not read."
     },
     {
+      "ref": "tas_payroll_tax_registration_guide",
+      "document": "tas_payroll_tax_registration_doc1",
+      "section": "Approval guide: TAS_PAYROLL_TAX_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering for payroll tax (TAS) (State Revenue Office (Department of Treasury and Finance, Tasmania)).\nTasmanian payroll tax applies once your total Australian taxable wages (including grouped businesses) pass $1.25 million a year and you pay wages in Tasmania. You register with the State Revenue Office.\nTimeframe: Register once your wages pass the threshold.\nCost: 2026-27: 4% on wages from $1.25 million to $2 million; 6.1% above $2 million.\nBefore you start: Total your Australian taxable wages, including grouped businesses.\nBefore you start: Talk to your accountant about grouping and exempt wages.\nStep 1: Check the threshold. Compare your wages with $1.25 million a year. Monthly thresholds are worked out by the days in the month.\nStep 2: Register as an employer. Register with the State Revenue Office.\nStep 3: Lodge and pay returns. Lodge returns and pay tax as the State Revenue Office tells you when you register. (time: Ongoing)\nFee: Payroll tax: Varies: 4% to 6.1% of taxable wages over $1.25 million\nContact: State Revenue Office (Tasmania): https://www.sro.tas.gov.au/contact-us\nWatch out: Grouped businesses share one threshold.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The registration page (when you must register after passing the threshold) and SRO phone and email were not read."
+    },
+    {
       "ref": "vic_payroll_tax_registration_guide",
       "document": "vic_payroll_tax_registration_doc1",
       "section": "Approval guide: VIC_PAYROLL_TAX_REGISTRATION",
@@ -4685,6 +5174,13 @@
       "section": "Approval guide: VIC_RTBA_BOND_LODGEMENT",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Lodging a rental bond with the RTBA in Victoria (Residential Tenancies Bond Authority).\nEvery bond for a Victorian rental is held by the Residential Tenancies Bond Authority (RTBA), not by you or your agent. The bond is usually at most one month's rent. You register for RTBA online, start the lodgement, and each renter accepts it by email. If you receive the money, you must lodge it within 14 days. The renter can instead pay the RTBA directly or transfer a portable bond.\nTimeframe: Lodge within 14 days of receiving the bond. Renters have 14 days to accept; lodgement usually completes in one business day.\nCost: No lodgement fee was published on the pages read. The bond is usually at most one month's rent.\nBefore you start: Work out the bond: no more than one month's rent unless the rent is over $900 a week or VCAT allows more.\nBefore you start: Each renter needs their own email address and a mobile number to pass Service Victoria identity checks.\nBefore you start: Decide who pays: you (from money the renter gave you), the renter directly, or a portable bond transfer.\nBefore you start: If the renter will pay the RTBA directly, they must tell you in writing before you start the lodgement.\nStep 1: Register for RTBA online. Create a rental provider account. Add your bank details if the RTBA is to debit the bond from your account. (form: RTBA rental provider registration)\nStep 2: Start the lodgement. Enter the bond amount, property address and each renter's contact details. On the funding page choose 'Rental provider' if you hold the money, or choose renter payment or a portable bond. (time: Within 14 days of receiving the bond)\nStep 3: Renters accept. Each renter gets an email link to review and accept. If they don't accept within 14 days the lodgement lapses and you can restart it with the same details. (time: 14 days)\nStep 4: Payment and receipt. The RTBA debits your account, or the renter pays by BPAY, direct debit or card (the link lasts 48 hours). The RTBA sends receipts with the bond number to every renter within 7 days; ask if you want one. If nothing arrives within 15 days, call the RTBA. (time: Usually one business day; payments can take up to 8 days)\nStep 5: Manage and claim. Use your account to accept change requests within 14 days, update details or cancel. At the end of the tenancy, tell the renter in advance if you will claim on the bond (from 13 October 2026), and make the claim through RTBA online. Disputes go to VCAT.\nFee: Maximum bond: Varies: one month's rent (Unless rent is over $900 a week or VCAT approves more)\nContact: Residential Tenancies Bond Authority: 1300 137 164, https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/bond/rtba-enquiries-form\nWatch out: Lodging late or keeping the bond yourself breaches the Residential Tenancies Act 1997.\nWatch out: Only one renter can make the payment, so renters should agree who pays.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The RTBA website is a script-driven portal and couldn't be read; steps come from Consumer Affairs Victoria's page. Penalties for late lodgement were not on the pages read. Whether a paper bond lodgement form is still available was not confirmed."
+    },
+    {
+      "ref": "tas_bond_lodgement_guide",
+      "document": "tas_bond_lodgement_doc1",
+      "section": "Approval guide: TAS_BOND_LODGEMENT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Lodging a rental bond with the Rental Deposit Authority in Tasmania (Rental Deposit Authority).\nEvery Tasmanian rental bond is held by the Rental Deposit Authority, not by you. You start the lodgement in Tasmanian MyBond using the Tasmanian bond lodgement form, and the tenant pays the Authority directly. The bond can be up to 4 weeks' rent; pet bonds aren't allowed. Taking the bond yourself is illegal.\nTimeframe: Lodge before the tenant moves in so they can pay. Agents must lodge bonds paid to them within 10 working days.\nCost: No lodgement fee is listed. The bond itself is up to 4 weeks' rent, and no interest is paid.\nBefore you start: Register as an owner in MyBond and get your Owner ID (from Service Tasmania, or email rda@justice.tas.gov.au).\nBefore you start: Have the tenant's MyBond Tenant ID, email or mobile number.\nBefore you start: Have the tenancy start and end dates, weekly rent, bedrooms and address.\nBefore you start: Prepare the Tasmanian residential tenancy condition report at the same time: you must give it to the tenant if you take a bond.\nStep 1: Sign in to MyBond. Sign in to Tasmanian MyBond as an owner, or register first. (form: MyBond)\nStep 2: Complete the bond lodgement. Find or create the tenant, then fill in the Tasmanian bond lodgement form: tenancy dates, weekly rent, total bond (no more than 4 times the weekly rent), premises details and each contribution. Submit it so it reaches Pending Payment.\nStep 3: The tenant pays. The tenant pays through PayWay in MyBond, through an agency that takes bonds, or at a Service Tasmania shop with the bond number. A prescribed deposit contributor can pay part.\nStep 4: Claim at the end. When the tenancy ends, claim the bond in MyBond. The tenant can approve or dispute your claim.\nFee: Maximum bond: Varies: up to 4 weeks' rent\nFee: Lodgement fee: See Consumer Affairs Tasmania\nContact: Rental Deposit Authority and Rental Services: 1300 654 499, rda@justice.tas.gov.au, https://consumeraffairs.tas.gov.au/topics/housing/mybond/owners\nWatch out: Never take the bond directly from the tenant: it is illegal in Tasmania.\nWatch out: Don't ask for more than 4 weeks' rent, a pet bond, or a higher bond during the tenancy.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The lodgement page lists no fees; confirm with the Rental Deposit Authority whether any fee applies. No deadline is stated for owners, because the tenant pays the Authority directly after the owner starts the lodgement. The older bonds page says a printed form can be lodged with payment at Service Tasmania; the current paper process was not confirmed. Consumer Affairs Tasmania took over from CBOS on 1 October 2026 and pages are still being updated."
     },
     {
       "ref": "aicis_registration_guide",
@@ -4932,6 +5428,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The direct link to the MR168 PDF was not captured."
     },
     {
+      "ref": "tas_vessel_registration_guide",
+      "document": "tas_vessel_registration_doc1",
+      "section": "Approval guide: TAS_VESSEL_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering a boat (TAS) (Marine and Safety Tasmania (MAST)).\nRecreational boats with a motor of 4 horsepower or more, and all personal watercraft (jet skis), must be registered with Marine and Safety Tasmania (MAST) before use.\nTimeframe: MAST mails your certificate after you lodge.\nCost: $95.50 a year (to 31 December 2026).\nBefore you start: You must be 16 or older to register a motor boat.\nBefore you start: Have proof of ownership and your ID ready.\nBefore you start: Check the boat is within its Australian Builders Plate (or manufacturer) limits: you sign a declaration.\nStep 1: Complete the application. Fill in the MAST Application for Registration of a Recreational Vessel. (time: 15 minutes)\nStep 2: Prove your identity. Include the MAST Evidence of Identity form with your ID and proof of ownership.\nStep 3: Lodge and pay. Lodge at MAST or a Service Tasmania centre and pay the fee. (cost: $95.50)\nStep 4: Display your numbers. Planing boats: numbers at least 150 mm high on each side. Non-planing boats and PWCs: at least 75 mm. PWCs also need a safe operation sticker.\nFee: Registration (to 31 December 2026): $95.50\nFee: Transfer of ownership: $33.32\nFee: Duplicate certificate: $9.80\nFee: Personalised vessel identifier: $19.60\nContact: Marine and Safety Tasmania (MAST): 1300 135 513, admin@mast.tas.gov.au, https://mast.tas.gov.au/contact/\nContact: Service Tasmania: 1300 135 513, https://www.service.tas.gov.au/find-a-service-centre\nWatch out: Registration renews every 31 December; MAST mails renewals in November.\nWatch out: When you buy or sell a registered boat, lodge the transfer.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The fees page shows one renewal fee; whether a first registration costs the same was not stated."
+    },
+    {
       "ref": "wa_vessel_registration_guide",
       "document": "wa_vessel_registration_doc1",
       "section": "Approval guide: WA_VESSEL_REGISTRATION",
@@ -4981,6 +5484,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The page didn't state licence validity or name the application form."
     },
     {
+      "ref": "tas_motor_boat_licence_guide",
+      "document": "tas_motor_boat_licence_doc1",
+      "section": "Approval guide: TAS_MOTOR_BOAT_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting a motor boat licence and PWC endorsement (TAS) (Marine and Safety Tasmania (MAST)).\nYou need a motor boat licence to operate a vessel of 4 horsepower or more in Tasmania (hire and drive boats excepted). To ride a personal watercraft (jet ski) you also need a PWC endorsement. Both are gained through training with a MAST-approved provider.\nTimeframe: Usually a one-day course with an approved provider.\nCost: Pro rata fee to the common expiry date of 30 June 2027; ask MAST or Service Tasmania for the amount.\nBefore you start: Study the Safe Boating Handbook ($5 from MAST or Service Tasmania) and try MAST's online practice test.\nBefore you start: People aged 12 to 17 can get a provisional licence.\nBefore you start: Interstate licence holders can operate in Tasmania for up to 3 months.\nStep 1: Book a course. Book practical training and assessment with a MAST-approved training provider. (cost: Varies: set by the training provider)\nStep 2: Pass the assessment and pay. Complete the course and assessment, then pay MAST's licence fee. Service Tasmania can work out the fee on the day of your identity check. (cost: Varies: pro rata to 30 June 2027)\nStep 3: Add a PWC endorsement. To ride a jet ski, pass a PWC practical course with a MAST-accredited provider. (cost: Varies: pro rata to 30 June 2027)\nStep 4: Transferring an interstate licence. Lodge the MAST Application for Mutual Recognition of a Motor Boat Licence with a copy of your licence (expired less than six years).\nFee: Motor boat licence: Varies: pro rata to 30 June 2027\nFee: PWC endorsement: Varies: pro rata to 30 June 2027\nFee: Safe Boating Handbook: $5\nFee: Plastic licence card (optional): $5\nFee: Duplicate licence: $5\nContact: Marine and Safety Tasmania (MAST): 1300 135 513, admin@mast.tas.gov.au, https://mast.tas.gov.au/contact/\nWatch out: Licences last up to three years and all currently expire on 30 June 2027.\nWatch out: Without a PWC endorsement you can't ride a jet ski, even with a motor boat licence.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Licence and endorsement dollar amounts weren't published. Training course prices are set by providers and were not read. The minimum age for a full licence was not stated."
+    },
+    {
       "ref": "wa_skippers_ticket_guide",
       "document": "wa_skippers_ticket_doc1",
       "section": "Approval guide: WA_SKIPPERS_TICKET",
@@ -5007,6 +5517,13 @@
       "section": "Approval guide: NSW_BASIX_CERTIFICATE",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a BASIX certificate (NSW) (NSW Department of Planning, Housing and Infrastructure).\nBASIX sets water, energy and thermal comfort standards for homes in NSW. You need a BASIX certificate for every new home (including granny flats), renovations costing more than $50,000, and pools or spas of 40,000 litres or more. You make it yourself in the online BASIX tool.\nTimeframe: Same day once your plans and specifications are ready.\nCost: $50 for a single dwelling, $25 per dwelling for alterations and additions, plus a $5 Planning Portal fee and a merchant fee.\nBefore you start: Have your floor plans, elevations, window sizes and orientation, and the materials for walls, roof and floors.\nBefore you start: Know your planned hot water system, lighting, appliances, rainwater tank and landscaping.\nBefore you start: Register for a NSW Planning Portal account.\nBefore you start: Download the Data Input Checklist from the BASIX pages.\nStep 1: Log in to the BASIX tool. Open the NSW BASIX certificate tool from the Planning Portal and log in with your applicant or developer Portal account.\nStep 2: Start a project and enter your design. Start a new project and enter the details from the Data Input Checklist. Your designer can do this for you.\nStep 3: Reach the targets. Select Calculate to see your water, energy and thermal comfort scores. Change the design or fittings until you pass every target.\nStep 4: Pay and print the certificate. Pay the certificate fee, then print the certificate and its list of commitments. (cost: $50 single dwelling; $25 per dwelling for alterations and additions; plus $5 Portal fee)\nStep 5: Attach it to your applications. Attach the certificate to your DA or CDC, and to the construction certificate application. Show the BASIX commitments on your plans.\nStep 6: Build the commitments and get the completion receipt. Your builder must install everything the certificate commits to. Your certifier issues a BASIX completion receipt before the occupation certificate.\nFee: BASIX certificate: single dwelling: $50 (Maximum)\nFee: BASIX certificate: multi-dwelling: $80 for the first two dwellings plus $35 each extra\nFee: BASIX certificate: alterations and additions: $25 per dwelling\nFee: Planning Portal fee: $5 per certificate (Plus a merchant fee for your payment method)\nContact: BASIX help line: 1300 650 908, https://www.planningportal.nsw.gov.au/support/contact-us\nContact: NSW Planning Portal service desk: 1300 305 695, https://www.planningportal.nsw.gov.au/support/contact-us\nWatch out: If you change the design after the certificate, revise the certificate. Revising a valid certificate already lodged is free.\nWatch out: The certificate must match the plans you lodge, or the certifier will send it back.\nWatch out: Granny flats are new dwellings and need their own BASIX certificate.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: How long a BASIX certificate stays valid before you lodge it couldn't be confirmed (the 'Certificate validity' page wasn't read)."
+    },
+    {
+      "ref": "tas_planning_permit_guide",
+      "document": "tas_planning_permit_doc1",
+      "section": "Approval guide: TAS_PLANNING_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a planning permit (Tasmania) (Your local council (the planning authority)).\nIn Tasmania your council decides planning permits under the Land Use Planning and Approvals Act 1993 and the Tasmanian Planning Scheme. Your zone and codes decide whether your project is exempt, no permit required, permitted, discretionary or prohibited. Permitted applications are decided in 28 days. Discretionary ones are advertised for 14 days and decided in 42 days.\nTimeframe: 28 days (permitted) or 42 days (discretionary, including 14 days of advertising). The clock stops while you answer a request for more information.\nCost: Set by each council. Example, Kingborough 2026-27: $526 permitted or $652 plus $441 advertising for a discretionary house.\nBefore you start: Look up your zone and code overlays on the Tasmanian LIST map.\nBefore you start: Read the use table and development standards for your zone in the Tasmanian Planning Scheme.\nBefore you start: Get a current title search with the folio plan and any schedule of easements.\nBefore you start: Have plans drawn: site plan, floor plans and elevations, plus any reports your codes ask for (bushfire, heritage, flood, landslip).\nBefore you start: Ask your council's duty planner whether your project is exempt or no permit required.\nStep 1: Check your zone and codes. Use the Tasmanian LIST map or the free property enquiry on the PlanBuild Tasmania portal to find your zone and any codes, like bushfire, heritage, flood or landslip. (cost: Free)\nStep 2: Work out the category. Your zone's use table and standards show whether the project is exempt, no permit required, permitted (meets every acceptable solution) or discretionary (relies on performance criteria). Prohibited uses can't be approved.\nStep 3: Lodge with council. Lodge the application with your council with plans, title and reports. City of Hobart applications can be lodged on the PlanBuild Tasmania portal; most other councils use their own online forms or email. The clock starts once you pay the invoice. (cost: See your council's fee schedule)\nStep 4: Answer any information request. Council can ask for more information within 14 days (permitted) or 21 days (discretionary). The clock stops until you answer.\nStep 5: Advertising (discretionary only). Discretionary applications are advertised for 14 days. Anyone can make a representation, which council must consider. (time: 14 days)\nStep 6: Decision. Council issues a permit, with conditions, or refuses. Permitted applications that meet every acceptable solution must be approved. (time: 28 days (permitted), 42 days (discretionary))\nStep 7: Appeal if needed. For discretionary decisions, you or anyone who made a representation can appeal to the Tasmanian Civil and Administrative Tribunal (TASCAT) within 14 days of being notified. (time: 14 days)\nStep 8: Then get building and plumbing approval. A planning permit doesn't let you build. Next you need your building surveyor's certificate of likely compliance and any building or plumbing permit.\nFee: Single dwelling, permitted (Kingborough example): $526 (2026-27)\nFee: Single dwelling, discretionary (Kingborough example): $652 (2026-27, plus public notification)\nFee: Public notification of a discretionary application (Kingborough example): $441 (2026-27)\nFee: Residential alterations or ancillary dwellings (Kingborough example): $411 (2026-27)\nFee: Change of use only (Kingborough example): $382 (2026-27)\nFee: Your council's fee: Varies: set by each council\nContact: Your local council's planning, building and plumbing team: https://www.lgat.tas.gov.au/tasmanian-councils/local-government-links\nContact: PlanBuild Tasmania: https://www.planbuild.tas.gov.au/\nContact: State Planning Office: https://www.stateplanning.tas.gov.au\nWatch out: A secondary residence (granny flat) can be no more than 60 m2 today. A change to 90 m2 is proposed but not yet in effect.\nWatch out: Codes like heritage, bushfire, flood and landslip can turn a permitted project into a discretionary one.\nWatch out: A permit lapses after 2 years if the work hasn't substantially started. Council can extend it twice, by 2 years each time.\nWatch out: No permit required doesn't mean no building approval. You may still need building and plumbing approval.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Fees are set by each council; only Kingborough's 2026-27 fees were read as an example. Which councils accept online lodgement, other than City of Hobart through PlanBuild Tasmania, wasn't checked. The LISTmap URL wasn't opened this session. Whether a secondary residence meeting every standard is formally no permit required or permitted in each zone wasn't confirmed in the scheme text."
     },
     {
       "ref": "vic_planning_permit_guide",
@@ -5037,6 +5554,20 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The mooring fees page doesn't state the fee year (last modified 1 July 2026). The application and establishment fee amounts weren't listed."
     },
     {
+      "ref": "tas_heritage_works_approval_guide",
+      "document": "tas_heritage_works_approval_doc1",
+      "section": "Approval guide: TAS_HERITAGE_WORKS_APPROVAL",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get heritage approval for works (Tasmania) (Tasmanian Heritage Council (through Heritage Tasmania)).\nWorks to a place on the Tasmanian Heritage Register need either a minor works approval (called a certificate of exemption before 1 January 2025) or approval from the Tasmanian Heritage Council. For bigger works you lodge a development application with council, which refers it to the Heritage Council.\nTimeframe: No timeframe was published. Heritage referral can extend the 42-day planning timeframe.\nCost: No Heritage Council fee was found. Council planning fees apply to development applications.\nBefore you start: Check whether your place is on the Tasmanian Heritage Register or only in a local heritage code.\nBefore you start: Read the Heritage Council's Works Guidelines to see if minor works approval is possible.\nBefore you start: Call a heritage adviser on 1300 850 332. The advice is free.\nStep 1: Talk to a heritage adviser. Call Heritage Tasmania to discuss your plans before you design. (cost: Free)\nStep 2: Minor works. If the works won't affect heritage values, apply with the Heritage Tasmania minor works approval application and email it to Heritage Tasmania. City of Hobart works can be applied for on PlanBuild Tasmania.\nStep 3: Bigger works. Lodge a development application with council. Council forwards it to the Heritage Council, which assesses the impact on heritage values. Major works may need a heritage impact statement or conservation management plan.\nStep 4: Decision. The Heritage Council's decision is included in council's planning permit decision. Missing information stops the clock.\nFee: Heritage adviser: Free\nFee: Council planning application: See your council's fee schedule\nContact: Heritage Tasmania heritage advisers: 1300 850 332, works@heritage.tas.gov.au, https://heritage.tas.gov.au/contact-us\nContact: Your local council's planning, building and plumbing team: https://www.lgat.tas.gov.au/tasmanian-councils/local-government-links\nWatch out: A minor works approval may not replace a council planning permit. Check with council too.\nWatch out: Local heritage listings in the planning scheme are dealt with by council alone, not the Heritage Council.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Heritage Council assessment timeframes and any fees weren't published on the page read. The works email address on the page conflicts with its mailto link."
+    },
+    {
+      "ref": "tas_certificate_of_likely_compliance_guide",
+      "document": "tas_certificate_of_likely_compliance_doc1",
+      "section": "Approval guide: TAS_CERTIFICATE_OF_LIKELY_COMPLIANCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a certificate of likely compliance (Tasmania) (A licensed building surveyor you engage).\nIn Tasmania, notifiable and permit building work needs a certificate of likely compliance from a licensed building surveyor you engage. The surveyor checks your plans against the National Construction Code and the Building Act 2016. For permit work, it goes to council with your building permit application. For notifiable work, it is your approval to start once council is notified.\nTimeframe: Within 21 days for permit work once the surveyor has everything. The certificate lasts 12 months.\nCost: The surveyor sets their own fee. Council charges for notifiable work notices, e.g. $240 for a dwelling at Central Highlands in 2026-27, plus levies over $20,000.\nBefore you start: Have a planning permit, or confirmation you don't need one.\nBefore you start: Get full design documents from a licensed designer, with a Tasmanian Form 35 certificate of the responsible designer.\nBefore you start: Get engineering and soil reports, with a Tasmanian Form 55 certificate of qualified person from each specialist.\nBefore you start: In a bushfire-prone area, get a bushfire hazard management plan.\nBefore you start: Get a current title search.\nStep 1: Engage a building surveyor. Choose a licensed building surveyor. Some councils offer this service; most are private. Find one on PlanBuild Tasmania.\nStep 2: Submit your design. Give the surveyor your plans, certificates and reports with a Tasmanian Form 2 building work application. Some surveyors take it through the PlanBuild Tasmania portal.\nStep 3: Assessment. The surveyor decides whether the work is low risk, notifiable or permit work and checks it against the National Construction Code. (time: Within 21 days for permit work)\nStep 4: Certificate issued. The surveyor issues the certificate of likely compliance. For notifiable work, the surveyor notifies council. For permit work, you then apply to council for a building permit.\nStep 5: Start work authorisation. Your builder lodges a start work notice. Work can't begin until the surveyor issues a start work authorisation.\nStep 6: Inspections. The builder notifies the surveyor before each mandatory stage, and the surveyor inspects within one day.\nFee: Building surveyor's fee: Varies: set by the surveyor\nFee: Notifiable building work, dwelling (Central Highlands example): $240 (2026-27)\nFee: Notifiable building work, shed or garage (Central Highlands example): $130 (2026-27)\nFee: Building Permit Levy (Building Administration Fee): Varies: 0.1% of the value of work over $20,000 (Collected by council; Kingborough and Central Highlands 2026-27)\nFee: Building and Construction Industry Training Fund levy: Varies: 0.2% of the value of work over $20,000 (Collected by council; Kingborough and Central Highlands 2026-27)\nContact: Consumer, Building and Occupational Services (CBOS): https://www.cbos.tas.gov.au\nContact: PlanBuild Tasmania: https://www.planbuild.tas.gov.au/\nContact: Your local council's planning, building and plumbing team: https://www.lgat.tas.gov.au/tasmanian-councils/local-government-links\nWatch out: Your builder can't start until the surveyor's start work authorisation, even with a certificate.\nWatch out: The certificate expires after 12 months if work hasn't started.\nWatch out: Owner builders have extra requirements. Check with CBOS first.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The CBOS Guide to the Building Act 2016 dates from 2017; timeframes may have changed. Typical private building surveyor fees aren't published officially. CBOS's approved forms list couldn't be read, so the designer and qualified person certificate titles come from the PlanBuild user guide."
+    },
+    {
       "ref": "nsw_complying_development_certificate_guide",
       "document": "nsw_complying_development_certificate_doc1",
       "section": "Approval guide: NSW_COMPLYING_DEVELOPMENT_CERTIFICATE",
@@ -5056,6 +5587,13 @@
       "section": "Approval guide: WA_DEMOLITION_PERMIT",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a demolition permit (Western Australia) (Your local government (permit authority) under the Building Act 2011).\nDemolishing a house, shed or other building in WA needs a demolition permit from your council. Asbestos must be removed safely, and services disconnected first. In a heritage-protected place you also need development approval.\nTimeframe: Usually 10 business days once complete.\nCost: $121.00 for a house or Class 10 building, plus the Building Services Levy (minimum $61.65).\nBefore you start: Check whether the place is heritage-protected on inHerit. If so, get development approval first.\nBefore you start: Arrange disconnection of power, gas, water and sewer.\nBefore you start: Get an asbestos survey. Licensed removalists must remove more than 10 m2 of bonded asbestos.\nBefore you start: Engage a licensed demolition contractor where required.\nStep 1: Prepare the application. Complete the WA BA5 demolition permit application with a site plan showing the buildings to be demolished, and evidence of service disconnections. (form: WA BA5 demolition permit application)\nStep 2: Lodge and pay. Lodge with your council and pay the application fee and Building Services Levy. (cost: From $182.65)\nStep 3: Council decides. Council issues the permit, often with conditions about dust, asbestos, hours and protecting neighbours. (time: Usually 10 business days)\nStep 4: Demolish and clean up. Follow the permit conditions and keep asbestos disposal receipts. Tell council when demolition is finished if the permit asks you to.\nFee: Demolition permit, house or Class 10: $121.00 (As charged from 8 July 2026)\nFee: Demolition permit, Class 2 to 9: $121.00 per storey\nFee: Building Services Levy: 0.137% of the value of work (minimum $61.65) (Collected with the permit fee)\nContact: Your local council's planning or building team: https://mycouncil.wa.gov.au/\nContact: Building and Energy (Government of Western Australia): https://www.wa.gov.au/organisation/building-and-energy/building-approvals\nWatch out: Demolishing a heritage-protected building without development approval is a serious offence.\nWatch out: Asbestos is common in WA homes built before 1990.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The 10 business day timeframe and the 10 m2 asbestos threshold weren't confirmed this session. The direct BA5 form link wasn't confirmed."
+    },
+    {
+      "ref": "tas_building_permit_guide",
+      "document": "tas_certificate_of_likely_compliance_doc1",
+      "section": "Approval guide: TAS_BUILDING_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a building permit (Tasmania) (Your council's permit authority).\nPermit building work (the highest risk category) needs a building permit from your council's permit authority, as well as your building surveyor's certificate of likely compliance. Council must deal with the application within 7 days or a period you agree.\nTimeframe: 7 days from a complete application, or a period agreed with council.\nCost: Council fee, e.g. $243 to $488 at Kingborough or $320 at Central Highlands for a dwelling (2026-27), plus 0.1% and 0.2% levies on work over $20,000.\nBefore you start: Get your building surveyor's certificate of likely compliance.\nBefore you start: Have your planning permit, or confirmation you don't need one.\nBefore you start: Know the value of the work. Levies are based on it.\nStep 1: Apply to council. Lodge a Tasmanian Form 2 building work application with the certificate of likely compliance and plans. Your surveyor often does this for you.\nStep 2: Pay fees and levies. Council collects its fee plus the Building Permit Levy and the training levy where the work is worth over $20,000. (cost: See the fees below)\nStep 3: Permit issued. The permit authority checks other approvals, like planning and plumbing, and issues the building permit. (time: 7 days)\nStep 4: Build and inspect. Your builder gets the surveyor's start work authorisation, then builds with inspections at each stage.\nStep 5: Finish. At the end, get the occupancy permit from your surveyor and apply to council for a certificate of completion.\nFee: Building permit, under $40,000 (Kingborough example): $243 (2026-27)\nFee: Building permit, $40,000 or more (Kingborough example): $488 (2026-27)\nFee: Building permit, dwelling (Central Highlands example): $320 (2026-27)\nFee: Building Permit Levy (Building Administration Fee): Varies: 0.1% of the value of work over $20,000 (Collected by council; Kingborough and Central Highlands 2026-27)\nFee: Building and Construction Industry Training Fund levy: Varies: 0.2% of the value of work over $20,000 (Collected by council; Kingborough and Central Highlands 2026-27)\nContact: Your local council's planning, building and plumbing team: https://www.lgat.tas.gov.au/tasmanian-councils/local-government-links\nContact: Consumer, Building and Occupational Services (CBOS): https://www.cbos.tas.gov.au\nWatch out: If no period is set, the permit lapses after 12 months if work hasn't started.\nWatch out: Levies apply to the full value of work over $20,000.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Whether a typical new house is notifiable or permit work wasn't confirmed from the Director's Determination. The levy names differ between councils; CBOS's administration fee page wasn't read."
     },
     {
       "ref": "wa_building_permit_guide",
@@ -5086,6 +5624,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The deemed refusal period (when you can appeal if council hasn't decided; commonly cited as 40 days, or 60 days for integrated, designated or concurrence DAs) couldn't be read from the EP&A Regulation 2021. Confirm before showing. The Planning Portal service fee for lodging a DA is not listed on the Portal fees page. Owner's consent requirements and cost estimate thresholds come from council pages (for example Hornsby) and vary by council. No statewide owner's consent form was found."
     },
     {
+      "ref": "tas_plumbing_permit_guide",
+      "document": "tas_certificate_of_likely_compliance_doc1",
+      "section": "Approval guide: TAS_PLUMBING_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get plumbing approval (Tasmania) (Your council's permit authority).\nNotifiable plumbing work needs a certificate of likely compliance from council's permit authority before work starts. Permit plumbing work also needs a plumbing permit. A licensed plumber must do the work. New homes and granny flats almost always need plumbing approval.\nTimeframe: Certificate of likely compliance within 21 days for permit plumbing work. It lasts 12 months.\nCost: Set by council, e.g. $462 at Kingborough or $540 to $760 at Central Highlands for a house (2026-27).\nBefore you start: Get a hydraulic (plumbing) design from a qualified designer.\nBefore you start: If you're not on sewer, get an onsite wastewater design.\nBefore you start: Engage a licensed plumber.\nStep 1: Lodge the application. Lodge a Tasmanian Form 3 plumbing work application with council's permit authority, with the plumbing design.\nStep 2: Assessment. The permit authority checks the design and issues a certificate of likely compliance and, for permit work, a plumbing permit. (time: Within 21 days)\nStep 3: Do the work. Your licensed plumber does the work and council inspects at set stages. (cost: See inspection fees below)\nStep 4: Completion. The plumber gives a standard of work certificate and any as-constructed drawing within 5 business days, and council issues a certificate of completion for the plumbing.\nFee: Plumbing permit or notifiable plumbing (Kingborough example): $462 (2026-27)\nFee: Certificate of completion, plumbing (Kingborough example): $108 (2026-27)\nFee: Class 1 plumbing, no wastewater system (Central Highlands example): $540 (2026-27, includes certificate and completion)\nFee: Class 1 plumbing with wastewater system (Central Highlands example): $760 (2026-27)\nFee: Plumbing inspection (Central Highlands example): $200 (2026-27, per inspection)\nContact: Your local council's planning, building and plumbing team: https://www.lgat.tas.gov.au/tasmanian-councils/local-government-links\nContact: Consumer, Building and Occupational Services (CBOS): https://www.cbos.tas.gov.au\nContact: TasWater: https://www.taswater.com.au\nWatch out: TasWater may also need to approve connections. Ask early.\nWatch out: A granny flat must share the main house's service connections to count as a secondary residence.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: PlanBuild says the plumbing categories are under review (page dated 30 August 2022). TasWater's process wasn't read this session."
+    },
+    {
       "ref": "nsw_construction_certificate_guide",
       "document": "nsw_construction_certificate_doc1",
       "section": "Approval guide: NSW_CONSTRUCTION_CERTIFICATE",
@@ -5112,6 +5657,13 @@
       "section": "Approval guide: WA_OCCUPANCY_PERMIT",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get an occupancy permit (Western Australia) (Your local government (permit authority) under the Building Act 2011).\nIn WA, Class 2 to 9 buildings (apartments, shops, offices, factories and the like) need an occupancy permit before anyone uses them, and again if you change the building's class. Houses and sheds don't need one.\nTimeframe: Usually 10 business days once complete.\nCost: $121.00 for a completed building. More for unauthorised work.\nBefore you start: Ask a registered building surveyor whether your building or new use needs an occupancy permit.\nBefore you start: Collect certificates for fire safety, electrical, plumbing and structural work.\nBefore you start: If you are changing the building's use, check whether you also need development approval.\nStep 1: Get a certificate of construction compliance. A registered building surveyor inspects the completed work and certifies it complies with the building permit and the Building Code.\nStep 2: Lodge the application. Lodge the WA BA9 occupancy permit application with your council, with the surveyor's certificate and fire safety documents. (form: WA BA9 occupancy permit application)\nStep 3: Council decides. Council issues the occupancy permit, which states the building's class and any conditions. (time: Usually 10 business days)\nFee: Occupancy permit, completed building: $121.00 (As charged from 8 July 2026)\nFee: Occupancy permit, incomplete building: $121.00 plus $61.65 Building Services Levy\nFee: Occupancy permit for unauthorised work, Class 2 to 9: 0.18% of value (minimum $121.00) plus 0.274% levy (minimum $123.30)\nContact: Your local council's planning or building team: https://mycouncil.wa.gov.au/\nContact: Building and Energy (Government of Western Australia): https://www.wa.gov.au/organisation/building-and-energy/building-approvals\nWatch out: Using a Class 2 to 9 building without an occupancy permit is an offence.\nWatch out: A change of use, like a house becoming an office, can change the building class and needs a new occupancy permit.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The BA9 form number and the certificate of construction compliance form number weren't confirmed against Building and Energy's forms list. The 10 business day timeframe wasn't confirmed this session."
+    },
+    {
+      "ref": "tas_occupancy_permit_guide",
+      "document": "tas_certificate_of_likely_compliance_doc2",
+      "section": "Approval guide: TAS_OCCUPANCY_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get an occupancy permit and certificate of completion (Tasmania) (Your building surveyor (occupancy permit) and council's permit authority (certificate of completion)).\nWhen building work is finished, your building surveyor inspects it and issues an occupancy permit where one is required. For permit work you then apply to council's permit authority for a certificate of completion. You must not move in or let others use the building until the occupancy permit is issued.\nTimeframe: No statutory timeframe was found. The builder gives the surveyor a standard of work certificate within 5 days of finishing.\nCost: Certificate of completion: $106 (building) and $108 (plumbing) at Kingborough in 2026-27. Surveyor fee varies.\nBefore you start: Make sure all mandatory inspections are done.\nBefore you start: Collect the builder's standard of work certificate and certificates for plumbing, electrical and any fire safety work.\nStep 1: Final inspection. Ask your building surveyor for the final inspection once the work is complete.\nStep 2: Occupancy permit. The surveyor issues the occupancy permit. They can also allow temporary occupancy, for up to 3 years in some cases.\nStep 3: Certificate of completion (permit work). Apply to council's permit authority with the occupancy permit for a certificate of completion. (cost: $106 at Kingborough, 2026-27)\nStep 4: Plumbing completion. Council issues a separate certificate of completion for plumbing work. (cost: $108 at Kingborough, 2026-27)\nFee: Certificate of completion, building (Kingborough example): $106 (2026-27)\nFee: Certificate of completion, plumbing (Kingborough example): $108 (2026-27)\nFee: Building surveyor's final inspection: Varies: set by the surveyor\nContact: Consumer, Building and Occupational Services (CBOS): https://www.cbos.tas.gov.au\nContact: Your local council's planning, building and plumbing team: https://www.lgat.tas.gov.au/tasmanian-councils/local-government-links\nWatch out: Moving in before the occupancy permit is an offence.\nWatch out: Lenders and insurers often ask for the occupancy permit and certificate of completion.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The occupancy permit sections of the CBOS guide (pages 112 to 115) couldn't be read. Which classes of building need an occupancy permit for notifiable work wasn't confirmed."
     },
     {
       "ref": "vic_occupancy_permit_guide",
@@ -5149,11 +5701,32 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: NSW Land Registry Services plan lodgement fees were not checked. Which subdivisions a registered certifier (rather than council) may certify was not confirmed in detail."
     },
     {
+      "ref": "tas_subdivision_sealing_guide",
+      "document": "tas_subdivision_sealing_doc1",
+      "section": "Approval guide: TAS_SUBDIVISION_SEALING",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Subdivide land and seal the final plan (Tasmania) (Your local council (seals the final plan), then the Land Titles Office (registers it)).\nTo subdivide in Tasmania you need a planning permit from council, then you build any required works, then council seals the final plan of survey. The sealed plan is lodged with the Land Titles Office to create the new titles.\nTimeframe: Planning permit in 42 days if discretionary (28 if permitted). Works, sealing and title registration take months more.\nCost: Example, Kingborough 2026-27: $959 plus $223 per lot for the permit, $465 to seal the plan, plus open space contribution, engineering, TasWater and surveyor costs.\nBefore you start: Check the minimum lot size and frontage for your zone in the Tasmanian Planning Scheme on the Tasmanian LIST map.\nBefore you start: Engage a registered land surveyor and, if needed, a town planner.\nBefore you start: Ask TasWater about water and sewer requirements and costs.\nBefore you start: Budget for the public open space contribution (often about 5% of land value).\nStep 1: Design the subdivision. Your surveyor prepares a proposed plan that meets the zone's lot size, frontage and access rules and any codes.\nStep 2: Get a planning permit. Lodge the subdivision application with council. Most are discretionary: advertised for 14 days and decided in 42 days. (time: 42 days if discretionary)\nStep 3: Engineering approval. If roads, drains, water or sewer are needed, get the engineering drawings approved by council and TasWater before works start.\nStep 4: Build the works. Council inspects the works and issues practical completion. A bond may be held for the defects period.\nStep 5: Seal the final plan. Your surveyor gives council the final plan of survey. Council seals it once conditions are met and fees and contributions are paid. (cost: $465 per plan at Kingborough, 2026-27)\nStep 6: Register the titles. The sealed plan is lodged with the Land Titles Office for registration and the new titles are issued.\nFee: Subdivision application (Kingborough example): $959 (2026-27, plus $223 per lot including the balance lot)\nFee: Sealing of final plan (Kingborough example): $465 (2026-27, per plan)\nFee: Public notification (Kingborough example): $441 (2026-27, discretionary applications)\nFee: Public open space contribution: Varies: often about 5% of land value (Section 117, Local Government (Building and Miscellaneous Provisions) Act 1993)\nFee: Land Titles Office, TasWater, surveyor and engineering: Varies: quoted by each provider\nContact: Your local council's planning, building and plumbing team: https://www.lgat.tas.gov.au/tasmanian-councils/local-government-links\nContact: Land Titles Office (Land Tasmania): https://nre.tas.gov.au/land-tasmania/land-titles-office/plan-documentation/plan-registration-information\nContact: TasWater: https://www.taswater.com.au\nWatch out: The planning permit lapses after 2 years if not substantially started.\nWatch out: Bushfire-prone land usually needs a bushfire hazard management plan for each lot.\nWatch out: TasWater and engineering costs can be large. Get quotes early.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: No statutory timeframe for sealing was confirmed. The Land Titles Office plan registration page and fees weren't read this session. The 5% open space figure comes from one council's page."
+    },
+    {
       "ref": "wa_subdivision_approval_guide",
       "document": "wa_subdivision_approval_doc1",
       "section": "Approval guide: WA_SUBDIVISION_APPROVAL",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Subdivide land through the WA Planning Commission (Western Australian Planning Commission, then Landgate for titles).\nIn WA, subdivision is approved by the Western Australian Planning Commission (WAPC), not your council. A licensed surveyor or town planner usually lodges the application online. After approval you clear the conditions, and Landgate issues a new certificate of title for each lot.\nTimeframe: WAPC decision usually within 90 days; clearing conditions and new titles often take 6 to 18 months more.\nCost: WAPC application and endorsement fees by number of lots, plus surveyor, service connection and Landgate fees.\nBefore you start: Check your R-Code on PlanWA. It sets the minimum and average lot sizes for your land.\nBefore you start: Get a certificate of title from Landgate and check for easements and covenants.\nBefore you start: Ask Water Corporation and Western Power what connections will cost.\nBefore you start: If the land is bushfire prone, get a BAL contour map and bushfire management plan.\nStep 1: Check what lot sizes are allowed. Your R-Code and local planning scheme set minimum and average lot sizes. A surveyor can tell you how many lots fit.\nStep 2: Prepare the plan and application. Your surveyor prepares the plan of subdivision. Complete WAPC Form 1A subdivision application, signed by all owners. (form: WAPC Form 1A subdivision application)\nStep 3: Lodge online and pay. Lodge through the WAPC's eLodgement system with the plan, title, owner signatures and fee.\nStep 4: Referral and decision. The WAPC sends the application to your council and service agencies for comment, then approves it with conditions or refuses it. You can ask the State Administrative Tribunal for a review. (time: Usually 90 days)\nStep 5: Clear the conditions. Meet each condition: service connections, crossovers, demolition, fill or easements. Each agency gives a clearance. Approval lapses if conditions aren't cleared in time, usually 3 years for up to 4 lots.\nStep 6: Lodge the deposited plan and get new titles. Your surveyor lodges the deposited plan with Landgate. The WAPC endorses it once all clearances are in, and Landgate issues the new certificates of title.\nFee: WAPC subdivision application and endorsement fees: Varies: set by number of lots under the Planning and Development Regulations 2009 (See the WAPC guide to subdivision applications and fees)\nContact: Western Australian Planning Commission (DPLH): https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage\nContact: Landgate: https://www.landgate.wa.gov.au/\nContact: Your local council's planning or building team: https://mycouncil.wa.gov.au/\nWatch out: Service connection costs (Water Corporation, Western Power) are often the biggest cost of a small subdivision.\nWatch out: Built strata can be an alternative for lots with two existing homes; it uses a different WAPC form.\nWatch out: Restrictive covenants on your title can stop a subdivision even if the R-Code allows it.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: WAPC subdivision fees by number of lots couldn't be read (the web fetch budget ran out); see the WAPC guide. The 90 day decision period and the 3 or 4 year validity periods are from prior knowledge of the Planning and Development Act 2005 and weren't confirmed. Typical clearance times are estimates, not official figures. No WAPC phone number or email was confirmed."
+    },
+    {
+      "ref": "tas_vehicle_registration_guide",
+      "document": "tas_vehicle_registration_doc1",
+      "section": "Approval guide: TAS_VEHICLE_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering an imported vehicle (TAS) (Transport Tasmania, through Service Tasmania).\nAn imported vehicle is inspected at an Approved Inspection Station (AIS) and then registered in person at a Service Tasmania centre, where you pay registration, the MAIB premium and motor vehicle duty.\nTimeframe: Same day at Service Tasmania once the vehicle has passed inspection.\nCost: 4-cylinder car 2026-27: $669.23 registration (with plates) plus $305 MAIB, plus duty of about 3% of value.\nBefore you start: Get your Vehicle Import Approval (or concessional RAV entry approval) from the Australian Government.\nBefore you start: Check whether the vehicle must be certified by an Approved Vehicle Certifier or entered on the Register of Approved Vehicles.\nBefore you start: Left-hand drive vehicles must be at least 30 years old.\nBefore you start: Have proof of entitlement (such as the bill of sale) and your Tasmanian driver licence or ID.\nStep 1: Book an AIS inspection. Find an Approved Inspection Station on the Transport Tasmania map and book directly with it. Take your import approval. (time: Days; cost: Varies: set by the inspection station)\nStep 2: Fill in the application. Complete the registration application on the back of the passed inspection report. (time: 15 minutes)\nStep 3: Register at Service Tasmania. Take the report, import approval, proof of entitlement and ID to a Service Tasmania centre and pay. Personal cheques aren't accepted from 1 November 2026. (time: Same day; cost: $669.23)\nStep 4: Pay MAIB and duty. The MAIB premium and motor vehicle duty are paid with registration. (cost: $305)\nFee: Registration, 4-cylinder car: establish (2026-27): $669.23 (Includes $26.46 plate fee)\nFee: Registration, 4-cylinder car: 12-month renewal: $642.77\nFee: MAIB premium, motor car: $305 ($244 for pensioners)\nFee: Duty: value $600 or less: $20\nFee: Duty: value over $600: Varies: $3 per $100 of value\nFee: Duty: passenger vehicles over $40,000: Varies: $4 per $100 of value (Sliding scale between $35,000 and $40,000)\nFee: AIS inspection: Varies: set by the inspection station\nContact: Service Tasmania: 1300 135 513, https://www.service.tas.gov.au/find-a-service-centre\nContact: AIS team (Transport Tasmania): ais@building.tas.gov.au\nWatch out: Read your import approval for conditions that could make the vehicle ineligible for registration.\nWatch out: Registering in a company's or someone else's name needs a letter of authority.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: AIS inspection fees and report validity were not published on the pages read. Fire and road safety levies were mentioned but not priced. Form numbers MR106 and MR106A appear in Service Tasmania's page data but their role was not confirmed."
+    },
+    {
+      "ref": "tas_motor_vehicle_trader_licence_guide",
+      "document": "tas_motor_vehicle_trader_licence_doc1",
+      "section": "Approval guide: TAS_MOTOR_VEHICLE_TRADER_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting a motor vehicle trader licence (TAS) (CBOS (now Consumer Affairs Tasmania)).\nIn Tasmania you need a motor vehicle trader licence under the Motor Vehicle Traders Act 2011 if you buy, sell or exchange more than six vehicles in 12 months, or otherwise carry on a vehicle trading business. It covers new and used vehicles.\nTimeframe: Up to 40 business days.\nCost: 2026-27: $225.40 to apply plus $1,932.56 for a three-year licence.\nBefore you start: You must be 18 or older and a fit and proper person.\nBefore you start: You'll consent to a national police check.\nBefore you start: Employees of a licensed trader don't need their own licence.\nStep 1: Apply online. Use the Tasmanian occupational licence online application and choose motor vehicle trader. (time: 1 hour)\nStep 2: Pay the fees. Pay the application and licence fees. (cost: $2,157.96)\nStep 3: Wait for approval. CBOS runs the police check and assesses you. (time: Up to 40 business days)\nStep 4: Use the pre-sale disclosure statement. Give buyers the Tasmanian motor vehicle trader pre-sale disclosure statement. (time: Each sale)\nFee: Application: $225.40 (2026-27)\nFee: Licence (3 years): $1,932.56 (2026-27)\nFee: Duplicate certificate: $39.20\nContact: CBOS (now Consumer Affairs Tasmania and Building Standards Tasmania): 1300 654 499, cbos.info@justice.tas.gov.au\nWatch out: Trading without a licence is an offence; the six-vehicle count includes buying and exchanging.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The CBOS motor vehicle trader page could not be read; premises and record-keeping rules are not confirmed. CBOS's functions moved into Consumer Affairs Tasmania and Building Standards Tasmania on 1 October 2026; which new agency handles this licence, and whether the phone and email changed, was not confirmed."
     }
   ],
   "rule_sets": []

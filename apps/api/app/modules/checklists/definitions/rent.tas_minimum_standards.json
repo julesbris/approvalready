@@ -1,0 +1,69 @@
+{
+  "key": "rent.tas_minimum_standards",
+  "vertical": "RENT",
+  "title": "Tasmanian minimum standards for rentals",
+  "description": "Checks against the minimum standards a Tasmanian rental must meet before it is rented out, under Part 3B of the Residential Tenancy Act 1997. Summarised from Consumer Affairs Tasmania guidance.",
+  "sources": [
+    {
+      "title": "Types of minimum standards",
+      "organisation": "Consumer Affairs Tasmania",
+      "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/beginning-tenancy/minimum-standards/types"
+    },
+    {
+      "title": "Residential Tenancy Act 1997",
+      "organisation": "Tasmanian Legislation",
+      "url": "https://www.legislation.tas.gov.au/view/whole/html/inforce/current/act-1997-082"
+    }
+  ],
+  "items": [
+    {
+      "key": "weatherproof",
+      "title": "Weatherproof: no leaking roof, large gaps or open old fireplaces"
+    },
+    {
+      "key": "structural",
+      "title": "Structurally sound"
+    },
+    {
+      "key": "clean_repair",
+      "title": "Clean, and in good repair with no safety or sanitation problems"
+    },
+    {
+      "key": "toilet_bathroom",
+      "title": "Working flushing toilet in a separate ventilated room, and a bathroom"
+    },
+    {
+      "key": "kitchen",
+      "title": "Kitchen with sink, hot and cold water, oven and stove top",
+      "detail": "At least 2 elements for 2 or fewer bedrooms, 3 for 3 or more."
+    },
+    {
+      "key": "electricity",
+      "title": "Safe, working mains electricity, power points and wiring"
+    },
+    {
+      "key": "lighting",
+      "title": "Adequate light in each room except storage rooms and garages"
+    },
+    {
+      "key": "heating",
+      "title": "Fixed electric or gas heater, heat pump or wood heater in the main living area (not an open fire)"
+    },
+    {
+      "key": "window_coverings",
+      "title": "Blinds or curtains on bedroom and living room windows"
+    },
+    {
+      "key": "ventilation",
+      "title": "Ventilation of at least 5% of floor area, with windows that lock open securely"
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Compliant smoke alarms installed and working"
+    },
+    {
+      "key": "record",
+      "title": "Record the condition in the condition report with dated photos"
+    }
+  ]
+}
