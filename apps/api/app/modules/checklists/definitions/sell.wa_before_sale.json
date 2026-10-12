@@ -1,0 +1,91 @@
+{
+  "key": "sell.wa_before_sale",
+  "vertical": "SELL",
+  "title": "Before you sell a home in Western Australia",
+  "description": "What to sort out before you sign an offer and acceptance and before settlement in WA. Summarised from Consumer Protection, Building and Energy, Landgate and RevenueWA guidance.",
+  "sources": [
+    {
+      "title": "Real estate contracts: sale by offer and acceptance",
+      "organisation": "Consumer Protection (Western Australia)",
+      "url": "https://www.consumerprotection.wa.gov.au/consumer-protection/real-estate-contracts-sale-offer-and-acceptance"
+    },
+    {
+      "title": "Smoke alarm laws for homes being sold, rented and hired",
+      "organisation": "Building and Energy (Western Australia)",
+      "url": "https://www.wa.gov.au/organisation/building-and-energy/smoke-alarm-laws-homes-being-sold-rented-and-hired"
+    },
+    {
+      "title": "RCD safety switches",
+      "organisation": "Building and Energy (Western Australia)",
+      "url": "https://www.wa.gov.au/government/multi-step-guides/electrical-safety-home/rcd-safety-switches"
+    },
+    {
+      "title": "Buying and selling (strata) fact sheet",
+      "organisation": "Landgate",
+      "url": "https://www.landgate.wa.gov.au/siteassets/documents/strata-and-community-titles/strata-titles/learn-about-strata/buying-and-selling---fact-sheet.pdf"
+    },
+    {
+      "title": "Councils urged to stay buoyant on pool barrier inspections",
+      "organisation": "Building and Energy (Western Australia)",
+      "url": "https://www.wa.gov.au/government/announcements/councils-urged-stay-buoyant-pool-barrier-inspections"
+    }
+  ],
+  "items": [
+    {
+      "key": "settlement_agent",
+      "title": "Choose a licensed settlement agent or a lawyer",
+      "detail": "They handle the transfer, adjustments and mortgage discharge at settlement."
+    },
+    {
+      "key": "contract",
+      "title": "Read the offer and acceptance and the Joint Form of General Conditions before you sign",
+      "detail": "Check the settlement date, finance and inspection conditions and any special conditions."
+    },
+    {
+      "key": "disclose",
+      "title": "Tell your agent and settlement agent about anything that affects the property",
+      "detail": "For example unapproved building work, a tenancy, a pool, easements or disputes."
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Have mains-powered smoke alarms, no more than 10 years old, installed before transfer",
+      "detail": "Interconnected if more than one and the building permit was applied for after 1 May 2015. Use a licensed electrical contractor."
+    },
+    {
+      "key": "rcds",
+      "title": "Make sure at least two RCDs protect all power and lighting circuits before transfer",
+      "detail": "Keep the electrician's invoice for your settlement agent."
+    },
+    {
+      "key": "strata",
+      "title": "If strata: give the strata disclosure before the buyer signs",
+      "detail": "Use the WA strata seller disclosure statement with the scheme documents, minutes, accounts and levy estimate.",
+      "required": false
+    },
+    {
+      "key": "strata_variations",
+      "title": "If strata: tell the buyer in writing about notifiable variations within 10 working days",
+      "required": false
+    },
+    {
+      "key": "pool",
+      "title": "If there's a pool or spa: check the barrier and get the last council inspection result",
+      "required": false
+    },
+    {
+      "key": "tenant",
+      "title": "If tenanted: decide on vacant possession or selling with the tenant, and give notice on the WA notice of termination if needed",
+      "detail": "At least 30 days for a periodic tenancy after the sale contract; you can't end a fixed term early.",
+      "required": false
+    },
+    {
+      "key": "mortgage",
+      "title": "If mortgaged: tell your lender you are selling so the discharge is ready for settlement",
+      "required": false
+    },
+    {
+      "key": "rates",
+      "title": "Gather recent council rates and water bills for the settlement adjustments"
+    }
+  ]
+}

@@ -1,0 +1,1626 @@
+{
+ "key": "property_wa",
+ "title": "PropertyReady: selling and renting residential property in Western Australia",
+ "notes": "First sourced rules for SellReady and RentReady in Western Australia. Built from Consumer Protection (consumerprotection.wa.gov.au, formerly at commerce.wa.gov.au), Building and Energy (wa.gov.au) and Landgate pages read on 2026-10-12. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The Residential Tenancies Act 1987, Residential Tenancies Regulations 1989, Strata Titles Act 1985, Building Regulations 2012, Electricity Regulations and Duties Act 2008 were not read directly.",
+ "organisations": [
+  {
+   "ref": "cp_wa",
+   "name": "Consumer Protection (Western Australia)",
+   "kind": "REGULATOR",
+   "jurisdiction": "WA",
+   "website": "https://www.consumerprotection.wa.gov.au"
+  },
+  {
+   "ref": "be_wa",
+   "name": "Building and Energy (Western Australia)",
+   "kind": "REGULATOR",
+   "jurisdiction": "WA",
+   "website": "https://www.wa.gov.au/organisation/building-and-energy"
+  },
+  {
+   "ref": "landgate",
+   "name": "Landgate",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "WA",
+   "website": "https://www.landgate.wa.gov.au"
+  },
+  {
+   "ref": "revenuewa",
+   "name": "RevenueWA",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "WA",
+   "website": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/revenuewa"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "cp_reforms_blog",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "Commissioner's blog: what stage two of WA's rent reforms mean for you",
+   "url": "https://www.consumerprotection.wa.gov.au/announcements/commissioners-blog-what-stage-two-of-was-rent-reforms-mean-you",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cp_rental_bonds",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "Rental bonds",
+   "url": "https://www.consumerprotection.wa.gov.au/consumer-protection/rental-bonds",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cp_lodging_bond",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "Lodging a bond",
+   "url": "https://www.consumerprotection.wa.gov.au/lodging-bond",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cp_forms",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "Rental forms and notices",
+   "url": "https://www.consumerprotection.wa.gov.au/rental-forms-and-notices",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cp_form_1c",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "WA notice of termination form (PDF)",
+   "url": "https://www.consumerprotection.wa.gov.au/system/files/documents/2025-07/noticeofterminationform1c.pdf",
+   "source_type": "FORM"
+  },
+  {
+   "ref": "cp_pcr",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "Property condition reports",
+   "url": "https://www.consumerprotection.wa.gov.au/consumer-protection/property-condition-reports",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cp_rent_increases",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "Rent increases",
+   "url": "https://www.consumerprotection.wa.gov.au/rent-increases",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cp_security",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "Rental home security",
+   "url": "https://www.consumerprotection.wa.gov.au/rental-home-security",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "be_smoke",
+   "organisation": "be_wa",
+   "jurisdiction": "WA",
+   "title": "Smoke alarm laws for homes being sold, rented and hired",
+   "url": "https://www.wa.gov.au/organisation/building-and-energy/smoke-alarm-laws-homes-being-sold-rented-and-hired",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "be_rcd",
+   "organisation": "be_wa",
+   "jurisdiction": "WA",
+   "title": "RCD safety switches",
+   "url": "https://www.wa.gov.au/government/multi-step-guides/electrical-safety-home/rcd-safety-switches",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "be_rent_electrical",
+   "organisation": "be_wa",
+   "jurisdiction": "WA",
+   "title": "Electrical safety when renting or hiring (fact sheet)",
+   "url": "https://www.wa.gov.au/system/files/2024-10/electrical_safety_renting_hiring_factsheet.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "lg_strata_sellers",
+   "organisation": "landgate",
+   "jurisdiction": "WA",
+   "title": "Resources for strata sellers",
+   "url": "https://www.landgate.wa.gov.au/strata-and-community-titles/strata-titles/learn-about-strata/resources-for-strata-sellers/",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "lg_strata_factsheet",
+   "organisation": "landgate",
+   "jurisdiction": "WA",
+   "title": "Buying and selling (strata) fact sheet",
+   "url": "https://www.landgate.wa.gov.au/siteassets/documents/strata-and-community-titles/strata-titles/learn-about-strata/buying-and-selling---fact-sheet.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "settlement_agents_doc",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "Real estate contracts: sale by offer and acceptance",
+   "url": "https://www.consumerprotection.wa.gov.au/consumer-protection/real-estate-contracts-sale-offer-and-acceptance",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "revwa_duty",
+   "organisation": "revenuewa",
+   "jurisdiction": "WA",
+   "title": "Transfer duty",
+   "url": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/transfer-duty",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cp_agreements",
+   "organisation": "cp_wa",
+   "jurisdiction": "WA",
+   "title": "Rental agreements",
+   "url": "https://www.consumerprotection.wa.gov.au/rental-agreements",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "bewa_pools",
+   "organisation": "be_wa",
+   "jurisdiction": "WA",
+   "title": "Councils urged to stay buoyant on pool barrier inspections",
+   "url": "https://www.wa.gov.au/government/announcements/councils-urged-stay-buoyant-pool-barrier-inspections",
+   "source_type": "GUIDELINE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "reforms_2024",
+   "document": "cp_reforms_blog",
+   "section": "Stage two reforms from 29 July 2024",
+   "extracted_text": "[Summary, not the source's wording] Stage two of the WA rental reforms started on 29 July 2024. Rent can only be increased once every 12 months (up from every 6 months). Tenants can keep pets in most cases but must ask first; a landlord can refuse only where a law or by-law prevents it or with a good reason accepted by the Commissioner for Consumer Protection, and can set reasonable conditions. Tenants can make minor modifications (for example hanging pictures or child safety locks) with permission, which can be refused only on limited grounds or with the Commissioner's approval, and must restore the premises at the end unless the landlord agrees otherwise. Rent bidding was banned earlier, in May 2024. A Commissioner determination process decides these disputes, and was extended to bond releases from early 2025.",
+   "interpretation": "Applies to every residential tenancy in WA. The Residential Tenancies Act 1987 and the amending Act were not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_limits",
+   "document": "cp_rental_bonds",
+   "section": "How much can be charged; pet bonds; releasing the bond",
+   "extracted_text": "[Summary, not the source's wording] A landlord can take up to 4 weeks' rent as a bond, unless the rent is over $1,200 a week. A pet bond of up to $350 can be taken for fumigation and pet-related damage. Existing pet bonds can only be raised to the new amount at the next rent increase or when another pet is approved. A receipt must be given straight away. Bonds Administration releases the bond on a bond release form signed by all tenants and landlords, a Commissioner's decision, or a court or tribunal order.",
+   "interpretation": "Applies to every residential tenancy bond in WA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_lodgement",
+   "document": "cp_lodging_bond",
+   "section": "Who lodges and when; how to lodge",
+   "extracted_text": "[Summary, not the source's wording] The landlord must lodge the bond with Bonds Administration as soon as possible and no later than 14 days after the tenant pays it. The lodgement lists every tenant on the agreement, the amount, any pet bond and tenant contact details. Agents and property managers must use BondsOnline. Private landlords can use BondsOnline or the paper bond lodgement form if eligible. Bonds Administration sends a record of payment to all parties; call 1300 30 40 54 if none arrives within a month.",
+   "interpretation": "Applies whenever a bond is taken for a WA residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "forms_list",
+   "document": "cp_forms",
+   "section": "Starting a tenancy; pets and modifications; ending a tenancy",
+   "extracted_text": "[Summary, not the source's wording] Consumer Protection publishes the prescribed forms: the WA residential tenancy agreement, the WA information for tenant sheet, the WA application to rent form, the WA property condition report, the WA rent increase notice, the notice of proposed entry, breach notices, the WA pet request form, the WA minor modification request form, the notices of termination (including the WA notice of termination), the tenant's notice of termination, and the WA bond lodgement form, bond variation form and WA joint bond disposal form.",
+   "interpretation": "Lists the WA forms the tenancy findings point to; each form's own legal requirements were not read in full. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "form_1c_grounds",
+   "document": "cp_form_1c",
+   "section": "Grounds and notice periods",
+   "extracted_text": "[Summary, not the source's wording] The WA notice of termination is the landlord's notice of termination for reasons other than unpaid rent, and only one ground can be given. Grounds include: a breach not remedied (at least 7 days, after a breach notice given 14 days earlier); a contract of sale requiring vacant possession (at least 30 days, not during a fixed term); without grounds (at least 60 days, not during a fixed term); and ending a fixed-term agreement on its expiry date (at least 30 days).",
+   "interpretation": "The form read was the version published in July 2025 and still includes ending a periodic tenancy without grounds on 60 days' notice, so no-grounds termination of periodic tenancies has not been removed in WA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pcr",
+   "document": "cp_pcr",
+   "section": "Move-in and move-out reports",
+   "extracted_text": "[Summary, not the source's wording] The landlord must give the tenant 2 copies of the WA property condition report within 7 days of the tenant moving in. The tenant returns one completed copy within 7 days of receiving it. At the end, the landlord gives the tenant a copy of the outgoing report within 14 days of the tenant moving out.",
+   "interpretation": "Applies to every WA residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_increases",
+   "document": "cp_rent_increases",
+   "section": "Frequency, notice and forms",
+   "extracted_text": "[Summary, not the source's wording] Rent can be increased no more than once every 12 months under periodic and fixed-term agreements. The tenant must get at least 60 days' notice on the WA rent increase notice. In a fixed-term agreement the increase or how it is worked out must be written in the agreement. Long fixed-term agreements signed before 29 July 2024 keep their written-in increases until the end of the tenancy.",
+   "interpretation": "Applies to every WA residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "security",
+   "document": "cp_security",
+   "section": "Minimum security standards",
+   "extracted_text": "[Summary, not the source's wording] Under the Residential Tenancies Regulations 1989, the main entry door must be key-lockable with a deadlock or an AS 5039-2008 security screen door; other external doors need a deadlock, a patio bolt lock or a compliant security screen door; windows need a lock that stops them being opened from outside (unless not easily reached or fitted with a compliant screen); and there must be an electric light at or near the main entry that can be switched on from inside. Agricultural, rural and heritage-listed homes are exempt but must still be reasonably secure. Landlords can't change locks without the tenant's consent except in limited cases.",
+   "interpretation": "Applies to WA rentals that are not agricultural, rural or heritage listed. A wider set of minimum standards (for example structural, plumbing) was not found on the page read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "smoke_alarms",
+   "document": "be_smoke",
+   "section": "Sold, rented and hired homes",
+   "extracted_text": "[Summary, not the source's wording] A dwelling must have compliant smoke alarms before ownership is transferred, and before it is rented or hired. Alarms must be permanently connected to mains power, unless there is no hidden space for wiring and no other suitable place, in which case a 10-year non-removable battery alarm can be used. Alarms must be no more than 10 years old and not past their expiry date, and interconnected where there is more than one (unless the building permit was applied for before 1 May 2015). Only a licensed electrical contractor can connect mains alarms. A buyer who intends to demolish within 6 months can give the seller a statutory declaration instead. Local governments enforce the rules under the Building Act 2011 and Building Regulations 2012.",
+   "interpretation": "Applies to every WA dwelling being sold, rented or hired. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rcd_sale",
+   "document": "be_rcd",
+   "section": "Selling a home; rental homes",
+   "extracted_text": "[Summary, not the source's wording] Before the land title is transferred on sale, at least two RCDs (safety switches) must protect all power point and lighting circuits; if not, the seller must have a licensed electrical contractor install them. Landlords must make sure RCDs are installed in the switchboard of a rental home. These requirements come from the Electricity Regulations.",
+   "interpretation": "Applies to WA homes being sold and to rental homes. The regulation number was not given on the page and the Electricity Regulations were not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_electrical",
+   "document": "be_rent_electrical",
+   "section": "Renting or hiring",
+   "extracted_text": "[Summary, not the source's wording] A rental must have at least two RCDs protecting all lighting and power circuits before a tenancy agreement is entered into. Tenants can complain to Building and Energy, which can inspect and order the owner to install them. The landlord must keep smoke alarms compliant, mains powered and under 10 years old, and use licensed electrical contractors for electrical repairs. Building and Energy recommends a gas safety check before a rental agreement is signed.",
+   "interpretation": "Applies to every WA rental home. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "strata_disclosure",
+   "document": "lg_strata_sellers",
+   "section": "Seller disclosure",
+   "extracted_text": "[Summary, not the source's wording] WA strata law lists information a seller of a strata lot must give a prospective buyer before the buyer signs a contract. If the seller fails to disclose what the law requires, the buyer may be able to avoid the contract. The seller must also tell the buyer in writing about notifiable variations after the contract is signed.",
+   "interpretation": "Applies to the sale of a strata lot in WA under the Strata Titles Act 1985. The Act was not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "strata_factsheet",
+   "document": "lg_strata_factsheet",
+   "section": "Pre-contract disclosure; notifiable variations; avoiding the contract",
+   "extracted_text": "[Summary, not the source's wording] Before contract the seller gives the scheme notice, scheme plan, by-laws, schedule of unit entitlements, any strata lease, the latest AGM and later EGM minutes, the latest statement of accounts, any termination proposal, estimated levies for 12 months and any money owed to the strata company, plus details of the lot and its unit entitlement. Notifiable variations must be notified within 10 working days. If the information was not given, the buyer may be able to avoid the contract before settlement, in some cases only if materially prejudiced. The seller or buyer can ask the strata company for information in writing and inspect records for a $1 fee.",
+   "interpretation": "Applies to strata lot sales in WA. The fact sheet does not name the prescribed disclosure form. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "agreements",
+   "document": "cp_agreements",
+   "section": "Before moving in",
+   "extracted_text": "[Summary, not the source's wording] Written rental agreements must use the WA residential tenancy agreement; you can't write your own. Before the tenant moves in, the landlord gives a copy of the signed agreement within 14 days of signing, the WA information for tenant sheet (a separate sheet applies to verbal agreements), 2 copies of the property condition report within 7 days, a copy of any strata or community title by-laws, a completed bond lodgement form for the tenant to sign, and keys. Part B of the agreement can't be changed and Part C terms can't remove rights under tenancy or consumer laws.",
+   "interpretation": "Applies to every WA residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pools",
+   "document": "bewa_pools",
+   "section": "Inspection frequency and owners' responsibilities",
+   "extracted_text": "[Summary, not the source's wording] Local governments must inspect private pool safety barriers at least every four years. All private swimming pools, spas and portable pools with water more than 30cm deep must have a safety barrier. Owners and occupants must allow these inspections and regularly check their fences and gates, which should never be propped open or have climbable objects nearby.",
+   "interpretation": "Applies to every WA property with a pool or spa deeper than 30cm. The Building Regulations 2012 and the Rules for pools and spas publication were not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "settlement_agents",
+   "document": "settlement_agents_doc",
+   "section": "Offer and acceptance; General Conditions; special conditions",
+   "extracted_text": "[Summary, not the source's wording] An offer to buy a WA property is usually made on the Offer and Acceptance form together with the Joint Form of General Conditions for the Sale of Land, and a printed copy of the General Conditions should be given to both seller and buyer. The contract records the legal practitioners or settlement agents acting for each party. The General Conditions cover representations the seller makes about the land and strata titles disclosure. Special conditions can be added and should be precisely worded, signed and dated.",
+   "interpretation": "Applies to most WA home sales by private treaty. The page does not mention a cooling-off period or a general vendor disclosure statement. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "transfer_duty",
+   "document": "revwa_duty",
+   "section": "Who is liable and when",
+   "extracted_text": "[Summary, not the source's wording] The person liable for transfer duty is generally the purchaser, transferee or acquirer. In most cases liability arises on the date the document evidencing the transaction is signed. Transactions are lodged with RevenueWA and a transfer duty calculator is available.",
+   "interpretation": "Applies to WA land transfers; the buyer, not the seller, usually pays. The Duties Act 2008 and the lodgement deadline were not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "sell.wa.seller_disclosure",
+   "vertical": "SELL",
+   "jurisdiction": "WA",
+   "title": "Western Australia: selling a property",
+   "description": "The offer and acceptance and Joint Form of General Conditions, settlement agents, strata disclosure, smoke alarms and RCDs before transfer, pool barriers, transfer duty and selling with a tenant, from Consumer Protection, Building and Energy, Landgate and RevenueWA guidance.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "WA"
+   },
+   "limitations": [
+    "Built from Consumer Protection, Building and Energy, Landgate and RevenueWA web pages, not from the Sale of Land Act 1970, Strata Titles Act 1985, Building Regulations 2012 or Electricity Regulations.",
+    "Doesn't prepare the offer and acceptance or decide which special conditions you need; your agent and settlement agent do that.",
+    "Doesn't check the strata disclosure item by item or whether a notifiable variation has happened.",
+    "Doesn't check unapproved building work, owner-builder obligations, heritage, contamination or zoning.",
+    "Doesn't cover capital gains tax, foreign resident capital gains withholding or GST.",
+    "Commercial leases are not residential tenancies; the tenancy findings are for homes only.",
+    "Not legal advice. Confirm with a settlement agent or lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "contract_and_disclosure",
+     "title": "Contract of sale and disclosure in WA",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Sell on a written offer and acceptance, and disclose what you know",
+       "detail": "WA has no general vendor disclosure statement like other states. Most homes are sold on a written offer and acceptance that adopts the Joint Form of General Conditions for the Sale of Land, usually prepared by your real estate agent. Settlement is normally handled by a licensed settlement agent or a lawyer. Tell your agent and settlement agent about anything that affects the property, such as unapproved building work, strata matters, a tenancy or a pool, so it is dealt with in the contract. Use the 'Before you sell' checklist to get ready.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Engage a settlement agent or lawyer before you sign an offer",
+        "checklists": [
+         "sell.wa_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "settlement_agents",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "smoke_alarms",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rcd_sale",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "WA property",
+       "facts": {
+        "property.address.state": "WA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "no_settlement_agent",
+     "title": "No settlement agent yet",
+     "condition": {
+      "fact": "sell.has_conveyancer",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "PROFESSIONAL_REQUIRED",
+       "title": "Choose a licensed settlement agent or a lawyer",
+       "detail": "In WA, settlement (transferring the title, adjusting rates and paying out any mortgage) is done by a licensed settlement agent or a lawyer. Choose one before you accept an offer so they can check the contract conditions and dates. You can check a settlement agent's licence with Consumer Protection.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Engage a settlement agent or lawyer"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "settlement_agents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No settlement agent",
+       "facts": {
+        "sell.has_conveyancer": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has one",
+       "facts": {
+        "sell.has_conveyancer": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "strata_disclosure",
+     "title": "Strata seller disclosure",
+     "condition": {
+      "fact": "sell.body_corporate",
+      "op": "equals",
+      "value": "yes"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Give the buyer the strata disclosure before they sign",
+       "detail": "If you are selling a strata lot, the Strata Titles Act 1985 requires you to give the buyer set information before they sign: the scheme notice, plan, by-laws and unit entitlements, any strata lease, the latest AGM and later EGM minutes, the latest accounts, any termination proposal, 12 months of estimated levies and any money you owe the strata company. Use the WA strata seller disclosure statement. Ask your strata manager for the records early. If you don't disclose, the buyer may be able to get out of the contract before settlement. After signing, tell the buyer in writing about any notifiable variation within 10 working days.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "STRATA_DISCLOSURE",
+          "title": "Completed strata seller disclosure with scheme documents, minutes, accounts and levy estimate"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Request strata records and complete the strata disclosure",
+        "checklists": [
+         "sell.wa_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "strata_disclosure",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "strata_factsheet",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Strata lot",
+       "facts": {
+        "sell.body_corporate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not strata",
+       "facts": {
+        "sell.body_corporate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "strata_unsure",
+     "title": "Not sure if the property is strata",
+     "condition": {
+      "fact": "sell.body_corporate",
+      "op": "equals",
+      "value": "unsure"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Check your title for a strata scheme",
+       "detail": "Strata lots (including many villas and townhouses, and survey-strata lots) carry extra disclosure duties when sold. Check your certificate of title, or ask Landgate or your settlement agent, whether the property is in a strata scheme.",
+       "payload": {
+        "task": "Check whether the property is in a strata scheme"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "strata_disclosure",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Unsure",
+       "facts": {
+        "sell.body_corporate": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Yes",
+       "facts": {
+        "sell.body_corporate": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms_on_sale",
+     "title": "Smoke alarms before transfer",
+     "condition": {
+      "fact": "sell.property_type",
+      "op": "not_in",
+      "value": [
+       "vacant_land",
+       "commercial"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Install compliant smoke alarms before ownership transfers",
+       "detail": "Before a WA home is transferred to the buyer, it must have smoke alarms that are permanently connected to mains power (a 10-year sealed battery alarm only where there is no space for wiring), no more than 10 years old, and interconnected if there is more than one and the building permit was applied for after 1 May 2015. Only a licensed electrical contractor can install mains alarms. Book the work well before settlement. If the buyer plans to demolish within 6 months, they can give you a statutory declaration instead.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ],
+        "task": "Have smoke alarms checked and upgraded before settlement",
+        "checklists": [
+         "sell.wa_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_alarms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "House",
+       "facts": {
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant land",
+       "facts": {
+        "sell.property_type": "vacant_land"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rcds_on_sale",
+     "title": "Two RCDs before transfer",
+     "condition": {
+      "fact": "sell.property_type",
+      "op": "not_in",
+      "value": [
+       "vacant_land",
+       "commercial"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make sure at least two RCDs protect all power and lighting circuits",
+       "detail": "Before the title is transferred, a WA home must have at least two RCDs (safety switches) protecting all power point and lighting circuits. Look at your switchboard; if there are fewer than two RCDs or some circuits aren't covered, have a licensed electrical contractor install them before settlement and keep the invoice for your settlement agent.",
+       "payload": {
+        "task": "Check the switchboard has at least two RCDs covering all circuits",
+        "checklists": [
+         "sell.wa_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rcd_sale",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Unit",
+       "facts": {
+        "sell.property_type": "unit"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Commercial",
+       "facts": {
+        "sell.property_type": "commercial"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_sale",
+     "title": "Pool barrier",
+     "condition": {
+      "fact": "sell.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make sure the pool barrier complies before you list",
+       "detail": "Every private pool, spa or portable pool deeper than 30cm in WA needs a compliant safety barrier, and your local government inspects it at least every four years. WA has no pool certificate for sale, but the buyer or their agent may ask when it was last inspected. Check gates self-close and latch, nothing climbable is near the fence, and fix any defects from the last council inspection. Ask your council for the last inspection result.",
+       "payload": {
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Check the pool barrier and get the last council inspection result",
+        "checklists": [
+         "sell.wa_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pools",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "sell.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale",
+     "title": "Selling with a tenant",
+     "condition": {
+      "fact": "sell.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Plan the sale around the tenancy",
+       "detail": "A tenant with a fixed-term agreement can stay until it ends, and you can't end a fixed term early because you are selling. If the tenancy is periodic and the contract requires vacant possession, you can give the tenant at least 30 days' notice on the WA notice of termination after the contract is signed. To end a fixed term on its expiry date you must give at least 30 days' notice. Tell your agent so the offer says whether the buyer takes the property with the tenant.",
+       "payload": {
+        "task": "Decide whether to sell with vacant possession or with the tenant",
+        "checklists": [
+         "sell.wa_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form_1c_grounds",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "sell.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "sell.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale_rent_ready",
+     "title": "Managing the tenancy until settlement",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "CROSS_SELL",
+       "title": "Keep the tenancy on track until settlement with RentReady",
+       "detail": "Your tenant stays through the sale, so WA tenancy rules still apply until the buyer takes over: entry notices, repairs, rent and the bond. RentReady keeps that checklist for you.",
+       "payload": {
+        "cross_sell": [
+         "RENT"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form_1c_grounds",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted house",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant house",
+       "facts": {
+        "sell.is_tenanted": false,
+        "sell.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Commercial lease",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "commercial"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "transfer_duty",
+     "title": "Transfer duty and settlement costs",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "The buyer pays transfer duty; your settlement agent handles the transfer",
+       "detail": "In WA the buyer pays transfer duty to RevenueWA, usually through their settlement agent. As the seller you mainly pay your agent's commission, settlement agent fees and any mortgage discharge costs; council rates and water charges are adjusted at settlement. Ask your settlement agent for an estimate of your costs.",
+       "payload": {
+        "task": "Get a settlement cost estimate from your settlement agent"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "transfer_duty",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "WA property",
+       "facts": {
+        "property.address.state": "WA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "rent.wa.residential_tenancy",
+   "vertical": "RENT",
+   "jurisdiction": "WA",
+   "title": "Western Australia: renting out a home",
+   "description": "The prescribed tenancy agreement and information sheet, condition reports, bond limits and lodgement with Bonds Administration, smoke alarms, RCDs, minimum security, pool barriers, rent increases, pets and modifications after the 2024 reforms, and ending a tenancy, from Consumer Protection and Building and Energy.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "WA"
+   },
+   "limitations": [
+    "Built from Consumer Protection and Building and Energy web pages and the published notice of termination form, not from the Residential Tenancies Act 1987 or the Residential Tenancies Regulations 1989.",
+    "Written for ordinary residential tenancies. Boarders and lodgers, residential parks, social housing and short stays have different rules and are not checked.",
+    "Doesn't check entry notices, breach notices, family violence terminations, tenancy databases or Commissioner determinations.",
+    "Doesn't check each lock, RCD or alarm at the property; it gives you the list to work through.",
+    "Not legal advice. Confirm with Consumer Protection, a property manager or a lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "tenancy_agreement",
+     "title": "Tenancy agreement and start-of-tenancy documents",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Use the WA residential tenancy agreement and give the tenant the start-up documents",
+       "detail": "A written WA tenancy must use the WA residential tenancy agreement; you can't write your own. Give the tenant a copy within 14 days of signing, plus the WA information for tenant sheet, any strata by-laws, a completed WA bond lodgement form to sign, and keys. Within 7 days of move-in give 2 copies of the WA property condition report; the tenant has 7 days to return one. Don't change Part B of the agreement or add terms in Part C that remove the tenant's rights.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "Signed WA residential tenancy agreement"
+         },
+         {
+          "kind": "CONDITION_REPORT",
+          "title": "WA property condition report with photos"
+         }
+        ],
+        "task": "Prepare the tenancy agreement and condition report",
+        "checklists": [
+         "rent.wa_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "agreements",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pcr",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "forms_list",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "WA property",
+       "facts": {
+        "property.address.state": "WA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_lodgement",
+     "title": "Bond lodged with Bonds Administration",
+     "condition": {
+      "all": [
+       {
+        "fact": "rent.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "rent.bond_lodged",
+        "op": "in",
+        "value": [
+         "no",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Lodge the bond with Bonds Administration within 14 days",
+       "detail": "You can't keep a WA bond yourself. Lodge it with Bonds Administration (Consumer Protection) no later than 14 days after the tenant pays, using BondsOnline or, for private landlords who qualify, the WA bond lodgement form. Give the tenant a receipt straight away. If you're not sure it was lodged, call Bonds Administration on 1300 30 40 54 or ask your property manager.",
+       "payload": {
+        "approval": {
+         "kind": "WA_BOND_LODGEMENT",
+         "authority": "Bonds Administration, Consumer Protection WA",
+         "pathway": "BondsOnline or paper bond lodgement form, within 14 days"
+        },
+        "task": "Check the bond is lodged with Bonds Administration"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bond_lodgement",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_limits",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not lodged",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Lodged",
+       "facts": {
+        "rent.is_tenanted": true,
+        "rent.bond_lodged": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Bond not answered",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_limits",
+     "title": "How much bond you can take",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Take no more than 4 weeks' rent as bond, plus a pet bond of up to $350",
+       "detail": "In WA the bond is capped at 4 weeks' rent unless the rent is over $1,200 a week. If the tenant keeps a pet you can also take a pet bond of up to $350 for fumigation and pet damage. Give a receipt straight away and lodge everything with Bonds Administration within 14 days.",
+       "payload": {
+        "checklists": [
+         "rent.wa_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bond_limits",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_lodgement",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "WA property",
+       "facts": {
+        "property.address.state": "WA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms",
+     "title": "Smoke alarms in the rental",
+     "condition": {
+      "fact": "rent.smoke_alarms",
+      "op": "not_contains",
+      "value": "hardwired"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "WA rentals need mains-powered smoke alarms",
+       "detail": "Before a WA home is rented, its smoke alarms must be permanently connected to mains power (a 10-year sealed battery alarm is allowed only where there is no space to run wiring), no more than 10 years old and interconnected where required. From what you told us, your alarms may not be hard-wired. Have a licensed electrical contractor check and upgrade them.",
+       "payload": {
+        "referral_categories": [
+         "electrician",
+         "smoke_alarm_technician"
+        ],
+        "task": "Have the smoke alarms checked by an electrician",
+        "checklists": [
+         "rent.wa_minimum_standards"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Keep the smoke alarms working and in date",
+       "detail": "Your alarms sound hard-wired. Check each one is less than 10 years old and working before each tenancy, and replace any that are past their expiry date.",
+       "payload": {
+        "checklists": [
+         "rent.wa_minimum_standards"
+        ]
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "WARNING",
+       "title": "Check what smoke alarms the property has",
+       "detail": "WA rentals need mains-powered smoke alarms, no more than 10 years old. Tell us what you have, or have an electrician check them.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ],
+        "checklists": [
+         "rent.wa_minimum_standards"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_alarms",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_electrical",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Hard-wired",
+       "facts": {
+        "rent.smoke_alarms": [
+         "photoelectric",
+         "hardwired",
+         "interconnected"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Battery only",
+       "facts": {
+        "rent.smoke_alarms": [
+         "photoelectric",
+         "ten_year_battery"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not sure",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rcds_and_security",
+     "title": "RCDs and minimum security",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Check RCDs and locks meet the WA minimum standards before the tenancy",
+       "detail": "Before a tenancy starts, a WA rental must have at least two RCDs protecting all power and lighting circuits, a deadlock or compliant security screen door on the main entry, deadlocks, patio bolts or security screens on other external doors, window locks on windows that can be reached from outside, and a light at the main entry that works from inside. Rural, agricultural and heritage-listed homes are exempt from the security standards but must still be reasonably secure. Work through the minimum standards checklist.",
+       "payload": {
+        "referral_categories": [
+         "electrician"
+        ],
+        "task": "Check RCDs, locks and entry light",
+        "checklists": [
+         "rent.wa_minimum_standards"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rcd_sale",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_electrical",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "security",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "WA property",
+       "facts": {
+        "property.address.state": "WA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_barrier",
+     "title": "Pool barrier",
+     "condition": {
+      "fact": "rent.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Keep the pool barrier compliant and ready for council inspection",
+       "detail": "Every private pool, spa or portable pool deeper than 30cm in WA needs a compliant safety barrier, and your local government inspects it at least every four years. Before a tenancy, check gates self-close and latch and nothing climbable is near the fence. Fix any defects from the last inspection, and tell the tenant to keep the gate shut.",
+       "payload": {
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Check the pool barrier before the tenancy",
+        "checklists": [
+         "rent.wa_minimum_standards"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pools",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "rent.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rent_increases",
+     "title": "Rent increases",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Increase rent only once every 12 months, with 60 days' notice",
+       "detail": "Since 29 July 2024, WA rent can go up no more than once every 12 months, for periodic and fixed-term tenancies. Give the tenant at least 60 days' notice on the WA rent increase notice. In a fixed term, the increase (or how it is worked out) must be written in the agreement."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_increases",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "reforms_2024",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pets_and_modifications",
+     "title": "Pets and minor modifications",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "WA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Tenants can ask to keep a pet or make minor changes, and you need a good reason to say no",
+       "detail": "Since 29 July 2024 WA tenants can keep pets and make minor modifications (like hanging pictures or fitting child safety locks) with your permission. They ask using the WA pet request form or WA minor modification request form. You can refuse only where a law or by-law prevents it, or with the Commissioner for Consumer Protection's approval for a good reason (for example no fencing). You can set reasonable conditions, and tenants must restore the property at the end unless you agree otherwise. Answer requests in writing."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "reforms_2024",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "forms_list",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "WA property",
+       "facts": {
+        "property.address.state": "WA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Queensland property",
+       "facts": {
+        "property.address.state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "known_repairs",
+     "title": "Known repairs",
+     "condition": {
+      "fact": "rent.known_repairs",
+      "op": "exists"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Fix known problems before the tenant moves in",
+       "detail": "You told us about repairs. A WA rental must be reasonably clean, secure and in reasonable repair, and your smoke alarms, RCDs and locks must meet the minimum standards. Book the repairs now, record them in the WA property condition report, and use licensed trades for electrical, gas and plumbing work.",
+       "payload": {
+        "referral_categories": [
+         "electrician",
+         "plumber",
+         "builder"
+        ],
+        "task": "Book the known repairs",
+        "checklists": [
+         "rent.wa_minimum_standards"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "security",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_electrical",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pcr",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Repairs listed",
+       "facts": {
+        "rent.known_repairs": "Broken window lock"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None listed",
+       "facts": {},
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "end_of_tenancy",
+     "title": "Ending a tenancy",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Use the WA notice of termination and the right notice period",
+       "detail": "To end a WA tenancy for reasons other than unpaid rent, use the WA notice of termination. A periodic tenancy can still be ended without grounds, with at least 60 days' notice, or with 30 days' notice after a sale contract that needs vacant possession. A fixed term can be ended on its expiry date with at least 30 days' notice. At the end, do the outgoing property condition report within 14 days, and release the bond with the WA joint bond disposal form or through BondsOnline.",
+       "payload": {
+        "task": "Plan notices and the final inspection",
+        "checklists": [
+         "rent.wa_end_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form_1c_grounds",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pcr",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_limits",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "self_managed",
+     "title": "Managing the tenancy yourself",
+     "condition": {
+      "fact": "rent.managed_by",
+      "op": "equals",
+      "value": "self"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "REFERRAL_CATEGORY",
+       "title": "A property manager can handle the tenancy paperwork",
+       "detail": "As a self-managing WA landlord you prepare the agreement and condition reports, lodge the bond within 14 days, give notices on the right forms and keep smoke alarms, RCDs and locks compliant. A licensed property manager can do this for you; agents must lodge bonds through BondsOnline.",
+       "payload": {
+        "referral_categories": [
+         "property_manager"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "agreements",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_lodgement",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Self-managed",
+       "facts": {
+        "rent.managed_by": "self"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Agent",
+       "facts": {
+        "rent.managed_by": "agent"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

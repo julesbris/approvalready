@@ -1,0 +1,2620 @@
+{
+  "key": "business_wa",
+  "title": "WA: BusinessReady, vehicle licensing, VesselReady and GrantReady (licences, insurance, tax, trades, personal services, childcare, imported vehicles, boats, grants)",
+  "notes": "First sourced WA rules for BusinessReady, TradeReady (vehicles), VesselReady and GrantReady. Built from WA Department of Health, Racing, Gaming and Liquor, Building and Energy, Consumer Protection, WorkCover WA, RevenueWA, Department of Communities, Department of Transport and Major Infrastructure, SBDC and sample local government pages read on 2026-10-12. Several WA regulators now sit in the Department of Local Government, Industry Regulation and Safety (LGIRS), and the Department of Transport is now the Department of Transport and Major Infrastructure (DTMI). Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it.",
+  "organisations": [
+    {
+      "ref": "wa_health",
+      "name": "Department of Health (WA)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "WA",
+      "website": "https://www.health.wa.gov.au"
+    },
+    {
+      "ref": "lgirs_rgl",
+      "name": "Racing, Gaming and Liquor (Department of Local Government, Industry Regulation and Safety)",
+      "kind": "REGULATOR",
+      "jurisdiction": "WA",
+      "website": "https://www.wa.gov.au/organisation/racing-gaming-and-liquor"
+    },
+    {
+      "ref": "city_of_perth",
+      "name": "City of Perth",
+      "kind": "COUNCIL",
+      "jurisdiction": "WA",
+      "website": "https://perth.wa.gov.au"
+    },
+    {
+      "ref": "city_of_busselton",
+      "name": "City of Busselton",
+      "kind": "COUNCIL",
+      "jurisdiction": "WA",
+      "website": "https://www.busselton.wa.gov.au"
+    },
+    {
+      "ref": "workcover_wa",
+      "name": "WorkCover WA",
+      "kind": "REGULATOR",
+      "jurisdiction": "WA",
+      "website": "https://www.workcover.wa.gov.au"
+    },
+    {
+      "ref": "revenuewa",
+      "name": "RevenueWA (Department of Treasury and Finance)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "WA",
+      "website": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/revenuewa"
+    },
+    {
+      "ref": "building_energy",
+      "name": "Building and Energy (Department of Local Government, Industry Regulation and Safety)",
+      "kind": "REGULATOR",
+      "jurisdiction": "WA",
+      "website": "https://www.wa.gov.au/organisation/building-and-energy"
+    },
+    {
+      "ref": "consumer_protection_wa",
+      "name": "Consumer Protection (Department of Local Government, Industry Regulation and Safety)",
+      "kind": "REGULATOR",
+      "jurisdiction": "WA",
+      "website": "https://www.consumerprotection.wa.gov.au"
+    },
+    {
+      "ref": "communities_ecru",
+      "name": "Education and Care Regulatory Unit (Department of Communities)",
+      "kind": "REGULATOR",
+      "jurisdiction": "WA",
+      "website": "https://www.wa.gov.au/organisation/department-of-communities/education-and-care-regulatory-unit"
+    },
+    {
+      "ref": "dtmi",
+      "name": "Department of Transport and Major Infrastructure (WA)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "WA",
+      "website": "https://www.transport.wa.gov.au"
+    },
+    {
+      "ref": "sbdc",
+      "name": "Small Business Development Corporation (WA)",
+      "kind": "GRANT_BODY",
+      "jurisdiction": "WA",
+      "website": "https://www.smallbusiness.wa.gov.au"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "health_food_rego",
+      "organisation": "wa_health",
+      "jurisdiction": "WA",
+      "title": "Registration of a food business (WA Department of Health)",
+      "url": "https://www.health.wa.gov.au/articles/n_r/registration-of-a-food-business",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "health_fsmt_factsheet",
+      "organisation": "wa_health",
+      "jurisdiction": "WA",
+      "title": "Food Safety Management Tools factsheet (Standard 3.2.2A)",
+      "url": "https://www.health.wa.gov.au/~/media/Corp/Documents/Health-for/Environmental-health/Food/PDF/Food-Safety-Management-Tools---Factsheet.pdf",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "rgl_fees",
+      "organisation": "lgirs_rgl",
+      "jurisdiction": "WA",
+      "title": "Fees and charges: liquor licensing",
+      "url": "https://www.wa.gov.au/organisation/racing-gaming-and-liquor/fees-and-charges-liquor-licensing",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "perth_outdoor_dining",
+      "organisation": "city_of_perth",
+      "jurisdiction": "WA",
+      "title": "Outdoor Dining Permit (City of Perth)",
+      "url": "https://perth.wa.gov.au/forms-and-payments/residents-and-businesses/Business/licences-and-permits/outdoor-dining-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "busselton_signs",
+      "organisation": "city_of_busselton",
+      "jurisdiction": "WA",
+      "title": "Advertisement signage information sheet (City of Busselton)",
+      "url": "https://www.busselton.wa.gov.au/documents/29/advertising-signage-information-sheet",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "workcover_insurance",
+      "organisation": "workcover_wa",
+      "jurisdiction": "WA",
+      "title": "Employers: workers compensation insurance (WorkCover WA)",
+      "url": "https://www.workcover.wa.gov.au/employers/insurance/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "payroll_calc",
+      "organisation": "revenuewa",
+      "jurisdiction": "WA",
+      "title": "Calculation: Payroll Tax Employer Guide",
+      "url": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide/calculation-payroll-tax-employer-guide",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "be_need_register",
+      "organisation": "building_energy",
+      "jurisdiction": "WA",
+      "title": "Do I need to be a registered building contractor?",
+      "url": "https://www.wa.gov.au/government/publications/do-i-need-be-registered-building-contractor",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "be_contractor_new",
+      "organisation": "building_energy",
+      "jurisdiction": "WA",
+      "title": "Building contractor registration: new",
+      "url": "https://www.wa.gov.au/government/multi-step-guides/builders-registration/building-contractor-registration-new",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "be_fees",
+      "organisation": "building_energy",
+      "jurisdiction": "WA",
+      "title": "Building and Energy fees 2026-27",
+      "url": "https://www.wa.gov.au/government/multi-step-guides/lgirs-licensing-and-registration-fees-and-charges/building-and-energy-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "be_hii",
+      "organisation": "building_energy",
+      "jurisdiction": "WA",
+      "title": "Home indemnity insurance: reminder about your obligations",
+      "url": "https://www.wa.gov.au/government/announcements/home-indemnity-insurance-reminder-about-your-obligations",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "be_plumbing",
+      "organisation": "building_energy",
+      "jurisdiction": "WA",
+      "title": "Apply for a new plumbing contractor's licence",
+      "url": "https://www.wa.gov.au/government/multi-step-guides/plumbers-licensing/apply-new-plumbing-contractors-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "be_electrical",
+      "organisation": "building_energy",
+      "jurisdiction": "WA",
+      "title": "Electrical contractor's licence application",
+      "url": "https://www.wa.gov.au/government/multi-step-guides/electrical-contractor-licensing/electrical-contractors-licence-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "be_painters",
+      "organisation": "building_energy",
+      "jurisdiction": "WA",
+      "title": "Painters' registration",
+      "url": "https://www.wa.gov.au/government/multi-step-guides/painters-registration",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "health_skin_pen",
+      "organisation": "wa_health",
+      "jurisdiction": "WA",
+      "title": "Skin penetration procedures and the law",
+      "url": "https://www.health.wa.gov.au/articles/s_t/skin-penetration-procedures-and-the-law",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ecru_applications",
+      "organisation": "communities_ecru",
+      "jurisdiction": "WA",
+      "title": "Education and care services: applications",
+      "url": "https://www.wa.gov.au/organisation/department-of-communities/education-and-care-services-applications",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "dtmi_imported",
+      "organisation": "dtmi",
+      "jurisdiction": "WA",
+      "title": "License an imported vehicle",
+      "url": "https://www.transport.wa.gov.au/licensing/vehicle/license-vehicle/overseas-vehicle/imported-vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "dtmi_licence_fees",
+      "organisation": "dtmi",
+      "jurisdiction": "WA",
+      "title": "License a vehicle in Western Australia",
+      "url": "https://www.transport.wa.gov.au/licensing/vehicle/license-vehicle/western-australia",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "revenuewa_vld",
+      "organisation": "revenuewa",
+      "jurisdiction": "WA",
+      "title": "Vehicle licence duty",
+      "url": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/vehicle-licence-duty",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "cp_dealers",
+      "organisation": "consumer_protection_wa",
+      "jurisdiction": "WA",
+      "title": "Motor vehicle dealers licensing",
+      "url": "https://www.consumerprotection.wa.gov.au/motor-vehicle-dealers-licensing",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "cp_dealer_fees",
+      "organisation": "consumer_protection_wa",
+      "jurisdiction": "WA",
+      "title": "Motor vehicle industry licensing fees",
+      "url": "https://www.wa.gov.au/government/multi-step-guides/lgirs-licensing-and-registration-fees-and-charges/motor-vehicle-industry-licensing-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "dtmi_vessel_rego",
+      "organisation": "dtmi",
+      "jurisdiction": "WA",
+      "title": "Register a vessel (recreational boat registration)",
+      "url": "https://www.transport.wa.gov.au/imarine/recreational-boat-registration.asp",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "dtmi_rst",
+      "organisation": "dtmi",
+      "jurisdiction": "WA",
+      "title": "Get a Recreational Skipper's Ticket",
+      "url": "https://www.transport.wa.gov.au/marine/recreational-boating/recreational-skippers-ticket/get-rst",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sbdc_cctv",
+      "organisation": "sbdc",
+      "jurisdiction": "WA",
+      "title": "Small Business Resilience Program: CCTV Rebate",
+      "url": "https://www.smallbusiness.wa.gov.au/cctv",
+      "source_type": "GRANT_GUIDELINES"
+    }
+  ],
+  "references": [
+    {
+      "ref": "wa_food_rego",
+      "document": "health_food_rego",
+      "section": "Who must register or notify; process",
+      "extracted_text": "[Summary, not the source's wording] A food business must not operate before it is registered with, or has notified, the enforcement agency under the Food Act 2008. Local government environmental health services register cafes, restaurants, retail outlets, home-based food businesses, manufacturers, school canteens, childcare and mobile food vans (registered where the vehicle is kept overnight; temporary and mobile businesses also notify each other local government they trade in). The Department of Health registers businesses in Kings Park, on Rottnest Island and outside any local government area, and some exporters. Fees are one-off and set by each agency. Section 113 makes it an offence not to tell the agency about changes such as a sale or closure.",
+      "interpretation": "Most WA food businesses register with their local government before trading. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_fsmt",
+      "document": "health_fsmt_factsheet",
+      "section": "Food safety management tools",
+      "extracted_text": "[Summary, not the source's wording] From 8 December 2023 category one businesses (that process unpackaged, potentially hazardous, ready-to-eat food, such as cafes, restaurants and caterers) and category two businesses (that minimally handle such food, such as delis and service stations) must ensure food handlers are trained, appoint at least one food safety supervisor reasonably available to advise and supervise, and (category one) keep records showing key controls are managed for at least 3 months. Supervisor certification must be refreshed every 5 years.",
+      "interpretation": "WA food service and retail businesses handling unpackaged potentially hazardous food need a food safety supervisor and trained handlers. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_liquor_fees",
+      "document": "rgl_fees",
+      "section": "Grant of licence, occasional licence and annual fees",
+      "extracted_text": "[Summary, not the source's wording] Fees provided by the Department of Local Government, Industry Regulation and Safety (Racing, Gaming and Liquor), last updated 26 June 2026, excluding GST: restaurant and small bar licence applications $1,058.50; tavern and liquor store $4,129.50; occasional licence from $62.00 (up to 250 patrons); annual licence fee $697.50 (club restricted $342.00); approved manager application $212.00 at Australia Post.",
+      "interpretation": "Selling alcohol in WA needs a licence from Racing, Gaming and Liquor; fees are as listed. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_lg_alfresco",
+      "document": "perth_outdoor_dining",
+      "section": "Outdoor dining permit",
+      "extracted_text": "[Summary, not the source's wording] Food businesses that want an outdoor dining area on public land such as a footpath need an Outdoor Dining Permit under the City of Perth Outdoor Dining Local Law 2019. Applicants must be a registered food business, provide public liability insurance of $20 million, and arrange furniture storage. There is no charge (from 1 February 2019). Provisional approval is given for two months and an officer arranges an inspection within 10 days.",
+      "interpretation": "Using a footpath for dining needs a local government permit; the City of Perth is an example and other local governments have their own rules. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_signs",
+      "document": "busselton_signs",
+      "section": "When signs need approval",
+      "extracted_text": "[Summary, not the source's wording] All advertisement signage on private land requires City approval unless exempt under Schedule 9 of the local planning scheme. Exempt examples include business signs on non-residential buildings up to 5 square metres per wall and signs not visible from public space. A sign needs approval if it advertises goods or services not relevant to the site, is more than 3 metres above ground, or impedes a road or footpath.",
+      "interpretation": "Business signs are controlled by each local government's planning scheme; the City of Busselton is an example. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_workcover",
+      "document": "workcover_insurance",
+      "section": "Employer insurance obligation",
+      "extracted_text": "[Summary, not the source's wording] Employers must hold a current workers compensation policy under the Workers Compensation and Injury Management Act 2023. An employer risks prosecution for not having a current policy. Advice and Assistance Service: 1300 794 744.",
+      "interpretation": "Every WA employer needs a workers compensation policy before staff start. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_payroll",
+      "document": "payroll_calc",
+      "section": "Threshold and rate",
+      "extracted_text": "[Summary, not the source's wording] From 1 July 2023 the annual payroll tax threshold is $1,000,000 (monthly Australian taxable wages over $83,333). The rate is 5.5% of taxable wages. A diminishing threshold applies to annual taxable wages between $1 million and $7.5 million.",
+      "interpretation": "Employers or groups with Australian wages over $1 million a year must register for and pay WA payroll tax. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_builder_threshold",
+      "document": "be_need_register",
+      "section": "When registration is required",
+      "extracted_text": "[Summary, not the source's wording] Registration as a building contractor is required when the work needs a building permit, is in the prescribed area of the State (122 local governments) and is valued at $20,000 or more, or $50,000 or more for Class 10a buildings. All three conditions must apply and no exemption.",
+      "interpretation": "Permit building work of $20,000 or more in most of WA needs a registered building contractor. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_builder_new",
+      "document": "be_contractor_new",
+      "section": "Requirements and how to apply",
+      "extracted_text": "[Summary, not the source's wording] Contractors generally need access to at least $50,000 cash or equivalent and a quick ratio of at least 1:1. Partnerships and companies need a nominated supervisor who is a registered building practitioner. Individuals use Building Services Board Form 13, partnerships Building Services Board Form 14 (with Forms A2.1 and A2.2), companies Building Services Board Form 15. Apply online, by post or in person at Cannington. Registration lasts 3 years. Decisions within 50 business days of a complete application; typically 4 to 6 weeks.",
+      "interpretation": "Building contractor registration needs a registered practitioner as supervisor and evidence of financial capacity. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_be_fees",
+      "document": "be_fees",
+      "section": "Fees 2026-27",
+      "extracted_text": "[Summary, not the source's wording] From 1 July 2026, excluding GST: building contractor registration individual $854 (registration $564 plus application $290), partnership $2,299, company $4,359; building practitioner $1,133; painting contractor individual $476, partnership $818, company $1,391; painting practitioner $645; plumbing contractor $928, tradesperson $334 (3 years); electrical contractor $795 for 1 year or $2,101 for 3 years; electrician $218 for 1 year or $714 for 5 years.",
+      "interpretation": "Current WA building, painting, plumbing and electrical licence fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_hii",
+      "document": "be_hii",
+      "section": "Home indemnity insurance obligations",
+      "extracted_text": "[Summary, not the source's wording] Residential building work over $20,000 must be covered by home indemnity insurance. The builder must obtain the certificate before claiming any payment from the owner and give a copy to the owner and to the permit authority as part of building approval. Associated work done alone under a separate contract (pools, carports, pergolas, landscaping) does not need it. Certificates are issued by approved insurers.",
+      "interpretation": "Builders need home indemnity insurance before taking money for residential work over $20,000. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_plumbing",
+      "document": "be_plumbing",
+      "section": "Plumbing contractor's licence",
+      "extracted_text": "[Summary, not the source's wording] A plumbing contractor's licence lets the holder take responsibility for plumbing work and supervise tradespeople. Applicants need a tradesperson's licence, statements of competency and business units of competency, ID, a police check within 3 months and a photo. Apply online, by post with Plumbers Licensing Board Form 101 (plumbing contractor's licence application), or in person. Typically 4 to 6 weeks. Contact plumbers@lgirs.wa.gov.au, 1300 489 099.",
+      "interpretation": "Plumbing businesses need a plumbing contractor's licence from the Plumbers Licensing Board. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_electrical",
+      "document": "be_electrical",
+      "section": "Electrical contractor's licence",
+      "extracted_text": "[Summary, not the source's wording] Under regulation 36 the applicant or an employee must hold a WA electrician's licence and act as nominee, with Electrical Contractor Training Program modules; a management representative must understand the regulations. A public liability certificate of currency within 30 days is needed. Forms R013A (individual), R013B (partnership), R013C (company); apply online, by post or in person. Contact (08) 6251 2000, electricallicensing@lgirs.wa.gov.au.",
+      "interpretation": "Electrical businesses need an electrical contractor's licence from Building and Energy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_painters",
+      "document": "be_painters",
+      "section": "Painters' registration",
+      "extracted_text": "[Summary, not the source's wording] Painters doing work over $1,000 must be registered under the Building Services (Registration) Act 2011. Painting contractors contract with the public for painting services over $1,000; painting practitioners act as nominated supervisors or work for a contractor. Registrations last 3 years. Licensing Services 1300 489 099.",
+      "interpretation": "Painter registration is still required in WA for painting work over $1,000. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_skin_pen",
+      "document": "health_skin_pen",
+      "section": "Laws and obligations",
+      "extracted_text": "[Summary, not the source's wording] Skin penetration operators must comply with the Health (Skin Penetration Procedures) Regulations 1998 and the Code of Practice for Skin Penetration Procedures. Procedures include tattooing, piercing, scarification, branding, dermal anchors, waxing, electrolysis and acupuncture. Establishments must notify the local government of trading name, address and procedures, and give a layout of the premises before opening. Mobile practitioners may only work where each place is registered. Hand basins (hands-free for new fit-outs) and two sinks are required. Fines up to $1,000 plus daily penalties. Under the Children and Community Services Act 2004, tattooing a minor without written parental consent can bring a $12,000 fine and 1 year in prison; intimate piercing of a child $18,000 and 18 months.",
+      "interpretation": "Skin penetration businesses notify their local government and meet the regulations and code. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_ecru",
+      "document": "ecru_applications",
+      "section": "Provider and service approval",
+      "extracted_text": "[Summary, not the source's wording] Provider approval is for those who own or operate services; service approval for approved providers who want to operate a service. Apply through the National Quality Agenda IT System. The Department has 60 days to process a provider approval and 90 days for a service approval from when the application is validated as complete. ECRU: (08) 6277 3889, 1800 199 383, ECRU@communities.wa.gov.au.",
+      "interpretation": "The Education and Care Regulatory Unit approves providers and services under the National Law in WA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_import_licence",
+      "document": "dtmi_imported",
+      "section": "Licensing an imported vehicle",
+      "extracted_text": "[Summary, not the source's wording] A vehicle brought from overseas must be licensed immediately. Get a temporary movement permit, pass a roadworthiness inspection (personal effects imports are inspected by the Department, not an Authorised Inspection Station; Vehicle Operations 1300 776 065), then lodge Form VL17 Application to license a vehicle in person with the Certificate of Inspection, import approval, ID (and Form VL186 if you have no WA licence history) and proof of ownership. Vehicle licence duty is payable. The licence fee for a car is $29.76 per 100 kg (2026-27); motor injury insurance is also payable.",
+      "interpretation": "Imported vehicles are inspected and then licensed in person in WA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_duty",
+      "document": "revenuewa_vld",
+      "section": "Duty rates",
+      "extracted_text": "[Summary, not the source's wording] Light vehicles: 2.75% of dutiable value up to $25,000; between $25,000 and $50,000 a rate of 2.75 + ((value - 25,000) / 6,666.66) percent; over $50,000, 6.5%. Heavy vehicles: 3%, capped at $12,000. Paid to the Department of Transport when the licence is granted.",
+      "interpretation": "Vehicle licence duty applies when you first license an imported vehicle in WA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_dealer",
+      "document": "cp_dealers",
+      "section": "Who needs a licence and fees",
+      "extracted_text": "[Summary, not the source's wording] A motor vehicle dealer is someone who sells or exchanges four or more vehicles in any 12-month period to people who are not dealers, or carries on a business of buying or selling vehicles. Dealers complete an accepted licensing course, secure premises, lodge police checks and the fee. Dealer licence (3 years): $2,240 for one premises plus $1,230 per extra premises; yard manager $662; salesperson $448 (from the fees page updated 1 July 2026). Licensing Branch 1300 30 40 64.",
+      "interpretation": "Selling 4 or more vehicles a year in WA needs a dealer licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_vessel_rego",
+      "document": "dtmi_vessel_rego",
+      "section": "Registration requirement and fees",
+      "extracted_text": "[Summary, not the source's wording] Any recreational vessel that is or can be propelled by mechanical power, including sailing vessels with motors, must be registered, including those on moorings or in pens. Exempt: unpowered craft, paddle boards and electric hydrofoil boards under 4.5 kW, and small tenders meeting conditions. New registration: lodge the new boat registration application in person with a HIN certificate, ID and proof of acquisition. 12-month fees: under 5 m $170.65; 5 to 9.99 m $362.40; 10 to 19.99 m $726.95; 20 m and over $1,063.15; recording fee $36.90. Phone 13 11 56.",
+      "interpretation": "Motor-powered recreational boats must be registered in WA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_rst",
+      "document": "dtmi_rst",
+      "section": "Getting a Recreational Skipper's Ticket",
+      "extracted_text": "[Summary, not the source's wording] Applicants must be at least 14 and pass a theory test (34 of 40) and a practical assessment (56 of 62 criteria) with an authorised provider, with eyesight, medical and ID documents and a parent's consent letter if under 18. A supervising skipper must hold an RST and be 18 or over. Recording fee $36.90; the ticket is valid for life. Provider fees are set by providers.",
+      "interpretation": "The RST is WA's recreational boat licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "cctv_rebate",
+      "document": "sbdc_cctv",
+      "section": "Eligibility, rebate and dates",
+      "extracted_text": "[Summary, not the source's wording] Applications will open soon. Eligible: WA-based retail or customer-facing businesses with fewer than 20 employees by headcount, an active ABN and GST registration, selling from a physical storefront or service location (not government property), not part of a group of 20 or more. Rebate up to 50% of cost excluding GST, maximum $2,000, once per property, first come first served (75% metro, 25% regional). Quotes dated after 6 October 2026; pre-approval before installation; install a hard-wired internal system by a Class 2 licensed installer within 60 days; register on WA Police Cam-Map; completion form within 14 days.",
+      "interpretation": "A capped CCTV rebate for small customer-facing WA businesses, opening late 2026. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_dealer_fees",
+      "document": "cp_dealer_fees",
+      "section": "Motor vehicle dealer fees",
+      "extracted_text": "[Summary, not the source's wording] Licences are valid for 3 years. Motor vehicle dealer: new licence $2,240 for one premises, plus $1,230 per additional premises; change of premises $194 each. Salesperson $448. Yard manager $662. Fees exclude GST and are reviewed each 1 July (page updated 1 July 2026).",
+      "interpretation": "Current WA motor vehicle dealer licence fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "wa_vl_fees",
+      "document": "dtmi_licence_fees",
+      "section": "Light vehicle licence fees 2026-27",
+      "extracted_text": "[Summary, not the source's wording] The licence fee for a motor car is $29.76 per 100 kg of tare (rounded up), plus a flat fee; a 1,650 kg car on a 12-month renewal is $512.52. A recording fee of $9.70 applies to non-direct-debit renewals. Owners must also pay Motor Injury Insurance. Forms: VL17 Application to License a Vehicle, VL186 Proof of Identity Nominated Owner.",
+      "interpretation": "Licence fees for cars in WA are charged by weight, plus motor injury insurance. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "business.wa.general",
+      "vertical": "BUSINESS",
+      "jurisdiction": "WA",
+      "title": "Western Australia: business licences, insurance and tax",
+      "description": "Registrations, licences, insurance and tax most WA businesses check: food registration, food safety supervisors, liquor, alfresco dining, signs, workers compensation and payroll tax.",
+      "applies_when": {
+        "fact": "business.state",
+        "op": "equals",
+        "value": "WA"
+      },
+      "limitations": [
+        "Built from WA Department of Health, Racing, Gaming and Liquor, WorkCover WA, RevenueWA and local government web pages, not from the Acts themselves.",
+        "Does not decide which liquor licence you need, or whether you can trade under an exemption.",
+        "Does not check whether the Department of Health registers your food business instead of the local government (for example businesses on Rottnest Island or in Kings Park, or exporters).",
+        "Alfresco dining and signage rules are set by each local government; we show them as things to check.",
+        "Does not check development approval for the use of your premises or a fit-out.",
+        "Not legal or tax advice. Confirm with the regulator or a qualified professional before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "food_business_registration",
+          "title": "Food business registration",
+          "condition": {
+            "fact": "business.handles_food",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register your food business with your local government before you open",
+              "detail": "In WA a food business must not start operating until it is registered with (or has notified) the enforcement agency under the Food Act 2008. For cafes, restaurants, shops, home-based food businesses, manufacturers and food vans that is your local government's environmental health team. Fill in its food business registration form and pay its one-off fee. Food vans register where the van is kept overnight and notify each other local government they trade in.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "Your local government (or WA Department of Health)",
+                  "pathway": "Register with your local government before you trade"
+                },
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Register your food business with your local government"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food business registration not identified",
+              "detail": "You said you won't handle food, so no food business registration was identified.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "Your local government (or WA Department of Health)",
+                  "pathway": "Needed if you handle food for sale"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food business registration may be needed",
+              "detail": "Every WA food business must register with, or notify, its local government before it starts. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "Your local government (or WA Department of Health)",
+                  "pathway": "Needed if you handle food for sale",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_food_rego",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "prepare_on_site"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No food",
+              "facts": {
+                "business.handles_food": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "food_safety_supervisor",
+          "title": "Food safety supervisor",
+          "condition": {
+            "all": [
+              {
+                "fact": "business.handles_food",
+                "op": "equals",
+                "value": true
+              },
+              {
+                "any": [
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "prepare_on_site"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "serve_on_premises"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "sell_unpackaged"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "mobile_food"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Appoint a certified food safety supervisor and train your food handlers",
+              "detail": "Since 8 December 2023, WA food service, catering and retail businesses that handle unpackaged, potentially hazardous food must meet Food Safety Standard 3.2.2A. You need at least one certified food safety supervisor who is reasonably available, every food handler must be trained, and category one businesses (those that make ready-to-eat food, such as cafes and caterers) must keep records showing key food safety controls for at least 3 months. The supervisor's certificate must be refreshed every 5 years.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "Your local government (Standard 3.2.2A of the Food Standards Code)",
+                  "pathway": "Appoint a supervisor before you trade"
+                },
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Appoint a certified food safety supervisor and train your food handlers"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food safety supervisor not identified",
+              "detail": "From your answers you won't prepare, serve or sell unpackaged food, so Standard 3.2.2A wasn't identified. If you only sell packaged food the extra tools don't apply.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "Your local government (Standard 3.2.2A of the Food Standards Code)",
+                  "pathway": "Needed if you handle unpackaged, potentially hazardous food"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food safety supervisor may be needed",
+              "detail": "Businesses that prepare or serve unpackaged, potentially hazardous food need a food safety supervisor. Tell us what food you'll handle so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "Your local government (Standard 3.2.2A of the Food Standards Code)",
+                  "pathway": "Needed if you handle unpackaged, potentially hazardous food",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_fsmt",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Restaurant",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "serve_on_premises"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Packaged only",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "sell_packaged"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "liquor_licence",
+          "title": "Liquor licence",
+          "condition": {
+            "fact": "business.sells_alcohol",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a WA liquor licence",
+              "detail": "Selling or supplying alcohol in WA needs a licence from Racing, Gaming and Liquor under the Liquor Control Act 1988. Restaurants and small bars apply for a restaurant or small bar licence (A$1,058.50 to apply); taverns and liquor stores cost A$4,129.50 to apply. Every licence then pays an annual fee of A$697.50. One-off events use an occasional licence (from A$62). You also need an approved manager on duty and staff trained in responsible service of alcohol.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_LIQUOR_LICENCE",
+                  "authority": "Racing, Gaming and Liquor (Department of Local Government, Industry Regulation and Safety)",
+                  "pathway": "Apply to Racing, Gaming and Liquor after checking planning approval"
+                },
+                "evidence": [
+                  {
+                    "kind": "RSA_COMPETENCY",
+                    "title": "Responsible service of alcohol training for each person serving alcohol"
+                  }
+                ],
+                "referral_categories": [
+                  "liquor_licensing_consultant",
+                  "lawyer"
+                ],
+                "task": "Choose a licence type and apply to Racing, Gaming and Liquor"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Liquor licence not identified",
+              "detail": "You said you won't sell or serve alcohol. A BYO restaurant may still need to check its obligations.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_LIQUOR_LICENCE",
+                  "authority": "Racing, Gaming and Liquor (Department of Local Government, Industry Regulation and Safety)",
+                  "pathway": "Needed if you sell or supply alcohol"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A liquor licence may be needed",
+              "detail": "Selling or serving alcohol in WA needs a licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_LIQUOR_LICENCE",
+                  "authority": "Racing, Gaming and Liquor (Department of Local Government, Industry Regulation and Safety)",
+                  "pathway": "Needed if you sell or supply alcohol",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_liquor_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Bar",
+              "facts": {
+                "business.sells_alcohol": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Dry cafe",
+              "facts": {
+                "business.sells_alcohol": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "alfresco_dining",
+          "title": "Alfresco dining permit",
+          "condition": {
+            "fact": "business.footpath_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get an alfresco dining (outdoor eating) permit from your local government",
+              "detail": "Putting tables, chairs, A-frame signs or displays on a footpath or other public land in WA needs a permit from your local government under its local laws. Most local governments ask for proof of food business registration, a plan of the area and a public liability certificate (the City of Perth asks for A$20 million cover and charges no fee). Rules, fees and insurance amounts vary by local government. If you serve alcohol in the area, your liquor licence must cover it too.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_ALFRESCO_DINING_PERMIT",
+                  "authority": "Your local government",
+                  "pathway": "Apply to your local government"
+                },
+                "task": "Apply to your local government for an alfresco dining permit"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Alfresco dining permit not identified",
+              "detail": "You said you won't use the footpath or other public space, so no alfresco permit was identified.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_ALFRESCO_DINING_PERMIT",
+                  "authority": "Your local government",
+                  "pathway": "Needed to use a footpath or public space"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A alfresco dining permit may be needed",
+              "detail": "Using a footpath for tables or displays needs a local government permit in WA. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_ALFRESCO_DINING_PERMIT",
+                  "authority": "Your local government",
+                  "pathway": "Needed to use a footpath or public space",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_lg_alfresco",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Footpath tables",
+              "facts": {
+                "business.footpath_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No footpath",
+              "facts": {
+                "business.footpath_use": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "business_signs",
+          "title": "Business signs",
+          "condition": {
+            "fact": "business.premises_type",
+            "op": "in",
+            "value": [
+              "leased_commercial",
+              "owned_commercial",
+              "home"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Check your local government's rules before you put up signs",
+              "detail": "In WA, signs (advertisements) are controlled by your local government's planning scheme and local planning policies. Many small signs on a shopfront are exempt, but larger, illuminated, pylon or roof signs usually need development approval, and signs on public land need a permit. Check with your local government's planning team before you order signs."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_signs",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Shop",
+              "facts": {
+                "business.premises_type": "leased_commercial"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Online only",
+              "facts": {
+                "business.premises_type": "online"
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "workers_compensation",
+          "title": "Workers compensation insurance",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "not_equals",
+            "value": "NONE"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You must hold workers compensation insurance for your workers",
+              "detail": "Every WA employer must have a workers compensation policy with an approved insurer under the Workers Compensation and Injury Management Act 2023. This includes casual and part-time staff and some contractors, who can count as workers. Get a policy from an approved insurer before your first worker starts. WorkCover WA regulates the scheme and checks that employers are insured.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_WORKERS_COMPENSATION_POLICY",
+                  "authority": "WorkCover WA (policy from an approved insurer)",
+                  "pathway": "Buy a policy from an approved insurer"
+                },
+                "referral_categories": [
+                  "insurance_broker",
+                  "whs_consultant"
+                ],
+                "task": "Take out workers compensation insurance with an approved insurer"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Workers compensation insurance not identified",
+              "detail": "You said you won't employ anyone. If you take on workers later, including casuals, you must insure them first.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_WORKERS_COMPENSATION_POLICY",
+                  "authority": "WorkCover WA (policy from an approved insurer)",
+                  "pathway": "Needed when you employ workers"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A workers compensation insurance may be needed",
+              "detail": "Employers in WA must hold workers compensation insurance. Tell us how many people you employ so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_WORKERS_COMPENSATION_POLICY",
+                  "authority": "WorkCover WA (policy from an approved insurer)",
+                  "pathway": "Needed when you employ workers",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_workcover",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Employs staff",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No staff",
+              "facts": {
+                "business.employee_band": "NONE"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "payroll_tax",
+          "title": "Payroll tax",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "in",
+            "value": [
+              "20_199",
+              "200_PLUS"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Check whether you must register for WA payroll tax",
+              "detail": "WA payroll tax applies when your total Australian taxable wages (including those of grouped businesses) are more than A$1 million a year, or A$83,333 in a month. Register with RevenueWA as soon as your wages go over the threshold. The rate is 5.5%, and a diminishing threshold applies to wages between A$1 million and A$7.5 million. With 20 or more staff you are likely to be near or over the threshold.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_PAYROLL_TAX_REGISTRATION",
+                  "authority": "RevenueWA (Department of Treasury and Finance)",
+                  "pathway": "Register online with RevenueWA when wages pass the threshold",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Check your wages against the WA payroll tax threshold"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Payroll tax is unlikely at your size",
+              "detail": "WA payroll tax only applies once Australian wages pass A$1 million a year. Keep an eye on it as you grow, and remember grouped businesses count together."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_payroll",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Large employer",
+              "facts": {
+                "business.employee_band": "20_199"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small employer",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.wa.trades",
+      "vertical": "BUSINESS",
+      "jurisdiction": "WA",
+      "title": "Western Australia: building, painting, plumbing and electrical licences",
+      "description": "Building contractor and painter registration, home indemnity insurance, plumbing licences and electrical contractor licences for WA trade businesses.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "WA"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "trades"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Building and Energy, Building Services Board and Plumbers Licensing Board pages on wa.gov.au, not from the Building Services (Registration) Act 2011, the Home Building Contracts Act 1991 or the licensing regulations.",
+        "Our question about building work uses a A$3,300 line set for Queensland. In WA the building contractor threshold is A$20,000 (A$50,000 for Class 10a buildings such as sheds and carports), so a building job between those amounts is shown as likely, not certain.",
+        "Registration only applies in the prescribed area (122 local governments) and where the work needs a building permit; we don't check your location.",
+        "Painting is grouped under 'other trade' in our questions, so painter registration is shown as something to check.",
+        "Not legal advice. Confirm with Building and Energy (1300 489 099) before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "building_contractor_registration",
+          "title": "Building contractor registration",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "building_over_3300"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You likely need to be a registered building contractor",
+              "detail": "In WA, building work worth A$20,000 or more (A$50,000 or more for Class 10a buildings such as sheds, carports and patios) that needs a building permit and is in the prescribed area must be done by a registered building contractor. The Building Services Board registers individuals, partnerships and companies; each business needs a registered building practitioner as its nominated supervisor.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_BUILDING_CONTRACTOR_REGISTRATION",
+                  "authority": "Building Services Board (through Building and Energy, LGIRS)",
+                  "pathway": "Apply to the Building Services Board with your qualifications",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "accountant",
+                  "lawyer"
+                ],
+                "task": "Apply for WA building contractor registration"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Building contractor registration not identified",
+              "detail": "You said you won't do larger building jobs. In WA permit work of A$20,000 or more needs a registered building contractor.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_BUILDING_CONTRACTOR_REGISTRATION",
+                  "authority": "Building Services Board (through Building and Energy, LGIRS)",
+                  "pathway": "Needed for permit work of A$20,000 or more"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A building contractor registration may be needed",
+              "detail": "Building work of A$20,000 or more needs WA building contractor registration. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_BUILDING_CONTRACTOR_REGISTRATION",
+                  "authority": "Building Services Board (through Building and Energy, LGIRS)",
+                  "pathway": "Needed for permit work of A$20,000 or more",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_builder_threshold",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "wa_builder_new",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "wa_be_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small jobs",
+              "facts": {
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "home_indemnity_insurance",
+          "title": "Home indemnity insurance",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "building_over_3300"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Take out home indemnity insurance before residential jobs over A$20,000",
+              "detail": "Under the Home Building Contracts Act 1991, a builder must take out home indemnity insurance for residential building work worth more than A$20,000 before taking a deposit or starting work, and give the owner a copy of the certificate. You buy it from an approved insurer (insurers check your finances first), and the cost is usually passed on in the contract price.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_HOME_INDEMNITY_INSURANCE",
+                  "authority": "Approved home indemnity insurer (scheme overseen by Building and Energy)",
+                  "pathway": "Get eligibility from an approved insurer, then a certificate per job",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "insurance_broker"
+                ],
+                "task": "Arrange home indemnity insurance eligibility with an approved insurer"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Home indemnity insurance not identified",
+              "detail": "You said you won't do larger building jobs, so home indemnity insurance wasn't identified.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_HOME_INDEMNITY_INSURANCE",
+                  "authority": "Approved home indemnity insurer"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_hii",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician only",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "plumbing_licence",
+          "title": "Plumbing licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "plumbing_drainage"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a WA plumbing licence",
+              "detail": "Plumbing and drainage work in WA must be done by a licensed plumber. The Plumbers Licensing Board issues a tradesperson's licence to do the work and a plumbing contractor's licence to run a plumbing business, contract for work and lodge notices of intention and certificates of compliance. Gas work needs a separate gasfitting licence from Building and Energy.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_PLUMBING_LICENCE",
+                  "authority": "Plumbers Licensing Board (through Building and Energy, LGIRS)",
+                  "pathway": "Apply to the Plumbers Licensing Board"
+                },
+                "task": "Apply for a WA plumbing contractor's licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Plumbing licence not identified",
+              "detail": "You said you won't do plumbing or drainage work.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_PLUMBING_LICENCE",
+                  "authority": "Plumbers Licensing Board"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_plumbing",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "wa_be_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "electrical_licence",
+          "title": "Electrical contractor licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "electrical"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a WA electrical contractor's licence",
+              "detail": "To carry on a business of electrical work in WA you need an electrical contractor's licence from Building and Energy, and the person who does the work needs an electrician's licence. The contractor licence names a nominee with the right qualifications, and you must hold public liability insurance.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_ELECTRICAL_CONTRACTOR_LICENCE",
+                  "authority": "Building and Energy (LGIRS)",
+                  "pathway": "Apply to Building and Energy"
+                },
+                "referral_categories": [
+                  "insurance_broker"
+                ],
+                "task": "Apply for a WA electrical contractor's licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Electrical contractor licence not identified",
+              "detail": "You said you won't do electrical work.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_ELECTRICAL_CONTRACTOR_LICENCE",
+                  "authority": "Building and Energy (LGIRS)"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_electrical",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "wa_be_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "painter_registration",
+          "title": "Painter registration",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "other_trade"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "If you paint, check painter registration",
+              "detail": "WA still registers painters. A business that contracts with the public for painting work worth more than A$1,000 must be a registered painting contractor, and its supervisor and painters must be registered painting practitioners, under the Building Services (Registration) Act 2011. Other specialist trades, such as gasfitting, may need their own licence from Building and Energy.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_PAINTER_REGISTRATION",
+                  "authority": "Building Services Board (through Building and Energy, LGIRS)",
+                  "pathway": "Apply to the Building Services Board",
+                  "certainty": "MAY_APPLY"
+                },
+                "task": "Check whether you need WA painter registration"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_painters",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "wa_be_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Other trade",
+              "facts": {
+                "business.trade_work": [
+                  "other_trade"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.wa.personal_appearance",
+      "vertical": "BUSINESS",
+      "jurisdiction": "WA",
+      "title": "Western Australia: tattoo, piercing and beauty businesses",
+      "description": "Notifying your local government of a skin penetration business and meeting the Health (Skin Penetration Procedures) Regulations 1998 and Code of Practice, from WA Department of Health pages.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "WA"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "personal_services"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from WA Department of Health pages, not from the regulations themselves.",
+        "Each local government has its own form, fee and inspection schedule; some also register hairdressing premises under their health local laws.",
+        "Lasers (for example for hair or tattoo removal) need a licence under the Radiation Safety Act 1975; we show this as a pointer only.",
+        "Cosmetic injectables are regulated as health and medicines matters and are not covered.",
+        "Not legal advice. Check with your local government's environmental health team."
+      ],
+      "rules": [
+        {
+          "key": "skin_penetration_notification",
+          "title": "Skin penetration premises",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattooing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "body_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "ear_nose_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "implants_or_scarring"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "beauty"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattoo_removal"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Notify your local government before you open",
+              "detail": "Tattooing, piercing, scarification, waxing, electrolysis and similar procedures are skin penetration under the Health (Skin Penetration Procedures) Regulations 1998. Before you open, give your local government your trading name, address and the procedures you'll do, with a layout of the premises and fittings. Your premises must meet the Code of Practice for Skin Penetration Procedures, including a hand basin (hands-free in new fit-outs) and separate sinks for hand washing and cleaning equipment. Mobile operators can only work at registered places.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_SKIN_PENETRATION_REGISTRATION",
+                  "authority": "Your local government",
+                  "pathway": "Notify or register with your local government before you open"
+                },
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Register your skin penetration premises with your local government"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Skin penetration not identified",
+              "detail": "From your answers you won't do procedures that pierce the skin. Hairdressing premises may still need to register with some local governments."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Local government registration may be needed",
+              "detail": "Tattooing, piercing and many beauty treatments must be notified to your local government in WA. Tell us which services you'll offer so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_SKIN_PENETRATION_REGISTRATION",
+                  "authority": "Your local government",
+                  "pathway": "Needed for skin penetration procedures",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_skin_pen",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tattoo studio",
+              "facts": {
+                "business.personal_services": [
+                  "tattooing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Beauty salon",
+              "facts": {
+                "business.personal_services": [
+                  "beauty"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair only",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "minors_body_art",
+          "title": "Tattoos and piercings for under-18s",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattooing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "body_piercing"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Strict age rules apply to tattoos and piercings",
+              "detail": "Under the Children and Community Services Act 2004 you must not tattoo or brand anyone under 18, or do a non-intimate piercing on them, without written consent from a parent or guardian (fine up to A$12,000 and 1 year in prison). Intimate piercings on anyone under 18 are banned even with consent (fine up to A$18,000 and 18 months in prison). Check ID and keep consent records."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_skin_pen",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tattoo",
+              "facts": {
+                "business.personal_services": [
+                  "tattooing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Beauty",
+              "facts": {
+                "business.personal_services": [
+                  "beauty"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.wa.education_care",
+      "vertical": "BUSINESS",
+      "jurisdiction": "WA",
+      "title": "Western Australia: childcare and education and care services",
+      "description": "Provider and service approval under the Education and Care Services National Law (WA), from the Education and Care Regulatory Unit at the Department of Communities.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "WA"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "childcare_education"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Department of Communities pages, not the National Law or regulations.",
+        "Does not cover WA child care services licensed under the Child Care Services Act 2007 (for example some occasional care), or schools.",
+        "Does not check planning approval for a childcare centre, which you get from your local government.",
+        "Not legal advice. Talk to the Education and Care Regulatory Unit before you commit to premises."
+      ],
+      "rules": [
+        {
+          "key": "provider_and_service_approval",
+          "title": "Provider and service approval",
+          "condition": {
+            "fact": "business.education_care_service",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need provider approval and service approval",
+              "detail": "Long day care, family day care, outside school hours care and kindergartens in WA run under the Education and Care Services National Law. The Education and Care Regulatory Unit at the Department of Communities is the regulatory authority. Apply for provider approval (decided within 60 days of a complete application) and then service approval for each service (90 days), both online through the National Quality Agenda IT System.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Education and Care Regulatory Unit (Department of Communities)",
+                  "pathway": "Apply online through the NQA IT System"
+                },
+                "referral_categories": [
+                  "education_care_consultant",
+                  "lawyer"
+                ],
+                "task": "Apply for provider approval, then service approval"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Provider and service approval not identified",
+              "detail": "You said you won't run an education and care service under the National Law.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Education and Care Regulatory Unit (Department of Communities)",
+                  "pathway": "Needed for long day care, family day care, outside school hours care and preschools"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A provider and service approval may be needed",
+              "detail": "Education and care services in WA need provider and service approval. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Education and Care Regulatory Unit (Department of Communities)",
+                  "pathway": "Needed for long day care, family day care, outside school hours care and preschools",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_ecru",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Childcare centre",
+              "facts": {
+                "business.education_care_service": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Tutoring",
+              "facts": {
+                "business.education_care_service": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "trade.wa.vehicles",
+      "vertical": "TRADE",
+      "jurisdiction": "WA",
+      "title": "Western Australia: licensing and selling imported vehicles",
+      "description": "Licensing (registering) an imported vehicle with the WA Department of Transport and Major Infrastructure, and the Consumer Protection motor vehicle dealer licence for selling, from WA Government pages.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "trade.direction",
+            "op": "in",
+            "value": [
+              "import",
+              "both"
+            ]
+          },
+          {
+            "fact": "trade.goods_categories",
+            "op": "contains",
+            "value": "vehicles"
+          },
+          {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "WA"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Department of Transport and Major Infrastructure and Consumer Protection pages, not from the Road Traffic (Vehicles) Act 2012 or the Motor Vehicle Dealers Act 1973.",
+        "Covers light vehicles. Heavy vehicles, buses and trailers have extra inspection rules not covered here.",
+        "Does not cover concessional or club (historic) licensing, or motor vehicle repairer licensing.",
+        "Not legal advice. Confirm with the Department of Transport and Major Infrastructure (13 11 56) or Consumer Protection (1300 30 40 54)."
+      ],
+      "rules": [
+        {
+          "key": "wa_registration",
+          "title": "Licensing the vehicle in WA",
+          "condition": {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "WA"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get the vehicle inspected and licensed in WA",
+              "detail": "In WA, registering a vehicle is called licensing it, and you must apply as soon as an imported vehicle arrives. Get a temporary movement permit to drive it to the inspection, pass a roadworthiness inspection (personal effects imports must be inspected by the Department, not an Authorised Inspection Station), then lodge the WA Application to license a vehicle (Form VL17) in person with the Certificate of Inspection, your import approval, ID and proof of purchase. You pay vehicle licence duty on the vehicle's value (2.75% up to A$25,000, rising to 6.5% over A$50,000), the licence fee (A$29.76 per 100 kg for a car, about A$513 a year for a 1,650 kg car) and compulsory motor injury insurance.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_VEHICLE_REGISTRATION",
+                  "authority": "Department of Transport and Major Infrastructure (WA)",
+                  "pathway": "Movement permit, inspection, then license in person"
+                },
+                "task": "Book a vehicle inspection and license the vehicle at a DTMI service centre"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_import_licence",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "wa_duty",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "wa_vl_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "WA",
+              "facts": {
+                "trade.vehicle_state": "WA"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Queensland",
+              "facts": {
+                "trade.vehicle_state": "QLD"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "wa_motor_dealer",
+          "title": "Selling imported vehicles in WA",
+          "condition": {
+            "all": [
+              {
+                "fact": "trade.vehicle_purpose",
+                "op": "equals",
+                "value": "sell"
+              },
+              {
+                "fact": "trade.vehicle_state",
+                "op": "equals",
+                "value": "WA"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a WA motor vehicle dealer licence to sell imported vehicles",
+              "detail": "Selling vehicles as a business in WA needs a motor vehicle dealer licence from Consumer Protection (Department of Local Government, Industry Regulation and Safety). You count as a dealer if you sell or exchange 4 or more vehicles in any 12 months to people who aren't dealers. You need to complete an accepted dealer licensing course, have suitable premises and pass police checks. A 3-year licence costs A$2,240 for one premises. Yard managers and salespeople need their own licences.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_MOTOR_VEHICLE_DEALER_LICENCE",
+                  "authority": "Consumer Protection (WA)",
+                  "pathway": "Apply to Consumer Protection before you start selling"
+                },
+                "referral_categories": [
+                  "lawyer"
+                ],
+                "task": "Apply to Consumer Protection for a motor vehicle dealer licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "WA dealer licence not identified",
+              "detail": "You said the vehicle is for your own use, so a motor vehicle dealer licence wasn't identified.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_MOTOR_VEHICLE_DEALER_LICENCE",
+                  "authority": "Consumer Protection (WA)",
+                  "pathway": "Needed to sell vehicles as a business"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A dealer licence may be needed",
+              "detail": "Selling vehicles as a business in WA needs a motor vehicle dealer licence. Tell us whether you'll sell the vehicle so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_MOTOR_VEHICLE_DEALER_LICENCE",
+                  "authority": "Consumer Protection (WA)",
+                  "pathway": "Needed to sell vehicles as a business",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_dealer",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "wa_dealer_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Selling in WA",
+              "facts": {
+                "trade.vehicle_purpose": "sell",
+                "trade.vehicle_state": "WA"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Own use",
+              "facts": {
+                "trade.vehicle_purpose": "own_use",
+                "trade.vehicle_state": "WA"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Purpose not answered",
+              "facts": {
+                "trade.vehicle_state": "WA"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vessel.wa.registration",
+      "vertical": "VESSEL",
+      "jurisdiction": "WA",
+      "title": "Western Australia: boat registration and Recreational Skipper's Ticket",
+      "description": "Recreational vessel registration and the Recreational Skipper's Ticket in WA, and where commercial vessels fit, from Department of Transport and Major Infrastructure pages.",
+      "applies_when": {
+        "fact": "vessel.home_state",
+        "op": "equals",
+        "value": "WA"
+      },
+      "limitations": [
+        "Built from Department of Transport and Major Infrastructure pages, not from the Western Australian Marine Act 1982 or its regulations.",
+        "Treats any engine as mechanical power. Electric hydrofoil boards and similar craft under 4.5 kW, and small tenders that meet the tender rules, are exempt but we don't ask about them.",
+        "Doesn't cover moorings and pens (managed by the Department or port authorities), or boats from other states visiting WA.",
+        "Not legal advice. Check with the Department of Transport and Major Infrastructure (13 11 56) before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "recreational_registration",
+          "title": "Recreational vessel registration",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "any": [
+                  {
+                    "fact": "vessel.propulsion",
+                    "op": "in",
+                    "value": [
+                      "inboard",
+                      "outboard",
+                      "sterndrive",
+                      "jet",
+                      "sail_auxiliary"
+                    ]
+                  },
+                  {
+                    "fact": "vessel.type",
+                    "op": "equals",
+                    "value": "personal_watercraft"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register the boat with the Department of Transport and Major Infrastructure",
+              "detail": "In WA every recreational vessel that is or can be driven by a motor must be registered, including sailing boats with an engine and boats kept on a mooring or in a pen. Lodge the WA application to register a new boat in person at a service centre or regional agent with a HIN certificate, proof of identity and proof of purchase. Registration lasts 12 months: A$170.65 a year under 5 m or A$362.40 for 5 to 9.99 m, plus a A$36.90 recording fee.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_VESSEL_REGISTRATION",
+                  "authority": "Department of Transport and Major Infrastructure (WA)",
+                  "pathway": "Lodge in person at a service centre or regional agent"
+                },
+                "task": "Register the boat with the Department of Transport and Major Infrastructure"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "WA registration not identified",
+              "detail": "From your answers this isn't a motor-powered recreational boat. Boats without a motor, such as canoes and sailing boats with no engine, don't need WA registration. Domestic commercial vessels are certified through AMSA instead.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_VESSEL_REGISTRATION",
+                  "authority": "Department of Transport and Major Infrastructure (WA)"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "WA registration may be needed",
+              "detail": "Any recreational boat with a motor must be registered in WA. Tell us how the boat is powered and whether it's for commercial use so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_VESSEL_REGISTRATION",
+                  "authority": "Department of Transport and Major Infrastructure (WA)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_vessel_rego",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tinny with outboard",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.propulsion": "outboard"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Jet ski",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "personal_watercraft",
+                "vessel.propulsion": "jet"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Kayak",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "paddle",
+                "vessel.propulsion": "manual"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Commercial",
+              "facts": {
+                "vessel.commercial_use": true,
+                "vessel.propulsion": "outboard"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "skippers_ticket",
+          "title": "Recreational Skipper's Ticket",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "any": [
+                  {
+                    "fact": "vessel.propulsion",
+                    "op": "in",
+                    "value": [
+                      "inboard",
+                      "outboard",
+                      "sterndrive",
+                      "jet",
+                      "sail_auxiliary"
+                    ]
+                  },
+                  {
+                    "fact": "vessel.type",
+                    "op": "equals",
+                    "value": "personal_watercraft"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You'll likely need a Recreational Skipper's Ticket",
+              "detail": "To be in charge of a registered recreational boat in WA you need a Recreational Skipper's Ticket, unless a ticket holder aged 18 or over supervises you. You must be at least 14. Book an assessment with an authorised provider: a 40-question theory test (34 to pass) and a practical test of about 1 hour. The Department charges a A$36.90 recording fee and the ticket lasts for life. Providers set their own assessment fees.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_SKIPPERS_TICKET",
+                  "authority": "Department of Transport and Major Infrastructure (WA)",
+                  "pathway": "Pass theory and practical assessments with an authorised provider",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "maritime_trainer"
+                ],
+                "task": "Book a Recreational Skipper's Ticket assessment"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Skipper's ticket not identified",
+              "detail": "From your answers this isn't a registrable recreational boat, so the Recreational Skipper's Ticket wasn't identified. Commercial skippers need an AMSA certificate of competency instead.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_SKIPPERS_TICKET",
+                  "authority": "Department of Transport and Major Infrastructure (WA)"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A skipper's ticket may be needed",
+              "detail": "The person in charge of a registered recreational boat in WA needs a Recreational Skipper's Ticket. Tell us how the boat is powered so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "WA_SKIPPERS_TICKET",
+                  "authority": "Department of Transport and Major Infrastructure (WA)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_rst",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Runabout",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.propulsion": "outboard"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Sailing dinghy",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "sail",
+                "vessel.propulsion": "sail"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "commercial_through_amsa",
+          "title": "Commercial vessels",
+          "condition": {
+            "fact": "vessel.commercial_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Commercial vessels are regulated by AMSA, not WA registration",
+              "detail": "A boat used for business, hire or carrying paying passengers is a domestic commercial vessel. It needs AMSA certification and a unique vessel identifier instead of WA recreational registration, and its skipper needs an AMSA certificate of competency. Your local government or port authority may also need to approve where you operate from."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "wa_vessel_rego",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Charter boat",
+              "facts": {
+                "vessel.commercial_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Recreational",
+              "facts": {
+                "vessel.commercial_use": false
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grant.wa.cctv_rebate",
+      "vertical": "GRANT",
+      "jurisdiction": "WA",
+      "title": "Small Business Resilience Program: CCTV Rebate (WA)",
+      "description": "Eligibility criteria for the SBDC CCTV Rebate, from the Small Business Development Corporation program page. Each rule is one criterion and matches when it is met.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "grant.state",
+            "op": "equals",
+            "value": "WA"
+          },
+          {
+            "fact": "grant.applicant_type",
+            "op": "in",
+            "value": [
+              "business",
+              "primary_producer"
+            ]
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the SBDC program page read on 2026-10-12, before applications opened; the final guidelines and terms may change the criteria.",
+        "We don't ask whether you sell to the public from a physical storefront or service location, which the rebate requires; government-owned premises are excluded.",
+        "Doesn't check group membership (a business in a group with 20 or more staff is excluded), insolvency, or unresolved earlier grants.",
+        "Funds are limited and paid first come, first served (75% metro, 25% regional). Meeting these criteria doesn't guarantee a rebate. Not financial or legal advice."
+      ],
+      "rules": [
+        {
+          "key": "under_20_staff",
+          "title": "Fewer than 20 employees",
+          "condition": {
+            "fact": "grant.employee_band",
+            "op": "in",
+            "value": [
+              "NONE",
+              "1_4",
+              "5_19"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You have fewer than 20 employees",
+              "detail": "The rebate is for businesses with fewer than 20 employees by headcount (full-time, part-time and casual; owners and contractors don't count)."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "The rebate is for businesses with fewer than 20 employees",
+              "detail": "Businesses with 20 or more employees, or in a group with 20 or more, aren't eligible."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "The rebate is for businesses with fewer than 20 employees by headcount."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "cctv_rebate",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Small",
+              "facts": {
+                "grant.employee_band": "1_4"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Large",
+              "facts": {
+                "grant.employee_band": "20_199"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "abn",
+          "title": "Active ABN",
+          "condition": {
+            "fact": "grant.has_abn",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You have an ABN",
+              "detail": "You need an active ABN."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "The rebate needs an active ABN",
+              "detail": "Get an ABN before you apply."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "You need an active ABN."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "cctv_rebate",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "ABN",
+              "facts": {
+                "grant.has_abn": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No ABN",
+              "facts": {
+                "grant.has_abn": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "gst",
+          "title": "Registered for GST",
+          "condition": {
+            "fact": "grant.gst_registered",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You're registered for GST",
+              "detail": "Your ABN record must show you're registered for GST."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "The rebate needs GST registration",
+              "detail": "Only GST-registered businesses are eligible, as shown on the Australian Business Register."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "Your ABN record must show you're registered for GST."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "cctv_rebate",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "GST",
+              "facts": {
+                "grant.gst_registered": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No GST",
+              "facts": {
+                "grant.gst_registered": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "not_installed",
+          "title": "System not yet installed",
+          "condition": {
+            "fact": "grant.project_started",
+            "op": "equals",
+            "value": false
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You haven't installed the system yet",
+              "detail": "You must get pre-approval before installing, with a quote dated after 6 October 2026. Install within 60 days of pre-approval."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Already-installed systems aren't eligible",
+              "detail": "The rebate only covers new or upgraded hard-wired systems installed after you get pre-approval."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "Systems already installed aren't eligible: get pre-approval first."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "cctv_rebate",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Not started",
+              "facts": {
+                "grant.project_started": false
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Started",
+              "facts": {
+                "grant.project_started": true
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "co_contribution",
+          "title": "You pay at least half",
+          "condition": {
+            "fact": "grant.co_contribution_available",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You can fund your share",
+              "detail": "The rebate covers up to 50% of the cost excluding GST, to a maximum of A$2,000, and is paid after you have paid the installer in full."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "You need to pay the full cost first",
+              "detail": "The rebate is paid after installation and full payment, and covers at most 50% (up to A$2,000)."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us more so we can check this",
+              "detail": "You pay the installer in full and get back up to 50% of the cost excluding GST, to a maximum of A$2,000."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "cctv_rebate",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Can fund",
+              "facts": {
+                "grant.co_contribution_available": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Can't fund",
+              "facts": {
+                "grant.co_contribution_available": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "grant_programs": [
+    {
+      "key": "grant.wa.cctv_rebate",
+      "title": "Small Business Resilience Program: CCTV Rebate (WA)",
+      "administrator": "sbdc",
+      "jurisdiction": "WA",
+      "url": "https://www.smallbusiness.wa.gov.au/cctv",
+      "rule_set": "grant.wa.cctv_rebate",
+      "summary": "A once-off rebate for WA retail and customer-facing small businesses (fewer than 20 employees) that install a new or upgraded hard-wired internal CCTV system with a Class 2 licensed security installer. You need pre-approval before installing, and the system must be registered on WA Police Cam-Map.",
+      "funding_summary": "Up to 50% of the cost excluding GST, to a maximum of A$2,000 per customer-facing property. Paid after installation and full payment.",
+      "max_amount_cents": 200000,
+      "rounds": [
+        {
+          "title": "2026 round",
+          "status": "UPCOMING",
+          "dates_note": "When read on 2026-10-12 the SBDC said applications will open soon (register for updates). Quotes must be dated after 6 October 2026. No closing date: the round closes when the funds run out.",
+          "reference": "cctv_rebate"
+        }
+      ]
+    }
+  ]
+}
