@@ -2849,7 +2849,7 @@ export interface paths {
         };
         /**
          * Search Addresses
-         * @description Queensland addresses matching what was typed, each with its lot and plan.
+         * @description Addresses matching what was typed, each with its parcel (lot and plan) and council.
          */
         get: operations["search_addresses_v1_organisations__organisation_id__lookups_addresses_get"];
         put?: never;
@@ -2891,7 +2891,7 @@ export interface paths {
         };
         /**
          * Get Parcel
-         * @description A Queensland lot and plan: area, tenure, council and the state-mapped overlays it
+         * @description A parcel (lot and plan): area, tenure, council and the state-mapped overlays it
          *     touches, and what to check elsewhere (zone, bushfire, flooding, heritage).
          */
         get: operations["get_parcel_v1_organisations__organisation_id__lookups_parcels__lot_plan__get"];
@@ -5509,9 +5509,9 @@ export interface components {
         AddressMatchOut: {
             /**
              * Address Pid
-             * @description Queensland address identifier.
+             * @description The state's address identifier.
              */
-            address_pid: number;
+            address_pid: number | string;
             /** Label */
             label: string;
             /** Latitude */
@@ -5532,12 +5532,12 @@ export interface components {
             longitude: number | null;
             /**
              * Lot Plan
-             * @description Lot and plan in the cadastre, e.g. 2RP53576.
+             * @description The parcel's identifier in the state's cadastre, e.g. 2RP53576 (QLD).
              */
             lot_plan: string | null;
             /**
              * Lot Plan Label
-             * @description e.g. 'Lot 2 on RP53576'.
+             * @description e.g. 'Lot 2 on RP53576', 'Lot 1 DP123456'.
              */
             lot_plan_label: string | null;
             /**
@@ -6861,6 +6861,8 @@ export interface components {
             /** Name */
             name: string;
             planning_scheme: components["schemas"]["CouncilPlanningScheme"] | null;
+            /** Planning Scheme Label */
+            planning_scheme_label: string;
             /** Planning Url */
             planning_url: string | null;
             pre_lodgement: components["schemas"]["CouncilPreLodgement"] | null;
@@ -6868,10 +6870,20 @@ export interface components {
             sources: components["schemas"]["CouncilSource"][];
             /** Spatial Name */
             spatial_name: string;
+            /**
+             * State
+             * @default QLD
+             * @enum {string}
+             */
+            state: "QLD" | "NSW" | "VIC" | "WA" | "SA" | "TAS" | "ACT" | "NT";
+            state_fees: components["schemas"]["CouncilFees"] | null;
+            state_portal: components["schemas"]["CouncilSource"] | null;
             /** Steps */
             steps: string[];
             /** Website */
             website: string | null;
+            /** Zoning Lookup Url */
+            zoning_lookup_url: string | null;
         };
         /** CouncilPlanningScheme */
         CouncilPlanningScheme: {
@@ -6902,6 +6914,8 @@ export interface components {
             key: string;
             /** Name */
             name: string;
+            /** State */
+            state: string;
         };
         /** CredentialCheckIn */
         CredentialCheckIn: {
@@ -8455,7 +8469,7 @@ export interface components {
             how: string;
             /**
              * Matches
-             * @description Queensland addresses to pick from.
+             * @description Addresses to pick from.
              */
             matches: components["schemas"]["AddressMatchOut"][];
             /** Note */
@@ -9234,6 +9248,8 @@ export interface components {
         };
         /** OptionOut */
         OptionOut: {
+            /** Group */
+            group?: string | null;
             /** Label */
             label: string;
             /** Value */
@@ -9465,8 +9481,15 @@ export interface components {
             source: string;
             /** Source Url */
             source_url: string;
+            /** State */
+            state: string;
             /** Tenure */
             tenure: string | null;
+            /**
+             * Zone
+             * @description The planning zone, where the state publishes zoning as a service.
+             */
+            zone: string | null;
         };
         /** PartnerAnalyticsOut */
         PartnerAnalyticsOut: {
@@ -19488,6 +19511,7 @@ export interface operations {
         parameters: {
             query: {
                 q: string;
+                state?: string | null;
             };
             header?: never;
             path: {
@@ -19554,7 +19578,9 @@ export interface operations {
     };
     get_parcel_v1_organisations__organisation_id__lookups_parcels__lot_plan__get: {
         parameters: {
-            query?: never;
+            query?: {
+                state?: string;
+            };
             header?: never;
             path: {
                 lot_plan: string;

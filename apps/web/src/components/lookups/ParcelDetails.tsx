@@ -11,11 +11,16 @@ export type ParcelState =
   | { status: "error"; message: string }
   | { status: "found"; parcel: ParcelOut };
 
-/** What the Queensland Government data says about a lot and plan. */
-export async function fetchParcel(organisationId: string, lotPlan: string): Promise<ParcelState> {
+/** What the state government's data says about a lot and plan. */
+export async function fetchParcel(
+  organisationId: string,
+  lotPlan: string,
+  state = "QLD",
+): Promise<ParcelState> {
   const result = await apiRequest<ParcelOut>(
     "GET",
-    `/organisations/${organisationId}/lookups/parcels/${encodeURIComponent(lotPlan)}`,
+    `/organisations/${organisationId}/lookups/parcels/${encodeURIComponent(lotPlan)}` +
+      `?state=${encodeURIComponent(state)}`,
   );
   if (result.ok) return { status: "found", parcel: result.data };
   return {

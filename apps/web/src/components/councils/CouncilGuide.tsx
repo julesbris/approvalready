@@ -3,6 +3,7 @@ import type { CouncilOut } from "@approvalready/shared-types";
 import { CouncilEnquiryEmail } from "@/components/councils/CouncilEnquiryEmail";
 import { FormList, FormText } from "@/components/guidance/FormText";
 import { LODGEMENT_LABELS, feesMayBeOutOfDate, telHref } from "@/lib/councils";
+import { STATE_NAMES, stateGovernment } from "@/lib/coverage";
 import { formatDate } from "@/lib/questionnaire";
 
 type Props = {
@@ -23,7 +24,25 @@ export function CouncilGuide({ council, level = 2, answers }: Props) {
   const Sub = level === 2 ? "h3" : "h4";
   const titleId = `council-${council.key}`;
   const steps = council.steps.length > 0 ? council.steps : council.general_steps;
-  const fees = council.fees;
+  const stateName = STATE_NAMES[council.state] ?? council.state;
+  const councilFees = council.fees && council.fees.items.length > 0 ? council.fees : null;
+  // Fees the state sets for every council, when the council's own aren't listed.
+  const stateFees = councilFees ? null : council.state_fees;
+  const fees = councilFees ?? stateFees ?? council.fees;
+  const lodgement =
+    council.lodgement.length > 0 || !council.state_portal
+      ? council.lodgement
+      : [
+          {
+            method: "ONLINE" as const,
+            label: council.state_portal.title,
+            url: council.state_portal.url,
+            email: null,
+            address: null,
+          },
+        ];
+  const schemeLabel =
+    council.planning_scheme_label.charAt(0).toUpperCase() + council.planning_scheme_label.slice(1);
   const contact = council.contact;
   const phoneHref = contact.phone ? telHref(contact.phone) : null;
   const planningPhoneHref = contact.planning_phone ? telHref(contact.planning_phone) : null;
@@ -48,16 +67,16 @@ export function CouncilGuide({ council, level = 2, answers }: Props) {
       </div>
       {council.checked.verified ? null : (
         <p className="muted">
-          Gathered from official council and Queensland Government websites on{" "}
+          Gathered from official council and {stateGovernment(council.state)} websites on{" "}
           {formatDate(council.checked_on)}. Confirm the details with the council before you lodge.
         </p>
       )}
 
-      {council.lodgement.length > 0 ? (
+      {lodgement.length > 0 ? (
         <>
           <Sub className="subsection-title">Ways to lodge</Sub>
           <ul className="plain-list council-list">
-            {council.lodgement.map((way) => (
+            {lodgement.map((way) => (
               <li key={`${way.method}-${way.label}`}>
                 <span className="badge council-method">{LODGEMENT_LABELS[way.method]}</span>{" "}
                 {way.url ? (
@@ -91,11 +110,11 @@ export function CouncilGuide({ council, level = 2, answers }: Props) {
       {council.steps.length === 0 ? (
         <p className="muted">
           {council.name} doesn&apos;t publish its own steps online, so these are the steps that
-          apply across Queensland.
+          apply across {stateName}.
         </p>
       ) : (
         <details className="council-more">
-          <summary>How applications work across Queensland</summary>
+          <summary>How applications work across {stateName}</summary>
           <ol className="council-steps">
             {council.general_steps.map((step) => (
               <li key={step}>
@@ -139,8 +158,11 @@ export function CouncilGuide({ council, level = 2, answers }: Props) {
         <>
           <table className="council-fees">
             <caption className="muted">
-              {fees.fee_year ? `${fees.fee_year} fees` : "Fees"} as published by the council. The
-              fee for your application depends on its details.
+              {fees.fee_year ? `${fees.fee_year} fees` : "Fees"}{" "}
+              {stateFees
+                ? `set by ${stateGovernment(council.state)} for every council.`
+                : "as published by the council."}{" "}
+              The fee for your application depends on its details.
             </caption>
             <thead>
               <tr>
@@ -162,7 +184,7 @@ export function CouncilGuide({ council, level = 2, answers }: Props) {
           </table>
           {feesMayBeOutOfDate(fees.fee_year) ? (
             <p className="notice notice-warning">
-              These are the {fees.fee_year} fees, the latest we found. Councils update fees each
+              These are the {fees.fee_year} fees, the latest we found. Fees usually change each
               July, so check the current amount with the council.
             </p>
           ) : null}
@@ -173,7 +195,7 @@ export function CouncilGuide({ council, level = 2, answers }: Props) {
       {fees?.schedule_url ? (
         <p>
           <a href={fees.schedule_url} rel="noopener noreferrer" target="_blank">
-            The council&apos;s full fee schedule
+            {stateFees ? "The fees in full" : "The council's full fee schedule"}
           </a>
         </p>
       ) : null}
@@ -242,7 +264,7 @@ export function CouncilGuide({ council, level = 2, answers }: Props) {
         ) : null}
         {council.planning_scheme?.name ? (
           <div>
-            <dt>Planning scheme</dt>
+            <dt>{schemeLabel}</dt>
             <dd>
               {council.planning_scheme.url ? (
                 <a href={council.planning_scheme.url} rel="noopener noreferrer" target="_blank">
@@ -251,6 +273,16 @@ export function CouncilGuide({ council, level = 2, answers }: Props) {
               ) : (
                 council.planning_scheme.name
               )}
+            </dd>
+          </div>
+        ) : null}
+        {council.zoning_lookup_url ? (
+          <div>
+            <dt>Zone and overlays</dt>
+            <dd>
+              <a href={council.zoning_lookup_url} rel="noopener noreferrer" target="_blank">
+                Look up your site on the state&apos;s planning map
+              </a>
             </dd>
           </div>
         ) : null}

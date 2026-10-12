@@ -38,6 +38,11 @@ function council(overrides: Partial<CouncilOut> = {}): CouncilOut {
     gaps: ["Office hours not published."],
     general_steps: ["Check the planning scheme.", "Fill in DA Form 1."],
     general_source: { url: "https://planning.example/process", title: "Process" },
+    state: "QLD",
+    state_fees: null,
+    state_portal: null,
+    planning_scheme_label: "planning scheme",
+    zoning_lookup_url: null,
     forms: [
       {
         id: "qld-da-form-1",
@@ -91,6 +96,38 @@ describe("CouncilGuide", () => {
       "href",
       "https://planning.example/forms",
     );
+  });
+
+  it("uses the state's portal and fees when the council lists none", () => {
+    render(
+      <CouncilGuide
+        council={council({
+          key: "nsw_test",
+          state: "NSW",
+          lodgement: [],
+          fees: null,
+          state_portal: { url: "https://portal.example/", title: "NSW Planning Portal" },
+          state_fees: {
+            schedule_url: "https://legislation.example/schedule-4",
+            fee_year: "2026-27",
+            items: [{ label: "Up to $5,000", amount: "$129", note: null }],
+          },
+          planning_scheme_label: "Local Environmental Plan",
+          zoning_lookup_url: "https://maps.example/viewer",
+        })}
+      />,
+    );
+    expect(screen.getByRole("link", { name: "NSW Planning Portal" })).toHaveAttribute(
+      "href",
+      "https://portal.example/",
+    );
+    expect(screen.getByText(/set by the New South Wales Government for every council/)).toBeInTheDocument();
+    expect(screen.getByText("$129")).toBeInTheDocument();
+    expect(screen.getByText("Local Environmental Plan")).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Look up your site on the state's planning map" }),
+    ).toHaveAttribute("href", "https://maps.example/viewer");
+    expect(screen.getByText(/New South Wales Government websites/)).toBeInTheDocument();
   });
 
   it("shows when our team has checked the details", () => {

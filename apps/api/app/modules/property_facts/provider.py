@@ -2,10 +2,11 @@
 area, mapped constraints) can come from other than the customer.
 
 * ``NoProvider`` returns nothing, so every fact comes from the customer's answers.
-* ``QldSpatialProvider`` matches a Queensland address in the state's address data and
-  reads its parcel and state-mapped overlays (``app/modules/lookups/qld.py``). It answers
-  only when the address matches exactly one lot and plan, and never answers the zone:
-  councils' planning scheme zoning isn't published as a service we can read.
+* ``QldSpatialProvider`` matches an address in its state's address data and reads its
+  parcel and state-mapped overlays (``app/modules/lookups/qld.py`` and the other states'
+  modules, through ``Lookups.for_state``). It answers only when the address matches exactly
+  one parcel, and never answers the zone: the planning questionnaire's zones are
+  council-specific (CairnsPlan), and most councils don't publish zoning as a service.
 * ``MockProvider`` only answers for made-up addresses in the suburb "Mockville" and labels
   every fact as made up. It exists for development and tests.
 
@@ -21,6 +22,7 @@ from typing import TYPE_CHECKING, Any, Protocol
 
 from app.core.config import PropertyFactsProviderKind, Settings
 from app.modules.lookups.client import LookupUnavailable
+from app.modules.lookups.spatial import STATES
 
 if TYPE_CHECKING:
     from app.modules.lookups.service import Lookups
@@ -83,14 +85,14 @@ class QldSpatialProvider:
         self.lookups = lookups
 
     async def lookup(self, address: AddressQuery) -> list[PropertyFact]:
-        if address.state != "QLD" or not self.lookups.enabled:
+        spatial = self.lookups.for_state(address.state)
+        if spatial is None or not self.lookups.enabled:
             return []
-        qld = self.lookups.qld
         try:
-            match = await qld.match_address(address.line1, address.suburb)
+            match = await spatial.match_address(address.line1, address.suburb)
             if match is None or match.lot_plan is None:
                 return []
-            parcel = await qld.parcel(match.lot_plan)
+            parcel = await spatial.parcel(match.lot_plan)
         except LookupUnavailable:
             return []  # prefill is a convenience: the customer can still answer
         if parcel is None:
@@ -110,7 +112,7 @@ class QldSpatialProvider:
                 PropertyFact(
                     "planning.known_constraints",
                     parcel.constraints,
-                    "Queensland Government state mapping: "
+                    f"{STATES[parcel.state]} Government state mapping: "
                     + "; ".join(o.label for o in parcel.overlays if o.constraint),
                     first.source_url,
                     at,

@@ -29,9 +29,24 @@ type Props = {
   onText: (text: string) => void;
   /** Where FILE answers upload to. Without it a FILE question is shown read-only. */
   files?: FileContext;
-  /** Called when a Queensland address is picked from the search, after its value is set. */
+  /** Called when an address is picked from the search, after its value is set. */
   onAddressPick?: (match: AddressMatchOut) => void;
 };
+
+type Option = QuestionOut["options"][number];
+
+/** Options in their order, split where their group changes (councils by state). Options
+ * without a group come out as one run with no heading. */
+export function optionGroups(options: Option[]): [string | null, Option[]][] {
+  const out: [string | null, Option[]][] = [];
+  for (const option of options) {
+    const heading = option.group ?? null;
+    const last = out[out.length - 1];
+    if (last && last[0] === heading) last[1].push(option);
+    else out.push([heading, [option]]);
+  }
+  return out;
+}
 
 /** One question, rendered for its type, with its label, help text and error. */
 export function QuestionField(props: Props) {
@@ -166,11 +181,20 @@ export function QuestionField(props: Props) {
         return single(
           <select {...common} value={asText(value)} onChange={(e) => onValue(e.target.value || null)}>
             <option value="">Choose…</option>
-            {question.options.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
+            {optionGroups(question.options).flatMap(([heading, options]) => {
+              const items = options.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {o.label}
+                </option>
+              ));
+              return heading
+                ? [
+                    <optgroup key={heading} label={heading}>
+                      {items}
+                    </optgroup>,
+                  ]
+                : items;
+            })}
           </select>,
         );
       }

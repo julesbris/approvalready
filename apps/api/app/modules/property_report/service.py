@@ -22,8 +22,8 @@ from typing import Any
 
 from app.modules.councils.directory import for_local_authority
 from app.modules.lookups.client import LookupUnavailable
-from app.modules.lookups.qld import AddressMatch, NotChecked, ParcelReport, parse_lot_plan
 from app.modules.lookups.service import Lookups
+from app.modules.lookups.spatial import AddressMatch, NotChecked, ParcelReport
 from app.modules.property_report.schemas import (
     PropertyReportOut,
     ReportFact,
@@ -593,19 +593,25 @@ def headline(
     return out
 
 
-async def _parcel(lookups: Lookups, lot_plan: str | None) -> tuple[ParcelReport | None, bool]:
-    parsed = parse_lot_plan(lot_plan) if lot_plan else None
-    if parsed is None:
+async def _parcel(
+    lookups: Lookups, state: str, lot_plan: str | None
+) -> tuple[ParcelReport | None, bool]:
+    spatial = lookups.for_state(state)
+    parsed = spatial.parse_parcel_id(lot_plan) if spatial and lot_plan else None
+    if spatial is None or parsed is None:
         return None, False
     try:
-        return await lookups.qld.parcel(parsed), False
+        return await spatial.parcel(parsed), False
     except LookupUnavailable:
         return None, True
 
 
 async def _locate(lookups: Lookups, subject: Subject) -> AddressMatch | None:
+    spatial = lookups.for_state(subject.state)
+    if spatial is None:
+        return None
     try:
-        return await lookups.qld.match_address(subject.line1, subject.suburb)
+        return await spatial.match_address(subject.line1, subject.suburb)
     except LookupUnavailable:
         return None
 
@@ -631,9 +637,10 @@ async def build_report(lookups: Lookups, subject: Subject) -> PropertyReportOut:
     qld = subject.state == "QLD"
     if qld:
         lookups.crime.warm()
+    mapped = lookups.for_state(subject.state) is not None
     lat, lon, lot_plan = subject.latitude, subject.longitude, subject.lot_plan
     local_authority = None
-    if qld and (lat is None or lot_plan is None):
+    if mapped and (lat is None or lot_plan is None):
         match = await _within(_locate(lookups, subject), 5, None)
         if match:
             lat = lat if lat is not None else match.latitude
@@ -644,7 +651,9 @@ async def build_report(lookups: Lookups, subject: Subject) -> PropertyReportOut:
     y, x = (lat or 0.0), (lon or 0.0)  # only used when located
     budget = BUDGET_SECONDS - 3.5 - (time.monotonic() - started)
     (parcel, parcel_failed), suburb, catchments, schools, flood, places = await asyncio.gather(
-        _within(_parcel(lookups, lot_plan), budget, (None, True)) if qld else _none_pair(),
+        _within(_parcel(lookups, subject.state, lot_plan), budget, (None, True))
+        if mapped
+        else _none_pair(),
         _within(lookups.census.suburb_at(y, x), budget, None) if located else _none(),
         _within(lookups.schools.catchments(y, x), budget, None) if located and qld else _none(),
         _within(lookups.schools.schools_near(y, x), budget, None) if located and qld else _none(),
@@ -654,7 +663,7 @@ async def build_report(lookups: Lookups, subject: Subject) -> PropertyReportOut:
         _within(lookups.places.places(y, x), budget, None) if located else _none(),
     )
     local_authority = (parcel.local_authority if parcel else None) or local_authority
-    council = for_local_authority(local_authority)
+    council = for_local_authority(local_authority, subject.state)
     council_name = council.name if council else local_authority
     budget = BUDGET_SECONDS - (time.monotonic() - started)
     census, crime = await asyncio.gather(

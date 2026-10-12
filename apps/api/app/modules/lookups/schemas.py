@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field
 
 
 class AddressMatchOut(BaseModel):
-    address_pid: int = Field(description="Queensland address identifier.")
+    address_pid: int | str = Field(description="The state's address identifier.")
     label: str
     line1: str
     suburb: str
@@ -15,8 +15,10 @@ class AddressMatchOut(BaseModel):
     postcode: str | None = Field(
         description="From the ABS postal area containing the address (check it)."
     )
-    lot_plan: str | None = Field(description="Lot and plan in the cadastre, e.g. 2RP53576.")
-    lot_plan_label: str | None = Field(description="e.g. 'Lot 2 on RP53576'.")
+    lot_plan: str | None = Field(
+        description="The parcel's identifier in the state's cadastre, e.g. 2RP53576 (QLD)."
+    )
+    lot_plan_label: str | None = Field(description="e.g. 'Lot 2 on RP53576', 'Lot 1 DP123456'.")
     local_authority: str | None = Field(description="Council, e.g. 'Cairns Regional'.")
     lga: str | None = Field(description="The planning questionnaire's council answer.")
     latitude: float | None
@@ -50,6 +52,10 @@ class ParcelOut(BaseModel):
     plan: str
     lot_plan: str
     lot_plan_label: str
+    state: str
+    zone: str | None = Field(
+        description="The planning zone, where the state publishes zoning as a service."
+    )
     tenure: str | None
     land_area_m2: Decimal | None
     locality: str | None
@@ -102,5 +108,5 @@ class ListingImportOut(BaseModel):
     details: ListingDetailsOut | None = Field(
         description="From Domain's developer API, when the server has a key."
     )
-    matches: list[AddressMatchOut] = Field(description="Queensland addresses to pick from.")
+    matches: list[AddressMatchOut] = Field(description="Addresses to pick from.")
     note: str

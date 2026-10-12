@@ -112,11 +112,12 @@ def test_same_number_links_to_the_right_form_in_each_product() -> None:
 
 
 def test_council_steps_link_the_state_forms() -> None:
-    from app.modules.councils import directory
+    from app.modules.councils import states
 
-    state = forms.by_ids(directory.STATE_FORMS)
-    assert [f.id for f in state] == list(directory.STATE_FORMS)
-    assert not _unlinked(list(directory.GENERAL_STEPS), state)
+    for planning in states.all_states():
+        state = forms.by_ids(planning.forms)
+        assert [f.id for f in state] == list(planning.forms)
+        assert not _unlinked(list(planning.general_steps), state), planning.state
 
 
 @pytest.mark.asyncio

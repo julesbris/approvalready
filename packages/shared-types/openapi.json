@@ -863,9 +863,16 @@
       "AddressMatchOut": {
         "properties": {
           "address_pid": {
-            "description": "Queensland address identifier.",
-            "title": "Address Pid",
-            "type": "integer"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "description": "The state's address identifier.",
+            "title": "Address Pid"
           },
           "label": {
             "title": "Label",
@@ -930,7 +937,7 @@
                 "type": "null"
               }
             ],
-            "description": "Lot and plan in the cadastre, e.g. 2RP53576.",
+            "description": "The parcel's identifier in the state's cadastre, e.g. 2RP53576 (QLD).",
             "title": "Lot Plan"
           },
           "lot_plan_label": {
@@ -942,7 +949,7 @@
                 "type": "null"
               }
             ],
-            "description": "e.g. 'Lot 2 on RP53576'.",
+            "description": "e.g. 'Lot 2 on RP53576', 'Lot 1 DP123456'.",
             "title": "Lot Plan Label"
           },
           "postcode": {
@@ -1551,7 +1558,7 @@
             "type": "array"
           },
           "jurisdiction": {
-            "pattern": "^(CTH|QLD|LGA:QLD_[A-Z_]+)$",
+            "pattern": "^(CTH|QLD|NSW|VIC|WA|SA|TAS|ACT|NT|LGA:[A-Z]{2,3}_[A-Z0-9_]+)$",
             "title": "Jurisdiction",
             "type": "string"
           },
@@ -4944,6 +4951,10 @@
               }
             ]
           },
+          "planning_scheme_label": {
+            "title": "Planning Scheme Label",
+            "type": "string"
+          },
           "planning_url": {
             "anyOf": [
               {
@@ -4981,6 +4992,41 @@
             "title": "Spatial Name",
             "type": "string"
           },
+          "state": {
+            "default": "QLD",
+            "enum": [
+              "QLD",
+              "NSW",
+              "VIC",
+              "WA",
+              "SA",
+              "TAS",
+              "ACT",
+              "NT"
+            ],
+            "title": "State",
+            "type": "string"
+          },
+          "state_fees": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CouncilFees"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "state_portal": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CouncilSource"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "steps": {
             "items": {
               "maxLength": 500,
@@ -5003,11 +5049,23 @@
               }
             ],
             "title": "Website"
+          },
+          "zoning_lookup_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Zoning Lookup Url"
           }
         },
         "required": [
           "key",
           "name",
+          "state",
           "spatial_name",
           "checked_on",
           "website",
@@ -5023,7 +5081,11 @@
           "checked",
           "general_steps",
           "general_source",
-          "forms"
+          "forms",
+          "state_fees",
+          "state_portal",
+          "planning_scheme_label",
+          "zoning_lookup_url"
         ],
         "title": "CouncilOut",
         "type": "object"
@@ -5146,11 +5208,16 @@
           "name": {
             "title": "Name",
             "type": "string"
+          },
+          "state": {
+            "title": "State",
+            "type": "string"
           }
         },
         "required": [
           "key",
-          "name"
+          "name",
+          "state"
         ],
         "title": "CouncilSummary",
         "type": "object"
@@ -9572,7 +9639,7 @@
             "type": "string"
           },
           "matches": {
-            "description": "Queensland addresses to pick from.",
+            "description": "Addresses to pick from.",
             "items": {
               "$ref": "#/components/schemas/AddressMatchOut"
             },
@@ -11886,6 +11953,17 @@
       },
       "OptionOut": {
         "properties": {
+          "group": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Group"
+          },
           "label": {
             "title": "Label",
             "type": "string"
@@ -12517,6 +12595,10 @@
             "title": "Source Url",
             "type": "string"
           },
+          "state": {
+            "title": "State",
+            "type": "string"
+          },
           "tenure": {
             "anyOf": [
               {
@@ -12527,6 +12609,18 @@
               }
             ],
             "title": "Tenure"
+          },
+          "zone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The planning zone, where the state publishes zoning as a service.",
+            "title": "Zone"
           }
         },
         "required": [
@@ -12534,6 +12628,8 @@
           "plan",
           "lot_plan",
           "lot_plan_label",
+          "state",
+          "zone",
           "tenure",
           "land_area_m2",
           "locality",
@@ -33725,7 +33821,7 @@
     },
     "/v1/organisations/{organisation_id}/lookups/addresses": {
       "get": {
-        "description": "Queensland addresses matching what was typed, each with its lot and plan.",
+        "description": "Addresses matching what was typed, each with its parcel (lot and plan) and council.",
         "operationId": "search_addresses_v1_organisations__organisation_id__lookups_addresses_get",
         "parameters": [
           {
@@ -33747,6 +33843,23 @@
               "minLength": 3,
               "title": "Q",
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "pattern": "^[A-Za-z]{2,3}$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "State"
             }
           }
         ],
@@ -33834,7 +33947,7 @@
     },
     "/v1/organisations/{organisation_id}/lookups/parcels/{lot_plan}": {
       "get": {
-        "description": "A Queensland lot and plan: area, tenure, council and the state-mapped overlays it\ntouches, and what to check elsewhere (zone, bushfire, flooding, heritage).",
+        "description": "A parcel (lot and plan): area, tenure, council and the state-mapped overlays it\ntouches, and what to check elsewhere (zone, bushfire, flooding, heritage).",
         "operationId": "get_parcel_v1_organisations__organisation_id__lookups_parcels__lot_plan__get",
         "parameters": [
           {
@@ -33853,6 +33966,17 @@
             "schema": {
               "format": "uuid",
               "title": "Organisation Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "schema": {
+              "default": "QLD",
+              "pattern": "^[A-Za-z]{2,3}$",
+              "title": "State",
               "type": "string"
             }
           }

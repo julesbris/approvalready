@@ -132,7 +132,7 @@ async def test_api_lists_and_shows_councils(api: ApiHarness) -> None:
     r = await user.get("/v1/councils")
     assert r.status_code == 200, r.text
     assert len(r.json()) == 78
-    assert {"key": "cairns", "name": directory.by_key("cairns").name} in r.json()  # type: ignore[union-attr]
+    assert {"key": "cairns", "name": directory.by_key("cairns").name, "state": "QLD"} in r.json()  # type: ignore[union-attr]
 
     r = await user.get("/v1/councils/toowoomba")
     assert r.status_code == 200, r.text

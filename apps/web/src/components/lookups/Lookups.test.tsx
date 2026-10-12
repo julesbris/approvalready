@@ -29,6 +29,8 @@ const PARCEL: ParcelOut = {
   plan: "RP731159",
   lot_plan: "1RP731159",
   lot_plan_label: "Lot 1 on RP731159",
+  state: "QLD",
+  zone: null,
   tenure: "Freehold",
   land_area_m2: "774.00",
   locality: "Bentley Park",
