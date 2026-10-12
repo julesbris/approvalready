@@ -66,6 +66,7 @@ STATE_MAP_URLS = {
     "QLD": CADASTRE_URL,
     "NSW": "https://www.planningportal.nsw.gov.au/spatialviewer/",
     "VIC": "https://mapshare.vic.gov.au/vicplan/",
+    "TAS": "https://maps.thelist.tas.gov.au/listmap/app/list/map",
 }
 STATE_HAZARDS_INTRO = {
     "NSW": "Zoning, heritage, bush fire prone land, flood planning areas and the coastal "
@@ -73,6 +74,9 @@ STATE_HAZARDS_INTRO = {
     "VIC": "The planning zone and overlays (heritage, bushfire, flooding, vegetation and "
     "others), bushfire prone areas and heritage registers mapped by the Victorian Government "
     "over this land.",
+    "TAS": "The Tasmanian Heritage Register as mapped on the LIST over this land. The planning "
+    "scheme's bushfire, flood and landslip overlays aren't shown here yet: check them on the "
+    "LIST map.",
 }
 
 

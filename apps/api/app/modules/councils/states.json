@@ -326,6 +326,40 @@
         "PlanSA service desk: 1800 752 664.",
         "SAPPA URL not opened this session (fetch budget)."
       ]
+    },
+    {
+      "state": "TAS",
+      "name": "Tasmania",
+      "checked_on": "2026-10-12",
+      "general_steps": [
+        "Look up your zone and code overlays on the free LIST map, or use PlanBuild Tasmania's free property enquiry.",
+        "Check your zone's use table and standards in the Tasmanian Planning Scheme to see if your project is exempt, no permit required, permitted or discretionary. Ask your council's duty planner if unsure.",
+        "If you need a planning permit, lodge it with council. Permitted applications are decided in 28 days; discretionary ones are advertised for 14 days and decided in 42 days.",
+        "Engage a licensed building surveyor. For notifiable or permit work they issue a certificate of likely compliance, within 21 days for permit work.",
+        "For permit work, apply to council's permit authority for a building permit (7 days). Lodge plumbing applications with council too. Levies of 0.1% and 0.2% apply to work over $20,000.",
+        "Your builder gets the surveyor's start work authorisation, then builds with inspections at each stage.",
+        "When finished, get the occupancy permit from your surveyor and a certificate of completion from council before you move in."
+      ],
+      "forms": [
+        "tas-listmap",
+        "tas-planbuild-portal",
+        "tas-form-2-building-work",
+        "tas-form-3-plumbing-work"
+      ],
+      "source": {
+        "url": "https://www.planbuild.tas.gov.au/enquiry-service/property-development/building-and-plumbing",
+        "title": "Building and plumbing (PlanBuild Tasmania)"
+      },
+      "planning_scheme_label": "Tasmanian Planning Scheme",
+      "zoning_lookup_url": "https://maps.thelist.tas.gov.au/listmap/app/list/map",
+      "gaps": [
+        "Tasmania has one Tasmanian Planning Scheme (State Planning Provisions plus each council's Local Provisions Schedule) under the Land Use Planning and Approvals Act 1993; councils decide permits and set their own fees.",
+        "Building and plumbing are under the Building Act 2016: low risk, notifiable and permit work; building surveyors issue certificates of likely compliance and occupancy permits, council permit authorities issue building and plumbing permits.",
+        "The Building Permit Levy (0.1%) and training levy (0.2%) apply to work over $20,000.",
+        "PlanBuild Tasmania offers a statewide enquiry service but online applications only for City of Hobart, TasWater and Heritage Tasmania as at October 2026, so portal is null.",
+        "Secondary residences: 60 m2 now; SPP Amendment 01/2026 proposes 90 m2 (exhibited June to July 2026, not yet decided).",
+        "LISTmap URL not opened this session."
+      ]
     }
   ]
 }

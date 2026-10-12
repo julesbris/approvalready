@@ -1,0 +1,72 @@
+{
+  "key": "rent.tas_start_of_tenancy",
+  "vertical": "RENT",
+  "title": "Starting a Tasmanian tenancy",
+  "description": "The paperwork and steps before and when a Tasmanian tenant moves in. Summarised from Consumer Affairs Tasmania guidance and the Residential Tenancy Act 1997.",
+  "sources": [
+    {
+      "title": "Tenancy agreements / leases",
+      "organisation": "Consumer Affairs Tasmania",
+      "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/beginning-tenancy/leases"
+    },
+    {
+      "title": "Condition reports",
+      "organisation": "Consumer Affairs Tasmania",
+      "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/beginning-tenancy/condition-reports"
+    },
+    {
+      "title": "Rental bond lodgement",
+      "organisation": "Consumer Affairs Tasmania",
+      "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/bonds/lodgement"
+    }
+  ],
+  "items": [
+    {
+      "key": "min_standards",
+      "title": "Check the property meets the minimum standards before you advertise"
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Check smoke alarms are hardwired or 10-year battery, in the right places and working"
+    },
+    {
+      "key": "agreement",
+      "title": "Prepare a written tenancy agreement (a fixed term must be at least 4 weeks)"
+    },
+    {
+      "key": "guide",
+      "title": "Give the tenant the Tasmanian guide to renting"
+    },
+    {
+      "key": "strata_rules",
+      "title": "Give the tenant a copy of any strata rules they must follow",
+      "required": false
+    },
+    {
+      "key": "condition_report",
+      "title": "Give the tenant two signed copies of the Tasmanian residential tenancy condition report on or before move-in"
+    },
+    {
+      "key": "condition_return",
+      "title": "Collect the tenant's signed copy within 2 days, with any notes"
+    },
+    {
+      "key": "bond_amount",
+      "title": "Ask for no more than 4 weeks' rent as bond, and no pet bond"
+    },
+    {
+      "key": "bond_lodge",
+      "title": "Start the bond lodgement in Tasmanian MyBond and have the tenant pay the Rental Deposit Authority",
+      "detail": "Never take the bond yourself."
+    },
+    {
+      "key": "pool",
+      "title": "Check the pool barrier and gate work",
+      "required": false
+    },
+    {
+      "key": "copy_agreement",
+      "title": "Give the tenant a copy of the signed agreement within 14 days"
+    }
+  ]
+}

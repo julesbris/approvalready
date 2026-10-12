@@ -1,0 +1,1986 @@
+{
+ "key": "property_tas",
+ "title": "PropertyReady: selling and renting residential property in Tasmania",
+ "notes": "First sourced rules for SellReady and RentReady in Tasmania. Built from Consumer Affairs Tasmania pages (CBOS moved to Consumer Affairs Tasmania and Building Standards Tasmania on 1 October 2026; cbos.tas.gov.au redirects), the Residential Tenancy Act 1997 and Property Agents and Land Transactions Act 2016 on legislation.tas.gov.au (partly read), the State Revenue Office, ABLIS and a council page, read on 2026-10-12. Every reference is UNVERIFIED and carries a summary, not the source's wording.",
+ "organisations": [
+  {
+   "ref": "cat",
+   "name": "Consumer Affairs Tasmania",
+   "kind": "REGULATOR",
+   "jurisdiction": "TAS",
+   "website": "https://consumeraffairs.tas.gov.au"
+  },
+  {
+   "ref": "tas_opc",
+   "name": "Tasmanian Legislation (Office of Parliamentary Counsel)",
+   "kind": "LEGISLATURE",
+   "jurisdiction": "TAS",
+   "website": "https://www.legislation.tas.gov.au"
+  },
+  {
+   "ref": "sro",
+   "name": "State Revenue Office of Tasmania",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "TAS",
+   "website": "https://www.sro.tas.gov.au"
+  },
+  {
+   "ref": "huon",
+   "name": "Huon Valley Council",
+   "kind": "COUNCIL",
+   "jurisdiction": "TAS",
+   "website": "https://www.huonvalley.tas.gov.au"
+  },
+  {
+   "ref": "ablis",
+   "name": "Australian Business Licence and Information Service (ABLIS)",
+   "kind": "CTH_AGENCY",
+   "jurisdiction": "CTH",
+   "website": "https://ablis.business.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "cat_advice_sale",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Advice when buying or selling property",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/buying-selling-property/advice-buying-selling-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "palta",
+   "organisation": "tas_opc",
+   "jurisdiction": "TAS",
+   "title": "Property Agents and Land Transactions Act 2016",
+   "url": "https://www.legislation.tas.gov.au/view/whole/html/inforce/current/act-2016-058",
+   "source_type": "LEGISLATION"
+  },
+  {
+   "ref": "huon_sell_smart",
+   "organisation": "huon",
+   "jurisdiction": "TAS",
+   "title": "Build, buy, sell smart",
+   "url": "https://www.huonvalley.tas.gov.au/development/build-buy-sell-smart/",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ablis_csc",
+   "organisation": "ablis",
+   "jurisdiction": "CTH",
+   "title": "Certificate of Substantial Compliance - Tasmania",
+   "url": "https://ablis.business.gov.au/service/tas/certificate-of-substantial-compliance/39391",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "cat_pools",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Pool safety barriers",
+   "url": "https://consumeraffairs.tas.gov.au/topics/products-services/safety/pool-safety-barriers",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "sro_duty",
+   "organisation": "sro",
+   "jurisdiction": "TAS",
+   "title": "Property Transfer Duties",
+   "url": "https://www.sro.tas.gov.au/property-transfer-duties",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "rta_1997",
+   "organisation": "tas_opc",
+   "jurisdiction": "TAS",
+   "title": "Residential Tenancy Act 1997 (authorised version 2026-10-09)",
+   "url": "https://www.legislation.tas.gov.au/view/whole/html/inforce/current/act-1997-082",
+   "source_type": "LEGISLATION"
+  },
+  {
+   "ref": "cat_leases",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Tenancy agreements / leases",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/beginning-tenancy/leases",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cat_condition",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Condition reports",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/beginning-tenancy/condition-reports",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cat_min_standards",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Types of minimum standards",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/beginning-tenancy/minimum-standards/types",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cat_smoke",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Smoke alarms in rentals",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/beginning-tenancy/smoke-alarms",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cat_pets_owners",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Pets in rental premises: information for property owners",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/beginning-tenancy/pets/pets-in-rental-premises-information-for-property-owners",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cat_pets",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Pets",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/beginning-tenancy/pets",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cat_bond_lodgement",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Rental bond lodgement",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/bonds/lodgement",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cat_mybond_owners",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "MyBond: owners",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/mybond/owners",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cat_alterations",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Alterations, additions and fixtures to rental properties",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/rental-maintenance-repairs-changes/alterations-additions-and-fixtures",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cat_owner_ending",
+   "organisation": "cat",
+   "jurisdiction": "TAS",
+   "title": "Owner ending a lease",
+   "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/ending-a-tenancylease/owner-ending-lease",
+   "source_type": "GUIDELINE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "no_disclosure",
+   "document": "cat_advice_sale",
+   "section": "Disclosure and cooling-off",
+   "extracted_text": "[Summary, not the source's wording] There is no requirement under the Property Agents and Land Transactions Act 2016 to disclose defects in the quality of a property for sale. After a review by the Law Society and the Real Estate Institute of Tasmania, vendor disclosure was added to the standard residential contract as an optional clause that buyers and sellers can choose to use. Cooling-off periods are not required for residential sales under the Act, but can also be included as an option in the standard contract. Buyers are told to take a 'buyer beware' approach. The page was updated 20 July 2026 and notes that from 1 October 2026 CBOS functions moved to Consumer Affairs Tasmania and Building Standards Tasmania.",
+   "interpretation": "Confirms that Tasmania still has no compulsory vendor statement or statutory cooling-off for residential sales as at 2026-10-12. Any 2024-25 vendor disclosure proposal was not found in force. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "palta_no_disclosure",
+   "document": "palta",
+   "section": "Parts 5 (ss 44-49)",
+   "extracted_text": "[Summary, not the source's wording] The current authorised version (in force from 1 July 2025, including amendments by No. 7 of 2025) deals with the written appointment of agents, commission and disclosure of benefits by agents. The parts read contain no vendor statement requirement and no cooling-off period.",
+   "interpretation": "Only the first part of the Act could be read (text ended in s 49), so later parts were not checked directly. Read with the Consumer Affairs Tasmania page, which says neither is required. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "standard_contract",
+   "document": "cat_advice_sale",
+   "section": "Standard contract and searches",
+   "extracted_text": "[Summary, not the source's wording] The Law Society of Tasmania and the Real Estate Institute of Tasmania publish a standard form contract used for most residential sales. It has limited 'get out' clauses, most commonly finance and building inspection conditions. A Land Information Certificate (the '337 certificate') from the local council can show whether completion certificates have been issued for building and plumbing permits, whether an occupancy permit exists, any outstanding enforcement action and the zoning. Councils set their own fees.",
+   "interpretation": "Used to point sellers to the standard contract and the 337 certificate. The 2025 edition of the standard contract particulars is linked from a council page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "approvals_before_listing",
+   "document": "huon_sell_smart",
+   "section": "Check approvals before listing",
+   "extracted_text": "[Summary, not the source's wording] Check your development and building approvals before listing and deal with gaps early. The Building Act 2016 sets when permits or approvals are needed for building, demolition and plumbing work, and the council is the permit authority. Work done without approvals can lead to notices and orders, fines, rectification or demolition orders, refused insurance claims and delayed or terminated sales; an unapproved bedroom or addition may not be recognised as habitable space. The 337 certificate shows council records of approvals, orders and notices. The page links the Law Society and REIT standard contract of sale 2025.",
+   "interpretation": "A council page, used for the practical steps; other councils give similar advice. It does not cover any building amnesty. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "substantial_compliance",
+   "document": "ablis_csc",
+   "section": "Certificate of substantial compliance",
+   "extracted_text": "[Summary, not the source's wording] A building surveyor may grant a certificate of substantial compliance for completed or partly completed work that does not comply with legislation or is subject to a building order for illegal work. It can be granted if the work substantially complies, or if the non-compliance is not detrimental to the health and safety of occupants. Applications need specified information, documents and prescribed fees; the form is the application for certificate of substantial compliance under the Building Act 2016 and Building Regulations 2016. The council administers it.",
+   "interpretation": "Used for unapproved work. Fees and the full process were not stated. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pools",
+   "document": "cat_pools",
+   "section": "Pool safety barriers",
+   "extracted_text": "[Summary, not the source's wording] Pools and spas installed from 1994 that can hold 300 mm or more of water need a compliant safety barrier; pools built before 1994 are not required to have one, but owners are encouraged to. Covers are not barriers. Barriers must meet NCC Volume 2 Part 3.9.3 and AS 1926.1 and AS 1926.2, installed by a licensed builder with a licensed building surveyor. Owners must maintain barriers: gates must self-close and latch, nothing climbable nearby, no widened gaps. The page does not set rules for sale or lease and mentions no inspection certificate.",
+   "interpretation": "Tasmania has no pool safety certificate on sale on the page read. Last updated 2019. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "sro_duty",
+   "document": "sro_duty",
+   "section": "Who pays duty and when",
+   "extracted_text": "[Summary, not the source's wording] Property transfer duty is payable by the purchaser, within three months of the dutiable transaction, usually settlement. Paper transactions are lodged through Tasmanian Revenue Online or by mail; with electronic conveyancing duty is paid in financial settlement through PEXA. Concessions include first home buyer and pensioner downsizer duty relief.",
+   "interpretation": "Pointer only: rates and land tax were not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_rent",
+   "document": "rta_1997",
+   "section": "Section 20 (rent increases)",
+   "extracted_text": "[Summary, not the source's wording] Rent can be increased only by written notice to the tenant. The increase can take effect only from a day more than 60 days after the notice is given, at least 12 months after the agreement began or was last renewed, and more than 12 months after any previous increase. A tenant can apply to the Commissioner about an excessive increase within 60 days of the notice (s 23).",
+   "interpretation": "Read from the authorised version dated 2026-10-09. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_bond",
+   "document": "rta_1997",
+   "section": "Section 25 (security deposits)",
+   "extracted_text": "[Summary, not the source's wording] A security deposit must be paid to the Rental Deposit Authority, or in listed cases to a property agent, who must deposit it with the Authority within 10 working days. An owner must not require a deposit of more than 4 weeks' rent. Breach can attract a fine of up to 50 penalty units.",
+   "interpretation": "Read from the authorised version dated 2026-10-09. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_condition",
+   "document": "rta_1997",
+   "section": "Section 26 (condition report) and section 13 (copy of agreement)",
+   "extracted_text": "[Summary, not the source's wording] Where a deposit is required, the owner must give the tenant 2 copies of a condition report on or before the day the tenant occupies the premises. The tenant notes any disagreement, signs and returns a copy within 2 days. A written agreement must be given to the tenant within 14 days, and the owner must give information on rights and obligations as directed.",
+   "interpretation": "Read from the authorised version dated 2026-10-09. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_min_smoke",
+   "document": "rta_1997",
+   "section": "Parts 3A and 3B (smoke alarms and minimum standards)",
+   "extracted_text": "[Summary, not the source's wording] The owner must ensure smoke alarms are in place (s 36C, fine up to 50 penalty units) and maintained as prescribed (s 36D). Part 3B sets minimum standards: weatherproof and structurally sound (s 36I), clean and in good repair (s 36J), bathroom and toilet (s 36K), cooking facilities (s 36L), electricity and heating (s 36M), window coverings for privacy (s 36N), ventilation (s 36O), with exemptions (s 36P). Part 3C (ss 36Q-36X) deals with pets, including that an owner must not unreasonably refuse consent (s 36S).",
+   "interpretation": "Headings and key sections read from the authorised version; the full text of Part 3C onward could not be read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "leases",
+   "document": "cat_leases",
+   "section": "Leases",
+   "extracted_text": "[Summary, not the source's wording] A lease can be written, verbal or both, but a written agreement is recommended. A written agreement must be given to the tenant within 14 days of the tenancy starting, in at least 10-point font. A fixed term must be at least 4 weeks, and a sale does not end it. The owner should give the tenant the Guide to renting in Tasmania, and a copy of any strata rules the tenant must follow. There is no prescribed standard form.",
+   "interpretation": "No official residential tenancy agreement form is published. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "condition",
+   "document": "cat_condition",
+   "section": "Condition reports",
+   "extracted_text": "[Summary, not the source's wording] If the owner requires a bond, they must give the tenant two signed copies of a condition report at or before the start of the tenancy. The tenant adds details of damage or cleanliness issues, signs one copy and returns it within two days. Consumer Affairs Tasmania publishes an example Residential Tenancy Condition Report.",
+   "interpretation": "Used for the start-of-tenancy steps. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "min_standards",
+   "document": "cat_min_standards",
+   "section": "Types of minimum standards",
+   "extracted_text": "[Summary, not the source's wording] Before a property is rented it must be weatherproof, clean and in good repair; have a working flushing toilet in a separate ventilated room; a kitchen with sink, hot and cold water, stove top (2 elements for 2 or fewer bedrooms, 3 for 3 or more) and oven; a safe mains electricity supply; adequate lighting; a fixed electric or gas heater, heat pump or wood heater (not an open fire) in the main living area; window coverings in bedrooms and living rooms; and ventilation openings of at least 5% of floor area, with windows that lock open securely.",
+   "interpretation": "Page last updated 2019; check for later changes. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "smoke",
+   "document": "cat_smoke",
+   "section": "Smoke alarms in rentals",
+   "extracted_text": "[Summary, not the source's wording] Rental smoke alarms must be hardwired with a backup power source, or powered by a 10-year non-replaceable battery; replaceable-battery alarms don't comply. Alarms must meet AS 3786 or AS 1670.1 and be on every storey, in hallways serving bedrooms or between bedrooms and the rest of the home. The owner installs and maintains them and repairs a faulty alarm as soon as practicable; the tenant keeps them working and reports faults. The Commissioner can order an owner to comply.",
+   "interpretation": "Residential Tenancy (Smoke Alarms) Regulations 2022. The page does not cover owner-occupied homes or sales. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pets",
+   "document": "cat_pets_owners",
+   "section": "Pets: information for property owners",
+   "extracted_text": "[Summary, not the source's wording] Under the Residential Tenancy Amendment (Pets) Act 2025, an owner or agent has 14 days after a tenant's request to consent or refuse in writing; if they do neither, they are taken to have consented. To refuse, give written reasons and apply to TASCAT, which considers nuisance, damage beyond wear and tear, and safety risks. A dangerous dog can be refused without applying. Conditions must be reasonable, relate only to the pet and not raise rent or bond. Pet bonds are not allowed. Tenants ask on the approved request to keep a pet form.",
+   "interpretation": "Page updated 20 March 2026. The deadline for the TASCAT application was not stated. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_lodgement",
+   "document": "cat_bond_lodgement",
+   "section": "Bond lodgement",
+   "extracted_text": "[Summary, not the source's wording] The owner or agent completes the bond lodgement in MyBond, then the tenant pays online through PayWay in MyBond, through an agency, or at Service Tasmania using the bond number. The Rental Deposit Authority holds all bonds. Agents lodge bonds paid to them within 10 working days. The maximum is 4 weeks' rent and can't be increased during the tenancy. Pet bonds aren't allowed. Owners must not take a bond directly from a tenant. No interest is paid.",
+   "interpretation": "No lodgement fee is listed; no deadline for owners is stated because the tenant pays the Authority directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "mybond_owners",
+   "document": "cat_mybond_owners",
+   "section": "MyBond for owners",
+   "extracted_text": "[Summary, not the source's wording] Owners register in MyBond and need an Owner ID (from Service Tasmania or by emailing rda@justice.tas.gov.au). In MyBond owners lodge, claim, approve or dispute bonds and update tenancy details. Help: 1300 654 499.",
+   "interpretation": "Quick help guides are linked from the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "alterations",
+   "document": "cat_alterations",
+   "section": "Alterations and fixtures",
+   "extracted_text": "[Summary, not the source's wording] A tenant must not make alterations, additions or add fixtures without the owner's written permission. The tenant pays removal costs for unauthorised alterations at the end of the lease.",
+   "interpretation": "Page last updated 2020. No general right to minor modifications was found in force; a 2026 private member's bill on safety modifications was seen but not confirmed as law. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "ending",
+   "document": "cat_owner_ending",
+   "section": "Owner ending a lease",
+   "extracted_text": "[Summary, not the source's wording] A notice to vacate can be given only on listed grounds. Fixed term: at the end of the term (serve 42 to 60 days before the end date), breach (no effect if fixed within 14 days), substantial nuisance, or a lender's sale (60 days). Non-fixed term: sale (with proof of an agreement to sell), renovation, rental to a family member or non-rental use (42 days), lender's sale (60 days), breach or nuisance. Rent arrears notices are voided by full payment within 14 days for the first two in 12 months. The notice states the date, names, property, reason and the date vacant possession is due, counted in clear days. If the tenant stays, the owner applies to the Magistrates Court for an order to vacate within 28 days of the notice taking effect, or the notice lapses.",
+   "interpretation": "An example notice is published by the Magistrates Court of Tasmania. Expiry of a fixed term remains a ground without any other reason. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "sell.tas.seller_disclosure",
+   "vertical": "SELL",
+   "jurisdiction": "TAS",
+   "title": "Tasmania: selling a property",
+   "description": "No compulsory vendor statement or cooling-off, the Law Society and REIT standard contract, building and plumbing records and the 337 certificate, unapproved and owner-built work, strata, smoke alarms, pool barriers, tenanted sales and a State Revenue Office duty pointer.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "TAS"
+   },
+   "limitations": [
+    "Built from Consumer Affairs Tasmania, ABLIS, State Revenue Office and council pages; only part of the Property Agents and Land Transactions Act 2016 was read directly.",
+    "Doesn't prepare the contract or decide what you must disclose; your conveyancer or lawyer does that.",
+    "Doesn't check off-the-plan sales, rural land or commercial property.",
+    "Doesn't assess duty, land tax, capital gains tax or foreign resident withholding.",
+    "Not legal advice. Confirm with a conveyancer or lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "no_vendor_statement",
+     "title": "Disclosure when selling in Tasmania",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "No compulsory vendor statement in Tasmania, but prepare your information anyway",
+       "detail": "Tasmania still has no compulsory vendor statement and no duty under the Property Agents and Land Transactions Act 2016 to disclose defects. The Tasmanian standard contract for the sale of real estate has an optional vendor disclosure clause you and the buyer can choose to use. Buyers are told to take a 'buyer beware' approach, so expect requests for building records, a 337 certificate and inspections. Never mislead a buyer about the property: ask your conveyancer what to say and what to put in the contract.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Gather your property documents before you list",
+        "checklists": [
+         "sell.tas_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "no_disclosure",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "palta_no_disclosure",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "standard_contract",
+     "title": "The standard contract of sale",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Have your conveyancer prepare the standard contract before you list",
+       "detail": "Most Tasmanian homes are sold on the Tasmanian standard contract for the sale of real estate from the Law Society of Tasmania and the Real Estate Institute of Tasmania. Decide with your conveyancer which options to use, such as vendor disclosure, cooling-off, finance and building inspection conditions, and have the contract ready before buyers make offers.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "CONTRACT_FOR_SALE",
+          "title": "Tasmanian standard contract for the sale of real estate prepared by your conveyancer"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Ask your conveyancer to prepare the contract of sale",
+        "checklists": [
+         "sell.tas_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "standard_contract",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "engage_conveyancer",
+     "title": "Getting a conveyancer or lawyer",
+     "condition": {
+      "fact": "sell.has_conveyancer",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "PROFESSIONAL_REQUIRED",
+       "title": "Choose a licensed conveyancer or lawyer",
+       "detail": "A conveyancer prepares the Tasmanian standard contract for the sale of real estate, orders the 337 certificate and other searches and runs settlement. Check their licence on the Consumer Affairs Tasmania licence search and get two or three quotes.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Engage a conveyancer or property lawyer"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "standard_contract",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No conveyancer",
+       "facts": {
+        "sell.has_conveyancer": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has conveyancer",
+       "facts": {
+        "sell.has_conveyancer": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "cooling_off",
+     "title": "Cooling-off",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "No automatic cooling-off: the contract is binding once signed",
+       "detail": "Tasmania has no statutory cooling-off period for residential sales. A cooling-off period applies only if you agree to include the optional clause in the Tasmanian standard contract for the sale of real estate. Buyers often ask for finance and building inspection conditions instead. Read every condition before you sign, because there are few ways out once both parties sign."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "no_disclosure",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "standard_contract",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "building_records",
+     "title": "Building and plumbing records",
+     "condition": {
+      "fact": "sell.building_works",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Find the permits and completion certificates for building and plumbing work",
+       "detail": "Buyers and their conveyancers check council records through the 337 certificate (land information certificate), which shows whether completion certificates were issued for building and plumbing permits, whether there is an occupancy permit and any enforcement action. Order it from your council now and compare it with the work done, so gaps don't delay or end the sale.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "LAND_INFORMATION_CERTIFICATE",
+          "title": "337 certificate (land information certificate) from your council"
+         },
+         {
+          "kind": "COMPLETION_CERTIFICATE",
+          "title": "Certificates of completion for building and plumbing permits"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Order a 337 certificate and gather completion certificates",
+        "checklists": [
+         "sell.tas_before_sale"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "standard_contract",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "approvals_before_listing",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Recent work",
+       "facts": {
+        "sell.building_works": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No work",
+       "facts": {
+        "sell.building_works": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "unapproved_work",
+     "title": "Building work without all approvals",
+     "condition": {
+      "fact": "sell.building_works_approvals",
+      "op": "in",
+      "value": [
+       "some",
+       "none",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Deal with unapproved work before you list",
+       "detail": "Work without permits can lead to council notices, fines, rectification or demolition orders and refused insurance claims, and can delay or end a sale; an unapproved bedroom may not count as habitable space. A licensed building surveyor can assess the work and may grant a certificate of substantial compliance if it substantially complies or the gaps don't affect health and safety. Talk to your council and a building surveyor early, and tell your conveyancer.",
+       "payload": {
+        "referral_categories": [
+         "town_planner",
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Ask a building surveyor about unapproved work"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "approvals_before_listing",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "substantial_compliance",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Some approved",
+       "facts": {
+        "sell.building_works_approvals": "some"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "All approved",
+       "facts": {
+        "sell.building_works_approvals": "all"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "owner_builder_work",
+     "title": "Owner-builder work",
+     "condition": {
+      "fact": "sell.owner_builder_work",
+      "op": "in",
+      "value": [
+       "yes",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Have the permits and completion records for work you did yourself",
+       "detail": "Buyers will check owner-built work against council records on the 337 certificate. Gather the permits, inspection records and completion certificates for the work. If any are missing, ask a building surveyor about a certificate of substantial compliance before you list, and ask a lawyer whether anything else applies to selling owner-built work.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Gather records for owner-built work"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "approvals_before_listing",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "substantial_compliance",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Owner-built",
+       "facts": {
+        "sell.owner_builder_work": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not owner-built",
+       "facts": {
+        "sell.owner_builder_work": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "mortgage_discharge",
+     "title": "Discharging your mortgage",
+     "condition": {
+      "fact": "sell.has_mortgage",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Tell your lender you are selling",
+       "detail": "Your mortgage is normally discharged at settlement. Ask your lender for its discharge authority form and payout figure early, as lenders can take weeks.",
+       "payload": {
+        "task": "Ask your lender to start the mortgage discharge"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "standard_contract",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Mortgage",
+       "facts": {
+        "sell.has_mortgage": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No mortgage",
+       "facts": {
+        "sell.has_mortgage": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "selling_for_owner",
+     "title": "Selling on someone else's behalf",
+     "condition": {
+      "fact": "sell.is_owner",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Have your authority to sign ready",
+       "detail": "If you sell as an attorney, executor or for a company, give your conveyancer the power of attorney, grant of probate or other authority now so they can confirm who signs the Tasmanian standard contract for the sale of real estate.",
+       "payload": {
+        "referral_categories": [
+         "lawyer",
+         "conveyancer"
+        ],
+        "task": "Give your conveyancer your authority to sell"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "standard_contract",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not owner",
+       "facts": {
+        "sell.is_owner": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Owner",
+       "facts": {
+        "sell.is_owner": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "strata",
+     "title": "Strata title",
+     "condition": {
+      "fact": "sell.body_corporate",
+      "op": "in",
+      "value": [
+       "yes",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Get the body corporate's records ready for buyers",
+       "detail": "For a strata unit, buyers will want the body corporate's levies, by-laws, recent minutes and any planned special levies. Give your conveyancer the body corporate manager's contact so they can request what is needed early. NRE Tasmania's Land Titles Office publishes strata title information and FAQs.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Give your conveyancer the body corporate's contact"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "standard_contract",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "no_disclosure",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Strata",
+       "facts": {
+        "sell.body_corporate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Freehold",
+       "facts": {
+        "sell.body_corporate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms_on_sale",
+     "title": "Smoke alarms when you sell",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "TAS"
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Check your smoke alarms, especially if an investor may buy",
+       "detail": "If the home will be rented out, Tasmanian law requires hardwired alarms with a backup power source or 10-year non-replaceable battery alarms on every storey and in hallways serving bedrooms; replaceable-battery alarms don't comply. Test your alarms before listing and replace any old or replaceable-battery alarms so buyers, including investors, don't have to.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian house",
+       "facts": {
+        "property.address.state": "TAS",
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant land",
+       "facts": {
+        "property.address.state": "TAS",
+        "sell.property_type": "vacant_land"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_sale",
+     "title": "Pool or spa barriers when you sell",
+     "condition": {
+      "fact": "sell.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Check the pool barrier complies and works",
+       "detail": "Pools and spas installed from 1994 that hold 300 mm or more of water need a compliant safety barrier to AS 1926.1 and AS 1926.2. Tasmania has no pool safety certificate on sale, but buyers and their inspectors will check. Make sure gates self-close and latch, nothing nearby can be climbed and gaps haven't widened. A pool cover is not a barrier. Ask a licensed building surveyor if you're unsure.",
+       "payload": {
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Check the pool barrier and gate"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pools",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "sell.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale",
+     "title": "Selling with a tenant in place",
+     "condition": {
+      "fact": "sell.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "A sale doesn't end the lease: plan around your tenant",
+       "detail": "A fixed term lease continues after a sale, so the buyer takes the property with the tenant until the term ends. For a non-fixed term lease you can give a Tasmanian notice to vacate with 42 days' notice once you have an agreement to sell, served with proof such as a de-identified contract. A notice ending a fixed term at its end must be served 42 to 60 days before the end date. Decide early whether you will sell with the tenant in place.",
+       "payload": {
+        "referral_categories": [
+         "property_manager",
+         "lawyer"
+        ],
+        "task": "Check your tenant's lease end date and notice options"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ending",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "leases",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "sell.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "sell.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale_rent_ready",
+     "title": "Managing the tenancy until settlement",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "CROSS_SELL",
+       "title": "Keep the tenancy on track until settlement with RentReady",
+       "detail": "Your tenant stays on through the sale, so Tasmanian renting rules on notices, bonds, smoke alarms and minimum standards still apply until settlement. RentReady walks you through them.",
+       "payload": {
+        "cross_sell": [
+         "RENT"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ending",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted house",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant house",
+       "facts": {
+        "sell.is_tenanted": false,
+        "sell.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "duty_pointer",
+     "title": "Property transfer duty",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "The buyer pays transfer duty to the State Revenue Office",
+       "detail": "In Tasmania the buyer pays property transfer duty, within three months of the transaction (usually settlement), often through PEXA at settlement. You don't pay duty as the seller, but ask your conveyancer about settlement adjustments such as rates and land tax, and check the State Revenue Office website for current rules."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "sro_duty",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "rent.tas.residential_tenancy",
+   "vertical": "RENT",
+   "jurisdiction": "TAS",
+   "title": "Tasmania: renting out a home",
+   "description": "Tenancy agreement, condition report, bond limit and lodgement with the Rental Deposit Authority through MyBond, minimum standards, smoke alarms, pools, rent increases, pets after the 2025 reforms, alterations and ending a tenancy under the Residential Tenancy Act 1997.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "TAS"
+   },
+   "limitations": [
+    "Built from Consumer Affairs Tasmania pages and the parts of the Residential Tenancy Act 1997 that could be read (to s 36P); Parts 3C onward were read only as headings.",
+    "Written for ordinary residential tenancies. Boarding premises, social housing and short stays have different rules and are not checked.",
+    "Doesn't check each minimum standard at the property, the wording of notices or whether a ground for ending applies.",
+    "Doesn't cover entry and inspection notice rules, family violence terminations or TASCAT processes.",
+    "Not legal advice. Confirm with Consumer Affairs Tasmania, a property manager or a lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "tenancy_agreement",
+     "title": "Tenancy agreement and information for the tenant",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Put the lease in writing and give the tenant the guide to renting",
+       "detail": "Tasmania has no prescribed tenancy agreement form, and a lease can even be verbal, but use a written agreement that sets out all the terms. Give the tenant a copy within 14 days of the tenancy starting, in at least 10-point type. Give them the Tasmanian guide to renting, and a copy of any strata rules they must follow. A fixed term must be at least 4 weeks. Don't include terms the Residential Tenancy Act 1997 doesn't allow.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "Signed written residential tenancy agreement"
+         }
+        ],
+        "task": "Prepare a written tenancy agreement",
+        "checklists": [
+         "rent.tas_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "leases",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_condition",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "condition_report",
+     "title": "Condition report",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Give the tenant two signed condition reports on or before move-in",
+       "detail": "If you take a bond, you must give the tenant two signed copies of a condition report on or before the day they move in. Consumer Affairs Tasmania publishes the Tasmanian residential tenancy condition report you can use. The tenant notes anything they disagree with, signs and returns one copy within 2 days. Add dated photos; you'll rely on it at the end of the tenancy.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "ENTRY_CONDITION_REPORT",
+          "title": "Tasmanian residential tenancy condition report, signed by both parties"
+         }
+        ],
+        "task": "Complete the condition report before move-in",
+        "checklists": [
+         "rent.tas_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_condition",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "condition",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_limit",
+     "title": "How much bond you can ask for",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Ask for no more than 4 weeks' rent as bond, and no pet bond",
+       "detail": "The bond can't be more than 4 weeks' rent and can't be increased during the tenancy. Pet bonds aren't allowed in Tasmania. You must not take the bond yourself: the tenant pays it to the Rental Deposit Authority through MyBond."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_bond",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_lodgement",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_lodgement",
+     "title": "Lodging the bond with the Rental Deposit Authority",
+     "condition": {
+      "fact": "rent.bond_lodged",
+      "op": "in",
+      "value": [
+       "no",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Lodge the bond through MyBond so the tenant can pay the Rental Deposit Authority",
+       "detail": "Every Tasmanian rental bond is held by the Rental Deposit Authority. Start the lodgement in Tasmanian MyBond, then the tenant pays online, through an agency or at Service Tasmania using the bond number. It is illegal for you to take the bond directly. Agents must lodge bonds paid to them within 10 working days. If you're not sure it was lodged, use the MyBond lookup or call 1300 654 499.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_BOND_LODGEMENT",
+         "authority": "Rental Deposit Authority",
+         "pathway": "Lodge online through MyBond"
+        },
+        "task": "Lodge the bond in MyBond"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check the bond is lodged with the Rental Deposit Authority",
+       "detail": "Any bond for a Tasmanian rental must be held by the Rental Deposit Authority through MyBond.",
+       "payload": {
+        "approval": {
+         "kind": "TAS_BOND_LODGEMENT",
+         "authority": "Rental Deposit Authority",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_bond",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_lodgement",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "mybond_owners",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not lodged",
+       "facts": {
+        "rent.bond_lodged": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Unsure",
+       "facts": {
+        "rent.bond_lodged": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Lodged",
+       "facts": {
+        "rent.bond_lodged": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No bond",
+       "facts": {
+        "rent.bond_lodged": "no_bond"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "minimum_standards",
+     "title": "Minimum standards",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make sure the home meets the minimum standards before you rent it out",
+       "detail": "Before a Tasmanian property is rented it must be weatherproof, structurally sound, clean and in good repair, with a working toilet and bathroom, a kitchen with sink, hot and cold water, stove top and oven, safe electricity, a fixed heater in the main living area (not an open fire), window coverings in bedrooms and living rooms, and adequate ventilation. A tenant can seek an order for repairs if a standard isn't met.",
+       "payload": {
+        "task": "Check the property against the minimum standards",
+        "checklists": [
+         "rent.tas_minimum_standards"
+        ],
+        "referral_categories": [
+         "builder",
+         "plumber",
+         "electrician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_min_smoke",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "min_standards",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "known_repairs",
+     "title": "Known repairs",
+     "condition": {
+      "fact": "rent.known_repairs",
+      "op": "exists"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Fix known repairs before the tenant moves in",
+       "detail": "Repairs that leave the home below the minimum standards must be fixed before it is rented. Otherwise a tenant can use the Tasmanian application for an order for repairs. Get quotes for the repairs you listed and record the finished condition in the condition report.",
+       "payload": {
+        "task": "Fix listed repairs before the tenancy starts",
+        "checklists": [
+         "rent.tas_minimum_standards"
+        ],
+        "referral_categories": [
+         "builder",
+         "plumber"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "min_standards",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "smoke",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Repairs listed",
+       "facts": {
+        "rent.known_repairs": "Leaking shower"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None listed",
+       "facts": {},
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms",
+     "title": "Smoke alarms in rentals",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Fit hardwired or 10-year battery smoke alarms in the right places",
+       "detail": "Rental smoke alarms must be hardwired with a backup power source, or have a 10-year non-replaceable battery; replaceable-battery alarms don't comply. They must meet AS 3786 and be on every storey, in hallways serving bedrooms or between bedrooms and the rest of the home. Repair a faulty alarm as soon as practicable after you're told. Fines of up to 50 penalty units apply.",
+       "payload": {
+        "task": "Check the smoke alarms before the tenant moves in",
+        "checklists": [
+         "rent.tas_start_of_tenancy"
+        ],
+        "referral_categories": [
+         "smoke_alarm_technician",
+         "electrician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_min_smoke",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_lease",
+     "title": "Pool or spa safety in a rental",
+     "condition": {
+      "fact": "rent.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Keep the pool barrier in working order",
+       "detail": "Pools and spas installed from 1994 holding 300 mm or more need a compliant barrier, which the owner must maintain. Check gates self-close and latch, and nothing nearby can be climbed, before the tenant moves in and fix faults straight away.",
+       "payload": {
+        "task": "Check the pool barrier and gate before the tenancy",
+        "referral_categories": [
+         "pool_safety_inspector"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pools",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "rent.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rent_increases",
+     "title": "Rent increases",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Increase rent no more than once every 12 months, with more than 60 days' written notice",
+       "detail": "Under section 20 of the Residential Tenancy Act 1997, give written notice of a rent increase. It can take effect only more than 60 days after the notice, at least 12 months after the lease started or was renewed, and more than 12 months after the last increase. The tenant has 60 days to ask the Commissioner to review an excessive increase."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_rent",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pets",
+     "title": "Pet requests",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "TAS"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Answer pet requests in writing within 14 days",
+       "detail": "Tenants ask using the Tasmanian request to keep a pet form. You have 14 days to consent or refuse in writing; if you don't, you're taken to have consented. To refuse, give written reasons and apply to TASCAT, unless the pet is a declared dangerous dog. You can set reasonable conditions about the pet, but you can't raise the rent or take a pet bond."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pets",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_min_smoke",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tasmanian property",
+       "facts": {
+        "property.address.state": "TAS"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "alterations",
+     "title": "Tenant alterations",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Tenants need your written permission for alterations",
+       "detail": "A tenant must not make alterations, additions or add fixtures without your written permission. Put any permission and conditions in writing. At the end, the tenant pays to remove unauthorised alterations."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "alterations",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "ending_tenancy",
+     "title": "Ending a tenancy",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Use a valid ground and the right notice period to end the lease",
+       "detail": "A Tasmanian notice to vacate can only be given on listed grounds. For a fixed term ending, serve it 42 to 60 days before the end date. For a non-fixed term, sale, renovation, a family member moving in or non-rental use needs 42 days' notice; a lender's sale needs 60 days. A breach or rent arrears notice gives the tenant 14 days to fix it. Count clear days. If the tenant doesn't leave, apply to the Magistrates Court within 28 days of the notice taking effect. Never change the locks or remove the tenant yourself.",
+       "payload": {
+        "task": "Check your ground and notice before ending the tenancy",
+        "checklists": [
+         "rent.tas_end_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ending",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "self_managed",
+     "title": "Managing the tenancy yourself",
+     "condition": {
+      "fact": "rent.managed_by",
+      "op": "equals",
+      "value": "self"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "REFERRAL_CATEGORY",
+       "title": "A property manager can handle the tenancy paperwork",
+       "detail": "As a self-managing Tasmanian landlord you prepare the agreement and the Tasmanian residential tenancy condition report, lodge the bond through Tasmanian MyBond, check the minimum standards and smoke alarms, and handle pet requests and notices. A licensed property manager can do this for you.",
+       "payload": {
+        "referral_categories": [
+         "property_manager"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "leases",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_lodgement",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Self-managed",
+       "facts": {
+        "rent.managed_by": "self"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Agent",
+       "facts": {
+        "rent.managed_by": "agent"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

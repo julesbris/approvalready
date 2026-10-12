@@ -1,0 +1,714 @@
+{
+  "key": "councils_tas",
+  "title": "Tasmania councils: how to apply for a development application",
+  "notes": "Generated from app/modules/councils/tas_councils.json by `python -m app.modules.councils.pack`; edit the directory, not this file. One reference per council: verifying it marks that council's details as checked.",
+  "organisations": [
+    {
+      "ref": "tas_break_o_day",
+      "name": "Break O'Day Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_BREAK_O_DAY",
+      "website": "https://www.bodc.tas.gov.au"
+    },
+    {
+      "ref": "tas_brighton",
+      "name": "Brighton Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_BRIGHTON",
+      "website": "https://www.brighton.tas.gov.au/"
+    },
+    {
+      "ref": "tas_burnie",
+      "name": "Burnie City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_BURNIE",
+      "website": "https://www.burnie.tas.gov.au/"
+    },
+    {
+      "ref": "tas_central_coast",
+      "name": "Central Coast Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_CENTRAL_COAST",
+      "website": "https://www.centralcoast.tas.gov.au/"
+    },
+    {
+      "ref": "tas_central_highlands",
+      "name": "Central Highlands Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_CENTRAL_HIGHLANDS",
+      "website": "https://www.centralhighlands.tas.gov.au/"
+    },
+    {
+      "ref": "tas_circular_head",
+      "name": "Circular Head Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_CIRCULAR_HEAD",
+      "website": "https://www.circularhead.tas.gov.au/"
+    },
+    {
+      "ref": "tas_clarence",
+      "name": "Clarence City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_CLARENCE",
+      "website": "https://www.ccc.tas.gov.au/"
+    },
+    {
+      "ref": "tas_derwent_valley",
+      "name": "Derwent Valley Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_DERWENT_VALLEY",
+      "website": "https://www.derwentvalley.tas.gov.au/"
+    },
+    {
+      "ref": "tas_devonport",
+      "name": "Devonport City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_DEVONPORT",
+      "website": "https://www.devonport.tas.gov.au/"
+    },
+    {
+      "ref": "tas_dorset",
+      "name": "Dorset Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_DORSET",
+      "website": "https://www.dorset.tas.gov.au/"
+    },
+    {
+      "ref": "tas_flinders",
+      "name": "Flinders Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_FLINDERS",
+      "website": "https://www.flinders.tas.gov.au/"
+    },
+    {
+      "ref": "tas_george_town",
+      "name": "George Town Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_GEORGE_TOWN",
+      "website": "https://www.georgetown.tas.gov.au/"
+    },
+    {
+      "ref": "tas_glamorgan_spring_bay",
+      "name": "Glamorgan Spring Bay Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_GLAMORGAN_SPRING_BAY",
+      "website": "https://www.gsbc.tas.gov.au/"
+    },
+    {
+      "ref": "tas_glenorchy",
+      "name": "Glenorchy City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_GLENORCHY",
+      "website": "https://www.gcc.tas.gov.au/"
+    },
+    {
+      "ref": "tas_hobart",
+      "name": "Hobart City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_HOBART",
+      "website": "https://www.hobartcity.com.au/"
+    },
+    {
+      "ref": "tas_huon_valley",
+      "name": "Huon Valley Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_HUON_VALLEY",
+      "website": "https://www.huonvalley.tas.gov.au/"
+    },
+    {
+      "ref": "tas_kentish",
+      "name": "Kentish Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_KENTISH",
+      "website": "https://www.kentish.tas.gov.au/"
+    },
+    {
+      "ref": "tas_king_island",
+      "name": "King Island Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_KING_ISLAND",
+      "website": "https://www.kingisland.tas.gov.au/"
+    },
+    {
+      "ref": "tas_kingborough",
+      "name": "Kingborough Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_KINGBOROUGH",
+      "website": "https://www.kingborough.tas.gov.au/"
+    },
+    {
+      "ref": "tas_latrobe",
+      "name": "Latrobe Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_LATROBE",
+      "website": "https://www.latrobe.tas.gov.au/"
+    },
+    {
+      "ref": "tas_launceston",
+      "name": "Launceston City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_LAUNCESTON",
+      "website": "https://www.launceston.tas.gov.au/"
+    },
+    {
+      "ref": "tas_meander_valley",
+      "name": "Meander Valley Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_MEANDER_VALLEY",
+      "website": "https://www.meander.tas.gov.au/"
+    },
+    {
+      "ref": "tas_northern_midlands",
+      "name": "Northern Midlands Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_NORTHERN_MIDLANDS",
+      "website": "https://www.northernmidlands.tas.gov.au/"
+    },
+    {
+      "ref": "tas_sorell",
+      "name": "Sorell Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_SORELL",
+      "website": "https://www.sorell.tas.gov.au/"
+    },
+    {
+      "ref": "tas_southern_midlands",
+      "name": "Southern Midlands Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_SOUTHERN_MIDLANDS",
+      "website": "https://www.southernmidlands.tas.gov.au/"
+    },
+    {
+      "ref": "tas_tasman",
+      "name": "Tasman Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_TASMAN",
+      "website": "https://www.tasman.tas.gov.au/"
+    },
+    {
+      "ref": "tas_waratah_wynyard",
+      "name": "Waratah-Wynyard Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_WARATAH_WYNYARD",
+      "website": "https://www.warwyn.tas.gov.au/"
+    },
+    {
+      "ref": "tas_west_coast",
+      "name": "West Coast Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_WEST_COAST",
+      "website": "https://www.westcoast.tas.gov.au/"
+    },
+    {
+      "ref": "tas_west_tamar",
+      "name": "West Tamar Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:TAS_WEST_TAMAR",
+      "website": "https://www.wtc.tas.gov.au/"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "tas_break_o_day_doc1",
+      "organisation": "tas_break_o_day",
+      "jurisdiction": "LGA:TAS_BREAK_O_DAY",
+      "title": "Break O'Day Council: website contact details",
+      "url": "https://www.bodc.tas.gov.au",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_break_o_day_doc2",
+      "organisation": "tas_break_o_day",
+      "jurisdiction": "LGA:TAS_BREAK_O_DAY",
+      "title": "Local Government Association of Tasmania: find your local council",
+      "url": "https://www.lgat.tas.gov.au/tasmanian-councils/find-your-local-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_break_o_day_doc3",
+      "organisation": "tas_break_o_day",
+      "jurisdiction": "LGA:TAS_BREAK_O_DAY",
+      "title": "LIST (Land Information System Tasmania): Local Government Areas layer",
+      "url": "https://services.thelist.tas.gov.au/arcgis/rest/services/Public/CadastreAndAdministrative/MapServer/4",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_brighton_doc1",
+      "organisation": "tas_brighton",
+      "jurisdiction": "LGA:TAS_BRIGHTON",
+      "title": "Brighton Council: website contact details",
+      "url": "https://www.brighton.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_burnie_doc1",
+      "organisation": "tas_burnie",
+      "jurisdiction": "LGA:TAS_BURNIE",
+      "title": "Burnie City Council: planning application page",
+      "url": "https://www.burnie.tas.gov.au/Development/Planning/Apply-for-a-Planning-Permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_central_coast_doc1",
+      "organisation": "tas_central_coast",
+      "jurisdiction": "LGA:TAS_CENTRAL_COAST",
+      "title": "Central Coast Council: planning application page",
+      "url": "https://www.centralcoast.tas.gov.au/plan-develop/planning/planning-process/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_central_highlands_doc1",
+      "organisation": "tas_central_highlands",
+      "jurisdiction": "LGA:TAS_CENTRAL_HIGHLANDS",
+      "title": "Central Highlands Council: website contact details",
+      "url": "https://www.centralhighlands.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_circular_head_doc1",
+      "organisation": "tas_circular_head",
+      "jurisdiction": "LGA:TAS_CIRCULAR_HEAD",
+      "title": "Circular Head Council: website contact details",
+      "url": "https://www.circularhead.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_clarence_doc1",
+      "organisation": "tas_clarence",
+      "jurisdiction": "LGA:TAS_CLARENCE",
+      "title": "Clarence City Council: planning application page",
+      "url": "https://www.ccc.tas.gov.au/development/planning/planning-process/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_derwent_valley_doc1",
+      "organisation": "tas_derwent_valley",
+      "jurisdiction": "LGA:TAS_DERWENT_VALLEY",
+      "title": "Derwent Valley Council: website contact details",
+      "url": "https://www.derwentvalley.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_devonport_doc1",
+      "organisation": "tas_devonport",
+      "jurisdiction": "LGA:TAS_DEVONPORT",
+      "title": "Devonport City Council: planning application page",
+      "url": "https://www.devonport.tas.gov.au/building-development/planning/apply-for-a-planning-permit/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_devonport_doc2",
+      "organisation": "tas_devonport",
+      "jurisdiction": "LGA:TAS_DEVONPORT",
+      "title": "Devonport City Council: contact us",
+      "url": "https://www.devonport.tas.gov.au/contact-us/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_dorset_doc1",
+      "organisation": "tas_dorset",
+      "jurisdiction": "LGA:TAS_DORSET",
+      "title": "Dorset Council: website contact details",
+      "url": "https://www.dorset.tas.gov.au/contacts",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_flinders_doc1",
+      "organisation": "tas_flinders",
+      "jurisdiction": "LGA:TAS_FLINDERS",
+      "title": "Flinders Council: website contact details",
+      "url": "https://www.flinders.tas.gov.au/contact-us",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_george_town_doc1",
+      "organisation": "tas_george_town",
+      "jurisdiction": "LGA:TAS_GEORGE_TOWN",
+      "title": "George Town Council: website contact details",
+      "url": "https://georgetown.tas.gov.au/contact-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_glamorgan_spring_bay_doc1",
+      "organisation": "tas_glamorgan_spring_bay",
+      "jurisdiction": "LGA:TAS_GLAMORGAN_SPRING_BAY",
+      "title": "Glamorgan Spring Bay Council: website contact details",
+      "url": "https://www.gsbc.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_glenorchy_doc1",
+      "organisation": "tas_glenorchy",
+      "jurisdiction": "LGA:TAS_GLENORCHY",
+      "title": "Glenorchy City Council: planning application page",
+      "url": "https://www.gcc.tas.gov.au/services/planning-and-building/planning-and-development/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_glenorchy_doc2",
+      "organisation": "tas_glenorchy",
+      "jurisdiction": "LGA:TAS_GLENORCHY",
+      "title": "Glenorchy City Council: planning applications",
+      "url": "https://www.gcc.tas.gov.au/business-development/planning/planning-applications/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_hobart_doc1",
+      "organisation": "tas_hobart",
+      "jurisdiction": "LGA:TAS_HOBART",
+      "title": "Hobart City Council: planning application page",
+      "url": "https://www.hobartcity.com.au/Development/Planning/Planning-guidelines-and-help/Planning-permit-applications",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_hobart_doc2",
+      "organisation": "tas_hobart",
+      "jurisdiction": "LGA:TAS_HOBART",
+      "title": "City of Hobart: contact us",
+      "url": "https://www.hobartcity.com.au/Council/Contact-us",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_huon_valley_doc1",
+      "organisation": "tas_huon_valley",
+      "jurisdiction": "LGA:TAS_HUON_VALLEY",
+      "title": "Huon Valley Council: website contact details",
+      "url": "https://www.huonvalley.tas.gov.au/contact-us/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_kentish_doc1",
+      "organisation": "tas_kentish",
+      "jurisdiction": "LGA:TAS_KENTISH",
+      "title": "Kentish Council: website contact details",
+      "url": "https://www.kentish.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_king_island_doc1",
+      "organisation": "tas_king_island",
+      "jurisdiction": "LGA:TAS_KING_ISLAND",
+      "title": "King Island Council: website contact details",
+      "url": "https://www.kingisland.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_kingborough_doc1",
+      "organisation": "tas_kingborough",
+      "jurisdiction": "LGA:TAS_KINGBOROUGH",
+      "title": "Kingborough Council: planning application page",
+      "url": "https://www.kingborough.tas.gov.au/development/submit-planning-application/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_kingborough_doc2",
+      "organisation": "tas_kingborough",
+      "jurisdiction": "LGA:TAS_KINGBOROUGH",
+      "title": "Kingborough Council: planning permit application form (2023)",
+      "url": "https://assets.kingborough.tas.gov.au/uploads/2023/03/NEW-Application-Form-fillable-Planning-Permit-for-Development-Use.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_kingborough_doc5",
+      "organisation": "tas_kingborough",
+      "jurisdiction": "LGA:TAS_KINGBOROUGH",
+      "title": "Tasmanian Planning Commission: interim planning schemes in effect",
+      "url": "https://www.planning.tas.gov.au/other-resources/Interim-planning-schemes-in-effect",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_latrobe_doc1",
+      "organisation": "tas_latrobe",
+      "jurisdiction": "LGA:TAS_LATROBE",
+      "title": "Latrobe Council: website contact details",
+      "url": "https://www.latrobe.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_launceston_doc1",
+      "organisation": "tas_launceston",
+      "jurisdiction": "LGA:TAS_LAUNCESTON",
+      "title": "Launceston City Council: planning application page",
+      "url": "https://www.launceston.tas.gov.au/Business-and-Development/Planning/Applying-for-a-Development-Application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_meander_valley_doc1",
+      "organisation": "tas_meander_valley",
+      "jurisdiction": "LGA:TAS_MEANDER_VALLEY",
+      "title": "Meander Valley Council: planning application page",
+      "url": "https://www.meander.tas.gov.au/getting-started",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_northern_midlands_doc1",
+      "organisation": "tas_northern_midlands",
+      "jurisdiction": "LGA:TAS_NORTHERN_MIDLANDS",
+      "title": "Northern Midlands Council: website contact details",
+      "url": "https://www.northernmidlands.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_sorell_doc1",
+      "organisation": "tas_sorell",
+      "jurisdiction": "LGA:TAS_SORELL",
+      "title": "Sorell Council: website contact details",
+      "url": "https://www.sorell.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_southern_midlands_doc1",
+      "organisation": "tas_southern_midlands",
+      "jurisdiction": "LGA:TAS_SOUTHERN_MIDLANDS",
+      "title": "Southern Midlands Council: website contact details",
+      "url": "https://www.southernmidlands.tas.gov.au/contact",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_tasman_doc1",
+      "organisation": "tas_tasman",
+      "jurisdiction": "LGA:TAS_TASMAN",
+      "title": "Tasman Council: website contact details",
+      "url": "https://www.tasman.tas.gov.au/contact-us/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_waratah_wynyard_doc1",
+      "organisation": "tas_waratah_wynyard",
+      "jurisdiction": "LGA:TAS_WARATAH_WYNYARD",
+      "title": "Waratah-Wynyard Council: website contact details",
+      "url": "https://www.warwyn.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_west_coast_doc1",
+      "organisation": "tas_west_coast",
+      "jurisdiction": "LGA:TAS_WEST_COAST",
+      "title": "West Coast Council: website contact details",
+      "url": "https://www.westcoast.tas.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_west_tamar_doc1",
+      "organisation": "tas_west_tamar",
+      "jurisdiction": "LGA:TAS_WEST_TAMAR",
+      "title": "West Tamar Council: planning application page",
+      "url": "https://www.wtc.tas.gov.au/making-a-planning-application/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tas_west_tamar_doc2",
+      "organisation": "tas_west_tamar",
+      "jurisdiction": "LGA:TAS_WEST_TAMAR",
+      "title": "West Tamar Council: contact us",
+      "url": "https://www.wtc.tas.gov.au/contact-us/",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "tas_break_o_day_how_to_apply",
+      "document": "tas_break_o_day_doc1",
+      "section": "Council directory: tas_break_o_day",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Break O'Day Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Break O'Day Local Provisions Schedule.\nPhone: 03 6376 7900\nEmail: admin@bodc.tas.gov.au\nAddress: 32-34 Georges Bay Esplanade St Helens Tasmania 7216\nPlanning enquiries email: admin@bodc.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Office hours not shown on the page read. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_brighton_how_to_apply",
+      "document": "tas_brighton_doc1",
+      "section": "Council directory: tas_brighton",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Brighton Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Brighton Local Provisions Schedule.\nPhone: 03 6268 7000\nEmail: admin@brighton.tas.gov.au\nAddress: 1 Tivoli Road, Old Beach TAS 7017\nHours: Monday to Friday, 8.15am to 4.45pm\nPlanning enquiries email: admin@brighton.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_burnie_how_to_apply",
+      "document": "tas_burnie_doc1",
+      "section": "Council directory: tas_burnie",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Burnie City Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Burnie Local Provisions Schedule.\nLodge (email): Email your application with the subject 'Land Use Permit Application - (site address)' planning@burnie.tas.gov.au\nLodge (post): Post to the Planning Department PO Box 973, Burnie TAS 7320\nLodge (in person): Lodge at the City Offices 80 Wilson Street, Burnie TAS 7320\nPhone: (03) 6430 5700\nEmail: burnie@burnie.tas.gov.au\nAddress: 80 Wilson Street, Burnie TAS 7320 (PO Box 973)\nHours: Monday to Friday, 8.45am to 4.45pm (closed public holidays)\nPlanning enquiries email: planning@burnie.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: Fee amounts are in the 2026-27 planning fees PDF, which wasn't opened. Council invoices you after lodging and you pay before assessment starts. No pre-lodgement meeting service described. No separate planning phone number published. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_central_coast_how_to_apply",
+      "document": "tas_central_coast_doc1",
+      "section": "Council directory: tas_central_coast",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Central Coast Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Central Coast Local Provisions Schedule.\nLodge (email): Email the Planning Application Form and plans admin@centralcoast.tas.gov.au\nLodge (post): Post your application PO Box 220, Ulverstone TAS 7315\nLodge (in person): Lodge at the council offices 19 King Edward Street, Ulverstone TAS 7315\nPre-lodgement meetings: offered (Council recommends talking with its Land Use Planning staff before you submit; book an appointment online.).\nPhone: 03 6429 8900\nEmail: admin@centralcoast.tas.gov.au\nAddress: 19 King Edward Street, Ulverstone TAS 7315 (PO Box 220)\nPlanning enquiries email: admin@centralcoast.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: Fees aren't listed on the planning page. The appointment booking page wasn't opened; cost not stated. Office hours weren't shown. No separate planning email published; the general council email is used. Street address postcode (7315) taken from the postal address. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_central_highlands_how_to_apply",
+      "document": "tas_central_highlands_doc1",
+      "section": "Council directory: tas_central_highlands",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Central Highlands Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Central Highlands Local Provisions Schedule.\nPhone: (03) 6286 3202\nEmail: council@centralhighlands.tas.gov.au\nPlanning enquiries email: council@centralhighlands.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Office address not shown on the page read; see the council's contact page. Office hours not shown on the page read. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_circular_head_how_to_apply",
+      "document": "tas_circular_head_doc1",
+      "section": "Council directory: tas_circular_head",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Circular Head Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Circular Head Local Provisions Schedule.\nPhone: (03) 6452 4800\nEmail: council@circularhead.tas.gov.au\nAddress: 33 Goldie Street, Smithton TAS 7330 (PO Box 348)\nPlanning enquiries email: council@circularhead.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Office hours not shown on the page read. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_clarence_how_to_apply",
+      "document": "tas_clarence_doc1",
+      "section": "Council directory: tas_clarence",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Clarence City Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Clarence Local Provisions Schedule.\nLodge (email): Email the Planning Application Form and documents as PDFs (council's preferred method) cityplanning@ccc.tas.gov.au\nLodge (in person): Paper applications up to A3 are still accepted; forms are at the council offices 38 Bligh Street, Rosny Park TAS 7018\nPre-lodgement meetings: offered (Free preliminary planning advice. A separate No Permit Required assessment can also be requested.).\nPhone: 03 6217 9500\nEmail: clarence@ccc.tas.gov.au\nAddress: 38 Bligh Street, Rosny Park TAS 7018 (PO Box 96)\nHours: 8.30am to 5.15pm\nPlanning enquiries email: cityplanning@ccc.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: Fee amounts aren't listed on the planning page; council invoices you after you lodge. No separate planning phone number published. Office hours days not stated on the page read. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_derwent_valley_how_to_apply",
+      "document": "tas_derwent_valley_doc1",
+      "section": "Council directory: tas_derwent_valley",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Derwent Valley Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Derwent Valley Local Provisions Schedule.\nPhone: 03 6261 8500\nEmail: dvcouncil@dvc.tas.gov.au\nAddress: Circle Street, New Norfolk TAS 7140 (PO Box 595)\nHours: Monday to Friday, 9am to 4pm (closed public holidays)\nPlanning enquiries email: dvcouncil@dvc.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_devonport_how_to_apply",
+      "document": "tas_devonport_doc1",
+      "section": "Council directory: tas_devonport",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Devonport City Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Devonport Local Provisions Schedule.\nLodge (online): Apply using the council's online planning permit application form https://www.devonport.tas.gov.au/planning-permit-application-form/\nPre-lodgement meetings: offered (Book a planning appointment by phoning (03) 6424 0511.).\nPhone: 03 6424 0511\nEmail: council@devonport.tas.gov.au\nAddress: 137 Rooke Street, Devonport TAS 7310 (PO Box 604)\nHours: Customer Service Centre: Monday to Friday, 8.45am to 4.45pm\nPlanning enquiries email: townplanning@devonport.tas.gov.au\nPlanning enquiries phone: (03) 6424 0511",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: Fee amounts are in the 2026-27 fees and charges PDF, which wasn't opened. You must pay before assessment starts. A PDF application form is also published; how to submit it (email, post, in person) isn't stated on the page. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_dorset_how_to_apply",
+      "document": "tas_dorset_doc1",
+      "section": "Council directory: tas_dorset",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Dorset Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Dorset Local Provisions Schedule.\nPhone: 03 6352 6500\nEmail: dorset@dorset.tas.gov.au\nAddress: 3 Ellenor Street, Scottsdale TAS 7260 (PO Box 21)\nHours: Office open 8.30am to 4.30pm, Monday to Friday\nPlanning enquiries email: development@dorset.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Planning email from the council's contact page (for development and building applications). Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_flinders_how_to_apply",
+      "document": "tas_flinders_doc1",
+      "section": "Council directory: tas_flinders",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Flinders Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Flinders Local Provisions Schedule.\nPhone: 03 6359 5001\nEmail: office@flinders.tas.gov.au\nAddress: 4 Davies Street, Whitemark TAS 7255 (PO Box 40)\nHours: Monday to Friday, 9am to 4.30pm\nPlanning enquiries email: office@flinders.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Email decoded from the website's protected email link. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_george_town_how_to_apply",
+      "document": "tas_george_town_doc1",
+      "section": "Council directory: tas_george_town",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to George Town Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - George Town Local Provisions Schedule.\nPhone: (03) 6382 8800\nEmail: council@georgetown.tas.gov.au\nAddress: 16-18 Anne Street, George Town TAS 7253 (PO Box 161)\nHours: Monday to Friday, 9am to 4pm (except public holidays)\nPlanning enquiries email: council@georgetown.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_glamorgan_spring_bay_how_to_apply",
+      "document": "tas_glamorgan_spring_bay_doc1",
+      "section": "Council directory: tas_glamorgan_spring_bay",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Glamorgan Spring Bay Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Glamorgan-Spring Bay Local Provisions Schedule.\nPhone: 03 6256 4777\nEmail: admin@freycinet.tas.gov.au\nAddress: 9 Melbourne Street, Triabunna TAS 7190 (PO Box 6)\nPlanning enquiries email: admin@freycinet.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Office hours not shown on the page read. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_glenorchy_how_to_apply",
+      "document": "tas_glenorchy_doc1",
+      "section": "Council directory: tas_glenorchy",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Glenorchy City Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Glenorchy Local Provisions Schedule.\nPhone: (03) 6216 6800\nEmail: gccmail@gcc.tas.gov.au\nAddress: 374 Main Road, Glenorchy TAS 7010 (PO Box 103)\nHours: Monday to Friday, 8.30am to 5pm\nPlanning enquiries email: gccmail@gcc.tas.gov.au\nPlanning enquiries phone: (03) 6216 6800",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How to lodge a planning application isn't described on the three planning pages read; call council or check its website. Fees aren't listed on the planning pages read. Pre-lodgement advice cost and booking method aren't stated. No separate planning email published; the general council email is used. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_hobart_how_to_apply",
+      "document": "tas_hobart_doc1",
+      "section": "Council directory: tas_hobart",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Hobart City Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Hobart Local Provisions Schedule.\nLodge (online): Lodge online through PlanBuild Tasmania and pay the fees there (planning applications can only be lodged online) https://www.planbuild.tas.gov.au/\nPre-lodgement meetings: offered (Call the Duty Planner on 03 6238 2711 or book an appointment at 16 Elizabeth Street. Further advice may attract a fee, which you are told before you proceed.).\nPhone: 03 6238 2711\nEmail: coh@hobartcity.com.au\nAddress: 16 Elizabeth Street, Hobart TAS 7000 (GPO Box 503, Hobart TAS 7001)\nHours: Weekdays, 8.15am to 5.15pm\nPlanning enquiries email: coh@hobartcity.com.au\nPlanning enquiries phone: 03 6238 2711",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: Application fee amounts aren't listed on the planning page; you pay them in PlanBuild. No separate planning email published; the general council email is used. Street address postcode (7000) added for the Elizabeth Street office; the page gives the street only. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_huon_valley_how_to_apply",
+      "document": "tas_huon_valley_doc1",
+      "section": "Council directory: tas_huon_valley",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Huon Valley Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Huon Valley Local Provisions Schedule.\nPhone: (03) 6264 0300\nEmail: hvc@huonvalley.tas.gov.au\nAddress: 40 Main Street, Huonville TAS 7109 (PO Box 210)\nHours: Monday to Friday, 9am to 5pm\nPlanning enquiries email: hvc@huonvalley.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_kentish_how_to_apply",
+      "document": "tas_kentish_doc1",
+      "section": "Council directory: tas_kentish",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Kentish Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Kentish Local Provisions Schedule.\nPhone: (03) 6491 0200\nEmail: council@kentish.tas.gov.au\nAddress: 69 High Street, Sheffield TAS 7306 (PO Box 63)\nPlanning enquiries email: council@kentish.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Office hours not shown on the page read. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_king_island_how_to_apply",
+      "document": "tas_king_island_doc1",
+      "section": "Council directory: tas_king_island",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to King Island Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - King Island Local Provisions Schedule.\nPhone: 03 6462 9000\nEmail: kicouncil@kingisland.tas.gov.au\nAddress: PO Box 147, Currie, King Island TAS 7256\nPlanning enquiries email: kicouncil@kingisland.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Only a postal address is shown on the home page. Office hours not shown on the page read. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_kingborough_how_to_apply",
+      "document": "tas_kingborough_doc1",
+      "section": "Council directory: tas_kingborough",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Kingborough Council for a development application.\nPlanning scheme: Kingborough Interim Planning Scheme 2015.\nLodge (email): Email your completed planning permit application form (electronic applications are encouraged) development@kingborough.tas.gov.au\nPre-lodgement meetings: offered (Contact the Planning Department for advice or to arrange an appointment before you apply.).\nPhone: (03) 6211 8200\nAddress: Civic Centre, 15 Channel Highway, Kingston TAS 7050\nPlanning enquiries email: development@kingborough.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: Council's planning web pages couldn't be read; lodgement details come from its 2023 application form, so check the website for the current method. General council email and office hours weren't confirmed. Fees weren't found. Kingborough still uses the Kingborough Interim Planning Scheme 2015, not the Tasmanian Planning Scheme."
+    },
+    {
+      "ref": "tas_latrobe_how_to_apply",
+      "document": "tas_latrobe_doc1",
+      "section": "Council directory: tas_latrobe",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Latrobe Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Latrobe Local Provisions Schedule.\nPhone: 03 6426 4444\nEmail: council@latrobe.tas.gov.au\nAddress: 170 Gilbert Street, Latrobe TAS 7307 (PO Box 63)\nPlanning enquiries email: council@latrobe.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Office hours not shown on the page read. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_launceston_how_to_apply",
+      "document": "tas_launceston_doc1",
+      "section": "Council directory: tas_launceston",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Launceston City Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Launceston Local Provisions Schedule.\nLodge (email): Email the planning permit application form and plans planning@launceston.tas.gov.au\nLodge (post): Post your application PO Box 396, Launceston TAS 7250\nLodge (in person): Lodge at the Customer Service Centre, Town Hall 18-28 St John Street, Launceston TAS 7250\nPre-lodgement meetings: offered (Pre-lodgement discussions are encouraged. Book a town planner online with 24 hours' notice; appointments on the hour, 10am to 4pm. Planning hotline 6323 3220.).\nPhone: (03) 6323 3000\nEmail: contactus@launceston.tas.gov.au\nAddress: Town Hall, 18-28 St John Street, Launceston TAS 7250\nHours: Monday to Friday, 8.30am to 5pm\nPlanning enquiries email: planning@launceston.tas.gov.au\nPlanning enquiries phone: (03) 6323 3220",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: The page names planning@launceston.tas.gov.au for lodging, but its email link points to planning.queries@launceston.tas.gov.au; confirm with council. No online lodgement portal is described. Fee amounts aren't listed on the planning page; they depend on the application and the value of the works. Pre-lodgement meeting cost isn't stated. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_meander_valley_how_to_apply",
+      "document": "tas_meander_valley_doc1",
+      "section": "Council directory: tas_meander_valley",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Meander Valley Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Meander Valley Local Provisions Schedule.\nPre-lodgement meetings: offered (Discuss your proposal with a Town Planner first: phone 6393 5320 or email mail@mvc.tas.gov.au. Planners are available Monday 10am to 4pm, Wednesday 10am to 1pm and Thursday 1pm to 4pm. A formal Planning Review can also be requested.).\nPhone: 03 6393 5300\nEmail: mail@mvc.tas.gov.au\nAddress: 26 Lyall Street, Westbury TAS 7303\nPlanning enquiries email: mail@mvc.tas.gov.au\nPlanning enquiries phone: 6393 5320",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: The page links the fillable Planning Application Form but doesn't say how to submit it. Fee amounts are in the 2026-27 planning fees PDF, which wasn't opened. Email decoded from the page's protected email link. Office hours weren't shown. No separate planning email published; the general council email is used. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_northern_midlands_how_to_apply",
+      "document": "tas_northern_midlands_doc1",
+      "section": "Council directory: tas_northern_midlands",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Northern Midlands Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Northern Midlands Local Provisions Schedule.\nPhone: (03) 6397 7303\nEmail: council@nmc.tas.gov.au\nAddress: 13 Smith Street, Longford TAS 7301 (PO Box 156)\nHours: Monday to Friday, 8.45am to 4.30pm\nPlanning enquiries email: council@nmc.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_sorell_how_to_apply",
+      "document": "tas_sorell_doc1",
+      "section": "Council directory: tas_sorell",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Sorell Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Sorell Local Provisions Schedule.\nPhone: 03 6269 0000\nEmail: sorell.council@sorell.tas.gov.au\nAddress: 47 Cole Street, Sorell TAS 7172\nHours: Monday to Friday, 8am to 4.30pm\nPlanning enquiries email: sorell.council@sorell.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_southern_midlands_how_to_apply",
+      "document": "tas_southern_midlands_doc1",
+      "section": "Council directory: tas_southern_midlands",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Southern Midlands Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Southern Midlands Local Provisions Schedule.\nPhone: 03 6254 5000\nEmail: mail@southernmidlands.tas.gov.au\nAddress: 71 High Street, Oatlands TAS 7120 (PO Box 21)\nHours: Monday to Friday, 9am to 4.30pm\nPlanning enquiries email: mail@southernmidlands.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Development and Environmental Services is at the Kempton office, 85 Main Street, Kempton (03 6254 5050). Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_tasman_how_to_apply",
+      "document": "tas_tasman_doc1",
+      "section": "Council directory: tas_tasman",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Tasman Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Tasman Local Provisions Schedule.\nPhone: 03 6250 9200\nAddress: 1713 Main Road, Nubeena TAS 7184\nHours: Monday to Friday, 8.30am to 4.30pm",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. General email not shown as readable text on the pages read; see the council's contact page. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_waratah_wynyard_how_to_apply",
+      "document": "tas_waratah_wynyard_doc1",
+      "section": "Council directory: tas_waratah_wynyard",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Waratah-Wynyard Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - Waratah-Wynyard Local Provisions Schedule.\nPhone: (03) 6443 8333\nAddress: 21 Saunders Street, Wynyard TAS\nHours: Phone lines Monday to Friday, 8.30am to 5pm",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. General email not shown as readable text on the pages read; see the council's contact page. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_west_coast_how_to_apply",
+      "document": "tas_west_coast_doc1",
+      "section": "Council directory: tas_west_coast",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to West Coast Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - West Coast Local Provisions Schedule.\nPhone: 03 6471 4700\nEmail: wcc@westcoast.tas.gov.au\nPlanning enquiries email: wcc@westcoast.tas.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. No separate planning email published in the pages read; the general council email is used. Office address not shown on the page read; see the council's contact page. Office hours not shown on the page read. Council's own planning fees not gathered. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    },
+    {
+      "ref": "tas_west_tamar_how_to_apply",
+      "document": "tas_west_tamar_doc1",
+      "section": "Council directory: tas_west_tamar",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to West Tamar Council for a development application.\nPlanning scheme: Tasmanian Planning Scheme - West Tamar Local Provisions Schedule.\nPre-lodgement meetings: offered (Talk to a planning officer before you submit. Planning staff take calls and visits at the Riverside office, 10am to 3pm weekdays.).\nPhone: 03 6323 9300\nEmail: wtc@wtc.tas.gov.au\nAddress: 2-4 Eden Street, Riverside TAS 7250 (PO Box 16)\nHours: Monday to Friday, 8.30am to 4.45pm\nPlanning enquiries email: wtc@wtc.tas.gov.au\nPlanning enquiries phone: 03 6323 9300",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct tas_councils.json if anything is wrong before verifying. Gaps found: The planning page says to lodge with council using the Planning Application Form 2025 but doesn't say how (email, post or online). Fees aren't listed on the planning page. No separate planning email published; the general council email is used. Planning scheme link goes to the statewide Tasmanian Planning Scheme Online viewer; choose this council's Local Provisions Schedule there. No per-council iplan.tas.gov.au link was found."
+    }
+  ],
+  "rule_sets": []
+}

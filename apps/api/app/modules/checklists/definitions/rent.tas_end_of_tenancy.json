@@ -1,0 +1,69 @@
+{
+  "key": "rent.tas_end_of_tenancy",
+  "vertical": "RENT",
+  "title": "Ending a Tasmanian tenancy",
+  "description": "Steps for an owner ending a lease in Tasmania. Summarised from Consumer Affairs Tasmania guidance on owners ending a lease and on bonds.",
+  "sources": [
+    {
+      "title": "Owner ending a lease",
+      "organisation": "Consumer Affairs Tasmania",
+      "url": "https://consumeraffairs.tas.gov.au/topics/housing/renting/ending-a-tenancylease/owner-ending-lease"
+    },
+    {
+      "title": "MyBond: owners",
+      "organisation": "Consumer Affairs Tasmania",
+      "url": "https://consumeraffairs.tas.gov.au/topics/housing/mybond/owners"
+    }
+  ],
+  "items": [
+    {
+      "key": "ground",
+      "title": "Confirm you have a listed ground to end the lease"
+    },
+    {
+      "key": "fixed_term",
+      "title": "For a fixed term ending, serve the Tasmanian notice to vacate 42 to 60 days before the end date",
+      "required": false
+    },
+    {
+      "key": "non_fixed",
+      "title": "For a non-fixed term, give 42 days' notice for sale, renovation, family use or non-rental use (60 days for a lender's sale)",
+      "required": false
+    },
+    {
+      "key": "sale_proof",
+      "title": "For a sale, attach proof of the agreement to sell",
+      "required": false
+    },
+    {
+      "key": "breach",
+      "title": "For a breach or rent arrears, allow 14 days for the tenant to fix it",
+      "required": false
+    },
+    {
+      "key": "contents",
+      "title": "Include the date, names, property, reason and the date vacant possession is due"
+    },
+    {
+      "key": "clear_days",
+      "title": "Count clear days and avoid an end date on a public holiday"
+    },
+    {
+      "key": "serve",
+      "title": "Serve it in person, at the tenant's address or by a process server, ideally with a witness"
+    },
+    {
+      "key": "court",
+      "title": "If the tenant stays, apply to the Magistrates Court within 28 days of the notice taking effect",
+      "required": false
+    },
+    {
+      "key": "final_inspection",
+      "title": "Inspect against the ingoing condition report"
+    },
+    {
+      "key": "bond_claim",
+      "title": "Claim the bond through Tasmanian MyBond; the tenant can approve or dispute it"
+    }
+  ]
+}
