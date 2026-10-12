@@ -1,0 +1,79 @@
+{
+  "key": "rent.sa_start_of_tenancy",
+  "vertical": "RENT",
+  "title": "Starting a South Australian tenancy",
+  "description": "The paperwork and steps before and when a South Australian tenant signs. Summarised from Consumer and Business Services and SA.GOV.AU guidance on applications, agreements, inspection sheets and bonds.",
+  "sources": [
+    {
+      "title": "Tenancy reforms for landlords and agents",
+      "organisation": "Consumer and Business Services",
+      "url": "https://www.cbs.sa.gov.au/sections/renting/renting/tenancy-reforms-for-landlords-and-agents"
+    },
+    {
+      "title": "Forms and fact sheets for private rental tenancies",
+      "organisation": "SA.GOV.AU",
+      "url": "https://www.sa.gov.au/topics/housing/renting-and-letting/renting-privately/forms-and-fact-sheets-for-private-rental-tenancies"
+    }
+  ],
+  "items": [
+    {
+      "key": "min_standards",
+      "title": "Check the property meets the minimum housing standards before the tenant moves in"
+    },
+    {
+      "key": "advertise_fixed_rent",
+      "title": "Advertise at one fixed rent and don't invite higher offers"
+    },
+    {
+      "key": "application_form",
+      "title": "Take applications only on the SA Form A1 tenancy application, one per applicant",
+      "detail": "Don't ask for legal history, medical records, social media or vehicle registration."
+    },
+    {
+      "key": "agreement",
+      "title": "Prepare the SA fixed term residential tenancy agreement or the SA periodic residential tenancy agreement"
+    },
+    {
+      "key": "short_term_info",
+      "title": "For a lease of 90 days or less, give the SA Form 1 short fixed term tenant information",
+      "required": false
+    },
+    {
+      "key": "information_guide",
+      "title": "Give the tenant the SA tenant information guide"
+    },
+    {
+      "key": "contact_details",
+      "title": "Give your contact details on the SA information to be provided to tenant form"
+    },
+    {
+      "key": "inspection_sheet",
+      "title": "Complete the SA inspection sheet with the tenant, with dated photos"
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Test the smoke alarms and record them on the inspection sheet"
+    },
+    {
+      "key": "bond_amount",
+      "title": "Take no more than 4 weeks' rent as bond (6 weeks if rent is over $800 a week)"
+    },
+    {
+      "key": "bond_lodge",
+      "title": "Lodge the bond through SA Residential Bonds Online"
+    },
+    {
+      "key": "pool",
+      "title": "Check the pool barrier and gate work",
+      "required": false
+    },
+    {
+      "key": "records",
+      "title": "Store tenant information securely and delete unsuccessful applicants' details on time"
+    },
+    {
+      "key": "signed_copy",
+      "title": "Give the tenant a copy of the signed agreement"
+    }
+  ]
+}

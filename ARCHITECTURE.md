@@ -1136,3 +1136,21 @@ PlanWA for the zone. A WA module needs a licence from Landgate and DPLH first.
 | Selling and renting | Pack `property_wa` (`sell.wa.seller_disclosure`, `rent.wa.residential_tenancy`) and checklists `rent.wa_*`, `sell.wa_before_sale`. |
 | Business, vehicles, vessels, grants | Pack `business_wa`: food, liquor, alfresco dining, workers' compensation, payroll tax, builder and painter registration, home indemnity insurance, plumbing and electrical licences, skin penetration, childcare, DTMI vehicle registration and motor vehicle dealers, boat registration and the Recreational Skipper's Ticket, the SBDC CCTV rebate. |
 | Tests | `tests/test_wa.py`. |
+
+## 50. South Australia
+
+Content like the other states (§47-§49), gathered on 2026-10-12 with gaps listed per entry.
+**No address lookups yet:** SA's Planning and Design Code zones and overlays, council and
+suburb boundaries and heritage places are CC BY 4.0, but the parcel cadastre is "Restricted"
+(Land Services SA sells it) and there's no open SA address search (the Location SA locator
+was retired in 2017). Without an address to start from, a module can't place the site. An
+open national address source (G-NAF) hosted by us would unlock SA, and the CC BY zone and
+overlay layers are listed in the research notes for when it does.
+
+| Part | As built |
+|---|---|
+| Councils | `councils/sa_councils.json`: all 68 councils (the Outback Communities Authority and APY and Maralinga Tjarutja lands left out); spatial names from Location SA's LGA layer (`abbname`). Every council uses the Planning and Design Code and lodges through PlanSA. Pack `councils_sa`. `states.json` SA: steps, the statewide fees notice from 1 July 2026, SAPPA for zones, PlanSA as the portal for every council. |
+| Planning | Pack `planning_sa`: planning consent, building consent and development approval under the PDI Act 2016 (accepted, deemed-to-satisfy, performance assessed, restricted), ancillary accommodation up to 70 m², land division, certificate of occupancy for a change of use. |
+| Selling and renting | Pack `property_sa` (`sell.sa.vendor_statement`, `rent.sa.residential_tenancy`) and checklists `rent.sa_*`, `sell.sa_form_1`. |
+| Business, vehicles, vessels | Pack `business_sa`: food, liquor, outdoor dining, ReturnToWorkSA, payroll tax, building work contractor licence and indemnity insurance ($20,000 from 10 November 2025), plumbing, gas and electrical licence, tattoo notification, childcare (Education Standards Board), vehicle registration and second-hand dealers, boat registration and boat operator's licence. No SA business grant was open or recurring in 2026, so there are no grant rules. |
+| Tests | `tests/test_sa.py`; `tests/test_state_packs.py` loads and publishes every state pack the way the deploy does (the WA deploy stopped on a warning that claimed "likely required", which only the rule gate catches; fixed here). |

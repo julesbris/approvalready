@@ -1,0 +1,80 @@
+{
+  "key": "sell.sa_form_1",
+  "vertical": "SELL",
+  "title": "Preparing the SA Form 1 vendor's statement",
+  "description": "What to gather so your conveyancer can prepare the SA Form 1 vendor's statement, and when it must be given. Summarised from SA.GOV.AU and Law Handbook guidance.",
+  "sources": [
+    {
+      "title": "What is on the vendor's statement",
+      "organisation": "SA.GOV.AU",
+      "url": "https://www.sa.gov.au/topics/housing/buying-building-selling/building-or-buying-home/home-sales/what-is-on-the-vendors-statement"
+    },
+    {
+      "title": "Law Handbook: selling a home, vendor's statement",
+      "organisation": "Legal Services Commission of South Australia",
+      "url": "https://lawhandbook.sa.gov.au/ch23s09s01.php"
+    },
+    {
+      "title": "Building indemnity insurance",
+      "organisation": "SA.GOV.AU",
+      "url": "https://www.sa.gov.au/topics/housing/buying-building-selling/building-a-home/building-indemnity-insurance"
+    }
+  ],
+  "items": [
+    {
+      "key": "conveyancer",
+      "title": "Engage a conveyancer or lawyer to prepare the SA Form 1 vendor's statement and contract"
+    },
+    {
+      "key": "title",
+      "title": "Give them your certificate of title details and any caveats, easements or covenants you know of"
+    },
+    {
+      "key": "mortgage",
+      "title": "Tell them about any mortgage and your lender's details",
+      "required": false
+    },
+    {
+      "key": "rates",
+      "title": "Find your latest council rates, water rates and other outgoings notices"
+    },
+    {
+      "key": "building_approvals",
+      "title": "Gather approvals and completion documents for building work on the property"
+    },
+    {
+      "key": "indemnity_certificate",
+      "title": "Get building indemnity insurance certificates for domestic building work done in the last 5 years",
+      "detail": "Ask your builder or check the insurer's register.",
+      "required": false
+    },
+    {
+      "key": "strata",
+      "title": "Give them the strata or community corporation's contact details",
+      "required": false
+    },
+    {
+      "key": "authority",
+      "title": "Have your power of attorney, probate or other authority to sell ready",
+      "required": false
+    },
+    {
+      "key": "sign",
+      "title": "Read the statement carefully and sign it as vendor"
+    },
+    {
+      "key": "serve_before_signing",
+      "title": "Make sure it is served on the buyer before they sign the contract",
+      "detail": "If served after signing, it must be at least 10 clear days before settlement."
+    },
+    {
+      "key": "auction_availability",
+      "title": "For an auction, make it available at the agent's office 3 business days before and at the venue 30 minutes before",
+      "required": false
+    },
+    {
+      "key": "keep_proof",
+      "title": "Keep proof of how and when it was served"
+    }
+  ]
+}

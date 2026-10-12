@@ -1,0 +1,1516 @@
+{
+  "key": "councils_sa",
+  "title": "South Australia councils: how to apply for a development application",
+  "notes": "Generated from app/modules/councils/sa_councils.json by `python -m app.modules.councils.pack`; edit the directory, not this file. One reference per council: verifying it marks that council's details as checked.",
+  "organisations": [
+    {
+      "ref": "sa_adelaide_hills",
+      "name": "Adelaide Hills Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_ADELAIDE_HILLS",
+      "website": "https://www.ahc.sa.gov.au/"
+    },
+    {
+      "ref": "sa_adelaide_plains",
+      "name": "Adelaide Plains Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_ADELAIDE_PLAINS",
+      "website": "https://www.apc.sa.gov.au/"
+    },
+    {
+      "ref": "sa_alexandrina",
+      "name": "Alexandrina Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_ALEXANDRINA",
+      "website": "https://www.alexandrina.sa.gov.au/"
+    },
+    {
+      "ref": "sa_barunga_west",
+      "name": "Barunga West Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_BARUNGA_WEST",
+      "website": "https://www.barungawest.sa.gov.au/"
+    },
+    {
+      "ref": "sa_berri_barmera",
+      "name": "Berri Barmera Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_BERRI_BARMERA",
+      "website": "https://www.berribarmera.sa.gov.au/"
+    },
+    {
+      "ref": "sa_campbelltown",
+      "name": "Campbelltown City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_CAMPBELLTOWN",
+      "website": "https://www.campbelltown.sa.gov.au/"
+    },
+    {
+      "ref": "sa_adelaide",
+      "name": "City of Adelaide",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_ADELAIDE",
+      "website": "https://www.cityofadelaide.com.au/"
+    },
+    {
+      "ref": "sa_burnside",
+      "name": "City of Burnside",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_BURNSIDE",
+      "website": "https://www.burnside.sa.gov.au/"
+    },
+    {
+      "ref": "sa_charles_sturt",
+      "name": "City of Charles Sturt",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_CHARLES_STURT",
+      "website": "https://www.charlessturt.sa.gov.au/"
+    },
+    {
+      "ref": "sa_holdfast_bay",
+      "name": "City of Holdfast Bay",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_HOLDFAST_BAY",
+      "website": "https://www.holdfast.sa.gov.au/"
+    },
+    {
+      "ref": "sa_marion",
+      "name": "City of Marion",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_MARION",
+      "website": "https://www.marion.sa.gov.au/"
+    },
+    {
+      "ref": "sa_mitcham",
+      "name": "City of Mitcham",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_MITCHAM",
+      "website": "https://www.mitchamcouncil.sa.gov.au/"
+    },
+    {
+      "ref": "sa_mount_gambier",
+      "name": "City of Mount Gambier",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_MOUNT_GAMBIER",
+      "website": "https://www.mountgambier.sa.gov.au/"
+    },
+    {
+      "ref": "sa_norwood_payneham_and_st_peters",
+      "name": "City of Norwood Payneham & St Peters",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_NORWOOD_PAYNEHAM_AND_ST_PETERS",
+      "website": "https://www.npsp.sa.gov.au/"
+    },
+    {
+      "ref": "sa_onkaparinga",
+      "name": "City of Onkaparinga",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_ONKAPARINGA",
+      "website": "https://www.onkaparingacity.com/"
+    },
+    {
+      "ref": "sa_playford",
+      "name": "City of Playford",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_PLAYFORD",
+      "website": "https://www.playford.sa.gov.au/"
+    },
+    {
+      "ref": "sa_port_adelaide_enfield",
+      "name": "City of Port Adelaide Enfield",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_PORT_ADELAIDE_ENFIELD",
+      "website": "https://www.cityofpae.sa.gov.au/"
+    },
+    {
+      "ref": "sa_port_lincoln",
+      "name": "City of Port Lincoln",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_PORT_LINCOLN",
+      "website": "https://www.portlincoln.sa.gov.au/"
+    },
+    {
+      "ref": "sa_prospect",
+      "name": "City of Prospect",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_PROSPECT",
+      "website": "https://www.prospect.sa.gov.au/"
+    },
+    {
+      "ref": "sa_salisbury",
+      "name": "City of Salisbury",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_SALISBURY",
+      "website": "https://www.salisbury.sa.gov.au/"
+    },
+    {
+      "ref": "sa_tea_tree_gully",
+      "name": "City of Tea Tree Gully",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_TEA_TREE_GULLY",
+      "website": "https://www.teatreegully.sa.gov.au/"
+    },
+    {
+      "ref": "sa_unley",
+      "name": "City of Unley",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_UNLEY",
+      "website": "https://www.unley.sa.gov.au/"
+    },
+    {
+      "ref": "sa_victor_harbor",
+      "name": "City of Victor Harbor",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_VICTOR_HARBOR",
+      "website": "https://www.victor.sa.gov.au/"
+    },
+    {
+      "ref": "sa_west_torrens",
+      "name": "City of West Torrens",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_WEST_TORRENS",
+      "website": "https://www.westtorrens.sa.gov.au/"
+    },
+    {
+      "ref": "sa_whyalla",
+      "name": "City of Whyalla",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_WHYALLA",
+      "website": "https://www.whyalla.sa.gov.au/"
+    },
+    {
+      "ref": "sa_clare_and_gilbert_valleys",
+      "name": "Clare and Gilbert Valleys Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_CLARE_AND_GILBERT_VALLEYS",
+      "website": "https://www.claregilbertvalleys.sa.gov.au/"
+    },
+    {
+      "ref": "sa_coorong",
+      "name": "Coorong District Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_COORONG",
+      "website": "https://www.coorong.sa.gov.au/"
+    },
+    {
+      "ref": "sa_copper_coast",
+      "name": "Copper Coast Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_COPPER_COAST",
+      "website": "https://www.coppercoast.sa.gov.au/"
+    },
+    {
+      "ref": "sa_ceduna",
+      "name": "District Council of Ceduna",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_CEDUNA",
+      "website": "https://www.ceduna.sa.gov.au/"
+    },
+    {
+      "ref": "sa_cleve",
+      "name": "District Council of Cleve",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_CLEVE",
+      "website": "https://www.cleve.sa.gov.au/"
+    },
+    {
+      "ref": "sa_coober_pedy",
+      "name": "District Council of Coober Pedy",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_COOBER_PEDY",
+      "website": "https://www.cooberpedy.sa.gov.au/"
+    },
+    {
+      "ref": "sa_elliston",
+      "name": "District Council of Elliston",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_ELLISTON",
+      "website": "https://www.elliston.sa.gov.au/"
+    },
+    {
+      "ref": "sa_franklin_harbour",
+      "name": "District Council of Franklin Harbour",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_FRANKLIN_HARBOUR",
+      "website": "https://www.franklinharbour.sa.gov.au/"
+    },
+    {
+      "ref": "sa_karoonda_east_murray",
+      "name": "District Council of Karoonda East Murray",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_KAROONDA_EAST_MURRAY",
+      "website": "https://www.dckem.sa.gov.au/"
+    },
+    {
+      "ref": "sa_kimba",
+      "name": "District Council of Kimba",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_KIMBA",
+      "website": "https://www.kimba.sa.gov.au/"
+    },
+    {
+      "ref": "sa_loxton_waikerie",
+      "name": "District Council of Loxton Waikerie",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_LOXTON_WAIKERIE",
+      "website": "https://www.lwdc.sa.gov.au/"
+    },
+    {
+      "ref": "sa_mount_remarkable",
+      "name": "District Council of Mount Remarkable",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_MOUNT_REMARKABLE",
+      "website": "https://www.mtr.sa.gov.au/"
+    },
+    {
+      "ref": "sa_orroroo_carrieton",
+      "name": "District Council of Orroroo Carrieton",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_ORROROO_CARRIETON",
+      "website": "https://www.orroroo.sa.gov.au/"
+    },
+    {
+      "ref": "sa_peterborough",
+      "name": "District Council of Peterborough",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_PETERBOROUGH",
+      "website": "https://www.peterborough.sa.gov.au/"
+    },
+    {
+      "ref": "sa_robe",
+      "name": "District Council of Robe",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_ROBE",
+      "website": "https://www.robe.sa.gov.au/"
+    },
+    {
+      "ref": "sa_streaky_bay",
+      "name": "District Council of Streaky Bay",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_STREAKY_BAY",
+      "website": "https://www.streakybay.sa.gov.au/"
+    },
+    {
+      "ref": "sa_tumby_bay",
+      "name": "District Council of Tumby Bay",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_TUMBY_BAY",
+      "website": "https://www.tumbybay.sa.gov.au/"
+    },
+    {
+      "ref": "sa_yankalilla",
+      "name": "District Council of Yankalilla",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_YANKALILLA",
+      "website": "https://www.yankalilla.sa.gov.au/"
+    },
+    {
+      "ref": "sa_kangaroo_island",
+      "name": "Kangaroo Island Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_KANGAROO_ISLAND",
+      "website": "https://www.kangarooisland.sa.gov.au/"
+    },
+    {
+      "ref": "sa_kingston",
+      "name": "Kingston District Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_KINGSTON",
+      "website": "https://www.kingstondc.sa.gov.au/"
+    },
+    {
+      "ref": "sa_light",
+      "name": "Light Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_LIGHT",
+      "website": "https://www.light.sa.gov.au/"
+    },
+    {
+      "ref": "sa_lower_eyre",
+      "name": "Lower Eyre Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_LOWER_EYRE",
+      "website": "https://www.lowereyrepeninsula.sa.gov.au/"
+    },
+    {
+      "ref": "sa_mid_murray",
+      "name": "Mid Murray Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_MID_MURRAY",
+      "website": "https://www.mid-murray.sa.gov.au/"
+    },
+    {
+      "ref": "sa_mount_barker",
+      "name": "Mount Barker District Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_MOUNT_BARKER",
+      "website": "https://www.mountbarker.sa.gov.au/"
+    },
+    {
+      "ref": "sa_roxby_downs",
+      "name": "Municipal Council of Roxby Downs",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_ROXBY_DOWNS",
+      "website": "https://www.roxbydowns.sa.gov.au/"
+    },
+    {
+      "ref": "sa_naracoorte_lucindale",
+      "name": "Naracoorte Lucindale Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_NARACOORTE_LUCINDALE",
+      "website": "https://www.naracoortelucindale.sa.gov.au/"
+    },
+    {
+      "ref": "sa_northern_areas",
+      "name": "Northern Areas Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_NORTHERN_AREAS",
+      "website": "https://www.nacouncil.sa.gov.au/"
+    },
+    {
+      "ref": "sa_port_augusta",
+      "name": "Port Augusta City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_PORT_AUGUSTA",
+      "website": "https://www.portaugusta.sa.gov.au/"
+    },
+    {
+      "ref": "sa_port_pirie",
+      "name": "Port Pirie Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_PORT_PIRIE",
+      "website": "https://www.pirie.sa.gov.au/"
+    },
+    {
+      "ref": "sa_goyder",
+      "name": "Regional Council of Goyder",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_GOYDER",
+      "website": "https://www.goyder.sa.gov.au/"
+    },
+    {
+      "ref": "sa_renmark_paringa",
+      "name": "Renmark Paringa Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_RENMARK_PARINGA",
+      "website": "https://www.renmarkparinga.sa.gov.au/"
+    },
+    {
+      "ref": "sa_murray_bridge",
+      "name": "Rural City of Murray Bridge",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_MURRAY_BRIDGE",
+      "website": "https://www.murraybridge.sa.gov.au/"
+    },
+    {
+      "ref": "sa_southern_limestone_coast",
+      "name": "Southern Limestone Coast Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_SOUTHERN_LIMESTONE_COAST",
+      "website": "https://www.slcc.sa.gov.au/"
+    },
+    {
+      "ref": "sa_southern_mallee",
+      "name": "Southern Mallee District Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_SOUTHERN_MALLEE",
+      "website": "https://www.southernmallee.sa.gov.au/"
+    },
+    {
+      "ref": "sa_tatiara",
+      "name": "Tatiara District Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_TATIARA",
+      "website": "https://www.tatiara.sa.gov.au/"
+    },
+    {
+      "ref": "sa_barossa",
+      "name": "The Barossa Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_BAROSSA",
+      "website": "https://www.barossa.sa.gov.au/"
+    },
+    {
+      "ref": "sa_flinders_ranges",
+      "name": "The Flinders Ranges Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_FLINDERS_RANGES",
+      "website": "https://www.frc.sa.gov.au/"
+    },
+    {
+      "ref": "sa_gawler",
+      "name": "Town of Gawler",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_GAWLER",
+      "website": "https://www.gawler.sa.gov.au/"
+    },
+    {
+      "ref": "sa_walkerville",
+      "name": "Town of Walkerville",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_WALKERVILLE",
+      "website": "https://www.walkerville.sa.gov.au/"
+    },
+    {
+      "ref": "sa_wakefield",
+      "name": "Wakefield Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_WAKEFIELD",
+      "website": "https://www.wrc.sa.gov.au/"
+    },
+    {
+      "ref": "sa_wattle_range",
+      "name": "Wattle Range Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_WATTLE_RANGE",
+      "website": "https://www.wattlerange.sa.gov.au/"
+    },
+    {
+      "ref": "sa_wudinna",
+      "name": "Wudinna District Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_WUDINNA",
+      "website": "https://www.wudinna.sa.gov.au/"
+    },
+    {
+      "ref": "sa_yorke_peninsula",
+      "name": "Yorke Peninsula Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:SA_YORKE_PENINSULA",
+      "website": "https://yorke.sa.gov.au/"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "sa_adelaide_hills_doc1",
+      "organisation": "sa_adelaide_hills",
+      "jurisdiction": "LGA:SA_ADELAIDE_HILLS",
+      "title": "LGA SA council directory: Adelaide Hills Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/adelaide-hills-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_adelaide_hills_doc2",
+      "organisation": "sa_adelaide_hills",
+      "jurisdiction": "LGA:SA_ADELAIDE_HILLS",
+      "title": "Location SA Local Government Areas layer (abbname field)",
+      "url": "https://dpti.geohub.sa.gov.au/server/rest/services/LocalGovernmentAreas/MapServer/0",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_adelaide_plains_doc1",
+      "organisation": "sa_adelaide_plains",
+      "jurisdiction": "LGA:SA_ADELAIDE_PLAINS",
+      "title": "LGA SA council directory: Adelaide Plains Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/adelaide-plains-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_alexandrina_doc1",
+      "organisation": "sa_alexandrina",
+      "jurisdiction": "LGA:SA_ALEXANDRINA",
+      "title": "LGA SA council directory: Alexandrina Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/alexandrina-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_barunga_west_doc1",
+      "organisation": "sa_barunga_west",
+      "jurisdiction": "LGA:SA_BARUNGA_WEST",
+      "title": "LGA SA council directory: Barunga West Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/barunga-west-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_berri_barmera_doc1",
+      "organisation": "sa_berri_barmera",
+      "jurisdiction": "LGA:SA_BERRI_BARMERA",
+      "title": "LGA SA council directory: Berri Barmera Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/berri-barmera-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_campbelltown_doc1",
+      "organisation": "sa_campbelltown",
+      "jurisdiction": "LGA:SA_CAMPBELLTOWN",
+      "title": "LGA SA council directory: Campbelltown City Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/campbelltown-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_adelaide_doc1",
+      "organisation": "sa_adelaide",
+      "jurisdiction": "LGA:SA_ADELAIDE",
+      "title": "LGA SA council directory: City of Adelaide",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-adelaide",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_burnside_doc1",
+      "organisation": "sa_burnside",
+      "jurisdiction": "LGA:SA_BURNSIDE",
+      "title": "LGA SA council directory: City of Burnside",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-burnside",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_charles_sturt_doc1",
+      "organisation": "sa_charles_sturt",
+      "jurisdiction": "LGA:SA_CHARLES_STURT",
+      "title": "LGA SA council directory: City of Charles Sturt",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-charles-sturt",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_holdfast_bay_doc1",
+      "organisation": "sa_holdfast_bay",
+      "jurisdiction": "LGA:SA_HOLDFAST_BAY",
+      "title": "LGA SA council directory: City of Holdfast Bay",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-holdfast-bay",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_marion_doc1",
+      "organisation": "sa_marion",
+      "jurisdiction": "LGA:SA_MARION",
+      "title": "LGA SA council directory: City of Marion",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-marion",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_mitcham_doc1",
+      "organisation": "sa_mitcham",
+      "jurisdiction": "LGA:SA_MITCHAM",
+      "title": "LGA SA council directory: City of Mitcham",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-mitcham",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_mount_gambier_doc1",
+      "organisation": "sa_mount_gambier",
+      "jurisdiction": "LGA:SA_MOUNT_GAMBIER",
+      "title": "LGA SA council directory: City of Mount Gambier",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-mount-gambier",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_norwood_payneham_and_st_peters_doc1",
+      "organisation": "sa_norwood_payneham_and_st_peters",
+      "jurisdiction": "LGA:SA_NORWOOD_PAYNEHAM_AND_ST_PETERS",
+      "title": "LGA SA council directory: City of Norwood Payneham & St Peters",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-norwood-payneham-and-st-peters",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_onkaparinga_doc1",
+      "organisation": "sa_onkaparinga",
+      "jurisdiction": "LGA:SA_ONKAPARINGA",
+      "title": "LGA SA council directory: City of Onkaparinga",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-onkaparinga",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_playford_doc1",
+      "organisation": "sa_playford",
+      "jurisdiction": "LGA:SA_PLAYFORD",
+      "title": "LGA SA council directory: City of Playford",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-playford",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_port_adelaide_enfield_doc1",
+      "organisation": "sa_port_adelaide_enfield",
+      "jurisdiction": "LGA:SA_PORT_ADELAIDE_ENFIELD",
+      "title": "LGA SA council directory: City of Port Adelaide Enfield",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-port-adelaide-enfield",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_port_lincoln_doc1",
+      "organisation": "sa_port_lincoln",
+      "jurisdiction": "LGA:SA_PORT_LINCOLN",
+      "title": "LGA SA council directory: City of Port Lincoln",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-port-lincoln",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_prospect_doc1",
+      "organisation": "sa_prospect",
+      "jurisdiction": "LGA:SA_PROSPECT",
+      "title": "LGA SA council directory: City of Prospect",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-prospect",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_salisbury_doc1",
+      "organisation": "sa_salisbury",
+      "jurisdiction": "LGA:SA_SALISBURY",
+      "title": "LGA SA council directory: City of Salisbury",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-salisbury",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_tea_tree_gully_doc1",
+      "organisation": "sa_tea_tree_gully",
+      "jurisdiction": "LGA:SA_TEA_TREE_GULLY",
+      "title": "LGA SA council directory: City of Tea Tree Gully",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-tea-tree-gully",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_unley_doc1",
+      "organisation": "sa_unley",
+      "jurisdiction": "LGA:SA_UNLEY",
+      "title": "LGA SA council directory: City of Unley",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-unley",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_victor_harbor_doc1",
+      "organisation": "sa_victor_harbor",
+      "jurisdiction": "LGA:SA_VICTOR_HARBOR",
+      "title": "LGA SA council directory: City of Victor Harbor",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-victor-harbor",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_west_torrens_doc1",
+      "organisation": "sa_west_torrens",
+      "jurisdiction": "LGA:SA_WEST_TORRENS",
+      "title": "LGA SA council directory: City of West Torrens",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-west-torrens",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_whyalla_doc1",
+      "organisation": "sa_whyalla",
+      "jurisdiction": "LGA:SA_WHYALLA",
+      "title": "LGA SA council directory: City of Whyalla",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/city-of-whyalla",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_clare_and_gilbert_valleys_doc1",
+      "organisation": "sa_clare_and_gilbert_valleys",
+      "jurisdiction": "LGA:SA_CLARE_AND_GILBERT_VALLEYS",
+      "title": "LGA SA council directory: Clare and Gilbert Valleys Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/clare-and-gilbert-valleys-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_coorong_doc1",
+      "organisation": "sa_coorong",
+      "jurisdiction": "LGA:SA_COORONG",
+      "title": "LGA SA council directory: Coorong District Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/coorong-district-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_copper_coast_doc1",
+      "organisation": "sa_copper_coast",
+      "jurisdiction": "LGA:SA_COPPER_COAST",
+      "title": "LGA SA council directory: Copper Coast Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/copper-coast-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_ceduna_doc1",
+      "organisation": "sa_ceduna",
+      "jurisdiction": "LGA:SA_CEDUNA",
+      "title": "LGA SA council directory: District Council of Ceduna",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-ceduna",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_cleve_doc1",
+      "organisation": "sa_cleve",
+      "jurisdiction": "LGA:SA_CLEVE",
+      "title": "LGA SA council directory: District Council of Cleve",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-cleve",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_coober_pedy_doc1",
+      "organisation": "sa_coober_pedy",
+      "jurisdiction": "LGA:SA_COOBER_PEDY",
+      "title": "LGA SA council directory: District Council of Coober Pedy",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-coober-pedy",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_elliston_doc1",
+      "organisation": "sa_elliston",
+      "jurisdiction": "LGA:SA_ELLISTON",
+      "title": "LGA SA council directory: District Council of Elliston",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-elliston",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_franklin_harbour_doc1",
+      "organisation": "sa_franklin_harbour",
+      "jurisdiction": "LGA:SA_FRANKLIN_HARBOUR",
+      "title": "LGA SA council directory: District Council of Franklin Harbour",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-franklin-harbour",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_karoonda_east_murray_doc1",
+      "organisation": "sa_karoonda_east_murray",
+      "jurisdiction": "LGA:SA_KAROONDA_EAST_MURRAY",
+      "title": "LGA SA council directory: District Council of Karoonda East Murray",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-karoonda-east-murray",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_kimba_doc1",
+      "organisation": "sa_kimba",
+      "jurisdiction": "LGA:SA_KIMBA",
+      "title": "LGA SA council directory: District Council of Kimba",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-kimba",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_loxton_waikerie_doc1",
+      "organisation": "sa_loxton_waikerie",
+      "jurisdiction": "LGA:SA_LOXTON_WAIKERIE",
+      "title": "LGA SA council directory: District Council of Loxton Waikerie",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-loxton-waikerie",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_mount_remarkable_doc1",
+      "organisation": "sa_mount_remarkable",
+      "jurisdiction": "LGA:SA_MOUNT_REMARKABLE",
+      "title": "LGA SA council directory: District Council of Mount Remarkable",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-mount-remarkable",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_orroroo_carrieton_doc1",
+      "organisation": "sa_orroroo_carrieton",
+      "jurisdiction": "LGA:SA_ORROROO_CARRIETON",
+      "title": "LGA SA council directory: District Council of Orroroo Carrieton",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-orroroo-carrieton",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_peterborough_doc1",
+      "organisation": "sa_peterborough",
+      "jurisdiction": "LGA:SA_PETERBOROUGH",
+      "title": "LGA SA council directory: District Council of Peterborough",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-peterborough",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_robe_doc1",
+      "organisation": "sa_robe",
+      "jurisdiction": "LGA:SA_ROBE",
+      "title": "LGA SA council directory: District Council of Robe",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-robe",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_streaky_bay_doc1",
+      "organisation": "sa_streaky_bay",
+      "jurisdiction": "LGA:SA_STREAKY_BAY",
+      "title": "LGA SA council directory: District Council of Streaky Bay",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-streaky-bay",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_tumby_bay_doc1",
+      "organisation": "sa_tumby_bay",
+      "jurisdiction": "LGA:SA_TUMBY_BAY",
+      "title": "LGA SA council directory: District Council of Tumby Bay",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-tumby-bay",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_yankalilla_doc1",
+      "organisation": "sa_yankalilla",
+      "jurisdiction": "LGA:SA_YANKALILLA",
+      "title": "LGA SA council directory: District Council of Yankalilla",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/district-council-of-yankalilla",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_kangaroo_island_doc1",
+      "organisation": "sa_kangaroo_island",
+      "jurisdiction": "LGA:SA_KANGAROO_ISLAND",
+      "title": "LGA SA council directory: Kangaroo Island Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/kangaroo-island-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_kingston_doc1",
+      "organisation": "sa_kingston",
+      "jurisdiction": "LGA:SA_KINGSTON",
+      "title": "LGA SA council directory: Kingston District Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/kingston-district-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_light_doc1",
+      "organisation": "sa_light",
+      "jurisdiction": "LGA:SA_LIGHT",
+      "title": "LGA SA council directory: Light Regional Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/light-regional-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_lower_eyre_doc1",
+      "organisation": "sa_lower_eyre",
+      "jurisdiction": "LGA:SA_LOWER_EYRE",
+      "title": "LGA SA council directory: Lower Eyre Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/lower-eyre-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_mid_murray_doc1",
+      "organisation": "sa_mid_murray",
+      "jurisdiction": "LGA:SA_MID_MURRAY",
+      "title": "LGA SA council directory: Mid Murray Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/mid-murray-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_mount_barker_doc1",
+      "organisation": "sa_mount_barker",
+      "jurisdiction": "LGA:SA_MOUNT_BARKER",
+      "title": "LGA SA council directory: Mount Barker District Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/mount-barker-district-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_roxby_downs_doc1",
+      "organisation": "sa_roxby_downs",
+      "jurisdiction": "LGA:SA_ROXBY_DOWNS",
+      "title": "LGA SA council directory: Municipal Council of Roxby Downs",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/municipal-council-of-roxby-downs",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_naracoorte_lucindale_doc1",
+      "organisation": "sa_naracoorte_lucindale",
+      "jurisdiction": "LGA:SA_NARACOORTE_LUCINDALE",
+      "title": "LGA SA council directory: Naracoorte Lucindale Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/naracoorte-lucindale-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_northern_areas_doc1",
+      "organisation": "sa_northern_areas",
+      "jurisdiction": "LGA:SA_NORTHERN_AREAS",
+      "title": "LGA SA council directory: Northern Areas Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/northern-areas-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_port_augusta_doc1",
+      "organisation": "sa_port_augusta",
+      "jurisdiction": "LGA:SA_PORT_AUGUSTA",
+      "title": "LGA SA council directory: Port Augusta City Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/port-augusta-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_port_pirie_doc1",
+      "organisation": "sa_port_pirie",
+      "jurisdiction": "LGA:SA_PORT_PIRIE",
+      "title": "LGA SA council directory: Port Pirie Regional Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/port-pirie-regional-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_goyder_doc1",
+      "organisation": "sa_goyder",
+      "jurisdiction": "LGA:SA_GOYDER",
+      "title": "LGA SA council directory: Regional Council of Goyder",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/regional-council-of-goyder",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_renmark_paringa_doc1",
+      "organisation": "sa_renmark_paringa",
+      "jurisdiction": "LGA:SA_RENMARK_PARINGA",
+      "title": "LGA SA council directory: Renmark Paringa Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/renmark-paringa-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_murray_bridge_doc1",
+      "organisation": "sa_murray_bridge",
+      "jurisdiction": "LGA:SA_MURRAY_BRIDGE",
+      "title": "LGA SA council directory: Rural City of Murray Bridge",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/rural-city-of-murray-bridge",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_southern_limestone_coast_doc1",
+      "organisation": "sa_southern_limestone_coast",
+      "jurisdiction": "LGA:SA_SOUTHERN_LIMESTONE_COAST",
+      "title": "LGA SA council directory: Southern Limestone Coast Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/southern-limestone-coast-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_southern_mallee_doc1",
+      "organisation": "sa_southern_mallee",
+      "jurisdiction": "LGA:SA_SOUTHERN_MALLEE",
+      "title": "LGA SA council directory: Southern Mallee District Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/southern-mallee-district-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_tatiara_doc1",
+      "organisation": "sa_tatiara",
+      "jurisdiction": "LGA:SA_TATIARA",
+      "title": "LGA SA council directory: Tatiara District Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/tatiara-district-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_barossa_doc1",
+      "organisation": "sa_barossa",
+      "jurisdiction": "LGA:SA_BAROSSA",
+      "title": "LGA SA council directory: The Barossa Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/the-barossa-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_flinders_ranges_doc1",
+      "organisation": "sa_flinders_ranges",
+      "jurisdiction": "LGA:SA_FLINDERS_RANGES",
+      "title": "LGA SA council directory: The Flinders Ranges Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/the-flinders-ranges-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_gawler_doc1",
+      "organisation": "sa_gawler",
+      "jurisdiction": "LGA:SA_GAWLER",
+      "title": "LGA SA council directory: Town of Gawler",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/town-of-gawler",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_walkerville_doc1",
+      "organisation": "sa_walkerville",
+      "jurisdiction": "LGA:SA_WALKERVILLE",
+      "title": "LGA SA council directory: Town of Walkerville",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/town-of-walkerville",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_wakefield_doc1",
+      "organisation": "sa_wakefield",
+      "jurisdiction": "LGA:SA_WAKEFIELD",
+      "title": "LGA SA council directory: Wakefield Regional Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/wakefield-regional-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_wattle_range_doc1",
+      "organisation": "sa_wattle_range",
+      "jurisdiction": "LGA:SA_WATTLE_RANGE",
+      "title": "LGA SA council directory: Wattle Range Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/wattle-range-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_wudinna_doc1",
+      "organisation": "sa_wudinna",
+      "jurisdiction": "LGA:SA_WUDINNA",
+      "title": "LGA SA council directory: Wudinna District Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/wudinna-district-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "sa_yorke_peninsula_doc1",
+      "organisation": "sa_yorke_peninsula",
+      "jurisdiction": "LGA:SA_YORKE_PENINSULA",
+      "title": "LGA SA council directory: Yorke Peninsula Council",
+      "url": "https://www.localcouncils.sa.gov.au/get-involved/find-your-council/yorke-peninsula-council",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "sa_adelaide_hills_how_to_apply",
+      "document": "sa_adelaide_hills_doc1",
+      "section": "Council directory: sa_adelaide_hills",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Adelaide Hills Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8408 0400\nEmail: mail@ahc.sa.gov.au\nAddress: 63 Mount Barker Road, Stirling SA 5152\nPlanning enquiries email: mail@ahc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_adelaide_plains_how_to_apply",
+      "document": "sa_adelaide_plains_doc1",
+      "section": "Council directory: sa_adelaide_plains",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Adelaide Plains Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8527 0200\nEmail: info@apc.sa.gov.au\nAddress: 2A Wasleys Road, Mallala SA 5502\nPlanning enquiries email: info@apc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_alexandrina_how_to_apply",
+      "document": "sa_alexandrina_doc1",
+      "section": "Council directory: sa_alexandrina",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Alexandrina Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8555 7000\nEmail: alex@alexandrina.sa.gov.au\nPlanning enquiries email: alex@alexandrina.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Office address in the LGA SA directory was incomplete; see the council's contact page. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_barunga_west_how_to_apply",
+      "document": "sa_barunga_west_doc1",
+      "section": "Council directory: sa_barunga_west",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Barunga West Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8635 2107\nEmail: barunga@barungawest.sa.gov.au\nPlanning enquiries email: barunga@barungawest.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Office address in the LGA SA directory was incomplete; see the council's contact page. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_berri_barmera_how_to_apply",
+      "document": "sa_berri_barmera_doc1",
+      "section": "Council directory: sa_berri_barmera",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Berri Barmera Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8582 1922\nEmail: bbc@bbc.sa.gov.au\nAddress: 5 Riverview Drive, Berri SA 5343\nPlanning enquiries email: bbc@bbc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_campbelltown_how_to_apply",
+      "document": "sa_campbelltown_doc1",
+      "section": "Council directory: sa_campbelltown",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Campbelltown City Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8366 9222\nEmail: mail@campbelltown.sa.gov.au\nAddress: 172 Montacute Road, Rostrevor SA 5073\nPlanning enquiries email: mail@campbelltown.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_adelaide_how_to_apply",
+      "document": "sa_adelaide_doc1",
+      "section": "Council directory: sa_adelaide",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Adelaide for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8203 7203\nEmail: customer@cityofadelaide.com.au\nAddress: 25 Pirie Street, Adelaide SA 5000\nPlanning enquiries email: customer@cityofadelaide.com.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_burnside_how_to_apply",
+      "document": "sa_burnside_doc1",
+      "section": "Council directory: sa_burnside",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Burnside for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8366 4200\nEmail: burnside@burnside.sa.gov.au\nAddress: 401 Greenhill Road, Tusmore SA 5065\nPlanning enquiries email: burnside@burnside.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_charles_sturt_how_to_apply",
+      "document": "sa_charles_sturt_doc1",
+      "section": "Council directory: sa_charles_sturt",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Charles Sturt for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8408 1111\nEmail: council@charlessturt.sa.gov.au\nAddress: 72 Woodville Road, Woodville SA 5011\nPlanning enquiries email: council@charlessturt.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_holdfast_bay_how_to_apply",
+      "document": "sa_holdfast_bay_doc1",
+      "section": "Council directory: sa_holdfast_bay",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Holdfast Bay for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8229 9999\nEmail: mail@holdfast.sa.gov.au\nAddress: 24 Jetty Road, Brighton SA 5048\nPlanning enquiries email: mail@holdfast.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_marion_how_to_apply",
+      "document": "sa_marion_doc1",
+      "section": "Council directory: sa_marion",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Marion for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8375 6600\nEmail: council@marion.sa.gov.au\nAddress: 245 Sturt Road, Sturt SA 5047\nPlanning enquiries email: council@marion.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_mitcham_how_to_apply",
+      "document": "sa_mitcham_doc1",
+      "section": "Council directory: sa_mitcham",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Mitcham for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: 1300 133 466\nEmail: mitcham@mitchamcouncil.sa.gov.au\nAddress: 131 Belair Road, Torrens Park SA 5062\nPlanning enquiries email: mitcham@mitchamcouncil.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_mount_gambier_how_to_apply",
+      "document": "sa_mount_gambier_doc1",
+      "section": "Council directory: sa_mount_gambier",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Mount Gambier for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8721 2555\nEmail: city@mountgambier.sa.gov.au\nAddress: 10 Watson Terrace, Mount Gambier SA 5290\nPlanning enquiries email: city@mountgambier.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_norwood_payneham_and_st_peters_how_to_apply",
+      "document": "sa_norwood_payneham_and_st_peters_doc1",
+      "section": "Council directory: sa_norwood_payneham_and_st_peters",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Norwood Payneham & St Peters for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8366 4555\nEmail: townhall@npsp.sa.gov.au\nAddress: 175 The Parade, Norwood SA 5067\nPlanning enquiries email: townhall@npsp.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_onkaparinga_how_to_apply",
+      "document": "sa_onkaparinga_doc1",
+      "section": "Council directory: sa_onkaparinga",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Onkaparinga for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8384 0666\nAddress: Ramsay Place, Noarlunga Centre SA 5168",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: The LGA SA directory lists a web address in the email field; no email gathered. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_playford_how_to_apply",
+      "document": "sa_playford_doc1",
+      "section": "Council directory: sa_playford",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Playford for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8256 0333\nEmail: playford@playford.sa.gov.au\nAddress: 10 Playford Boulevard, Elizabeth SA 5112\nPlanning enquiries email: playford@playford.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_port_adelaide_enfield_how_to_apply",
+      "document": "sa_port_adelaide_enfield_doc1",
+      "section": "Council directory: sa_port_adelaide_enfield",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Port Adelaide Enfield for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8405 6600\nEmail: service@cityofpae.sa.gov.au\nAddress: 163 St Vincent Street, Port Adelaide SA 5015\nPlanning enquiries email: service@cityofpae.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_port_lincoln_how_to_apply",
+      "document": "sa_port_lincoln_doc1",
+      "section": "Council directory: sa_port_lincoln",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Port Lincoln for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8621 2300\nEmail: plcc@plcc.sa.gov.au\nAddress: Level One, Civic Centre, Port Lincoln SA 5606\nPlanning enquiries email: plcc@plcc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_prospect_how_to_apply",
+      "document": "sa_prospect_doc1",
+      "section": "Council directory: sa_prospect",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Prospect for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8269 5355\nEmail: admin@prospect.sa.gov.au\nAddress: 128 Prospect Road, Prospect SA 5082\nPlanning enquiries email: admin@prospect.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_salisbury_how_to_apply",
+      "document": "sa_salisbury_doc1",
+      "section": "Council directory: sa_salisbury",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Salisbury for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8406 8222\nEmail: city@salisbury.sa.gov.au\nAddress: 34 Church Street, Salisbury SA 5108\nPlanning enquiries email: city@salisbury.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_tea_tree_gully_how_to_apply",
+      "document": "sa_tea_tree_gully_doc1",
+      "section": "Council directory: sa_tea_tree_gully",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Tea Tree Gully for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8397 7444\nEmail: customerservice@cttg.sa.gov.au\nAddress: 571 Montague Road, Modbury SA 5092\nPlanning enquiries email: customerservice@cttg.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_unley_how_to_apply",
+      "document": "sa_unley_doc1",
+      "section": "Council directory: sa_unley",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Unley for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8372 5111\nEmail: pobox1@unley.sa.gov.au\nAddress: 181 Unley Road, Unley SA 5061\nPlanning enquiries email: pobox1@unley.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_victor_harbor_how_to_apply",
+      "document": "sa_victor_harbor_doc1",
+      "section": "Council directory: sa_victor_harbor",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Victor Harbor for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8551 0500\nEmail: localgov@victor.sa.gov.au\nAddress: Bay Road, Victor Harbor SA 5211\nPlanning enquiries email: localgov@victor.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_west_torrens_how_to_apply",
+      "document": "sa_west_torrens_doc1",
+      "section": "Council directory: sa_west_torrens",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of West Torrens for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8416 6333\nEmail: info@wtcc.sa.gov.au\nAddress: 165 Sir Donald Bradman Drive, Hilton SA 5033\nPlanning enquiries email: info@wtcc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_whyalla_how_to_apply",
+      "document": "sa_whyalla_doc1",
+      "section": "Council directory: sa_whyalla",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Whyalla for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8640 3444\nEmail: council@whyalla.sa.gov.au\nAddress: Civic Building, Whyalla Norrie SA 5608\nPlanning enquiries email: council@whyalla.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_clare_and_gilbert_valleys_how_to_apply",
+      "document": "sa_clare_and_gilbert_valleys_doc1",
+      "section": "Council directory: sa_clare_and_gilbert_valleys",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Clare and Gilbert Valleys Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8842 6400\nEmail: admin@cgvc.sa.gov.au\nAddress: 4 Gleeson Street, Clare SA 5453\nPlanning enquiries email: admin@cgvc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_coorong_how_to_apply",
+      "document": "sa_coorong_doc1",
+      "section": "Council directory: sa_coorong",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Coorong District Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: 1300 785 277\nEmail: council@coorong.sa.gov.au\nAddress: 95-101 Railway Terrace, Tailem Bend SA 5260\nPlanning enquiries email: council@coorong.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_copper_coast_how_to_apply",
+      "document": "sa_copper_coast_doc1",
+      "section": "Council directory: sa_copper_coast",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Copper Coast Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8828 1200\nEmail: info@coppercoast.sa.gov.au\nAddress: 51 Taylor Street, Kadina SA 5554\nPlanning enquiries email: info@coppercoast.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_ceduna_how_to_apply",
+      "document": "sa_ceduna_doc1",
+      "section": "Council directory: sa_ceduna",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Ceduna for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8625 3407\nEmail: council@ceduna.sa.gov.au\nAddress: 44 O'Loughlin Terrace, Ceduna SA 5690\nPlanning enquiries email: council@ceduna.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_cleve_how_to_apply",
+      "document": "sa_cleve_doc1",
+      "section": "Council directory: sa_cleve",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Cleve for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8628 2004\nEmail: council@cleve.sa.gov.au\nAddress: 10 Main Street, Cleve SA 5640\nPlanning enquiries email: council@cleve.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_coober_pedy_how_to_apply",
+      "document": "sa_coober_pedy_doc1",
+      "section": "Council directory: sa_coober_pedy",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Coober Pedy for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8672 4600\nEmail: dccp@cpcouncil.sa.gov.au\nAddress: Lot 773 Hutchison Street, Coober Pedy SA 5723\nPlanning enquiries email: dccp@cpcouncil.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_elliston_how_to_apply",
+      "document": "sa_elliston_doc1",
+      "section": "Council directory: sa_elliston",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Elliston for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8687 9177\nEmail: dce@elliston.sa.gov.au\nAddress: 21 Beach Terrace, Elliston SA 5670\nPlanning enquiries email: dce@elliston.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_franklin_harbour_how_to_apply",
+      "document": "sa_franklin_harbour_doc1",
+      "section": "Council directory: sa_franklin_harbour",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Franklin Harbour for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8629 2019\nEmail: council@franklinharbour.sa.gov.au\nAddress: 6 Main Street, Cowell SA 5602\nPlanning enquiries email: council@franklinharbour.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_karoonda_east_murray_how_to_apply",
+      "document": "sa_karoonda_east_murray_doc1",
+      "section": "Council directory: sa_karoonda_east_murray",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Karoonda East Murray for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8578 1004\nEmail: council@dckem.sa.gov.au\nAddress: 11 Railway Terrace, Karoonda SA 5307\nPlanning enquiries email: council@dckem.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_kimba_how_to_apply",
+      "document": "sa_kimba_doc1",
+      "section": "Council directory: sa_kimba",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Kimba for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8627 2026\nEmail: council@kimba.sa.gov.au\nAddress: Cross Street, Kimba SA 5641\nPlanning enquiries email: council@kimba.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_loxton_waikerie_how_to_apply",
+      "document": "sa_loxton_waikerie_doc1",
+      "section": "Council directory: sa_loxton_waikerie",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Loxton Waikerie for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8584 8000\nEmail: council@lwdc.sa.gov.au\nAddress: 35 Bookpurnong Terrace, Loxton SA 5333\nPlanning enquiries email: council@lwdc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_mount_remarkable_how_to_apply",
+      "document": "sa_mount_remarkable_doc1",
+      "section": "Council directory: sa_mount_remarkable",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Mount Remarkable for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8666 2014\nEmail: postmaster@mtr.sa.gov.au\nAddress: 3 Stuart St, Melrose SA 5483\nPlanning enquiries email: postmaster@mtr.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_orroroo_carrieton_how_to_apply",
+      "document": "sa_orroroo_carrieton_doc1",
+      "section": "Council directory: sa_orroroo_carrieton",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Orroroo Carrieton for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8658 1260\nEmail: council@orroroo.sa.gov.au\nAddress: 17 Second Street, Orroroo SA 5431\nPlanning enquiries email: council@orroroo.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_peterborough_how_to_apply",
+      "document": "sa_peterborough_doc1",
+      "section": "Council directory: sa_peterborough",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Peterborough for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8651 3566\nEmail: council@peterborough.sa.gov.au\nAddress: 2 Telford Ave, Peterborough SA 5422\nPlanning enquiries email: council@peterborough.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_robe_how_to_apply",
+      "document": "sa_robe_doc1",
+      "section": "Council directory: sa_robe",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Robe for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8768 2003\nEmail: council@robe.sa.gov.au\nAddress: Royal Circus, Robe SA 5276\nPlanning enquiries email: council@robe.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_streaky_bay_how_to_apply",
+      "document": "sa_streaky_bay_doc1",
+      "section": "Council directory: sa_streaky_bay",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Streaky Bay for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8626 1001\nEmail: dcstreaky@streakybay.sa.gov.au\nAddress: 29 Alfred Terrace, Streaky Bay SA 5680\nPlanning enquiries email: dcstreaky@streakybay.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_tumby_bay_how_to_apply",
+      "document": "sa_tumby_bay_doc1",
+      "section": "Council directory: sa_tumby_bay",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Tumby Bay for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8688 2101\nEmail: dctumby@tumbybay.sa.gov.au\nAddress: Cnr Mortlock Street and West Terrace, Tumby Bay SA 5605\nPlanning enquiries email: dctumby@tumbybay.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_yankalilla_how_to_apply",
+      "document": "sa_yankalilla_doc1",
+      "section": "Council directory: sa_yankalilla",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to District Council of Yankalilla for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8558 0200\nEmail: council@yankalilla.sa.gov.au\nAddress: 1 Charles Street, Yankalilla SA 5203\nPlanning enquiries email: council@yankalilla.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_kangaroo_island_how_to_apply",
+      "document": "sa_kangaroo_island_doc1",
+      "section": "Council directory: sa_kangaroo_island",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Kangaroo Island Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8553 4500\nEmail: kicouncil@kicouncil.sa.gov.au\nAddress: 43 Dauncey Street, Kingscote SA 5223\nPlanning enquiries email: kicouncil@kicouncil.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_kingston_how_to_apply",
+      "document": "sa_kingston_doc1",
+      "section": "Council directory: sa_kingston",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Kingston District Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8767 2033\nEmail: info@kingstondc.sa.gov.au\nAddress: 29 Holland Street, Kingston SE SA\nPlanning enquiries email: info@kingstondc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_light_how_to_apply",
+      "document": "sa_light_doc1",
+      "section": "Council directory: sa_light",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Light Regional Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8525 3200\nEmail: light@light.sa.gov.au\nAddress: 93 Main Street, Kapunda SA 5373\nPlanning enquiries email: light@light.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_lower_eyre_how_to_apply",
+      "document": "sa_lower_eyre_doc1",
+      "section": "Council directory: sa_lower_eyre",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Lower Eyre Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8676 0400\nEmail: mail@lec.sa.gov.au\nAddress: Railway Terrace, Cummins SA 5631\nPlanning enquiries email: mail@lec.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Formerly the District Council of Lower Eyre Peninsula. The state boundaries layer still uses that name. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_mid_murray_how_to_apply",
+      "document": "sa_mid_murray_doc1",
+      "section": "Council directory: sa_mid_murray",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Mid Murray Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8569 0100\nEmail: postbox@mid-murray.sa.gov.au\nAddress: 49 Adelaide Road, Mannum SA 5238\nPlanning enquiries email: postbox@mid-murray.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_mount_barker_how_to_apply",
+      "document": "sa_mount_barker_doc1",
+      "section": "Council directory: sa_mount_barker",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Mount Barker District Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8391 7200\nEmail: council@mountbarker.sa.gov.au\nAddress: 6 Dutton Road, Mount Barker SA 5251\nPlanning enquiries email: council@mountbarker.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_roxby_downs_how_to_apply",
+      "document": "sa_roxby_downs_doc1",
+      "section": "Council directory: sa_roxby_downs",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Municipal Council of Roxby Downs for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8671 0010\nEmail: roxby@roxbycouncil.com.au\nAddress: 6 Richardson Place, Roxby Downs SA 5725\nPlanning enquiries email: roxby@roxbycouncil.com.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_naracoorte_lucindale_how_to_apply",
+      "document": "sa_naracoorte_lucindale_doc1",
+      "section": "Council directory: sa_naracoorte_lucindale",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Naracoorte Lucindale Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8760 1100\nEmail: council@nlc.sa.gov.au\nAddress: DeGaris Place, Naracoorte SA 5271\nPlanning enquiries email: council@nlc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_northern_areas_how_to_apply",
+      "document": "sa_northern_areas_doc1",
+      "section": "Council directory: sa_northern_areas",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Northern Areas Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8664 1139\nEmail: admin@nacouncil.sa.gov.au\nAddress: 94 Ayr Street, Jamestown SA 5491\nPlanning enquiries email: admin@nacouncil.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_port_augusta_how_to_apply",
+      "document": "sa_port_augusta_doc1",
+      "section": "Council directory: sa_port_augusta",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Port Augusta City Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8641 9100\nEmail: admin@portaugusta.sa.gov.au\nAddress: 4 Mackay Street, Port Augusta SA\nPlanning enquiries email: admin@portaugusta.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_port_pirie_how_to_apply",
+      "document": "sa_port_pirie_doc1",
+      "section": "Council directory: sa_port_pirie",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Port Pirie Regional Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8633 9777\nEmail: council@pirie.sa.gov.au\nAddress: 115 Ellen Street, Port Pirie SA 5540\nPlanning enquiries email: council@pirie.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_goyder_how_to_apply",
+      "document": "sa_goyder_doc1",
+      "section": "Council directory: sa_goyder",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Regional Council of Goyder for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8892 0100\nEmail: council@goyder.sa.gov.au\nAddress: Market Square, Burra SA 5417\nPlanning enquiries email: council@goyder.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_renmark_paringa_how_to_apply",
+      "document": "sa_renmark_paringa_doc1",
+      "section": "Council directory: sa_renmark_paringa",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Renmark Paringa Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8580 3000\nEmail: council@renmarkparinga.sa.gov.au\nAddress: 61 Eighteenth Street, Renmark SA 5341\nPlanning enquiries email: council@renmarkparinga.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_murray_bridge_how_to_apply",
+      "document": "sa_murray_bridge_doc1",
+      "section": "Council directory: sa_murray_bridge",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Rural City of Murray Bridge for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8539 1100\nEmail: council@murraybridge.sa.gov.au\nAddress: Seventh Street, Murray Bridge SA 5253\nPlanning enquiries email: council@murraybridge.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_southern_limestone_coast_how_to_apply",
+      "document": "sa_southern_limestone_coast_doc1",
+      "section": "Council directory: sa_southern_limestone_coast",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Southern Limestone Coast Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8721 0444\nEmail: info@slcc.sa.gov.au\nAddress: 324 Commercial Street West, Mount Gambier SA\nPlanning enquiries email: info@slcc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Formerly the District Council of Grant. The state boundaries layer still names it GRANT. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_southern_mallee_how_to_apply",
+      "document": "sa_southern_mallee_doc1",
+      "section": "Council directory: sa_southern_mallee",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Southern Mallee District Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8577 8002\nEmail: council@southernmallee.sa.gov.au\nAddress: Day Street, Pinnaroo SA 5304\nPlanning enquiries email: council@southernmallee.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_tatiara_how_to_apply",
+      "document": "sa_tatiara_doc1",
+      "section": "Council directory: sa_tatiara",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Tatiara District Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8752 1044\nEmail: office@tatiara.sa.gov.au\nAddress: 43 Woolshed Street, Bordertown SA 5268\nPlanning enquiries email: office@tatiara.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_barossa_how_to_apply",
+      "document": "sa_barossa_doc1",
+      "section": "Council directory: sa_barossa",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to The Barossa Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8563 8444\nEmail: barossa@barossa.sa.gov.au\nAddress: 43-51 Tanunda Road, Nuriootpa SA 5355\nPlanning enquiries email: barossa@barossa.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_flinders_ranges_how_to_apply",
+      "document": "sa_flinders_ranges_doc1",
+      "section": "Council directory: sa_flinders_ranges",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to The Flinders Ranges Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8620 0500\nEmail: council@frc.sa.gov.au\nAddress: Seventh Street, Quorn SA 5433\nPlanning enquiries email: council@frc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_gawler_how_to_apply",
+      "document": "sa_gawler_doc1",
+      "section": "Council directory: sa_gawler",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Town of Gawler for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8522 9211\nEmail: council@gawler.sa.gov.au\nAddress: 43 High Street, Gawler East SA 5118\nPlanning enquiries email: council@gawler.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_walkerville_how_to_apply",
+      "document": "sa_walkerville_doc1",
+      "section": "Council directory: sa_walkerville",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Town of Walkerville for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8342 7100\nEmail: walkerville@walkerville.sa.gov.au\nAddress: 66 Walkerville Terrace, Gilberton SA 5081\nPlanning enquiries email: walkerville@walkerville.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_wakefield_how_to_apply",
+      "document": "sa_wakefield_doc1",
+      "section": "Council directory: sa_wakefield",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Wakefield Regional Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8862 0800\nEmail: admin@wrc.sa.gov.au\nPlanning enquiries email: admin@wrc.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Office address in the LGA SA directory was incomplete; see the council's contact page. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_wattle_range_how_to_apply",
+      "document": "sa_wattle_range_doc1",
+      "section": "Council directory: sa_wattle_range",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Wattle Range Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8733 0900\nEmail: council@wattlerange.sa.gov.au\nAddress: 12 North Terrace, Millicent SA 5280\nPlanning enquiries email: council@wattlerange.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_wudinna_how_to_apply",
+      "document": "sa_wudinna_doc1",
+      "section": "Council directory: sa_wudinna",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Wudinna District Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8680 2002\nEmail: admin@wudinna.sa.gov.au\nAddress: 11 Burton Terrace, Wudinna SA 5652\nPlanning enquiries email: admin@wudinna.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    },
+    {
+      "ref": "sa_yorke_peninsula_how_to_apply",
+      "document": "sa_yorke_peninsula_doc1",
+      "section": "Council directory: sa_yorke_peninsula",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Yorke Peninsula Council for a development application.\nPlanning scheme: Planning and Design Code.\nLodge (online): Lodge online through the PlanSA portal https://plan.sa.gov.au/\nPhone: (08) 8832 0000\nEmail: admin@yorke.sa.gov.au\nAddress: 8 Elizabeth Street, Maitland SA 5573\nPlanning enquiries email: admin@yorke.sa.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct sa_councils.json if anything is wrong before verifying. Gaps found: No separate planning email gathered; the general council email is used. Council's own planning page wasn't checked. Pre-lodgement advice availability wasn't checked. The exact PlanSA lodgement page wasn't opened; the link goes to the PlanSA home page. Fees are set statewide; see PlanSA's fee calculator."
+    }
+  ],
+  "rule_sets": []
+}

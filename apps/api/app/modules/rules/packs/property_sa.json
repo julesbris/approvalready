@@ -1,0 +1,1939 @@
+{
+ "key": "property_sa",
+ "title": "PropertyReady: selling and renting residential property in South Australia",
+ "notes": "First sourced rules for SellReady and RentReady in South Australia. Built from Consumer and Business Services, SA.GOV.AU and Law Handbook (Legal Services Commission) pages read on 2026-10-12. The shared web-fetch budget ran out before RevenueSA, the Housing Safety Authority, the bond lodging page and legislation.sa.gov.au could be read. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The Land and Business (Sale and Conveyancing) Act 1994 and Regulations 2025 and the Residential Tenancies Act 1995 were not read directly.",
+ "organisations": [
+  {
+   "ref": "cbs",
+   "name": "Consumer and Business Services",
+   "kind": "REGULATOR",
+   "jurisdiction": "SA",
+   "website": "https://www.cbs.sa.gov.au"
+  },
+  {
+   "ref": "sagov",
+   "name": "SA.GOV.AU (Government of South Australia)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "SA",
+   "website": "https://www.sa.gov.au"
+  },
+  {
+   "ref": "lsc",
+   "name": "Legal Services Commission of South Australia (Law Handbook)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "SA",
+   "website": "https://lawhandbook.sa.gov.au"
+  },
+  {
+   "ref": "revenuesa",
+   "name": "RevenueSA",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "SA",
+   "website": "https://www.revenuesa.sa.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "sagov_vendor_statement",
+   "organisation": "sagov",
+   "jurisdiction": "SA",
+   "title": "What is on the vendor's statement",
+   "url": "https://www.sa.gov.au/topics/housing/buying-building-selling/building-or-buying-home/home-sales/what-is-on-the-vendors-statement",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "lh_form1",
+   "organisation": "lsc",
+   "jurisdiction": "SA",
+   "title": "Law Handbook: Form 1 (selling a home)",
+   "url": "https://lawhandbook.sa.gov.au/ch23s09s01.php",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "lh_cooling_off",
+   "organisation": "lsc",
+   "jurisdiction": "SA",
+   "title": "Law Handbook: Cooling-off period",
+   "url": "https://lawhandbook.sa.gov.au/ch23s08s08s01.php",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "lh_selling",
+   "organisation": "lsc",
+   "jurisdiction": "SA",
+   "title": "Law Handbook: Selling a home",
+   "url": "https://lawhandbook.sa.gov.au/ch23s09.php",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "sagov_home_sales",
+   "organisation": "sagov",
+   "jurisdiction": "SA",
+   "title": "Offers, auctions and buying off the plan",
+   "url": "https://www.sa.gov.au/topics/housing/buying-building-selling/building-or-buying-home/home-sales",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "sagov_bii",
+   "organisation": "sagov",
+   "jurisdiction": "SA",
+   "title": "Building indemnity insurance",
+   "url": "https://www.sa.gov.au/topics/housing/buying-building-selling/building-a-home/building-indemnity-insurance",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "sagov_smoke",
+   "organisation": "sagov",
+   "jurisdiction": "SA",
+   "title": "Smoke alarms",
+   "url": "https://www.sa.gov.au/topics/housing/keeping-your-property-safe/smoke-alarms",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "sagov_pools",
+   "organisation": "sagov",
+   "jurisdiction": "SA",
+   "title": "Pool and spa safety",
+   "url": "https://www.sa.gov.au/topics/housing/keeping-your-property-safe/pool-and-spa-safety",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "revenuesa_home",
+   "organisation": "revenuesa",
+   "jurisdiction": "SA",
+   "title": "RevenueSA",
+   "url": "https://www.revenuesa.sa.gov.au",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "cbs_reforms",
+   "organisation": "cbs",
+   "jurisdiction": "SA",
+   "title": "Tenancy reforms for landlords and agents",
+   "url": "https://www.cbs.sa.gov.au/sections/renting/renting/tenancy-reforms-for-landlords-and-agents",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "sagov_tenancy_forms",
+   "organisation": "sagov",
+   "jurisdiction": "SA",
+   "title": "Forms and fact sheets for private rental tenancies",
+   "url": "https://www.sa.gov.au/topics/housing/renting-and-letting/renting-privately/forms-and-fact-sheets-for-private-rental-tenancies",
+   "source_type": "WEBPAGE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "form1_contents",
+   "document": "sagov_vendor_statement",
+   "section": "The vendor's statement (Form 1)",
+   "extracted_text": "[Summary, not the source's wording] The vendor's statement, also called a Form 1, sets out key information about the property for the buyer: certificate of title particulars, registered mortgages, caveats, easements, covenants and other encumbrances, zoning and outgoings such as water rates, and the condition of the buildings and whether they comply with building regulations. It must be signed by the vendor. Incorrect or insufficient information could result in withdrawal from the sale and legal action. The cooling-off period starts when the contract is signed or the vendor's statement is received, whichever happens last.",
+   "interpretation": "Applies to every sale of land in South Australia. The Land and Business (Sale and Conveyancing) Act 1994 and the Land and Business (Sale and Conveyancing) Regulations 2025 were not read directly. The page doesn't mention building indemnity insurance, strata or community title, pools or smoke alarms. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "form1_service",
+   "document": "lh_form1",
+   "section": "Serving the Form 1",
+   "extracted_text": "[Summary, not the source's wording] If the Form 1 is given before the contract is signed, cooling-off starts on signing. If it is given after signing, it must be served at least 10 clear days before settlement, and cooling-off starts when it is served. A defective Form 1 does not start cooling-off. If it is not served, or is incomplete or wrong, the buyer can rescind the contract up until settlement, and after settlement can ask a court to set the contract aside or award damages. Failing to serve it, or serving an incomplete or incorrect one, is an offence with a fine of up to $10,000. For auctions, the Form 1 must be available to the public at the agent's office for 3 business days before the auction and at the venue for at least 30 minutes before it starts. Serve personally or by registered post.",
+   "interpretation": "Cites Schedule 1 of the Land and Business (Sale and Conveyancing) Regulations 2025. Used to tell sellers to have the Form 1 served before the buyer signs. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "cooling_off",
+   "document": "lh_cooling_off",
+   "section": "Cooling-off period",
+   "extracted_text": "[Summary, not the source's wording] A buyer can cool off until the end of the second clear business day after the Form 1 is served (weekends, public holidays and the day of service don't count), by written notice to the vendor or agent, without giving a reason. Any deposit above $100 must be refunded. There is no cooling-off for a property bought at auction. A buyer can waive cooling-off, usually for an offer before auction, but needs a solicitor's certificate that the consequences were explained. Since 1 January 2014 companies can cool off when buying small-scale residential land.",
+   "interpretation": "The page says 'Last Revised 2013' but cites the 2025 Regulations; check the current version. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "cooling_off_auction",
+   "document": "sagov_home_sales",
+   "section": "Cooling-off and auctions",
+   "extracted_text": "[Summary, not the source's wording] Cooling-off is 2 clear business days from receiving the vendor's statement or signing the contract, whichever is last. No cooling-off applies when buying at auction or after the auction on the same day. A successful offer before auction has cooling-off unless the buyer waives it with a prescribed form signed by an independent legal practitioner. The buyer's information notice (form R3) must be available at least 3 business days before the auction and at the site 30 minutes before. The vendor may make up to 3 vendor bids through the auctioneer, below the reserve and announced as vendor bids. Dummy bidding is illegal. Agents must keep copies of signed offers.",
+   "interpretation": "Used to explain cooling-off and auction obligations to sellers. Contact CBS on 131 882. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "sales_agency",
+   "document": "lh_selling",
+   "section": "Retaining an agent and sales agency agreements",
+   "extracted_text": "[Summary, not the source's wording] Agents and sales representatives must be registered under the Land Agents Act 1994; check registration on the Consumer and Business Services licensing portal. An agent can't act without a signed sales agency agreement and must give the vendor a written guide first. The agreement states a single estimated selling price, the manner of sale, termination rights, whether offers can be accepted and its length (up to 90 days, with one extension of up to 90 days). Agents can't advertise below the estimated selling price.",
+   "interpretation": "The page shows 'Last Revised 2018'; confirm with Consumer and Business Services. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bii",
+   "document": "sagov_bii",
+   "section": "Building indemnity insurance",
+   "extracted_text": "[Summary, not the source's wording] Building indemnity insurance is required for approved domestic building work above a cost threshold (the page gives both $20,000 and $12,000). Defective work claims can usually be made up to 5 years after the work was completed. You can't take out building indemnity insurance for work you do yourself. When you sell the property, you must disclose whether indemnity insurance is in place. The certificate shows the builder's name and licence, the insurer, issue date, the insured work and any limits; confirm a policy with the insurer (QBE or AssetInsure registers).",
+   "interpretation": "The threshold is stated inconsistently on the page; confirm it before relying on a dollar figure. The page says nothing about owner-builders who sell. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "smoke_sale",
+   "document": "sagov_smoke",
+   "section": "Smoke alarms",
+   "extracted_text": "[Summary, not the source's wording] Homeowners and residential landlords must make sure smoke alarms are working and installed correctly. For a home bought from 1 February 1998, the new owner has six months from the date the title is transferred to fit the correct alarms: a 240-volt mains-powered alarm or a 10-year non-replaceable, permanently connected battery alarm. Homes bought before 1 February 1998 need at least a replaceable battery alarm. Homes built from 1 January 1995 need mains-powered alarms. New homes, additions and extensions need interconnected alarms. Fines of up to $750 apply if alarms are not installed.",
+   "interpretation": "Applies to sales and rentals. The page sets no testing schedule for landlords. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pools",
+   "document": "sagov_pools",
+   "section": "Pool and spa safety",
+   "extracted_text": "[Summary, not the source's wording] Every swimming and spa pool must have a continuous safety barrier maintained by the owner. Pools built before 1 July 1993 can stay under the old rules unless the property is sold. When a property with a pool is sold (after 1 October 2008), the child-safety barriers must comply with Ministerial Building Standard MBS 004 before settlement, which may mean upgrading fencing; barriers should separate the pool from the house where possible. No inspection is required when selling with an existing pool; an accredited professional can inspect and certify if you choose. New pools need development approval and a council inspection within two months of the barrier being completed. Owners must keep all pool safety features working at all times.",
+   "interpretation": "SA has no pool register or compliance certificate for existing pools on the page read. The page doesn't address rentals specifically. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "revenuesa",
+   "document": "revenuesa_home",
+   "section": "RevenueSA",
+   "extracted_text": "[Summary, not the source's wording] RevenueSA is the South Australian Government agency that administers stamp duty on property transfers and land tax.",
+   "interpretation": "Pointer only: RevenueSA pages were not read because the fetch budget ran out. No rates, concessions or settlement adjustment rules are stated. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_reforms",
+   "document": "cbs_reforms",
+   "section": "Termination and notices",
+   "extracted_text": "[Summary, not the source's wording] Ending or not renewing a tenancy without a prescribed reason is prohibited. A landlord ending a fixed term tenancy at the end of its term on a prescribed ground must give 60 days' notice (previously 28). A tenant who receives a no-renewal or termination notice can leave early with 7 days' notice. From 1 September 2025 a new ground applies where the landlord has signed a sales agency agreement with a registered agent and needs vacant possession. A landlord can't re-let the premises for residential use within 6 months of giving notice unless SACAT allows it. From 1 March 2024 new penalties apply, including 14 days' notice when a property is to be sold. No more than 4 inspections a year, with 7 to 28 days' notice.",
+   "interpretation": "From the Residential Tenancies Act 1995 as amended; the Act was not read directly. Notice periods for periodic tenancies were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_rent",
+   "document": "cbs_reforms",
+   "section": "Rent increases and rent bidding",
+   "extracted_text": "[Summary, not the source's wording] Rent can't be increased within 12 months of the agreement starting or the last increase, even by agreement, unless the agreement sets automatic increases. Tenants have 90 days after a rent increase notice to apply to SACAT. Since 1 September 2023 rent bidding is banned: landlords must not solicit or invite an offer of higher rent, and premises must be advertised at a fixed amount.",
+   "interpretation": "The notice period for a rent increase was not on the page read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_pets",
+   "document": "cbs_reforms",
+   "section": "Pets (sections 66C to 66G)",
+   "extracted_text": "[Summary, not the source's wording] Tenants apply for approval to keep a pet on the prescribed pet application form. Landlords must respond in writing within 14 days, can't unreasonably withhold consent, and may impose reasonable conditions. A tenant can apply to SACAT if a refusal or condition is unreasonable.",
+   "interpretation": "Applies to every residential tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_min_standards",
+   "document": "cbs_reforms",
+   "section": "Minimum housing standards (section 67A)",
+   "extracted_text": "[Summary, not the source's wording] Landlords must make sure the premises meet the minimum housing standards under the Housing Improvement Act 2016 on or before the tenant moves in. The Housing Safety Authority publishes the standards.",
+   "interpretation": "The standards themselves were not read (Housing Safety Authority page not fetched). Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_bond",
+   "document": "cbs_reforms",
+   "section": "Bonds",
+   "extracted_text": "[Summary, not the source's wording] For rent up to $800 a week the bond can be up to 4 weeks' rent. For rent over $800 a week the bond can be up to 6 weeks' rent. The $800 threshold took effect on 1 April 2023. Bond status can be checked online with Consumer and Business Services.",
+   "interpretation": "The lodgement deadline was not on the page read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rta_applications",
+   "document": "cbs_reforms",
+   "section": "Applications and tenant information",
+   "extracted_text": "[Summary, not the source's wording] From 1 January 2026 tenancy applications must use Form A1, with a separate application for each prospective tenant. Landlords and agents can't ask for certain information, including legal action history, certain financial details, medical records, social media content and vehicle registration. Tenant information must be protected. Keep a successful applicant's information until 3 years after the tenancy ends; an unsuccessful applicant's for 30 days after the property is let, or 6 months with their agreement.",
+   "interpretation": "Applies when you are finding a new tenant. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "tenancy_forms",
+   "document": "sagov_tenancy_forms",
+   "section": "Start of tenancy forms",
+   "extracted_text": "[Summary, not the source's wording] Consumer and Business Services publishes a fixed term lease agreement and a periodic lease agreement, the inspection sheet that records the property's condition, the Tenant Information Guide, the information to be provided to tenant form (landlord and agent contact details, section 48), and Form 1 information for short fixed term tenants (agreements of 90 days or less). Bonds are lodged, managed and refunded through Residential Bonds Online (RBO). Landlord termination notices include Form 5 (breach), Form 7 (possession required, periodic), Form 8 (periodic, specified ground) and Form 9 (end of fixed term). Notice to enter premises and pet application and response forms are also published.",
+   "interpretation": "The page doesn't say which documents are compulsory or when each must be given. 'RentAnywhere' is no longer named; bonds go through Residential Bonds Online. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "sell.sa.vendor_statement",
+   "vertical": "SELL",
+   "jurisdiction": "SA",
+   "title": "South Australia: selling a property",
+   "description": "The SA Form 1 vendor's statement, cooling-off, auctions, agents, building indemnity insurance, owner-builder and unapproved work, strata and community title, smoke alarms, pool barriers, tenanted sales and a RevenueSA pointer, from Consumer and Business Services, SA.GOV.AU and the Law Handbook.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "SA"
+   },
+   "limitations": [
+    "Built from SA.GOV.AU, Consumer and Business Services and Law Handbook pages; the Land and Business (Sale and Conveyancing) Act 1994 and Regulations 2025 were not read directly.",
+    "Doesn't prepare the SA Form 1 vendor's statement or decide what it must contain for your property; your conveyancer or lawyer does that.",
+    "Doesn't check off-the-plan sales, rural land or commercial property.",
+    "Doesn't assess stamp duty, land tax, capital gains tax or foreign resident withholding; it only points you to RevenueSA.",
+    "Not legal advice. Confirm with a conveyancer or lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "form_1_vendors_statement",
+     "title": "SA Form 1 vendor's statement before the buyer signs",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Have your SA Form 1 vendor's statement ready and served before the buyer signs",
+       "detail": "Every South Australian sale needs a vendor's statement, the SA Form 1 vendor's statement. It lists title details, mortgages, easements, encumbrances, zoning, outgoings such as water rates, and whether the buildings comply with building regulations, and you must sign it. Serve it before the buyer signs: cooling-off doesn't start until it is served, and if it is served after signing it must be at least 10 clear days before settlement. If it is missing, incomplete or wrong, the buyer can rescind up until settlement, and you can be fined up to $10,000. Ask your conveyancer to prepare it now.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "VENDOR_STATEMENT",
+          "title": "SA Form 1 vendor's statement signed by you"
+         },
+         {
+          "kind": "CONTRACT_FOR_SALE",
+          "title": "Contract of sale prepared by your conveyancer"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Ask your conveyancer to prepare the SA Form 1 vendor's statement before listing",
+        "checklists": [
+         "sell.sa_form_1"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form1_contents",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "form1_service",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "SA property",
+       "facts": {
+        "property.address.state": "SA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "engage_conveyancer",
+     "title": "Getting a conveyancer or lawyer",
+     "condition": {
+      "fact": "sell.has_conveyancer",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "PROFESSIONAL_REQUIRED",
+       "title": "Choose a conveyancer or lawyer to prepare the vendor's statement",
+       "detail": "The SA Form 1 vendor's statement needs title, council, water and other searches, and an error can let the buyer walk away up to settlement. Get quotes from two or three registered conveyancers or property lawyers now so the statement is ready before you list.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Engage a conveyancer or property lawyer"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form1_service",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No conveyancer",
+       "facts": {
+        "sell.has_conveyancer": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has conveyancer",
+       "facts": {
+        "sell.has_conveyancer": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "sales_agency_agreement",
+     "title": "Using a real estate agent",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "If you use an agent, check their registration and the sales agency agreement",
+       "detail": "Check the agent is registered on the Consumer and Business Services licensing portal. Before you sign, the agent must give you a written guide. The sales agency agreement states one estimated selling price, how the property will be sold, how you can end the agreement and how long it runs (up to 90 days, with one extension of up to 90 days). The agent can't advertise below the estimated selling price."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "sales_agency",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "SA property",
+       "facts": {
+        "property.address.state": "SA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "cooling_off",
+     "title": "Buyer's cooling-off period",
+     "condition": {
+      "fact": "sell.method",
+      "op": "in",
+      "value": [
+       "private_treaty",
+       "expressions_of_interest",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Expect a 2 clear business day cooling-off period",
+       "detail": "A buyer can cool off until the end of the second clear business day after the later of signing and being served the SA Form 1 vendor's statement. They give written notice and don't need a reason. You must refund any deposit above $100. A buyer can waive cooling-off only with an independent lawyer's certificate. Don't treat the sale as firm until cooling-off ends."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "No cooling-off at auction",
+       "detail": "There is no cooling-off when the property is bought at auction or after the auction on the same day. An offer accepted before the auction still has cooling-off unless the buyer waives it with an independent lawyer's certificate. Make sure the SA Form 1 vendor's statement and contract are final before auction day."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "cooling_off",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "cooling_off_auction",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Private sale",
+       "facts": {
+        "sell.method": "private_treaty"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Auction",
+       "facts": {
+        "sell.method": "auction"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "auction_rules",
+     "title": "Auction day obligations",
+     "condition": {
+      "fact": "sell.method",
+      "op": "equals",
+      "value": "auction"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make the SA Form 1 vendor's statement public 3 business days before the auction",
+       "detail": "The SA Form 1 vendor's statement must be available at your agent's office for 3 business days before the auction and at the venue for at least 30 minutes before it starts, along with the buyer's information notice (form R3). You can make up to 3 vendor bids through the auctioneer, below your reserve and announced as vendor bids. Any other bidding by you or for you is illegal. Set your reserve price in writing with your agent.",
+       "payload": {
+        "task": "Give your agent the SA Form 1 vendor's statement at least 3 business days before auction"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form1_service",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "cooling_off_auction",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Auction",
+       "facts": {
+        "sell.method": "auction"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Private sale",
+       "facts": {
+        "sell.method": "private_treaty"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "building_indemnity_insurance",
+     "title": "Building indemnity insurance for recent building work",
+     "condition": {
+      "fact": "sell.building_works",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Find the building indemnity insurance certificate for recent work",
+       "detail": "When you sell, you must disclose whether building indemnity insurance is in place for domestic building work. Claims can usually be made up to 5 years after the work finished, so the buyer will want the certificate. Ask your builder or check the insurer's register (QBE or AssetInsure) for the certificate, and give it to your conveyancer for the SA Form 1 vendor's statement. Cover is needed for approved work above a cost threshold; the official page gives both $12,000 and $20,000, so confirm which applies.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "BUILDING_INDEMNITY_CERTIFICATE",
+          "title": "Building indemnity insurance certificate from your builder or insurer"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Get the building indemnity insurance certificate for recent work"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bii",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "form1_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Recent work",
+       "facts": {
+        "sell.building_works": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No work",
+       "facts": {
+        "sell.building_works": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "owner_builder_work",
+     "title": "Owner-builder work",
+     "condition": {
+      "fact": "sell.owner_builder_work",
+      "op": "in",
+      "value": [
+       "yes",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Owner-built work has no building indemnity insurance: tell your conveyancer",
+       "detail": "You can't take out building indemnity insurance for work you did yourself, but you must still disclose whether insurance is in place. Give your conveyancer the approvals, dates and certificates for the work so the SA Form 1 vendor's statement is accurate. Ask a lawyer whether any other owner-builder rules affect your sale.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Gather approvals and dates for owner-built work"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bii",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "form1_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Owner-built",
+       "facts": {
+        "sell.owner_builder_work": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Unsure",
+       "facts": {
+        "sell.owner_builder_work": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not owner-built",
+       "facts": {
+        "sell.owner_builder_work": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "unapproved_work",
+     "title": "Building work without all approvals",
+     "condition": {
+      "fact": "sell.building_works_approvals",
+      "op": "in",
+      "value": [
+       "some",
+       "none",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Sort out approvals for building work before you list",
+       "detail": "The SA Form 1 vendor's statement covers whether the buildings comply with building regulations. Incorrect information can let the buyer withdraw and take legal action. Find the approvals you have, and ask a town planner or your council how to deal with work that wasn't approved, before you sign the statement.",
+       "payload": {
+        "referral_categories": [
+         "town_planner",
+         "conveyancer"
+        ],
+        "task": "Check approvals for all building work"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form1_contents",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "form1_service",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Some approved",
+       "facts": {
+        "sell.building_works_approvals": "some"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "All approved",
+       "facts": {
+        "sell.building_works_approvals": "all"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "mortgage_discharge",
+     "title": "Discharging your mortgage",
+     "condition": {
+      "fact": "sell.has_mortgage",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Tell your lender you are selling",
+       "detail": "Registered mortgages are listed in the SA Form 1 vendor's statement and are normally discharged at settlement. Ask your lender for its discharge form and payout figure early, as lenders can take weeks.",
+       "payload": {
+        "task": "Ask your lender to start the mortgage discharge"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form1_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Mortgage",
+       "facts": {
+        "sell.has_mortgage": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No mortgage",
+       "facts": {
+        "sell.has_mortgage": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "selling_for_owner",
+     "title": "Selling on someone else's behalf",
+     "condition": {
+      "fact": "sell.is_owner",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Have your authority to sign ready",
+       "detail": "The SA Form 1 vendor's statement must be signed by the vendor. If you sell as an attorney, executor or for a company, give your conveyancer the power of attorney, grant of probate or other authority now so they can confirm who signs.",
+       "payload": {
+        "referral_categories": [
+         "lawyer",
+         "conveyancer"
+        ],
+        "task": "Give your conveyancer your authority to sell"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form1_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not owner",
+       "facts": {
+        "sell.is_owner": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Owner",
+       "facts": {
+        "sell.is_owner": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "strata_community",
+     "title": "Strata or community title",
+     "condition": {
+      "fact": "sell.body_corporate",
+      "op": "in",
+      "value": [
+       "yes",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Ask your conveyancer to get the strata or community corporation's information early",
+       "detail": "The SA Form 1 vendor's statement lists encumbrances and outgoings, which for a unit or community lot include the corporation's levies and records. Tell your conveyancer the corporation's manager or secretary so they can request what the statement needs, and have the corporation's rules and recent minutes ready for buyers.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Give your conveyancer the strata or community corporation's contact"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "form1_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Strata",
+       "facts": {
+        "sell.body_corporate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Freehold",
+       "facts": {
+        "sell.body_corporate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms_on_sale",
+     "title": "Smoke alarms when you sell",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "SA"
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Tell buyers what smoke alarms are fitted",
+       "detail": "A buyer has six months from the title transfer to fit the correct smoke alarms: mains-powered, or 10-year non-replaceable battery alarms. Homes built from 1 January 1995 need mains-powered alarms. Fines of up to $750 apply. Check your alarms work, and if you can, fit compliant alarms before listing so buyers don't have to.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_sale",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "SA house",
+       "facts": {
+        "property.address.state": "SA",
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant land",
+       "facts": {
+        "property.address.state": "SA",
+        "sell.property_type": "vacant_land"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_sale",
+     "title": "Pool or spa safety barriers on sale",
+     "condition": {
+      "fact": "sell.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Bring the pool barrier up to current standards before settlement",
+       "detail": "When a property with a pool or spa is sold, the child-safety barriers must comply with Ministerial Building Standard MBS 004 before settlement, which may mean upgrading fencing so the pool is separated from the house. This applies even to pools built before 1 July 1993. No inspection is required, but an accredited professional can inspect and certify the barrier. Get it checked now so upgrades don't delay settlement.",
+       "payload": {
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Have the pool barrier checked against MBS 004"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pools",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "sell.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale",
+     "title": "Selling with a tenant in place",
+     "condition": {
+      "fact": "sell.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Give your tenant proper notice of the sale and inspections",
+       "detail": "You can't end the tenancy without a prescribed reason. Since 1 September 2025 there is a ground for ending it if you have signed a sales agency agreement and need vacant possession. Ending a fixed term at its end needs 60 days' notice, and a tenant who gets a notice can leave early on 7 days' notice. Tell the tenant in writing about the sale (14 days' notice applies when a property is to be sold), and follow the entry rules for inspections. Decide early whether you will sell with the tenant in place.",
+       "payload": {
+        "referral_categories": [
+         "property_manager",
+         "lawyer"
+        ],
+        "task": "Write to your tenant about the sale"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_reforms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "sell.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "sell.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale_rent_ready",
+     "title": "Managing the tenancy until settlement",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "CROSS_SELL",
+       "title": "Keep the tenancy on track until settlement with RentReady",
+       "detail": "Your tenant stays on through the sale, so South Australian renting rules on entry, notices, bonds and minimum standards still apply until settlement. RentReady walks you through them.",
+       "payload": {
+        "cross_sell": [
+         "RENT"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_reforms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted house",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant house",
+       "facts": {
+        "sell.is_tenanted": false,
+        "sell.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "stamp_duty_land_tax",
+     "title": "Stamp duty and land tax",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Check stamp duty and land tax with RevenueSA",
+       "detail": "RevenueSA handles stamp duty on property transfers and land tax in South Australia. Ask your conveyancer how they affect your sale and settlement figures, and check RevenueSA's website for current rates and rules."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "revenuesa",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "SA property",
+       "facts": {
+        "property.address.state": "SA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "rent.sa.residential_tenancy",
+   "vertical": "RENT",
+   "jurisdiction": "SA",
+   "title": "South Australia: renting out a home",
+   "description": "The tenancy agreement, inspection sheet, applications and rental bidding ban, bond limits and lodgement with Consumer and Business Services, minimum housing standards, smoke alarms, pools, rent increases, pets, entry and ending a tenancy after the 2023 to 2025 reforms, from Consumer and Business Services and SA.GOV.AU.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "SA"
+   },
+   "limitations": [
+    "Built from Consumer and Business Services and SA.GOV.AU pages, not from the Residential Tenancies Act 1995 itself.",
+    "Written for ordinary residential tenancies. Rooming houses, student accommodation, lifestyle villages, community housing and short stays have different rules and are not checked.",
+    "Doesn't check each minimum housing standard at the property, the wording of notices or whether a termination ground applies.",
+    "Doesn't cover domestic abuse terminations, energy and water charges or SACAT processes.",
+    "Not legal advice. Confirm with Consumer and Business Services, a property manager or a lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "tenancy_agreement",
+     "title": "Residential tenancy agreement and start-of-tenancy documents",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Use the SA tenancy agreement and record the property's condition",
+       "detail": "Use the SA fixed term residential tenancy agreement or the SA periodic residential tenancy agreement from Consumer and Business Services. Give the tenant the SA tenant information guide and your contact details on the SA information to be provided to tenant form. For a lease of 90 days or less, use the SA Form 1 short fixed term tenant information. Complete the SA inspection sheet with the tenant at the start, with dated photos, so you can compare at the end. Don't include terms that conflict with the Residential Tenancies Act 1995.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "Signed SA residential tenancy agreement"
+         },
+         {
+          "kind": "ENTRY_CONDITION_REPORT",
+          "title": "SA inspection sheet with dated photos"
+         }
+        ],
+        "task": "Prepare the tenancy agreement and inspection sheet",
+        "checklists": [
+         "rent.sa_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "tenancy_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "SA property",
+       "facts": {
+        "property.address.state": "SA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "applications",
+     "title": "Advertising and tenancy applications",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Advertise at a fixed rent and use the SA Form A1 tenancy application",
+       "detail": "Rent bidding is banned: advertise at one fixed rent and don't invite higher offers. From 1 January 2026 each applicant completes their own SA Form A1 tenancy application. Don't ask for legal action history, certain financial details, medical records, social media or vehicle registration. Keep unsuccessful applicants' information for no more than 30 days after the property is let (6 months with their agreement), and protect it.",
+       "payload": {
+        "checklists": [
+         "rent.sa_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_applications",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_rent",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_limit",
+     "title": "How much bond you can ask for",
+     "condition": {
+      "fact": "rent.weekly_rent_cents",
+      "op": "less_equal",
+      "value": 80000
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Ask for no more than 4 weeks' rent as bond",
+       "detail": "In South Australia, when the rent is $800 a week or less, the bond can be up to 4 weeks' rent. Lodge it with Consumer and Business Services."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Rent over $800 a week: bond can be up to 6 weeks' rent",
+       "detail": "Because the rent is more than $800 a week, you can ask for a bond of up to 6 weeks' rent. It must still be lodged with Consumer and Business Services."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_bond",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "$600 a week",
+       "facts": {
+        "rent.weekly_rent_cents": 60000
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "$900 a week",
+       "facts": {
+        "rent.weekly_rent_cents": 90000
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_lodgement",
+     "title": "Lodging the bond with Consumer and Business Services",
+     "condition": {
+      "fact": "rent.bond_lodged",
+      "op": "in",
+      "value": [
+       "no",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Lodge the bond through SA Residential Bonds Online",
+       "detail": "Every bond for a South Australian rental is held by Consumer and Business Services, not by you or your agent. Lodge it through SA Residential Bonds Online as soon as you receive it. If you aren't sure it was lodged, check the bond status online or call CBS on 131 882.",
+       "payload": {
+        "approval": {
+         "kind": "SA_BOND_LODGEMENT",
+         "authority": "Consumer and Business Services",
+         "pathway": "Lodge online through Residential Bonds Online"
+        },
+        "task": "Lodge the bond with Consumer and Business Services"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check the bond is lodged with Consumer and Business Services",
+       "detail": "Any bond for a South Australian rental must be lodged with Consumer and Business Services.",
+       "payload": {
+        "approval": {
+         "kind": "SA_BOND_LODGEMENT",
+         "authority": "Consumer and Business Services",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_bond",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "tenancy_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not lodged",
+       "facts": {
+        "rent.bond_lodged": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Unsure",
+       "facts": {
+        "rent.bond_lodged": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Lodged",
+       "facts": {
+        "rent.bond_lodged": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No bond",
+       "facts": {
+        "rent.bond_lodged": "no_bond"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "minimum_standards",
+     "title": "Minimum housing standards",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make sure the home meets the minimum housing standards before the tenant moves in",
+       "detail": "Under section 67A of the Residential Tenancies Act 1995, the premises must meet the minimum housing standards under the Housing Improvement Act 2016 on or before the day the tenant moves in. Read the standards on the Housing Safety Authority website, check each one at the property and fix anything that falls short before you advertise.",
+       "payload": {
+        "task": "Check the property against the minimum housing standards",
+        "checklists": [
+         "rent.sa_minimum_standards"
+        ],
+        "referral_categories": [
+         "builder",
+         "plumber",
+         "electrician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_min_standards",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "SA property",
+       "facts": {
+        "property.address.state": "SA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "known_repairs",
+     "title": "Known repairs",
+     "condition": {
+      "fact": "rent.known_repairs",
+      "op": "exists"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Fix known repairs before the tenant moves in",
+       "detail": "Repairs that leave the home below the minimum housing standards must be fixed before the tenant moves in. Get quotes for the repairs you listed and record the finished condition on the SA inspection sheet.",
+       "payload": {
+        "task": "Fix listed repairs before the tenancy starts",
+        "checklists": [
+         "rent.sa_minimum_standards"
+        ],
+        "referral_categories": [
+         "builder",
+         "plumber"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_min_standards",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Repairs listed",
+       "facts": {
+        "rent.known_repairs": "Leaking shower"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None listed",
+       "facts": {},
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms",
+     "title": "Smoke alarms in rentals",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make sure the smoke alarms are installed correctly and working",
+       "detail": "Residential landlords must make sure smoke alarms are working and installed correctly. Homes bought from 1 February 1998 need mains-powered or 10-year non-replaceable battery alarms; homes built from 1 January 1995 need mains-powered alarms; new homes and extensions need interconnected alarms. Fines of up to $750 apply. Test the alarms before each tenancy and record them on the SA inspection sheet.",
+       "payload": {
+        "task": "Check the smoke alarms before the tenant moves in",
+        "checklists": [
+         "rent.sa_start_of_tenancy"
+        ],
+        "referral_categories": [
+         "smoke_alarm_technician",
+         "electrician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_sale",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "SA property",
+       "facts": {
+        "property.address.state": "SA"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_lease",
+     "title": "Pool or spa safety in a rental",
+     "condition": {
+      "fact": "rent.has_pool",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Keep the pool barrier in working order",
+       "detail": "Pool and spa owners must keep a continuous safety barrier and all pool safety features working at all times. South Australia has no pool register or compliance certificate for existing pools, but an accredited professional can inspect the barrier. Check gates self-close and latch before the tenant moves in and fix faults straight away.",
+       "payload": {
+        "task": "Check the pool barrier and gate before the tenancy",
+        "referral_categories": [
+         "pool_safety_inspector"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pools",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Pool",
+       "facts": {
+        "rent.has_pool": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rent_increases",
+     "title": "Rent increases",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Increase rent no more than once every 12 months",
+       "detail": "You can't increase the rent within 12 months of the agreement starting or the last increase, even if the tenant agrees, unless the agreement sets automatic increases. Give written notice; the tenant has 90 days to ask SACAT to review an increase."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_rent",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pets",
+     "title": "Pet requests",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Answer pet requests in writing within 14 days",
+       "detail": "Tenants ask on the SA pet application form. Reply within 14 days on the SA notice of response to pet application. You can't unreasonably refuse, but you can set reasonable conditions. The tenant can ask SACAT to review an unreasonable refusal or condition."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_pets",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "tenancy_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "entry_inspections",
+     "title": "Entry and inspections",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Inspect no more than 4 times a year, with 7 to 28 days' notice",
+       "detail": "Use the SA notice to enter premises to give 7 to 28 days' notice of a routine inspection, and inspect no more than 4 times a year."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_reforms",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "tenancy_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "ending_tenancy",
+     "title": "Ending a tenancy",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "You need a prescribed reason and the right notice form to end the tenancy",
+       "detail": "Since 1 July 2024 you can't end or refuse to renew a tenancy without a prescribed reason. To end a fixed term at its end, give 60 days' notice on the SA Form 9 notice of termination at end of fixed term. For periodic tenancies use the SA Form 7 notice of termination (possession required) or the SA Form 8 notice of termination on specified ground; for a breach use the SA Form 5 landlord's notice of breach. Keep evidence of the reason. You can't re-let the home within 6 months of giving notice unless SACAT allows it. A tenant who gets your notice can leave early on 7 days' notice.",
+       "payload": {
+        "task": "Check your ground and notice before ending the tenancy",
+        "checklists": [
+         "rent.sa_end_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rta_reforms",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "tenancy_forms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenant in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "self_managed",
+     "title": "Managing the tenancy yourself",
+     "condition": {
+      "fact": "rent.managed_by",
+      "op": "equals",
+      "value": "self"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "REFERRAL_CATEGORY",
+       "title": "A property manager can handle the tenancy paperwork",
+       "detail": "As a self-managing South Australian landlord you prepare the agreement and inspection sheet, lodge the bond through SA Residential Bonds Online, check the minimum housing standards, handle applications and keep tenant records secure. A registered property manager can do this for you.",
+       "payload": {
+        "referral_categories": [
+         "property_manager"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "tenancy_forms",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rta_applications",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Self-managed",
+       "facts": {
+        "rent.managed_by": "self"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Agent",
+       "facts": {
+        "rent.managed_by": "agent"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

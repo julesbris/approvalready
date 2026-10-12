@@ -14096,6 +14096,1947 @@
         "Direct form links for the eyesight declaration and consent letter were not captured."
       ],
       "forms": []
+    },
+    {
+      "kind": "SA_PLANNING_CONSENT",
+      "title": "Get planning consent (South Australia)",
+      "summary": "In South Australia the Planning and Design Code decides whether your project needs planning consent and how it is assessed. Exempt work needs no approval and accepted work needs building consent only. Deemed-to-satisfy work is decided in 5 business days and can't be refused. Performance assessed work is judged on merit in 20 to 70 business days. You apply through the PlanSA portal.",
+      "authority": "Your local council (assessment manager or panel), SCAP, or an accredited professional for eligible deemed-to-satisfy applications",
+      "publisher": "PlanSA (Government of South Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "SA",
+      "order": 620,
+      "checked_on": "2026-10-12",
+      "timeframe": "5 business days (deemed-to-satisfy), 20 to 70 business days (performance assessed), 95 (restricted), plus 5 business days to verify the application.",
+      "cost_summary": "2026-27: lodgement fee $98.50 to $197 for most homes, plus $151 or $250 (deemed-to-satisfy) or at least $299 (performance assessed).",
+      "before_you_start": [
+        "Look up your zone, subzone and overlays on the SA Property and Planning Atlas (SAPPA).",
+        "Read the rules for your zone in the PlanSA Planning and Design Code online to see the likely pathway.",
+        "Get a current certificate of title and check for easements and encumbrances.",
+        "Have plans drawn: site plan, floor plans, elevations, and anything the Code asks for in your overlays.",
+        "Work out the total development cost. Fees are based on it."
+      ],
+      "steps": [
+        {
+          "title": "Check the pathway",
+          "detail": "Use SAPPA and the Code online to find your zone and overlays. The Code lists what is accepted, deemed-to-satisfy and performance assessed in each zone. Heritage, bushfire and flood overlays often move a project to performance assessed.",
+          "cost": "Free",
+          "url": "https://code.plan.sa.gov.au/"
+        },
+        {
+          "title": "Talk to council or a planner",
+          "detail": "Ask your council's duty planner, or a town planner, if you're unsure. For simple deemed-to-satisfy homes you can choose an accredited professional to decide the application instead of council.",
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_pathways"
+        },
+        {
+          "title": "Lodge on the PlanSA portal",
+          "detail": "Create an account on the PlanSA development application portal, lodge the application with your plans and pay the lodgement fee. You can lodge planning and building consent together or one after the other.",
+          "cost": "See the lodgement fees below",
+          "url": "https://plan.sa.gov.au/development_applications/lodge_an_application/lodge_online"
+        },
+        {
+          "title": "Verification",
+          "detail": "The relevant authority checks the application is complete and confirms the pathway and fees. You pay the assessment fees at this point.",
+          "timeframe": "5 business days"
+        },
+        {
+          "title": "Referrals and public notice",
+          "detail": "Performance assessed applications may be referred to agencies, like the heritage authority or CFS, and some need public notification of 15 business days. You get 15 business days to respond to any representations.",
+          "timeframe": "Adds 30 to 50 business days"
+        },
+        {
+          "title": "Decision",
+          "detail": "You receive planning consent with any conditions, or a refusal. Deemed-to-satisfy applications that meet every criterion can't be refused.",
+          "timeframe": "5, 20, 50 or 70 business days by pathway"
+        },
+        {
+          "title": "Appeal if needed",
+          "detail": "You can appeal a refusal or conditions of a performance assessed application to the Environment, Resources and Development Court. Check the appeal period on your decision notice.",
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/decision"
+        },
+        {
+          "title": "Then get building consent",
+          "detail": "Planning consent alone doesn't let you build. You also need building consent, then development approval."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Lodgement fee, development cost up to $10,000",
+          "amount": "$98.50",
+          "note": "2026-27"
+        },
+        {
+          "label": "Lodgement fee, $10,001 to $50,000",
+          "amount": "$158",
+          "note": "2026-27"
+        },
+        {
+          "label": "Lodgement fee, $50,001 to $100,000",
+          "amount": "$178",
+          "note": "2026-27"
+        },
+        {
+          "label": "Lodgement fee, $100,001 to $300,000",
+          "amount": "$187",
+          "note": "2026-27"
+        },
+        {
+          "label": "Lodgement fee, $300,001 to $500,000",
+          "amount": "$197",
+          "note": "2026-27"
+        },
+        {
+          "label": "Deemed-to-satisfy planning consent, cost up to $10,000",
+          "amount": "$151",
+          "note": "2026-27"
+        },
+        {
+          "label": "Deemed-to-satisfy planning consent, cost over $10,000",
+          "amount": "$250",
+          "note": "2026-27"
+        },
+        {
+          "label": "Performance assessed planning consent",
+          "amount": "$299 or 0.125% of cost (capped at $200,000), whichever is greater",
+          "note": "2026-27"
+        },
+        {
+          "label": "Referral fee (standard)",
+          "amount": "$476",
+          "note": "2026-27, some agencies differ"
+        },
+        {
+          "label": "Minor variation",
+          "amount": "$151",
+          "note": "2026-27"
+        },
+        {
+          "label": "Accredited professional's own fee",
+          "amount": "Varies: set by the professional"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "PlanSA service desk",
+          "phone": "1800 752 664",
+          "url": "https://plan.sa.gov.au/",
+          "note": "Help with the PlanSA portal, the Code and lodging applications."
+        },
+        {
+          "name": "Your local council's planning and building team",
+          "note": "Most councils offer duty planner advice. Check your council's website.",
+          "url": "https://www.lga.sa.gov.au/sa-councils/councils-listing"
+        }
+      ],
+      "watch_out": [
+        "A granny flat (ancillary accommodation) is never exempt. It always needs development approval.",
+        "Overlays can change your pathway. A deemed-to-satisfy house in a heritage or bushfire overlay may become performance assessed.",
+        "Changing plans after lodgement can restart the clock. Get the plans right first.",
+        "Building without approval can lead to penalties of up to $120,000.",
+        "Retrospective approval costs an extra 20% of the consent fees."
+      ],
+      "sources": [
+        {
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_pathways",
+          "title": "Assessment pathways (PlanSA)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages/assessment_timetables/planning_consent",
+          "title": "Assessment timetables: planning consent (PlanSA)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages",
+          "title": "Assessment stages (PlanSA)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0008/686087/Fees-and-Charges-at-a-Glance.pdf",
+          "title": "Fees and charges at a glance, July 2026 (PlanSA)"
+        }
+      ],
+      "gaps": [
+        "PlanSA's 'Do I need approval' page couldn't be read; exempt and accepted examples are from the assessment pathways page.",
+        "Heritage and bushfire overlay details and referral agencies weren't read this session.",
+        "The appeal period to the Environment, Resources and Development Court wasn't confirmed.",
+        "The council listing link (LGA SA) wasn't opened this session."
+      ],
+      "forms": [
+        "sa-sappa",
+        "sa-planning-design-code",
+        "sa-plansa-portal"
+      ]
+    },
+    {
+      "kind": "SA_BUILDING_CONSENT",
+      "title": "Get building consent (South Australia)",
+      "summary": "Building consent checks your plans against the National Construction Code, covering structure, fire safety, energy efficiency and health. Your council or a private building certifier (an accredited professional) can give it. For a house, extension or granny flat it takes 20 business days.",
+      "authority": "Your council or an accredited professional (private building certifier)",
+      "publisher": "PlanSA (Government of South Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "SA",
+      "order": 640,
+      "checked_on": "2026-10-12",
+      "timeframe": "20 business days for Class 1 or 10 buildings (30 if referred to SCAP); 60 for Class 2 to 9 (70 if referred).",
+      "cost_summary": "2026-27 council fee for a house: $538 or 0.25% of the cost, whichever is greater. Private certifiers set their own fees.",
+      "before_you_start": [
+        "Have planning consent, or lodge both together if your project is deemed-to-satisfy.",
+        "Get structural engineering drawings and, for a house, an energy efficiency assessment.",
+        "In a bushfire overlay, get a bushfire attack level assessment.",
+        "Decide whether to use council or a private building certifier."
+      ],
+      "steps": [
+        {
+          "title": "Choose who will assess",
+          "detail": "Pick your council or a private building certifier. Certifiers often decide faster and handle the paperwork, but charge their own fee.",
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_pathways"
+        },
+        {
+          "title": "Lodge on the PlanSA portal",
+          "detail": "Lodge the building consent application with full construction drawings, specifications and engineering on the PlanSA development application portal.",
+          "url": "https://plan.sa.gov.au/development_applications/lodge_an_application/lodge_online"
+        },
+        {
+          "title": "Assessment",
+          "detail": "The assessor checks the plans against the Building Rules and may ask for more information.",
+          "timeframe": "20 business days for a house"
+        },
+        {
+          "title": "Building consent issued",
+          "detail": "Once building consent and all other consents are granted, development approval is issued and you can start."
+        },
+        {
+          "title": "Inspections during construction",
+          "detail": "Council can inspect the work at set stages. Follow the notification requirements on your approval.",
+          "cost": "See the inspection fee below"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Building consent, Class 1 (houses)",
+          "amount": "$538 or 0.25% of cost, whichever is greater",
+          "note": "2026-27, council"
+        },
+        {
+          "label": "Building consent, Class 10 (sheds, carports)",
+          "amount": "$154 or 0.25% of cost, whichever is greater",
+          "note": "2026-27"
+        },
+        {
+          "label": "Building consent, Class 2 to 9, up to $20,000",
+          "amount": "$801",
+          "note": "2026-27, higher above $20,000"
+        },
+        {
+          "label": "Change of classification",
+          "amount": "$202",
+          "note": "2026-27"
+        },
+        {
+          "label": "Demolition",
+          "amount": "$174",
+          "note": "2026-27"
+        },
+        {
+          "label": "Inspection, Class 1 (per dwelling)",
+          "amount": "$287",
+          "note": "2026-27"
+        },
+        {
+          "label": "Referral to the State Planning Commission",
+          "amount": "$412",
+          "note": "2026-27, if needed"
+        },
+        {
+          "label": "Private building certifier's fee",
+          "amount": "Varies: set by the certifier"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "PlanSA service desk",
+          "phone": "1800 752 664",
+          "url": "https://plan.sa.gov.au/",
+          "note": "Help with the PlanSA portal, the Code and lodging applications."
+        },
+        {
+          "name": "Your local council's planning and building team",
+          "note": "Most councils offer duty planner advice. Check your council's website.",
+          "url": "https://www.lga.sa.gov.au/sa-councils/councils-listing"
+        }
+      ],
+      "watch_out": [
+        "Building consent must be consistent with planning consent. Changing the design can mean a variation.",
+        "Granny flats are Class 1a buildings and need full building consent.",
+        "Don't start work until development approval is issued, not just building consent."
+      ],
+      "sources": [
+        {
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages/assessment_timetables/building_consent",
+          "title": "Assessment timetables: building consent (PlanSA)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages",
+          "title": "Assessment stages (PlanSA)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0008/686087/Fees-and-Charges-at-a-Glance.pdf",
+          "title": "Fees and charges at a glance, July 2026 (PlanSA)"
+        }
+      ],
+      "gaps": [
+        "Mandatory notification stages during building work weren't read this session.",
+        "Private certifier fee ranges aren't published officially."
+      ],
+      "forms": [
+        "sa-plansa-portal"
+      ]
+    },
+    {
+      "kind": "SA_DEVELOPMENT_APPROVAL",
+      "title": "Get development approval (South Australia)",
+      "summary": "Development approval is the final approval in South Australia. It is issued once every consent you need (planning, building and land division) is granted. You can't start work until you have it.",
+      "authority": "Your local council or the State Planning Commission",
+      "publisher": "PlanSA (Government of South Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "SA",
+      "order": 650,
+      "checked_on": "2026-10-12",
+      "timeframe": "Issued in the 2 business days at the end of the last consent's assessment.",
+      "cost_summary": "No separate fee was found; you pay the lodgement fee and each consent's fee.",
+      "before_you_start": [
+        "Know which consents you need: planning, building, land division or a mix.",
+        "Have all consents lodged on the PlanSA portal under one application."
+      ],
+      "steps": [
+        {
+          "title": "Lodge one application",
+          "detail": "Lodge a single development application on the PlanSA development application portal. Each consent is assessed in turn.",
+          "url": "https://plan.sa.gov.au/development_applications/lodge_an_application/lodge_online"
+        },
+        {
+          "title": "Get each consent",
+          "detail": "Planning consent first, then building consent (and land division consent if dividing land)."
+        },
+        {
+          "title": "Development approval issued",
+          "detail": "Once the last consent is granted, development approval is issued through the portal.",
+          "timeframe": "Within 2 business days at the end of the last assessment"
+        },
+        {
+          "title": "Start work and keep to the approval",
+          "detail": "Build in line with the approved plans and conditions. Changes need a variation ($151 for a minor variation)."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Lodgement fee",
+          "amount": "See the lodgement fee schedule",
+          "note": "$98.50 to $6,308 by development cost, 2026-27"
+        },
+        {
+          "label": "Minor variation",
+          "amount": "$151",
+          "note": "2026-27"
+        },
+        {
+          "label": "Extension of time (most pathways)",
+          "amount": "$127",
+          "note": "2026-27"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "PlanSA service desk",
+          "phone": "1800 752 664",
+          "url": "https://plan.sa.gov.au/",
+          "note": "Help with the PlanSA portal, the Code and lodging applications."
+        },
+        {
+          "name": "Your local council's planning and building team",
+          "note": "Most councils offer duty planner advice. Check your council's website.",
+          "url": "https://www.lga.sa.gov.au/sa-councils/councils-listing"
+        }
+      ],
+      "watch_out": [
+        "Planning consent alone is not permission to build.",
+        "Approvals lapse if you don't start or finish in time. You can ask for an extension of time."
+      ],
+      "sources": [
+        {
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages",
+          "title": "Assessment stages (PlanSA)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0008/686087/Fees-and-Charges-at-a-Glance.pdf",
+          "title": "Fees and charges at a glance, July 2026 (PlanSA)"
+        }
+      ],
+      "gaps": [
+        "Whether an accredited professional can issue development approval when they grant the last consent wasn't confirmed; PlanSA says council or the State Planning Commission.",
+        "How long a development approval lasts before it lapses wasn't read this session."
+      ],
+      "forms": [
+        "sa-plansa-portal"
+      ]
+    },
+    {
+      "kind": "SA_LAND_DIVISION",
+      "title": "Divide land (South Australia)",
+      "summary": "To subdivide in South Australia you need land division consent and development approval, then a land division certificate before new titles are issued. A licensed surveyor usually prepares and lodges the plan. Small subdivisions pay an open space contribution of $10,166 per new lot in Greater Adelaide or $3,723 elsewhere.",
+      "authority": "State Commission Assessment Panel (SCAP) or your council, then Land Services SA for titles",
+      "publisher": "PlanSA (Government of South Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "SA",
+      "order": 670,
+      "checked_on": "2026-10-12",
+      "timeframe": "30 business days for land division consent with 10 or fewer lots and no new road, otherwise 60. Meeting conditions and getting titles takes longer.",
+      "cost_summary": "2026-27: lodgement fee, $210 land division fee, $1,229 certificate, plus $10,166 (Greater Adelaide) or $3,723 per new lot open space contribution, and SA Water and surveyor costs.",
+      "before_you_start": [
+        "Check the minimum lot size and frontage for your zone in the PlanSA Planning and Design Code online.",
+        "Look up overlays on the SA Property and Planning Atlas (SAPPA).",
+        "Engage a licensed surveyor and, if needed, a town planner.",
+        "Ask SA Water about water and sewer connection requirements and costs.",
+        "Budget for the open space contribution and service connections."
+      ],
+      "steps": [
+        {
+          "title": "Design the subdivision",
+          "detail": "Your surveyor prepares a proposed plan of division that meets the Code's lot size, frontage and access rules.",
+          "url": "https://code.plan.sa.gov.au/"
+        },
+        {
+          "title": "Lodge the application",
+          "detail": "Lodge the land division application on the PlanSA development application portal, usually by your surveyor. If you also plan houses, they can be combined.",
+          "cost": "See the fees below",
+          "url": "https://plan.sa.gov.au/development_applications/lodge_an_application/lodge_online"
+        },
+        {
+          "title": "Assessment and referrals",
+          "detail": "SCAP or council assesses it. It is referred to SA Water and others as required.",
+          "timeframe": "30 or 60 business days"
+        },
+        {
+          "title": "Development approval",
+          "detail": "Once land division consent (and any other consent) is granted, development approval is issued with conditions."
+        },
+        {
+          "title": "Meet the conditions",
+          "detail": "Complete the works and agreements in the conditions, like SA Water and SA Power Networks connections, and pay the open space contribution.",
+          "url": "https://www.sawater.com.au/building,-developing-and-plumbing/developments/land-development-agreement"
+        },
+        {
+          "title": "Get the land division certificate",
+          "detail": "Apply for the Certificate of Approval (land division certificate). The fee is paid after you apply.",
+          "cost": "$1,229"
+        },
+        {
+          "title": "Lodge for new titles",
+          "detail": "A conveyancer or solicitor lodges the plan with Land Services SA, which issues the new certificates of title.",
+          "url": "https://landservices.com.au/land-division/land-and-subdivision2/land-and-subdivision"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Lodgement fee, development cost up to $10,000",
+          "amount": "$98.50",
+          "note": "2026-27"
+        },
+        {
+          "label": "Lodgement fee, $10,001 to $50,000",
+          "amount": "$158",
+          "note": "2026-27"
+        },
+        {
+          "label": "Lodgement fee, $50,001 to $100,000",
+          "amount": "$178",
+          "note": "2026-27"
+        },
+        {
+          "label": "Lodgement fee, $100,001 to $300,000",
+          "amount": "$187",
+          "note": "2026-27"
+        },
+        {
+          "label": "Lodgement fee, $300,001 to $500,000",
+          "amount": "$197",
+          "note": "2026-27"
+        },
+        {
+          "label": "Land division (deemed-to-satisfy or performance assessed)",
+          "amount": "$210",
+          "note": "Plus $19.10 per extra lot over 4, 2026-27"
+        },
+        {
+          "label": "Certificate of Approval (land division certificate)",
+          "amount": "$1,229",
+          "note": "2026-27"
+        },
+        {
+          "label": "Open space contribution, Greater Adelaide",
+          "amount": "$10,166",
+          "note": "Per new lot of 1 ha or less, from 1 July 2026"
+        },
+        {
+          "label": "Open space contribution, rest of SA",
+          "amount": "$3,723",
+          "note": "Per new lot of 1 ha or less, from 1 July 2026"
+        },
+        {
+          "label": "Land division (restricted)",
+          "amount": "$586",
+          "note": "2026-27"
+        },
+        {
+          "label": "SA Water, SA Power Networks, surveyor and Land Services SA fees",
+          "amount": "Varies: quoted by each provider"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "PlanSA service desk",
+          "phone": "1800 752 664",
+          "url": "https://plan.sa.gov.au/",
+          "note": "Help with the PlanSA portal, the Code and lodging applications."
+        },
+        {
+          "name": "State Commission Assessment Panel (SCAP)",
+          "url": "https://www.saplanningcommission.sa.gov.au/scap",
+          "note": "Advice on land division applications."
+        },
+        {
+          "name": "Planning and Development Fund (Department for Housing and Urban Development)",
+          "phone": "(08) 7133 3225",
+          "email": "DHUD.InvestmentGrants@sa.gov.au",
+          "note": "Open space contribution questions."
+        }
+      ],
+      "watch_out": [
+        "The open space contribution is large. Budget $10,166 per new lot in Greater Adelaide.",
+        "Subdivisions of more than 20 lots must usually give at least 12.5% of the land as open space.",
+        "Applications can be refused if lots are too small or the area isn't meant for subdivision.",
+        "SA Water connection costs can be significant. Get a quote early."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sa.gov.au/topics/housing-and-property/planning-and-property/subdividing-land",
+          "title": "Subdividing land (sa.gov.au)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages",
+          "title": "Assessment stages (PlanSA)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0006/854538/Planning,-Development-and-Infrastructure-Fees-Notice.pdf",
+          "title": "Planning, Development and Infrastructure Fees Notice, effective 1 July 2026"
+        },
+        {
+          "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0008/686087/Fees-and-Charges-at-a-Glance.pdf",
+          "title": "Fees and charges at a glance, July 2026 (PlanSA)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/our_planning_system/schemes/planning_and_development_fund",
+          "title": "Planning and Development Fund (PlanSA)"
+        }
+      ],
+      "gaps": [
+        "The Land Services SA land division process fact sheet couldn't be read (fetch budget ran out).",
+        "Whether EDALA is still used for land division, or everything goes through the PlanSA portal, wasn't confirmed.",
+        "When the open space contribution must be paid (before the certificate) is from general knowledge of section 198, not read.",
+        "The Greater Adelaide boundary for the contribution rate wasn't checked."
+      ],
+      "forms": [
+        "sa-plansa-portal",
+        "sa-planning-design-code",
+        "sa-sappa"
+      ]
+    },
+    {
+      "kind": "SA_CERTIFICATE_OF_OCCUPANCY",
+      "title": "Get a certificate of occupancy (South Australia)",
+      "summary": "A certificate of occupancy says a new building is fit to use. In South Australia it is required for all new habitable buildings except Class 1a buildings such as houses and granny flats. It mostly matters for shops, offices, units and changes of use.",
+      "authority": "Your council or the accredited professional who granted building consent",
+      "publisher": "PlanSA (Government of South Australia)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "SA",
+      "order": 660,
+      "checked_on": "2026-10-12",
+      "timeframe": "Apply once building work is finished; no statutory timeframe was found.",
+      "cost_summary": "$59.50 (2026-27).",
+      "before_you_start": [
+        "Check whether your building is Class 1a. If it is, you don't need one.",
+        "Collect the builder's statement and certificates for essential safety provisions, like fire systems."
+      ],
+      "steps": [
+        {
+          "title": "Finish the work",
+          "detail": "Complete the building in line with the development approval and get final inspections done."
+        },
+        {
+          "title": "Apply for the certificate",
+          "detail": "Apply through the PlanSA development application portal to the council or certifier who granted building consent.",
+          "cost": "$59.50",
+          "url": "https://plan.sa.gov.au/development_applications/lodge_an_application/lodge_online"
+        },
+        {
+          "title": "Certificate issued",
+          "detail": "Once satisfied, the authority issues the certificate. You can then occupy or open the building."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Certificate of occupancy",
+          "amount": "$59.50",
+          "note": "2026-27"
+        },
+        {
+          "label": "Essential safety provisions (Classes 2 to 9)",
+          "amount": "$287",
+          "note": "2026-27"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "PlanSA service desk",
+          "phone": "1800 752 664",
+          "url": "https://plan.sa.gov.au/",
+          "note": "Help with the PlanSA portal, the Code and lodging applications."
+        },
+        {
+          "name": "Your local council's planning and building team",
+          "note": "Most councils offer duty planner advice. Check your council's website.",
+          "url": "https://www.lga.sa.gov.au/sa-councils/councils-listing"
+        }
+      ],
+      "watch_out": [
+        "Don't occupy or open a non-house building before the certificate is issued.",
+        "A change of use that changes the building's classification may need a certificate of occupancy even without new building work."
+      ],
+      "sources": [
+        {
+          "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages",
+          "title": "Assessment stages (PlanSA)"
+        },
+        {
+          "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0008/686087/Fees-and-Charges-at-a-Glance.pdf",
+          "title": "Fees and charges at a glance, July 2026 (PlanSA)"
+        }
+      ],
+      "gaps": [
+        "PlanSA's certificate of occupancy page wasn't read; the Class 1a exception comes from the assessment stages page.",
+        "Documents needed (builder's statement of compliance) weren't confirmed."
+      ],
+      "forms": [
+        "sa-plansa-portal"
+      ]
+    },
+    {
+      "kind": "SA_BOND_LODGEMENT",
+      "title": "Lodging a rental bond with Consumer and Business Services in South Australia",
+      "summary": "Every bond for a South Australian rental is held by Consumer and Business Services (CBS), not by you or your agent. The bond can be up to 4 weeks' rent, or up to 6 weeks' rent if the rent is over $800 a week. You lodge, manage and refund bonds through Residential Bonds Online (RBO), which replaced RentAnywhere.",
+      "authority": "Consumer and Business Services",
+      "publisher": "Consumer and Business Services",
+      "jurisdiction": "SA",
+      "verticals": [
+        "RENT"
+      ],
+      "order": 300,
+      "checked_on": "2026-10-12",
+      "timeframe": "Lodge as soon as you receive the bond. The legal deadline was not on the pages read; confirm it with CBS.",
+      "cost_summary": "No lodgement fee was published on the pages read. The bond itself is up to 4 weeks' rent (6 weeks if rent is over $800 a week).",
+      "before_you_start": [
+        "Work out the bond: up to 4 weeks' rent, or up to 6 weeks if the rent is more than $800 a week.",
+        "Have the signed SA fixed term or periodic residential tenancy agreement and each tenant's details.",
+        "If the tenant gets SA Housing Trust bond help, they confirm the rent through the ePod form."
+      ],
+      "steps": [
+        {
+          "title": "Open Residential Bonds Online",
+          "detail": "Sign in or register on the Residential Bonds Online (RBO) portal from Consumer and Business Services.",
+          "form": {
+            "name": "Residential Bonds Online (RBO)",
+            "url": "https://www.cbs.sa.gov.au/sections/renting/bonds/rbo-user-portal"
+          },
+          "url": "https://www.cbs.sa.gov.au/sections/renting/bonds/rbo-user-portal"
+        },
+        {
+          "title": "Lodge the bond",
+          "detail": "Enter the property, rent, bond amount and tenant details and pay the bond to CBS. The RBO Help page has processing tips.",
+          "url": "https://www.cbs.sa.gov.au/rbo-help"
+        },
+        {
+          "title": "Check the bond is lodged",
+          "detail": "Use the online bond status check, or call CBS on 131 882.",
+          "url": "https://secure.cbs.sa.gov.au/OLR/IVR/public/CheckBondStatus.php"
+        },
+        {
+          "title": "Refund at the end",
+          "detail": "When the tenancy ends, agree the refund with the tenant and process it through RBO. If you can't agree, either of you can apply to SACAT.",
+          "url": "https://www.cbs.sa.gov.au/sections/renting/bonds/rbo-user-portal"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Maximum bond",
+          "amount": "Varies: up to 4 weeks' rent, or 6 weeks if rent is over $800 a week"
+        },
+        {
+          "label": "Lodgement fee",
+          "amount": "See Consumer and Business Services"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Consumer and Business Services",
+          "phone": "131 882",
+          "url": "https://www.cbs.sa.gov.au/sections/renting/bonds/bonds-faqs",
+          "note": "Bond FAQs also link to paper bond forms."
+        }
+      ],
+      "watch_out": [
+        "Keeping the bond yourself instead of lodging it breaches the Residential Tenancies Act 1995.",
+        "Don't ask for more than the bond limit for the rent you charge."
+      ],
+      "sources": [
+        {
+          "url": "https://www.cbs.sa.gov.au/sections/renting/renting/tenancy-reforms-for-landlords-and-agents",
+          "title": "Tenancy reforms for landlords and agents"
+        },
+        {
+          "url": "https://www.sa.gov.au/topics/housing/renting-and-letting/renting-privately/forms-and-fact-sheets-for-private-rental-tenancies",
+          "title": "Forms and fact sheets for private rental tenancies"
+        }
+      ],
+      "gaps": [
+        "The SA.GOV.AU 'Lodging a bond' page couldn't be read (fetch budget ran out): the lodgement deadline (believed to be 2 weeks), payment methods and penalties are unconfirmed.",
+        "The RBO portal steps come from page titles and links, not from the portal itself.",
+        "Whether a bond lodgement fee applies was not confirmed."
+      ],
+      "forms": [
+        "sa-residential-bonds-online"
+      ]
+    },
+    {
+      "kind": "SA_FOOD_BUSINESS_NOTIFICATION",
+      "title": "Notifying your council of a food business (SA)",
+      "summary": "Under the Food Act 2001 (SA) every food business must notify its enforcement agency before it opens. For almost every cafe, restaurant, shop, home-based business, caterer and food van, that's the local council's environmental health team. Notifying is free.",
+      "authority": "Your local council, under the Food Act 2001 (SA)",
+      "publisher": "SA Health (Department for Health and Wellbeing)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 160,
+      "checked_on": "2026-10-12",
+      "timeframe": "Notify before you open. Talk to your council's environmental health officer well before opening.",
+      "cost_summary": "No fee to notify. Councils may charge for inspections.",
+      "before_you_start": [
+        "Find your council: it's the one where your premises is, where your food van is normally garaged, or (for caterers) where most food or equipment is stored.",
+        "Fit out your premises to the Food Standards Code (Standard 3.2.3) before you open.",
+        "Work out whether you need a food safety supervisor under Standard 3.2.2A.",
+        "Home-based food businesses should check planning rules with the same council."
+      ],
+      "steps": [
+        {
+          "title": "Find your council's food business page",
+          "detail": "Use the LGA SA councils list to find your council, then search its site for 'food business notification'.",
+          "timeframe": "15 minutes",
+          "url": "https://www.lga.sa.gov.au/sa-councils/councils-listing"
+        },
+        {
+          "title": "Lodge the food business notification form",
+          "detail": "Lodge your council's food business notification form with your business, premises and food activity details. If your council has no form, or you're outside a council area, use the SA Health food business notification form.",
+          "timeframe": "Before you open",
+          "cost": "Free",
+          "url": "https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/public+health/food+safety+for+businesses/starting+a+food+business"
+        },
+        {
+          "title": "Expect an inspection",
+          "detail": "An environmental health officer may inspect your premises. Ask the council about inspection fees.",
+          "timeframe": "After notifying",
+          "cost": "Varies: set by each council"
+        },
+        {
+          "title": "Tell the council about changes",
+          "detail": "Notify the council if the business changes hands, moves or changes what it does."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Food business notification",
+          "amount": "Free"
+        },
+        {
+          "label": "Council inspection or audit fees",
+          "amount": "Varies: ask your council's environmental health officer"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your council's environmental health team",
+          "note": "For notification, inspections and fees."
+        },
+        {
+          "name": "SA Health",
+          "phone": "08 8226 6000",
+          "url": "https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/public+health/food+safety+for+businesses/starting+a+food+business"
+        }
+      ],
+      "watch_out": [
+        "Opening before you notify can bring a fine of up to $25,000 for an individual or $120,000 for a company (expiation $300 or $1,500).",
+        "Food vans may also need to notify each council they trade in."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/public+health/food+safety+for+businesses/starting+a+food+business",
+          "title": "SA Health: Starting a food business"
+        }
+      ],
+      "gaps": [
+        "The SA Health form's direct PDF link was not captured; each council publishes its own form.",
+        "Council inspection fees were not read."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "SA_FOOD_SAFETY_SUPERVISOR",
+      "title": "Appointing a food safety supervisor (SA)",
+      "summary": "Cafes, restaurants, takeaways, caterers, supermarkets and food vans that handle unpackaged, potentially hazardous food must meet Food Safety Standard 3.2.2A. You must appoint a certified food safety supervisor and make sure food handlers are trained.",
+      "authority": "Your local council, under Standard 3.2.2A of the Food Standards Code",
+      "publisher": "SA Health (Department for Health and Wellbeing)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 165,
+      "checked_on": "2026-10-12",
+      "timeframe": "Have a certified supervisor in place before you open.",
+      "cost_summary": "Training course fees are set by registered training organisations.",
+      "before_you_start": [
+        "Check whether your business falls under Standard 3.2.2A (category one or two).",
+        "Choose who will be your supervisor: they should be on site and reasonably available while food is handled."
+      ],
+      "steps": [
+        {
+          "title": "Get your supervisor certified",
+          "detail": "Your supervisor completes a recognised food safety supervisor course with a registered training organisation and gets a certificate.",
+          "timeframe": "1 to 2 days",
+          "cost": "Varies: set by the training provider"
+        },
+        {
+          "title": "Train your food handlers",
+          "detail": "Every food handler who handles high-risk unpackaged food completes a food safety training course or shows equivalent knowledge.",
+          "timeframe": "Before they handle food"
+        },
+        {
+          "title": "Keep records",
+          "detail": "Keep the supervisor's certificate on site and, if you're category one, records of key food safety controls.",
+          "timeframe": "Ongoing"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Supervisor certificate course",
+          "amount": "Varies: set by the training provider"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your council's environmental health team"
+        },
+        {
+          "name": "SA Health",
+          "phone": "08 8226 6000",
+          "url": "https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/public+health/food+safety+for+businesses/starting+a+food+business"
+        }
+      ],
+      "watch_out": [
+        "Your council can check your supervisor certificate and training at inspections."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/public+health/food+safety+for+businesses/starting+a+food+business",
+          "title": "SA Health: Starting a food business"
+        }
+      ],
+      "gaps": [
+        "SA Health's detailed Standard 3.2.2A pages were not read; certificate renewal periods are not confirmed here."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "SA_LIQUOR_LICENCE",
+      "title": "Getting a liquor licence (SA)",
+      "summary": "Selling or supplying alcohol in SA needs a licence from Consumer and Business Services (CBS) under the Liquor Licensing Act 1997. Restaurants and caterers whose main business is meals use the restaurant and catering licence; bars, small venues and bottle shops use other licence classes.",
+      "authority": "Consumer and Business Services (Liquor and Gaming)",
+      "publisher": "Consumer and Business Services (Attorney-General's Department, SA)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 170,
+      "checked_on": "2026-10-12",
+      "timeframe": "About 6 to 8 weeks if nobody objects.",
+      "cost_summary": "Restaurant and catering licence: $754 to apply, plus annual fees.",
+      "before_you_start": [
+        "Get planning consent for your premises first, or ask CBS for a certificate if the venue isn't finished.",
+        "Have two floor plans, landlord consent and the certificate of title ready.",
+        "Choose who will be your approved responsible persons.",
+        "If you'll serve on the footpath, get the council's outdoor dining permit in your name."
+      ],
+      "steps": [
+        {
+          "title": "Register for Liquor and Gaming Online",
+          "detail": "Create an account in the CBS Liquor and Gaming Online (LGO) portal.",
+          "timeframe": "15 minutes",
+          "url": "https://sa.gov.au/topics/business-and-trade/liquor/apply/restaurant-and-catering"
+        },
+        {
+          "title": "Lodge your application",
+          "detail": "Choose the restaurant (on premises), catering (off premises) or both, set your trading hours and upload documents, including the Council Approvals form. Everyone in a position of authority uploads 100 points of ID.",
+          "cost": "$754",
+          "url": "https://sa.gov.au/topics/business-and-trade/liquor/apply/restaurant-and-catering"
+        },
+        {
+          "title": "Advertise if asked",
+          "detail": "Some applications must be advertised. Anyone can lodge a submission, and police can intervene, at least 7 days before the determination date.",
+          "timeframe": "Weeks"
+        },
+        {
+          "title": "Get your licence",
+          "detail": "If documents aren't lodged 7 days before, your application is adjourned for 6 months; incomplete applications are dismissed after 6 months.",
+          "timeframe": "6 to 8 weeks"
+        }
+      ],
+      "fees": [
+        {
+          "label": "New restaurant and catering licence",
+          "amount": "$754"
+        },
+        {
+          "label": "Extension of trading area",
+          "amount": "$165"
+        },
+        {
+          "label": "Prescribed entertainment consent",
+          "amount": "$754"
+        },
+        {
+          "label": "Responsible person approval",
+          "amount": "$165"
+        },
+        {
+          "label": "Approval of a person in a position of authority",
+          "amount": "$165"
+        },
+        {
+          "label": "Annual licence fee",
+          "amount": "See the CBS annual fee calculator"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "CBS Liquor and Gaming",
+          "phone": "131 882 (option 5)",
+          "email": "liquorandgaming@sa.gov.au",
+          "note": "Post: GPO Box 2169, Adelaide SA 5001."
+        }
+      ],
+      "watch_out": [
+        "An approved responsible person must supervise whenever you're open to the public.",
+        "Names with 'bar' generally aren't allowed for a restaurant and catering licence."
+      ],
+      "sources": [
+        {
+          "url": "https://sa.gov.au/topics/business-and-trade/liquor/apply/restaurant-and-catering",
+          "title": "Restaurant and catering liquor licence"
+        },
+        {
+          "url": "https://www.sa.gov.au/topics/business-and-trade/liquor/apply/restaurant-and-catering/drawer-restaurant-and-catering-licence-fees",
+          "title": "Application fees: restaurant and catering licence"
+        }
+      ],
+      "gaps": [
+        "Annual fees and other licence classes (on premises, small venue, general and hotel) were not read.",
+        "RSA training rules were not on the page read."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "SA_OUTDOOR_DINING_PERMIT",
+      "title": "Getting an outdoor dining permit (SA)",
+      "summary": "Tables, chairs, signs or displays on a footpath or other council land need a permit from your council. Each SA council sets its own rules, fees and insurance requirements.",
+      "authority": "Your local council",
+      "publisher": "Government of South Australia (sa.gov.au)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 180,
+      "checked_on": "2026-10-12",
+      "timeframe": "Varies by council.",
+      "cost_summary": "Varies by council.",
+      "before_you_start": [
+        "Measure the footpath and draw a plan of where your furniture will go.",
+        "Get public liability insurance; councils usually ask for a certificate of currency.",
+        "If you'll serve alcohol outside, plan to extend your liquor licence trading area."
+      ],
+      "steps": [
+        {
+          "title": "Check your council's outdoor dining rules",
+          "detail": "Search your council's website for 'outdoor dining permit'.",
+          "timeframe": "15 minutes",
+          "url": "https://www.lga.sa.gov.au/sa-councils/councils-listing"
+        },
+        {
+          "title": "Apply to the council",
+          "detail": "Lodge the council's application with your plan, insurance and food business details.",
+          "cost": "Varies: set by each council"
+        },
+        {
+          "title": "Extend your liquor licence if needed",
+          "detail": "Apply to CBS to extend your trading area, with the council permit in your name.",
+          "cost": "$165",
+          "url": "https://sa.gov.au/topics/business-and-trade/liquor/apply/restaurant-and-catering"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Council outdoor dining permit",
+          "amount": "Varies: set by each council"
+        },
+        {
+          "label": "CBS extension of trading area",
+          "amount": "$165"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your council's customer service team"
+        }
+      ],
+      "watch_out": [
+        "Furniture outside your permitted area can lead to fines or the permit being cancelled."
+      ],
+      "sources": [
+        {
+          "url": "https://sa.gov.au/topics/business-and-trade/liquor/apply/restaurant-and-catering",
+          "title": "Restaurant and catering liquor licence (council permit for extended trading area)"
+        }
+      ],
+      "gaps": [
+        "No council outdoor dining page was read; fees, insurance amounts and timeframes are not confirmed."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "SA_WORKERS_COMPENSATION_REGISTRATION",
+      "title": "Registering with ReturnToWorkSA",
+      "summary": "SA employers must register for work injury insurance with ReturnToWorkSA within 14 days of employing workers who usually work in, or are based in, SA. Registration is online and you get your certificate straight away.",
+      "authority": "ReturnToWorkSA",
+      "publisher": "ReturnToWorkSA",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 190,
+      "checked_on": "2026-10-12",
+      "timeframe": "Within 14 days of employing. Online registration is immediate.",
+      "cost_summary": "No registration fee is listed; you pay a premium based on your wages and industry.",
+      "before_you_start": [
+        "Have your ABN, business details and an estimate of wages for the year ready.",
+        "Check if you're under the wage threshold: $16,806 in total wages for 2026-27."
+      ],
+      "steps": [
+        {
+          "title": "Register online",
+          "detail": "Complete ReturnToWorkSA's online registration. You can also register by phone or before you hire.",
+          "timeframe": "About 20 minutes",
+          "url": "https://www.rtwsa.com/insurance/insurance-with-us/register"
+        },
+        {
+          "title": "Save your certificate",
+          "detail": "You get your certificate of registration at the end of the online process.",
+          "timeframe": "Immediately"
+        },
+        {
+          "title": "Pay your premium",
+          "detail": "Your premium is calculated from your wages and industry.",
+          "cost": "Varies: based on wages and industry"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Registration",
+          "amount": "Free",
+          "note": "No fee listed; premiums apply"
+        },
+        {
+          "label": "Premium",
+          "amount": "Varies: based on wages and industry"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "ReturnToWorkSA",
+          "phone": "13 18 55",
+          "email": "premium@rtwsa.com",
+          "hours": "8.30am to 5pm weekdays"
+        }
+      ],
+      "watch_out": [
+        "If you're under the wage threshold and a worker is injured, you must report it, register and pay the minimum premium."
+      ],
+      "sources": [
+        {
+          "url": "https://www.rtwsa.com/insurance/insurance-with-us/register",
+          "title": "ReturnToWorkSA: Register for cover"
+        }
+      ],
+      "gaps": [
+        "Premium rates and the minimum premium amount were not read."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "SA_PAYROLL_TAX_REGISTRATION",
+      "title": "Registering for payroll tax (SA)",
+      "summary": "SA payroll tax applies once your total Australian taxable wages (including grouped businesses) pass $1.5 million a year ($125,000 a month) and you pay wages in SA.",
+      "authority": "RevenueSA",
+      "publisher": "RevenueSA (Department of Treasury and Finance)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 205,
+      "checked_on": "2026-10-12",
+      "timeframe": "Register once your wages pass the threshold.",
+      "cost_summary": "0% to 4.95% sliding rate between $1.5 million and $1.7 million; 4.95% above.",
+      "before_you_start": [
+        "Total your Australian-wide taxable wages, including grouped businesses.",
+        "Talk to your accountant about grouping and exempt wages."
+      ],
+      "steps": [
+        {
+          "title": "Check the threshold",
+          "detail": "Compare your Australian wages with $1.5 million a year or $125,000 a month.",
+          "url": "https://www.revenuesa.sa.gov.au/payroll-tax/rates-and-thresholds"
+        },
+        {
+          "title": "Register as an employer",
+          "detail": "Apply to RevenueSA to register for payroll tax.",
+          "url": "https://www.revenuesa.sa.gov.au/payroll-tax/register-for-payroll-tax"
+        },
+        {
+          "title": "Lodge and pay returns",
+          "detail": "Lodge returns and pay tax as RevenueSA tells you when you register.",
+          "timeframe": "Ongoing"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Payroll tax",
+          "amount": "Varies: 0% to 4.95% of taxable wages"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "RevenueSA payroll tax",
+          "phone": "08 8372 7534",
+          "email": "payrolltax@sa.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Grouped businesses share one threshold."
+      ],
+      "sources": [
+        {
+          "url": "https://www.revenuesa.sa.gov.au/payroll-tax/rates-and-thresholds",
+          "title": "RevenueSA: Payroll tax rates and thresholds"
+        }
+      ],
+      "gaps": [
+        "The registration page (timeframe for registering after passing the threshold) was not read."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "SA_BUILDING_WORK_CONTRACTOR_LICENCE",
+      "title": "Getting a building work contractor's licence (SA)",
+      "summary": "In SA any person or business working as a building work contractor needs a licence from Consumer and Business Services, including subcontractors. All building work must be supervised by a registered building work supervisor.",
+      "authority": "Consumer and Business Services",
+      "publisher": "Consumer and Business Services (Attorney-General's Department, SA)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 120,
+      "checked_on": "2026-10-12",
+      "timeframe": "See CBS's estimated processing times.",
+      "cost_summary": "Individual general building work licence with supervisor registration: $1,139. Company: $1,575.",
+      "before_you_start": [
+        "Read CBS's 'Business criteria for contractors' factsheet and check your experience.",
+        "Get a National Police Certificate (no more than 12 months old).",
+        "Specified building work needs at least $10,000 in net assets; otherwise ask about a restricted subcontractor licence.",
+        "Major residential builders need a certificate of eligibility for building indemnity insurance."
+      ],
+      "steps": [
+        {
+          "title": "Start the online application",
+          "detail": "Fill in the SA building work contractor's licence application online. Sole traders usually apply for supervisor registration at the same time; companies nominate a supervisor.",
+          "timeframe": "1 hour",
+          "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/building-and-trades/building-work-contractor-s-licence"
+        },
+        {
+          "title": "Print, sign and upload",
+          "detail": "Print and sign the form, then scan and upload it with your documents. Phone 131 882 if you can't."
+        },
+        {
+          "title": "Pay the fee",
+          "detail": "Pay the fee for your licence type.",
+          "cost": "$1,139"
+        },
+        {
+          "title": "Photo and ID check",
+          "detail": "Have your photo taken and ID checked before your licence card is issued."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Individual: general building work and supervisor registration",
+          "amount": "$1,139"
+        },
+        {
+          "label": "Individual: specified building work and supervisor registration",
+          "amount": "$855"
+        },
+        {
+          "label": "Contractor only: general building work",
+          "amount": "$864"
+        },
+        {
+          "label": "Contractor only: specified building work",
+          "amount": "$580"
+        },
+        {
+          "label": "Company: general building work",
+          "amount": "$1,575"
+        },
+        {
+          "label": "Company: specified building work",
+          "amount": "$943"
+        },
+        {
+          "label": "Each building work supervisor approved",
+          "amount": "$166"
+        },
+        {
+          "label": "Building work supervisor registration",
+          "amount": "$537"
+        },
+        {
+          "label": "Vary a licence or registration",
+          "amount": "$213"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "CBS Licensing (Consumer and Business Services)",
+          "phone": "131 882 (option 4)",
+          "email": "occupational@sa.gov.au",
+          "note": "Post: GPO Box 1719, Adelaide SA 5001."
+        }
+      ],
+      "watch_out": [
+        "Business partners who don't organise or do the work can apply for an exemption instead of a licence."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/building-and-trades/building-work-contractor-s-licence",
+          "title": "Building work contractor's licence"
+        }
+      ],
+      "gaps": [
+        "The fee table didn't state which year it applies to; the page was updated 14 September 2026.",
+        "Processing times are on a separate CBS page that was not read."
+      ],
+      "forms": [
+        "sa-cbs-building-work-contractor-licence"
+      ]
+    },
+    {
+      "kind": "SA_BUILDING_INDEMNITY_INSURANCE",
+      "title": "Building indemnity insurance (SA)",
+      "summary": "Under the Building Work Contractors Act 1995, domestic building work on a house valued at $20,000 or more that needs development approval must be covered by building indemnity insurance taken out by the builder. The threshold rose from $12,000 to $20,000 on 10 November 2025.",
+      "authority": "Approved building indemnity insurers, under the Building Work Contractors Act 1995",
+      "publisher": "PlanSA (Department for Housing and Urban Development)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 123,
+      "checked_on": "2026-10-12",
+      "timeframe": "Get eligibility once; then a certificate for each job before work starts.",
+      "cost_summary": "Premiums are set by the insurer.",
+      "before_you_start": [
+        "Check the job: domestic building work, $20,000 or more, and needs development approval.",
+        "Demolition-only work and some multi-storey residential buildings are exempt."
+      ],
+      "steps": [
+        {
+          "title": "Get eligibility from an insurer",
+          "detail": "Apply to an approved insurer (sa.gov.au lists QBE and AssetInsure; AB Phillips for pool builders and landscapers).",
+          "timeframe": "Weeks",
+          "url": "https://www.sa.gov.au/topics/housing-and-property/buying-building-selling/building-or-buying-home/building-a-home/building-indemnity-insurance"
+        },
+        {
+          "title": "Take out a policy for each job",
+          "detail": "Buy the insurance for the job before work starts.",
+          "cost": "Varies: set by the insurer"
+        },
+        {
+          "title": "Give copies of the certificate",
+          "detail": "Give the owner and the council a copy of the certificate. Work can't start until they have it.",
+          "timeframe": "Before work starts"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Insurance premium",
+          "amount": "Varies: set by the insurer"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "CBS Licensing (Consumer and Business Services)",
+          "phone": "131 882 (option 4)",
+          "email": "occupational@sa.gov.au",
+          "note": "Post: GPO Box 1719, Adelaide SA 5001."
+        }
+      ],
+      "watch_out": [
+        "Owner-builders can't take out this insurance.",
+        "Owners can generally claim for defects up to 5 years after completion."
+      ],
+      "sources": [
+        {
+          "url": "https://www.plan.sa.gov.au/__data/assets/pdf_file/0011/1558694/Advisory-Notice-Building-03-25-Building-Indemnity-Insurance.pdf",
+          "title": "PlanSA Advisory Notice Building 03/25"
+        },
+        {
+          "url": "https://www.sa.gov.au/topics/housing-and-property/buying-building-selling/building-or-buying-home/building-a-home/building-indemnity-insurance",
+          "title": "sa.gov.au: Building indemnity insurance"
+        }
+      ],
+      "gaps": [
+        "The sa.gov.au page shows both $12,000 and $20,000; the PlanSA notice confirms $20,000 from 10 November 2025."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "SA_PLUMBING_GAS_ELECTRICAL_LICENCE",
+      "title": "Plumbing, gas fitting and electrical licences (SA)",
+      "summary": "A business that carries out or organises plumbing, gas fitting or electrical work in SA needs a contractor's licence from Consumer and Business Services, and anyone doing the physical work must be registered as a plumber, gas fitter or electrician.",
+      "authority": "Consumer and Business Services",
+      "publisher": "Consumer and Business Services (Attorney-General's Department, SA)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 121,
+      "checked_on": "2026-10-12",
+      "timeframe": "See CBS's processing times page.",
+      "cost_summary": "Worker and contractor licence together: $1,396.",
+      "before_you_start": [
+        "Check your qualifications match the work you'll do (for example water and sanitary plumbing, drainage, gas, electrical).",
+        "Have at least $10,000 in net assets, or ask about a restricted subcontractor licence.",
+        "Get a police check no more than 12 months old."
+      ],
+      "steps": [
+        {
+          "title": "Start the online application",
+          "detail": "Fill in the SA plumbing, gas fitting and electrical licence application online.",
+          "timeframe": "1 hour",
+          "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/building-and-trade/licensing"
+        },
+        {
+          "title": "Print, sign and upload",
+          "detail": "Print, sign, scan and upload the form with your documents and photo."
+        },
+        {
+          "title": "Pay the fee",
+          "detail": "Pay the fee for the licence or registration you need.",
+          "cost": "$1,396"
+        },
+        {
+          "title": "Renew on time",
+          "detail": "Contractor licences renew every year; worker registration every 3 years."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Individual contractor licence",
+          "amount": "$779"
+        },
+        {
+          "label": "Company licence",
+          "amount": "$1,012"
+        },
+        {
+          "label": "Worker registration",
+          "amount": "$617"
+        },
+        {
+          "label": "Worker and contractor licence",
+          "amount": "$1,396"
+        },
+        {
+          "label": "Apprentice registration",
+          "amount": "Free"
+        },
+        {
+          "label": "Variation",
+          "amount": "$166"
+        },
+        {
+          "label": "Renewal: individual contractor (yearly)",
+          "amount": "$504"
+        },
+        {
+          "label": "Renewal: company (yearly)",
+          "amount": "$737"
+        },
+        {
+          "label": "Renewal: worker (every 3 years)",
+          "amount": "$342"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "CBS Licensing (Consumer and Business Services)",
+          "phone": "131 882 (option 4)",
+          "email": "occupational@sa.gov.au",
+          "note": "Post: GPO Box 1719, Adelaide SA 5001."
+        }
+      ],
+      "watch_out": [
+        "Apprentices must hold a photo registration card too."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/building-and-trade/licensing",
+          "title": "Plumbing, gas fitting and electrical contractors' licences"
+        }
+      ],
+      "gaps": [
+        "Insurance requirements were not stated on the page read.",
+        "Changes under the Plumbers, Gas Fitters and Electricians Regulations 2025 were not checked."
+      ],
+      "forms": [
+        "sa-cbs-pge-licence"
+      ]
+    },
+    {
+      "kind": "SA_TATTOO_BUSINESS_NOTIFICATION",
+      "title": "Notifying CBS about tattooing (SA)",
+      "summary": "Under the Tattooing Industry Control Act 2015, anyone who tattoos another person, runs a tattoo business, works in one, directs a company that provides tattoo services or sells tattoo equipment must notify Consumer and Business Services. There's no fee.",
+      "authority": "Consumer and Business Services",
+      "publisher": "Consumer and Business Services (Attorney-General's Department, SA)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 150,
+      "checked_on": "2026-10-12",
+      "timeframe": "Notify before you start; changes within 14 days.",
+      "cost_summary": "Free.",
+      "before_you_start": [
+        "Gather directors' and employees' names and addresses, your lease or title and premises details.",
+        "Each tattooist must notify individually, including subcontractors and interstate visitors."
+      ],
+      "steps": [
+        {
+          "title": "Notify online",
+          "detail": "Complete the CBS tattoo notification online.",
+          "timeframe": "30 minutes",
+          "cost": "Free",
+          "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/tattoo-industry"
+        },
+        {
+          "title": "Check your staff",
+          "detail": "Ask employees for their CBS confirmation email, or use the tattoo information request form; CBS doesn't publish a list of disqualified people."
+        },
+        {
+          "title": "Display the warning notice and give client information",
+          "detail": "Display the prescribed warning notice and give each client the prescribed risk and aftercare information before tattooing or body piercing.",
+          "timeframe": "Before you trade"
+        },
+        {
+          "title": "Report changes",
+          "detail": "Tell CBS about changes within 14 days.",
+          "timeframe": "Within 14 days"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Notification",
+          "amount": "Free"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Consumer and Business Services",
+          "phone": "131 882",
+          "note": "Post: GPO Box 1719, Adelaide SA 5001."
+        }
+      ],
+      "watch_out": [
+        "Members of organised crime groups and their associates can be disqualified.",
+        "Tattoo shows and conventions must be notified before you take part.",
+        "Ask your council about skin penetration hygiene requirements too."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/tattoo-industry",
+          "title": "Tattoo industry"
+        }
+      ],
+      "gaps": [
+        "The Act itself wasn't read; the online form is labelled 'Tattoo licence' but the page describes a notification.",
+        "SA Health skin penetration guidelines were not read."
+      ],
+      "forms": [
+        "sa-cbs-tattoo-notification"
+      ]
+    },
+    {
+      "kind": "SA_EDUCATION_CARE_SERVICE_APPROVAL",
+      "title": "Provider and service approval for childcare (SA)",
+      "summary": "Long day care, family day care, outside school hours care and preschools in SA run under the Education and Care Services National Law. The Education Standards Board is the regulatory authority. You need provider approval and service approval before you operate.",
+      "authority": "Education Standards Board (SA)",
+      "publisher": "Education Standards Board (SA)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "jurisdiction": "SA",
+      "order": 140,
+      "checked_on": "2026-10-12",
+      "timeframe": "Legislative timeframes apply; see the Board's time frames page.",
+      "cost_summary": "See the ACECQA indexation of fees page.",
+      "before_you_start": [
+        "Get planning consent for your premises.",
+        "Read the National Quality Framework guide on ACECQA's website."
+      ],
+      "steps": [
+        {
+          "title": "Register on NQAITS",
+          "detail": "Create an account on the National Quality Agenda IT System.",
+          "timeframe": "30 minutes",
+          "url": "https://www.esb.sa.gov.au/early-childhood/approved-providers-and-services"
+        },
+        {
+          "title": "Apply for provider approval",
+          "detail": "Apply online or on ACECQA's paper forms.",
+          "cost": "See the ACECQA fees page"
+        },
+        {
+          "title": "Apply for service approval",
+          "detail": "Apply for each service once you're an approved provider.",
+          "cost": "See the ACECQA fees page"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Provider and service approval fees",
+          "amount": "See the ACECQA indexation of fees page"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Education Standards Board",
+          "phone": "1800 882 413",
+          "email": "educationstandardsboard@sa.gov.au",
+          "hours": "9am to 5pm weekdays",
+          "note": "Post: GPO Box 1811, Adelaide SA 5001."
+        }
+      ],
+      "watch_out": [
+        "Operating without approval is an offence under the National Law."
+      ],
+      "sources": [
+        {
+          "url": "https://www.esb.sa.gov.au/early-childhood/approved-providers-and-services",
+          "title": "Education Standards Board: Approved providers and services"
+        }
+      ],
+      "gaps": [
+        "Processing times and fee amounts were on pages that were not read."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "SA_VEHICLE_REGISTRATION",
+      "title": "Registering an imported vehicle (SA)",
+      "summary": "An imported vehicle needs an identity inspection by the Department for Infrastructure and Transport, a roadworthy inspection where required, and then registration and compulsory third party (CTP) insurance at a Service SA centre. Stamp duty is payable unless already paid in another Australian state.",
+      "authority": "Department for Infrastructure and Transport (SA), through Service SA",
+      "publisher": "Department for Infrastructure and Transport (SA)",
+      "verticals": [
+        "TRADE"
+      ],
+      "jurisdiction": "SA",
+      "order": 480,
+      "checked_on": "2026-10-12",
+      "timeframe": "Inspection reports are valid for 3 months.",
+      "cost_summary": "Registration and CTP about $705 a year (4-cylinder car, Adelaide), $75 identity inspection, plates and stamp duty (about 4% of value).",
+      "before_you_start": [
+        "Have your import approval or Register of Approved Vehicles entry.",
+        "Don't modify the vehicle before the identity inspection.",
+        "Arrange an unregistered vehicle permit or trade plates to drive to the inspection."
+      ],
+      "steps": [
+        {
+          "title": "Identity inspection",
+          "detail": "Take the vehicle to 7 Naweena Road, Regency Park (weekdays 8am to 4.30pm, no booking). Lonsdale inspects cars and motorbikes only.",
+          "timeframe": "Same day",
+          "cost": "$75",
+          "url": "https://sa.gov.au/topics/driving-and-transport/vehicles/vehicle-inspections/vehicle-identity-inspections"
+        },
+        {
+          "title": "Roadworthy inspection if required",
+          "detail": "Book a roadworthy inspection with your Australian Design Rules compliance paperwork.",
+          "cost": "$344"
+        },
+        {
+          "title": "Compliance plate exemption (personal imports)",
+          "detail": "Apply online if you have personal import approval papers.",
+          "url": "https://www.sa.gov.au/topics/driving-and-transport/vehicles/buying-and-selling/importing-motor-vehicles"
+        },
+        {
+          "title": "Register at Service SA",
+          "detail": "Take the SA application for registration and compulsory third party insurance (MR1), certificates, import approval and ID to a Service SA centre.",
+          "cost": "$705",
+          "form": {
+            "name": "MR1 Application for registration and compulsory third party insurance",
+            "url": "https://www.sa.gov.au/__data/assets/pdf_file/0019/15553/MR1-Application-for-registration-and-compulsory-third-party-insurance.pdf"
+          }
+        }
+      ],
+      "fees": [
+        {
+          "label": "Identity inspection",
+          "amount": "$75"
+        },
+        {
+          "label": "Roadworthy inspection (first)",
+          "amount": "$344",
+          "note": "Includes $31 booking fee"
+        },
+        {
+          "label": "Registration and CTP (4-cylinder car, metropolitan, 12 months)",
+          "amount": "$705",
+          "note": "From 1 July 2026"
+        },
+        {
+          "label": "Stamp duty (non-commercial, over $3,000)",
+          "amount": "$60 plus $4 per $100 over $3,000"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Vehicle Standards (DIT)",
+          "phone": "1300 882 248",
+          "email": "vehiclestandards@sa.gov.au"
+        },
+        {
+          "name": "Regency Park inspection station",
+          "phone": "08 8400 8777"
+        },
+        {
+          "name": "Service SA",
+          "phone": "13 23 24",
+          "url": "https://www.sa.gov.au/topics/about-sa/directories/customer-service-centres/locations-and-opening-hours"
+        }
+      ],
+      "watch_out": [
+        "Left-hand drive vehicles under 25 years old have extra rules.",
+        "Heavy vehicles, trailers and caravans must go to Regency Park."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sa.gov.au/topics/driving-and-transport/vehicles/buying-and-selling/importing-motor-vehicles",
+          "title": "Importing and registering a vehicle from overseas"
+        },
+        {
+          "url": "https://www.revenuesa.sa.gov.au/stamp-duty-vehicles/rates",
+          "title": "RevenueSA: Stamp duty on vehicles: rates"
+        }
+      ],
+      "gaps": [
+        "CTP premiums for other vehicles and regions were not read.",
+        "The import page didn't say whether an unregistered vehicle permit fee applies."
+      ],
+      "forms": [
+        "sa-dit-mr1"
+      ]
+    },
+    {
+      "kind": "SA_VEHICLE_DEALER_LICENCE",
+      "title": "Second-hand vehicle dealer's licence (SA)",
+      "summary": "You need a second-hand vehicle dealer's licence from Consumer and Business Services if you buy, sell or offer for sale 4 or more vehicles in 12 months in SA.",
+      "authority": "Consumer and Business Services",
+      "publisher": "Consumer and Business Services (Attorney-General's Department, SA)",
+      "verticals": [
+        "TRADE"
+      ],
+      "jurisdiction": "SA",
+      "order": 490,
+      "checked_on": "2026-10-12",
+      "timeframe": "See CBS's processing times page.",
+      "cost_summary": "Individual: $952 plus $200 compensation fund. Company: $1,243 plus $200.",
+      "before_you_start": [
+        "Get a National Police Certificate no more than 12 months old.",
+        "Secure premises: you can only trade from the address on your licence.",
+        "Companies must nominate a manager who holds a licence."
+      ],
+      "steps": [
+        {
+          "title": "Start the online application",
+          "detail": "Complete the SA second-hand vehicle dealer licence application online.",
+          "timeframe": "1 hour",
+          "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/vehicles/second-hand-vehicle-dealer-licence"
+        },
+        {
+          "title": "Print, sign and upload",
+          "detail": "Print, sign, scan and upload it with your police certificate."
+        },
+        {
+          "title": "Pay the fee",
+          "detail": "Pay the licence fee and compensation fund contribution.",
+          "cost": "$1,152"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Individual: motor vehicle and motorcycle",
+          "amount": "$952",
+          "note": "Plus $200 compensation fund"
+        },
+        {
+          "label": "Company: motor vehicle and motorcycle",
+          "amount": "$1,243",
+          "note": "Plus $200 compensation fund"
+        },
+        {
+          "label": "Individual: motorbike only",
+          "amount": "$650",
+          "note": "Plus $60 compensation fund"
+        },
+        {
+          "label": "Company: motorbike only",
+          "amount": "$777",
+          "note": "Plus $60 compensation fund"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "CBS Licensing (Consumer and Business Services)",
+          "phone": "131 882 (option 4)",
+          "email": "occupational@sa.gov.au",
+          "note": "Post: GPO Box 1719, Adelaide SA 5001."
+        }
+      ],
+      "watch_out": [
+        "Certain dishonesty convictions in the last 10 years can stop you being licensed."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/vehicles/second-hand-vehicle-dealer-licence",
+          "title": "Second-hand vehicle dealer licence"
+        }
+      ],
+      "gaps": [
+        "Processing times were on a separate page that was not read."
+      ],
+      "forms": [
+        "sa-cbs-second-hand-vehicle-dealer-licence"
+      ]
+    },
+    {
+      "kind": "SA_VESSEL_REGISTRATION",
+      "title": "Registering a boat (SA)",
+      "summary": "Recreational motorboats in SA must be registered with the Department for Infrastructure and Transport through Service SA.",
+      "authority": "Department for Infrastructure and Transport (SA), through Service SA",
+      "publisher": "Department for Infrastructure and Transport (SA)",
+      "verticals": [
+        "VESSEL"
+      ],
+      "jurisdiction": "SA",
+      "order": 600,
+      "checked_on": "2026-10-12",
+      "timeframe": "Same day at a Service SA centre.",
+      "cost_summary": "12 months: $59 to $843 by length; $484 for a jet ski. 50% off until 1 December 2026.",
+      "before_you_start": [
+        "Measure the hull from the bow to the transom.",
+        "Have proof of ownership (bill of sale or receipt) and ID (SA driver's licence or proof of age card)."
+      ],
+      "steps": [
+        {
+          "title": "Complete the application",
+          "detail": "Fill in the SA application for initial boat registration (MR168).",
+          "timeframe": "15 minutes",
+          "url": "https://www.sa.gov.au/topics/boating-and-marine/boat-registration/first-time-registration"
+        },
+        {
+          "title": "HIN check if needed",
+          "detail": "A Hull Identification Number check may be needed after you lodge the form.",
+          "url": "https://www.sa.gov.au/topics/boating-and-marine/boat-registration/boat-code-identification-system"
+        },
+        {
+          "title": "Lodge and pay",
+          "detail": "Lodge at a Service SA centre or post with a cheque or money order to GPO Box 1533, Adelaide SA 5001.",
+          "cost": "$174",
+          "url": "https://www.sa.gov.au/topics/boating-and-marine/fees/new-motorboat-registration-fees"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Under 3.1 m (12 months)",
+          "amount": "$59"
+        },
+        {
+          "label": "3.5 to 5 m (12 months)",
+          "amount": "$174"
+        },
+        {
+          "label": "5 to 6 m (12 months)",
+          "amount": "$188"
+        },
+        {
+          "label": "6 to 7 m (12 months)",
+          "amount": "$335"
+        },
+        {
+          "label": "Personal watercraft (12 months)",
+          "amount": "$484"
+        },
+        {
+          "label": "Over 20 m (12 months)",
+          "amount": "$843"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Service SA",
+          "phone": "13 23 24",
+          "url": "https://www.sa.gov.au/topics/about-sa/directories/customer-service-centres/locations-and-opening-hours"
+        }
+      ],
+      "watch_out": [
+        "The 50% discount applies to registrations from 1 December 2025 to 1 December 2026."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sa.gov.au/topics/boating-and-marine/boat-registration/first-time-registration",
+          "title": "First-time boat registration in SA"
+        },
+        {
+          "url": "https://www.sa.gov.au/topics/boating-and-marine/fees/new-motorboat-registration-fees",
+          "title": "Initial boat registration fees"
+        }
+      ],
+      "gaps": [
+        "The direct link to the MR168 PDF was not captured."
+      ],
+      "forms": [
+        "sa-dit-mr168"
+      ]
+    },
+    {
+      "kind": "SA_BOAT_OPERATOR_LICENCE",
+      "title": "Getting a boat operator's licence (SA)",
+      "summary": "You must hold a boat operator's licence to operate any recreational vessel fitted with an engine in SA. Without one you can only drive if you're 12 or older, supervised by a licence holder and stay at or under 10 knots.",
+      "authority": "Department for Infrastructure and Transport (SA), through Service SA",
+      "publisher": "Department for Infrastructure and Transport (SA)",
+      "verticals": [
+        "VESSEL"
+      ],
+      "jurisdiction": "SA",
+      "order": 610,
+      "checked_on": "2026-10-12",
+      "timeframe": "Same day once you pass the theory test.",
+      "cost_summary": "Theory test $56, licence $53.",
+      "before_you_start": [
+        "Study the SA boating safety handbook.",
+        "Bring original evidence of identity documents."
+      ],
+      "steps": [
+        {
+          "title": "Pass the theory test",
+          "detail": "Sit the boat operator's licence theory test.",
+          "cost": "$56",
+          "url": "https://www.sa.gov.au/topics/boating-and-marine/boat-operators-licences-and-permits/boat-licences"
+        },
+        {
+          "title": "Apply at Service SA",
+          "detail": "Apply in person at a Service SA centre with your original ID, or by post to GPO Box 1533, Adelaide SA 5001.",
+          "cost": "$53"
+        },
+        {
+          "title": "Carry your licence",
+          "detail": "You can keep a digital licence in the mySAGOV app."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Theory test",
+          "amount": "$56"
+        },
+        {
+          "label": "Licence",
+          "amount": "$53"
+        },
+        {
+          "label": "Licence for a former special permit holder",
+          "amount": "$22"
+        },
+        {
+          "label": "Special permit theory test (ages 12 to 15)",
+          "amount": "$25"
+        },
+        {
+          "label": "Special permit",
+          "amount": "$22"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Service SA",
+          "phone": "13 23 24",
+          "url": "https://www.sa.gov.au/topics/about-sa/directories/customer-service-centres/locations-and-opening-hours"
+        }
+      ],
+      "watch_out": [
+        "Interstate licence holders can operate in SA for up to 90 days.",
+        "Kayaks and canoes with a small electric motor have their own rules."
+      ],
+      "sources": [
+        {
+          "url": "https://www.sa.gov.au/topics/boating-and-marine/boat-operators-licences-and-permits/boat-licences",
+          "title": "Boat licences"
+        }
+      ],
+      "gaps": [
+        "The page didn't state licence validity or name the application form."
+      ],
+      "forms": []
     }
   ]
 }

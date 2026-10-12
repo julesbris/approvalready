@@ -1,0 +1,53 @@
+{
+  "key": "rent.sa_minimum_standards",
+  "vertical": "RENT",
+  "title": "South Australian minimum housing standards",
+  "description": "Steps to make sure a rental meets the minimum housing standards under the Housing Improvement Act 2016 before the tenant moves in. The standards themselves were not read; work through the Housing Safety Authority's list.",
+  "sources": [
+    {
+      "title": "Tenancy reforms for landlords and agents",
+      "organisation": "Consumer and Business Services",
+      "url": "https://www.cbs.sa.gov.au/sections/renting/renting/tenancy-reforms-for-landlords-and-agents"
+    },
+    {
+      "title": "Minimum housing standards",
+      "organisation": "Housing Safety Authority",
+      "url": "https://www.housingsafetyauthority.sa.gov.au/minimum-housing-standards"
+    }
+  ],
+  "items": [
+    {
+      "key": "read_standards",
+      "title": "Read the minimum housing standards on the Housing Safety Authority website"
+    },
+    {
+      "key": "walk_through",
+      "title": "Walk through the property and check each standard"
+    },
+    {
+      "key": "known_repairs",
+      "title": "Get quotes and fix any repairs that leave the home below a standard"
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Check the smoke alarms are the right type, installed correctly and working"
+    },
+    {
+      "key": "pool",
+      "title": "Check pool barriers and gates are in working order",
+      "required": false
+    },
+    {
+      "key": "before_move_in",
+      "title": "Finish the work before the tenant moves in"
+    },
+    {
+      "key": "record",
+      "title": "Record the condition on the SA inspection sheet with dated photos"
+    },
+    {
+      "key": "keep_invoices",
+      "title": "Keep invoices and certificates for the work"
+    }
+  ]
+}
