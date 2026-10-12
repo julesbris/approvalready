@@ -286,6 +286,9 @@ async def test_lookup_endpoints(api: ApiHarness) -> None:
 
     assert (await user.get(f"{base}/parcels/2RP1")).status_code == 404
     assert (await user.get(f"{base}/parcels/nonsense!")).status_code == 422
+    # Parcel ids with slashes (NSW, Tasmania) reach the parser, not a missing route.
+    r = await user.get(f"{base}/parcels/142916%2F1", params={"state": "QLD"})
+    assert r.status_code == 422 and r.json()["detail"]["code"] == "invalid_lot_plan", r.text
 
     r = await user.get(f"{base}/vessels/412345")
     assert r.status_code == 200, r.text
