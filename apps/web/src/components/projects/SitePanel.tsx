@@ -19,6 +19,7 @@ import {
 } from "@/components/lookups/ParcelDetails";
 import { AU_STATES } from "@/components/questionnaire/QuestionField";
 import { apiRequest } from "@/lib/client-api";
+import { LOOKUP_STATE_CODES, statesPhrase } from "@/lib/coverage";
 
 type Props = {
   organisationId: string;
@@ -63,7 +64,7 @@ export function homeLabel(p: PropertyOut): string | null {
 }
 
 /** The property a project is about: pick one the organisation already has, or add one.
- * Adding one starts from a Queensland address search that fills in the lot and plan and
+ * Adding one starts from an address search that fills in the lot and plan and
  * land area, and shows what state mapping says about the land. */
 export function SitePanel({ organisationId, project, canWrite, onProjectChange, ...props }: Props) {
   const [properties, setProperties] = useState(props.properties);
@@ -175,16 +176,16 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
       return;
     }
     setPicked({ status: "loading" });
-    const state = await fetchParcel(organisationId, match.lot_plan);
+    const state = await fetchParcel(organisationId, match.lot_plan, match.state);
     setPicked(state);
     // The parcel's area fills in the land area, unless one was typed meanwhile.
     const area = state.status === "found" ? state.parcel.land_area_m2 : null;
     if (area) setForm((f) => (f.land_area_m2 ? f : { ...f, land_area_m2: String(Number(area)) }));
   }
 
-  async function checkLinked(lotPlan: string) {
+  async function checkLinked(lotPlan: string, state: string) {
     setLinkedParcel({ status: "loading" });
-    setLinkedParcel(await fetchParcel(organisationId, lotPlan));
+    setLinkedParcel(await fetchParcel(organisationId, lotPlan, state));
   }
 
   return (
@@ -208,13 +209,15 @@ export function SitePanel({ organisationId, project, canWrite, onProjectChange, 
           </p>
           <p className="hint">
             The questionnaire fills in these details for you, with the postcode, council area, land
-            area and state-mapped overlays for Queensland land. The zone still comes from you.
+            area and state-mapped overlays for land in {statesPhrase()}.
           </p>
-          {linked.lot_plan && linked.address.state === "QLD" && linkedParcel.status === "idle" ? (
+          {linked.lot_plan &&
+          LOOKUP_STATE_CODES.includes(linked.address.state) &&
+          linkedParcel.status === "idle" ? (
             <button
               type="button"
               className="button button-secondary"
-              onClick={() => checkLinked(linked.lot_plan as string)}
+              onClick={() => checkLinked(linked.lot_plan as string, linked.address.state)}
             >
               Show planning information
             </button>

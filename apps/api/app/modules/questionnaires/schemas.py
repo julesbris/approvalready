@@ -6,12 +6,29 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from app.modules.councils import directory as councils
+from app.modules.lookups.spatial import STATES
 from app.modules.questionnaires.engine import QuestionnaireSpec
+
+# Questions whose options are council directory keys.
+COUNCIL_QUESTIONS = frozenset({"property.lga", "business.lga"})
 
 
 class OptionOut(BaseModel):
     value: str
     label: str
+    # Shown as a heading over the options that share it: council areas by state, once
+    # councils in more than one state are offered.
+    group: str | None = None
+
+
+def option_group(question_key: str, value: str) -> str | None:
+    if question_key not in COUNCIL_QUESTIONS:
+        return None
+    council = councils.by_key(value)
+    if council is None or len(councils.states()) < 2:
+        return None
+    return STATES[council.state]
 
 
 class QuestionOut(BaseModel):
@@ -118,7 +135,12 @@ def questionnaire_out(spec: QuestionnaireSpec) -> QuestionnaireOut:
                         label=q.label,
                         help_text=q.help_text,
                         required=q.required,
-                        options=[OptionOut(value=o.value, label=o.label) for o in q.options],
+                        options=[
+                            OptionOut(
+                                value=o.value, label=o.label, group=option_group(q.key, o.value)
+                            )
+                            for o in q.options
+                        ],
                         validation=q.validation.model_dump(mode="json", exclude_none=True),
                         visible_when=(
                             q.visible_when.model_dump(mode="json", by_alias=True, exclude_none=True)

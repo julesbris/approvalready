@@ -4,6 +4,7 @@ import type { AddressMatchOut, AddressSearchOut } from "@approvalready/shared-ty
 import { useEffect, useId, useRef, useState } from "react";
 
 import { apiRequest } from "@/lib/client-api";
+import { LOOKUP_STATES, statesPhrase } from "@/lib/coverage";
 
 type Props = {
   organisationId: string;
@@ -13,8 +14,8 @@ type Props = {
   delayMs?: number;
 };
 
-/** Search Queensland addresses as you type and pick one. Picking fills in the address and
- * its lot and plan; nothing is saved until the form it sits in is. */
+/** Search addresses in the states we cover as you type and pick one. Picking fills in the
+ * address and its lot and plan; nothing is saved until the form it sits in is. */
 export function AddressSearch({ organisationId, onPick, disabled, delayMs = 350 }: Props) {
   const id = useId();
   const [query, setQuery] = useState("");
@@ -59,7 +60,7 @@ export function AddressSearch({ organisationId, onPick, disabled, delayMs = 350 
       setMatches(result.data.matches);
       setMessage(
         result.data.matches.length === 0
-          ? "No Queensland address matches yet. Keep typing, or fill in the fields below."
+          ? "No address matches yet. Keep typing, or fill in the fields below."
           : null,
       );
     }, delayMs);
@@ -75,7 +76,9 @@ export function AddressSearch({ organisationId, onPick, disabled, delayMs = 350 
 
   return (
     <div className="address-search">
-      <label htmlFor={`${id}-q`}>Find a Queensland address</label>
+      <label htmlFor={`${id}-q`}>
+        {LOOKUP_STATES.length === 1 ? `Find a ${LOOKUP_STATES[0]} address` : "Find the address"}
+      </label>
       <input
         id={`${id}-q`}
         type="search"
@@ -87,7 +90,7 @@ export function AddressSearch({ organisationId, onPick, disabled, delayMs = 350 
         onChange={(e) => search(e.target.value)}
       />
       <p id={`${id}-hint`} className="hint">
-        From the Queensland Government&apos;s address and land parcel data. Outside Queensland,
+        From state government address and land parcel data for {statesPhrase()}. Anywhere else,
         type the address in yourself.
       </p>
       {searching ? <p className="muted">Searching…</p> : null}

@@ -33,6 +33,8 @@ from app.modules.projects.models import Vertical
 from app.modules.rules.payload import CODE_PATTERN
 
 GUIDES_FILE = Path(__file__).parent / "approval_guides.json"
+# Commonwealth, a state or territory, or one council area ("LGA:QLD_CAIRNS").
+JURISDICTION_PATTERN = r"^(CTH|QLD|NSW|VIC|WA|SA|TAS|ACT|NT|LGA:[A-Z]{2,3}_[A-Z0-9_]+)$"
 
 Url = Annotated[str, StringConstraints(pattern=r"^https?://[^\s]+$", max_length=2000)]
 Line = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=600)]
@@ -92,7 +94,7 @@ class ApprovalGuide(_Strict):
     # Which products show it: the same kind can mean different things elsewhere (a home
     # based business check in BusinessReady is a full planning application in PlanningReady).
     verticals: list[Vertical] = Field(min_length=1)
-    jurisdiction: Annotated[str, StringConstraints(pattern=r"^(CTH|QLD|LGA:QLD_[A-Z_]+)$")]
+    jurisdiction: Annotated[str, StringConstraints(pattern=JURISDICTION_PATTERN)]
     # Where this sits in a customer's plan: lower comes first (before you buy or ship,
     # then at the border, then after arrival or before opening).
     order: int = Field(ge=0, le=1000)

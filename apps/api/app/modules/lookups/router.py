@@ -7,6 +7,7 @@ forms, which the customer checks and saves as usual.
 from __future__ import annotations
 
 import asyncio
+import re
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query, Request
@@ -18,13 +19,6 @@ from app.modules.lookups.abs import POSTCODE_SOURCE
 from app.modules.lookups.amsa import normalise_uvi
 from app.modules.lookups.client import LookupUnavailable, unavailable
 from app.modules.lookups.listing import ListingDetails, parse_listing_url
-from app.modules.lookups.qld import (
-    CADASTRE_SOURCE,
-    AddressMatch,
-    ParcelReport,
-    lga_answer,
-    parse_lot_plan,
-)
 from app.modules.lookups.schemas import (
     AddressMatchOut,
     AddressSearchOut,
@@ -37,6 +31,8 @@ from app.modules.lookups.schemas import (
     VesselLookupOut,
 )
 from app.modules.lookups.service import Lookups
+from app.modules.lookups.spatial import STATES, AddressMatch, ParcelReport, StateSpatial
+from app.modules.lookups.which_state import state_in_text
 from app.modules.tenancy.rbac import Perm
 
 router = APIRouter(prefix="/v1/organisations/{organisation_id}/lookups", tags=["lookups"])
@@ -64,20 +60,18 @@ async def _throttle(ctx: OrgContext, limiter: LimiterDep) -> None:
         raise rate_limited(await limiter.retry_after(LOOKUP_LIMIT, subject))
 
 
-async def _none() -> None:
-    return None
+async def _postcode(lookups: Lookups, m: AddressMatch) -> str | None:
+    if m.postcode:
+        return m.postcode
+    if m.latitude is None or m.longitude is None:
+        return None
+    return await lookups.postcodes.postcode_at(m.latitude, m.longitude)
 
 
 async def _matches_out(lookups: Lookups, matches: list[AddressMatch]) -> list[AddressMatchOut]:
-    """Matches with the postcode of the ABS postal area each one sits in."""
-    postcodes = await asyncio.gather(
-        *(
-            lookups.postcodes.postcode_at(m.latitude, m.longitude)
-            if m.latitude is not None and m.longitude is not None
-            else _none()
-            for m in matches
-        )
-    )
+    """Matches with their postcode: the state's own where its address data has one, else
+    the ABS postal area each one sits in."""
+    postcodes = await asyncio.gather(*(_postcode(lookups, m) for m in matches))
     return [
         AddressMatchOut(
             address_pid=m.address_pid,
@@ -87,9 +81,9 @@ async def _matches_out(lookups: Lookups, matches: list[AddressMatch]) -> list[Ad
             state=m.state,
             postcode=postcode,
             lot_plan=m.lot_plan,
-            lot_plan_label=f"Lot {m.lot} on {m.plan}" if m.lot and m.plan else None,
+            lot_plan_label=m.lot_plan_label,
             local_authority=m.local_authority,
-            lga=lga_answer(m.local_authority),
+            lga=m.lga,
             latitude=m.latitude,
             longitude=m.longitude,
         )
@@ -103,6 +97,8 @@ def parcel_out(p: ParcelReport) -> ParcelOut:
         plan=p.plan,
         lot_plan=p.lot_plan,
         lot_plan_label=p.lot_plan_label,
+        state=p.state,
+        zone=p.zone,
         tenure=p.tenure,
         land_area_m2=p.land_area_m2,
         locality=p.locality,
@@ -131,40 +127,86 @@ def parcel_out(p: ParcelReport) -> ParcelOut:
     )
 
 
+def _states_in_reach(lookups: Lookups) -> str:
+    names = [STATES[code] for code in lookups.states]
+    return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+
+
+async def search_in_states(
+    lookups: Lookups, query: str, state: str | None, limit: int = 8
+) -> tuple[list[AddressMatch], list[StateSpatial]]:
+    """Addresses matching what was typed, in the state given or named in the text, else in
+    every state we cover (best matches of each, in turn). Also returns the states that
+    didn't answer; raises ``LookupUnavailable`` only when none did."""
+    wanted = lookups.for_state(state or state_in_text(query))
+    services = [wanted] if wanted else list(lookups.states.values())
+    results = await asyncio.gather(
+        *(s.search_addresses(query, limit) for s in services), return_exceptions=True
+    )
+    failed = [s for s, r in zip(services, results, strict=True) if isinstance(r, BaseException)]
+    found = [r for r in results if not isinstance(r, BaseException)]
+    if failed and not found:
+        raise LookupUnavailable(f"{', '.join(s.state for s in failed)} didn't answer")
+    # Interleave so the best match of each state comes first.
+    merged: list[AddressMatch] = []
+    for i in range(limit):
+        merged += [r[i] for r in found if i < len(r)]
+    return merged[:limit], failed
+
+
 @router.get("/addresses", response_model=AddressSearchOut)
 async def search_addresses(
     ctx: Read,
     limiter: LimiterDep,
     lookups: LookupsDep,
     q: Annotated[str, Query(min_length=3, max_length=200)],
+    state: Annotated[str | None, Query(pattern=r"^[A-Za-z]{2,3}$")] = None,
 ) -> AddressSearchOut:
-    """Queensland addresses matching what was typed, each with its lot and plan."""
+    """Addresses matching what was typed, each with its parcel (lot and plan) and council."""
     await _throttle(ctx, limiter)
     try:
-        matches = await lookups.qld.search_addresses(q)
+        matches, failed = await search_in_states(lookups, q, state)
     except LookupUnavailable as exc:
-        raise unavailable("The Queensland address service") from exc
+        raise unavailable("The address service") from exc
+    in_reach = {m.state for m in matches} or set(lookups.states)
+    sources = "; ".join(lookups.states[c].source for c in lookups.states if c in in_reach)
+    note = (
+        f"{_states_in_reach(lookups)} addresses only. Postcodes come from ABS postal areas "
+        "where the state's address data has none: check yours."
+    )
+    if failed:
+        names = ", ".join(STATES[s.state] for s in failed)
+        note += f" {names} didn't answer just now, so its addresses may be missing."
     return AddressSearchOut(
         matches=await _matches_out(lookups, matches),
-        source=f"{CADASTRE_SOURCE}; postcodes: {POSTCODE_SOURCE}",
-        note="Queensland addresses only. Postcodes come from ABS postal areas: check yours.",
+        source=f"{sources}; postcodes: {POSTCODE_SOURCE}",
+        note=note,
     )
 
 
 @router.get("/parcels/{lot_plan}", response_model=ParcelOut)
 async def get_parcel(
-    lot_plan: str, ctx: Read, limiter: LimiterDep, lookups: LookupsDep
+    lot_plan: str,
+    ctx: Read,
+    limiter: LimiterDep,
+    lookups: LookupsDep,
+    state: Annotated[str, Query(pattern=r"^[A-Za-z]{2,3}$")] = "QLD",
 ) -> ParcelOut:
-    """A Queensland lot and plan: area, tenure, council and the state-mapped overlays it
+    """A parcel (lot and plan): area, tenure, council and the state-mapped overlays it
     touches, and what to check elsewhere (zone, bushfire, flooding, heritage)."""
     await _throttle(ctx, limiter)
-    parsed = parse_lot_plan(lot_plan)
+    spatial = lookups.for_state(state)
+    if spatial is None:
+        raise ApiError(
+            422, "state_not_covered", f"We look up {_states_in_reach(lookups)} parcels only."
+        )
+    parsed = spatial.parse_parcel_id(lot_plan)
     if parsed is None:
-        raise ApiError(422, "invalid_lot_plan", "Enter a lot and plan like 'Lot 12 on RP123456'.")
+        raise ApiError(422, "invalid_lot_plan", "Enter the lot and plan as your title shows it.")
     try:
-        report = await lookups.qld.parcel(parsed)
+        report = await spatial.parcel(parsed)
     except LookupUnavailable as exc:
-        raise unavailable("The Queensland cadastre service") from exc
+        raise unavailable(f"The {STATES[spatial.state]} cadastre service") from exc
     if report is None:
         raise not_found("Lot and plan")
     return parcel_out(report)
@@ -239,15 +281,20 @@ async def import_listing(
         else:
             notes.append("Bedrooms and price from Domain aren't switched on yet.")
     search = details.address if details and details.address else link.address_text
-    has_street = bool(search and any(c.isdigit() for c in search.split(" QLD")[0]))
+    link_state = link.state or (state_in_text(search) if search else None)
+    street_part = re.split(r"\s(?:QLD|NSW|VIC|WA|SA|TAS|ACT|NT)\b", search or "")[0]
+    has_street = bool(search and any(c.isdigit() for c in street_part))
+    covered = link_state is None or lookups.for_state(link_state) is not None
     matches: list[AddressMatch] = []
-    if search and has_street and link.state in (None, "QLD"):
+    if search and has_street and covered:
         try:
-            matches = await lookups.qld.search_addresses(search)
+            matches, _ = await search_in_states(lookups, search, link_state)
         except LookupUnavailable:
-            notes.append("The Queensland address service didn't answer. Search for the address.")
-    if link.state and link.state != "QLD":
-        notes.append("We look up Queensland addresses only for now. Type the address in.")
+            notes.append("The address service didn't answer. Search for the address.")
+    if not covered:
+        notes.append(
+            f"We look up {_states_in_reach(lookups)} addresses only for now. Type the address in."
+        )
     elif not search:
         notes.append("This link doesn't include the address. Search for it below.")
     elif not has_street:

@@ -29,15 +29,24 @@ from __future__ import annotations
 import asyncio
 import json
 import re
-from dataclasses import dataclass, field
 from datetime import UTC, datetime
-from decimal import Decimal, InvalidOperation
 from typing import Any
 
 import httpx
 
 from app.modules.councils.directory import for_local_authority
 from app.modules.lookups.client import LookupUnavailable, TtlCache
+from app.modules.lookups.spatial import (
+    AddressMatch,
+    NotChecked,
+    Overlay,
+    OverlayCheck,
+    ParcelReport,
+    _decimal,
+    _str,
+    arcgis_json,
+)
+from app.modules.lookups.spatial import lga_answer as _lga_answer
 
 ADDRESS_SERVICE = "PlanningCadastre/LandParcelPropertyFramework/MapServer"
 ADDRESS_LAYER = 0
@@ -114,38 +123,8 @@ def parse_lot_plan(text: str) -> str | None:
 
 
 def lga_answer(local_authority: str | None) -> str | None:
-    """The planning questionnaire's ``property.lga`` value (the council directory's key)
-    for a council name in the address data, or None when it isn't a known council."""
-    council = for_local_authority(local_authority)
-    return council.key if council else None
-
-
-@dataclass(frozen=True)
-class AddressMatch:
-    address_pid: int
-    label: str
-    line1: str
-    suburb: str
-    state: str
-    lot: str | None
-    plan: str | None
-    lot_plan: str | None
-    local_authority: str | None
-    latitude: float | None
-    longitude: float | None
-
-
-@dataclass(frozen=True)
-class OverlayCheck:
-    key: str
-    label: str
-    service: str
-    layers: tuple[int, ...]
-    # The planning questionnaire's ``planning.known_constraints`` option it supports.
-    constraint: str | None
-    group: str
-    # Only features matching this (for a layer holding several places).
-    where: str | None = None
+    """The planning questionnaire's ``property.lga`` value for a Queensland council name."""
+    return _lga_answer(local_authority, "QLD")
 
 
 WET_TROPICS = "Wet Tropics of Queensland"
@@ -239,22 +218,6 @@ OVERLAY_CHECKS: tuple[OverlayCheck, ...] = (
 )
 
 
-@dataclass(frozen=True)
-class Overlay:
-    key: str
-    label: str
-    group: str
-    constraint: str | None
-    source_url: str
-
-
-@dataclass(frozen=True)
-class NotChecked:
-    label: str
-    why: str
-    where_to_check: str | None
-
-
 CAIRNS_PLAN_URL = "https://www.cairns.qld.gov.au/property-and-business/planning-schemes/current"
 
 
@@ -269,7 +232,7 @@ WET_TROPICS_ZONING = NotChecked(
 def not_checked(
     local_authority: str | None, overlays: tuple[str, ...] | list[str] = ()
 ) -> list[NotChecked]:
-    council = for_local_authority(local_authority)
+    council = for_local_authority(local_authority, "QLD")
     cairns = council is not None and council.key == "cairns"
     scheme = council.planning_scheme if council else None
     extra = [WET_TROPICS_ZONING] if "wet_tropics_world_heritage" in overlays else []
@@ -307,56 +270,10 @@ def not_checked(
     ]
 
 
-@dataclass(frozen=True)
-class ParcelReport:
-    lot: str
-    plan: str
-    lot_plan: str
-    tenure: str | None
-    land_area_m2: Decimal | None
-    locality: str | None
-    local_authority: str | None
-    parcel_type: str | None
-    overlays: list[Overlay]
-    overlays_checked: list[str]  # groups checked; a found layer or none of them
-    overlays_failed: list[str]  # groups whose service didn't answer
-    not_checked: list[NotChecked]
-    source: str
-    source_url: str
-    retrieved_at: datetime
-    has_geometry: bool = field(default=True)
-
-    @property
-    def lga(self) -> str | None:
-        return lga_answer(self.local_authority)
-
-    @property
-    def lot_plan_label(self) -> str:
-        return f"Lot {self.lot} on {self.plan}"
-
-    @property
-    def constraints(self) -> list[str]:
-        return sorted({o.constraint for o in self.overlays if o.constraint})
-
-
-def _str(value: Any) -> str | None:
-    if value is None:
-        return None
-    text = str(value).strip()
-    return text or None
-
-
-def _decimal(value: Any) -> Decimal | None:
-    if value is None:
-        return None
-    try:
-        number = Decimal(str(value)).quantize(Decimal("0.01"))
-    except InvalidOperation:
-        return None
-    return number if number > 0 else None
-
-
 class QldSpatial:
+    state = "QLD"
+    source = CADASTRE_SOURCE
+
     def __init__(self, http: httpx.AsyncClient, base_url: str) -> None:
         self.http = http
         self.base_url = base_url.rstrip("/")
@@ -365,19 +282,13 @@ class QldSpatial:
     def layer_url(self, service: str, layer: int) -> str:
         return f"{self.base_url}/{service}/{layer}"
 
+    def parse_parcel_id(self, text: str) -> str | None:
+        return parse_lot_plan(text)
+
     async def _query(self, service: str, layer: int, params: dict[str, Any]) -> dict[str, Any]:
+        # POST: overlay queries carry the parcel's boundary, too long for a URL.
         url = self.layer_url(service, layer) + "/query"
-        data = {"f": "json", **params}
-        try:
-            # POST: overlay queries carry the parcel's boundary, too long for a URL.
-            response = await self.http.post(url, data=data)
-            response.raise_for_status()
-            body = response.json()
-        except (httpx.HTTPError, ValueError) as exc:
-            raise LookupUnavailable(str(exc)) from exc
-        if not isinstance(body, dict) or "error" in body:
-            raise LookupUnavailable(json.dumps(body)[:300])
-        return body
+        return await arcgis_json(self.http, url, params, post=True)
 
     async def _suggest(self, query: str, limit: int) -> list[str]:
         """The locator's type-ahead suggestions, as the address data writes them

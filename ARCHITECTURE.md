@@ -1070,3 +1070,19 @@ Migration 0034 (property gains `bedrooms`, `bathrooms`, `car_spaces`, `property_
 | Web | The project's Site panel: "Have a listing? Paste its link" above the address search (one match is picked automatically), type, bedrooms, bathrooms and car spaces fields, and a "Free property report" button once a property is linked. `/projects/[id]/property-report` loads the report in the browser with a PDF download. |
 | Tests | `tests/test_property_report.py` (link parsing per site, Domain mapping, SDMX parsing, places, crime months, listing import and the report and PDF through the API); web `SitePanel.test.tsx`, `PropertyReport.test.tsx`. |
 | Not built | Domain suburb price statistics (needs a Domain plan with that package); RTA median rent figures inside the report (their file has no published structure or licence); bushfire and council flood/zoning mapping (not published as services; linked instead); other states' parcels, schools and crime. |
+
+## 46. Groundwork for every state and territory
+
+From Jules's ask to keep adding states and guides, one pull request per state. This one
+changes nothing customers see in Queensland; it lets each state be added as content plus
+one lookup module. No migration, no new settings.
+
+| Part | As built |
+|---|---|
+| Councils | `councils/<state>_councils.json` per state (Queensland's file is unchanged). Every entry gets `state` from its file; keys outside Queensland start with the state (`nsw_sydney`) so a key names one council in Australia; spatial names are unique within a state (Campbelltown is in NSW and SA). `for_local_authority(name, state)` matches within a state. `python -m app.modules.councils.pack` writes `councils_<state>` per state (jurisdiction `LGA:NSW_SYDNEY`) and the planning questionnaire's `property.lga` options (Queensland first, then by state, then "other"). |
+| State basics | `councils/states.json` (`states.py`): per state the general steps, the state's application forms, fees the state sets for every council, what it calls a planning scheme, the zoning map link and the state's lodgement portal. `GET /v1/councils/{key}` serves them with the council (`state_fees`, `state_portal`, `planning_scheme_label`, `zoning_lookup_url`); `CouncilGuide` uses the portal and state fees when a council lists none, and names the state instead of Queensland. |
+| Lookups | Shared shapes in `lookups/spatial.py` (`AddressMatch`, `ParcelReport` with `state`, `parcel_label` and `zone`, the `StateSpatial` protocol, the ArcGIS helper). `Lookups.states` maps a state code to its module (only `QLD` so far) and `for_state()` finds it. Address search takes an optional `state`, else reads it from the text (state name or code, else the trailing postcode, `which_state.py`), else asks every state at once and interleaves the best match of each; one state failing only adds a note. `GET .../parcels/{id}?state=` (default QLD) parses the id the state's way. Prefill, listing import and the property report find the state's module the same way. |
+| Questionnaires | Options can number up to 1000 (councils). The API adds `group` (the state's name) to council options once more than one state has councils, and the web shows them under `<optgroup>` headings. Nothing is stored, so no new questionnaire versions. |
+| Guides | Guide jurisdictions may be any state or `LGA:<STATE>_<AREA>`. A state's approvals use kinds prefixed with the state (`NSW_DEVELOPMENT_APPLICATION`) so they never pick up another state's guide. |
+| Web | `lib/coverage.ts` lists the states we look up (`LOOKUP_STATE_CODES`, kept in step with `Lookups.states`); address search, the site panel and parcel checks use it and pass the state. |
+| Tests | `tests/test_states.py` (state from text and postcode, search across states, councils by state, packs and questionnaire in step, every state with councils has its basics); web `coverage.test.ts`, `QuestionField.test.tsx`, CouncilGuide with a state's portal and fees. |

@@ -142,7 +142,7 @@ class QuestionDef(_Strict):
     label: str = Field(min_length=1, max_length=300)
     help_text: str | None = Field(default=None, max_length=1000)
     required: bool = False
-    options: list[OptionDef] = Field(default_factory=list, max_length=100)
+    options: list[OptionDef] = Field(default_factory=list, max_length=1000)
     validation: ValidationDef = Field(default_factory=ValidationDef)
     visible_when: dict[str, Any] | None = None
 

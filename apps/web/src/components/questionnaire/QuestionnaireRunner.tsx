@@ -123,7 +123,7 @@ function initialTexts(
  * submits the answers and assesses them in one go, and the result appears right under a
  * summary of the answers, on the same page. Answers save automatically a moment
  * after each change (and again on "Continue"), so people can leave and come back.
- * Picking a Queensland address fills in its postcode, council and lot and plan, and once the
+ * Picking an address fills in its postcode, council and lot and plan, and once the
  * site is saved we fill in whatever else we can look up about it (land area, mapped
  * constraints, or the project's saved property), say where each came from, and let the
  * person undo it. For a council in our directory, the result shows how to apply to it.
