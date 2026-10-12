@@ -710,7 +710,7 @@ export function QuestionnaireRunner({
             approvalMap={MAP_VERTICALS.has(questionnaire.vertical)}
             guides={result.guides}
           >
-            {shownCouncil ? <CouncilGuide council={shownCouncil} /> : null}
+            {shownCouncil ? <CouncilGuide council={shownCouncil} answers={draft} /> : null}
           </AssessmentReport>
         </div>
       ) : null}
