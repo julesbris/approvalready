@@ -1,0 +1,86 @@
+{
+  "key": "sell.vic_section_32",
+  "vertical": "SELL",
+  "title": "Preparing a Victorian sale",
+  "description": "What to have ready before marketing a Victorian property: the section 32 vendor statement and the documents that feed it, plus agent and buyer-facing obligations. Summarised from Consumer Affairs Victoria, the Building and Plumbing Commission and the State Revenue Office.",
+  "sources": [
+    {
+      "title": "Contracts and disclosure statements – estate agents",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/licensing-and-registration/estate-agents/running-your-business/authorities-commissions-and-contracts/contracts"
+    },
+    {
+      "title": "Due diligence checklist",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/buying-and-selling-property/checklists/due-diligence"
+    },
+    {
+      "title": "Underquoting information for real estate agents",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/licensing-and-registration/estate-agents/running-your-business/underquoting-information-for-real-estate-agents"
+    },
+    {
+      "title": "Selling an owner-built home",
+      "organisation": "Building and Plumbing Commission",
+      "url": "https://www.bpc.vic.gov.au/owner-builders/selling-an-owner-built-home"
+    },
+    {
+      "title": "Property clearance certificates",
+      "organisation": "State Revenue Office Victoria",
+      "url": "https://www.sro.vic.gov.au/buying-property/property-clearance-certificates"
+    }
+  ],
+  "items": [
+    {
+      "key": "conveyancer",
+      "title": "Engage a conveyancer or lawyer to prepare the section 32 statement and contract"
+    },
+    {
+      "key": "section_32",
+      "title": "Section 32 vendor statement ready before any buyer signs",
+      "detail": "Covers mortgages, easements, planning controls, rates and taxes, building permits and insurance."
+    },
+    {
+      "key": "owners_corporation",
+      "title": "Owners corporation certificate and rules",
+      "required": false
+    },
+    {
+      "key": "owner_builder",
+      "title": "Owner-builder defects report and domestic building insurance if selling within 6.5 years",
+      "required": false
+    },
+    {
+      "key": "pool",
+      "title": "Pool registered with council and barrier certificate lodged",
+      "required": false
+    },
+    {
+      "key": "sro_certificate",
+      "title": "SRO property clearance certificate ordered by your conveyancer"
+    },
+    {
+      "key": "due_diligence",
+      "title": "Copies of the Victorian due diligence checklist for open inspections and a link in your listing"
+    },
+    {
+      "key": "sales_authority",
+      "title": "Read the sales authority and agree the estimated selling price with your agent",
+      "required": false
+    },
+    {
+      "key": "reserve",
+      "title": "Confirm the reserve price in writing at least 7 days before an auction",
+      "required": false
+    },
+    {
+      "key": "renter_notice",
+      "title": "Notice of intention to sell given to any renter at least 14 days before showing",
+      "required": false
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Smoke alarms tested and working"
+    }
+  ]
+}

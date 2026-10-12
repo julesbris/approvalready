@@ -95,6 +95,79 @@
         "Planning Portal fees: $43 for a CDC and $47 for other certificates in 2026-27; the portal fee for lodging a DA isn't published.",
         "DA fees here are the maximums in Schedule 4 of the Environmental Planning and Assessment Regulation 2021; councils publish their actual fees."
       ]
+    },
+    {
+      "state": "VIC",
+      "name": "Victoria",
+      "checked_on": "2026-10-12",
+      "general_steps": [
+        "Download a free VicPlan planning property report to see your zone, overlays and whether you're in a Bushfire Prone Area.",
+        "Read your zone and overlay clauses in your council's planning scheme to see whether a permit is needed. Small second dwellings up to 60 m2 often don't need one.",
+        "Check whether your proposal fits a 10 day VicSmart class, and talk to your council's duty planner before you lodge.",
+        "Prepare the application: council's planning permit application form, a current copy of title, plans, a written planning report and any specialist reports like a bushfire management statement.",
+        "Lodge with your council, usually online, and pay the statutory fee. Council can check it's complete within 5 business days.",
+        "Council may ask for more information, refer it to authorities and give notice to neighbours for at least 14 days.",
+        "Council decides within 60 statutory days (10 business days for VicSmart). You can ask VCAT to review a refusal or conditions within 60 days.",
+        "Then appoint a registered building surveyor for the building permit, and get an occupancy permit before moving in."
+      ],
+      "forms": [
+        "vic-vicplan-property-report",
+        "vic-planning-schemes-online",
+        "vic-landata-title-search",
+        "vic-building-permit-application"
+      ],
+      "source": {
+        "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/planning-permits",
+        "title": "Guide to Victoria's planning system: Planning permits (DTP)"
+      },
+      "fees": {
+        "fee_year": "2026-27",
+        "schedule_url": "https://www.darebin.vic.gov.au/files/assets/public/v/1/planning-and-building/documents/statutory-planning-fee-schedule-26-27-final.pdf",
+        "items": [
+          {
+            "label": "Planning permit: use only (Class 1)",
+            "amount": "$1,537.00",
+            "note": "89 fee units at $17.27"
+          },
+          {
+            "label": "Single dwelling, cost $10,000 or less (Class 2)",
+            "amount": "$233.10"
+          },
+          {
+            "label": "Single dwelling, $10,001 to $100,000 (Class 3)",
+            "amount": "$734.00"
+          },
+          {
+            "label": "Single dwelling, $100,001 to $500,000 (Class 4)",
+            "amount": "$1,502.50"
+          },
+          {
+            "label": "Single dwelling, $500,001 to $1 million (Class 5)",
+            "amount": "$1,623.40"
+          },
+          {
+            "label": "VicSmart, cost $10,000 or less / over $10,000",
+            "amount": "$233.10 / $500.80"
+          },
+          {
+            "label": "Subdivide land into 2 lots (Class 18)",
+            "amount": "$1,537.00"
+          },
+          {
+            "label": "Certification of a plan of subdivision",
+            "amount": "$203.80"
+          }
+        ]
+      },
+      "planning_scheme_label": "planning scheme",
+      "zoning_lookup_url": "https://mapshare.vic.gov.au/vicplan/",
+      "gaps": [
+        "Fees are set by the Planning and Environment (Fees) Regulations 2016 in fee units ($17.27 for 2026-27) and are the same in every council; figures here are from Darebin's published 2026-27 schedule.",
+        "There is no single statewide lodgement portal: each council runs its own online lodgement.",
+        "Subdivisions go through SPEAR.",
+        "Building permits come from a registered building surveyor, with the state levy of 0.128% on work over $10,000 paid to the Building and Plumbing Commission (1300 067 088).",
+        "Planning law reforms are commencing in stages until 29 October 2027."
+      ]
     }
   ]
 }

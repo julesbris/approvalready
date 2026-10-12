@@ -1,0 +1,102 @@
+{
+  "key": "rent.vic_start_of_tenancy",
+  "vertical": "RENT",
+  "title": "Starting a Victorian rental agreement",
+  "description": "The paperwork and steps before and when a Victorian renter signs. Summarised from Consumer Affairs Victoria guidance on rental agreements, disclosures, applications, condition reports, bonds and rent payment.",
+  "sources": [
+    {
+      "title": "Residential rental agreements",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements/different-rental-agreements/residential-rental-agreements"
+    },
+    {
+      "title": "Knowing your rights when signing an agreement",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements/applying-signing-and-moving-in/knowing-your-rights-when-signing-an-agreement"
+    },
+    {
+      "title": "Applying for a property",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements/applying-signing-and-moving-in/applying-for-a-property"
+    },
+    {
+      "title": "Condition reports",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/condition-reports"
+    },
+    {
+      "title": "Lodging the bond with the RTBA",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/bond/lodging-the-bond-with-the-rtba"
+    },
+    {
+      "title": "Rent payments and rent in advance",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/rent/rent-payments-and-rent-in-advance"
+    }
+  ],
+  "items": [
+    {
+      "key": "min_standards",
+      "title": "Check the property meets the rental minimum standards before you advertise"
+    },
+    {
+      "key": "application_form",
+      "title": "Take applications only on the Victorian rental application form, with no application fee",
+      "detail": "Ask only for what the form sets out. No rental bidding and no more than one month's rent in advance."
+    },
+    {
+      "key": "disclosures",
+      "title": "Give the renter your written disclosures before they sign",
+      "detail": "Sale plans, mortgagee action, embedded network, last gas and electrical check dates, asbestos, mould or damp notices, building orders and owners corporation matters."
+    },
+    {
+      "key": "agreement",
+      "title": "Prepare the agreement on the Victorian residential rental agreement form"
+    },
+    {
+      "key": "renters_guide",
+      "title": "Give the renter the Renters Guide"
+    },
+    {
+      "key": "condition_report",
+      "title": "Give 2 signed copies (or 1 electronic copy) of the Victorian condition report template before move-in",
+      "detail": "Attach dated photos. The renter returns it within 5 business days of moving in."
+    },
+    {
+      "key": "bond",
+      "title": "Take no more than one month's rent as bond and lodge it with the RTBA within 14 days",
+      "detail": "Unless the rent is more than $900 a week."
+    },
+    {
+      "key": "rent_payment",
+      "title": "Set up a fee-free way to pay rent, including Centrepay"
+    },
+    {
+      "key": "smoke_alarm_info",
+      "title": "Give written information on how the smoke alarms work and how to test them"
+    },
+    {
+      "key": "contact_details",
+      "title": "Give your name, postal address and an urgent repairs phone number"
+    },
+    {
+      "key": "keys",
+      "title": "Give a key to each renter who signed"
+    },
+    {
+      "key": "owners_corporation_rules",
+      "title": "Give the renter the owners corporation rules",
+      "required": false
+    },
+    {
+      "key": "pool_certificate",
+      "title": "Have the pool barrier compliance certificate ready to give the renter on request",
+      "required": false
+    },
+    {
+      "key": "signed_copy",
+      "title": "Give the renter a copy of the signed agreement"
+    }
+  ]
+}

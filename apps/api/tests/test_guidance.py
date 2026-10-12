@@ -17,7 +17,16 @@ from app.modules.tenancy.models import Organisation
 from tests.harness import ApiHarness, platform_user
 from tests.regulatory_helpers import ADMIN, snapshot, unique
 
-GUIDED_PACKS = ("trade_au", "business_qld_cairns", "planning_nsw", "property_nsw", "business_nsw")
+GUIDED_PACKS = (
+    "trade_au",
+    "business_qld_cairns",
+    *(
+        name
+        for name in packs.available()
+        if name.split("_")[0] in ("planning", "property", "business")
+        and name.split("_")[1] not in ("qld",)
+    ),
+)
 
 
 def _approval_kinds(pack_key: str) -> set[str]:

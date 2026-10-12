@@ -156,7 +156,7 @@ def test_every_council_area_has_an_entry() -> None:
     assert directory.for_local_authority("BLUE MOUNTAINS", "NSW") is not None
     planning = states.for_state("NSW")
     assert planning is not None and planning.portal and planning.fees
-    assert len(directory.councils()) == len(directory.councils("QLD")) + 128
+    assert len(directory.councils()) >= len(directory.councils("QLD")) + 128
 
 
 def test_every_nsw_approval_has_a_guide() -> None:

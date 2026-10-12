@@ -1,0 +1,1692 @@
+{
+  "key": "planning_vic",
+  "title": "PlanningReady: Victoria (approval pathways)",
+  "notes": "First sourced rules for Victoria, statewide. Built on 2026-10-12 from Department of Transport and Planning and Building and Plumbing Commission pages, the small second dwelling framework, the clause 54 guide and 2026-27 statutory fees as published by councils. Every reference is UNVERIFIED and carries a summary, not the source's wording. Council planning schemes, zones and overlay schedules are not encoded.",
+  "organisations": [
+    {
+      "ref": "dtp",
+      "name": "Department of Transport and Planning (Victoria)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "VIC",
+      "website": "https://www.planning.vic.gov.au"
+    },
+    {
+      "ref": "bpc",
+      "name": "Building and Plumbing Commission (Victoria)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "VIC",
+      "website": "https://www.bpc.vic.gov.au"
+    },
+    {
+      "ref": "darebin",
+      "name": "Darebin City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_DAREBIN",
+      "website": "https://www.darebin.vic.gov.au"
+    },
+    {
+      "ref": "knox",
+      "name": "Knox City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_KNOX",
+      "website": "https://www.knox.vic.gov.au"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "ssd_page",
+      "organisation": "dtp",
+      "jurisdiction": "VIC",
+      "title": "Small second dwellings (Department of Transport and Planning)",
+      "url": "https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/small-second-dwellings",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ssd_framework",
+      "organisation": "dtp",
+      "jurisdiction": "VIC",
+      "title": "Small second dwellings: planning and building framework (DTP0604)",
+      "url": "https://www.planning.vic.gov.au/__data/assets/pdf_file/0037/699463/DTP0604-Small-Second-Dwellings_Planning-and-building-framework-4.pdf",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "clause54_guide",
+      "organisation": "dtp",
+      "jurisdiction": "VIC",
+      "title": "Single Home Code: clause 54 residential development provisions (DTP)",
+      "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/all-guides/residential-development/single-home-code",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "vc282_news",
+      "organisation": "dtp",
+      "jurisdiction": "VIC",
+      "title": "New streamlined requirements for single dwellings and small second dwellings (VC282)",
+      "url": "https://www.planning.vic.gov.au/news/articles/new-streamlined-requirements-for-single-dwellings-and-small-second-dwellings",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "guide_permits",
+      "organisation": "dtp",
+      "jurisdiction": "VIC",
+      "title": "Guide to Victoria's planning system: Chapter 4 Planning permits",
+      "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/planning-permits",
+      "source_type": "GUIDELINE",
+      "version_label": "Page modified 26 November 2025, read on 2026-10-12"
+    },
+    {
+      "ref": "guide_reviews",
+      "organisation": "dtp",
+      "jurisdiction": "VIC",
+      "title": "Guide to Victoria's planning system: Chapter 5 Reviews",
+      "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/chapter-5-reviews",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "pe_act_updates",
+      "organisation": "dtp",
+      "jurisdiction": "VIC",
+      "title": "Updating the Planning and Environment Act (DTP)",
+      "url": "https://www.planning.vic.gov.au/guides-and-resources/legislation-regulation-and-fees/updating-the-planning-and-environment-act",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "darebin_fees",
+      "organisation": "darebin",
+      "jurisdiction": "LGA:VIC_DAREBIN",
+      "title": "Statutory planning fee schedule 2026-27 (Darebin City Council)",
+      "url": "https://www.darebin.vic.gov.au/files/assets/public/v/1/planning-and-building/documents/statutory-planning-fee-schedule-26-27-final.pdf",
+      "source_type": "FEE_SCHEDULE",
+      "version_label": "1 July 2026 to 30 June 2027"
+    },
+    {
+      "ref": "bpc_homeowners",
+      "organisation": "bpc",
+      "jurisdiction": "VIC",
+      "title": "Information for homeowners and applicants: building permit levy (BPC fact sheet)",
+      "url": "https://www.bpc.vic.gov.au/_media/resource-hub/fact-sheets/information-for-homeowners-and-applicants.pdf",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "bpc_protect",
+      "organisation": "bpc",
+      "jurisdiction": "VIC",
+      "title": "Protect your build (BPC info sheet)",
+      "url": "https://www.bpc.vic.gov.au/resource-hub/info-sheets/protect-your-build",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "knox_building_fees",
+      "organisation": "knox",
+      "jurisdiction": "LGA:VIC_KNOX",
+      "title": "Building fees 2026-27 (Knox City Council)",
+      "url": "https://www.knox.vic.gov.au/building-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "bmo_tech_guide",
+      "organisation": "dtp",
+      "jurisdiction": "VIC",
+      "title": "Technical Guide: Planning permit applications, Bushfire Management Overlay",
+      "url": "https://www.planning.vic.gov.au/__data/assets/pdf_file/0029/639506/Technical-Guide-Planning-Permit-Applications-Bushfire-Management-Overlay.pdf",
+      "source_type": "GUIDELINE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "ssd_definition",
+      "document": "ssd_page",
+      "section": "What is a small second home",
+      "extracted_text": "[Summary, not the source's wording] A small second home is a dwelling of 60 square metres or less with a kitchen, bathroom and toilet, on the same lot as an existing home. It can be built on most properties in residential and rural zones without a planning permit where there are no flooding, environmental or other special planning controls. It must not be connected to reticulated gas, needs no car parking space, and cannot be subdivided or sold separately. A building permit is always required.",
+      "interpretation": "Small second dwellings up to 60 m2 often need no planning permit, but always need a building permit. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "ssd_zones",
+      "document": "ssd_framework",
+      "section": "Zones and overlays table",
+      "extracted_text": "[Summary, not the source's wording] No permit is needed to use land for a small second dwelling in the General Residential, Mixed Use, Neighbourhood Residential, Residential Growth, Township, Low Density Residential, Rural Living, Farming, Rural Activity and Urban Growth (Part A) zones if conditions are met. In residential zones other than Low Density Residential, development needs a permit if the lot is under 300 square metres. Green Wedge, Green Wedge A and Rural Conservation zones need a permit. Small second dwellings are prohibited in commercial zones. In the Heritage, Design and Development and Neighbourhood Character overlays no permit is needed if the building is no more than 5 metres high and finished in muted tones; otherwise a permit is required. Other overlays continue to apply. Conditions include 60 m2 gross floor area or less, no more than one existing dwelling on the lot, only one small second dwelling, and no reticulated gas. A separate lot cannot be created for land containing a small second dwelling.",
+      "interpretation": "Whether a permit is needed depends on the zone, lot size and overlays, which we don't know. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "clause54_scope",
+      "document": "clause54_guide",
+      "section": "When clause 54 applies",
+      "extracted_text": "[Summary, not the source's wording] Clause 54 applies to single dwellings and small second dwellings, including alterations and extensions, on a lot less than 300 square metres in the Residential Growth, General Residential, Neighbourhood Residential, Housing Choice and Transport, Mixed Use or Township zones. A planning permit is required for these developments. VicSmart is a streamlined 10 day permit process with no advertising and no third-party appeal rights for single dwellings and small second dwellings that meet listed standards. On lots of 300 square metres or more the residential development provisions are assessed as part of the building permit.",
+      "interpretation": "A house, extension or small second dwelling on a residential lot under 300 m2 needs a planning permit, possibly through VicSmart. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "vc282_changes",
+      "document": "vc282_news",
+      "section": "VC282",
+      "extracted_text": "[Summary, not the source's wording] Amendment VC282 changed clause 54 from 8 September 2025 with deemed-to-comply standards for single dwellings and small second dwellings on lots under 300 square metres in residential zones (except the Low Density Residential Zone). The 10 day VicSmart process for single and small second dwellings was updated so an application meeting the deemed-to-comply standards is eligible.",
+      "interpretation": "VicSmart is available for compliant single and small second dwellings on small lots. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "permit_process",
+      "document": "guide_permits",
+      "section": "How to apply for a permit",
+      "extracted_text": "[Summary, not the source's wording] An application is made to the responsible authority, usually the council, with the prescribed fee and the information the planning scheme requires, which may include plans and a copy of title. If the applicant is not the owner, the owner must sign or the applicant must declare the owner has been notified. Council may give notice to adjoining owners and occupiers unless no material detriment will result, and cannot decide until the 14 day notice period has ended. Council can issue a permit, a notice of decision or a refusal. VicSmart has fewer steps and shorter timeframes. Council may check an application for completeness within 5 business days and an incomplete application can become void.",
+      "interpretation": "Planning permits are applied for at the council; notice and VCAT review may follow. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "reviews",
+      "document": "guide_reviews",
+      "section": "Table 5.1",
+      "extracted_text": "[Summary, not the source's wording] An applicant can apply to VCAT for review of a refusal within 60 days of the notice of refusal and of conditions within 60 days of the decision. An applicant can also apply if the council fails to decide within the prescribed time (60 days for most applications, 10 for VicSmart), counted from receipt and adjusted for further information requests.",
+      "interpretation": "Applicants can seek review at VCAT. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "pe_act_reform",
+      "document": "pe_act_updates",
+      "section": "Housing Statement Reform and Better Decisions Made Faster reforms",
+      "extracted_text": "[Summary, not the source's wording] Reforms to the Planning and Environment Act 1987 took effect in stages from 25 November 2025, including completeness checks within 5 business days and longer default permit expiry periods. The rest of the Act, including limits on third-party appeal rights, commences by default on 29 October 2027.",
+      "interpretation": "Notice and appeal rules are changing; check the current rules when you apply. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "fees_2026",
+      "document": "darebin_fees",
+      "section": "Regulation 9 and Subdivision fees",
+      "extracted_text": "[Summary, not the source's wording] The 2026-27 fee unit is $17.27. Class 1 use $1,537.00; Class 2 single dwelling $10,000 or less $233.10; Class 3 $10,001 to $100,000 $734.00; Class 4 $100,001 to $500,000 $1,502.50; Class 5 $500,001 to $1 million $1,623.40; Class 7 VicSmart $10,000 or less $233.10; Class 8 VicSmart over $10,000 $500.80; Class 18 subdivide land into 2 lots $1,537.00; certification of a plan of subdivision $203.80.",
+      "interpretation": "Statutory planning fees for 2026-27, as published by a council. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "levy",
+      "document": "bpc_homeowners",
+      "section": "Building permit levy",
+      "extracted_text": "[Summary, not the source's wording] A building permit is issued by a relevant building surveyor, either the council's municipal building surveyor or a private building surveyor. The levy is payable if the cost of building work is more than $10,000 and must be paid to the BPC before the building permit is issued. On completion the building surveyor issues an occupancy permit or a certificate of final inspection.",
+      "interpretation": "Building work needs a building permit from a registered building surveyor; an occupancy permit or certificate of final inspection follows. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "protect_build",
+      "document": "bpc_protect",
+      "section": "Building permits and occupancy permits",
+      "extracted_text": "[Summary, not the source's wording] To build a home you need a building permit issued by a registered building surveyor, whom you appoint. The surveyor carries out mandatory inspections at key stages and then issues an occupancy permit; it is illegal to move in without it. Builders must be registered for work of $10,000 or more and domestic building insurance is needed for projects over $16,000.",
+      "interpretation": "A new home needs an occupancy permit before anyone moves in. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "knox_fees",
+      "document": "knox_building_fees",
+      "section": "Building fees 2026-27",
+      "extracted_text": "[Summary, not the source's wording] The state building permit levy is payable if the cost of works is over $10,000 and is calculated as cost of works x 0.00128. A report and consent for a variation to Part 5 of the Building Regulations costs $474.10.",
+      "interpretation": "Report and consent is a council step when siting rules are not met. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "bmo_guide",
+      "document": "bmo_tech_guide",
+      "section": "Bushfire Management Overlay",
+      "extracted_text": "[Summary, not the source's wording] Land in the Bushfire Management Overlay needs a planning permit for buildings and works such as a dwelling, with a bushfire hazard site assessment, a bushfire hazard landscape assessment and a bushfire management statement, and the application is referred to the CFA. The permit sets the bushfire attack level (BAL) the building must be built to.",
+      "interpretation": "BMO land needs a planning permit with a bushfire assessment; Bushfire Prone Areas need a BAL at the building permit. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "planning.vic.building",
+      "vertical": "PLANNING",
+      "jurisdiction": "VIC",
+      "title": "Victoria: houses, extensions and small second dwellings",
+      "description": "Planning permits, VicSmart, building permits, report and consent and occupancy permits in Victoria for new houses, extensions and small second dwellings.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "VIC"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension"
+            ]
+          }
+        ]
+      },
+      "limitations": [
+        "We don't know your zone or the overlays on your land, so we can't say for sure whether you need a planning permit, only whether you may.",
+        "Your council's planning scheme and its local schedules are not encoded. A free planning property report from VicPlan shows your zone and overlays.",
+        "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+        "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "planning_permit_option",
+          "title": "A planning permit may be needed, depending on zone and overlays",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You may need a planning permit from your council",
+              "detail": "In Victoria, your zone and any overlays in your council's planning scheme decide whether building work needs a planning permit. A house on a lot of 300 m2 or more in most residential zones often needs no permit, but a lot under 300 m2, or overlays like the Heritage Overlay, Bushfire Management Overlay, Land Subject to Inundation Overlay or a vegetation overlay, can trigger one. Get a free planning property report from VicPlan to see your zone and overlays.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_PLANNING_PERMIT",
+                  "authority": "Your local council (the responsible authority)",
+                  "pathway": "Planning permit under your council's planning scheme (Planning and Environment Act 1987)",
+                  "certainty": "MAY_APPLY"
+                },
+                "evidence": [
+                  {
+                    "kind": "PLANNING_PROPERTY_REPORT",
+                    "title": "VicPlan planning property report for the lot"
+                  },
+                  {
+                    "kind": "TITLE_SEARCH",
+                    "title": "Current copy of title, with any covenants and the title plan"
+                  },
+                  {
+                    "kind": "SITE_PLAN",
+                    "title": "Site plan with setbacks, heights and existing buildings"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner",
+                  "architect"
+                ],
+                "task": "Get a free planning property report from VicPlan and check your zone and overlays"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "clause54_scope",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "permit_process",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "New house",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Subdivision",
+              "facts": {
+                "planning.development_type": "subdivision"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "MAY_APPLY because we don't know the zone or overlays."
+        },
+        {
+          "key": "small_lot_clause54",
+          "title": "Lots under 300 m2 in residential zones need a planning permit",
+          "condition": {
+            "fact": "property.land_area_m2",
+            "op": "less_than",
+            "value": 300
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Your lot is under 300 m2, so you likely need a planning permit",
+              "detail": "Building or extending a house or small second dwelling on a lot under 300 m2 in a residential zone (other than the Low Density Residential Zone) needs a planning permit, assessed against clause 54 (the Single Home Code). If your design meets every deemed-to-comply standard, you may be able to use the 10 day VicSmart process.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_PLANNING_PERMIT",
+                  "authority": "Your local council (the responsible authority)",
+                  "pathway": "Planning permit under your council's planning scheme (Planning and Environment Act 1987)",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "evidence": [
+                  {
+                    "kind": "ARCHITECTURAL_PLANS",
+                    "title": "Floor plans and elevations showing clause 54 standards are met"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner",
+                  "architect"
+                ],
+                "task": "Ask your designer to check the plans against the clause 54 deemed-to-comply standards"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "On a lot of 300 m2 or more, siting rules are usually checked at the building permit",
+              "detail": "For a single house on a lot of 300 m2 or more, Victoria's residential siting rules are usually assessed by your building surveyor as part of the building permit, not by a planning permit. Your zone or overlays may still need a permit."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "clause54_scope",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "vc282_changes",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Small lot",
+              "facts": {
+                "property.land_area_m2": 250
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Standard lot",
+              "facts": {
+                "property.land_area_m2": 600
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "LIKELY_REQUIRED because a lot under 300 m2 is almost always in a residential zone; the zone itself is not known."
+        },
+        {
+          "key": "vicsmart_small_lot",
+          "title": "VicSmart may be possible for compliant homes on small lots",
+          "condition": {
+            "fact": "property.land_area_m2",
+            "op": "less_than",
+            "value": 300
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You may be able to use VicSmart, a 10 day planning permit",
+              "detail": "VicSmart is a fast-track planning permit, decided in 10 business days, with no advertising to neighbours and no third-party appeals. A single dwelling or small second dwelling on a lot under 300 m2 is eligible if it meets every listed deemed-to-comply standard in clause 54. If it doesn't, the application goes through the regular permit process.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_VICSMART_PERMIT",
+                  "authority": "Your local council (decided by the CEO or delegate)",
+                  "pathway": "VicSmart 10 day planning permit",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Ask council or a town planner whether your design qualifies for VicSmart"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "vc282_changes",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "clause54_scope",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Small lot",
+              "facts": {
+                "property.land_area_m2": 200
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Large lot",
+              "facts": {
+                "property.land_area_m2": 800
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "heritage_overlay",
+          "title": "Heritage Overlay work needs a planning permit",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "heritage"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Heritage listing: you likely need a planning permit",
+              "detail": "Under the Heritage Overlay, buildings and works, demolition and many external changes need a planning permit. A small second dwelling can avoid a permit in the Heritage Overlay only if it is no more than 5 metres high and finished in muted tones and colours. Places on the Victorian Heritage Register also need a permit from Heritage Victoria.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_PLANNING_PERMIT",
+                  "authority": "Your local council (the responsible authority)",
+                  "pathway": "Planning permit under your council's planning scheme (Planning and Environment Act 1987)",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "evidence": [
+                  {
+                    "kind": "HERITAGE_IMPACT_STATEMENT",
+                    "title": "Heritage impact statement or heritage advice"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner",
+                  "architect"
+                ],
+                "task": "Check the Heritage Overlay schedule for your property in the planning scheme"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ssd_zones",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "permit_process",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Heritage ticked",
+              "facts": {
+                "planning.known_constraints": [
+                  "heritage"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Other constraint",
+              "facts": {
+                "planning.known_constraints": [
+                  "flooding"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "bushfire",
+          "title": "Bushfire areas need a BAL and may need a planning permit",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "bushfire"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Bushfire area: you likely need a BAL assessment",
+              "detail": "In a designated Bushfire Prone Area, a new home or extension must be built to its bushfire attack level (BAL), worked out under AS 3959 for the building permit. If the land is also in the Bushfire Management Overlay (BMO), you need a planning permit with a bushfire management statement, the application goes to the CFA, and the permit sets the BAL and defendable space.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_BAL_ASSESSMENT",
+                  "authority": "Your building surveyor, or a bushfire consultant",
+                  "pathway": "Bushfire attack level (BAL) assessment to AS 3959",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "evidence": [
+                  {
+                    "kind": "BAL_ASSESSMENT",
+                    "title": "BAL assessment report"
+                  },
+                  {
+                    "kind": "BUSHFIRE_MANAGEMENT_STATEMENT",
+                    "title": "Bushfire management statement (BMO land only)"
+                  }
+                ],
+                "referral_categories": [
+                  "building_certifier",
+                  "town_planner"
+                ],
+                "task": "Check VicPlan for the Bushfire Prone Area and the Bushfire Management Overlay"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "bmo_guide",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Bushfire ticked",
+              "facts": {
+                "planning.known_constraints": [
+                  "bushfire"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Heritage only",
+              "facts": {
+                "planning.known_constraints": [
+                  "heritage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "flooding",
+          "title": "Flood-prone land may need a permit and report and consent",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "flooding"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Flood area: you may need a planning permit and council's report and consent",
+              "detail": "Land in the Land Subject to Inundation Overlay or Special Building Overlay usually needs a planning permit for buildings and works, and the floodplain manager (often Melbourne Water or the catchment management authority) comments on it. Flood-prone land can also need council's report and consent before the building permit, with floor levels set above the flood level.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_REPORT_AND_CONSENT",
+                  "authority": "Your council (report and consent)",
+                  "pathway": "Council report and consent under the Building Regulations 2018",
+                  "certainty": "MAY_APPLY"
+                },
+                "evidence": [
+                  {
+                    "kind": "FLOOD_LEVEL_CERTIFICATE",
+                    "title": "Flood level information from the floodplain manager"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner",
+                  "building_certifier"
+                ],
+                "task": "Ask the floodplain manager for flood level information for the lot"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ssd_definition",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "knox_fees",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Flooding ticked",
+              "facts": {
+                "planning.known_constraints": [
+                  "flooding",
+                  "heritage"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No flooding",
+              "facts": {
+                "planning.known_constraints": [
+                  "vegetation"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Flood overlay and regulation details were not read directly this session."
+        },
+        {
+          "key": "vegetation",
+          "title": "Removing vegetation may need a planning permit",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "vegetation"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Protected vegetation: you may need a planning permit to remove trees",
+              "detail": "Vegetation Protection, Environmental Significance and Significant Landscape overlays, local tree controls and the native vegetation rules can need a planning permit to remove, destroy or lop vegetation. Check before you clear anything for the build.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_PLANNING_PERMIT",
+                  "authority": "Your local council (the responsible authority)",
+                  "pathway": "Planning permit under your council's planning scheme (Planning and Environment Act 1987)",
+                  "certainty": "MAY_APPLY"
+                },
+                "evidence": [
+                  {
+                    "kind": "ARBORIST_REPORT",
+                    "title": "Arborist report for trees near the works"
+                  }
+                ],
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Check the overlays in your planning property report before removing any trees"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ssd_zones",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Vegetation ticked",
+              "facts": {
+                "planning.known_constraints": [
+                  "vegetation"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Other",
+              "facts": {
+                "planning.known_constraints": [
+                  "easement"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "Clause 52.17 and overlay schedules were not read directly this session."
+        },
+        {
+          "key": "building_permit",
+          "title": "Building work needs a building permit",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You need a building permit from a registered building surveyor",
+              "detail": "Before work starts you need a building permit. You choose and appoint the building surveyor: your council's municipal building surveyor or a private one. If you need a planning permit, get it first: the building permit must be consistent with it. If the work costs more than $10,000, the state building permit levy (0.128% of the cost) is paid to the Building and Plumbing Commission before the permit is issued.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_BUILDING_PERMIT",
+                  "authority": "A registered building surveyor (council's municipal building surveyor or a private one)",
+                  "pathway": "Building permit under the Building Act 1993",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "evidence": [
+                  {
+                    "kind": "ARCHITECTURAL_PLANS",
+                    "title": "Construction drawings and specifications"
+                  },
+                  {
+                    "kind": "ENGINEERING_DRAWINGS",
+                    "title": "Structural engineering, soil report and energy rating"
+                  },
+                  {
+                    "kind": "BUILDING_CONTRACT",
+                    "title": "Major domestic building contract and builder's insurance (over $16,000)"
+                  }
+                ],
+                "referral_categories": [
+                  "building_certifier",
+                  "builder"
+                ],
+                "task": "Appoint a registered building surveyor and apply for a building permit"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "levy",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "protect_build",
+              "relationship": "SUPPORTING"
+            },
+            {
+              "reference": "knox_fees",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Extension",
+              "facts": {
+                "planning.development_type": "extension"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Change of use",
+              "facts": {
+                "planning.development_type": "change_of_use"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "report_and_consent",
+          "title": "Council report and consent if siting rules aren't met",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "If your design doesn't meet the siting rules, you need council's report and consent",
+              "detail": "Part 5 of the Building Regulations 2018 sets siting rules like setbacks, height, site coverage and overlooking. If your design varies from them, or you build over an easement, your building surveyor can't issue the permit until council gives its report and consent. Council usually notifies affected neighbours.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_REPORT_AND_CONSENT",
+                  "authority": "Your council (report and consent)",
+                  "pathway": "Council report and consent under the Building Regulations 2018",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "building_certifier"
+                ],
+                "task": "Ask your building surveyor whether the design needs report and consent"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "knox_fees",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "clause54_scope",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "New house",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Subdivision",
+              "facts": {
+                "planning.development_type": "subdivision"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "occupancy_permit",
+          "title": "Occupancy permit before moving in",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You need an occupancy permit before anyone moves in",
+              "detail": "When the building is finished, your building surveyor does the final inspection and issues an occupancy permit. It is illegal to live in a new home without it.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_OCCUPANCY_PERMIT",
+                  "authority": "Your relevant building surveyor",
+                  "pathway": "Occupancy permit or certificate of final inspection (Building Act 1993)",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "building_certifier"
+                ]
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You'll get an occupancy permit or a certificate of final inspection at the end",
+              "detail": "When the work is finished your building surveyor issues either an occupancy permit or a certificate of final inspection. Your building permit says which one.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_OCCUPANCY_PERMIT",
+                  "authority": "Your relevant building surveyor",
+                  "pathway": "Occupancy permit or certificate of final inspection (Building Act 1993)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "protect_build",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "levy",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "New house",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Extension",
+              "facts": {
+                "planning.development_type": "extension"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.vic.secondary_dwelling",
+      "vertical": "PLANNING",
+      "jurisdiction": "VIC",
+      "title": "Victoria: small second dwellings",
+      "description": "The 2023 small second dwelling rules: up to 60 m2, often without a planning permit.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "VIC"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "secondary_dwelling"
+          }
+        ]
+      },
+      "limitations": [
+        "We don't know your zone or the overlays on your land, so we can't say for sure whether you need a planning permit, only whether you may.",
+        "Your council's planning scheme and its local schedules are not encoded. A free planning property report from VicPlan shows your zone and overlays.",
+        "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+        "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "floor_area",
+          "title": "Small second dwellings are 60 m2 or less",
+          "condition": {
+            "fact": "planning.secondary_dwelling_floor_area_m2",
+            "op": "less_equal",
+            "value": 60
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "At 60 m2 or less, you may not need a planning permit",
+              "detail": "A small second dwelling of 60 m2 or less needs no planning permit in most residential and rural zones if the lot is 300 m2 or more, there is only one existing home, it isn't connected to reticulated gas, and no overlay triggers a permit. No car park is needed. It can't be subdivided off or sold separately. You still need a building permit."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Over 60 m2, it isn't a small second dwelling, so you likely need a planning permit",
+              "detail": "A second home over 60 m2 is assessed as a second dwelling on the lot. In most residential zones, two dwellings on a lot need a planning permit. Reducing it to 60 m2 or less could avoid the permit.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_PLANNING_PERMIT",
+                  "authority": "Your local council (the responsible authority)",
+                  "pathway": "Planning permit under your council's planning scheme (Planning and Environment Act 1987)",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Decide whether to keep the second home to 60 m2 or less"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ssd_definition",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "ssd_zones",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Small",
+              "facts": {
+                "planning.secondary_dwelling_floor_area_m2": 55
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Large",
+              "facts": {
+                "planning.secondary_dwelling_floor_area_m2": 80
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "existing_home",
+          "title": "There must be one existing home on the lot",
+          "condition": {
+            "fact": "property.has_existing_dwelling",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Good: a small second dwelling goes with an existing home",
+              "detail": "The no-permit rules need no more than one existing dwelling on the lot, and only one small second dwelling."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "Without an existing home, this would be the main house",
+              "detail": "The small second dwelling rules apply only on a lot that already has a home. Without one, the building would be assessed as a dwelling, so check the rules for a new house."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "ssd_zones",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Has home",
+              "facts": {
+                "property.has_existing_dwelling": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Vacant",
+              "facts": {
+                "property.has_existing_dwelling": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.vic.subdivision",
+      "vertical": "PLANNING",
+      "jurisdiction": "VIC",
+      "title": "Victoria: subdivision",
+      "description": "Planning permit, plan certification and statement of compliance for subdividing land in Victoria.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "VIC"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "subdivision"
+          }
+        ]
+      },
+      "limitations": [
+        "We don't know your zone or the overlays on your land, so we can't say for sure whether you need a planning permit, only whether you may.",
+        "Your council's planning scheme and its local schedules are not encoded. A free planning property report from VicPlan shows your zone and overlays.",
+        "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+        "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "subdivision_permit",
+          "title": "Subdividing needs a planning permit",
+          "condition": {
+            "fact": "planning.proposed_lots",
+            "op": "greater_equal",
+            "value": 2
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You need a planning permit to subdivide",
+              "detail": "Subdividing land in Victoria needs a planning permit from your council in almost every zone. The zone schedule may set a minimum lot size, and the council can ask for a public open space contribution. A licensed land surveyor prepares the plan of subdivision.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_PLANNING_PERMIT",
+                  "authority": "Your local council (the responsible authority)",
+                  "pathway": "Planning permit under your council's planning scheme (Planning and Environment Act 1987)",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "evidence": [
+                  {
+                    "kind": "PLAN_OF_SUBDIVISION",
+                    "title": "Proposed plan of subdivision"
+                  },
+                  {
+                    "kind": "TITLE_SEARCH",
+                    "title": "Current copy of title"
+                  }
+                ],
+                "referral_categories": [
+                  "cadastral_surveyor",
+                  "town_planner"
+                ],
+                "task": "Engage a licensed land surveyor to prepare the plan of subdivision"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "permit_process",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "fees_2026",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Two lots",
+              "facts": {
+                "planning.proposed_lots": 2
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "vicsmart_two_lot",
+          "title": "Some two-lot subdivisions can use VicSmart",
+          "condition": {
+            "fact": "planning.proposed_lots",
+            "op": "equals",
+            "value": 2
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A two-lot subdivision may be eligible for VicSmart",
+              "detail": "Some simple subdivisions, like realigning a boundary or subdividing land where each lot already contains a building approved under the scheme, can go through VicSmart, a 10 day permit. Ask council whether yours qualifies.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_VICSMART_PERMIT",
+                  "authority": "Your local council (decided by the CEO or delegate)",
+                  "pathway": "VicSmart 10 day planning permit",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "cadastral_surveyor"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fees_2026",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Two lots",
+              "facts": {
+                "planning.proposed_lots": 2
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Five lots",
+              "facts": {
+                "planning.proposed_lots": 5
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ],
+          "notes": "VicSmart subdivision classes were not read directly this session."
+        },
+        {
+          "key": "certification",
+          "title": "Plan certification and statement of compliance",
+          "condition": {
+            "fact": "planning.proposed_lots",
+            "op": "greater_equal",
+            "value": 2
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "After the permit, council certifies the plan and issues a statement of compliance",
+              "detail": "Under the Subdivision Act 1988, your surveyor lodges the plan of subdivision with council through SPEAR for certification. Once you meet the permit conditions (works, servicing authority consents, open space payment), council issues a statement of compliance. You then lodge the plan at Land Use Victoria to create the new titles.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_SUBDIVISION_CERTIFICATION",
+                  "authority": "Your council, then Land Use Victoria",
+                  "pathway": "Plan certification and statement of compliance (Subdivision Act 1988), lodged through SPEAR",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "cadastral_surveyor"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "fees_2026",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Three lots",
+              "facts": {
+                "planning.proposed_lots": 3
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "bushfire_subdivision",
+          "title": "Subdividing in the BMO needs a bushfire assessment",
+          "condition": {
+            "fact": "planning.known_constraints",
+            "op": "contains",
+            "value": "bushfire"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Bushfire area: your subdivision application needs bushfire information",
+              "detail": "Subdivision in the Bushfire Management Overlay needs a bushfire assessment and is referred to the CFA. Lots may need building envelopes and defendable space.",
+              "payload": {
+                "referral_categories": [
+                  "town_planner"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "bmo_guide",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Bushfire",
+              "facts": {
+                "planning.known_constraints": [
+                  "bushfire"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "None relevant",
+              "facts": {
+                "planning.known_constraints": [
+                  "heritage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.vic.change_of_use",
+      "vertical": "PLANNING",
+      "jurisdiction": "VIC",
+      "title": "Victoria: change of use",
+      "description": "Planning and building approvals when changing how land or a building is used in Victoria.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "VIC"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "change_of_use"
+          }
+        ]
+      },
+      "limitations": [
+        "We don't know your zone or the overlays on your land, so we can't say for sure whether you need a planning permit, only whether you may.",
+        "Your council's planning scheme and its local schedules are not encoded. A free planning property report from VicPlan shows your zone and overlays.",
+        "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+        "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "change_of_use_permit",
+          "title": "Changing use may need a planning permit",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "change_of_use"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Your new use may need a planning permit",
+              "detail": "Each zone lists uses that need no permit (section 1), need a permit (section 2) or are prohibited (section 3). Whether your new use needs a permit depends on the zone, which we don't know. Check your planning property report and the zone in your council's planning scheme.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_PLANNING_PERMIT",
+                  "authority": "Your local council (the responsible authority)",
+                  "pathway": "Planning permit under your council's planning scheme (Planning and Environment Act 1987)",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "town_planner"
+                ],
+                "task": "Look up your zone and find the new use in its table of uses"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "permit_process",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "fees_2026",
+              "relationship": "SUPPORTING"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Change of use",
+              "facts": {
+                "planning.development_type": "change_of_use"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "New house",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "change_of_use_building",
+          "title": "A changed use may need building work and a new occupancy permit",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "change_of_use"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "You may need a building permit and occupancy permit for the new use",
+              "detail": "A different use can change the building's classification under the Building Code. Ask a building surveyor whether you need a building permit for upgrades (fire safety, access, toilets) and an occupancy permit for the new use.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_BUILDING_PERMIT",
+                  "authority": "A registered building surveyor (council's municipal building surveyor or a private one)",
+                  "pathway": "Building permit under the Building Act 1993",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "building_certifier"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "levy",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Change of use",
+              "facts": {
+                "planning.development_type": "change_of_use"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Extension",
+              "facts": {
+                "planning.development_type": "extension"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "planning.vic.general",
+      "vertical": "PLANNING",
+      "jurisdiction": "VIC",
+      "title": "Victoria: every project",
+      "description": "Steps that apply to every planning project in Victoria.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "property.address.state",
+            "op": "equals",
+            "value": "VIC"
+          },
+          {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension",
+              "subdivision",
+              "change_of_use",
+              "other"
+            ]
+          }
+        ]
+      },
+      "limitations": [
+        "We don't know your zone or the overlays on your land, so we can't say for sure whether you need a planning permit, only whether you may.",
+        "Your council's planning scheme and its local schedules are not encoded. A free planning property report from VicPlan shows your zone and overlays.",
+        "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+        "Not legal advice. Confirm with your council, a registered building surveyor or a town planner before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "property_report",
+          "title": "Start with a planning property report",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "in",
+            "value": [
+              "secondary_dwelling",
+              "new_dwelling",
+              "extension",
+              "subdivision",
+              "change_of_use",
+              "other"
+            ]
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Get your free planning property report from VicPlan",
+              "detail": "VicPlan gives a free planning property report showing your council, zone, overlays and whether the land is in a designated Bushfire Prone Area. It is the quickest way to see which permits may apply. Order a title search too, to check for covenants and easements.",
+              "payload": {
+                "task": "Download the VicPlan planning property report for the site"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "permit_process",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Any project",
+              "facts": {
+                "planning.development_type": "other"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "other_project",
+          "title": "Other projects",
+          "condition": {
+            "fact": "planning.development_type",
+            "op": "equals",
+            "value": "other"
+          },
+          "effective_from": "2026-07-01",
+          "max_confidence": "LIKELY",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Your project may need a planning permit",
+              "detail": "We can't tell from the description which rules apply. Check your zone and overlays, and ask your council's planning department.",
+              "payload": {
+                "approval": {
+                  "kind": "VIC_PLANNING_PERMIT",
+                  "authority": "Your local council (the responsible authority)",
+                  "pathway": "Planning permit under your council's planning scheme (Planning and Environment Act 1987)",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "town_planner"
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "permit_process",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Other",
+              "facts": {
+                "planning.development_type": "other"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "House",
+              "facts": {
+                "planning.development_type": "new_dwelling"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

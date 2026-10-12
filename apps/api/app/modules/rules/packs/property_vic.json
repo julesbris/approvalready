@@ -1,0 +1,2421 @@
+{
+ "key": "property_vic",
+ "title": "PropertyReady: selling and renting residential property in Victoria",
+ "notes": "First sourced rules for SellReady and RentReady in Victoria. Built from Consumer Affairs Victoria, the Building and Plumbing Commission (formerly the Victorian Building Authority) and State Revenue Office pages read on 2026-10-12. Consumer Affairs Victoria pages were read through its content mirror (cms10-prd.consumer.vic.gov.au) because the public site blocks automated reading; the URLs cited are the public www.consumer.vic.gov.au addresses with the same paths. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The Sale of Land Act 1962, the Residential Tenancies Act 1997 and Regulations 2021, the Building Act 1993 and the Estate Agents Act 1980 were not read directly.",
+ "organisations": [
+  {
+   "ref": "cav",
+   "name": "Consumer Affairs Victoria",
+   "kind": "REGULATOR",
+   "jurisdiction": "VIC",
+   "website": "https://www.consumer.vic.gov.au"
+  },
+  {
+   "ref": "rtba",
+   "name": "Residential Tenancies Bond Authority",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "VIC",
+   "website": "https://www.rentalbonds.vic.gov.au"
+  },
+  {
+   "ref": "bpc",
+   "name": "Building and Plumbing Commission (formerly the Victorian Building Authority)",
+   "kind": "REGULATOR",
+   "jurisdiction": "VIC",
+   "website": "https://www.bpc.vic.gov.au"
+  },
+  {
+   "ref": "sro",
+   "name": "State Revenue Office Victoria",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "VIC",
+   "website": "https://www.sro.vic.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "cav_contracts",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Contracts and disclosure statements – estate agents",
+   "url": "https://www.consumer.vic.gov.au/licensing-and-registration/estate-agents/running-your-business/authorities-commissions-and-contracts/contracts",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_due_diligence",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Due diligence checklist",
+   "url": "https://www.consumer.vic.gov.au/housing/buying-and-selling-property/checklists/due-diligence",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_selling_checklist",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Selling property - checklist",
+   "url": "https://www.consumer.vic.gov.au/housing/buying-and-selling-property/checklists/selling-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_sales_changes",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "New changes to property sales and underquoting laws",
+   "url": "https://www.consumer.vic.gov.au/licensing-and-registration/estate-agents/new-changes-to-property-sales-and-underquoting-laws",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_underquoting",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Underquoting information for real estate agents",
+   "url": "https://www.consumer.vic.gov.au/licensing-and-registration/estate-agents/running-your-business/underquoting-information-for-real-estate-agents",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "bpc_owner_builder_sale",
+   "organisation": "bpc",
+   "jurisdiction": "VIC",
+   "title": "Selling an owner-built home",
+   "url": "https://www.bpc.vic.gov.au/owner-builders/selling-an-owner-built-home",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "bpc_pools",
+   "organisation": "bpc",
+   "jurisdiction": "VIC",
+   "title": "Swimming pools and spas",
+   "url": "https://www.bpc.vic.gov.au/home-owners/home-renovation-and-building-essentials/swimming-pools-and-spas",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "cav_pools_rental",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Swimming pools and spas - safety",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/keeping-the-property-safe/swimming-pools-and-spa-safety",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_smoke_alarms",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Smoke alarms and fire safety",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/keeping-the-property-safe/smoke-alarms-and-fire-safety",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_entry",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Rental providers' (landlords') entry rights and responsibilities",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/rental-providers-inspecting-or-entering-a-property/when-a-rental-provider-can-enter-a-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_notice_to_vacate",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Notice to vacate in rental properties",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/moving-out-giving-notice-and-evictions/notice-to-vacate/notice-to-vacate-in-rental-properties",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "sro_clearance",
+   "organisation": "sro",
+   "jurisdiction": "VIC",
+   "title": "Property clearance certificates",
+   "url": "https://www.sro.vic.gov.au/buying-property/property-clearance-certificates",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "sro_wgt",
+   "organisation": "sro",
+   "jurisdiction": "VIC",
+   "title": "Buying and selling land subject to windfall gains tax",
+   "url": "https://www.sro.vic.gov.au/owning-property/windfall-gains-tax/buying-and-selling-land-subject-windfall-gains-tax",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "cav_rental_changes",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "New changes to the rental laws",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/new-changes-to-the-rental-laws",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_rental_agreements",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Residential rental agreements",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements/different-rental-agreements/residential-rental-agreements",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_signing",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Knowing your rights when signing an agreement",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements/applying-signing-and-moving-in/knowing-your-rights-when-signing-an-agreement",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_applying",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Applying for a property",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements/applying-signing-and-moving-in/applying-for-a-property",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_condition_reports",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Condition reports",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/condition-reports",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_bond_amounts",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Bond amounts and paying a bond",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/bond/bond-amounts-and-paying-a-bond",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_bond_lodging",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Lodging the bond with the RTBA",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/bond/lodging-the-bond-with-the-rtba",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_min_standards",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Minimum standards for rental properties",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/minimum-standards/minimum-standards-for-rental-properties",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_gas_electrical",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Rental providers: gas and electrical safety",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/gas-electrical-and-water-safety-standards/rental-providers-gas-and-electrical-safety",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_rent_payments",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Rent payments and rent in advance",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/rent/rent-payments-and-rent-in-advance",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_rent_increases",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Rent increases",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/rent/rent-increases",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "cav_modifications",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Renters making changes to the property",
+   "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/renters-making-changes-to-the-property",
+   "source_type": "GUIDELINE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "s32_contents",
+   "document": "cav_contracts",
+   "section": "Section 32 vendor's statement",
+   "extracted_text": "[Summary, not the source's wording] Sections 32 and 33 of the Sale of Land Act 1962 require a vendor's statement (section 32 statement). It has a principal statement covering mortgages, improvements, easements, planning controls, rates and taxes, and an additional statement where the sale is on a terms contract or a mortgage will not be discharged at settlement. The seller and their legal practitioner or conveyancer usually complete it; an agent is not responsible for preparing it. It must be given to a prospective buyer before they sign the contract of sale, usually attached to the contract. A contract is not binding on a buyer if a section 32 statement is not provided, or is incomplete or inaccurate, and the seller's disclosure obligations cannot be removed by a contract term.",
+   "interpretation": "Applies to every sale of land in Victoria. The Sale of Land Act 1962 itself (version 174, in force from 9 September 2026) was not read section by section. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "s32_availability_2027",
+   "document": "cav_sales_changes",
+   "section": "Section 32 statement availability (from 1 June 2027)",
+   "extracted_text": "[Summary, not the source's wording] From 1 June 2027 agents must make the section 32 statement available within 14 days after advertising for a private sale, at least 14 days before an auction or fixed-date sale, or before the buyer signs if the property is not advertised or sells within 14 days of advertising. From 1 July 2027 the early release of deposit process is replaced by a contract condition, and agents can't take commission directly from a deposit released before settlement.",
+   "interpretation": "Future change: used to tell sellers to have the statement ready before marketing. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "due_diligence",
+   "document": "cav_due_diligence",
+   "section": "Who must provide the checklist",
+   "extracted_text": "[Summary, not the source's wording] Sellers and estate agents must make the due diligence checklist available to prospective buyers of homes and vacant residential land: copies at every open for inspection, and a link to consumer.vic.gov.au/duediligencechecklist or a copy on any website run by the agent or seller. If no agent is acting, the seller does this. Headings cover urban living, owners corporations, growth areas, flood and fire risk, rural properties, contamination, boundaries, planning controls, safety, building permits and buyers' rights.",
+   "interpretation": "Applies to residential sales, whether or not an agent is used. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "cooling_off",
+   "document": "cav_contracts",
+   "section": "Cooling-off (residential property)",
+   "extracted_text": "[Summary, not the source's wording] A buyer of residential property can cool off within three clear business days from the day after they sign, by written notice to the agent or seller, and forfeits $100 or 0.2% of the price, whichever is greater. There is no cooling-off for public auctions or sales within three clear business days before or after a public auction, commercial or industrial property, rural property over 20 hectares, buyers who are estate agents or companies, or a buyer who previously contracted for the same property on substantially the same terms. The right can't be removed by a contract term.",
+   "interpretation": "Explains what the seller should expect after the buyer signs. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "legal_rep",
+   "document": "cav_selling_checklist",
+   "section": "Selling property checklist",
+   "extracted_text": "[Summary, not the source's wording] Before selling, Consumer Affairs Victoria suggests you have chosen an independent legal representative to prepare the section 32 statement, agreed the advertised price with your agent, and read the sales authority and other documents carefully before signing.",
+   "interpretation": "Used to point sellers without a conveyancer to one. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "underquoting",
+   "document": "cav_underquoting",
+   "section": "Estimated selling price and Property Price Statement",
+   "extracted_text": "[Summary, not the source's wording] An agent's estimated selling price must be reasonable, take account of the 3 most comparable sales, be a single figure or a range of up to 10%, and appear in the sales authority. From 1 October 2026 the Statement of Information is renamed the Property Price Statement. Agents must prepare one for each residential property they are engaged to sell, display it at open inspections and in the main online listing, and give it to a buyer within 2 business days of a request. Advertised prices can't be below the estimate, the seller's asking price or a rejected written offer, and can't use words like 'offers above' or '+'. Penalties exceed $50,000.",
+   "interpretation": "The duty is on the agent; the seller sets the asking price and must not instruct the agent to underquote. The page doesn't say whether a private seller must prepare a Property Price Statement. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "reserve_price",
+   "document": "cav_sales_changes",
+   "section": "Reserve price disclosure and sold price (from 1 October 2026)",
+   "extracted_text": "[Summary, not the source's wording] For auctions and fixed-date sales on or after 16 October 2026, the agent must publish the seller's reserve price at least 7 days before the sale, or the sale can't go ahead. The agent first asks for the reserve in writing with a proposal and reasons, and the seller confirms in writing. Agents must add the sold price to the Property Price Statement within 7 days of the sale becoming unconditional and keep it online for 18 months unless exempt.",
+   "interpretation": "Affects sellers going to auction with an agent from 16 October 2026. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "owner_builder_sale",
+   "document": "bpc_owner_builder_sale",
+   "section": "Selling an owner-built home",
+   "extracted_text": "[Summary, not the source's wording] An owner-builder who sells within 6 years 6 months of completing domestic building work valued over $20,000 needs domestic building insurance, bought before entering a contract of sale, and a defects inspection report by a prescribed practitioner on the BPC's Owner Builder Defects Inspection report template, no older than six months, listing all defective or non-compliant work with photos. The Notice of Cover and the defects report go in the section 32 statement, and a certificate of cover is given to the buyer with it. The contract must include the statutory warranties that the work was done properly, with suitable materials and in line with the law. The BPC can order defects fixed for up to 10 years after completion.",
+   "interpretation": "The page gives the period as 6 years, 6.5 years and 6 years 6 months in different places; confirm the exact cut-off with the BPC. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_register",
+   "document": "bpc_pools",
+   "section": "Registration and barrier inspections",
+   "extracted_text": "[Summary, not the source's wording] All landowners must register any pool or spa that can hold more than 300mm of water with their local council. A registered pool inspector, building inspector or building surveyor inspects the barrier and issues a certificate of barrier compliance once any issues are fixed. The owner lodges the certificate with council within 30 days of receiving it, and the pool must be inspected every four years for a new certificate.",
+   "interpretation": "Applies to every property with a pool or spa, sold or rented. Council fees were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pool_rental",
+   "document": "cav_pools_rental",
+   "section": "Rental provider obligations",
+   "extracted_text": "[Summary, not the source's wording] A rental provider must register the pool with the local council, have the barrier inspected every 4 years, lodge a certificate of barrier compliance with council, keep the barrier in good repair (repairs are urgent) and give the renter a copy of the compliance certificate on request. Renters must keep pool gates closed and report faults in writing.",
+   "interpretation": "Used for rented properties with a pool or spa. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "smoke_alarms",
+   "document": "cav_smoke_alarms",
+   "section": "Smoke alarm rules",
+   "extracted_text": "[Summary, not the source's wording] Smoke alarms must meet AS 3786, be correctly installed and working. Buildings constructed after 1 August 1997 need hard-wired alarms with battery backup; older buildings can use battery alarms. From 25 November 2025 all rental properties must have annual smoke alarm safety checks. A faulty alarm must be repaired or replaced immediately; a renter can arrange an urgent repair up to $2,500 if the rental provider can't be reached. On or before the start of the agreement the renter must get written information on how each alarm works, how to test it and their duties. Hard-wired alarms must be installed by a qualified electrician.",
+   "interpretation": "Rental page; the post-1997 hard-wiring rule is building law and is used here for homes being sold too. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "sale_entry",
+   "document": "cav_entry",
+   "section": "Entry to sell the property",
+   "extracted_text": "[Summary, not the source's wording] Before showing a rented property to buyers, the rental provider must give the renter a notice of intention to sell at least 14 days beforehand. Each viewing needs at least 48 hours' written notice giving the reason, between 8am and 6pm on any day other than a public holiday unless the renter agrees. Viewings are limited to twice a week, one hour each, unless the renter agrees. The renter gets compensation of half a day's rent or $30, whichever is greater, per inspection. Advertising photos need 7 days' notice and the renter can object to identifiable or valuable belongings being shown.",
+   "interpretation": "Applies when you sell with a renter in place. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "ntv_reasons",
+   "document": "cav_notice_to_vacate",
+   "section": "Reasons and notice periods",
+   "extracted_text": "[Summary, not the source's wording] A rental provider can only give a notice to vacate for a reason listed in the law; since the 2025 reforms there is no notice to vacate without a reason. Immediate notice applies for serious damage, danger to others or premises unfit to live in. 14 days applies for reasons such as at least 14 days' rent owing, serious threats, illegal use, unpaid bond or a third breach of the same duty. At or after the end of a fixed term, or any time in a periodic agreement, 90 days applies for reasons including renovations or demolition with permits, change of use, the provider or family moving in, sale with vacant possession, or public purposes, each needing evidence such as a contract of sale, agent engagement or a witnessed statutory declaration. Without the required evidence the notice is invalid. Several reasons bar re-letting for 6 months. Use the notice to vacate form, sign it, state the reason and termination date, and deliver it by registered post, by hand, or by email only if the renter agreed.",
+   "interpretation": "Used for ending a tenancy and for selling with a renter. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "land_tax_clearance",
+   "document": "sro_clearance",
+   "section": "Property clearance certificates",
+   "extracted_text": "[Summary, not the source's wording] The State Revenue Office issues property clearance certificates showing tax owing on land, with notes for land tax, commercial and industrial property tax and windfall gains tax, through its clearance certificates portal.",
+   "interpretation": "Pointer only: the article body didn't load, so who applies and how adjustments work were not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "windfall_gains",
+   "document": "sro_wgt",
+   "section": "Windfall gains tax and selling",
+   "extracted_text": "[Summary, not the source's wording] A windfall gains tax liability, which can arise when land is rezoned and its value rises, can affect how land is sold or transferred. The SRO publishes pages on deferring, paying and clearing the liability.",
+   "interpretation": "Pointer only: the page body didn't load. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rental_reforms",
+   "document": "cav_rental_changes",
+   "section": "Changes now in effect and upcoming",
+   "extracted_text": "[Summary, not the source's wording] From 25 November 2025: no notice to vacate without a valid reason; 90 days' notice (previously 60) for rent increases and certain notices to vacate; a ban on all rental bidding and on more than one month's rent in advance; properties must meet the minimum standards when advertised; annual smoke alarm checks for all rentals; protection of renters' personal information. From 1 December 2025: blind cord anchors. From 31 March 2026: a prescribed rental application form, limits on what applicants can be asked, and a ban on third-party fees for applications and rent payment. From 9 September 2026 renters can pay bond directly to the RTBA. From 13 October 2026: advance notice to the renter of a bond claim, records showing the minimum standards were met, gas and electrical checks every 2 years for all rentals, a gas check before draughtproofing, and a ban on charging any fee for a rental application. From 1 March 2027 (phased): minimum energy efficiency standards.",
+   "interpretation": "Overview page listing the 2025 Housing Statement reforms and their dates. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "agreement_form",
+   "document": "cav_rental_agreements",
+   "section": "Prescribed forms and what to give the renter",
+   "extracted_text": "[Summary, not the source's wording] A written rental agreement must use the prescribed form: Form 1 for a fixed term of 5 years or less or a periodic agreement, Form 2 for a fixed term of more than 5 years. Some terms are invalid, such as requiring insurance, penalties, payment for preparing the agreement or for safety equipment maintenance, or use of a nominated third-party provider. Before the renter moves in they must get a copy of the agreement, the Renters Guide, an urgent repairs phone number, the provider's or agent's name and postal address (and email if agreed), a key for each renter and 2 copies of the condition report or 1 electronic copy. There is no cooling-off period.",
+   "interpretation": "Applies to every residential rental agreement. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "disclosures",
+   "document": "cav_signing",
+   "section": "Disclosures before signing",
+   "extracted_text": "[Summary, not the source's wording] Before the agreement is signed the rental provider must disclose, among other things: an intention to sell or a mortgagee taking possession action; their right to rent out the property; an embedded electricity network; the dates of the last gas and electrical safety checks and any outstanding recommendations; known asbestos, a homicide within 5 years and drug-related use, to the best of their knowledge; whether the minimum standards are met and any mould or damp repair notices in the last 3 years; heritage listing, building or planning applications, and building or safety orders; and owners corporation rules and disputes. A renter must be given at least one way to pay rent without fees. Bond is usually limited to one month's rent.",
+   "interpretation": "Duty of disclosure under the Residential Tenancies Act 1997 (sections 30A to 30E are referenced). The full statutory list was not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "applications",
+   "document": "cav_applying",
+   "section": "Rental application rules",
+   "extracted_text": "[Summary, not the source's wording] From 31 March 2026 rental providers and agents must use the prescribed rental application form and can only ask for the information it sets out, with identity and financial documents each capped at two. They can't charge a fee to show a property, can't ask for, invite or accept rent above the advertised price, and can't ask for or accept more than one month's rent in advance.",
+   "interpretation": "Used for advertising and choosing a renter. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "condition_report",
+   "document": "cav_condition_reports",
+   "section": "Condition reports",
+   "extracted_text": "[Summary, not the source's wording] Before the renter moves in, the rental provider or agent gives them 2 signed copies of the condition report, or one electronic copy. The renter returns it within 5 business days of moving in. At the end of the agreement the provider completes the exit condition report section within 10 days, with the renter present or given a reasonable chance to attend. Dated, labelled photos should be attached.",
+   "interpretation": "Applies at the start and end of every tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_amounts",
+   "document": "cav_bond_amounts",
+   "section": "Bond amount and lodgement",
+   "extracted_text": "[Summary, not the source's wording] In most cases a bond can't be more than one month's rent. A higher bond is allowed only if the weekly rent is more than $900 or VCAT has set a higher bond. A rental provider who receives the bond must lodge it with the RTBA within 14 days (not counting public holidays). The RTBA gives a receipt with the bond number to the provider and all renters within 7 days. A renter can pay the RTBA directly if they tell the provider in writing before the lodgement starts.",
+   "interpretation": "Used for the bond limit and the lodgement deadline. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_lodging",
+   "document": "cav_bond_lodging",
+   "section": "Lodging the bond online",
+   "extracted_text": "[Summary, not the source's wording] Rental providers register an RTBA account (with bank details if the RTBA is to deduct the bond) and lodge online at rentalbonds.vic.gov.au with the bond amount, address and renters' details. Each renter gets an email link to accept, needs a unique email address and must pass Service Victoria identity checks within 14 days or the lodgement lapses. The provider's account is debited, or the renter pays by BPAY, direct debit or card (link valid 48 hours), or transfers a portable bond. Lodgement usually completes within one business day; payments can take up to 8 days. RTBA phone 1300 137 164.",
+   "interpretation": "Describes the RTBA online process for self-managing rental providers. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "min_standards",
+   "document": "cav_min_standards",
+   "section": "The 15 categories of minimum standards",
+   "extracted_text": "[Summary, not the source's wording] There are 15 categories: bathrooms, electrical safety (modern switchboard, circuit breakers and safety switches), heating (a fixed heater in the main living area, energy efficient for agreements from 29 March 2023), kitchen, laundry, lighting, locks, mould and damp (rooms free from mould and damp caused by the building structure), structural soundness and weatherproofing, toilets, ventilation, vermin-proof bins, windows, window coverings in bedrooms and living areas, and, from 1 December 2025, anchors on corded internal window coverings. The property must meet them when advertised and before the renter moves in (sections 65A and 65B of the Residential Tenancies Act 1997).",
+   "interpretation": "Applies to every residential rental property. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "gas_electrical",
+   "document": "cav_gas_electrical",
+   "section": "Gas and electrical safety checks",
+   "extracted_text": "[Summary, not the source's wording] For agreements entered into after 29 March 2021, gas safety checks every 2 years by a licensed or registered gasfitter (Type A gas appliance servicing) and electrical safety checks every 2 years by a licensed electrician are required. Records must include the practitioner's name and licence number, the date and results (for gas, a copy of the gas servicing record; for electrical, an AS/NZS 3019 section 2 report) and be kept until the next check. The dates of the last checks are disclosed before the agreement, and a copy of the latest check must be given within 7 days of a written request. Since 29 March 2023 power outlets and lighting circuits must connect to compliant switchboard circuit breakers and RCDs.",
+   "interpretation": "The overview page says the 2-yearly checks become mandatory for all rental properties from 13 October 2026; this page still describes the 2021 rule. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_payments",
+   "document": "cav_rent_payments",
+   "section": "Rent payment methods",
+   "extracted_text": "[Summary, not the source's wording] The rental provider must offer at least one way to pay rent with no fee beyond the renter's own bank fees, and rent must be payable by Centrepay and at least one other electronic funds transfer method. Fees tied to an agreed method must be disclosed. Post-dated cheques can't be required. Third-party rent payment and application platforms must not charge renters fees. Rent in advance is limited to one month (14 days for weekly rent) unless rent is over $900 a week. Receipts are due immediately for in-person payments, otherwise within 5 business days of a request; rent records are kept for at least 12 months.",
+   "interpretation": "Applies to every tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "rent_increases",
+   "document": "cav_rent_increases",
+   "section": "Rent increase rules",
+   "extracted_text": "[Summary, not the source's wording] In most cases rent can't be increased more than once every 12 months, even if the agreement says otherwise. The rental provider must use the prescribed notice of proposed rent increase, given at least 90 days before the increase (60 days before 25 November 2025). The notice states the increase, how it was calculated and what the renter can do. A notice on the wrong form isn't valid. Renters can ask Consumer Affairs Victoria for a rent assessment and go to VCAT.",
+   "interpretation": "Applies to every tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "modifications",
+   "document": "cav_modifications",
+   "section": "Modifications renters can make",
+   "extracted_text": "[Summary, not the source's wording] A rental provider can't unreasonably refuse consent to listed modifications, including picture hooks and wall anchors (except on exposed brick or concrete), child safety gates, draughtproofing where there is no open-flued gas heating, a security system installed by a qualified person, flyscreens, a vegetable or herb garden, a secure letterbox, and changes needed for health and safety, disability access, communications, security, family violence protection, comfort or lower energy and water bills that don't permanently alter the property. A renter in dispute can apply to VCAT. The renter restores the property at the end unless agreed otherwise; a modification bond can sometimes be asked for.",
+   "interpretation": "Applies during every tenancy. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bond_claims",
+   "document": "cav_rental_changes",
+   "section": "Strengthened bond claims (13 October 2026)",
+   "extracted_text": "[Summary, not the source's wording] From 13 October 2026 rental providers must notify the renter in advance if they will claim on the bond.",
+   "interpretation": "Used for the end of a tenancy; the detailed notice rules were not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "sell.vic.vendor_statement",
+   "vertical": "SELL",
+   "jurisdiction": "VIC",
+   "title": "Victoria: selling a property",
+   "description": "The section 32 vendor statement, due diligence checklist, cooling-off, underquoting and the Property Price Statement, auction reserve prices, owners corporations, owner-builder insurance and defects reports, pool registration, smoke alarms, selling with a renter and SRO clearance, from Consumer Affairs Victoria, the Building and Plumbing Commission and the State Revenue Office.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "VIC"
+   },
+   "limitations": [
+    "Built from Consumer Affairs Victoria, Building and Plumbing Commission and State Revenue Office web pages; the Sale of Land Act 1962 and the Estate Agents Act 1980 were not read directly.",
+    "Doesn't prepare the section 32 statement or decide what it must contain for your property; your conveyancer or lawyer does that.",
+    "Doesn't check off-the-plan sales, terms contracts or sales of farmland over 20 hectares.",
+    "Doesn't work out whether owner-builder work was worth more than $20,000 or finished within 6 years 6 months; confirm with the Building and Plumbing Commission.",
+    "Doesn't assess land tax, windfall gains tax, vacant residential land tax, stamp duty, capital gains tax or foreign resident withholding; it only points you to them.",
+    "Commercial leases are not residential tenancies; the tenancy findings are for homes only.",
+    "Not legal advice. Confirm with a conveyancer or lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "section_32_statement",
+     "title": "Section 32 vendor statement before the buyer signs",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Get your section 32 vendor statement prepared before you market the property",
+       "detail": "Every Victorian sale needs a vendor statement under section 32 of the Sale of Land Act 1962. It covers mortgages, easements, planning controls, rates and taxes, building permits and insurance, and must be given to the buyer before they sign. If it is missing, incomplete or wrong, the buyer may not be bound by the contract, and a contract term can't remove your duty. Ask a conveyancer or lawyer to prepare it with the contract now. From 1 June 2027 agents must make it available within 14 days of advertising, or at least 14 days before an auction.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "VENDOR_STATEMENT",
+          "title": "Section 32 vendor statement prepared by your conveyancer or lawyer"
+         },
+         {
+          "kind": "CONTRACT_FOR_SALE",
+          "title": "Victorian contract of sale of land"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Ask your conveyancer to prepare the section 32 statement and contract before listing",
+        "checklists": [
+         "sell.vic_section_32"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "s32_contents",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "s32_availability_2027",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "due_diligence_checklist",
+     "title": "Due diligence checklist for buyers",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "VIC"
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make the Victorian due diligence checklist available to buyers",
+       "detail": "If you sell a home or vacant residential land, you or your agent must have copies of the Victorian due diligence checklist at every open for inspection, and link to it (consumer.vic.gov.au/duediligencechecklist) or host a copy on any website advertising the sale. If you sell without an agent, this is your job. Download it from Consumer Affairs Victoria and print copies before your first inspection.",
+       "payload": {
+        "task": "Print the due diligence checklist and link it from your listing",
+        "checklists": [
+         "sell.vic_section_32"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "due_diligence",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "House in Victoria",
+       "facts": {
+        "property.address.state": "VIC",
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Commercial property",
+       "facts": {
+        "property.address.state": "VIC",
+        "sell.property_type": "commercial"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Type not answered",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "engage_conveyancer",
+     "title": "Getting a conveyancer or lawyer",
+     "condition": {
+      "fact": "sell.has_conveyancer",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "PROFESSIONAL_REQUIRED",
+       "title": "Choose a conveyancer or lawyer to prepare the section 32 statement",
+       "detail": "Consumer Affairs Victoria suggests choosing an independent legal representative to prepare your section 32 vendor statement before you sign a sales authority. An agent is not responsible for preparing it. Get quotes from two or three licensed conveyancers or property lawyers now, as the searches and certificates take time.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer",
+         "lawyer"
+        ],
+        "task": "Engage a conveyancer or property lawyer"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "legal_rep",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "s32_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No conveyancer",
+       "facts": {
+        "sell.has_conveyancer": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has conveyancer",
+       "facts": {
+        "sell.has_conveyancer": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "cooling_off",
+     "title": "Cooling-off period after the buyer signs",
+     "condition": {
+      "fact": "sell.method",
+      "op": "in",
+      "value": [
+       "private_treaty",
+       "expressions_of_interest",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Expect a 3 business day cooling-off period on a private sale",
+       "detail": "A buyer of residential property can cool off within three clear business days from the day after they sign, by giving you or your agent written notice. They forfeit $100 or 0.2% of the price, whichever is more. You can't remove this right with a contract term. Don't plan on the sale being firm until the cooling-off period ends."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "No cooling-off period at auction",
+       "detail": "There is no cooling-off period for a sale at public auction, or within three clear business days before or after one. Make sure the section 32 statement and contract are final before auction day."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "cooling_off",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Private sale",
+       "facts": {
+        "sell.method": "private_treaty"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Auction",
+       "facts": {
+        "sell.method": "auction"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "underquoting",
+     "title": "Asking price and the Property Price Statement",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Agree a realistic price with your agent: Victoria bans underquoting",
+       "detail": "Your agent's estimated selling price must be reasonable, based on the 3 most comparable sales, and written in the sales authority. The advertised price can't be lower than that estimate, your asking price or a written offer you rejected, and can't use words like 'offers above' or '+'. From 1 October 2026 the agent's Statement of Information is called the Property Price Statement and must be shown at inspections and in the online listing. Don't ask your agent to advertise below what you would accept: penalties exceed $50,000.",
+       "payload": {
+        "task": "Agree the estimated selling price with your agent in the sales authority"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "underquoting",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "auction_reserve",
+     "title": "Publishing the reserve price for an auction",
+     "condition": {
+      "fact": "sell.method",
+      "op": "equals",
+      "value": "auction"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Set and confirm your reserve price in writing at least 7 days before the auction",
+       "detail": "For auctions and fixed-date sales on or after 16 October 2026, your agent must publish your reserve price at least 7 days before the sale, or the auction can't go ahead. Your agent will ask for it in writing with a proposed figure and reasons; you accept it or set your own and sign to confirm. After the sale becomes unconditional the agent publishes the sold price within 7 days. Agree your reserve with your agent early.",
+       "payload": {
+        "task": "Confirm your reserve price in writing at least 7 days before auction"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "reserve_price",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Auction",
+       "facts": {
+        "sell.method": "auction"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Private sale",
+       "facts": {
+        "sell.method": "private_treaty"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "owners_corporation",
+     "title": "Owners corporation documents",
+     "condition": {
+      "fact": "sell.body_corporate",
+      "op": "equals",
+      "value": "yes"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Ask your conveyancer to get the owners corporation certificate for the section 32",
+       "detail": "Buyers of a unit or townhouse in an owners corporation need its rules, fees, special levies and any disputes. The due diligence checklist points buyers to these. Ask your conveyancer to order the owners corporation certificate from the manager now so it can go with your section 32 statement.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "OWNERS_CORPORATION_CERTIFICATE",
+          "title": "Owners corporation certificate and rules"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Order the owners corporation certificate"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Check whether the property is in an owners corporation",
+       "detail": "Look at your title or rates notice, or ask your conveyancer. If there is an owners corporation, its certificate and rules go to buyers with the section 32 statement."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "due_diligence",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "s32_contents",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Owners corporation",
+       "facts": {
+        "sell.body_corporate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "sell.body_corporate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "owner_builder_sale",
+     "title": "Selling after owner-builder work",
+     "condition": {
+      "fact": "sell.owner_builder_work",
+      "op": "equals",
+      "value": "yes"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Get a defects report and domestic building insurance before you sign a contract",
+       "detail": "If you sell within 6 years 6 months of finishing owner-builder work worth more than $20,000, you need domestic building insurance bought before you sign a contract of sale, and a defects inspection report by a prescribed practitioner on the BPC owner-builder defects inspection report template, no more than six months old. Put the Notice of Cover and the report in the section 32 statement and give the buyer the certificate of cover. The contract must include the statutory building warranties. Book the inspection and get insurance quotes now.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "DEFECTS_INSPECTION_REPORT",
+          "title": "Owner-builder defects inspection report, less than 6 months old"
+         },
+         {
+          "kind": "DOMESTIC_BUILDING_INSURANCE",
+          "title": "Domestic building insurance Notice of Cover and certificate of cover"
+         }
+        ],
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Book an owner-builder defects inspection and buy domestic building insurance"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Check whether owner-builder work was done",
+       "detail": "If you or a previous owner did building work as an owner-builder in the last 6.5 years, extra insurance and a defects report may be needed. Check the BPC owner-builder register or your permits."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "owner_builder_sale",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Owner-builder work",
+       "facts": {
+        "sell.owner_builder_work": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No work",
+       "facts": {
+        "sell.owner_builder_work": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "owner_builder_unsure",
+     "title": "Unsure about owner-builder work",
+     "condition": {
+      "fact": "sell.owner_builder_work",
+      "op": "equals",
+      "value": "unsure"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Find out whether owner-builder work was done in the last 6.5 years",
+       "detail": "Selling within 6 years 6 months of owner-builder work worth more than $20,000 needs domestic building insurance and a defects report before you sign a contract. Check your building permits, search the BPC owner-builder public register and ask your conveyancer.",
+       "payload": {
+        "task": "Check for owner-builder work in the last 6.5 years"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "owner_builder_sale",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Unsure",
+       "facts": {
+        "sell.owner_builder_work": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No",
+       "facts": {
+        "sell.owner_builder_work": "no"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_sale",
+     "title": "Pool registration and barrier certificate before selling",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.pool_certificate",
+        "op": "in",
+        "value": [
+         "no",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Register the pool with council and lodge a barrier compliance certificate",
+       "detail": "Every Victorian pool or spa that can hold more than 300mm of water must be registered with the local council. A registered pool inspector, building inspector or building surveyor then inspects the barrier, and you lodge the certificate of barrier compliance with council within 30 days. Inspections repeat every 4 years. Buyers will check this through the due diligence checklist, so get it done before you list.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_POOL_REGISTRATION",
+         "authority": "Your local council",
+         "pathway": "Register the pool, then lodge a barrier compliance certificate"
+        },
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Register the pool and book a barrier inspection"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check the pool registration and barrier certificate",
+       "detail": "Victorian pools and spas over 300mm deep must be registered with council and have a current certificate of barrier compliance lodged with council. Ask your council what is on record.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_POOL_REGISTRATION",
+         "authority": "Your local council",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_register",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No certificate",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Certificate",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "sell.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Certificate not answered",
+       "facts": {
+        "sell.has_pool": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_certificate_current_sale",
+     "title": "Keeping the pool certificate current",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.pool_certificate",
+        "op": "equals",
+        "value": "yes"
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Check your pool barrier certificate is lodged and less than 4 years old",
+       "detail": "A Victorian pool barrier must be inspected every 4 years, and each certificate of barrier compliance lodged with council within 30 days. Keep a copy to show buyers, and book a new inspection if the next one falls due before settlement."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_register",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Certificate",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No certificate",
+       "facts": {
+        "sell.has_pool": true,
+        "sell.pool_certificate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms_on_sale",
+     "title": "Smoke alarms in a home being sold",
+     "condition": {
+      "all": [
+       {
+        "fact": "property.address.state",
+        "op": "equals",
+        "value": "VIC"
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Test the smoke alarms before inspections",
+       "detail": "Victorian homes need working smoke alarms that meet AS 3786. Homes built after 1 August 1997 need hard-wired alarms with battery backup, installed by a licensed electrician; older homes can use battery alarms. No sale certificate was found in the sources read, but buyers and inspectors will check. Test each alarm and replace faulty ones now.",
+       "payload": {
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_alarms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "House",
+       "facts": {
+        "property.address.state": "VIC",
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant land",
+       "facts": {
+        "property.address.state": "VIC",
+        "sell.property_type": "vacant_land"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Type not answered",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale",
+     "title": "Selling with a renter in place",
+     "condition": {
+      "fact": "sell.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Give your renter a notice of intention to sell at least 14 days before showing the property",
+       "detail": "Use the Victorian notice of intention to sell, then give at least 48 hours' written notice (the Victorian notice of entry) for each viewing, between 8am and 6pm. Viewings are limited to twice a week for an hour unless the renter agrees, and you pay the renter half a day's rent or $30, whichever is more, for each one. Advertising photos need 7 days' notice. If the buyer wants vacant possession, you can only give a 90-day notice to vacate for the sale at or after the end of a fixed term, with evidence such as the contract of sale; a notice without that evidence is invalid.",
+       "payload": {
+        "task": "Give the renter a notice of intention to sell",
+        "referral_categories": [
+         "property_manager"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "sale_entry",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "ntv_reasons",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "sell.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "sell.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "tenanted_sale_rent_ready",
+     "title": "Managing the tenancy until settlement",
+     "condition": {
+      "all": [
+       {
+        "fact": "sell.is_tenanted",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "sell.property_type",
+        "op": "not_in",
+        "value": [
+         "vacant_land",
+         "commercial"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "CROSS_SELL",
+       "title": "Keep the tenancy on track until settlement with RentReady",
+       "detail": "Your renter stays on through the sale, so Victorian renting rules on entry, notices, minimum standards and safety checks still apply until settlement. RentReady walks you through them.",
+       "payload": {
+        "cross_sell": [
+         "RENT"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "sale_entry",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted house",
+       "facts": {
+        "sell.is_tenanted": true,
+        "sell.property_type": "house"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant house",
+       "facts": {
+        "sell.is_tenanted": false,
+        "sell.property_type": "house"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "land_tax_windfall",
+     "title": "Land tax and windfall gains tax on sale",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Ask your conveyancer to get an SRO property clearance certificate",
+       "detail": "The State Revenue Office issues property clearance certificates showing land tax, windfall gains tax and other tax owing on the land. If the land was rezoned and you received a windfall gains tax assessment, a deferred liability can affect the sale. Ask your conveyancer to order the certificate and tell them about any SRO assessments you have had.",
+       "payload": {
+        "referral_categories": [
+         "conveyancer"
+        ],
+        "task": "Ask your conveyancer for an SRO property clearance certificate"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "land_tax_clearance",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "windfall_gains",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "rent.vic.residential_tenancy",
+   "vertical": "RENT",
+   "jurisdiction": "VIC",
+   "title": "Victoria: renting out a home",
+   "description": "The residential rental agreement form, condition report, disclosures, rental applications, bond limits and RTBA lodgement, minimum standards, gas and electrical checks, annual smoke alarm checks, pools, fee-free rent payment, rent increases, modifications and ending a tenancy after the 2025 reforms, from Consumer Affairs Victoria and the Building and Plumbing Commission.",
+   "applies_when": {
+    "fact": "property.address.state",
+    "op": "equals",
+    "value": "VIC"
+   },
+   "limitations": [
+    "Built from Consumer Affairs Victoria and Building and Plumbing Commission web pages, not from the Residential Tenancies Act 1997 or the Residential Tenancies Regulations 2021.",
+    "Written for ordinary residential rental agreements. Rooming houses, caravan parks, residential parks (site agreements), social housing and short stays have different rules and are not checked.",
+    "Doesn't check each minimum standard at the property, the wording of notices, or whether a particular notice to vacate reason applies; it gives you the list to work through.",
+    "Doesn't cover the minimum energy efficiency standards phased in from 1 March 2027, family violence terminations, pets or VCAT processes.",
+    "Not legal advice. Confirm with Consumer Affairs Victoria, a property manager or a lawyer before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "rental_agreement",
+     "title": "Residential rental agreement and start-of-tenancy documents",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Use the Victorian residential rental agreement form and give the renter the start-up documents",
+       "detail": "A written agreement must use the prescribed Victorian residential rental agreement form (Form 2 if the fixed term is longer than 5 years). Before the renter moves in, give them a copy of the signed agreement, the Renters Guide, 2 copies of the condition report (or 1 electronic copy) on the Victorian condition report template, an urgent repairs phone number, your name and postal address, and a key for each renter. Don't add banned terms such as compulsory insurance or fees for preparing the agreement.",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "TENANCY_AGREEMENT",
+          "title": "Signed Victorian residential rental agreement"
+         },
+         {
+          "kind": "CONDITION_REPORT",
+          "title": "Condition report with dated photos"
+         }
+        ],
+        "task": "Prepare the rental agreement and condition report",
+        "checklists": [
+         "rent.vic_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "agreement_form",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "condition_report",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rental_provider_disclosures",
+     "title": "Disclosures before the agreement is signed",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Tell the renter the required facts before they sign",
+       "detail": "Before signing you must disclose, in writing: any plan to sell or mortgagee action; your right to rent the property; an embedded electricity network; the dates of the last gas and electrical safety checks and any outstanding recommendations; known asbestos, a homicide in the last 5 years or drug-related use; whether the minimum standards are met and any mould or damp repair notices in the last 3 years; heritage listing, building or planning applications or orders; and owners corporation rules and disputes. Write these down and give them to the renter with the agreement.",
+       "payload": {
+        "task": "Write the disclosures and give them before signing",
+        "checklists": [
+         "rent.vic_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "disclosures",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rental_applications",
+     "title": "Advertising and rental applications",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Use the Victorian rental application form and don't charge application fees",
+       "detail": "Since 31 March 2026 you must use the prescribed Victorian rental application form and can only ask for what it sets out (at most two identity and two financial documents). From 13 October 2026 charging any fee for an application is an offence. You can't charge to show the property, ask for or accept rent above the advertised price, or take more than one month's rent in advance. The property must meet the minimum standards when you advertise it."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "applications",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rental_reforms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Renter in place",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_limit",
+     "title": "How much bond you can ask for",
+     "condition": {
+      "fact": "rent.weekly_rent_cents",
+      "op": "less_equal",
+      "value": 90000
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Ask for no more than one month's rent as bond",
+       "detail": "In Victoria the bond can't be more than one month's rent unless the weekly rent is more than $900 or VCAT has approved a higher bond. Rent in advance is also limited to one month."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Rent over $900 a week: the one-month bond limit doesn't apply",
+       "detail": "Because the rent is more than $900 a week, the usual one-month bond and rent-in-advance limits don't apply. The bond must still be lodged with the RTBA."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bond_amounts",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rent_payments",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "$600 a week",
+       "facts": {
+        "rent.weekly_rent_cents": 60000
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "$1,000 a week",
+       "facts": {
+        "rent.weekly_rent_cents": 100000
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "bond_lodgement",
+     "title": "Lodging the bond with the RTBA",
+     "condition": {
+      "fact": "rent.bond_lodged",
+      "op": "in",
+      "value": [
+       "no",
+       "unsure"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Lodge the bond with the RTBA within 14 days",
+       "detail": "Every bond you take must be lodged with the Residential Tenancies Bond Authority within 14 days of receiving it. Register for RTBA online, start the lodgement, and each renter accepts it by email. The renter can also pay the RTBA directly or transfer a portable bond. Check your RTBA account or call 1300 137 164 if you aren't sure it was lodged.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_RTBA_BOND_LODGEMENT",
+         "authority": "Residential Tenancies Bond Authority",
+         "pathway": "Lodge online through RTBA online"
+        },
+        "task": "Lodge the bond with the RTBA"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check the bond is lodged with the RTBA",
+       "detail": "Any bond for a Victorian rental must be lodged with the RTBA within 14 days of receiving it.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_RTBA_BOND_LODGEMENT",
+         "authority": "Residential Tenancies Bond Authority",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bond_amounts",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_lodging",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not lodged",
+       "facts": {
+        "rent.bond_lodged": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Unsure",
+       "facts": {
+        "rent.bond_lodged": "unsure"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Lodged",
+       "facts": {
+        "rent.bond_lodged": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No bond",
+       "facts": {
+        "rent.bond_lodged": "no_bond"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "minimum_standards",
+     "title": "Rental minimum standards",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Make sure the property meets all 15 rental minimum standards before you advertise",
+       "detail": "Victorian rentals must meet the minimum standards when advertised and before the renter moves in: a fixed heater in the living area, a modern switchboard with safety switches, deadlocks, working kitchen and bathroom, no mould or damp caused by the building, ventilation, window coverings in bedrooms and living areas, blind cord anchors and more. From 13 October 2026 you must keep records showing the property met them. Work through the checklist and fix gaps before listing.",
+       "payload": {
+        "task": "Check the property against the minimum standards",
+        "checklists": [
+         "rent.vic_minimum_standards"
+        ],
+        "referral_categories": [
+         "electrician",
+         "plumber",
+         "builder"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "min_standards",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rental_reforms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "gas_electrical_checks",
+     "title": "Gas and electrical safety checks every 2 years",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Book gas and electrical safety checks every 2 years",
+       "detail": "From 13 October 2026 every Victorian rental needs a gas safety check by a licensed gasfitter and an electrical safety check by a licensed electrician at least every 2 years (already required for agreements made after 29 March 2021). Keep each report until the next check, tell new renters the dates before they sign, and give a renter a copy within 7 days of a written request.",
+       "payload": {
+        "task": "Book gas and electrical safety checks",
+        "checklists": [
+         "rent.vic_safety_checks"
+        ],
+        "referral_categories": [
+         "electrician",
+         "plumber"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "gas_electrical",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rental_reforms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "smoke_alarms",
+     "title": "Annual smoke alarm checks",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Arrange a smoke alarm safety check every year",
+       "detail": "Since 25 November 2025 every Victorian rental needs an annual smoke alarm safety check. Alarms must meet AS 3786 and work; homes built after 1 August 1997 need hard-wired alarms. Fix a faulty alarm immediately, and give the renter written information on how the alarms work and how to test them at the start of the agreement.",
+       "payload": {
+        "task": "Book this year's smoke alarm check",
+        "checklists": [
+         "rent.vic_safety_checks"
+        ],
+        "referral_categories": [
+         "smoke_alarm_technician"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "smoke_alarms",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rental_reforms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_on_lease",
+     "title": "Pool registration and barrier certificate for a rental",
+     "condition": {
+      "all": [
+       {
+        "fact": "rent.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "rent.pool_certificate",
+        "op": "in",
+        "value": [
+         "no",
+         "unsure"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Register the pool and lodge a barrier compliance certificate with council",
+       "detail": "As the rental provider you must register the pool or spa with the local council, have the barrier inspected every 4 years, lodge the certificate of barrier compliance with council within 30 days, keep the barrier in good repair and give the renter a copy of the certificate if asked. Book an inspection before the renter moves in.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_POOL_REGISTRATION",
+         "authority": "Your local council",
+         "pathway": "Register the pool, then lodge a barrier compliance certificate"
+        },
+        "referral_categories": [
+         "pool_safety_inspector"
+        ],
+        "task": "Register the pool and book a barrier inspection"
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Check the pool registration and barrier certificate",
+       "detail": "Pools and spas in Victorian rentals must be registered with council and have a current certificate of barrier compliance.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_POOL_REGISTRATION",
+         "authority": "Your local council",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_rental",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pool_register",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "No certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "no"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "yes"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No pool",
+       "facts": {
+        "rent.has_pool": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Certificate not answered",
+       "facts": {
+        "rent.has_pool": true
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pool_certificate_current",
+     "title": "Keeping the pool barrier compliant",
+     "condition": {
+      "all": [
+       {
+        "fact": "rent.has_pool",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "rent.pool_certificate",
+        "op": "equals",
+        "value": "yes"
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Re-inspect the pool barrier every 4 years and treat barrier faults as urgent",
+       "detail": "Keep the barrier certificate lodged with council and book the next inspection before 4 years pass. Barrier repairs are urgent repairs. Give the renter a copy of the certificate if they ask."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pool_rental",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "yes"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No certificate",
+       "facts": {
+        "rent.has_pool": true,
+        "rent.pool_certificate": "no"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "rent_payment",
+     "title": "Fee-free rent payment",
+     "condition": {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Offer a fee-free way to pay rent, including Centrepay",
+       "detail": "You must offer at least one way to pay rent with no fee, and accept Centrepay plus at least one other electronic transfer. Third-party rent payment platforms can't charge renters fees. Don't require post-dated cheques, give receipts within 5 business days of a request, and keep rent records for at least 12 months.",
+       "payload": {
+        "checklists": [
+         "rent.vic_start_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_payments",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Victorian property",
+       "facts": {
+        "property.address.state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "NSW property",
+       "facts": {
+        "property.address.state": "NSW"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No address",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "rent_increases",
+     "title": "Rent increases",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Increase rent at most once every 12 months, with 90 days' notice",
+       "detail": "Use the Victorian notice of proposed rent increase and give it at least 90 days before the increase starts (this was 60 days before 25 November 2025). Rent can't go up more than once every 12 months, even if the agreement says otherwise. A notice on the wrong form isn't valid, and the renter can ask Consumer Affairs Victoria for a rent assessment."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "rent_increases",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rental_reforms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "modifications",
+     "title": "Renters' modifications",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Don't unreasonably refuse a renter's request for minor changes",
+       "detail": "Renters can ask to make listed changes such as picture hooks, child safety gates, flyscreens, draughtproofing, a security system or changes for disability access or safety, and you can't unreasonably refuse. Reply in writing with your reasons if you refuse. The renter usually restores the property at the end unless you agree otherwise."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "modifications",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "known_repairs",
+     "title": "Known repairs, mould and damp",
+     "condition": {
+      "fact": "rent.known_repairs",
+      "op": "exists"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Fix known repairs, mould and damp before the renter moves in",
+       "detail": "Rooms must be free from mould and damp caused by the building, and the property must be structurally sound and weatherproof. Mould or damp repair notices from the last 3 years must be disclosed to new renters. Get quotes for the repairs you listed and fix anything that breaches a minimum standard before you advertise.",
+       "payload": {
+        "task": "Fix listed repairs before advertising",
+        "checklists": [
+         "rent.vic_minimum_standards"
+        ],
+        "referral_categories": [
+         "builder",
+         "plumber"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "min_standards",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "disclosures",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Repairs listed",
+       "facts": {
+        "rent.known_repairs": "Leaking shower"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None listed",
+       "facts": {},
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "ending_tenancy",
+     "title": "Ending a tenancy",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "You can only end a Victorian tenancy for a valid reason, with evidence",
+       "detail": "Since 25 November 2025 there are no notices to vacate without a reason, including at the end of a fixed term. Use the Victorian notice to vacate form, state a listed reason, attach the required evidence (for example a contract of sale or a witnessed statutory declaration), and give the right notice: 90 days for selling with vacant possession, moving in, renovating or demolishing, 14 days for reasons such as 14 days' rent owing. Deliver it by registered post, by hand or by agreed email. A notice without evidence is invalid.",
+       "payload": {
+        "task": "Check the reason and notice period before giving notice",
+        "checklists": [
+         "rent.vic_end_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ntv_reasons",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "rental_reforms",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "end_of_tenancy_bond",
+     "title": "Exit condition report and bond claims",
+     "condition": {
+      "fact": "rent.is_tenanted",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Complete the exit condition report within 10 days and tell the renter before claiming bond",
+       "detail": "When the agreement ends, complete the exit section of the original condition report within 10 days, giving the renter a chance to attend. From 13 October 2026 you must tell the renter in advance if you will claim on the bond. Claims go through RTBA online; disputes go to VCAT.",
+       "payload": {
+        "checklists": [
+         "rent.vic_end_of_tenancy"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "condition_report",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bond_claims",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tenanted",
+       "facts": {
+        "rent.is_tenanted": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "rent.is_tenanted": false
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    },
+    {
+     "key": "self_managed",
+     "title": "Managing the tenancy yourself",
+     "condition": {
+      "fact": "rent.managed_by",
+      "op": "equals",
+      "value": "self"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "REFERRAL_CATEGORY",
+       "title": "A property manager can handle the tenancy paperwork",
+       "detail": "As a self-managing Victorian rental provider you register with the RTBA, prepare the agreement, disclosures and condition report, book the yearly smoke alarm check and 2-yearly gas and electrical checks, and keep records. A licensed property manager can do this for you.",
+       "payload": {
+        "referral_categories": [
+         "property_manager"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bond_lodging",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "agreement_form",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Self-managed",
+       "facts": {
+        "rent.managed_by": "self"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Agent",
+       "facts": {
+        "rent.managed_by": "agent"
+       },
+       "expected_result": "NO_MATCH"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

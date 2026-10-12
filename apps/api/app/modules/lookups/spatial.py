@@ -17,7 +17,9 @@ A state module implements ``StateSpatial``.
 
 from __future__ import annotations
 
+import itertools
 import json
+import math
 from dataclasses import dataclass, field
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
@@ -176,6 +178,25 @@ def _decimal(value: Any) -> Decimal | None:
     except InvalidOperation:
         return None
     return number if number > 0 else None
+
+
+_EARTH_RADIUS_M = 6_371_008.8
+
+
+def rings_area_m2(rings: list[list[list[float]]]) -> Decimal | None:
+    """The area of a polygon given as longitude/latitude rings (ArcGIS ``rings``, holes
+    included), on a sphere: within about 0.5% of the surveyed area, for states whose
+    parcel data has no area field."""
+    total = 0.0
+    for ring in rings:
+        ring_sum = 0.0
+        for (x1, y1, *_), (x2, y2, *_) in itertools.pairwise(ring):
+            ring_sum += math.radians(x2 - x1) * (
+                2 + math.sin(math.radians(y1)) + math.sin(math.radians(y2))
+            )
+        total += ring_sum
+    area = abs(total) * _EARTH_RADIUS_M**2 / 2
+    return _decimal(round(area)) if area else None
 
 
 async def arcgis_json(

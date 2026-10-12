@@ -201,6 +201,11 @@ class Settings(BaseSettings):
     # heritage, bush fire, flooding) for New South Wales addresses (app/modules/lookups/nsw.py).
     nsw_spatial_base_url: str = "https://portal.spatial.nsw.gov.au/server/rest/services"
     nsw_planning_base_url: str = "https://mapprod3.environment.nsw.gov.au/arcgis/rest/services"
+    # Victorian Government address geocoder and VicPlan planning layers (parcels, zones,
+    # overlays, bushfire prone areas, heritage) for Victorian addresses
+    # (app/modules/lookups/vic.py).
+    vic_geocoder_base_url: str = "https://corp-geo.mapshare.vic.gov.au/arcgis/rest/services"
+    vic_planning_base_url: str = "https://plan-gis.mapshare.vic.gov.au/arcgis/rest/services"
     # ABS postal areas, for the postcode of a Queensland address (app/modules/lookups/abs.py).
     abs_geo_base_url: str = "https://geo.abs.gov.au/arcgis/rest/services"
     # The AMSA page that links the current list of domestic commercial vessels with a vessel

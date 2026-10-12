@@ -1,0 +1,2014 @@
+{
+  "key": "councils_vic",
+  "title": "Victoria councils: how to apply for a development application",
+  "notes": "Generated from app/modules/councils/vic_councils.json by `python -m app.modules.councils.pack`; edit the directory, not this file. One reference per council: verifying it marks that council's details as checked.",
+  "organisations": [
+    {
+      "ref": "vic_alpine",
+      "name": "Alpine Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_ALPINE",
+      "website": "https://www.alpineshire.vic.gov.au/"
+    },
+    {
+      "ref": "vic_ararat",
+      "name": "Ararat Rural City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_ARARAT",
+      "website": "https://www.ararat.vic.gov.au/"
+    },
+    {
+      "ref": "vic_ballarat",
+      "name": "Ballarat City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_BALLARAT",
+      "website": "https://www.ballarat.vic.gov.au/"
+    },
+    {
+      "ref": "vic_banyule",
+      "name": "Banyule City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_BANYULE",
+      "website": "https://www.banyule.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_bass_coast",
+      "name": "Bass Coast Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_BASS_COAST",
+      "website": "https://www.basscoast.vic.gov.au/"
+    },
+    {
+      "ref": "vic_baw_baw",
+      "name": "Baw Baw Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_BAW_BAW",
+      "website": "https://www.bawbawshire.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_bayside",
+      "name": "Bayside City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_BAYSIDE",
+      "website": "https://www.bayside.vic.gov.au/"
+    },
+    {
+      "ref": "vic_benalla",
+      "name": "Benalla Rural City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_BENALLA",
+      "website": "https://www.benalla.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_boroondara",
+      "name": "Boroondara City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_BOROONDARA",
+      "website": "https://www.boroondara.vic.gov.au/"
+    },
+    {
+      "ref": "vic_queenscliffe",
+      "name": "Borough of Queenscliffe",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_QUEENSCLIFFE",
+      "website": "https://www.queenscliffe.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_brimbank",
+      "name": "Brimbank City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_BRIMBANK",
+      "website": "https://www.brimbank.vic.gov.au/"
+    },
+    {
+      "ref": "vic_buloke",
+      "name": "Buloke Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_BULOKE",
+      "website": "https://www.buloke.vic.gov.au/"
+    },
+    {
+      "ref": "vic_campaspe",
+      "name": "Campaspe Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_CAMPASPE",
+      "website": "https://www.campaspe.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_cardinia",
+      "name": "Cardinia Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_CARDINIA",
+      "website": "https://www.cardinia.vic.gov.au/"
+    },
+    {
+      "ref": "vic_casey",
+      "name": "Casey City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_CASEY",
+      "website": "https://www.casey.vic.gov.au/"
+    },
+    {
+      "ref": "vic_central_goldfields",
+      "name": "Central Goldfields Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_CENTRAL_GOLDFIELDS",
+      "website": "https://www.centralgoldfields.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_melbourne",
+      "name": "City of Melbourne",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MELBOURNE",
+      "website": "https://www.melbourne.vic.gov.au/"
+    },
+    {
+      "ref": "vic_colac_otway",
+      "name": "Colac Otway Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_COLAC_OTWAY",
+      "website": "https://www.colacotway.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_corangamite",
+      "name": "Corangamite Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_CORANGAMITE",
+      "website": "https://www.corangamite.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_darebin",
+      "name": "Darebin City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_DAREBIN",
+      "website": "https://www.darebin.vic.gov.au/"
+    },
+    {
+      "ref": "vic_east_gippsland",
+      "name": "East Gippsland Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_EAST_GIPPSLAND",
+      "website": "https://www.eastgippsland.vic.gov.au/"
+    },
+    {
+      "ref": "vic_frankston",
+      "name": "Frankston City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_FRANKSTON",
+      "website": "https://www.frankston.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_gannawarra",
+      "name": "Gannawarra Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_GANNAWARRA",
+      "website": "https://www.gannawarra.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_glen_eira",
+      "name": "Glen Eira City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_GLEN_EIRA",
+      "website": "https://www.gleneira.vic.gov.au/"
+    },
+    {
+      "ref": "vic_glenelg",
+      "name": "Glenelg Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_GLENELG",
+      "website": "https://www.glenelg.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_golden_plains",
+      "name": "Golden Plains Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_GOLDEN_PLAINS",
+      "website": "https://www.goldenplains.vic.gov.au/"
+    },
+    {
+      "ref": "vic_greater_bendigo",
+      "name": "Greater Bendigo City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_GREATER_BENDIGO",
+      "website": "https://www.bendigo.vic.gov.au/"
+    },
+    {
+      "ref": "vic_greater_dandenong",
+      "name": "Greater Dandenong City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_GREATER_DANDENONG",
+      "website": "https://www.greaterdandenong.vic.gov.au/"
+    },
+    {
+      "ref": "vic_greater_geelong",
+      "name": "Greater Geelong City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_GREATER_GEELONG",
+      "website": "https://www.geelongcity.vic.gov.au/"
+    },
+    {
+      "ref": "vic_greater_shepparton",
+      "name": "Greater Shepparton City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_GREATER_SHEPPARTON",
+      "website": "https://greatershepparton.com.au/"
+    },
+    {
+      "ref": "vic_hepburn",
+      "name": "Hepburn Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_HEPBURN",
+      "website": "https://www.hepburn.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_hindmarsh",
+      "name": "Hindmarsh Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_HINDMARSH",
+      "website": "https://www.hindmarsh.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_hobsons_bay",
+      "name": "Hobsons Bay City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_HOBSONS_BAY",
+      "website": "https://www.hobsonsbay.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_horsham",
+      "name": "Horsham Rural City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_HORSHAM",
+      "website": "https://www.hrcc.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_hume",
+      "name": "Hume City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_HUME",
+      "website": "https://www.hume.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_indigo",
+      "name": "Indigo Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_INDIGO",
+      "website": "https://www.indigoshire.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_kingston",
+      "name": "Kingston City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_KINGSTON",
+      "website": "https://www.kingston.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_knox",
+      "name": "Knox City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_KNOX",
+      "website": "https://www.knox.vic.gov.au/"
+    },
+    {
+      "ref": "vic_latrobe",
+      "name": "Latrobe City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_LATROBE",
+      "website": "https://www.latrobe.vic.gov.au/"
+    },
+    {
+      "ref": "vic_loddon",
+      "name": "Loddon Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_LODDON",
+      "website": "https://www.loddon.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_macedon_ranges",
+      "name": "Macedon Ranges Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MACEDON_RANGES",
+      "website": "https://www.mrsc.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_manningham",
+      "name": "Manningham City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MANNINGHAM",
+      "website": "https://www.manningham.vic.gov.au/"
+    },
+    {
+      "ref": "vic_mansfield",
+      "name": "Mansfield Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MANSFIELD",
+      "website": "https://www.mansfield.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_maribyrnong",
+      "name": "Maribyrnong City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MARIBYRNONG",
+      "website": "https://www.maribyrnong.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_maroondah",
+      "name": "Maroondah City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MAROONDAH",
+      "website": "https://www.maroondah.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_melton",
+      "name": "Melton City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MELTON",
+      "website": "https://www.melton.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_merri_bek",
+      "name": "Merri-bek City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MERRI_BEK",
+      "website": "https://www.merri-bek.vic.gov.au/"
+    },
+    {
+      "ref": "vic_mildura",
+      "name": "Mildura Rural City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MILDURA",
+      "website": "https://www.mildura.vic.gov.au/Mildura-Rural-City-Council"
+    },
+    {
+      "ref": "vic_mitchell",
+      "name": "Mitchell Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MITCHELL",
+      "website": "https://www.mitchellshire.vic.gov.au/"
+    },
+    {
+      "ref": "vic_moira",
+      "name": "Moira Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MOIRA",
+      "website": "https://www.moira.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_monash",
+      "name": "Monash City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MONASH",
+      "website": "https://www.monash.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_moonee_valley",
+      "name": "Moonee Valley City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MOONEE_VALLEY",
+      "website": "https://mvcc.vic.gov.au/"
+    },
+    {
+      "ref": "vic_moorabool",
+      "name": "Moorabool Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MOORABOOL",
+      "website": "https://www.moorabool.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_mornington_peninsula",
+      "name": "Mornington Peninsula Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MORNINGTON_PENINSULA",
+      "website": "https://www.mornpen.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_mount_alexander",
+      "name": "Mount Alexander Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MOUNT_ALEXANDER",
+      "website": "https://www.mountalexander.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_moyne",
+      "name": "Moyne Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MOYNE",
+      "website": "https://www.moyne.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_murrindindi",
+      "name": "Murrindindi Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_MURRINDINDI",
+      "website": "https://www.murrindindi.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_nillumbik",
+      "name": "Nillumbik Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_NILLUMBIK",
+      "website": "https://www.nillumbik.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_northern_grampians",
+      "name": "Northern Grampians Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_NORTHERN_GRAMPIANS",
+      "website": "https://www.ngshire.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_port_phillip",
+      "name": "Port Phillip City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_PORT_PHILLIP",
+      "website": "https://www.portphillip.vic.gov.au/"
+    },
+    {
+      "ref": "vic_pyrenees",
+      "name": "Pyrenees Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_PYRENEES",
+      "website": "https://www.pyrenees.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_south_gippsland",
+      "name": "South Gippsland Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_SOUTH_GIPPSLAND",
+      "website": "https://www.southgippsland.vic.gov.au/"
+    },
+    {
+      "ref": "vic_southern_grampians",
+      "name": "Southern Grampians Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_SOUTHERN_GRAMPIANS",
+      "website": "https://sthgrampians.vic.gov.au/page/HomePage.aspx"
+    },
+    {
+      "ref": "vic_stonnington",
+      "name": "Stonnington City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_STONNINGTON",
+      "website": "https://www.stonnington.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_strathbogie",
+      "name": "Strathbogie Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_STRATHBOGIE",
+      "website": "https://www.strathbogie.vic.gov.au/"
+    },
+    {
+      "ref": "vic_surf_coast",
+      "name": "Surf Coast Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_SURF_COAST",
+      "website": "https://www.surfcoast.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_swan_hill",
+      "name": "Swan Hill Rural City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_SWAN_HILL",
+      "website": "https://www.swanhill.vic.gov.au/"
+    },
+    {
+      "ref": "vic_towong",
+      "name": "Towong Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_TOWONG",
+      "website": "https://www.towong.vic.gov.au/"
+    },
+    {
+      "ref": "vic_wangaratta",
+      "name": "Wangaratta Rural City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_WANGARATTA",
+      "website": "https://www.wangaratta.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_warrnambool",
+      "name": "Warrnambool City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_WARRNAMBOOL",
+      "website": "https://www.warrnambool.vic.gov.au/"
+    },
+    {
+      "ref": "vic_wellington",
+      "name": "Wellington Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_WELLINGTON",
+      "website": "https://www.wellington.vic.gov.au/"
+    },
+    {
+      "ref": "vic_west_wimmera",
+      "name": "West Wimmera Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_WEST_WIMMERA",
+      "website": "https://www.westwimmera.vic.gov.au/Home"
+    },
+    {
+      "ref": "vic_whitehorse",
+      "name": "Whitehorse City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_WHITEHORSE",
+      "website": "https://www.whitehorse.vic.gov.au/"
+    },
+    {
+      "ref": "vic_whittlesea",
+      "name": "Whittlesea City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_WHITTLESEA",
+      "website": "https://www.whittlesea.vic.gov.au/"
+    },
+    {
+      "ref": "vic_wodonga",
+      "name": "Wodonga City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_WODONGA",
+      "website": "https://www.wodonga.vic.gov.au/"
+    },
+    {
+      "ref": "vic_wyndham",
+      "name": "Wyndham City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_WYNDHAM",
+      "website": "https://www.wyndham.vic.gov.au/"
+    },
+    {
+      "ref": "vic_yarra",
+      "name": "Yarra City Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_YARRA",
+      "website": "https://www.yarracity.vic.gov.au/"
+    },
+    {
+      "ref": "vic_yarra_ranges",
+      "name": "Yarra Ranges Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_YARRA_RANGES",
+      "website": "https://www.yarraranges.vic.gov.au/"
+    },
+    {
+      "ref": "vic_yarriambiack",
+      "name": "Yarriambiack Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:VIC_YARRIAMBIACK",
+      "website": "https://www.yarriambiack.vic.gov.au/Home"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "vic_alpine_doc1",
+      "organisation": "vic_alpine",
+      "jurisdiction": "LGA:VIC_ALPINE",
+      "title": "Municipal Association of Victoria: council contacts list",
+      "url": "https://www.mav.asn.au/vc/find-your-council/council-contacts-list",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_alpine_doc2",
+      "organisation": "vic_alpine",
+      "jurisdiction": "LGA:VIC_ALPINE",
+      "title": "Victorian Electoral Commission: Alpine Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/alpine-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_alpine_doc3",
+      "organisation": "vic_alpine",
+      "jurisdiction": "LGA:VIC_ALPINE",
+      "title": "Vicmap Admin LGA polygon (DataVic)",
+      "url": "https://discover.data.vic.gov.au/dataset/vicmap-admin-local-government-area-lga-polygon-aligned-to-topographic-features",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_ararat_doc2",
+      "organisation": "vic_ararat",
+      "jurisdiction": "LGA:VIC_ARARAT",
+      "title": "Victorian Electoral Commission: Ararat Rural City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/ararat-rural-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_ballarat_doc1",
+      "organisation": "vic_ballarat",
+      "jurisdiction": "LGA:VIC_BALLARAT",
+      "title": "Ballarat City Council: planning permit application page",
+      "url": "https://www.ballarat.vic.gov.au/planning-permit-overview",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_ballarat_doc3",
+      "organisation": "vic_ballarat",
+      "jurisdiction": "LGA:VIC_BALLARAT",
+      "title": "Victorian Electoral Commission: Ballarat City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/ballarat-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_banyule_doc1",
+      "organisation": "vic_banyule",
+      "jurisdiction": "LGA:VIC_BANYULE",
+      "title": "Banyule City Council: planning permit application page",
+      "url": "https://www.banyule.vic.gov.au/Planning-building/Apply-for-a-new-planning-permit/Planning-permit-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_banyule_doc3",
+      "organisation": "vic_banyule",
+      "jurisdiction": "LGA:VIC_BANYULE",
+      "title": "Victorian Electoral Commission: Banyule City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/banyule-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_bass_coast_doc2",
+      "organisation": "vic_bass_coast",
+      "jurisdiction": "LGA:VIC_BASS_COAST",
+      "title": "Victorian Electoral Commission: Bass Coast Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/bass-coast-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_baw_baw_doc2",
+      "organisation": "vic_baw_baw",
+      "jurisdiction": "LGA:VIC_BAW_BAW",
+      "title": "Victorian Electoral Commission: Baw Baw Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/baw-baw-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_bayside_doc1",
+      "organisation": "vic_bayside",
+      "jurisdiction": "LGA:VIC_BAYSIDE",
+      "title": "Bayside City Council: planning permit application page",
+      "url": "https://www.bayside.vic.gov.au/submit-planning-permit-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_bayside_doc3",
+      "organisation": "vic_bayside",
+      "jurisdiction": "LGA:VIC_BAYSIDE",
+      "title": "Victorian Electoral Commission: Bayside City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/bayside-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_benalla_doc2",
+      "organisation": "vic_benalla",
+      "jurisdiction": "LGA:VIC_BENALLA",
+      "title": "Victorian Electoral Commission: Benalla Rural City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/benalla-rural-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_boroondara_doc1",
+      "organisation": "vic_boroondara",
+      "jurisdiction": "LGA:VIC_BOROONDARA",
+      "title": "Boroondara City Council: planning permit application page",
+      "url": "https://www.boroondara.vic.gov.au/services/planning-and-building/planning/planning-permits/planning-permit-applications/apply-planning-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_boroondara_doc3",
+      "organisation": "vic_boroondara",
+      "jurisdiction": "LGA:VIC_BOROONDARA",
+      "title": "Victorian Electoral Commission: Boroondara City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/boroondara-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_queenscliffe_doc2",
+      "organisation": "vic_queenscliffe",
+      "jurisdiction": "LGA:VIC_QUEENSCLIFFE",
+      "title": "Victorian Electoral Commission: Borough of Queenscliffe",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/queenscliffe-borough-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_brimbank_doc1",
+      "organisation": "vic_brimbank",
+      "jurisdiction": "LGA:VIC_BRIMBANK",
+      "title": "Brimbank City Council: planning permit application page",
+      "url": "https://www.brimbank.vic.gov.au/building-development/planning/planning-applications/planning-permit-application-form",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_brimbank_doc3",
+      "organisation": "vic_brimbank",
+      "jurisdiction": "LGA:VIC_BRIMBANK",
+      "title": "Victorian Electoral Commission: Brimbank City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/brimbank-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_buloke_doc2",
+      "organisation": "vic_buloke",
+      "jurisdiction": "LGA:VIC_BULOKE",
+      "title": "Victorian Electoral Commission: Buloke Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/buloke-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_campaspe_doc2",
+      "organisation": "vic_campaspe",
+      "jurisdiction": "LGA:VIC_CAMPASPE",
+      "title": "Victorian Electoral Commission: Campaspe Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/campaspe-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_cardinia_doc1",
+      "organisation": "vic_cardinia",
+      "jurisdiction": "LGA:VIC_CARDINIA",
+      "title": "Cardinia Shire Council: planning permit application page",
+      "url": "https://www.cardinia.vic.gov.au/planning-and-building/applying-and-managing-planning-applications-and-permits/apply-planning-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_cardinia_doc3",
+      "organisation": "vic_cardinia",
+      "jurisdiction": "LGA:VIC_CARDINIA",
+      "title": "Victorian Electoral Commission: Cardinia Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/cardinia-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_casey_doc1",
+      "organisation": "vic_casey",
+      "jurisdiction": "LGA:VIC_CASEY",
+      "title": "Casey City Council: planning permit application page",
+      "url": "https://www.casey.vic.gov.au/lodge-your-planning-permit-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_casey_doc2",
+      "organisation": "vic_casey",
+      "jurisdiction": "LGA:VIC_CASEY",
+      "title": "Applying for a planning permit",
+      "url": "https://www.casey.vic.gov.au/applying-planning-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_casey_doc4",
+      "organisation": "vic_casey",
+      "jurisdiction": "LGA:VIC_CASEY",
+      "title": "Victorian Electoral Commission: Casey City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/casey-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_central_goldfields_doc2",
+      "organisation": "vic_central_goldfields",
+      "jurisdiction": "LGA:VIC_CENTRAL_GOLDFIELDS",
+      "title": "Victorian Electoral Commission: Central Goldfields Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/central-goldfields-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_melbourne_doc1",
+      "organisation": "vic_melbourne",
+      "jurisdiction": "LGA:VIC_MELBOURNE",
+      "title": "City of Melbourne: planning permit application page",
+      "url": "https://www.melbourne.vic.gov.au/lodge-planning-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_melbourne_doc3",
+      "organisation": "vic_melbourne",
+      "jurisdiction": "LGA:VIC_MELBOURNE",
+      "title": "Victorian Electoral Commission: City of Melbourne",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/melbourne-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_colac_otway_doc2",
+      "organisation": "vic_colac_otway",
+      "jurisdiction": "LGA:VIC_COLAC_OTWAY",
+      "title": "Victorian Electoral Commission: Colac Otway Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/colac-otway-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_corangamite_doc2",
+      "organisation": "vic_corangamite",
+      "jurisdiction": "LGA:VIC_CORANGAMITE",
+      "title": "Victorian Electoral Commission: Corangamite Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/corangamite-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_darebin_doc1",
+      "organisation": "vic_darebin",
+      "jurisdiction": "LGA:VIC_DAREBIN",
+      "title": "Darebin City Council: planning permit application page",
+      "url": "https://www.darebin.vic.gov.au/Planning-and-building/Planning/Planning-step-4-permit-application/Apply-for-a-new-planning-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_darebin_doc3",
+      "organisation": "vic_darebin",
+      "jurisdiction": "LGA:VIC_DAREBIN",
+      "title": "Victorian Electoral Commission: Darebin City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/darebin-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_east_gippsland_doc2",
+      "organisation": "vic_east_gippsland",
+      "jurisdiction": "LGA:VIC_EAST_GIPPSLAND",
+      "title": "Victorian Electoral Commission: East Gippsland Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/east-gippsland-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_frankston_doc1",
+      "organisation": "vic_frankston",
+      "jurisdiction": "LGA:VIC_FRANKSTON",
+      "title": "Frankston City Council: planning permit application page",
+      "url": "https://www.frankston.vic.gov.au/Planning-and-Building/Planning/Submit-your-planning-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_frankston_doc3",
+      "organisation": "vic_frankston",
+      "jurisdiction": "LGA:VIC_FRANKSTON",
+      "title": "Victorian Electoral Commission: Frankston City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/frankston-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_gannawarra_doc2",
+      "organisation": "vic_gannawarra",
+      "jurisdiction": "LGA:VIC_GANNAWARRA",
+      "title": "Victorian Electoral Commission: Gannawarra Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/gannawarra-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_glen_eira_doc1",
+      "organisation": "vic_glen_eira",
+      "jurisdiction": "LGA:VIC_GLEN_EIRA",
+      "title": "Glen Eira City Council: planning permit application page",
+      "url": "https://www.gleneira.vic.gov.au/services/planning-and-building/planning/applying-for-a-planning-permit/new-and-current-applications/apply-for-a-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_glen_eira_doc3",
+      "organisation": "vic_glen_eira",
+      "jurisdiction": "LGA:VIC_GLEN_EIRA",
+      "title": "Victorian Electoral Commission: Glen Eira City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/glen-eira-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_glenelg_doc2",
+      "organisation": "vic_glenelg",
+      "jurisdiction": "LGA:VIC_GLENELG",
+      "title": "Victorian Electoral Commission: Glenelg Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/glenelg-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_golden_plains_doc2",
+      "organisation": "vic_golden_plains",
+      "jurisdiction": "LGA:VIC_GOLDEN_PLAINS",
+      "title": "Victorian Electoral Commission: Golden Plains Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/golden-plains-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_greater_bendigo_doc1",
+      "organisation": "vic_greater_bendigo",
+      "jurisdiction": "LGA:VIC_GREATER_BENDIGO",
+      "title": "Greater Bendigo City Council: planning permit application page",
+      "url": "https://www.bendigo.vic.gov.au/building-and-business/planning/planning-permit-process/submit-planning-permit-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_greater_bendigo_doc3",
+      "organisation": "vic_greater_bendigo",
+      "jurisdiction": "LGA:VIC_GREATER_BENDIGO",
+      "title": "Victorian Electoral Commission: Greater Bendigo City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/greater-bendigo-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_greater_dandenong_doc1",
+      "organisation": "vic_greater_dandenong",
+      "jurisdiction": "LGA:VIC_GREATER_DANDENONG",
+      "title": "Greater Dandenong City Council: planning permit application page",
+      "url": "https://www.greaterdandenong.vic.gov.au/applying-planning-permit/lodge-your-planning-permit-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_greater_dandenong_doc3",
+      "organisation": "vic_greater_dandenong",
+      "jurisdiction": "LGA:VIC_GREATER_DANDENONG",
+      "title": "Victorian Electoral Commission: Greater Dandenong City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/greater-dandenong-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_greater_geelong_doc1",
+      "organisation": "vic_greater_geelong",
+      "jurisdiction": "LGA:VIC_GREATER_GEELONG",
+      "title": "Greater Geelong City Council: planning permit application page",
+      "url": "https://www.geelongcity.vic.gov.au/services/building-and-planning/statutory-planning/planning-permit-process/lodge-planning-permit-application-or-request/apply-planning-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_greater_geelong_doc3",
+      "organisation": "vic_greater_geelong",
+      "jurisdiction": "LGA:VIC_GREATER_GEELONG",
+      "title": "Victorian Electoral Commission: Greater Geelong City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/greater-geelong-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_greater_shepparton_doc2",
+      "organisation": "vic_greater_shepparton",
+      "jurisdiction": "LGA:VIC_GREATER_SHEPPARTON",
+      "title": "Victorian Electoral Commission: Greater Shepparton City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/greater-shepparton-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_hepburn_doc2",
+      "organisation": "vic_hepburn",
+      "jurisdiction": "LGA:VIC_HEPBURN",
+      "title": "Victorian Electoral Commission: Hepburn Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/hepburn-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_hindmarsh_doc2",
+      "organisation": "vic_hindmarsh",
+      "jurisdiction": "LGA:VIC_HINDMARSH",
+      "title": "Victorian Electoral Commission: Hindmarsh Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/hindmarsh-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_hobsons_bay_doc2",
+      "organisation": "vic_hobsons_bay",
+      "jurisdiction": "LGA:VIC_HOBSONS_BAY",
+      "title": "Victorian Electoral Commission: Hobsons Bay City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/hobsons-bay-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_horsham_doc2",
+      "organisation": "vic_horsham",
+      "jurisdiction": "LGA:VIC_HORSHAM",
+      "title": "Victorian Electoral Commission: Horsham Rural City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/horsham-rural-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_hume_doc1",
+      "organisation": "vic_hume",
+      "jurisdiction": "LGA:VIC_HUME",
+      "title": "Hume City Council: planning permit application page",
+      "url": "https://www.hume.vic.gov.au/Building-and-Planning/Submit-a-Building-or-Planning-Application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_hume_doc3",
+      "organisation": "vic_hume",
+      "jurisdiction": "LGA:VIC_HUME",
+      "title": "Victorian Electoral Commission: Hume City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/hume-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_indigo_doc2",
+      "organisation": "vic_indigo",
+      "jurisdiction": "LGA:VIC_INDIGO",
+      "title": "Victorian Electoral Commission: Indigo Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/indigo-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_kingston_doc1",
+      "organisation": "vic_kingston",
+      "jurisdiction": "LGA:VIC_KINGSTON",
+      "title": "Kingston City Council: planning permit application page",
+      "url": "https://www.kingston.vic.gov.au/property/planning-and-building/planning-permit-applications/submit-your-planning-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_kingston_doc3",
+      "organisation": "vic_kingston",
+      "jurisdiction": "LGA:VIC_KINGSTON",
+      "title": "Victorian Electoral Commission: Kingston City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/kingston-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_knox_doc1",
+      "organisation": "vic_knox",
+      "jurisdiction": "LGA:VIC_KNOX",
+      "title": "Knox City Council: planning permit application page",
+      "url": "https://www.knox.vic.gov.au/submit-your-planning-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_knox_doc3",
+      "organisation": "vic_knox",
+      "jurisdiction": "LGA:VIC_KNOX",
+      "title": "Victorian Electoral Commission: Knox City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/knox-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_latrobe_doc2",
+      "organisation": "vic_latrobe",
+      "jurisdiction": "LGA:VIC_LATROBE",
+      "title": "Victorian Electoral Commission: Latrobe City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/latrobe-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_loddon_doc2",
+      "organisation": "vic_loddon",
+      "jurisdiction": "LGA:VIC_LODDON",
+      "title": "Victorian Electoral Commission: Loddon Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/loddon-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_macedon_ranges_doc2",
+      "organisation": "vic_macedon_ranges",
+      "jurisdiction": "LGA:VIC_MACEDON_RANGES",
+      "title": "Victorian Electoral Commission: Macedon Ranges Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/macedon-ranges-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_manningham_doc1",
+      "organisation": "vic_manningham",
+      "jurisdiction": "LGA:VIC_MANNINGHAM",
+      "title": "Manningham City Council: planning permit application page",
+      "url": "https://www.manningham.vic.gov.au/property-and-development/when-do-you-need-permit/apply-planning-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_manningham_doc3",
+      "organisation": "vic_manningham",
+      "jurisdiction": "LGA:VIC_MANNINGHAM",
+      "title": "Victorian Electoral Commission: Manningham City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/manningham-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_mansfield_doc2",
+      "organisation": "vic_mansfield",
+      "jurisdiction": "LGA:VIC_MANSFIELD",
+      "title": "Victorian Electoral Commission: Mansfield Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/mansfield-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_maribyrnong_doc2",
+      "organisation": "vic_maribyrnong",
+      "jurisdiction": "LGA:VIC_MARIBYRNONG",
+      "title": "Victorian Electoral Commission: Maribyrnong City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/maribyrnong-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_maroondah_doc1",
+      "organisation": "vic_maroondah",
+      "jurisdiction": "LGA:VIC_MAROONDAH",
+      "title": "Maroondah City Council: planning permit application page",
+      "url": "https://www.maroondah.vic.gov.au/Development/Planning/Apply-for-a-planning-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_maroondah_doc3",
+      "organisation": "vic_maroondah",
+      "jurisdiction": "LGA:VIC_MAROONDAH",
+      "title": "Victorian Electoral Commission: Maroondah City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/maroondah-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_melton_doc1",
+      "organisation": "vic_melton",
+      "jurisdiction": "LGA:VIC_MELTON",
+      "title": "Melton City Council: planning permit application page",
+      "url": "https://www.melton.vic.gov.au/Services/Building-Planning-Transport/Statutory-planning/Planning-permits/Learn-how-to-apply",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_melton_doc3",
+      "organisation": "vic_melton",
+      "jurisdiction": "LGA:VIC_MELTON",
+      "title": "Victorian Electoral Commission: Melton City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/melton-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_merri_bek_doc1",
+      "organisation": "vic_merri_bek",
+      "jurisdiction": "LGA:VIC_MERRI_BEK",
+      "title": "Merri-bek City Council: planning permit application page",
+      "url": "https://www.merri-bek.vic.gov.au/building-and-business/planning-and-building/planning/planning-application-process-overview/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_merri_bek_doc3",
+      "organisation": "vic_merri_bek",
+      "jurisdiction": "LGA:VIC_MERRI_BEK",
+      "title": "Victorian Electoral Commission: Merri-bek City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/merri-bek-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_mildura_doc2",
+      "organisation": "vic_mildura",
+      "jurisdiction": "LGA:VIC_MILDURA",
+      "title": "Victorian Electoral Commission: Mildura Rural City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/mildura-rural-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_mitchell_doc2",
+      "organisation": "vic_mitchell",
+      "jurisdiction": "LGA:VIC_MITCHELL",
+      "title": "Victorian Electoral Commission: Mitchell Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/mitchell-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_moira_doc2",
+      "organisation": "vic_moira",
+      "jurisdiction": "LGA:VIC_MOIRA",
+      "title": "Victorian Electoral Commission: Moira Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/moira-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_monash_doc1",
+      "organisation": "vic_monash",
+      "jurisdiction": "LGA:VIC_MONASH",
+      "title": "Monash City Council: planning permit application page",
+      "url": "https://www.monash.vic.gov.au/Planning-Development/Planning/Apply-for-a-Planning-Permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_monash_doc3",
+      "organisation": "vic_monash",
+      "jurisdiction": "LGA:VIC_MONASH",
+      "title": "Victorian Electoral Commission: Monash City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/monash-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_moonee_valley_doc1",
+      "organisation": "vic_moonee_valley",
+      "jurisdiction": "LGA:VIC_MOONEE_VALLEY",
+      "title": "Moonee Valley City Council: planning permit application page",
+      "url": "https://mvcc.vic.gov.au/work/my-development/planning-applications-and-permits/submit-your-planning-application/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_moonee_valley_doc3",
+      "organisation": "vic_moonee_valley",
+      "jurisdiction": "LGA:VIC_MOONEE_VALLEY",
+      "title": "Victorian Electoral Commission: Moonee Valley City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/moonee-valley-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_moorabool_doc2",
+      "organisation": "vic_moorabool",
+      "jurisdiction": "LGA:VIC_MOORABOOL",
+      "title": "Victorian Electoral Commission: Moorabool Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/moorabool-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_mornington_peninsula_doc1",
+      "organisation": "vic_mornington_peninsula",
+      "jurisdiction": "LGA:VIC_MORNINGTON_PENINSULA",
+      "title": "Mornington Peninsula Shire Council: planning permit application page",
+      "url": "https://www.mornpen.vic.gov.au/Building-Planning/Planning/Apply-for-Planning-Applications/How-to-lodge-your-planning-applications-online",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_mornington_peninsula_doc3",
+      "organisation": "vic_mornington_peninsula",
+      "jurisdiction": "LGA:VIC_MORNINGTON_PENINSULA",
+      "title": "Victorian Electoral Commission: Mornington Peninsula Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/mornington-peninsula-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_mount_alexander_doc2",
+      "organisation": "vic_mount_alexander",
+      "jurisdiction": "LGA:VIC_MOUNT_ALEXANDER",
+      "title": "Victorian Electoral Commission: Mount Alexander Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/mount-alexander-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_moyne_doc2",
+      "organisation": "vic_moyne",
+      "jurisdiction": "LGA:VIC_MOYNE",
+      "title": "Victorian Electoral Commission: Moyne Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/moyne-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_murrindindi_doc2",
+      "organisation": "vic_murrindindi",
+      "jurisdiction": "LGA:VIC_MURRINDINDI",
+      "title": "Victorian Electoral Commission: Murrindindi Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/murrindindi-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_nillumbik_doc2",
+      "organisation": "vic_nillumbik",
+      "jurisdiction": "LGA:VIC_NILLUMBIK",
+      "title": "Victorian Electoral Commission: Nillumbik Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/nillumbik-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_northern_grampians_doc2",
+      "organisation": "vic_northern_grampians",
+      "jurisdiction": "LGA:VIC_NORTHERN_GRAMPIANS",
+      "title": "Victorian Electoral Commission: Northern Grampians Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/northern-grampians-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_port_phillip_doc1",
+      "organisation": "vic_port_phillip",
+      "jurisdiction": "LGA:VIC_PORT_PHILLIP",
+      "title": "Port Phillip City Council: planning permit application page",
+      "url": "https://www.portphillip.vic.gov.au/planning-and-building/planning/apply-for-a-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_port_phillip_doc3",
+      "organisation": "vic_port_phillip",
+      "jurisdiction": "LGA:VIC_PORT_PHILLIP",
+      "title": "Victorian Electoral Commission: Port Phillip City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/port-phillip-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_pyrenees_doc2",
+      "organisation": "vic_pyrenees",
+      "jurisdiction": "LGA:VIC_PYRENEES",
+      "title": "Victorian Electoral Commission: Pyrenees Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/pyrenees-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_south_gippsland_doc2",
+      "organisation": "vic_south_gippsland",
+      "jurisdiction": "LGA:VIC_SOUTH_GIPPSLAND",
+      "title": "Victorian Electoral Commission: South Gippsland Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/south-gippsland-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_southern_grampians_doc2",
+      "organisation": "vic_southern_grampians",
+      "jurisdiction": "LGA:VIC_SOUTHERN_GRAMPIANS",
+      "title": "Victorian Electoral Commission: Southern Grampians Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/southern-grampians-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_stonnington_doc1",
+      "organisation": "vic_stonnington",
+      "jurisdiction": "LGA:VIC_STONNINGTON",
+      "title": "Stonnington City Council: planning permit application page",
+      "url": "https://www.stonnington.vic.gov.au/Planning-and-building/Planning/For-applicants/Applying-for-a-planning-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_stonnington_doc3",
+      "organisation": "vic_stonnington",
+      "jurisdiction": "LGA:VIC_STONNINGTON",
+      "title": "Victorian Electoral Commission: Stonnington City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/stonnington-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_strathbogie_doc2",
+      "organisation": "vic_strathbogie",
+      "jurisdiction": "LGA:VIC_STRATHBOGIE",
+      "title": "Victorian Electoral Commission: Strathbogie Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/strathbogie-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_surf_coast_doc2",
+      "organisation": "vic_surf_coast",
+      "jurisdiction": "LGA:VIC_SURF_COAST",
+      "title": "Victorian Electoral Commission: Surf Coast Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/surf-coast-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_swan_hill_doc2",
+      "organisation": "vic_swan_hill",
+      "jurisdiction": "LGA:VIC_SWAN_HILL",
+      "title": "Victorian Electoral Commission: Swan Hill Rural City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/swan-hill-rural-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_towong_doc2",
+      "organisation": "vic_towong",
+      "jurisdiction": "LGA:VIC_TOWONG",
+      "title": "Victorian Electoral Commission: Towong Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/towong-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_wangaratta_doc2",
+      "organisation": "vic_wangaratta",
+      "jurisdiction": "LGA:VIC_WANGARATTA",
+      "title": "Victorian Electoral Commission: Wangaratta Rural City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/wangaratta-rural-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_warrnambool_doc2",
+      "organisation": "vic_warrnambool",
+      "jurisdiction": "LGA:VIC_WARRNAMBOOL",
+      "title": "Victorian Electoral Commission: Warrnambool City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/warrnambool-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_wellington_doc2",
+      "organisation": "vic_wellington",
+      "jurisdiction": "LGA:VIC_WELLINGTON",
+      "title": "Victorian Electoral Commission: Wellington Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/wellington-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_west_wimmera_doc2",
+      "organisation": "vic_west_wimmera",
+      "jurisdiction": "LGA:VIC_WEST_WIMMERA",
+      "title": "Victorian Electoral Commission: West Wimmera Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/west-wimmera-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_whitehorse_doc1",
+      "organisation": "vic_whitehorse",
+      "jurisdiction": "LGA:VIC_WHITEHORSE",
+      "title": "Whitehorse City Council: planning permit application page",
+      "url": "https://www.whitehorse.vic.gov.au/planning-building/lodge-and-apply/lodge-apply-planning-applications",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_whitehorse_doc3",
+      "organisation": "vic_whitehorse",
+      "jurisdiction": "LGA:VIC_WHITEHORSE",
+      "title": "Victorian Electoral Commission: Whitehorse City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/whitehorse-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_whittlesea_doc1",
+      "organisation": "vic_whittlesea",
+      "jurisdiction": "LGA:VIC_WHITTLESEA",
+      "title": "Whittlesea City Council: planning permit application page",
+      "url": "https://www.whittlesea.vic.gov.au/Services/Building-planning-and-development/Planning/Apply-for-a-planning-permit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_whittlesea_doc3",
+      "organisation": "vic_whittlesea",
+      "jurisdiction": "LGA:VIC_WHITTLESEA",
+      "title": "Victorian Electoral Commission: Whittlesea City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/whittlesea-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_wodonga_doc2",
+      "organisation": "vic_wodonga",
+      "jurisdiction": "LGA:VIC_WODONGA",
+      "title": "Victorian Electoral Commission: Wodonga City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/wodonga-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_wyndham_doc1",
+      "organisation": "vic_wyndham",
+      "jurisdiction": "LGA:VIC_WYNDHAM",
+      "title": "Wyndham City Council: planning permit application page",
+      "url": "https://www.wyndham.vic.gov.au/services/building-planning/applying-planning-permit/prepare-and-submit-your-planning-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_wyndham_doc3",
+      "organisation": "vic_wyndham",
+      "jurisdiction": "LGA:VIC_WYNDHAM",
+      "title": "Victorian Electoral Commission: Wyndham City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/wyndham-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_yarra_doc2",
+      "organisation": "vic_yarra",
+      "jurisdiction": "LGA:VIC_YARRA",
+      "title": "Victorian Electoral Commission: Yarra City Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/yarra-city-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_yarra_ranges_doc1",
+      "organisation": "vic_yarra_ranges",
+      "jurisdiction": "LGA:VIC_YARRA_RANGES",
+      "title": "Yarra Ranges Shire Council: planning permit application page",
+      "url": "https://www.yarraranges.vic.gov.au/Our-services/Planning-building-and-development/Planning/Preparing-your-application/Submit-a-planning-application",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_yarra_ranges_doc3",
+      "organisation": "vic_yarra_ranges",
+      "jurisdiction": "LGA:VIC_YARRA_RANGES",
+      "title": "Victorian Electoral Commission: Yarra Ranges Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/yarra-ranges-shire-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "vic_yarriambiack_doc2",
+      "organisation": "vic_yarriambiack",
+      "jurisdiction": "LGA:VIC_YARRIAMBIACK",
+      "title": "Victorian Electoral Commission: Yarriambiack Shire Council",
+      "url": "https://www.vec.vic.gov.au/electoral-boundaries/local-councils/yarriambiack-shire-council",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "vic_alpine_how_to_apply",
+      "document": "vic_alpine_doc1",
+      "section": "Council directory: vic_alpine",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Alpine Shire Council for a development application.\nPlanning scheme: Alpine Planning Scheme.\nPhone: (03) 5755 0555\nEmail: info@alpineshire.vic.gov.au\nPlanning enquiries email: info@alpineshire.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_ararat_how_to_apply",
+      "document": "vic_ararat_doc2",
+      "section": "Council directory: vic_ararat",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Ararat Rural City Council for a development application.\nPlanning scheme: Ararat Planning Scheme.\nPhone: (03) 5355 0200\nEmail: council@ararat.vic.gov.au\nPlanning enquiries email: council@ararat.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_ballarat_how_to_apply",
+      "document": "vic_ballarat_doc1",
+      "section": "Council directory: vic_ballarat",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Ballarat City Council for a development application.\nPlanning scheme: Ballarat Planning Scheme.\nLodge (online): Register as an eServices user, then submit online https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/Login/Login.aspx\nPre-lodgement meetings: offered (Request a pre-application meeting or written advice through eServices.).\nPhone: (03) 5320 5500\nEmail: ballcity@ballarat.vic.gov.au\nPlanning enquiries email: planninginfo@ballarat.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Only online lodgement is described. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016."
+    },
+    {
+      "ref": "vic_banyule_how_to_apply",
+      "document": "vic_banyule_doc1",
+      "section": "Council directory: vic_banyule",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Banyule City Council for a development application.\nPlanning scheme: Banyule Planning Scheme.\nLodge (online): Complete council's online planning permit application form https://au.openforms.com/Form/cb8f2ab5-43dd-4546-8ea9-0f10bd8918a8\nPre-lodgement meetings: offered (Council has a planning permit pre-application page.).\nPhone: (03) 9490 4222\nEmail: enquiries@banyule.vic.gov.au\nPlanning enquiries email: enquiries@banyule.vic.gov.au\nPlanning enquiries phone: 03 9490 4222",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: If you can't apply online, call the Development Planning team on 9490 4222 about other options. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_bass_coast_how_to_apply",
+      "document": "vic_bass_coast_doc2",
+      "section": "Council directory: vic_bass_coast",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Bass Coast Shire Council for a development application.\nPlanning scheme: Bass Coast Planning Scheme.\nPhone: (03) 5671 2211\nEmail: basscoast@basscoast.vic.gov.au\nPlanning enquiries email: basscoast@basscoast.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_baw_baw_how_to_apply",
+      "document": "vic_baw_baw_doc2",
+      "section": "Council directory: vic_baw_baw",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Baw Baw Shire Council for a development application.\nPlanning scheme: Baw Baw Planning Scheme.\nPhone: (03) 5624 2411\nEmail: bawbaw@bawbawshire.vic.gov.au\nPlanning enquiries email: bawbaw@bawbawshire.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_bayside_how_to_apply",
+      "document": "vic_bayside_doc1",
+      "section": "Council directory: vic_bayside",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Bayside City Council for a development application.\nPlanning scheme: Bayside Planning Scheme.\nLodge (online): Lodge a new planning application online https://www.bayside.vic.gov.au/submit-planning-permit-application\nPre-lodgement meetings: offered (Council recommends you call or book a pre-application meeting before you apply.).\nPhone: (03) 9599 4444\nEmail: enquiries@bayside.vic.gov.au\nPlanning enquiries email: enquiries@bayside.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The lodgement page's list of documents and portal link didn't load when read. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_benalla_how_to_apply",
+      "document": "vic_benalla_doc2",
+      "section": "Council directory: vic_benalla",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Benalla Rural City Council for a development application.\nPlanning scheme: Benalla Planning Scheme.\nPhone: (03) 5760 2600\nEmail: council@benalla.vic.gov.au\nPlanning enquiries email: council@benalla.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_boroondara_how_to_apply",
+      "document": "vic_boroondara_doc1",
+      "section": "Council directory: vic_boroondara",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Boroondara City Council for a development application.\nPlanning scheme: Boroondara Planning Scheme.\nLodge (online): Apply online through the council's planning portal https://connect.boroondara.vic.gov.au/app/ask_oia/opa_deployment/Apply%20for%20a%20planning%20permit\nPhone: (03) 9278 4444\nEmail: boroondara@boroondara.vic.gov.au\nPlanning enquiries email: boroondara@boroondara.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Talk to a planner page wasn't read, so whether formal pre-application meetings are offered isn't recorded. Only online lodgement is described. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_queenscliffe_how_to_apply",
+      "document": "vic_queenscliffe_doc2",
+      "section": "Council directory: vic_queenscliffe",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Borough of Queenscliffe for a development application.\nPlanning scheme: Queenscliffe Planning Scheme.\nPhone: (03) 5258 1377\nEmail: info@queenscliffe.vic.gov.au\nPlanning enquiries email: info@queenscliffe.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_brimbank_how_to_apply",
+      "document": "vic_brimbank_doc1",
+      "section": "Council directory: vic_brimbank",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Brimbank City Council for a development application.\nPlanning scheme: Brimbank Planning Scheme.\nPre-lodgement meetings: offered (Council links to a planning advice application.).\nPhone: (03) 9249 4000\nEmail: info@brimbank.vic.gov.au\nPlanning enquiries email: info@brimbank.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Brimbank's planning application pages didn't show their content when read, so how to lodge isn't recorded. Check the council's planning permit application page. Planning advice page wasn't read, so cost and process aren't recorded. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_buloke_how_to_apply",
+      "document": "vic_buloke_doc2",
+      "section": "Council directory: vic_buloke",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Buloke Shire Council for a development application.\nPlanning scheme: Buloke Planning Scheme.\nPhone: (03) 5478 0100\nEmail: buloke@buloke.vic.gov.au\nPlanning enquiries email: buloke@buloke.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_campaspe_how_to_apply",
+      "document": "vic_campaspe_doc2",
+      "section": "Council directory: vic_campaspe",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Campaspe Shire Council for a development application.\nPlanning scheme: Campaspe Planning Scheme.\nPhone: (03) 5481 2200\nEmail: shire@campaspe.vic.gov.au\nPlanning enquiries email: shire@campaspe.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_cardinia_how_to_apply",
+      "document": "vic_cardinia_doc1",
+      "section": "Council directory: vic_cardinia",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Cardinia Shire Council for a development application.\nPlanning scheme: Cardinia Planning Scheme.\nLodge (online): Apply and pay through the ePlanning portal https://eplanning.cardinia.vic.gov.au/Account/Login.aspx\nLodge (in person): Lodge in person at Customer service centre, 20 Siding Avenue, Officer\nPre-lodgement meetings: offered (Planners review your concept plans and give feedback.).\nPhone: 1300 787 624\nEmail: mail@cardinia.vic.gov.au\nAddress: 20 Siding Avenue, Officer\nPlanning enquiries email: mail@cardinia.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Council also accepts applications by email and post, but the lodgement page gives no address for either. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_casey_how_to_apply",
+      "document": "vic_casey_doc1",
+      "section": "Council directory: vic_casey",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Casey City Council for a development application.\nPlanning scheme: Casey Planning Scheme.\nLodge (online): Apply online through the council's planning portal https://casey-web.t1cloud.com/T1PRDefault/WebApps/eProperty/P1/eSubmit/Category.aspx?f=%24P1.ESB.CATEGORY.VIW&Group=PlnPermit&GroupCategory=PlnApp\nLodge (email): Email the completed application form if you can't apply online caseycc@casey.vic.gov.au\nLodge (post): Post your application to Planning, City of Casey, PO Box 1000, Narre Warren VIC 3805\nPre-lodgement meetings: offered (Council lists a statutory planning pre-application service.).\nPhone: (03) 9705 5200\nEmail: caseycc@casey.vic.gov.au\nPlanning enquiries email: caseycc@casey.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Pre-application page wasn't read, so whether it costs anything isn't recorded. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_central_goldfields_how_to_apply",
+      "document": "vic_central_goldfields_doc2",
+      "section": "Council directory: vic_central_goldfields",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Central Goldfields Shire Council for a development application.\nPlanning scheme: Central Goldfields Planning Scheme.\nPhone: (03) 5461 0610\nEmail: mail@cgoldshire.vic.gov.au\nPlanning enquiries email: mail@cgoldshire.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_melbourne_how_to_apply",
+      "document": "vic_melbourne_doc1",
+      "section": "Council directory: vic_melbourne",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Melbourne for a development application.\nPlanning scheme: Melbourne Planning Scheme.\nPhone: (03) 9658 9658",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: City of Melbourne's planning pages didn't load when read, so how to lodge and pre-application options aren't recorded. See its lodge a planning application page. Council publishes a contact form rather than a general email address. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No general email address found in the statewide list."
+    },
+    {
+      "ref": "vic_colac_otway_how_to_apply",
+      "document": "vic_colac_otway_doc2",
+      "section": "Council directory: vic_colac_otway",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Colac Otway Shire Council for a development application.\nPlanning scheme: Colac Otway Planning Scheme.\nPhone: (03) 5232 9400\nEmail: inq@colacotway.vic.gov.au\nPlanning enquiries email: inq@colacotway.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_corangamite_how_to_apply",
+      "document": "vic_corangamite_doc2",
+      "section": "Council directory: vic_corangamite",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Corangamite Shire Council for a development application.\nPlanning scheme: Corangamite Planning Scheme.\nPhone: (03) 5593 7100\nEmail: shire@corangamite.vic.gov.au\nPlanning enquiries email: shire@corangamite.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_darebin_how_to_apply",
+      "document": "vic_darebin_doc1",
+      "section": "Council directory: vic_darebin",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Darebin City Council for a development application.\nPlanning scheme: Darebin Planning Scheme.\nLodge (online): Lodge through council's eServices portal https://eservices.darebin.vic.gov.au/ePathway/Production/Web/default.aspx\nLodge (post): Post the application and fee to Statutory Planning Unit, Darebin City Council, PO Box 91, Preston VIC 3072\nLodge (in person): Lodge in person at Planning counter, Level 1, 274 Gower Street, Preston (8:45am to 4:45pm weekdays)\nPre-lodgement meetings: offered (Council has a pre-application meetings step in its planning guide.).\nPhone: (03) 8470 8888\nEmail: mailbox@darebin.vic.gov.au\nPlanning enquiries email: mailbox@darebin.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Pre-application page wasn't read, so cost and booking steps aren't recorded. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_east_gippsland_how_to_apply",
+      "document": "vic_east_gippsland_doc2",
+      "section": "Council directory: vic_east_gippsland",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to East Gippsland Shire Council for a development application.\nPlanning scheme: East Gippsland Planning Scheme.\nPhone: (03) 5153 9500\nEmail: feedback@egipps.vic.gov.au\nPlanning enquiries email: feedback@egipps.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_frankston_how_to_apply",
+      "document": "vic_frankston_doc1",
+      "section": "Council directory: vic_frankston",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Frankston City Council for a development application.\nPlanning scheme: Frankston Planning Scheme.\nPhone: 1300 322 322\nEmail: info@frankston.vic.gov.au\nPlanning enquiries email: info@frankston.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Frankston's planning pages didn't show their content when read, so how to lodge and pre-application options aren't recorded. See its submit your planning application page. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_gannawarra_how_to_apply",
+      "document": "vic_gannawarra_doc2",
+      "section": "Council directory: vic_gannawarra",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Gannawarra Shire Council for a development application.\nPlanning scheme: Gannawarra Planning Scheme.\nPhone: (03) 5450 9333\nEmail: council@gannawarra.vic.gov.au\nPlanning enquiries email: council@gannawarra.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_glen_eira_how_to_apply",
+      "document": "vic_glen_eira_doc1",
+      "section": "Council directory: vic_glen_eira",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Glen Eira City Council for a development application.\nPlanning scheme: Glen Eira Planning Scheme.\nLodge (online): Register, then apply online through ePathway https://epathway-web.gleneira.vic.gov.au/ePathway/Production/Web/Default.aspx\nPhone: (03) 9524 3333\nEmail: mail@gleneira.vic.gov.au\nAddress: Corner Glen Eira and Hawthorn Roads, Caulfield\nPlanning enquiries email: mail@gleneira.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The page doesn't mention pre-application meetings. Postal or counter lodgement isn't described. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_glenelg_how_to_apply",
+      "document": "vic_glenelg_doc2",
+      "section": "Council directory: vic_glenelg",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Glenelg Shire Council for a development application.\nPlanning scheme: Glenelg Planning Scheme.\nPhone: (03) 5522 2200\nEmail: enquiry@glenelg.vic.gov.au\nPlanning enquiries email: enquiry@glenelg.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_golden_plains_how_to_apply",
+      "document": "vic_golden_plains_doc2",
+      "section": "Council directory: vic_golden_plains",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Golden Plains Shire Council for a development application.\nPlanning scheme: Golden Plains Planning Scheme.\nPhone: (03) 5220 7111\nEmail: enquiries@gplains.vic.gov.au\nPlanning enquiries email: enquiries@gplains.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_greater_bendigo_how_to_apply",
+      "document": "vic_greater_bendigo_doc1",
+      "section": "Council directory: vic_greater_bendigo",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Greater Bendigo City Council for a development application.\nPlanning scheme: Greater Bendigo Planning Scheme.\nLodge (post): Post your application to City of Greater Bendigo Planning unit, PO Box 733, Bendigo VIC 3552\nPre-lodgement meetings: offered (Council has a pre-application advice page.).\nPhone: 1300 002 642\nEmail: info@bendigo.vic.gov.au\nAddress: 189-229 Lyttleton Terrace, Bendigo\nPlanning enquiries email: info@bendigo.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Lodgement email address is hidden on council's page and couldn't be read. Council's page gives 1300 002 642 as its general number; the statewide list gives (03) 5434 6000. Pre-application advice page wasn't read. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used. The council takes applications by email, but its page doesn't show the address; ask the council."
+    },
+    {
+      "ref": "vic_greater_dandenong_how_to_apply",
+      "document": "vic_greater_dandenong_doc1",
+      "section": "Council directory: vic_greater_dandenong",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Greater Dandenong City Council for a development application.\nPlanning scheme: Greater Dandenong Planning Scheme.\nLodge (online): Apply online through the Online Planning Portal https://www.greaterdandenong.vic.gov.au/planning/online-planning-portal\nLodge (email): Email your application council@cgd.vic.gov.au\nLodge (post): Post your application to Planning Department, City of Greater Dandenong, PO Box 200, Dandenong VIC 3175\nLodge (in person): Lodge in person at Planning Service Counter, Greater Dandenong Civic Centre, Level 3, 225 Lonsdale Street, Dandenong\nPhone: (03) 8571 1000\nEmail: council@cgd.vic.gov.au\nAddress: Civic Centre, 225 Lonsdale Street, Dandenong\nPlanning enquiries email: council@cgd.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The lodgement page doesn't mention pre-application meetings. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_greater_geelong_how_to_apply",
+      "document": "vic_greater_geelong_doc1",
+      "section": "Council directory: vic_greater_geelong",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Greater Geelong City Council for a development application.\nPlanning scheme: Greater Geelong Planning Scheme.\nLodge (online): Apply online through the council's planning portal https://eserv.geelongcity.vic.gov.au/ePathway/Production/Web/Login/Login.aspx\nLodge (post): Post your application to City of Greater Geelong, PO Box 104, Geelong VIC 3220\nLodge (in person): Lodge in person at Planning office, Wurriki Nyal, 137-149 Mercer Street, Geelong (8am to 5pm, Monday to Friday)\nPhone: (03) 5272 5272\nEmail: contactus@geelongcity.vic.gov.au\nAddress: Wurriki Nyal, 137-149 Mercer Street, Geelong\nPlanning enquiries email: contactus@geelongcity.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The state electoral commission still lists geelongaustralia.com.au as the website; it now redirects to geelongcity.vic.gov.au. Council's email address statplanning@geelongcity.vic.gov.au is for amendment applications only, not new applications. The lodgement page doesn't mention pre-application meetings. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_greater_shepparton_how_to_apply",
+      "document": "vic_greater_shepparton_doc2",
+      "section": "Council directory: vic_greater_shepparton",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Greater Shepparton City Council for a development application.\nPlanning scheme: Greater Shepparton Planning Scheme.\nPhone: (03) 5832 9700\nEmail: council@shepparton.vic.gov.au\nPlanning enquiries email: council@shepparton.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_hepburn_how_to_apply",
+      "document": "vic_hepburn_doc2",
+      "section": "Council directory: vic_hepburn",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Hepburn Shire Council for a development application.\nPlanning scheme: Hepburn Planning Scheme.\nPhone: (03) 5348 2306\nEmail: shire@hepburn.vic.gov.au\nPlanning enquiries email: shire@hepburn.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_hindmarsh_how_to_apply",
+      "document": "vic_hindmarsh_doc2",
+      "section": "Council directory: vic_hindmarsh",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Hindmarsh Shire Council for a development application.\nPlanning scheme: Hindmarsh Planning Scheme.\nPhone: (03) 5391 4444\nEmail: info@hindmarsh.vic.gov.au\nPlanning enquiries email: info@hindmarsh.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_hobsons_bay_how_to_apply",
+      "document": "vic_hobsons_bay_doc2",
+      "section": "Council directory: vic_hobsons_bay",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Hobsons Bay City Council for a development application.\nPlanning scheme: Hobsons Bay Planning Scheme.\nPhone: 1300 179 944\nEmail: customerservice@hobsonsbay.vic.gov.au\nPlanning enquiries email: customerservice@hobsonsbay.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_horsham_how_to_apply",
+      "document": "vic_horsham_doc2",
+      "section": "Council directory: vic_horsham",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Horsham Rural City Council for a development application.\nPlanning scheme: Horsham Planning Scheme.\nPhone: (03) 5382 9777\nEmail: council@hrcc.vic.gov.au\nPlanning enquiries email: council@hrcc.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_hume_how_to_apply",
+      "document": "vic_hume_doc1",
+      "section": "Council directory: vic_hume",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Hume City Council for a development application.\nPlanning scheme: Hume Planning Scheme.\nLodge (online): Apply and pay online through eHume https://ehume.hume.vic.gov.au/T1PRProd/WebApps/eProperty/P1/Login.aspx\nLodge (email): Email your application contactus@hume.vic.gov.au\nLodge (post): Post your application with payment to Hume City Council, PO Box 119, Dallas VIC 3047\nPre-lodgement meetings: offered (Council has a pre-application meetings page.).\nPhone: (03) 9205 2200\nEmail: contactus@hume.vic.gov.au\nAddress: 1079 Pascoe Vale Road, Broadmeadows\nPlanning enquiries email: contactus@hume.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The statewide council list gives email@hume.vic.gov.au; council's own planning page uses contactus@hume.vic.gov.au, which is recorded here. Pre-application meetings page wasn't read, so cost and booking steps aren't recorded. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_indigo_how_to_apply",
+      "document": "vic_indigo_doc2",
+      "section": "Council directory: vic_indigo",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Indigo Shire Council for a development application.\nPlanning scheme: Indigo Planning Scheme.\nPhone: (03) 5728 8000\nEmail: indigoshire@indigoshire.vic.gov.au\nPlanning enquiries email: indigoshire@indigoshire.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_kingston_how_to_apply",
+      "document": "vic_kingston_doc1",
+      "section": "Council directory: vic_kingston",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Kingston City Council for a development application.\nPlanning scheme: Kingston Planning Scheme.\nLodge (online): Apply online through ePathway (choose your application type) https://online.kingston.vic.gov.au/ePathway/Production/Web/Default.aspx\nLodge (email): Email your documents (30MB attachment limit) info@kingston.vic.gov.au\nPre-lodgement meetings: offered (Book a free 10-minute appointment with a planning officer, Monday to Friday, 9am to 4:30pm.).\nPhone: 1300 653 356\nEmail: info@kingston.vic.gov.au\nPlanning enquiries email: info@kingston.vic.gov.au\nPlanning enquiries phone: 03 9581 4130",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Whether the 10-minute planner appointment is free isn't stated. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_knox_how_to_apply",
+      "document": "vic_knox_doc1",
+      "section": "Council directory: vic_knox",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Knox City Council for a development application.\nPlanning scheme: Knox Planning Scheme.\nLodge (online): Register on the council portal, then upload documents and pay https://eservices.knox.vic.gov.au/ePathway/Production/Web/Registration/Register.aspx\nLodge (post): Post your application to Knox City Council, 511 Burwood Highway, Wantirna South VIC 3152\nLodge (in person): Lodge in person at 511 Burwood Highway, Wantirna South (business hours)\nPhone: (03) 9298 8000\nEmail: knoxcc@knox.vic.gov.au\nAddress: 511 Burwood Highway, Wantirna South VIC 3152\nPlanning enquiries email: knoxcc@knox.vic.gov.au\nPlanning enquiries phone: 03 9298 8125",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Formal pre-application meetings aren't mentioned on the lodgement page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_latrobe_how_to_apply",
+      "document": "vic_latrobe_doc2",
+      "section": "Council directory: vic_latrobe",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Latrobe City Council for a development application.\nPlanning scheme: Latrobe Planning Scheme.\nPhone: 1300 367 700\nEmail: latrobe@latrobe.vic.gov.au\nPlanning enquiries email: latrobe@latrobe.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_loddon_how_to_apply",
+      "document": "vic_loddon_doc2",
+      "section": "Council directory: vic_loddon",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Loddon Shire Council for a development application.\nPlanning scheme: Loddon Planning Scheme.\nPhone: (03) 5494 1200\nEmail: loddon@loddon.vic.gov.au\nPlanning enquiries email: loddon@loddon.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_macedon_ranges_how_to_apply",
+      "document": "vic_macedon_ranges_doc2",
+      "section": "Council directory: vic_macedon_ranges",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Macedon Ranges Shire Council for a development application.\nPlanning scheme: Macedon Ranges Planning Scheme.\nPhone: (03) 5422 0333\nEmail: mrsc@mrsc.vic.gov.au\nPlanning enquiries email: mrsc@mrsc.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_manningham_how_to_apply",
+      "document": "vic_manningham_doc1",
+      "section": "Council directory: vic_manningham",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Manningham City Council for a development application.\nPlanning scheme: Manningham Planning Scheme.\nLodge (online): Upload, apply and pay online (card or invoice) https://www.manningham.vic.gov.au/property-and-development/when-do-you-need-permit/apply-planning-permit\nPre-lodgement meetings: offered (Optional paid pre-application meeting, face to face or written.).\nPhone: (03) 9840 9333\nEmail: manningham@manningham.vic.gov.au\nPlanning enquiries email: manningham@manningham.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Only online lodgement is described. Pre-application fee amount not gathered. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_mansfield_how_to_apply",
+      "document": "vic_mansfield_doc2",
+      "section": "Council directory: vic_mansfield",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Mansfield Shire Council for a development application.\nPlanning scheme: Mansfield Planning Scheme.\nPhone: (03) 5775 8555\nEmail: council@mansfield.vic.gov.au\nPlanning enquiries email: council@mansfield.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_maribyrnong_how_to_apply",
+      "document": "vic_maribyrnong_doc2",
+      "section": "Council directory: vic_maribyrnong",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Maribyrnong City Council for a development application.\nPlanning scheme: Maribyrnong Planning Scheme.\nPhone: (03) 9688 0200\nEmail: email@maribyrnong.vic.gov.au\nPlanning enquiries email: email@maribyrnong.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_maroondah_how_to_apply",
+      "document": "vic_maroondah_doc1",
+      "section": "Council directory: vic_maroondah",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Maroondah City Council for a development application.\nPlanning scheme: Maroondah Planning Scheme.\nLodge (online): Register, then apply online https://eservices.maroondah.vic.gov.au/ePathway/Production/Web/Registration/Register.aspx\nPre-lodgement meetings: offered (Council recommends discussing your proposal with its planning officers before you submit.).\nPhone: 1300 882 233\nEmail: maroondah@maroondah.vic.gov.au\nPlanning enquiries email: maroondah@maroondah.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Council says you can also apply in writing but gives no postal lodgement address. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_melton_how_to_apply",
+      "document": "vic_melton_doc1",
+      "section": "Council directory: vic_melton",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Melton City Council for a development application.\nPlanning scheme: Melton Planning Scheme.\nPre-lodgement meetings: offered (Council officers can advise whether your proposal generally fits the planning scheme before you apply.).\nPhone: (03) 9747 7200\nEmail: csu@melton.vic.gov.au\nAddress: Civic Centre, 232 High Street, Melton VIC 3337\nPlanning enquiries email: csu@melton.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The how-to-apply page says to fill in the application form and pay the fee but doesn't say how to lodge it (online, email, post or in person). Ask council. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_merri_bek_how_to_apply",
+      "document": "vic_merri_bek_doc1",
+      "section": "Council directory: vic_merri_bek",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Merri-bek City Council for a development application.\nPlanning scheme: Merri-bek Planning Scheme.\nLodge (online): Apply online through council's eServices website https://eservices.moreland.vic.gov.au/ePathway/Production/Web/Default.aspx\nLodge (post): Post the application form, documents and fee to Merri-bek City Council, Locked Bag 10, Merri-bek 3058\nLodge (in person): Lodge in person at Any Merri-bek customer service centre\nPre-lodgement meetings: offered (Council strongly recommends a pre-application meeting; book it through eServices.).\nPhone: (03) 9240 1111\nEmail: info@merri-bek.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Council doesn't accept applications by email or electronic link. No planning email is published; phone 9240 1111. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016."
+    },
+    {
+      "ref": "vic_mildura_how_to_apply",
+      "document": "vic_mildura_doc2",
+      "section": "Council directory: vic_mildura",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Mildura Rural City Council for a development application.\nPlanning scheme: Mildura Planning Scheme.\nPhone: (03) 5018 8100\nEmail: mrcc@mildura.vic.gov.au\nPlanning enquiries email: mrcc@mildura.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_mitchell_how_to_apply",
+      "document": "vic_mitchell_doc2",
+      "section": "Council directory: vic_mitchell",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Mitchell Shire Council for a development application.\nPlanning scheme: Mitchell Planning Scheme.\nPhone: (03) 5734 6200\nEmail: mitchell@mitchellshire.vic.gov.au\nPlanning enquiries email: mitchell@mitchellshire.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_moira_how_to_apply",
+      "document": "vic_moira_doc2",
+      "section": "Council directory: vic_moira",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Moira Shire Council for a development application.\nPlanning scheme: Moira Planning Scheme.\nPhone: (03) 5871 9222\nEmail: info@moira.vic.gov.au\nPlanning enquiries email: info@moira.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_monash_how_to_apply",
+      "document": "vic_monash_doc1",
+      "section": "Council directory: vic_monash",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Monash City Council for a development application.\nPlanning scheme: Monash Planning Scheme.\nLodge (online): Apply online through ePathway (choose your application type) https://epathway.monash.vic.gov.au/ePathway/ePTHPROD/Web/Applications/ExternalRequestBroker.aspx?Module=EAPLODG&Class=TPA&Type=GEN\nPre-lodgement meetings: offered (Council's residential development guidelines include a pre-application meeting step.).\nPhone: (03) 9518 3555\nEmail: mail@monash.vic.gov.au\nPlanning enquiries email: mail@monash.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Email lodgement (mail@monash.vic.gov.au) is described for amendments only. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_moonee_valley_how_to_apply",
+      "document": "vic_moonee_valley_doc1",
+      "section": "Council directory: vic_moonee_valley",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Moonee Valley City Council for a development application.\nPlanning scheme: Moonee Valley Planning Scheme.\nLodge (online): Apply online (register 48 hours before you submit) https://mvccprd-pwy-epw01.cloud.infor.com/ePathway/Production/Web/Applications/ExternalRequestBroker.aspx?Module=EAPLODG&Class=DEV&Type=MC\nPre-lodgement meetings: offered (Book a pre-application meeting once you have concept plans.).\nPhone: (03) 9243 8888\nEmail: council@mvcc.vic.gov.au\nPlanning enquiries email: council@mvcc.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Single dwellings and VicSmart have their own online links on council's page. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_moorabool_how_to_apply",
+      "document": "vic_moorabool_doc2",
+      "section": "Council directory: vic_moorabool",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Moorabool Shire Council for a development application.\nPlanning scheme: Moorabool Planning Scheme.\nPhone: (03) 5366 7100\nEmail: info@moorabool.vic.gov.au\nPlanning enquiries email: info@moorabool.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_mornington_peninsula_how_to_apply",
+      "document": "vic_mornington_peninsula_doc1",
+      "section": "Council directory: vic_mornington_peninsula",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Mornington Peninsula Shire Council for a development application.\nPlanning scheme: Mornington Peninsula Planning Scheme.\nLodge (online): Lodge and pay online through ePlanning (as a guest or registered user) https://www.mornpen.vic.gov.au/Building-Planning/Planning/Apply-for-Planning-Applications/How-to-lodge-your-planning-applications-online\nPhone: 1300 850 600\nEmail: customerservice@mornpen.vic.gov.au\nPlanning enquiries email: planning@mornpen.vic.gov.au\nPlanning enquiries phone: 03 5950 1010",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The ePlanning portal's own address wasn't readable; use the Lodge here link on council's page. Pre-application meetings aren't described on the lodgement page. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016."
+    },
+    {
+      "ref": "vic_mount_alexander_how_to_apply",
+      "document": "vic_mount_alexander_doc2",
+      "section": "Council directory: vic_mount_alexander",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Mount Alexander Shire Council for a development application.\nPlanning scheme: Mount Alexander Planning Scheme.\nPhone: (03) 5471 1700\nEmail: info@mountalexander.vic.gov.au\nPlanning enquiries email: info@mountalexander.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_moyne_how_to_apply",
+      "document": "vic_moyne_doc2",
+      "section": "Council directory: vic_moyne",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Moyne Shire Council for a development application.\nPlanning scheme: Moyne Planning Scheme.\nPhone: (03) 5568 0555\nEmail: moyne@moyne.vic.gov.au\nPlanning enquiries email: moyne@moyne.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_murrindindi_how_to_apply",
+      "document": "vic_murrindindi_doc2",
+      "section": "Council directory: vic_murrindindi",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Murrindindi Shire Council for a development application.\nPlanning scheme: Murrindindi Planning Scheme.\nPhone: (03) 5772 0333\nEmail: msc@murrindindi.vic.gov.au\nPlanning enquiries email: msc@murrindindi.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_nillumbik_how_to_apply",
+      "document": "vic_nillumbik_doc2",
+      "section": "Council directory: vic_nillumbik",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Nillumbik Shire Council for a development application.\nPlanning scheme: Nillumbik Planning Scheme.\nPhone: (03) 9433 3111\nEmail: nillumbik@nillumbik.vic.gov.au\nPlanning enquiries email: nillumbik@nillumbik.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_northern_grampians_how_to_apply",
+      "document": "vic_northern_grampians_doc2",
+      "section": "Council directory: vic_northern_grampians",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Northern Grampians Shire Council for a development application.\nPlanning scheme: Northern Grampians Planning Scheme.\nPhone: (03) 5358 8700\nEmail: ngshire@ngshire.vic.gov.au\nPlanning enquiries email: ngshire@ngshire.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_port_phillip_how_to_apply",
+      "document": "vic_port_phillip_doc1",
+      "section": "Council directory: vic_port_phillip",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Port Phillip City Council for a development application.\nPlanning scheme: Port Phillip Planning Scheme.\nLodge (online): Lodge standard applications online through My Port Phillip https://www.portphillip.vic.gov.au/planning-and-building/planning/apply-for-a-permit\nLodge (email): Email VicSmart applications only to planhelp@portphillip.vic.gov.au\nPhone: (03) 9209 6777\nEmail: assist@portphillip.vic.gov.au\nPlanning enquiries email: planhelp@portphillip.vic.gov.au\nPlanning enquiries phone: 03 9209 6424",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The page doesn't mention pre-application meetings. My Port Phillip's direct address isn't shown on council's page. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016."
+    },
+    {
+      "ref": "vic_pyrenees_how_to_apply",
+      "document": "vic_pyrenees_doc2",
+      "section": "Council directory: vic_pyrenees",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Pyrenees Shire Council for a development application.\nPlanning scheme: Pyrenees Planning Scheme.\nPhone: (03) 5349 1100\nEmail: pyrenees@pyrenees.vic.gov.au\nPlanning enquiries email: pyrenees@pyrenees.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_south_gippsland_how_to_apply",
+      "document": "vic_south_gippsland_doc2",
+      "section": "Council directory: vic_south_gippsland",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to South Gippsland Shire Council for a development application.\nPlanning scheme: South Gippsland Planning Scheme.\nPhone: (03) 5662 9200\nEmail: council@southgippsland.vic.gov.au\nPlanning enquiries email: council@southgippsland.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_southern_grampians_how_to_apply",
+      "document": "vic_southern_grampians_doc2",
+      "section": "Council directory: vic_southern_grampians",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Southern Grampians Shire Council for a development application.\nPlanning scheme: Southern Grampians Planning Scheme.\nPhone: (03) 5573 0444\nEmail: council@sthgrampians.vic.gov.au\nPlanning enquiries email: council@sthgrampians.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_stonnington_how_to_apply",
+      "document": "vic_stonnington_doc1",
+      "section": "Council directory: vic_stonnington",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Stonnington City Council for a development application.\nPlanning scheme: Stonnington Planning Scheme.\nLodge (online): Apply online (Apply now button on council's page) https://www.stonnington.vic.gov.au/Planning-and-building/Planning/For-applicants/Applying-for-a-planning-permit\nLodge (email): Email paper application forms to council@stonnington.vic.gov.au\nLodge (post): Post your application to City of Stonnington, PO Box 58, Malvern VIC 3144\nLodge (in person): Lodge in person at Planning counter, 311 Glenferrie Road, Malvern\nPre-lodgement meetings: offered (Pre-application meetings for major or complex proposals; heritage adviser meetings for simple heritage projects.).\nPhone: (03) 8290 1333\nEmail: council@stonnington.vic.gov.au\nAddress: 311 Glenferrie Road, Malvern\nPlanning enquiries email: council@stonnington.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The online portal's direct address isn't shown on council's page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_strathbogie_how_to_apply",
+      "document": "vic_strathbogie_doc2",
+      "section": "Council directory: vic_strathbogie",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Strathbogie Shire Council for a development application.\nPlanning scheme: Strathbogie Planning Scheme.\nPhone: (03) 5795 0000\nEmail: info@strathbogie.vic.gov.au\nPlanning enquiries email: info@strathbogie.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_surf_coast_how_to_apply",
+      "document": "vic_surf_coast_doc2",
+      "section": "Council directory: vic_surf_coast",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Surf Coast Shire Council for a development application.\nPlanning scheme: Surf Coast Planning Scheme.\nPhone: (03) 5261 0600\nEmail: info@surfcoast.vic.gov.au\nPlanning enquiries email: info@surfcoast.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_swan_hill_how_to_apply",
+      "document": "vic_swan_hill_doc2",
+      "section": "Council directory: vic_swan_hill",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Swan Hill Rural City Council for a development application.\nPlanning scheme: Swan Hill Planning Scheme.\nPhone: (03) 5036 2333\nEmail: council@swanhill.vic.gov.au\nPlanning enquiries email: council@swanhill.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_towong_how_to_apply",
+      "document": "vic_towong_doc2",
+      "section": "Council directory: vic_towong",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Towong Shire Council for a development application.\nPlanning scheme: Towong Planning Scheme.\nPhone: (02) 6071 5100\nEmail: info@towong.vic.gov.au\nPlanning enquiries email: info@towong.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_wangaratta_how_to_apply",
+      "document": "vic_wangaratta_doc2",
+      "section": "Council directory: vic_wangaratta",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Wangaratta Rural City Council for a development application.\nPlanning scheme: Wangaratta Planning Scheme.\nPhone: (03) 5722 0888\nEmail: council@wangaratta.vic.gov.au\nPlanning enquiries email: council@wangaratta.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_warrnambool_how_to_apply",
+      "document": "vic_warrnambool_doc2",
+      "section": "Council directory: vic_warrnambool",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Warrnambool City Council for a development application.\nPlanning scheme: Warrnambool Planning Scheme.\nPhone: (03) 5559 4800\nEmail: wbool_city@warrnambool.vic.gov.au\nPlanning enquiries email: wbool_city@warrnambool.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_wellington_how_to_apply",
+      "document": "vic_wellington_doc2",
+      "section": "Council directory: vic_wellington",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Wellington Shire Council for a development application.\nPlanning scheme: Wellington Planning Scheme.\nPhone: 1300 366 244\nEmail: enquiries@wellington.vic.gov.au\nPlanning enquiries email: enquiries@wellington.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_west_wimmera_how_to_apply",
+      "document": "vic_west_wimmera_doc2",
+      "section": "Council directory: vic_west_wimmera",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to West Wimmera Shire Council for a development application.\nPlanning scheme: West Wimmera Planning Scheme.\nPhone: (03) 5585 9900\nEmail: council@westwimmera.vic.gov.au\nPlanning enquiries email: council@westwimmera.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_whitehorse_how_to_apply",
+      "document": "vic_whitehorse_doc1",
+      "section": "Council directory: vic_whitehorse",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Whitehorse City Council for a development application.\nPlanning scheme: Whitehorse Planning Scheme.\nLodge (online): Apply online: pick your application type on council's lodge and apply page https://eservices.whitehorse.vic.gov.au/ePathway/Production/Web/Default.aspx\nPre-lodgement meetings: offered (Book a 15-minute chat with a planner about your planning enquiry.).\nPhone: (03) 9262 6333\nEmail: customer.service@whitehorse.vic.gov.au\nPlanning enquiries email: customer.service@whitehorse.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Only online lodgement is described; the fee is due when you submit. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_whittlesea_how_to_apply",
+      "document": "vic_whittlesea_doc1",
+      "section": "Council directory: vic_whittlesea",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Whittlesea City Council for a development application.\nPlanning scheme: Whittlesea Planning Scheme.\nLodge (online): All planning permit applications go through the online portal https://online.whittlesea.vic.gov.au/s/permit-required\nPhone: (03) 9217 2170\nEmail: info@whittlesea.vic.gov.au\nPlanning enquiries email: info@whittlesea.vic.gov.au\nPlanning enquiries phone: 03 9217 2170",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: The planning page doesn't mention pre-application meetings. No planning email is published; council points you to an online enquiry form. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_wodonga_how_to_apply",
+      "document": "vic_wodonga_doc2",
+      "section": "Council directory: vic_wodonga",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Wodonga City Council for a development application.\nPlanning scheme: Wodonga Planning Scheme.\nPhone: (02) 6022 9300\nEmail: info@wodonga.vic.gov.au\nPlanning enquiries email: info@wodonga.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_wyndham_how_to_apply",
+      "document": "vic_wyndham_doc1",
+      "section": "Council directory: vic_wyndham",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Wyndham City Council for a development application.\nPlanning scheme: Wyndham Planning Scheme.\nLodge (online): Apply online through the council's planning portal https://wyndham.t1cloud.com/T1Default/CiAnywhere/Web/WYNDHAM/LogOn/PR_ONLINE\nPre-lodgement meetings: offered (Council suggests you talk to it about your proposal before you apply.).\nPhone: (03) 9742 0777\nEmail: mail@wyndham.vic.gov.au\nPlanning enquiries email: mail@wyndham.vic.gov.au\nPlanning enquiries phone: 03 8376 5503",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Only online lodgement is described; no email, post or counter option is published. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_yarra_how_to_apply",
+      "document": "vic_yarra_doc2",
+      "section": "Council directory: vic_yarra",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Yarra City Council for a development application.\nPlanning scheme: Yarra Planning Scheme.\nPhone: (03) 9205 5555\nEmail: info@yarracity.vic.gov.au\nPlanning enquiries email: info@yarracity.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_yarra_ranges_how_to_apply",
+      "document": "vic_yarra_ranges_doc1",
+      "section": "Council directory: vic_yarra_ranges",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Yarra Ranges Shire Council for a development application.\nPlanning scheme: Yarra Ranges Planning Scheme.\nLodge (online): Create an account or log in, complete the form and upload your documents (Apply now button) https://www.yarraranges.vic.gov.au/Our-services/Planning-building-and-development/Planning/Preparing-your-application/Submit-a-planning-application\nLodge (in person): You can also visit A Yarra Ranges Community Link centre\nPhone: 1300 368 333\nEmail: mail@yarraranges.vic.gov.au\nPlanning enquiries email: mail@yarraranges.vic.gov.au\nPlanning enquiries phone: 1300 368 333",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: Website address taken from council's own pages (the electoral commission page couldn't be read). The portal's direct address isn't shown on council's page. Pre-application meetings aren't described. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    },
+    {
+      "ref": "vic_yarriambiack_how_to_apply",
+      "document": "vic_yarriambiack_doc2",
+      "section": "Council directory: vic_yarriambiack",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Yarriambiack Shire Council for a development application.\nPlanning scheme: Yarriambiack Planning Scheme.\nPhone: (03) 5398 0100\nEmail: info@yarriambiack.vic.gov.au\nPlanning enquiries email: info@yarriambiack.vic.gov.au",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct vic_councils.json if anything is wrong before verifying. Gaps found: How this council takes applications wasn't checked; see its website. Pre-lodgement meeting availability wasn't checked. Office address not gathered from a statewide source; see the council's contact page. Planning scheme link follows the state portal's address pattern (confirmed for Horsham) and wasn't opened. Council's own fees (e.g. pre-application meetings) not gathered. Planning permit application fees are set statewide by the Planning and Environment (Fees) Regulations 2016. No separate planning email published in the sources read; the general council email is used."
+    }
+  ],
+  "rule_sets": []
+}
