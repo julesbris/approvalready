@@ -1,0 +1,2027 @@
+{
+  "key": "business_nt",
+  "title": "NT: BusinessReady, vehicle registration, VesselReady and grants (licences, insurance, tax, trades, personal services, childcare, imported vehicles, boats, Grow Your Business)",
+  "notes": "First sourced NT rules for BusinessReady, TradeReady (vehicles), VesselReady and GrantReady. Built from NT.GOV.AU, NT WorkSafe, Territory Revenue Office, Building Practitioners Board, Plumbers and Drainers Licensing Board and City of Darwin pages read on 2026-10-12. The shared web-fetch budget ran out repeatedly; gaps are listed in the limitations and guides.",
+  "organisations": [
+    {
+      "ref": "ntgov",
+      "name": "NT.GOV.AU (Northern Territory Government)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NT",
+      "website": "https://nt.gov.au"
+    },
+    {
+      "ref": "worksafe",
+      "name": "NT WorkSafe",
+      "kind": "REGULATOR",
+      "jurisdiction": "NT",
+      "website": "https://worksafe.nt.gov.au"
+    },
+    {
+      "ref": "tro",
+      "name": "Territory Revenue Office (Department of Treasury and Finance)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "NT",
+      "website": "https://treasury.nt.gov.au"
+    },
+    {
+      "ref": "bpb",
+      "name": "Building Practitioners Board (NT)",
+      "kind": "REGULATOR",
+      "jurisdiction": "NT",
+      "website": "https://bpb.nt.gov.au"
+    },
+    {
+      "ref": "pdlb",
+      "name": "Plumbers and Drainers Licensing Board (NT)",
+      "kind": "REGULATOR",
+      "jurisdiction": "NT",
+      "website": "https://plumberslicensing.nt.gov.au"
+    },
+    {
+      "ref": "darwin",
+      "name": "City of Darwin",
+      "kind": "COUNCIL",
+      "jurisdiction": "NT",
+      "website": "https://www.darwin.nt.gov.au"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "food_register",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Register a food business",
+      "url": "https://nt.gov.au/industry/hospitality/accommodation-and-food-businesses/register-food-business",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "food_fees",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Food business risk classification and fees",
+      "url": "https://nt.gov.au/industry/hospitality/accommodation-and-food-businesses/risk-classifications-and-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "liquor_apply",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Apply for a liquor licence",
+      "url": "https://nt.gov.au/industry/liquor/sell-supply-serve/licence-apply",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "liquor_fees",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Lodging liquor licence forms, fees and timeframes",
+      "url": "https://nt.gov.au/industry/liquor/sell-supply-serve/fees-and-processing-times",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "darwin_outdoor",
+      "organisation": "darwin",
+      "jurisdiction": "NT",
+      "title": "Commercial outdoor activities permits (City of Darwin)",
+      "url": "https://www.darwin.nt.gov.au/node/61358",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "darwin_property_permits",
+      "organisation": "darwin",
+      "jurisdiction": "NT",
+      "title": "Property permits (City of Darwin)",
+      "url": "https://www.darwin.nt.gov.au/business/planning-development/permits/property-permits",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ws_business",
+      "organisation": "worksafe",
+      "jurisdiction": "NT",
+      "title": "Workers' compensation: information for businesses",
+      "url": "https://worksafe.nt.gov.au/workers-compensation/information-for-businesses",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "tro_payroll",
+      "organisation": "tro",
+      "jurisdiction": "NT",
+      "title": "Payroll tax rates and thresholds",
+      "url": "https://treasury.nt.gov.au/dtf/territory-revenue-office/payroll-tax/payroll-tax-rates-and-thresholds",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "bpb_practitioners",
+      "organisation": "bpb",
+      "jurisdiction": "NT",
+      "title": "Practitioners (Building Practitioners Board)",
+      "url": "https://bpb.nt.gov.au/practitioners",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "bpb_forms",
+      "organisation": "bpb",
+      "jurisdiction": "NT",
+      "title": "Forms (Building Practitioners Board)",
+      "url": "https://bpb.nt.gov.au/application-forms",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "pdlb_licensing",
+      "organisation": "pdlb",
+      "jurisdiction": "NT",
+      "title": "Licensing (Plumbers and Drainers Licensing Board)",
+      "url": "https://plumberslicensing.nt.gov.au/licensing",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ws_electrical",
+      "organisation": "worksafe",
+      "jurisdiction": "NT",
+      "title": "Electrical licensing",
+      "url": "https://worksafe.nt.gov.au/licensing-and-registration/electrical-licensing",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ws_contractor",
+      "organisation": "worksafe",
+      "jurisdiction": "NT",
+      "title": "Electrical contractor licence",
+      "url": "https://worksafe.nt.gov.au/licensing-and-registration/electrical-licensing/electrical-contractor-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ws_fees",
+      "organisation": "worksafe",
+      "jurisdiction": "NT",
+      "title": "Licensing fees and charges",
+      "url": "https://worksafe.nt.gov.au/licensing-and-registration/licensing-fees-and-charges",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "personal_register",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Register a hairdressing, beauty therapy or body art business",
+      "url": "https://nt.gov.au/industry/licences/register-a-hairdressing-beauty-therapy-or-body-art-business",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "qecnt",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Early childhood education and care: information for providers",
+      "url": "https://nt.gov.au/learning/early-childhood-education-and-care/information-for-providers",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "mvr_import",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Register an imported vehicle",
+      "url": "https://nt.gov.au/driving/rego/getting-an-nt-registration/register-an-imported-vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "mvr_register",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Register or transfer your vehicle",
+      "url": "https://nt.gov.au/driving/rego/getting-an-nt-registration/register-or-transfer-your-vehicle",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "mvd_licence",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Motor vehicle dealer licences",
+      "url": "https://nt.gov.au/industry/licences/motor-vehicle-dealer-licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "mvd_fees",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Motor vehicle dealer licence fees",
+      "url": "https://nt.gov.au/industry/licences/motor-vehicle-dealer-licences/fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "boat_new",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "New to recreational boating",
+      "url": "https://nt.gov.au/marine/for-all-harbour-and-boat-users/owning-a-boat/new-to-recreational-boating",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "boat_safety",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Safety guide for recreational boating",
+      "url": "https://nt.gov.au/marine/marine-safety/safety-guides-and-equipment/safety-guide-recreational-boating",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "gyb",
+      "organisation": "ntgov",
+      "jurisdiction": "NT",
+      "title": "Grow Your Business Program",
+      "url": "https://nt.gov.au/industry/business-grants-funding/grow-your-business-program",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "food_register",
+      "document": "food_register",
+      "section": "Who must register and how",
+      "extracted_text": "[Summary, not the source's wording] You must register before operating if your main business is selling food. Low-risk packaged food sellers such as pharmacies, newsagencies and bottle shops, complimentary drinks and listed charity and community fundraising sales are exempt. Apply online through Territory Services and pay by MasterCard or Visa. Priority 1 and 2 registrations last one year, priority 3 lasts three years. Renew at least 30 days before expiry. Cancel within 14 days of selling or closing.",
+      "interpretation": "NT food businesses register with NT Health Environmental Health under the Food Act 2004 (NT), which was not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "food_fees",
+      "document": "food_fees",
+      "section": "Registration fees",
+      "extracted_text": "[Summary, not the source's wording] Fees per premises: priority 1, $268 new and $216 renewal; priority 2, $134 new and $104 renewal; priority 3, $67 new and $52 renewal; priority 4, no fee. Fees are set in revenue units that change each year with CPI. An environmental health officer assigns the class at the next inspection.",
+      "interpretation": "Current NT food business registration fees; the financial year is not stated on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "liquor_apply",
+      "document": "liquor_apply",
+      "section": "Applying for a liquor licence",
+      "extracted_text": "[Summary, not the source's wording] You need a liquor licence if selling alcohol is part of your core business. Complete the form for your licence type (low risk or all other risk; special and major event forms also exist), collect the supporting documents on the checklist, submit and pay. Depending on the licence you may need to display a sign at the premises and advertise for 14 consecutive days. Licensing NT tells you the outcome; decisions are published by the Director of Liquor Licensing and the Liquor Commission.",
+      "interpretation": "Applies under the Liquor Act 2019 (NT), not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "liquor_fees",
+      "document": "liquor_fees",
+      "section": "Lodgement, fees and timeframes",
+      "extracted_text": "[Summary, not the source's wording] Lodge by email to liquorlicensing@nt.gov.au or in person at a Territory Business Centre. A new licence with one or more authorities (other than special or major event) costs $247; a special or major event licence costs $25. A $618 fast-track fee may apply if you lodge within 30 business days of needing the licence. No standard processing time is given.",
+      "interpretation": "Current NT liquor application fees; annual licence fees are separate and were not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "outdoor_darwin",
+      "document": "darwin_outdoor",
+      "section": "Commercial outdoor activities",
+      "extracted_text": "[Summary, not the source's wording] The City of Darwin issues permits for commercial outdoor activities on council land, including outdoor food and beverage areas such as dining and licensed areas, under its guidelines. Apply on the application for commercial outdoor activities form. Enquiries: 8930 0300.",
+      "interpretation": "Other NT councils have their own permits. Fees and insurance amounts were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "darwin_permits",
+      "document": "darwin_property_permits",
+      "section": "Property permits",
+      "extracted_text": "[Summary, not the source's wording] City of Darwin issues property permits for uses of council land including outdoor dining. Contact 08 8930 0630 or property@darwin.nt.gov.au.",
+      "interpretation": "Contact details for Darwin outdoor dining permits. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "workers_comp",
+      "document": "ws_business",
+      "section": "Who needs workers' compensation insurance",
+      "extracted_text": "[Summary, not the source's wording] Workers' compensation insurance is compulsory for every employer who is not a self-insurer, covering all full-time, part-time and casual workers. Only insurers approved by NT WorkSafe can sell policies; premiums are set by each insurer. Company directors and family members of sole traders or partners are covered only if their details and pay are disclosed to the insurer.",
+      "interpretation": "NT employers buy a policy from an approved private insurer; there is no government scheme. The Return to Work Act was not read directly; penalties were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "payroll",
+      "document": "tro_payroll",
+      "section": "Rates and thresholds 2026-27",
+      "extracted_text": "[Summary, not the source's wording] The annual payroll tax threshold is $2,500,000 ($208,333 a month); it rose from $1,500,000 in July 2025 and did not change for 2026-27. The rate is 5.5%. From 1 July 2026 employers with Australia-wide wages of $100 million or more pay 6.5%. Territory Revenue Office: 1300 305 353.",
+      "interpretation": "Registration deadlines were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "bpb_builders",
+      "document": "bpb_practitioners",
+      "section": "Building contractor categories",
+      "extracted_text": "[Summary, not the source's wording] A Building Contractor Residential (Restricted) registration is required to build Class 1a houses, attached dwellings and Class 2 buildings of one or two storeys (and certain Class 10 structures and retaining walls) where the work is $25,000 or more; Residential (Unrestricted) covers attached dwellings and Class 2 buildings of any height. Commercial (Restricted) covers Class 3 to 9 buildings up to three storeys and Commercial (Unrestricted) any height. Insurance requirements are set by Ministerial Determination No. S79 (1 October 2026). Licensing officer: 1800 193 111, option 2.",
+      "interpretation": "Registration is under the Building Act 1993 (NT), not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "bpb_forms",
+      "document": "bpb_forms",
+      "section": "Forms and fees",
+      "extracted_text": "[Summary, not the source's wording] Building contractor applications (individual or company) cost $342 at lodgement, and a registration fee of $1,028 (2 years), $1,542 (3 years) or $2,056 (4 years) is paid on approval. Lodge in person at a Territory Business Centre (Darwin, Katherine, Tennant Creek, Alice Springs), by scanned email, or by post to GPO Box 9800, Darwin NT 0801. A specific project details form is needed for each project you rely on.",
+      "interpretation": "Current fees for NT building contractor registration. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "plumbers",
+      "document": "pdlb_licensing",
+      "section": "Plumbing and draining licences",
+      "extracted_text": "[Summary, not the source's wording] Only a plumber holding an advanced tradesman licence issued by the Plumbers and Drainers Licensing Board may contract for and carry out plumbing and draining work in the NT. Applicants need two years' post-trade experience while holding an unconditional journeyman registration, and a statement of attainment for 10 listed units of competency. Plumbers who certify work also register with the Building Practitioners Board. Forms are on the Board's forms page or at Territory Business Centres.",
+      "interpretation": "Fees were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "electrical",
+      "document": "ws_electrical",
+      "section": "Electrical licences",
+      "extracted_text": "[Summary, not the source's wording] Under the Electrical Safety Act 2022 NT WorkSafe's Electrical Safety Regulator issues unrestricted and restricted electrical work licences, electrical contractor licences and in-house electrical licences; the Electrical Workers and Contractors Licensing Board was abolished. Applications must be on an NT WorkSafe approved form, lodged in person, by email or by post at a Territory Business Centre, with identification.",
+      "interpretation": "Applies to anyone doing or contracting electrical work in the NT. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "electrical_contractor",
+      "document": "ws_contractor",
+      "section": "Electrical contractor licence",
+      "extracted_text": "[Summary, not the source's wording] A business needs an electrical contractor licence if it does electrical work for a fee or employs a licensed electrical worker who does. The licence must name a nominee who has held an unrestricted electrical work licence for at least two years and completed the approved contractor course units. The business must hold at least $5,000,000 public and products liability insurance and submit an electrical workers register. Licences last up to 3 years.",
+      "interpretation": "Separate forms exist for sole traders and for companies or partnerships. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "electrical_fees",
+      "document": "ws_fees",
+      "section": "Licensing fees from 1 July 2026",
+      "extracted_text": "[Summary, not the source's wording] Electrical contractor licence: $521 for 1 year, $894 for 2 years, $1,169 for 3 years. Unrestricted electrical work licence: $521 new or renewal.",
+      "interpretation": "Current NT WorkSafe electrical licence fees (no GST). Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "personal",
+      "document": "personal_register",
+      "section": "Registering hairdressing, beauty and body art businesses",
+      "extracted_text": "[Summary, not the source's wording] You must register if your business is paid for hairdressing, beauty therapy (including manicures, artificial nails, semi-permanent make-up and cosmetic tattooing) or body art (tattooing, ear piercing, body piercing and body modification). Non-permanent make-up, spray tanning and procedures by registered health practitioners are exempt. Apply online through Territory Services. Fees: hairdressing only $96; beauty therapy, body art or any combination including them $149. Beauty and body art registrations last one year; hairdressing doesn't need renewal but a move needs a new application. Cancel within 14 days of selling or closing.",
+      "interpretation": "Applies under the Public and Environmental Health Regulations 2014 (NT) and NT Health guidelines, not read directly. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "qecnt",
+      "document": "qecnt",
+      "section": "Approvals for education and care services",
+      "extracted_text": "[Summary, not the source's wording] Quality Education and Care NT (QECNT) regulates early childhood education and care services in the NT under the National Quality Framework. You must get provider approval, and QECNT approves applications to operate a service. ACECQA explains how to open a new service. Contact qualityecnt.det@education.nt.gov.au or 08 8999 3561.",
+      "interpretation": "Fees and the online system were not on the page. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "mvr_import",
+      "document": "mvr_import",
+      "section": "Registering an imported vehicle",
+      "extracted_text": "[Summary, not the source's wording] To register an imported vehicle in the NT you need a vehicle import approval from the Federal Government, any steering conversion and engineering certification required, an NT roadworthy inspection and evidence of residency. The V48 imported vehicles bulletin has more detail. Imported vehicles registered in the NT, such as left-hand-drive vehicles, may not be accepted elsewhere. It is an offence to sell an imported vehicle for road use that doesn't meet the Australian Design Rules or lacks the required plates.",
+      "interpretation": "From the MVR page; the V48 bulletin was not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "mvr_register",
+      "document": "mvr_register",
+      "section": "Registering a vehicle",
+      "extracted_text": "[Summary, not the source's wording] Vehicles registered in the NT for the first time must have a compliance check at a government vehicle inspection facility. Complete the R11 application, attach evidence of identity and residency, proof of ownership and the roadworthy report, and lodge at an MVR office, paying by EFTPOS, card, BasicsCard or cash. Registration can be for 1, 3, 6 or 12 months. Stamp duty applies unless exempt. MVR: mvr@nt.gov.au, 1300 654 628.",
+      "interpretation": "Registration fees and the duty rate were not read; see the MVR fee page and duty calculator. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "mvd_licence",
+      "document": "mvd_licence",
+      "section": "Who needs a dealer licence",
+      "extracted_text": "[Summary, not the source's wording] You need a motor vehicle dealer licence if you buy, sell, offer for sale or exchange motor vehicles as a business. Motor wreckers, finance providers and exempt traders don't. Licences are annual, for individuals, partnerships or corporations, are not transferable, and managers need separate approval. Dealing without a licence or from unlicensed premises can bring fines of up to 500 penalty units and forfeiture.",
+      "interpretation": "Licensed under the Consumer Affairs and Fair Trading Act 1990 (NT); no minimum number of vehicles is set. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "mvd_fees",
+      "document": "mvd_fees",
+      "section": "Fees",
+      "extracted_text": "[Summary, not the source's wording] Application fee $596 (non-refundable); granting fee $342 including one car yard, plus $171 for each extra yard; annual fee $342 including one yard, plus $171 per extra yard; manager approval $81; manager certification $29.",
+      "interpretation": "Current NT dealer licence fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "boat_none",
+      "document": "boat_new",
+      "section": "Registration and licences",
+      "extracted_text": "[Summary, not the source's wording] You don't have to register your boat in the NT, and you don't need a licence to operate a recreational boat. You must know and obey NT boating laws.",
+      "interpretation": "The NT has no recreational boat registration or boat driver licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "boat_safety",
+      "document": "boat_safety",
+      "section": "Minimum safety equipment",
+      "extracted_text": "[Summary, not the source's wording] Recreational boaters must carry the minimum safety equipment set by the Marine (General) Regulations 2013 and Marine Act 1981, in good condition, of regulation standard and ready for immediate use. Boating inspectors and police can issue infringement notices. Marine Safety NT: 08 8924 7100, marinesafety@nt.gov.au.",
+      "interpretation": "The equipment table PDF couldn't be read, so the items for each operating area aren't listed. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "gyb",
+      "document": "gyb",
+      "section": "Grow Your Business Program",
+      "extracted_text": "[Summary, not the source's wording] Applications open Friday 9 October 2026 and close Friday 13 November 2026 through GrantsNT. Applicants must be a Territory Enterprise with a valid ABN, operate beyond the start-up or idea stage, and earn most income from selling goods or services. Funding is on a co-contribution basis: Tier 1 Business Capability up to $5,000 (non-competitive), Tier 2 Business Growth $5,001 to $20,000 and Tier 3 Business Transformation $20,001 to $50,000 (competitive). It pays for professional advisory and specialist services in strategy, finance, operations, workforce, new markets and digital capability. Before applying complete a business health checklist and get a supplier quote. Contact 1800 193 111, businessinfo@nt.gov.au.",
+      "interpretation": "The co-contribution ratio, ineligible costs and the definition of a Territory Enterprise are in the guidelines, which were not read. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "business.nt.general",
+      "vertical": "BUSINESS",
+      "jurisdiction": "NT",
+      "title": "Northern Territory: business licences, insurance and tax",
+      "description": "Registrations, licences, insurance and tax most NT businesses check: food business registration with NT Health, liquor licences, outdoor dining permits, workers' compensation insurance and payroll tax.",
+      "applies_when": {
+        "fact": "business.state",
+        "op": "equals",
+        "value": "NT"
+      },
+      "limitations": [
+        "Built from NT.GOV.AU, NT WorkSafe, Territory Revenue Office and City of Darwin pages, not from the Acts themselves.",
+        "Doesn't decide which liquor licence or authority you need.",
+        "Outdoor dining permits are set by each council; City of Darwin is used as the example.",
+        "Doesn't check planning approval for the use of your premises or a fit-out.",
+        "Not legal or tax advice. Confirm with the regulator or a qualified professional before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "food_business_registration",
+          "title": "Food business registration",
+          "condition": {
+            "fact": "business.handles_food",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register your food business with NT Health before you open",
+              "detail": "If your main business is selling food, register with NT Health's Environmental Health team before you trade. Apply online using the NT food business registration (online) and pay by card. Fees depend on your risk class: $268 for priority 1, $134 for priority 2, $67 for priority 3, and nothing for priority 4. Priority 1 and 2 registrations last a year, priority 3 lasts three years. Low-risk packaged food sellers such as pharmacies, newsagencies and bottle shops are exempt.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "NT Health Environmental Health (Food Act 2004 (NT))",
+                  "pathway": "Apply online through Territory Services"
+                },
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Register your food business with NT Health"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food business registration not identified",
+              "detail": "You said you won't handle food, so food business registration wasn't identified.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "NT Health Environmental Health (Food Act 2004 (NT))",
+                  "pathway": "Needed if your main business is selling food"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food business registration may be needed",
+              "detail": "NT businesses whose main business is selling food must register with NT Health. Answer the food questions so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "NT Health Environmental Health (Food Act 2004 (NT))",
+                  "pathway": "Needed if your main business is selling food",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "food_register",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "food_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.state": "NT",
+                "business.handles_food": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No food",
+              "facts": {
+                "business.state": "NT",
+                "business.handles_food": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {
+                "business.state": "NT"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "liquor_licence",
+          "title": "Liquor licence",
+          "condition": {
+            "fact": "business.sells_alcohol",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an NT liquor licence before you sell alcohol",
+              "detail": "Selling alcohol as part of your business needs a licence with the right authority. Complete the NT liquor licence application (all other risk) (or the NT liquor licence application (low risk) if Licensing NT says it applies), gather the supporting documents and email it to liquorlicensing@nt.gov.au or lodge it at a Territory Business Centre. A new licence with an authority costs $247. You may need to put a sign up at the premises and advertise for 14 days, and a $618 fast-track fee may apply if you need it within 30 business days.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_LIQUOR_LICENCE",
+                  "authority": "Director of Liquor Licensing (Licensing NT)",
+                  "pathway": "Lodge with Licensing NT"
+                },
+                "evidence": [
+                  {
+                    "kind": "RSA_COMPETENCY",
+                    "title": "Responsible service of alcohol training for staff serving alcohol"
+                  }
+                ],
+                "referral_categories": [
+                  "liquor_licensing_consultant",
+                  "lawyer"
+                ],
+                "task": "Apply to Licensing NT for a liquor licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Liquor licence not identified",
+              "detail": "You said you won't sell or serve alcohol.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_LIQUOR_LICENCE",
+                  "authority": "Director of Liquor Licensing (Licensing NT)",
+                  "pathway": "Needed if selling alcohol is part of your business"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A liquor licence may be needed",
+              "detail": "Selling alcohol in the NT needs a licence. Answer the question so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_LIQUOR_LICENCE",
+                  "authority": "Director of Liquor Licensing (Licensing NT)",
+                  "pathway": "Needed if selling alcohol is part of your business",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "liquor_apply",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "liquor_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Bar",
+              "facts": {
+                "business.state": "NT",
+                "business.sells_alcohol": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Dry cafe",
+              "facts": {
+                "business.state": "NT",
+                "business.sells_alcohol": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {
+                "business.state": "NT"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "outdoor_dining",
+          "title": "Outdoor dining permit",
+          "condition": {
+            "fact": "business.footpath_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get a council permit for tables and chairs on the footpath",
+              "detail": "Outdoor dining on council land needs a permit from your council. In Darwin, lodge the NT City of Darwin commercial outdoor activities application and follow the council's guidelines; call 8930 0300 or email property@darwin.nt.gov.au. Other councils have their own permits. If you serve alcohol outside, your liquor licence must cover that area too.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_OUTDOOR_DINING_PERMIT",
+                  "authority": "Your local council (for example City of Darwin)",
+                  "pathway": "Apply to your council"
+                },
+                "task": "Apply to your council for an outdoor dining permit"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Outdoor dining permit not identified",
+              "detail": "You said you won't use the footpath or council land.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_OUTDOOR_DINING_PERMIT",
+                  "authority": "Your local council (for example City of Darwin)",
+                  "pathway": "Needed to use council land"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A outdoor dining permit may be needed",
+              "detail": "Tables and chairs on the footpath need a council permit. Answer the question so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_OUTDOOR_DINING_PERMIT",
+                  "authority": "Your local council (for example City of Darwin)",
+                  "pathway": "Needed to use council land",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "outdoor_darwin",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "darwin_permits",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Footpath tables",
+              "facts": {
+                "business.state": "NT",
+                "business.footpath_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Indoor only",
+              "facts": {
+                "business.state": "NT",
+                "business.footpath_use": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {
+                "business.state": "NT"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "workers_compensation",
+          "title": "Workers' compensation insurance",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "not_equals",
+            "value": "NONE"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Take out workers' compensation insurance before your first worker starts",
+              "detail": "Every NT employer must insure all full-time, part-time and casual workers with an insurer approved by NT WorkSafe. There's no government insurer: compare quotes from the approved insurers. Tell the insurer about any working directors or family members you want covered.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_WORKERS_COMPENSATION_INSURANCE",
+                  "authority": "An insurer approved by NT WorkSafe",
+                  "pathway": "Buy a policy from an NT WorkSafe approved insurer"
+                },
+                "referral_categories": [
+                  "insurance_broker"
+                ],
+                "task": "Take out workers' compensation insurance"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Workers' compensation insurance not identified",
+              "detail": "You said you have no employees. Get cover before you hire anyone.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_WORKERS_COMPENSATION_INSURANCE",
+                  "authority": "An insurer approved by NT WorkSafe",
+                  "pathway": "Needed once you employ anyone"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A workers' compensation insurance may be needed",
+              "detail": "Every NT employer needs workers' compensation insurance. Tell us how many people you employ.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_WORKERS_COMPENSATION_INSURANCE",
+                  "authority": "An insurer approved by NT WorkSafe",
+                  "pathway": "Needed once you employ anyone",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "workers_comp",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Small team",
+              "facts": {
+                "business.state": "NT",
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No staff",
+              "facts": {
+                "business.state": "NT",
+                "business.employee_band": "NONE"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {
+                "business.state": "NT"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "payroll_tax",
+          "title": "Payroll tax",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "in",
+            "value": [
+              "20_199",
+              "200_PLUS"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Check whether your wages are over the payroll tax threshold",
+              "detail": "If your Australia-wide wages are over $2,500,000 a year ($208,333 a month), register with the Territory Revenue Office for payroll tax. The NT rate is 5.5%, or 6.5% if your Australia-wide wages are $100 million or more. Ask your accountant to watch your monthly wages.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_PAYROLL_TAX_REGISTRATION",
+                  "authority": "Territory Revenue Office",
+                  "pathway": "Register online with the Territory Revenue Office"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Check your wages against the NT payroll tax threshold"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Payroll tax is unlikely at your size",
+              "detail": "NT payroll tax applies once Australia-wide wages pass $2,500,000 a year. Keep an eye on it as you grow."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "payroll",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Large employer",
+              "facts": {
+                "business.state": "NT",
+                "business.employee_band": "200_PLUS"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small team",
+              "facts": {
+                "business.state": "NT",
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {
+                "business.state": "NT"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.nt.trades",
+      "vertical": "BUSINESS",
+      "jurisdiction": "NT",
+      "title": "Northern Territory: building and trade licences",
+      "description": "Building Practitioners Board registration for builders, plumbing and draining licences, and NT WorkSafe electrical licences.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "NT"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "trades"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Building Practitioners Board, Plumbers and Drainers Licensing Board and NT WorkSafe pages, not the Building Act 1993 or Electrical Safety Act 2022.",
+        "The questionnaire's building value bands don't match the NT's $25,000 residential threshold, so building results are shown as likely.",
+        "Doesn't cover building certifiers, gas fitters, air conditioning or other trades.",
+        "Not legal advice. Confirm with the board or regulator before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "building_contractor_registration",
+          "title": "Building contractor registration",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.trade_work",
+                "op": "contains",
+                "value": "building_over_3300"
+              },
+              {
+                "fact": "business.trade_work",
+                "op": "contains",
+                "value": "building_small"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Register with the Building Practitioners Board for residential work of $25,000 or more",
+              "detail": "In the NT you must be registered as a building contractor to build houses, attached dwellings or Class 2 buildings where the work is $25,000 or more, and to build commercial buildings. Choose the restricted or unrestricted category. Lodge the NT building contractor registration application (individual) or the NT building practitioner registration application (company) with a specific project details form for each project. The application costs $342, and registration costs $1,028 for 2 years when approved. Meet the insurance set by Ministerial Determination No. S79.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_BUILDING_CONTRACTOR_REGISTRATION",
+                  "authority": "Building Practitioners Board (NT)",
+                  "pathway": "Lodge at a Territory Business Centre, by email or by post"
+                },
+                "referral_categories": [
+                  "lawyer"
+                ],
+                "task": "Apply to the Building Practitioners Board for registration"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Building contractor registration not identified",
+              "detail": "You didn't say you'll do building work.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_BUILDING_CONTRACTOR_REGISTRATION",
+                  "authority": "Building Practitioners Board (NT)"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Building contractor registration may be needed",
+              "detail": "Residential building work of $25,000 or more, and commercial building work, needs registration. Tell us what trade work you do.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_BUILDING_CONTRACTOR_REGISTRATION",
+                  "authority": "Building Practitioners Board (NT)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "bpb_builders",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "bpb_forms",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.state": "NT",
+                "business.activity": "trades",
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician only",
+              "facts": {
+                "business.state": "NT",
+                "business.activity": "trades",
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {
+                "business.state": "NT",
+                "business.activity": "trades"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "plumber_licence",
+          "title": "Plumbing and draining licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "plumbing_drainage"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an advanced tradesman licence to contract for plumbing work",
+              "detail": "Only a plumber with an advanced tradesman licence from the Plumbers and Drainers Licensing Board can contract for and carry out plumbing and draining work in the NT. You need two years' post-trade experience on an unconditional journeyman registration and the listed units of competency. Get the forms from the Board's website or a Territory Business Centre. Register separately with the Building Practitioners Board if you'll certify work.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_PLUMBER_LICENCE",
+                  "authority": "Plumbers and Drainers Licensing Board (NT)",
+                  "pathway": "Apply to the Board"
+                },
+                "task": "Apply for an advanced tradesman plumbing licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Plumbing licence not identified",
+              "detail": "You didn't say you'll do plumbing or drainage.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_PLUMBER_LICENCE",
+                  "authority": "Plumbers and Drainers Licensing Board (NT)"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A plumbing licence may be needed",
+              "detail": "Plumbing and draining work needs a licence. Tell us what trade work you do.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_PLUMBER_LICENCE",
+                  "authority": "Plumbers and Drainers Licensing Board (NT)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "plumbers",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.state": "NT",
+                "business.activity": "trades",
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Builder",
+              "facts": {
+                "business.state": "NT",
+                "business.activity": "trades",
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {
+                "business.state": "NT",
+                "business.activity": "trades"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "electrical_licence",
+          "title": "Electrical contractor licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "electrical"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an NT electrical contractor licence",
+              "detail": "A business doing electrical work for a fee, or employing electricians who do, needs an electrical contractor licence from NT WorkSafe's Electrical Safety Regulator. Name a nominee who has held an unrestricted electrical work licence for two years and done the contractor course, hold $5,000,000 public and products liability insurance, and lodge the NT electrical contractor licence application (sole trader) or the NT electrical contractor licence application (company or partnership) with your electrical workers register. It costs $521 for 1 year or $1,169 for 3 years. Each electrician needs their own electrical work licence.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_ELECTRICAL_CONTRACTOR_LICENCE",
+                  "authority": "Electrical Safety Regulator (NT WorkSafe)",
+                  "pathway": "Lodge at a Territory Business Centre"
+                },
+                "referral_categories": [
+                  "insurance_broker"
+                ],
+                "task": "Apply to NT WorkSafe for an electrical contractor licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Electrical licence not identified",
+              "detail": "You didn't say you'll do electrical work.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_ELECTRICAL_CONTRACTOR_LICENCE",
+                  "authority": "Electrical Safety Regulator (NT WorkSafe)"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "An electrical licence may be needed",
+              "detail": "Electrical work for a fee needs a contractor licence. Tell us what trade work you do.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_ELECTRICAL_CONTRACTOR_LICENCE",
+                  "authority": "Electrical Safety Regulator (NT WorkSafe)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "electrical",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "electrical_contractor",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "electrical_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.state": "NT",
+                "business.activity": "trades",
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.state": "NT",
+                "business.activity": "trades",
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {
+                "business.state": "NT",
+                "business.activity": "trades"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.nt.personal_appearance",
+      "vertical": "BUSINESS",
+      "jurisdiction": "NT",
+      "title": "Northern Territory: hairdressing, beauty and body art businesses",
+      "description": "Registering a hairdressing, beauty therapy or body art (skin penetration) business with NT Health under the Public and Environmental Health Regulations 2014.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "NT"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "personal_services"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the NT.GOV.AU registration page, not the regulations or NT Health guidelines.",
+        "Tattoo removal isn't named on the page, so it isn't matched.",
+        "Doesn't cover premises fit-out standards, infection control rules or planning approval.",
+        "Not legal advice. Confirm with NT Health Environmental Health."
+      ],
+      "rules": [
+        {
+          "key": "personal_services_registration",
+          "title": "Personal services business registration",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "hairdressing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "beauty"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "ear_nose_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattooing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "body_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "implants_or_scarring"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register your business with NT Health before you open",
+              "detail": "Paid hairdressing, beauty therapy (including nails, semi-permanent make-up and cosmetic tattooing) and body art (tattooing, piercing and body modification) businesses must register. Apply online using the NT hairdressing, beauty therapy or body art business registration (online). It costs $96 for hairdressing only, or $149 if you offer beauty therapy or body art. Beauty and body art registrations must be renewed every year; hairdressing doesn't need renewal, but a new location needs a new application. Follow NT Health's infection control guidelines.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_PERSONAL_SERVICES_REGISTRATION",
+                  "authority": "NT Health Environmental Health (Public and Environmental Health Regulations 2014)",
+                  "pathway": "Apply online through Territory Services"
+                },
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Register your business with NT Health"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Personal services business registration not identified",
+              "detail": "From your answers, you don't offer the listed services. Non-permanent make-up and spray tanning don't need registration.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_PERSONAL_SERVICES_REGISTRATION",
+                  "authority": "NT Health Environmental Health (Public and Environmental Health Regulations 2014)",
+                  "pathway": "Needed for paid hairdressing, beauty therapy or body art"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A personal services business registration may be needed",
+              "detail": "Paid hairdressing, beauty and body art businesses must register with NT Health. Tell us what services you offer.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_PERSONAL_SERVICES_REGISTRATION",
+                  "authority": "NT Health Environmental Health (Public and Environmental Health Regulations 2014)",
+                  "pathway": "Needed for paid hairdressing, beauty therapy or body art",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "personal",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tattoo studio",
+              "facts": {
+                "business.personal_services": [
+                  "tattooing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair salon",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Tattoo removal only",
+              "facts": {
+                "business.personal_services": [
+                  "tattoo_removal"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.nt.education_care",
+      "vertical": "BUSINESS",
+      "jurisdiction": "NT",
+      "title": "Northern Territory: education and care services",
+      "description": "Provider and service approval from Quality Education and Care NT, the regulatory authority under the National Quality Framework.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "NT"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "childcare_education"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from an NT.GOV.AU page; the Education and Care Services National Law was not read.",
+        "Doesn't cover fees, staffing ratios, working with children clearances or planning approval.",
+        "Not legal advice. Confirm with Quality Education and Care NT."
+      ],
+      "rules": [
+        {
+          "key": "provider_and_service_approval",
+          "title": "Education and care service approval",
+          "condition": {
+            "fact": "business.education_care_service",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get provider and service approval from Quality Education and Care NT",
+              "detail": "You need provider approval, and approval for each service, before you operate an early childhood education and care service in the NT. Quality Education and Care NT is the regulatory authority. ACECQA explains how to apply. Contact QECNT at qualityecnt.det@education.nt.gov.au or 08 8999 3561 early.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Quality Education and Care NT (QECNT)",
+                  "pathway": "Apply to QECNT"
+                },
+                "referral_categories": [
+                  "education_care_consultant"
+                ],
+                "task": "Contact QECNT about provider and service approval"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Education and care service approval not identified",
+              "detail": "You said you won't run a service under the National Quality Framework.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Quality Education and Care NT (QECNT)",
+                  "pathway": "Needed for services under the National Quality Framework"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A education and care service approval may be needed",
+              "detail": "Childcare and outside school hours care services need approval. Answer the question so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Quality Education and Care NT (QECNT)",
+                  "pathway": "Needed for services under the National Quality Framework",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "qecnt",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Long day care",
+              "facts": {
+                "business.education_care_service": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Tutoring",
+              "facts": {
+                "business.education_care_service": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "trade.nt.vehicles",
+      "vertical": "TRADE",
+      "jurisdiction": "NT",
+      "title": "Northern Territory: registering and selling imported vehicles",
+      "description": "Registering an imported vehicle with the Motor Vehicle Registry and the motor vehicle dealer licence for selling vehicles as a business.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "trade.direction",
+            "op": "in",
+            "value": [
+              "import",
+              "both"
+            ]
+          },
+          {
+            "fact": "trade.goods_categories",
+            "op": "contains",
+            "value": "vehicles"
+          },
+          {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "NT"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from NT.GOV.AU pages; the V48 imported vehicles bulletin, registration fees and stamp duty rates were not read.",
+        "Covers light vehicles. Heavy vehicles and modified vehicles may need more.",
+        "Not legal advice. Confirm with the MVR (1300 654 628) or the licensing and compliance team."
+      ],
+      "rules": [
+        {
+          "key": "nt_registration",
+          "title": "Registering the vehicle in the NT",
+          "condition": {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "NT"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get the vehicle inspected, then register it at an MVR office",
+              "detail": "You need the federal vehicle import approval, any steering conversion or engineering certification, and a compliance inspection at a government vehicle inspection facility. Then lodge the NT R11 application to register a vehicle at an MVR office with evidence of identity and NT residency, proof of ownership and the inspection report, and pay registration and stamp duty. You can register for 1, 3, 6 or 12 months. Left-hand-drive vehicles registered in the NT may not be accepted in other states.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_VEHICLE_REGISTRATION",
+                  "authority": "Motor Vehicle Registry (NT)",
+                  "pathway": "Inspection, then register in person at an MVR office"
+                },
+                "task": "Book a compliance inspection and register the vehicle at the MVR"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "mvr_import",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "mvr_register",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "NT",
+              "facts": {
+                "trade.vehicle_state": "NT"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Queensland",
+              "facts": {
+                "trade.vehicle_state": "QLD"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "nt_vehicle_dealer",
+          "title": "Selling imported vehicles in the NT",
+          "condition": {
+            "all": [
+              {
+                "fact": "trade.vehicle_purpose",
+                "op": "equals",
+                "value": "sell"
+              },
+              {
+                "fact": "trade.vehicle_state",
+                "op": "equals",
+                "value": "NT"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a motor vehicle dealer licence to sell vehicles as a business",
+              "detail": "In the NT, buying, selling or exchanging motor vehicles as a business needs a motor vehicle dealer licence under the Consumer Affairs and Fair Trading Act 1990. There's no minimum number of vehicles. Lodge the NT motor vehicle dealer licence application (individual or partnership) or the NT motor vehicle dealer licence application (corporation). It costs $596 to apply, then $342 to grant (including one car yard) and $342 a year. Dealing without a licence can bring fines of up to 500 penalty units.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_MOTOR_VEHICLE_DEALER_LICENCE",
+                  "authority": "NT Consumer Affairs licensing and compliance (Licensing NT)",
+                  "pathway": "Apply before you start selling"
+                },
+                "referral_categories": [
+                  "lawyer"
+                ],
+                "task": "Apply for an NT motor vehicle dealer licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Dealer licence not identified",
+              "detail": "You said the vehicle is for your own use. Selling vehicles as a business would need a dealer licence.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_MOTOR_VEHICLE_DEALER_LICENCE",
+                  "authority": "NT Consumer Affairs licensing and compliance (Licensing NT)"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A dealer licence may be needed",
+              "detail": "Selling vehicles as a business in the NT needs a dealer licence. Tell us whether you'll sell the vehicle.",
+              "payload": {
+                "approval": {
+                  "kind": "NT_MOTOR_VEHICLE_DEALER_LICENCE",
+                  "authority": "NT Consumer Affairs licensing and compliance (Licensing NT)",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "mvd_licence",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "mvd_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Selling",
+              "facts": {
+                "trade.vehicle_purpose": "sell",
+                "trade.vehicle_state": "NT"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Own use",
+              "facts": {
+                "trade.vehicle_purpose": "own_use",
+                "trade.vehicle_state": "NT"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Purpose not answered",
+              "facts": {
+                "trade.vehicle_state": "NT"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vessel.nt.registration",
+      "vertical": "VESSEL",
+      "jurisdiction": "NT",
+      "title": "Northern Territory: recreational boats",
+      "description": "The NT doesn't register recreational boats or license their drivers; minimum safety equipment still applies. Commercial vessels go through AMSA.",
+      "applies_when": {
+        "fact": "vessel.home_state",
+        "op": "equals",
+        "value": "NT"
+      },
+      "limitations": [
+        "Built from NT.GOV.AU marine safety pages, not the Marine Act 1981 or Marine (General) Regulations 2013.",
+        "The minimum safety equipment table couldn't be read, so the items for each area aren't listed.",
+        "Doesn't cover moorings, marine parks, fishing rules or boating in other states.",
+        "Not legal advice. Check with Marine Safety NT (08 8924 7100)."
+      ],
+      "rules": [
+        {
+          "key": "no_registration_or_licence",
+          "title": "Registration and licences for recreational boats",
+          "condition": {
+            "fact": "vessel.commercial_use",
+            "op": "equals",
+            "value": false
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "No NT registration or boat licence needed, but safety gear is compulsory",
+              "detail": "The NT doesn't register recreational boats, and you don't need a licence to drive one. You must still carry the minimum safety equipment for where you go, set by the Marine (General) Regulations 2013, kept in good condition and ready to use. Check the Marine Safety NT minimum safety equipment table before you head out. Inspectors and police can fine you. If you take the boat interstate, check that state's rules."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "boat_none",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "boat_safety",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tinny",
+              "facts": {
+                "vessel.commercial_use": false
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Charter",
+              "facts": {
+                "vessel.commercial_use": true
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "commercial_through_amsa",
+          "title": "Commercial vessels",
+          "condition": {
+            "fact": "vessel.commercial_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Commercial vessels are regulated by AMSA",
+              "detail": "A boat used for business, hire or paying passengers is a domestic commercial vessel. It needs AMSA certification and a unique vessel identifier, and its skipper needs an AMSA certificate of competency."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "boat_none",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Charter boat",
+              "facts": {
+                "vessel.commercial_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Recreational",
+              "facts": {
+                "vessel.commercial_use": false
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "grant.nt.grow_your_business",
+      "vertical": "GRANT",
+      "jurisdiction": "NT",
+      "title": "Northern Territory: Grow Your Business Program",
+      "description": "NT Government co-funding of $5,000 to $50,000 for professional advisory and specialist services; applications open 9 October to 13 November 2026 through GrantsNT.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "grant.state",
+            "op": "equals",
+            "value": "NT"
+          },
+          {
+            "fact": "grant.applicant_type",
+            "op": "equals",
+            "value": "business"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the NT.GOV.AU program page; the tier guidelines and terms and conditions were not read.",
+        "The co-contribution ratio and what counts as a Territory Enterprise are not checked.",
+        "Tier 2 and 3 are competitive; meeting these checks doesn't mean you'll be funded.",
+        "Not financial advice. Confirm with Territory Business Advisors (1800 193 111)."
+      ],
+      "rules": [
+        {
+          "key": "round_open",
+          "title": "Application round",
+          "condition": {
+            "fact": "grant.state",
+            "op": "equals",
+            "value": "NT"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Apply through GrantsNT by Friday 13 November 2026",
+              "detail": "The Grow Your Business Program opened on 9 October 2026 and closes on 13 November 2026. Tier 1 offers up to $5,000 (not competitive), tier 2 $5,001 to $20,000 and tier 3 $20,001 to $50,000 (competitive), all on a co-contribution basis. It pays for professional advisory and specialist services in strategy, finance, operations, workforce, new markets and digital capability. Before you apply, complete the business health checklist and get a supplier quote."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "gyb",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "NT business",
+              "facts": {
+                "grant.state": "NT"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Queensland",
+              "facts": {
+                "grant.state": "QLD"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "abn",
+          "title": "Valid ABN",
+          "condition": {
+            "fact": "grant.has_abn",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You have an ABN",
+              "detail": "The program needs a valid ABN."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "You need a valid ABN",
+              "detail": "The Grow Your Business Program needs a valid ABN. Register for one before you apply."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us about your ABN",
+              "detail": "The program needs a valid ABN."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "gyb",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "ABN",
+              "facts": {
+                "grant.has_abn": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No ABN",
+              "facts": {
+                "grant.has_abn": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "established",
+          "title": "Beyond the start-up stage",
+          "condition": {
+            "fact": "grant.trading_age",
+            "op": "in",
+            "value": [
+              "under_1",
+              "1_to_3",
+              "over_3"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You're already trading",
+              "detail": "The program is for established businesses past the start-up or idea stage, earning most income from selling goods or services. If you've traded for less than a year, check the guidelines."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "The program isn't for businesses that haven't started",
+              "detail": "The Grow Your Business Program needs a business operating beyond the start-up or idea stage."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us how long you've traded",
+              "detail": "The program is for established businesses."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "gyb",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "3 years",
+              "facts": {
+                "grant.trading_age": "over_3"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Not yet trading",
+              "facts": {
+                "grant.trading_age": "not_yet"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "co_contribution",
+          "title": "Co-contribution",
+          "condition": {
+            "fact": "grant.co_contribution_available",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "You can co-fund the project",
+              "detail": "Funding is on a co-contribution basis; check the ratio in the tier guidelines."
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "WARNING",
+              "title": "You'll need to co-fund the services",
+              "detail": "The program pays only part of the cost; you must contribute too. Check the ratio in the tier guidelines."
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "INFO",
+              "title": "Tell us whether you can co-fund",
+              "detail": "Funding is on a co-contribution basis."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "gyb",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Can co-fund",
+              "facts": {
+                "grant.co_contribution_available": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Can't",
+              "facts": {
+                "grant.co_contribution_available": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

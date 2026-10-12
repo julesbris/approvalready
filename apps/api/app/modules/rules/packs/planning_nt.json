@@ -1,0 +1,1601 @@
+{
+ "key": "planning_nt",
+ "title": "PlanningReady: Northern Territory (approval pathways)",
+ "notes": "First sourced rules for the Northern Territory, territory-wide. Built on 2026-10-12 from NT.GOV.AU planning and building pages and the development and planning services fees page (last modified 1 July 2026). Every reference is UNVERIFIED and carries a summary, not the source's wording. NT Planning Scheme 2020 zones, overlays and assessment tables are not encoded. Councils don't decide development applications in the NT.",
+ "organisations": [
+  {
+   "ref": "ntg_planning",
+   "name": "Northern Territory Government: Development Assessment Services (Development Consent Authority)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "NT",
+   "website": "https://nt.gov.au/property/land-planning-and-development"
+  },
+  {
+   "ref": "ntg_building",
+   "name": "Northern Territory Government: Building Advisory Services (Director of Building Control)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "NT",
+   "website": "https://nt.gov.au/property/building"
+  },
+  {
+   "ref": "ntg_heritage",
+   "name": "Northern Territory Government: Heritage Branch (Heritage NT)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "NT",
+   "website": "https://nt.gov.au/property/building/heritage-properties"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "da",
+   "organisation": "ntg_planning",
+   "jurisdiction": "NT",
+   "title": "Apply for a development permit (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/building-and-development/submit-a-development-application/development-one-stop-shop-applications-and-processes/development-applications",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "categories",
+   "organisation": "ntg_planning",
+   "jurisdiction": "NT",
+   "title": "Assessment categories (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/land-planning-and-development/planning-applications-and-processes/check-if-you-need-planning-approval/assessment-categories",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "fees",
+   "organisation": "ntg_planning",
+   "jurisdiction": "NT",
+   "title": "Development and planning services fees (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/land-planning-and-development/planning-applications-and-processes/development-and-planning-services-fees",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "overlays",
+   "organisation": "ntg_planning",
+   "jurisdiction": "NT",
+   "title": "NT Planning Scheme 2020: overlays (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/land-planning-and-development/our-planning-system/nt-planning-scheme/understand-the-nt-planning-scheme/overlays",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "hazards",
+   "organisation": "ntg_planning",
+   "jurisdiction": "NT",
+   "title": "Planning and building rules for land affected by natural hazards (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/land-planning-and-development/planning-professionals-and-applicants/planning-and-building-rules-for-land-affected-by-natural-hazards",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "unit",
+   "organisation": "ntg_planning",
+   "jurisdiction": "NT",
+   "title": "Building an independent unit (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/building-and-development/building-an-independent-unit",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "subdivide",
+   "organisation": "ntg_planning",
+   "jurisdiction": "NT",
+   "title": "Subdivide or consolidate land (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/land-planning-and-development/planning-applications-and-processes/subdivide-or-consolidate-land",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "cert_process",
+   "organisation": "ntg_building",
+   "jurisdiction": "NT",
+   "title": "Building certification process (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/building/build-or-renovate-your-home/building-and-renovating-permits-and-processes/building-certification-process",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bp",
+   "organisation": "ntg_building",
+   "jurisdiction": "NT",
+   "title": "Getting a building permit (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/building/build-or-renovate-your-home/building-and-renovating-permits-and-processes/getting-a-building-permit",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "occ",
+   "organisation": "ntg_building",
+   "jurisdiction": "NT",
+   "title": "Getting occupancy certification (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/building/build-or-renovate-your-home/building-and-renovating-permits-and-processes/getting-occupancy-certification",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bca",
+   "organisation": "ntg_building",
+   "jurisdiction": "NT",
+   "title": "Requirements in building control areas (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/building/build-in-a-controlled-area/building-control-areas/requirements-in-building-control-areas",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "heritage",
+   "organisation": "ntg_heritage",
+   "jurisdiction": "NT",
+   "title": "Heritage properties: building works and development (NT.GOV.AU)",
+   "url": "https://nt.gov.au/property/building/heritage-properties/heritage-properties-building-works-and-development",
+   "source_type": "WEBPAGE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "da_overview",
+   "document": "da",
+   "section": "Apply for a development permit",
+   "extracted_text": "[Summary, not the source's wording] Development applications are decided by the Development Consent Authority within its division areas and by the Minister outside them, and are administered by Development Assessment Services. You may need a development permit to build something new, extend your home, change a use or subdivide. Lodge through Development Applications Online with contact details, owner's authorisation if needed, a statement of effect addressing section 46 of the Planning Act 1999, dimensioned plans and an image. Processing takes approximately 8 weeks. Exhibition, when required, is 7, 14 or 28 days. All fees are non-refundable. You can apply to the NT Civil and Administrative Tribunal for a review within 28 days.",
+   "interpretation": "The NT Government, not councils, decides development applications. Timeframes and exhibition periods to quote. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "categories_overview",
+   "document": "categories",
+   "section": "Assessment categories",
+   "extracted_text": "[Summary, not the source's wording] Permitted uses need no development permit if they meet all relevant development, subdivision and consolidation requirements and no overlay applies; a building permit may still be needed in a building control area and the certifier must be satisfied about planning compliance. A permitted use becomes merit assessable if an overlay requires consent or a requirement is varied. Merit assessable uses need a development permit and are likely to be approved if they meet the requirements. Impact assessable uses need a development permit and may be refused even if they meet the requirements. Prohibited uses can only get a permit in limited cases.",
+   "interpretation": "We don't know the zone or overlays, so a development permit for building work is MAY_APPLY. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "fees_2026",
+   "document": "fees",
+   "section": "Development permit, advertising and variation fees",
+   "extracted_text": "[Summary, not the source's wording] Development permit fees: use with no physical development $290; single dwelling on one lot $269; estimated cost $100,000 or less $269; over $100,000 to $250,000 $810; over $250,000 to $1 million $1,175; over $1 million to $10 million $4,172; subdivision, consolidation or boundary realignment $1,162 plus $56 per lot. Advertising $149 per exhibition period. Certificate of compliance for subdivision $0, other development $254. Variation of a development permit $223 or 10% of the application fee. Extension 50% of the application fee. Compliance check $402 or 20% of the fee. All fees non-refundable.",
+   "interpretation": "Fees page last modified 1 July 2026, taken as the 2026-27 schedule; the page itself doesn't state the year. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "unit_rules",
+   "document": "unit",
+   "section": "Independent units",
+   "extracted_text": "[Summary, not the source's wording] Amendment 94 (from 1 December 2023) increased the maximum floor area for independent units to 75 square metres in certain zones. No development permit is needed where the use is permitted, no overlays apply and all requirements are met; otherwise a development permit is needed. Building approval from an NT registered building certifier is needed, and occupancy certification (or a builder's declaration in a tier 2 building control area) before occupying. Planning approval must come before occupancy certification. A separate title through a unit title scheme subdivision is not allowed; a freehold subdivision only if it meets all subdivision requirements including minimum lot size.",
+   "interpretation": "The 75 m2 limit applies in certain zones only; the zones weren't listed on the page. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "hazards_overview",
+   "document": "hazards",
+   "section": "Natural hazards",
+   "extracted_text": "[Summary, not the source's wording] The NT Planning Scheme has land subject to flooding and land subject to storm surge overlays. Planning approval is needed to develop zoned land at risk from riverine flooding or storm surge. All buildings in declared building control areas must comply with the National Construction Code and need building approval from a building certifier. Storm surge inundation maps and floodplain maps are published. No bushfire overlay is mentioned.",
+   "interpretation": "Flood and storm surge overlays trigger a development permit. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "overlays_overview",
+   "document": "overlays",
+   "section": "Overlays",
+   "extracted_text": "[Summary, not the source's wording] Overlays identify risks such as flooding and storm surge. Overlay requirements override zone requirements and can change when you need planning permission. Check the overlays layer on the NT Atlas. Being inside a mapped overlay doesn't automatically mean it applies to your development.",
+   "interpretation": "Supports the overlay warnings. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bp_overview",
+   "document": "bp",
+   "section": "Getting a building permit",
+   "extracted_text": "[Summary, not the source's wording] You must have a building permit before construction starts. The certifier needs plans and details, any development permits and covenant approvals, an owner builder certificate or details of your contract with a registered builder, structural engineer's certification and certified plumbing design where applicable, and a fidelity fund certificate. Permits are valid for two years and can be extended.",
+   "interpretation": "A development permit, where needed, comes before the building permit. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "cert_overview",
+   "document": "cert_process",
+   "section": "Building certification process",
+   "extracted_text": "[Summary, not the source's wording] You must engage a registered private building certifier for most building projects. The certifier assesses plans and issues the building permit, then lodges it with the Director of Building Control. Usual inspections are footings and slab, frame, block work reinforcing, fire separation, wet areas and final. The builder signs a declaration that the work follows the permit. Without occupancy certification you can't legally occupy the building.",
+   "interpretation": "Building permits come from private certifiers, not councils. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bca_overview",
+   "document": "bca",
+   "section": "Building control areas",
+   "extracted_text": "[Summary, not the source's wording] Tier 1 building control areas: Darwin, Alice Springs, Lake Bennett. Tier 2: Adelaide River, Batchelor, Borroloola, Brewer Estate, Elliott, Jabiru, Katherine, Katherine Gorge, Kings Canyon, Larrimah, Mataranka, Namarada, Pine Creek, Tennant Creek, Timber Creek, Ti Tree, Yulara. You need a building permit to build in a building control area. In tier 1, full certification including occupancy certification applies. In tier 2, prescribed residential work (Class 1a houses and attached Class 10) can be part certified, with no occupancy permit but a builder's declaration.",
+   "interpretation": "Whether a building permit is needed depends on whether the land is in a building control area, which we don't know. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "occ_overview",
+   "document": "occ",
+   "section": "Occupancy certification",
+   "extracted_text": "[Summary, not the source's wording] When building work is finished, apply to your building certifier for occupancy certification before you occupy. Three levels: occupancy permit (highest), certificate of substantial compliance (minor variations or missing documents), certificate of existence (work completed before 1 May 2016). Documents include a builder's declaration, inspection certificates and section 40 certificates. Appeals go to the Building Appeals Board.",
+   "interpretation": "Occupancy certification is needed before you move in, in building control areas. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "subdivide_overview",
+   "document": "subdivide",
+   "section": "Subdivide or consolidate land",
+   "extracted_text": "[Summary, not the source's wording] Steps: optional pre-application forum; development permit (rural and unzoned land also needs a land suitability assessment); a licensed surveyor gets the survey reference, lot numbers and addresses; complete subdivision works to meet permit conditions; certificate of compliance (part 5 clearance); Land Titles Office concurrence; surveyor-general approval of the survey plan; apply for title with form 21 (separate titles) or form 113 (unit scheme statement). Titles can be issued within 24 business hours. Paper titles are no longer issued.",
+   "interpretation": "Subdivision needs a development permit, then survey approval and new titles. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "heritage_works",
+   "document": "heritage",
+   "section": "Heritage properties: building works and development",
+   "extracted_text": "[Summary, not the source's wording] Work on a heritage place is regulated under the Heritage Act 2011. Exempt work (defined in the Heritage Regulations 2012) needs no formal approval. Minor works are decided by the Heritage Council and major works by the Minister for Lands, Planning and Environment. Heritage NT decides which category applies. Discuss the work with Heritage NT first, then submit the application to carry out work on a heritage place or object. You are told of the decision in writing. Contact: Heritage Branch, 08 8999 5039, heritage.branch@nt.gov.au. No fees or timeframes are stated.",
+   "interpretation": "Work on a declared heritage place needs heritage approval unless exempt, separate from any development permit. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "planning.nt.building",
+   "vertical": "PLANNING",
+   "jurisdiction": "NT",
+   "title": "Northern Territory: houses, extensions and independent units",
+   "description": "Development permit, building permit and occupancy certification in the NT for new houses, extensions and independent units.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say whether your use is permitted, merit assessable or impact assessable, only which approvals you may need.",
+    "The NT Planning Scheme 2020 zone and overlay rules are not encoded. The free NT Atlas shows your zone and overlays.",
+    "We don't know whether your land is in a building control area, which decides whether you need a building permit.",
+    "Constraints like heritage, flooding and storm surge come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with an NT Government planner or a registered building certifier before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "development_permit_option",
+     "title": "A development permit may be needed, depending on zone and overlays",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a development permit",
+       "detail": "In the NT, the NT Government's Development Consent Authority decides development applications, not your council. Under the NT Planning Scheme 2020, a permitted use (like a house in many residential zones) needs no development permit if it meets every requirement and no overlay applies. If you need to vary a requirement, an overlay applies, or the use is merit or impact assessable, you need a development permit. It takes about 8 weeks. The fee for a single dwelling on one lot is $269. Check your zone and overlays on the NT Atlas.",
+       "payload": {
+        "approval": {
+         "kind": "NT_DEVELOPMENT_PERMIT",
+         "authority": "Development Consent Authority (NT Government), or the Minister outside its division areas",
+         "pathway": "Development permit under the Planning Act 1999, assessed against the NT Planning Scheme 2020",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "STATEMENT_OF_EFFECT",
+          "title": "Statement of effect addressing the NT Planning Scheme 2020"
+         },
+         {
+          "kind": "SITE_PLAN",
+          "title": "Dimensioned site plan"
+         },
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Floor plans, elevations and sections"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Look up your zone and overlays on the NT Atlas and check the NT Planning Scheme 2020"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "categories_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_overview",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "MAY_APPLY because we don't know the zone, overlays or whether requirements are met."
+    },
+    {
+     "key": "building_permit",
+     "title": "Building work needs a building permit in building control areas",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You likely need a building permit from a registered building certifier",
+       "detail": "In the NT's building control areas (including Darwin, Alice Springs, Katherine and Tennant Creek), you need a building permit before you start. You get it from a registered private building certifier, not the council. The certifier checks your plans against the National Construction Code and needs any development permit first. A permit lasts two years.",
+       "payload": {
+        "approval": {
+         "kind": "NT_BUILDING_PERMIT",
+         "authority": "A registered private building certifier",
+         "pathway": "Building permit under the Building Act 1993 (National Construction Code)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "ENGINEERING_DRAWINGS",
+          "title": "Structural engineer's certification of the design"
+         },
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Site plan, floor plans and elevations to scale"
+         }
+        ],
+        "referral_categories": [
+         "building_certifier",
+         "architect",
+         "builder"
+        ],
+        "task": "Engage an NT registered building certifier"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bp_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "cert_overview",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "bca_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "LIKELY_REQUIRED: most NT towns are building control areas; land outside them may not need a permit."
+    },
+    {
+     "key": "occupancy",
+     "title": "Occupancy certification before you move in",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You likely need occupancy certification before you move in",
+       "detail": "When the work is finished, apply to your building certifier for occupancy certification, usually an occupancy permit. You can't legally occupy the building without it. In tier 2 building control areas (like Katherine and Tennant Creek), a house can be part certified, and you get a builder's declaration instead.",
+       "payload": {
+        "approval": {
+         "kind": "NT_OCCUPANCY_PERMIT",
+         "authority": "A registered private building certifier",
+         "pathway": "Occupancy certification (occupancy permit) under the Building Act 1993",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "task": "Ask your certifier which inspections and documents you need for occupancy"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "occ_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "bca_overview",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "cert_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "heritage",
+     "title": "Heritage places need heritage works approval",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "heritage"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Heritage listing means you likely need heritage works approval",
+       "detail": "If your property is a declared heritage place on the NT Heritage Register, work on it needs approval under the Heritage Act 2011 unless it is exempt. Heritage NT decides whether your work is exempt, minor (decided by the Heritage Council) or major (decided by the Minister). Talk to the Heritage Branch on 08 8999 5039 before you design, then apply. You may also need a development permit and a building permit.",
+       "payload": {
+        "approval": {
+         "kind": "NT_HERITAGE_WORKS_APPROVAL",
+         "authority": "Heritage Council (minor works) or the Minister (major works), through Heritage NT",
+         "pathway": "Approval to carry out work on a heritage place under the Heritage Act 2011",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "HERITAGE_IMPACT_STATEMENT",
+          "title": "Description of the work and its effect on the heritage place"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Search the NT Heritage Register and call Heritage NT"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "heritage_works",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "overlays_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Heritage ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other constraint",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "LIKELY_REQUIRED: the user ticked heritage, but exempt work needs no approval."
+    },
+    {
+     "key": "flooding",
+     "title": "Flood and storm surge overlays need a development permit",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "flooding"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Flooding or storm surge means you likely need a development permit",
+       "detail": "The NT Planning Scheme 2020 has land subject to flooding and land subject to storm surge overlays. You need planning approval to develop zoned land at risk from riverine flooding or storm surge, even for a use that would otherwise be permitted. Check the storm surge and floodplain maps, and the overlays on the NT Atlas.",
+       "payload": {
+        "approval": {
+         "kind": "NT_DEVELOPMENT_PERMIT",
+         "authority": "Development Consent Authority (NT Government), or the Minister outside its division areas",
+         "pathway": "Development permit under the Planning Act 1999, assessed against the NT Planning Scheme 2020",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Check the NT storm surge and floodplain maps for your land"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "hazards_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "overlays_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Flooding ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other",
+       "facts": {
+        "planning.known_constraints": [
+         "easement"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Ticking flooding covers storm surge too; there is no separate storm surge answer."
+    },
+    {
+     "key": "bushfire",
+     "title": "Bushfire risk",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "bushfire"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Bushfire risk may affect your design",
+       "detail": "The NT Government's natural hazards planning page doesn't list a bushfire overlay. Bushfire rules can still apply through the National Construction Code and your building certifier, and through fire protection rules for rural land. Ask your certifier and Bushfires NT.",
+       "payload": {
+        "referral_categories": [
+         "building_certifier"
+        ],
+        "task": "Ask your building certifier about bushfire construction rules"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "hazards_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Bushfire ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Heritage only",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "No bushfire overlay was found in the NT Planning Scheme pages read; Part 3 (overlays) PDF couldn't be read."
+    },
+    {
+     "key": "vegetation",
+     "title": "Native vegetation clearing",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "vegetation"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Clearing native vegetation may need a development permit",
+       "detail": "Clearing native vegetation has its own development permit fee in the NT ($269), so clearing can need a permit. Check the NT Planning Scheme 2020 for your zone before you clear.",
+       "payload": {
+        "approval": {
+         "kind": "NT_DEVELOPMENT_PERMIT",
+         "authority": "Development Consent Authority (NT Government), or the Minister outside its division areas",
+         "pathway": "Development permit under the Planning Act 1999, assessed against the NT Planning Scheme 2020",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Ask an NT Government planner whether clearing needs a permit"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "fees_2026",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vegetation ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "vegetation"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other",
+       "facts": {
+        "planning.known_constraints": [
+         "steep_slope"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.nt.independent_unit",
+   "vertical": "PLANNING",
+   "jurisdiction": "NT",
+   "title": "Northern Territory: independent units (granny flats)",
+   "description": "Independent unit rules in the NT Planning Scheme 2020.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say whether your use is permitted, merit assessable or impact assessable, only which approvals you may need.",
+    "The NT Planning Scheme 2020 zone and overlay rules are not encoded. The free NT Atlas shows your zone and overlays.",
+    "We don't know whether your land is in a building control area, which decides whether you need a building permit.",
+    "Constraints like heritage, flooding and storm surge come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with an NT Government planner or a registered building certifier before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "floor_area",
+     "title": "Independent units up to 75 m2",
+     "condition": {
+      "fact": "planning.secondary_dwelling_floor_area_m2",
+      "op": "less_equal",
+      "value": 75
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "At 75 m2 or less, your independent unit fits the NT size limit",
+       "detail": "Since 1 December 2023 (Amendment 94), the NT Planning Scheme 2020 allows independent units up to 75 m2 in certain zones. If the use is permitted in your zone, no overlay applies and you meet every requirement, you don't need a development permit. You still need a building permit and occupancy certification.",
+       "payload": {
+        "task": "Check your zone's assessment table in Part 4 of the NT Planning Scheme 2020"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Over 75 m2, your independent unit likely needs a development permit or a redesign",
+       "detail": "Independent units over 75 m2 exceed the NT Planning Scheme 2020 limit. You would need a development permit to vary the requirement, or it may be treated as a second dwelling, which may not be allowed in your zone.",
+       "payload": {
+        "approval": {
+         "kind": "NT_DEVELOPMENT_PERMIT",
+         "authority": "Development Consent Authority (NT Government), or the Minister outside its division areas",
+         "pathway": "Development permit under the Planning Act 1999, assessed against the NT Planning Scheme 2020",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Ask an NT Government planner whether a larger unit can be approved"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "unit_rules",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "60 m2",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 60
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "90 m2",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 90
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "The 75 m2 limit applies in certain zones; which zones wasn't confirmed. Treatment over 75 m2 is our reading."
+    },
+    {
+     "key": "unit_development_permit",
+     "title": "Development permit for an independent unit",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "secondary_dwelling"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a development permit for your independent unit",
+       "detail": "You need a development permit if an independent unit is merit or impact assessable in your zone, if an overlay applies, or if you want to vary a requirement such as setbacks, height or parking.",
+       "payload": {
+        "approval": {
+         "kind": "NT_DEVELOPMENT_PERMIT",
+         "authority": "Development Consent Authority (NT Government), or the Minister outside its division areas",
+         "pathway": "Development permit under the Planning Act 1999, assessed against the NT Planning Scheme 2020",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "STATEMENT_OF_EFFECT",
+          "title": "Statement of effect addressing the NT Planning Scheme 2020"
+         },
+         {
+          "kind": "SITE_PLAN",
+          "title": "Dimensioned site plan"
+         },
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Floor plans, elevations and sections"
+         }
+        ],
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Check the assessment table for your zone"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "unit_rules",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "categories_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Granny flat",
+       "facts": {
+        "planning.development_type": "secondary_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "no_unit_title",
+     "title": "No separate unit title",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "secondary_dwelling"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You can't put an independent unit on its own unit title",
+       "detail": "In the NT you can't create a separate title for an independent unit through a unit title scheme. A separate freehold lot is only possible if the subdivision meets every requirement of the NT Planning Scheme 2020, including minimum lot size."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "unit_rules",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Granny flat",
+       "facts": {
+        "planning.development_type": "secondary_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "existing_home",
+     "title": "An independent unit goes with a house",
+     "condition": {
+      "fact": "property.has_existing_dwelling",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Without a house on the site, check whether an independent unit is allowed",
+       "detail": "An independent unit is a smaller dwelling on the same lot as a house. If there is no house yet, apply for both together or get planning advice.",
+       "payload": {
+        "referral_categories": [
+         "town_planner"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "unit_rules",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vacant",
+       "facts": {
+        "property.has_existing_dwelling": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Has house",
+       "facts": {
+        "property.has_existing_dwelling": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "The NT definition of independent unit wasn't read; this follows the general meaning."
+    }
+   ]
+  },
+  {
+   "key": "planning.nt.subdivision",
+   "vertical": "PLANNING",
+   "jurisdiction": "NT",
+   "title": "Northern Territory: subdivision",
+   "description": "Development permit, survey approval and new titles for subdividing land in the NT.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "subdivision"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say whether your use is permitted, merit assessable or impact assessable, only which approvals you may need.",
+    "The NT Planning Scheme 2020 zone and overlay rules are not encoded. The free NT Atlas shows your zone and overlays.",
+    "We don't know whether your land is in a building control area, which decides whether you need a building permit.",
+    "Constraints like heritage, flooding and storm surge come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with an NT Government planner or a registered building certifier before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "subdivision_permit",
+     "title": "Subdividing needs a development permit",
+     "condition": {
+      "fact": "planning.proposed_lots",
+      "op": "greater_equal",
+      "value": 2
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You need a development permit to subdivide, then survey approval and new titles",
+       "detail": "To subdivide in the NT you need a development permit from the Development Consent Authority ($1,162 plus $56 per lot). Then a licensed surveyor gets lot numbers and addresses, you complete the works, get a certificate of compliance, get Land Titles Office concurrence and Surveyor-General approval of the plan, and lodge for new titles. Rural and unzoned land also needs a land suitability assessment.",
+       "payload": {
+        "approval": {
+         "kind": "NT_SUBDIVISION",
+         "authority": "Development Consent Authority, then the Surveyor-General and the Land Titles Office",
+         "pathway": "Development permit for subdivision under the Planning Act 1999, survey plan approval and new titles under the Land Title Act 2000",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "PLAN_OF_SUBDIVISION",
+          "title": "Proposed plan of subdivision"
+         },
+         {
+          "kind": "STATEMENT_OF_EFFECT",
+          "title": "Statement of effect"
+         }
+        ],
+        "referral_categories": [
+         "cadastral_surveyor",
+         "town_planner",
+         "lawyer"
+        ],
+        "task": "Engage a licensed surveyor and book a pre-application forum"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "subdivide_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "da_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Two lots",
+       "facts": {
+        "planning.proposed_lots": 2
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "One lot",
+       "facts": {
+        "planning.proposed_lots": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "subdivision_titles",
+     "title": "New titles from the Land Titles Office",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "subdivision"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "New titles come after the Surveyor-General approves the plan",
+       "detail": "Once the plan is approved, you pay the fee and lodge with the Land Titles Office: the approved survey plan, consents and the NT Land Titles Office application for separate titles (form 21). Titles can be issued within 24 business hours. Paper titles are no longer issued.",
+       "payload": {
+        "task": "Have your surveyor and conveyancer prepare the title lodgement"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "subdivide_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.nt.change_of_use",
+   "vertical": "PLANNING",
+   "jurisdiction": "NT",
+   "title": "Northern Territory: change of use",
+   "description": "Development permit and building permit for a change of use in the NT.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "change_of_use"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say whether your use is permitted, merit assessable or impact assessable, only which approvals you may need.",
+    "The NT Planning Scheme 2020 zone and overlay rules are not encoded. The free NT Atlas shows your zone and overlays.",
+    "We don't know whether your land is in a building control area, which decides whether you need a building permit.",
+    "Constraints like heritage, flooding and storm surge come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with an NT Government planner or a registered building certifier before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "change_of_use_permit",
+     "title": "A change of use may need a development permit",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a development permit for the new use",
+       "detail": "Whether a new use needs a development permit depends on your zone's assessment table in the NT Planning Scheme 2020. Permitted uses that meet every requirement need none. Merit and impact assessable uses do. The fee for a use with no physical development is $290, plus $149 if it is advertised.",
+       "payload": {
+        "approval": {
+         "kind": "NT_DEVELOPMENT_PERMIT",
+         "authority": "Development Consent Authority (NT Government), or the Minister outside its division areas",
+         "pathway": "Development permit under the Planning Act 1999, assessed against the NT Planning Scheme 2020",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "STATEMENT_OF_EFFECT",
+          "title": "Statement of effect addressing the NT Planning Scheme 2020"
+         },
+         {
+          "kind": "SITE_PLAN",
+          "title": "Dimensioned site plan"
+         },
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Floor plans, elevations and sections"
+         }
+        ],
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Check whether your new use is permitted in your zone"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "categories_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_2026",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "da_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "change_of_use_building",
+     "title": "Building permit and occupancy for a change of use",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a building permit and occupancy certification",
+       "detail": "If the new use needs building work, or changes how the building is classified under the National Construction Code, ask a registered building certifier whether you need a building permit and occupancy certification before you open.",
+       "payload": {
+        "approval": {
+         "kind": "NT_BUILDING_PERMIT",
+         "authority": "A registered private building certifier",
+         "pathway": "Building permit under the Building Act 1993 (National Construction Code)",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "building_certifier"
+        ],
+        "task": "Ask a building certifier whether your change of use needs a building permit"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bp_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "occ_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Change of classification rules weren't read; MAY_APPLY."
+    }
+   ]
+  },
+  {
+   "key": "planning.nt.general",
+   "vertical": "PLANNING",
+   "jurisdiction": "NT",
+   "title": "Northern Territory: every project",
+   "description": "Steps that apply to every planning project in the NT.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "NT"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say whether your use is permitted, merit assessable or impact assessable, only which approvals you may need.",
+    "The NT Planning Scheme 2020 zone and overlay rules are not encoded. The free NT Atlas shows your zone and overlays.",
+    "We don't know whether your land is in a building control area, which decides whether you need a building permit.",
+    "Constraints like heritage, flooding and storm surge come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with an NT Government planner or a registered building certifier before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "atlas_lookup",
+     "title": "Start with the NT Atlas and the planning scheme",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Look up your zone and overlays on the NT Atlas",
+       "detail": "The free NT Atlas shows your zone and overlays. Then check your zone's assessment table in the NT Planning Scheme 2020 to see if your project is permitted, merit assessable or impact assessable. You can book a meeting with an NT Government planner before you lodge.",
+       "payload": {
+        "task": "Look up your property on the NT Atlas"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "categories_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "overlays_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Any project",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "council_not_decider",
+     "title": "Your council doesn't decide development applications",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "The NT Government decides, not your council",
+       "detail": "In the NT, development applications go to the Development Consent Authority through Development Applications Online. Your council comments as a service authority and approves things like driveways and stormwater connections to council land. Building permits come from private building certifiers."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "da_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "cert_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "other_project",
+     "title": "Other projects",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "other"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Your project may need a development permit or building permit",
+       "detail": "We can't tell from the description. Check your zone and overlays on the NT Atlas, and ask an NT Government planner and a registered building certifier.",
+       "payload": {
+        "approval": {
+         "kind": "NT_DEVELOPMENT_PERMIT",
+         "authority": "Development Consent Authority (NT Government), or the Minister outside its division areas",
+         "pathway": "Development permit under the Planning Act 1999, assessed against the NT Planning Scheme 2020",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner",
+         "building_certifier"
+        ],
+        "task": "Contact an NT Government planner about your project"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "categories_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "da_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Other",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "review_rights",
+     "title": "Review of a decision",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You can ask for a review within 28 days",
+       "detail": "If your development application is refused or you don't agree with the conditions, you can apply to the NT Civil and Administrative Tribunal (NTCAT) for a review within 28 days of being notified."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "da_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

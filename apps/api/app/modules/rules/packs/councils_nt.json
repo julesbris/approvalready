@@ -1,0 +1,352 @@
+{
+  "key": "councils_nt",
+  "title": "Northern Territory councils: how to apply for a development application",
+  "notes": "Generated from app/modules/councils/nt_councils.json by `python -m app.modules.councils.pack`; edit the directory, not this file. One reference per council: verifying it marks that council's details as checked.",
+  "organisations": [
+    {
+      "ref": "nt_alice_springs",
+      "name": "Alice Springs Town Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_ALICE_SPRINGS",
+      "website": "https://alicesprings.nt.gov.au/"
+    },
+    {
+      "ref": "nt_barkly",
+      "name": "Barkly Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_BARKLY",
+      "website": "https://www.barkly.nt.gov.au/"
+    },
+    {
+      "ref": "nt_belyuen",
+      "name": "Belyuen Community Government Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_BELYUEN",
+      "website": "https://www.belyuen.nt.gov.au/"
+    },
+    {
+      "ref": "nt_central_desert",
+      "name": "Central Desert Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_CENTRAL_DESERT",
+      "website": "https://www.centraldesert.nt.gov.au/"
+    },
+    {
+      "ref": "nt_darwin",
+      "name": "City of Darwin",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_DARWIN",
+      "website": "https://www.darwin.nt.gov.au/"
+    },
+    {
+      "ref": "nt_palmerston",
+      "name": "City of Palmerston",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_PALMERSTON",
+      "website": "https://www.palmerston.nt.gov.au/"
+    },
+    {
+      "ref": "nt_coomalie",
+      "name": "Coomalie Community Government Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_COOMALIE",
+      "website": "https://www.coomalie.nt.gov.au/"
+    },
+    {
+      "ref": "nt_east_arnhem",
+      "name": "East Arnhem Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_EAST_ARNHEM",
+      "website": "https://www.eastarnhem.nt.gov.au/"
+    },
+    {
+      "ref": "nt_groote_archipelago",
+      "name": "Groote Archipelago Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_GROOTE_ARCHIPELAGO",
+      "website": "https://groote.nt.gov.au/"
+    },
+    {
+      "ref": "nt_katherine",
+      "name": "Katherine Town Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_KATHERINE",
+      "website": "https://www.katherine.nt.gov.au/"
+    },
+    {
+      "ref": "nt_litchfield",
+      "name": "Litchfield Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_LITCHFIELD",
+      "website": "https://www.litchfield.nt.gov.au/"
+    },
+    {
+      "ref": "nt_macdonnell",
+      "name": "MacDonnell Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_MACDONNELL",
+      "website": "https://www.macdonnell.nt.gov.au/"
+    },
+    {
+      "ref": "nt_roper_gulf",
+      "name": "Roper Gulf Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_ROPER_GULF",
+      "website": "https://www.ropergulf.nt.gov.au/"
+    },
+    {
+      "ref": "nt_tiwi_islands",
+      "name": "Tiwi Islands Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_TIWI_ISLANDS",
+      "website": "https://www.tiwiislands.org.au/"
+    },
+    {
+      "ref": "nt_victoria_daly",
+      "name": "Victoria Daly Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_VICTORIA_DALY",
+      "website": "https://www.victoriadaly.nt.gov.au/"
+    },
+    {
+      "ref": "nt_wagait",
+      "name": "Wagait Shire Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_WAGAIT",
+      "website": "https://www.wagait.nt.gov.au/"
+    },
+    {
+      "ref": "nt_west_arnhem",
+      "name": "West Arnhem Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_WEST_ARNHEM",
+      "website": "https://www.westarnhem.nt.gov.au/"
+    },
+    {
+      "ref": "nt_west_daly",
+      "name": "West Daly Regional Council",
+      "kind": "COUNCIL",
+      "jurisdiction": "LGA:NT_WEST_DALY",
+      "website": "https://www.westdaly.nt.gov.au/"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "nt_alice_springs_doc1",
+      "organisation": "nt_alice_springs",
+      "jurisdiction": "LGA:NT_ALICE_SPRINGS",
+      "title": "NT.GOV.AU: find your council",
+      "url": "https://nt.gov.au/community/local-councils-remote-communities-and-homelands/find-your-council",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_alice_springs_doc2",
+      "organisation": "nt_alice_springs",
+      "jurisdiction": "LGA:NT_ALICE_SPRINGS",
+      "title": "Alice Springs Town Council: contact us",
+      "url": "https://alicesprings.nt.gov.au/contact-us",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_alice_springs_doc3",
+      "organisation": "nt_alice_springs",
+      "jurisdiction": "LGA:NT_ALICE_SPRINGS",
+      "title": "NT.GOV.AU: apply for a development permit",
+      "url": "https://nt.gov.au/property/building-and-development/submit-a-development-application/development-one-stop-shop-applications-and-processes/development-applications",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_alice_springs_doc4",
+      "organisation": "nt_alice_springs",
+      "jurisdiction": "LGA:NT_ALICE_SPRINGS",
+      "title": "Geoscape LGA layer (abb_name field), Australian Government spatial services",
+      "url": "https://spatial.infrastructure.gov.au/server/rest/services/Hosted/LGA_Dynamic/FeatureServer/1",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_barkly_doc2",
+      "organisation": "nt_barkly",
+      "jurisdiction": "LGA:NT_BARKLY",
+      "title": "Bushfires NT: regional council contacts",
+      "url": "https://bushready.nt.gov.au/useful-information/regional-councils-contact-details",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_belyuen_doc2",
+      "organisation": "nt_belyuen",
+      "jurisdiction": "LGA:NT_BELYUEN",
+      "title": "Belyuen Community Government Council home page",
+      "url": "https://www.belyuen.nt.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_darwin_doc2",
+      "organisation": "nt_darwin",
+      "jurisdiction": "LGA:NT_DARWIN",
+      "title": "City of Darwin home page (footer)",
+      "url": "https://www.darwin.nt.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_palmerston_doc2",
+      "organisation": "nt_palmerston",
+      "jurisdiction": "LGA:NT_PALMERSTON",
+      "title": "City of Palmerston home page (footer)",
+      "url": "https://www.palmerston.nt.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_katherine_doc2",
+      "organisation": "nt_katherine",
+      "jurisdiction": "LGA:NT_KATHERINE",
+      "title": "Katherine Town Council home page (contact us section)",
+      "url": "https://www.katherine.nt.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_litchfield_doc2",
+      "organisation": "nt_litchfield",
+      "jurisdiction": "LGA:NT_LITCHFIELD",
+      "title": "Litchfield Council home page (footer)",
+      "url": "https://www.litchfield.nt.gov.au/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "nt_wagait_doc2",
+      "organisation": "nt_wagait",
+      "jurisdiction": "LGA:NT_WAGAIT",
+      "title": "Wagait Shire Council home page",
+      "url": "https://www.wagait.nt.gov.au/",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "nt_alice_springs_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_alice_springs",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Alice Springs Town Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8950 0500\nEmail: astc@astc.nt.gov.au\nAddress: 93 Todd Street, Alice Springs NT 0870\nPlanning enquiries email: astc@astc.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Council's role is as a service authority: it comments on development applications to the Development Consent Authority and approves works on council roads and drains. Its own planning page wasn't read. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_barkly_how_to_apply",
+      "document": "nt_barkly_doc2",
+      "section": "Council directory: nt_barkly",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Barkly Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8962 0000\nEmail: reception@barkly.nt.gov.au\nPlanning enquiries email: reception@barkly.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council office address wasn't gathered; see the council website. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_belyuen_how_to_apply",
+      "document": "nt_belyuen_doc2",
+      "section": "Council directory: nt_belyuen",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Belyuen Community Government Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8978 5071\nAddress: CMB 18, Darwin NT 0801 (postal)\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council email couldn't be read (the website hides it); see the council website. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_central_desert_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_central_desert",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Central Desert Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: 1300 360 605\nEmail: info@centraldesert.nt.gov.au\nPlanning enquiries email: info@centraldesert.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council office address wasn't gathered; see the council website. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_darwin_how_to_apply",
+      "document": "nt_darwin_doc2",
+      "section": "Council directory: nt_darwin",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Darwin for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8930 0300\nEmail: darwin@darwin.nt.gov.au\nAddress: Harry Chan Avenue, Darwin NT 0800\nPlanning enquiries email: darwin@darwin.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Council's role is as a service authority: it comments on development applications to the Development Consent Authority and approves works on council roads and drains. Its own planning page wasn't read. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there. The Geoscape layer also has a separate 'Darwin Waterfront Precinct' area, which is not part of this council's entry."
+    },
+    {
+      "ref": "nt_palmerston_how_to_apply",
+      "document": "nt_palmerston_doc2",
+      "section": "Council directory: nt_palmerston",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to City of Palmerston for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8935 9922\nEmail: palmerston@palmerston.nt.gov.au\nAddress: Civic Plaza, 1 Chung Wah Terrace, Palmerston NT 0830\nPlanning enquiries email: palmerston@palmerston.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Council's role is as a service authority: it comments on development applications to the Development Consent Authority and approves works on council roads and drains. Its own planning page wasn't read. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_coomalie_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_coomalie",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Coomalie Community Government Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council phone and email couldn't be gathered (web fetch budget ran out); see the council website. Council office address wasn't gathered; see the council website. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_east_arnhem_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_east_arnhem",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to East Arnhem Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8986 8986\nEmail: info@eastarnhem.nt.gov.au\nPlanning enquiries email: info@eastarnhem.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council office address wasn't gathered; see the council website. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_groote_archipelago_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_groote_archipelago",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Groote Archipelago Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council phone and email couldn't be gathered (web fetch budget ran out); see the council website. Council office address wasn't gathered; see the council website. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_katherine_how_to_apply",
+      "document": "nt_katherine_doc2",
+      "section": "Council directory: nt_katherine",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Katherine Town Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8972 5500\nEmail: records@ktc.nt.gov.au\nAddress: Civic Centre, 29 Crawford Street, Katherine NT 0850\nPlanning enquiries email: records@ktc.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Council's role is as a service authority: it comments on development applications to the Development Consent Authority and approves works on council roads and drains. Its own planning page wasn't read. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_litchfield_how_to_apply",
+      "document": "nt_litchfield_doc2",
+      "section": "Council directory: nt_litchfield",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Litchfield Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8983 0600\nAddress: 7 Bees Creek Road, Freds Pass NT\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council email couldn't be read (the website hides it); see the council website. Council's role is as a service authority: it comments on development applications to the Development Consent Authority and approves works on council roads and drains. Its own planning page wasn't read. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_macdonnell_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_macdonnell",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to MacDonnell Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8958 9600\nEmail: info@macdonnell.nt.gov.au\nPlanning enquiries email: info@macdonnell.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council office address wasn't gathered; see the council website. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_roper_gulf_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_roper_gulf",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Roper Gulf Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8972 9000\nEmail: info@ropergulf.nt.gov.au\nPlanning enquiries email: info@ropergulf.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council office address wasn't gathered; see the council website. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_tiwi_islands_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_tiwi_islands",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Tiwi Islands Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8970 9500\nEmail: info@tiwiislands.nt.gov.au\nPlanning enquiries email: info@tiwiislands.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council office address wasn't gathered; see the council website. No separate planning email; the general council email is used for council matters like driveways, verges and rates. The phone number is the Wurrumiyanga (Bathurst Island) office. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_victoria_daly_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_victoria_daly",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Victoria Daly Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8972 0777\nEmail: admin@vicdaly.nt.gov.au\nPlanning enquiries email: admin@vicdaly.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council office address wasn't gathered; see the council website. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_wagait_how_to_apply",
+      "document": "nt_wagait_doc2",
+      "section": "Council directory: nt_wagait",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to Wagait Shire Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8978 5185\nEmail: council@wagait.nt.gov.au\nAddress: 142 Wagait Tower Road, Wagait Beach NT 0801\nPlanning enquiries email: council@wagait.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. No separate planning email; the general council email is used for council matters like driveways, verges and rates. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_west_arnhem_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_west_arnhem",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to West Arnhem Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 8979 9444\nEmail: info@westarnhem.nt.gov.au\nPlanning enquiries email: info@westarnhem.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council office address wasn't gathered; see the council website. No separate planning email; the general council email is used for council matters like driveways, verges and rates. The phone number is the Jabiru head office. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    },
+    {
+      "ref": "nt_west_daly_how_to_apply",
+      "document": "nt_alice_springs_doc1",
+      "section": "Council directory: nt_west_daly",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to apply to West Daly Regional Council for a development application.\nPlanning scheme: NT Planning Scheme 2020.\nLodge (online): Lodge with the NT Development Consent Authority on Development Applications Online (DAO) https://www.ntlis.nt.gov.au/planning/\nStep 1: Check your zone and overlays on NR Maps, then check the NT Planning Scheme 2020 to see if your use is permitted, merit assessable or impact assessable.\nStep 2: If you need a development permit, lodge on Development Applications Online (DAO) with a statement of effect and plans. The NT Government's Development Assessment Services processes it, not the council.\nStep 3: Pay the NT Government application fee (from $269 for a single dwelling) and any advertising fee ($149).\nStep 4: The council is asked to comment as a service authority. Some applications are exhibited for 7, 14 or 28 days.\nStep 5: The Development Consent Authority decides. It takes about 8 weeks. Then get a building permit from a registered building certifier.\nPre-lodgement meetings: offered (Meet with an NT Government planner before you lodge. The council can advise on its own works and service requirements.).\nPhone: (08) 7922 6403\nEmail: info@westdaly.nt.gov.au\nPlanning enquiries email: info@westdaly.nt.gov.au\nFee (2026-27): Development permit, single dwelling on one lot: $269 (NT Government fee, not council)\nFee (2026-27): Development permit, cost $100,001 to $250,000: $810\nFee (2026-27): Change of use, no physical development: $290\nFee (2026-27): Subdivision: $1,162 plus $56 per lot\nFee (2026-27): Advertising (exhibition): $149 (Per exhibition period, if needed)",
+      "interpretation": "Check each line against the source pages (this council's documents) and correct nt_councils.json if anything is wrong before verifying. Gaps found: Development applications go to the NT Development Consent Authority, not the council. Council office address wasn't gathered; see the council website. No separate planning email; the general council email is used for council matters like driveways, verges and rates. The phone number is the Darwin office. Spatial name is the upper-cased abb_name from the national Geoscape LGA layer (built from NT Government data). The NT Government's own LGA boundaries layer wasn't opened, so the spelling isn't confirmed there."
+    }
+  ],
+  "rule_sets": []
+}

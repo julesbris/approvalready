@@ -1,0 +1,62 @@
+{
+  "key": "rent.nt_end_of_tenancy",
+  "vertical": "RENT",
+  "title": "Ending a tenancy in the Northern Territory",
+  "description": "Steps for ending an NT tenancy and returning the security deposit. Summarised from NT Consumer Affairs guidance.",
+  "sources": [
+    {
+      "title": "A Guide to Renting in the Northern Territory",
+      "organisation": "NT Consumer Affairs",
+      "url": "https://consumeraffairs.nt.gov.au/_resources/documents/for-consumers/residential-tenancies/guide-to-renting-in-the-nt.pdf"
+    },
+    {
+      "title": "Renting in the NT",
+      "organisation": "NT Consumer Affairs",
+      "url": "https://consumeraffairs.nt.gov.au/for-consumers/residential-tenancies"
+    }
+  ],
+  "items": [
+    {
+      "key": "notice",
+      "title": "Give 60 days' written notice to end a periodic tenancy or not renew a fixed term, using the NT RT05 notice by landlord of intention to terminate",
+      "required": false
+    },
+    {
+      "key": "unpaid_rent",
+      "title": "For rent 14 days behind, give the NT RT03 notice to remedy unpaid rent (at least 8 days to pay)",
+      "required": false
+    },
+    {
+      "key": "breach",
+      "title": "For other breaches, give the NT RT04b notice to remedy breach by tenant and apply to NTCAT within 14 days if needed",
+      "required": false
+    },
+    {
+      "key": "tenant_notice",
+      "title": "Expect the tenant to give you 14 days' notice if they leave"
+    },
+    {
+      "key": "final_inspection",
+      "title": "Inspect against the ingoing condition report"
+    },
+    {
+      "key": "deposit_return",
+      "title": "Return the security deposit within 7 business days of the tenant leaving"
+    },
+    {
+      "key": "deposit_claim",
+      "title": "To keep any of it, give the NT RT08 notice of intention to retain security deposit within those 7 business days",
+      "required": false
+    },
+    {
+      "key": "goods",
+      "title": "Store goods left behind and give the NT RT11 notice of storage of goods",
+      "required": false
+    },
+    {
+      "key": "disputes",
+      "title": "Send deposit disputes to NTCAT",
+      "required": false
+    }
+  ]
+}
