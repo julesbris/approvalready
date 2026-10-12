@@ -73,6 +73,18 @@
       "path": "/guides/australia/gst-registration"
     },
     {
+      "kind": "QLD_PAYROLL_TAX_REGISTRATION",
+      "state": "qld",
+      "slug": "payroll-tax-registration",
+      "path": "/guides/qld/payroll-tax-registration"
+    },
+    {
+      "kind": "QLD_DEVELOPMENT_APPLICATION",
+      "state": "qld",
+      "slug": "development-application",
+      "path": "/guides/qld/development-application"
+    },
+    {
       "kind": "PLANNING_MATERIAL_CHANGE_OF_USE",
       "state": "qld",
       "slug": "cairns-home-business-change-of-use",
@@ -113,6 +125,12 @@
       "state": "qld",
       "slug": "qbcc-contractor-licence",
       "path": "/guides/qld/qbcc-contractor-licence"
+    },
+    {
+      "kind": "PLANNING_RECONFIGURING_A_LOT",
+      "state": "qld",
+      "slug": "subdivision-reconfiguring-a-lot",
+      "path": "/guides/qld/subdivision-reconfiguring-a-lot"
     },
     {
       "kind": "WA_PLUMBING_LICENCE",
@@ -229,6 +247,18 @@
       "path": "/guides/tas/education-care-service-approval"
     },
     {
+      "kind": "QLD_BUILDING_APPROVAL",
+      "state": "qld",
+      "slug": "building-approval",
+      "path": "/guides/qld/building-approval"
+    },
+    {
+      "kind": "QLD_SELLER_DISCLOSURE_STATEMENT",
+      "state": "qld",
+      "slug": "seller-disclosure-statement",
+      "path": "/guides/qld/seller-disclosure-statement"
+    },
+    {
       "kind": "HIGHER_RISK_PAS_LICENCE",
       "state": "qld",
       "slug": "cairns-higher-risk-personal-appearance-service-licence",
@@ -239,6 +269,12 @@
       "state": "sa",
       "slug": "tattoo-business-notification",
       "path": "/guides/sa/tattoo-business-notification"
+    },
+    {
+      "kind": "VIC_VENDOR_STATEMENT",
+      "state": "vic",
+      "slug": "vendor-statement",
+      "path": "/guides/vic/vendor-statement"
     },
     {
       "kind": "VIC_EDUCATION_CARE_SERVICE_APPROVAL",
@@ -277,6 +313,18 @@
       "path": "/guides/vic/food-premises-registration"
     },
     {
+      "kind": "QLD_PLUMBING_APPROVAL",
+      "state": "qld",
+      "slug": "plumbing-approval",
+      "path": "/guides/qld/plumbing-approval"
+    },
+    {
+      "kind": "QLD_BOND_LODGEMENT",
+      "state": "qld",
+      "slug": "bond-lodgement",
+      "path": "/guides/qld/bond-lodgement"
+    },
+    {
       "kind": "SA_FOOD_BUSINESS_NOTIFICATION",
       "state": "sa",
       "slug": "food-business-notification",
@@ -287,6 +335,12 @@
       "state": "nsw",
       "slug": "food-business-notification",
       "path": "/guides/nsw/food-business-notification"
+    },
+    {
+      "kind": "SA_VENDOR_STATEMENT",
+      "state": "sa",
+      "slug": "vendor-statement",
+      "path": "/guides/sa/vendor-statement"
     },
     {
       "kind": "ACT_FOOD_BUSINESS_REGISTRATION",
@@ -391,6 +445,12 @@
       "path": "/guides/qld/liquor-licence"
     },
     {
+      "kind": "ACT_SALE_REQUIRED_DOCUMENTS",
+      "state": "act",
+      "slug": "sale-required-documents",
+      "path": "/guides/act/sale-required-documents"
+    },
+    {
       "kind": "TAS_PUBLIC_HEALTH_RISK_ACTIVITY_LICENCE",
       "state": "tas",
       "slug": "public-health-risk-activity-licence",
@@ -445,6 +505,12 @@
       "path": "/guides/act/outdoor-dining-permit"
     },
     {
+      "kind": "ACT_POOL_SAFETY",
+      "state": "act",
+      "slug": "pool-safety",
+      "path": "/guides/act/pool-safety"
+    },
+    {
       "kind": "NSW_TOBACCO_RETAIL_LICENCE",
       "state": "nsw",
       "slug": "tobacco-retail-licence",
@@ -461,6 +527,12 @@
       "state": "sa",
       "slug": "workers-compensation-registration",
       "path": "/guides/sa/workers-compensation-registration"
+    },
+    {
+      "kind": "WA_SALE_SAFETY_DEVICES",
+      "state": "wa",
+      "slug": "sale-safety-devices",
+      "path": "/guides/wa/sale-safety-devices"
     },
     {
       "kind": "TAS_WORKERS_COMPENSATION_INSURANCE",
@@ -493,10 +565,40 @@
       "path": "/guides/nsw/workers-compensation-policy"
     },
     {
+      "kind": "ACT_BOATING_RULES",
+      "state": "act",
+      "slug": "boating-rules",
+      "path": "/guides/act/boating-rules"
+    },
+    {
+      "kind": "NT_BOATING_RULES",
+      "state": "nt",
+      "slug": "boating-rules",
+      "path": "/guides/nt/boating-rules"
+    },
+    {
       "kind": "NSW_POOL_COMPLIANCE_CERTIFICATE",
       "state": "nsw",
       "slug": "pool-compliance-certificate",
       "path": "/guides/nsw/pool-compliance-certificate"
+    },
+    {
+      "kind": "QLD_POOL_SAFETY_CERTIFICATE",
+      "state": "qld",
+      "slug": "pool-safety-certificate",
+      "path": "/guides/qld/pool-safety-certificate"
+    },
+    {
+      "kind": "NT_BOND_LODGEMENT",
+      "state": "nt",
+      "slug": "bond-lodgement",
+      "path": "/guides/nt/bond-lodgement"
+    },
+    {
+      "kind": "QLD_RENTAL_MINIMUM_STANDARDS",
+      "state": "qld",
+      "slug": "rental-minimum-standards",
+      "path": "/guides/qld/rental-minimum-standards"
     },
     {
       "kind": "PAYG_WITHHOLDING_REGISTRATION",
@@ -515,6 +617,12 @@
       "state": "act",
       "slug": "payroll-tax-registration",
       "path": "/guides/act/payroll-tax-registration"
+    },
+    {
+      "kind": "TAS_SALE_DISCLOSURE",
+      "state": "tas",
+      "slug": "sale-disclosure",
+      "path": "/guides/tas/sale-disclosure"
     },
     {
       "kind": "VIC_WORKCOVER_INSURANCE",
@@ -943,6 +1051,12 @@
       "path": "/guides/nsw/vessel-registration"
     },
     {
+      "kind": "QLD_BOAT_REGISTRATION",
+      "state": "qld",
+      "slug": "boat-registration",
+      "path": "/guides/qld/boat-registration"
+    },
+    {
       "kind": "NSW_BOAT_LICENCE",
       "state": "nsw",
       "slug": "boat-licence",
@@ -983,6 +1097,12 @@
       "state": "tas",
       "slug": "motor-boat-licence",
       "path": "/guides/tas/motor-boat-licence"
+    },
+    {
+      "kind": "QLD_MARINE_LICENCE",
+      "state": "qld",
+      "slug": "marine-licence",
+      "path": "/guides/qld/marine-licence"
     },
     {
       "kind": "WA_SKIPPERS_TICKET",
@@ -1043,6 +1163,12 @@
       "state": "sa",
       "slug": "planning-consent",
       "path": "/guides/sa/planning-consent"
+    },
+    {
+      "kind": "QLD_PWC_LICENCE",
+      "state": "qld",
+      "slug": "pwc-licence",
+      "path": "/guides/qld/pwc-licence"
     },
     {
       "kind": "NSW_MOORING_LICENCE",

@@ -367,12 +367,12 @@
        "detail": "Queensland sellers must give the buyer a completed seller disclosure statement (Form 2) and the prescribed certificates before the buyer signs the contract (before the fall of the hammer at auction). If they are missing, or wrong in a way that matters, the buyer may be able to end the contract up to settlement. A few sales are exempt.",
        "payload": {
         "approval": {
-         "kind": "SELLER_DISCLOSURE_STATEMENT",
+         "kind": "QLD_SELLER_DISCLOSURE_STATEMENT",
          "pathway": "Form 2 and prescribed certificates before the buyer signs"
         },
         "evidence": [
          {
-          "kind": "SELLER_DISCLOSURE_STATEMENT",
+          "kind": "QLD_SELLER_DISCLOSURE_STATEMENT",
           "title": "Seller disclosure statement (Form 2)"
          },
          {
@@ -530,13 +530,13 @@
        "detail": "For a property with a regulated pool, give the buyer a copy of a current pool safety certificate before settlement. Without one, lodge a notice of no pool safety certificate (Form 36) with the QBCC and give the buyer a copy (before the contract at auction). The pool is also disclosed in the seller disclosure statement.",
        "payload": {
         "approval": {
-         "kind": "POOL_SAFETY_CERTIFICATE",
+         "kind": "QLD_POOL_SAFETY_CERTIFICATE",
          "authority": "Queensland Building and Construction Commission",
          "pathway": "Certificate from a licensed pool safety inspector, or Form 36"
         },
         "evidence": [
          {
-          "kind": "POOL_SAFETY_CERTIFICATE",
+          "kind": "QLD_POOL_SAFETY_CERTIFICATE",
           "title": "Pool safety certificate or Form 36 notice"
          }
         ],
@@ -1147,7 +1147,7 @@
        "detail": "A bond taken for a Queensland tenancy must be lodged with the Residential Tenancies Authority within 10 days (online or with Form 2), and it is an offence not to. The bond is at most 4 weeks' rent. If you are not sure it was lodged, check with the RTA or your property manager.",
        "payload": {
         "approval": {
-         "kind": "BOND_LODGEMENT",
+         "kind": "QLD_BOND_LODGEMENT",
          "authority": "Residential Tenancies Authority",
          "pathway": "RTA Web Services or Form 2, within 10 days"
         },
@@ -1447,7 +1447,7 @@
        "detail": "For a rental with its own regulated pool, you must not enter into a tenancy agreement unless a pool safety certificate is in effect (2 years for a non-shared pool). For a shared pool, such as a body corporate pool, give the tenant and the pool owner a copy of the current certificate or lodge a Form 36.",
        "payload": {
         "approval": {
-         "kind": "POOL_SAFETY_CERTIFICATE",
+         "kind": "QLD_POOL_SAFETY_CERTIFICATE",
          "authority": "Queensland Building and Construction Commission",
          "pathway": "Inspection by a licensed pool safety inspector"
         },
@@ -1464,7 +1464,7 @@
        "detail": "A rental with a pool needs a current pool safety certificate before a lease is signed. Tell us whether you have one.",
        "payload": {
         "approval": {
-         "kind": "POOL_SAFETY_CERTIFICATE",
+         "kind": "QLD_POOL_SAFETY_CERTIFICATE",
          "authority": "Queensland Building and Construction Commission",
          "certainty": "MAY_APPLY"
         }

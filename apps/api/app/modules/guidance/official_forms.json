@@ -2025,7 +2025,8 @@
       "publisher": "SA.GOV.AU",
       "url": "https://www.sa.gov.au/topics/housing/buying-building-selling/building-or-buying-home/home-sales/what-is-on-the-vendors-statement",
       "mentions": [
-        "SA Form 1 vendor's statement"
+        "SA Form 1 vendor's statement",
+        "Form 1"
       ],
       "verticals": [
         "SELL"
@@ -3372,6 +3373,247 @@
         "TRADE"
       ],
       "note": "URL from search results; not opened"
+    },
+    {
+      "id": "qld-dt-form-10",
+      "code": "Form 10",
+      "name": "Notice of appeal/application for declaration (Development Tribunals)",
+      "publisher": "Queensland Government (Development Tribunals Registrar)",
+      "url": "https://www.qld.gov.au/__data/assets/pdf_file/0017/114434/form10applicationforappeal.pdf",
+      "verticals": [
+        "PLANNING"
+      ],
+      "note": "Lodge with the Registrar within 20 business days in most cases"
+    },
+    {
+      "id": "qld-building-form-17",
+      "code": "Form 17",
+      "name": "Final inspection certificate for pools and barriers",
+      "publisher": "Department of Housing and Public Works (Queensland)",
+      "url": "https://housing.qld.gov.au/__data/assets/word_doc/0029/9776/form17finalinspectioncertificate.docx",
+      "verticals": [
+        "PLANNING"
+      ]
+    },
+    {
+      "id": "qld-building-form-18",
+      "code": "Form 18",
+      "name": "Notice to the owner that a private certifier has been engaged",
+      "publisher": "Department of Housing and Public Works (Queensland)",
+      "url": "https://housing.qld.gov.au/__data/assets/pdf_file/0024/9780/form18noticetotheownerthataprivatecertifierhasbeenengaged.pdf",
+      "verticals": [
+        "PLANNING"
+      ]
+    },
+    {
+      "id": "qld-building-form-35",
+      "code": "Form 35",
+      "name": "Owner request for inspection documentation",
+      "publisher": "Department of Housing and Public Works (Queensland)",
+      "url": "https://housing.qld.gov.au/__data/assets/pdf_file/0016/13219/form35ownerrequestforinspectiondocumentation.pdf",
+      "verticals": [
+        "PLANNING"
+      ]
+    },
+    {
+      "id": "qbcc-owner-builder-permit-application",
+      "name": "Owner-builder permit application",
+      "publisher": "Queensland Building and Construction Commission (QBCC)",
+      "url": "https://www.qbcc.qld.gov.au/sites/default/files/documents/form-ob-permit-application.pdf",
+      "verticals": [
+        "PLANNING"
+      ],
+      "note": "Can also be lodged online through the QBCC portal",
+      "mentions": [
+        "owner-builder permit application"
+      ]
+    },
+    {
+      "id": "qld-plumbing-form-1",
+      "code": "Form 1",
+      "name": "Permit work application for plumbing, drainage and on-site sewerage work",
+      "publisher": "Department of Housing and Public Works (Queensland)",
+      "url": "https://www.housing.qld.gov.au/__data/assets/pdf_file/0018/3762/form1plumbingdrainageregulation2019.pdf",
+      "verticals": [
+        "PLANNING"
+      ],
+      "note": "Plumbing and Drainage Regulation 2019; lodged with the local government"
+    },
+    {
+      "id": "qbcc-form-4",
+      "code": "Form 4",
+      "name": "Notifiable work",
+      "publisher": "Queensland Building and Construction Commission (QBCC)",
+      "url": "https://qbcc.qld.gov.au/resources/form/form-4-notifiable-work",
+      "verticals": [
+        "PLANNING",
+        "TRADE"
+      ],
+      "note": "Registered by the licensee within 10 business days; online registration is cheaper"
+    },
+    {
+      "id": "qbcc-form-23",
+      "code": "Form 23",
+      "name": "Pool safety certificate",
+      "publisher": "Queensland Building and Construction Commission",
+      "url": "https://www.business.qld.gov.au/industries/building-property-development/building-construction/laws-codes-standards/pool-safety/forms",
+      "verticals": [
+        "SELL",
+        "RENT"
+      ],
+      "note": "Issued only by a licensed pool safety inspector through the QBCC Portal; owners cannot complete it. Copies can be downloaded from the QBCC pool register."
+    },
+    {
+      "id": "qbcc-form-26",
+      "code": "Form 26",
+      "name": "Pool safety nonconformity notice",
+      "publisher": "Queensland Building and Construction Commission",
+      "url": "https://www.qbcc.qld.gov.au/resources/form/form-26-pool-safety-nonconformity-notice",
+      "verticals": [
+        "SELL",
+        "RENT"
+      ],
+      "note": "Given by the inspector when a pool fails; reinspection due within 3 months."
+    },
+    {
+      "id": "tmr-f3521",
+      "code": "F3521",
+      "name": "Registration transfer (boat)",
+      "publisher": "Department of Transport and Main Roads (Queensland)",
+      "url": "https://www.publications.qld.gov.au/dataset/transport-f3521",
+      "verticals": [
+        "VESSEL"
+      ],
+      "note": "Or transfer online for boats under 15 m"
+    },
+    {
+      "id": "tmr-f3527",
+      "code": "F3527",
+      "name": "Change of Queensland regulated ship particulars",
+      "publisher": "Department of Transport and Main Roads (Queensland)",
+      "url": "https://www.publications.qld.gov.au/dataset/transport-f3527",
+      "verticals": [
+        "VESSEL"
+      ]
+    },
+    {
+      "id": "tmr-f2334",
+      "code": "F2334",
+      "name": "Marine licence application",
+      "publisher": "Department of Transport and Main Roads (Queensland)",
+      "url": "https://www.publications.qld.gov.au/dataset/transport-f2334",
+      "verticals": [
+        "VESSEL"
+      ],
+      "note": "Lodge in person with your BoatSafe statement of competency"
+    },
+    {
+      "id": "tas-hobart-337-certificate-request",
+      "code": null,
+      "name": "Certificate of liabilities (section 132) and land information certificate (section 337) request (City of Hobart)",
+      "publisher": "City of Hobart",
+      "url": "https://hobartcity.com.au/files/assets/public/v/1/forms/132-certificate-of-liabilities-337-land-information-certificate-request.pdf",
+      "mentions": [
+        "City of Hobart request form"
+      ],
+      "verticals": [
+        "SELL"
+      ],
+      "note": "Other Tasmanian councils have their own request forms; applications can also be made through theLIST."
+    },
+    {
+      "id": "nt-darwin-buoy-mooring-permit",
+      "name": "Apply for a mooring permit (Darwin buoy mooring)",
+      "publisher": "NT Department of Logistics and Infrastructure (Regional Harbourmaster)",
+      "url": "https://nt.gov.au/_media/docs/boating,-fishing-and-marine/marine-safety/darwin-mooring-standards/apply-for-a-mooring-permit.pdf",
+      "mentions": [
+        "mooring permit application"
+      ],
+      "verticals": [
+        "VESSEL"
+      ],
+      "note": "Email to rhm@nt.gov.au; DOCX version also available; permit valid 4 years"
+    },
+    {
+      "id": "act-nca-boat-permit",
+      "name": "NCA boat permit application (Lake Burley Griffin)",
+      "publisher": "National Capital Authority",
+      "url": "https://nca.gov.au/sites/default/files/NCA_Boat%20Permit%20Form_250221.pdf",
+      "mentions": [
+        "NCA boat permit application"
+      ],
+      "verticals": [
+        "VESSEL"
+      ],
+      "note": "Email to boatpermits@nca.gov.au with photos; free"
+    },
+    {
+      "id": "act-googong-powered-boat-permit",
+      "name": "Apply to use a powered boat on Googong Reservoir",
+      "publisher": "ACT Government (Access Canberra)",
+      "url": "https://forms.act.gov.au/smartforms/servlet/SmartForm.html?formCode=1143",
+      "mentions": [
+        "Googong boating permit"
+      ],
+      "verticals": [
+        "VESSEL"
+      ],
+      "note": "Online smartform; electric motors only; free"
+    },
+    {
+      "id": "nt-ntcat-form-1-initiating-application",
+      "code": "Form 1",
+      "name": "Initiating Application",
+      "publisher": "NT Civil and Administrative Tribunal",
+      "url": "https://ntcat.nt.gov.au/publications/form-1-initiating-application",
+      "verticals": [
+        "RENT"
+      ],
+      "note": "Used to start residential tenancy proceedings; fee payable"
+    },
+    {
+      "id": "nt-rt012-unclaimed-bond-claim",
+      "code": "RT012",
+      "name": "Unclaimed tenancy bond claim form",
+      "publisher": "NT Consumer Affairs",
+      "url": "https://nt.gov.au/_media/docs/housing,-property-and-land/renters/rt012-unclaimed-tenancy-bond-claim-form.pdf",
+      "verticals": [
+        "RENT"
+      ],
+      "note": "For deposits paid into the Tenancy Trust Account after 6 months"
+    },
+    {
+      "id": "qld-rta-form-11",
+      "code": "Form 11",
+      "name": "Notice to remedy breach",
+      "publisher": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/forms-resources/forms/forms-for-general-tenancies/notice-to-remedy-breach-form-11",
+      "verticals": [
+        "RENT"
+      ],
+      "note": "v14 6 June 2024; at least 7 days to remedy"
+    },
+    {
+      "id": "qld-rta-form-13",
+      "code": "Form 13",
+      "name": "Notice of intention to leave",
+      "publisher": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/forms-resources/forms/forms-for-general-tenancies/notice-of-intention-to-leave-form-13",
+      "verticals": [
+        "RENT"
+      ],
+      "note": "v27 13 November 2025"
+    },
+    {
+      "id": "qld-rta-form-17a",
+      "code": "Form 17a",
+      "name": "Pocket guide for tenants: houses and units",
+      "publisher": "Residential Tenancies Authority",
+      "url": "https://www.rta.qld.gov.au/forms-resources/forms/forms-for-general-tenancies/pocket-guide-for-tenants-houses-and-units-form",
+      "verticals": [
+        "RENT"
+      ],
+      "note": "Must accompany the tenancy agreement"
     }
   ]
 }
