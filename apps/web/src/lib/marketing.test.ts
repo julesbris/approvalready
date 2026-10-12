@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 
 import { GUIDES } from "@/lib/guides";
 import {
+  cardFile,
   cardRef,
   fromBrisbaneInput,
   postStatusClass,
@@ -25,6 +26,12 @@ describe("marketing helpers", () => {
     expect(cardRef("guide-cairns-subdivision.jpg")).toBe("guide-cairns-subdivision");
     expect(cardRef("../secret.jpg")).toBeNull();
     expect(cardRef("guide.png")).toBeNull();
+    expect(cardFile("approval-abn-registration.wide.jpg")).toEqual({
+      ref: "approval-abn-registration",
+      format: "wide",
+    });
+    expect(cardFile("approval-abn-registration.jpg")?.format).toBe("square");
+    expect(cardFile("approval-abn-registration.big.jpg")).toBeNull();
   });
 
   it("colours every post status", () => {

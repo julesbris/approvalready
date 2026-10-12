@@ -3,14 +3,21 @@ import path from "node:path";
 
 import { type NextRequest, NextResponse } from "next/server";
 
-import { nonceCsp, parseHashManifest, staticCsp, usesNonceCsp } from "@/lib/csp";
+import {
+  type HashManifest,
+  hashesFor,
+  nonceCsp,
+  parseHashManifest,
+  staticCsp,
+  usesNonceCsp,
+} from "@/lib/csp";
 
 const isDev = process.env.NODE_ENV === "development";
 
-let hashes: string[] | undefined;
+let hashes: HashManifest | undefined;
 
 /** Inline-script hashes of the statically generated pages, from the build (read once). */
-function staticScriptHashes(): string[] {
+function staticScriptHashes(): HashManifest {
   if (hashes === undefined) {
     try {
       hashes = parseHashManifest(
@@ -20,7 +27,7 @@ function staticScriptHashes(): string[] {
       // Without the manifest no inline script may run: pages still render, without the
       // client-side extras. `npm run build` always writes it.
       if (!isDev) console.error("CSP: .next/csp-hashes.json is missing; run npm run build");
-      hashes = [];
+      hashes = { fallback: [], pages: new Map() };
     }
   }
   return hashes;
@@ -44,7 +51,8 @@ export function proxy(request: NextRequest) {
   }
   if (!usesNonceCsp(pathname)) {
     const response = NextResponse.next();
-    response.headers.set("content-security-policy", staticCsp(isDev, staticScriptHashes()));
+    const csp = staticCsp(isDev, hashesFor(staticScriptHashes(), pathname));
+    response.headers.set("content-security-policy", csp);
     return response;
   }
   const nonce = btoa(crypto.randomUUID());

@@ -7,7 +7,8 @@ Public (``/v1/marketing``, reached through the web app's ``/api/v1`` proxy):
   button press, because mail scanners open links on their own.
 * ``GET|POST /unsubscribe``: what an unsubscribe link is for / leave. ``POST`` with the token
   in the address is the one-click unsubscribe mail providers use (RFC 8058).
-* ``GET /cards/{ref}.jpg``: a guide's image card, which Facebook and Instagram fetch.
+* ``GET /cards/{ref}.jpg``: a guide's image card (``?format=square|portrait|wide``), which
+  Facebook, Instagram and search engines fetch.
 
 Account (``/v1/auth/newsletter``): the signed-in person's "Send me new guides" choice.
 
@@ -169,8 +170,10 @@ async def unsubscribe(token: Token, db: DbDep, settings: SettingsDep) -> Newslet
 
 
 @public_router.get("/cards/{ref}.jpg")
-async def guide_card(ref: str) -> Response:
-    image = cards.card(ref) if len(ref) <= 120 else None
+async def guide_card(ref: str, format: cards.CardFormat = cards.CardFormat.SQUARE) -> Response:
+    """A guide's image: ``square`` for feed posts, ``portrait`` for Instagram, ``wide`` for
+    link previews and search results."""
+    image = cards.card(ref, format) if len(ref) <= 120 else None
     if image is None:
         raise not_found("Guide")
     return Response(
@@ -209,6 +212,7 @@ def _guide_out(guide: catalogue.Guide, last: dict[str, datetime]) -> GuideOut:
         product=guide.product,
         link_path=guide.link_path,
         card_path=f"/guide-cards/{guide.ref}.jpg",
+        card_alt=cards.alt_text(guide),
         last_posted_at=last.get(guide.ref),
     )
 

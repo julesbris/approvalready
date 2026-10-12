@@ -7,6 +7,7 @@ import { ApprovalPlan } from "./ApprovalPlan";
 function guide(overrides: Partial<ApprovalGuideOut> = {}): ApprovalGuideOut {
   return {
     kind: "VEHICLE_IMPORT_APPROVAL",
+    slug: null,
     title: "Vehicle import approval",
     summary: "You need an approval before the car is shipped.",
     authority: "Department of Infrastructure",

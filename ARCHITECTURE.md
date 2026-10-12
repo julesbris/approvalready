@@ -1203,3 +1203,18 @@ copyright notice. A licence from the custodian, or a hosted national address sou
 | Selling and renting | Pack `property_nt` (`sell.nt.seller_disclosure`, `rent.nt.residential_tenancy`) and checklists `sell.nt_before_sale`, `rent.nt_*`. The NT has no bond authority: the landlord or agent holds the bond in trust, so there's no bond lodgement approval. |
 | Business, vehicles, vessels, grants | Pack `business_nt`: food, liquor, outdoor dining, workers compensation, payroll tax, building contractor registration, plumbing and electrical licences, personal services, childcare, vehicle registration and dealers. The NT doesn't register recreational boats or license their drivers: information rules plus safety equipment. Grow Your Business (open 9 October to 13 November 2026) as information. |
 | Tests | `tests/test_nt.py`. |
+
+## 54. Public guide pages and share images
+
+Every step-by-step approval guide (§ guidance, `approval_guides.json`) has its own public,
+statically generated page, so the guides can be found in search and answer engines and used
+as marketing posts.
+
+| Part | As built |
+|---|---|
+| Addresses | `/guides/<state>/<slug>`: `<state>` is `qld`…`nt`, or `australia` for Commonwealth guides (a council's guide sits under its state); `<slug>` is the kind without its state prefix unless the guide sets `slug`. `guidance/public.py` decides, and `python -m app.modules.guidance.pack` writes `public_paths.json`, which the web app reads (a test keeps it in step). Hub pages `/guides/<state>` list a state's guides by scenario, then the Australia-wide ones that also apply. |
+| Web | `lib/publicGuides.ts` imports the API's guide, form and path files at build time (the web Dockerfile copies them in). `PublicGuideArticle`: quick answer first, key facts, the share image, contents, before you start, forms, steps (`#step-n`), fees, watch out, contacts, common questions (built from the guide's own text), sources and gaps with the date gathered, a free-check CTA and related guides. |
+| Search | Unique title (the guide's title, naming the state when it doesn't) and description; canonical; Open Graph and Twitter `summary_large_image` with the wide card and its alt text; JSON-LD `Article` (dates, citations, publisher), `HowTo`, `FAQPage`, `BreadcrumbList`; hubs get `CollectionPage`/`ItemList`. Sitemap lists hubs and guides with `lastModified` = checked date. `INDEX_UNVERIFIED_GUIDES` (lib/site.ts) lets unverified guides into search (RISKS.md R11). Root layout sets `metadataBase` to `SITE_URL` (production domain when unset at build). |
+| Images | `marketing/cards.py` draws each guide in three sizes (JPEG for Instagram): `square` 1080², `portrait` 1080×1350 with the first steps (Instagram posts use it), `wide` 1200×630 (Open Graph). Navy with the reversed lockup, a teal line drawing per scenario, the state and scenario, title, and chips (steps, official forms). Served at `/guide-cards/<ref>.jpg`, `<ref>.portrait.jpg`, `<ref>.wide.jpg` (API `?format=`). `cards.alt_text` gives the alt text. |
+| Marketing | Approval-guide posts now link to their public page (with utm tags) and get state hashtags; emails also link to a free check. |
+| CSP | With a static page per guide, `scripts/csp-hashes.mjs` writes hashes per page (`pages`) and a short shared list for anything else; `proxy.ts` sends each page only its own. JSON-LD blocks aren't scripts and aren't hashed. |

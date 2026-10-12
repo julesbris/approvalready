@@ -2146,7 +2146,11 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Guide Card */
+        /**
+         * Guide Card
+         * @description A guide's image: ``square`` for feed posts, ``portrait`` for Instagram, ``wide`` for
+         *     link previews and search results.
+         */
         get: operations["guide_card_v1_marketing_cards__ref__jpg_get"];
         put?: never;
         post?: never;
@@ -5746,6 +5750,8 @@ export interface components {
             order: number;
             /** Publisher */
             publisher: string;
+            /** Slug */
+            slug: string | null;
             /** Sources */
             sources: components["schemas"]["GuideSource"][];
             /** Steps */
@@ -6286,6 +6292,11 @@ export interface components {
          * @enum {string}
          */
         CaptureMethod: "MANUAL" | "FETCHED";
+        /**
+         * CardFormat
+         * @enum {string}
+         */
+        CardFormat: "square" | "portrait" | "wide";
         /** CatalogueOut */
         CatalogueOut: {
             /**
@@ -8008,6 +8019,8 @@ export interface components {
         };
         /** GuideOut */
         GuideOut: {
+            /** Card Alt */
+            card_alt: string;
             /** Card Path */
             card_path: string;
             /** Last Posted At */
@@ -17908,7 +17921,9 @@ export interface operations {
     };
     guide_card_v1_marketing_cards__ref__jpg_get: {
         parameters: {
-            query?: never;
+            query?: {
+                format?: components["schemas"]["CardFormat"];
+            };
             header?: never;
             path: {
                 ref: string;

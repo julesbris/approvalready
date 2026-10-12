@@ -64,9 +64,11 @@ def utcnow() -> datetime:
     return datetime.now(UTC)
 
 
-def card_url(settings: Settings, ref: str) -> str:
-    """Where Facebook and Instagram fetch the guide's image card (through the web app)."""
-    return f"{settings.web_base_url.rstrip('/')}/guide-cards/{ref}.jpg"
+def card_url(settings: Settings, ref: str, channel: Channel | None = None) -> str:
+    """Where Facebook and Instagram fetch the guide's image card (through the web app):
+    Instagram gets the taller portrait card, which fills more of the feed."""
+    suffix = ".portrait" if channel == Channel.INSTAGRAM else ""
+    return f"{settings.web_base_url.rstrip('/')}/guide-cards/{ref}{suffix}.jpg"
 
 
 def _error(message: str) -> str:
@@ -315,7 +317,7 @@ async def _publish_social(
         caption, ref, attempts = post.body, post.guide_ref, post.attempts
         await db.commit()
     try:
-        published = await meta.publish(channel, caption, card_url(settings, ref))
+        published = await meta.publish(channel, caption, card_url(settings, ref, channel))
     except MetaError as exc:
         async with factory() as db:
             post = await db.get(MarketingPost, post_id)

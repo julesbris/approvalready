@@ -10,7 +10,7 @@ import pytest
 from sqlalchemy import select
 
 from app import cli
-from app.modules.guidance import guides, pack
+from app.modules.guidance import guides, pack, public
 from app.modules.regulatory.service import Actor
 from app.modules.rules import packs
 from app.modules.tenancy.models import Organisation
@@ -85,6 +85,22 @@ def test_pack_is_in_step_with_the_guides() -> None:
     assert loaded.rule_sets == []
     assert {r.section for r in loaded.references} == {g.reference_section for g in guides.guides()}
     assert all(r.extracted_text.startswith("[Gathered by ApprovalReady") for r in loaded.references)
+    assert public.PATHS_FILE.read_text(encoding="utf-8") == public.render(), (
+        "Run `python -m app.modules.guidance.pack` after editing approval_guides.json"
+    )
+
+
+def test_every_guide_has_its_own_public_page() -> None:
+    by_kind = {g.kind: g for g in guides.guides()}
+    assert public.path_of(by_kind["NSW_BOAT_LICENCE"]) == "/guides/nsw/boat-licence"
+    assert public.path_of(by_kind["ABN_REGISTRATION"]) == "/guides/australia/abn-registration"
+    # A council's guide sits under its state, with its own slug.
+    assert (
+        public.path_of(by_kind["FOOD_BUSINESS_LICENCE"])
+        == "/guides/qld/cairns-food-business-licence"
+    )
+    paths = [public.path_of(g) for g in guides.guides()]
+    assert len(paths) == len(set(paths))
 
 
 @pytest.mark.asyncio

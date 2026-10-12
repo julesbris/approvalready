@@ -40,6 +40,7 @@ Url = Annotated[str, StringConstraints(pattern=r"^https?://[^\s]+$", max_length=
 Line = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=600)]
 Para = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=1500)]
 Kind = Annotated[str, StringConstraints(pattern=CODE_PATTERN)]
+Slug = Annotated[str, StringConstraints(pattern=r"^[a-z0-9]+(-[a-z0-9]+)*$", max_length=80)]
 
 
 class _Strict(BaseModel):
@@ -84,6 +85,9 @@ class GuideSource(_Strict):
 
 class ApprovalGuide(_Strict):
     kind: Kind
+    # The guide's address on the public site, when the one made from its kind won't do
+    # (``public.py``): two guides in one state would otherwise share a page.
+    slug: Slug | None = None
     title: Line
     summary: Para
     authority: Line

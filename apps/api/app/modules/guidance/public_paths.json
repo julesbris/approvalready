@@ -1,0 +1,1252 @@
+{
+  "notes": "Generated from approval_guides.json by `python -m app.modules.guidance.pack`; the web app's public guide pages live at these paths.",
+  "states": [
+    {
+      "code": "QLD",
+      "segment": "qld",
+      "name": "Queensland"
+    },
+    {
+      "code": "NSW",
+      "segment": "nsw",
+      "name": "New South Wales"
+    },
+    {
+      "code": "VIC",
+      "segment": "vic",
+      "name": "Victoria"
+    },
+    {
+      "code": "WA",
+      "segment": "wa",
+      "name": "Western Australia"
+    },
+    {
+      "code": "SA",
+      "segment": "sa",
+      "name": "South Australia"
+    },
+    {
+      "code": "TAS",
+      "segment": "tas",
+      "name": "Tasmania"
+    },
+    {
+      "code": "ACT",
+      "segment": "act",
+      "name": "Australian Capital Territory"
+    },
+    {
+      "code": "NT",
+      "segment": "nt",
+      "name": "Northern Territory"
+    },
+    {
+      "code": "CTH",
+      "segment": "australia",
+      "name": "Australia-wide"
+    }
+  ],
+  "guides": [
+    {
+      "kind": "COMPANY_REGISTRATION",
+      "state": "australia",
+      "slug": "company-registration",
+      "path": "/guides/australia/company-registration"
+    },
+    {
+      "kind": "ABN_REGISTRATION",
+      "state": "australia",
+      "slug": "abn-registration",
+      "path": "/guides/australia/abn-registration"
+    },
+    {
+      "kind": "BUSINESS_NAME_REGISTRATION",
+      "state": "australia",
+      "slug": "business-name-registration",
+      "path": "/guides/australia/business-name-registration"
+    },
+    {
+      "kind": "GST_REGISTRATION",
+      "state": "australia",
+      "slug": "gst-registration",
+      "path": "/guides/australia/gst-registration"
+    },
+    {
+      "kind": "PLANNING_MATERIAL_CHANGE_OF_USE",
+      "state": "qld",
+      "slug": "cairns-home-business-change-of-use",
+      "path": "/guides/qld/cairns-home-business-change-of-use"
+    },
+    {
+      "kind": "BUILDING_APPROVAL",
+      "state": "qld",
+      "slug": "cairns-commercial-fit-out-building-approval",
+      "path": "/guides/qld/cairns-commercial-fit-out-building-approval"
+    },
+    {
+      "kind": "WA_BUILDING_CONTRACTOR_REGISTRATION",
+      "state": "wa",
+      "slug": "building-contractor-registration",
+      "path": "/guides/wa/building-contractor-registration"
+    },
+    {
+      "kind": "NSW_CONTRACTOR_LICENCE",
+      "state": "nsw",
+      "slug": "contractor-licence",
+      "path": "/guides/nsw/contractor-licence"
+    },
+    {
+      "kind": "TAS_BUILDER_LICENCE",
+      "state": "tas",
+      "slug": "builder-licence",
+      "path": "/guides/tas/builder-licence"
+    },
+    {
+      "kind": "SA_BUILDING_WORK_CONTRACTOR_LICENCE",
+      "state": "sa",
+      "slug": "building-work-contractor-licence",
+      "path": "/guides/sa/building-work-contractor-licence"
+    },
+    {
+      "kind": "QBCC_CONTRACTOR_LICENCE",
+      "state": "qld",
+      "slug": "qbcc-contractor-licence",
+      "path": "/guides/qld/qbcc-contractor-licence"
+    },
+    {
+      "kind": "WA_PLUMBING_LICENCE",
+      "state": "wa",
+      "slug": "plumbing-licence",
+      "path": "/guides/wa/plumbing-licence"
+    },
+    {
+      "kind": "TAS_PLUMBING_LICENCE",
+      "state": "tas",
+      "slug": "plumbing-licence",
+      "path": "/guides/tas/plumbing-licence"
+    },
+    {
+      "kind": "NSW_PLUMBING_GASFITTING_LICENCE",
+      "state": "nsw",
+      "slug": "plumbing-gasfitting-licence",
+      "path": "/guides/nsw/plumbing-gasfitting-licence"
+    },
+    {
+      "kind": "SA_PLUMBING_GAS_ELECTRICAL_LICENCE",
+      "state": "sa",
+      "slug": "plumbing-gas-electrical-licence",
+      "path": "/guides/sa/plumbing-gas-electrical-licence"
+    },
+    {
+      "kind": "QBCC_PLUMBING_LICENCE",
+      "state": "qld",
+      "slug": "qbcc-plumbing-licence",
+      "path": "/guides/qld/qbcc-plumbing-licence"
+    },
+    {
+      "kind": "NSW_ELECTRICAL_CONTRACTOR_LICENCE",
+      "state": "nsw",
+      "slug": "electrical-contractor-licence",
+      "path": "/guides/nsw/electrical-contractor-licence"
+    },
+    {
+      "kind": "WA_ELECTRICAL_CONTRACTOR_LICENCE",
+      "state": "wa",
+      "slug": "electrical-contractor-licence",
+      "path": "/guides/wa/electrical-contractor-licence"
+    },
+    {
+      "kind": "TAS_ELECTRICAL_LICENCE",
+      "state": "tas",
+      "slug": "electrical-licence",
+      "path": "/guides/tas/electrical-licence"
+    },
+    {
+      "kind": "ELECTRICAL_CONTRACTOR_LICENCE",
+      "state": "qld",
+      "slug": "electrical-contractor-licence",
+      "path": "/guides/qld/electrical-contractor-licence"
+    },
+    {
+      "kind": "SA_BUILDING_INDEMNITY_INSURANCE",
+      "state": "sa",
+      "slug": "building-indemnity-insurance",
+      "path": "/guides/sa/building-indemnity-insurance"
+    },
+    {
+      "kind": "NSW_HOME_BUILDING_COMPENSATION",
+      "state": "nsw",
+      "slug": "home-building-compensation",
+      "path": "/guides/nsw/home-building-compensation"
+    },
+    {
+      "kind": "WA_HOME_INDEMNITY_INSURANCE",
+      "state": "wa",
+      "slug": "home-indemnity-insurance",
+      "path": "/guides/wa/home-indemnity-insurance"
+    },
+    {
+      "kind": "WA_PAINTER_REGISTRATION",
+      "state": "wa",
+      "slug": "painter-registration",
+      "path": "/guides/wa/painter-registration"
+    },
+    {
+      "kind": "HEALTH_PRACTITIONER_REGISTRATION",
+      "state": "australia",
+      "slug": "health-practitioner-registration",
+      "path": "/guides/australia/health-practitioner-registration"
+    },
+    {
+      "kind": "SA_EDUCATION_CARE_SERVICE_APPROVAL",
+      "state": "sa",
+      "slug": "education-care-service-approval",
+      "path": "/guides/sa/education-care-service-approval"
+    },
+    {
+      "kind": "WA_EDUCATION_CARE_SERVICE_APPROVAL",
+      "state": "wa",
+      "slug": "education-care-service-approval",
+      "path": "/guides/wa/education-care-service-approval"
+    },
+    {
+      "kind": "NSW_EDUCATION_CARE_SERVICE_APPROVAL",
+      "state": "nsw",
+      "slug": "education-care-service-approval",
+      "path": "/guides/nsw/education-care-service-approval"
+    },
+    {
+      "kind": "EDUCATION_CARE_SERVICE_APPROVAL",
+      "state": "qld",
+      "slug": "education-care-service-approval",
+      "path": "/guides/qld/education-care-service-approval"
+    },
+    {
+      "kind": "TAS_EDUCATION_CARE_SERVICE_APPROVAL",
+      "state": "tas",
+      "slug": "education-care-service-approval",
+      "path": "/guides/tas/education-care-service-approval"
+    },
+    {
+      "kind": "HIGHER_RISK_PAS_LICENCE",
+      "state": "qld",
+      "slug": "cairns-higher-risk-personal-appearance-service-licence",
+      "path": "/guides/qld/cairns-higher-risk-personal-appearance-service-licence"
+    },
+    {
+      "kind": "SA_TATTOO_BUSINESS_NOTIFICATION",
+      "state": "sa",
+      "slug": "tattoo-business-notification",
+      "path": "/guides/sa/tattoo-business-notification"
+    },
+    {
+      "kind": "VIC_EDUCATION_CARE_SERVICE_APPROVAL",
+      "state": "vic",
+      "slug": "education-care-service-approval",
+      "path": "/guides/vic/education-care-service-approval"
+    },
+    {
+      "kind": "WA_SKIN_PENETRATION_REGISTRATION",
+      "state": "wa",
+      "slug": "skin-penetration-registration",
+      "path": "/guides/wa/skin-penetration-registration"
+    },
+    {
+      "kind": "NSW_SKIN_PENETRATION_NOTIFICATION",
+      "state": "nsw",
+      "slug": "skin-penetration-notification",
+      "path": "/guides/nsw/skin-penetration-notification"
+    },
+    {
+      "kind": "NSW_TATTOO_LICENCE",
+      "state": "nsw",
+      "slug": "tattoo-licence",
+      "path": "/guides/nsw/tattoo-licence"
+    },
+    {
+      "kind": "FOOD_BUSINESS_LICENCE",
+      "state": "qld",
+      "slug": "cairns-food-business-licence",
+      "path": "/guides/qld/cairns-food-business-licence"
+    },
+    {
+      "kind": "VIC_FOOD_PREMISES_REGISTRATION",
+      "state": "vic",
+      "slug": "food-premises-registration",
+      "path": "/guides/vic/food-premises-registration"
+    },
+    {
+      "kind": "SA_FOOD_BUSINESS_NOTIFICATION",
+      "state": "sa",
+      "slug": "food-business-notification",
+      "path": "/guides/sa/food-business-notification"
+    },
+    {
+      "kind": "NSW_FOOD_BUSINESS_NOTIFICATION",
+      "state": "nsw",
+      "slug": "food-business-notification",
+      "path": "/guides/nsw/food-business-notification"
+    },
+    {
+      "kind": "ACT_FOOD_BUSINESS_REGISTRATION",
+      "state": "act",
+      "slug": "food-business-registration",
+      "path": "/guides/act/food-business-registration"
+    },
+    {
+      "kind": "NT_FOOD_BUSINESS_REGISTRATION",
+      "state": "nt",
+      "slug": "food-business-registration",
+      "path": "/guides/nt/food-business-registration"
+    },
+    {
+      "kind": "TAS_FOOD_BUSINESS_REGISTRATION",
+      "state": "tas",
+      "slug": "food-business-registration",
+      "path": "/guides/tas/food-business-registration"
+    },
+    {
+      "kind": "WA_FOOD_BUSINESS_REGISTRATION",
+      "state": "wa",
+      "slug": "food-business-registration",
+      "path": "/guides/wa/food-business-registration"
+    },
+    {
+      "kind": "SA_FOOD_SAFETY_SUPERVISOR",
+      "state": "sa",
+      "slug": "food-safety-supervisor",
+      "path": "/guides/sa/food-safety-supervisor"
+    },
+    {
+      "kind": "TAS_FOOD_SAFETY_SUPERVISOR",
+      "state": "tas",
+      "slug": "food-safety-supervisor",
+      "path": "/guides/tas/food-safety-supervisor"
+    },
+    {
+      "kind": "NSW_FOOD_SAFETY_SUPERVISOR",
+      "state": "nsw",
+      "slug": "food-safety-supervisor",
+      "path": "/guides/nsw/food-safety-supervisor"
+    },
+    {
+      "kind": "WA_FOOD_SAFETY_SUPERVISOR",
+      "state": "wa",
+      "slug": "food-safety-supervisor",
+      "path": "/guides/wa/food-safety-supervisor"
+    },
+    {
+      "kind": "FOOD_SAFETY_SUPERVISOR",
+      "state": "qld",
+      "slug": "food-safety-supervisor",
+      "path": "/guides/qld/food-safety-supervisor"
+    },
+    {
+      "kind": "NT_LIQUOR_LICENCE",
+      "state": "nt",
+      "slug": "liquor-licence",
+      "path": "/guides/nt/liquor-licence"
+    },
+    {
+      "kind": "SA_LIQUOR_LICENCE",
+      "state": "sa",
+      "slug": "liquor-licence",
+      "path": "/guides/sa/liquor-licence"
+    },
+    {
+      "kind": "TAS_LIQUOR_LICENCE",
+      "state": "tas",
+      "slug": "liquor-licence",
+      "path": "/guides/tas/liquor-licence"
+    },
+    {
+      "kind": "WA_LIQUOR_LICENCE",
+      "state": "wa",
+      "slug": "liquor-licence",
+      "path": "/guides/wa/liquor-licence"
+    },
+    {
+      "kind": "ACT_LIQUOR_LICENCE",
+      "state": "act",
+      "slug": "liquor-licence",
+      "path": "/guides/act/liquor-licence"
+    },
+    {
+      "kind": "VIC_LIQUOR_LICENCE",
+      "state": "vic",
+      "slug": "liquor-licence",
+      "path": "/guides/vic/liquor-licence"
+    },
+    {
+      "kind": "NSW_LIQUOR_LICENCE",
+      "state": "nsw",
+      "slug": "liquor-licence",
+      "path": "/guides/nsw/liquor-licence"
+    },
+    {
+      "kind": "LIQUOR_LICENCE",
+      "state": "qld",
+      "slug": "liquor-licence",
+      "path": "/guides/qld/liquor-licence"
+    },
+    {
+      "kind": "TAS_PUBLIC_HEALTH_RISK_ACTIVITY_LICENCE",
+      "state": "tas",
+      "slug": "public-health-risk-activity-licence",
+      "path": "/guides/tas/public-health-risk-activity-licence"
+    },
+    {
+      "kind": "WA_ALFRESCO_DINING_PERMIT",
+      "state": "wa",
+      "slug": "alfresco-dining-permit",
+      "path": "/guides/wa/alfresco-dining-permit"
+    },
+    {
+      "kind": "NSW_FOOTPATH_DINING_APPROVAL",
+      "state": "nsw",
+      "slug": "footpath-dining-approval",
+      "path": "/guides/nsw/footpath-dining-approval"
+    },
+    {
+      "kind": "FOOTPATH_DINING_PERMIT",
+      "state": "qld",
+      "slug": "cairns-footpath-dining-permit",
+      "path": "/guides/qld/cairns-footpath-dining-permit"
+    },
+    {
+      "kind": "VIC_FOOTPATH_TRADING_PERMIT",
+      "state": "vic",
+      "slug": "footpath-trading-permit",
+      "path": "/guides/vic/footpath-trading-permit"
+    },
+    {
+      "kind": "SA_OUTDOOR_DINING_PERMIT",
+      "state": "sa",
+      "slug": "outdoor-dining-permit",
+      "path": "/guides/sa/outdoor-dining-permit"
+    },
+    {
+      "kind": "TAS_OUTDOOR_DINING_PERMIT",
+      "state": "tas",
+      "slug": "outdoor-dining-permit",
+      "path": "/guides/tas/outdoor-dining-permit"
+    },
+    {
+      "kind": "NT_OUTDOOR_DINING_PERMIT",
+      "state": "nt",
+      "slug": "outdoor-dining-permit",
+      "path": "/guides/nt/outdoor-dining-permit"
+    },
+    {
+      "kind": "ACT_OUTDOOR_DINING_PERMIT",
+      "state": "act",
+      "slug": "outdoor-dining-permit",
+      "path": "/guides/act/outdoor-dining-permit"
+    },
+    {
+      "kind": "NSW_TOBACCO_RETAIL_LICENCE",
+      "state": "nsw",
+      "slug": "tobacco-retail-licence",
+      "path": "/guides/nsw/tobacco-retail-licence"
+    },
+    {
+      "kind": "VIC_PERSONAL_SERVICES_REGISTRATION",
+      "state": "vic",
+      "slug": "personal-services-registration",
+      "path": "/guides/vic/personal-services-registration"
+    },
+    {
+      "kind": "SA_WORKERS_COMPENSATION_REGISTRATION",
+      "state": "sa",
+      "slug": "workers-compensation-registration",
+      "path": "/guides/sa/workers-compensation-registration"
+    },
+    {
+      "kind": "TAS_WORKERS_COMPENSATION_INSURANCE",
+      "state": "tas",
+      "slug": "workers-compensation-insurance",
+      "path": "/guides/tas/workers-compensation-insurance"
+    },
+    {
+      "kind": "WA_WORKERS_COMPENSATION_POLICY",
+      "state": "wa",
+      "slug": "workers-compensation-policy",
+      "path": "/guides/wa/workers-compensation-policy"
+    },
+    {
+      "kind": "WORKERS_COMPENSATION_POLICY",
+      "state": "qld",
+      "slug": "workers-compensation-policy",
+      "path": "/guides/qld/workers-compensation-policy"
+    },
+    {
+      "kind": "ACT_WORKERS_COMPENSATION_INSURANCE",
+      "state": "act",
+      "slug": "workers-compensation-insurance",
+      "path": "/guides/act/workers-compensation-insurance"
+    },
+    {
+      "kind": "NSW_WORKERS_COMPENSATION_POLICY",
+      "state": "nsw",
+      "slug": "workers-compensation-policy",
+      "path": "/guides/nsw/workers-compensation-policy"
+    },
+    {
+      "kind": "NSW_POOL_COMPLIANCE_CERTIFICATE",
+      "state": "nsw",
+      "slug": "pool-compliance-certificate",
+      "path": "/guides/nsw/pool-compliance-certificate"
+    },
+    {
+      "kind": "PAYG_WITHHOLDING_REGISTRATION",
+      "state": "australia",
+      "slug": "payg-withholding-registration",
+      "path": "/guides/australia/payg-withholding-registration"
+    },
+    {
+      "kind": "VIC_POOL_REGISTRATION",
+      "state": "vic",
+      "slug": "pool-registration",
+      "path": "/guides/vic/pool-registration"
+    },
+    {
+      "kind": "ACT_PAYROLL_TAX_REGISTRATION",
+      "state": "act",
+      "slug": "payroll-tax-registration",
+      "path": "/guides/act/payroll-tax-registration"
+    },
+    {
+      "kind": "VIC_WORKCOVER_INSURANCE",
+      "state": "vic",
+      "slug": "workcover-insurance",
+      "path": "/guides/vic/workcover-insurance"
+    },
+    {
+      "kind": "NT_WORKERS_COMPENSATION_INSURANCE",
+      "state": "nt",
+      "slug": "workers-compensation-insurance",
+      "path": "/guides/nt/workers-compensation-insurance"
+    },
+    {
+      "kind": "WA_PAYROLL_TAX_REGISTRATION",
+      "state": "wa",
+      "slug": "payroll-tax-registration",
+      "path": "/guides/wa/payroll-tax-registration"
+    },
+    {
+      "kind": "NSW_PAYROLL_TAX_REGISTRATION",
+      "state": "nsw",
+      "slug": "payroll-tax-registration",
+      "path": "/guides/nsw/payroll-tax-registration"
+    },
+    {
+      "kind": "SA_PAYROLL_TAX_REGISTRATION",
+      "state": "sa",
+      "slug": "payroll-tax-registration",
+      "path": "/guides/sa/payroll-tax-registration"
+    },
+    {
+      "kind": "TAS_PAYROLL_TAX_REGISTRATION",
+      "state": "tas",
+      "slug": "payroll-tax-registration",
+      "path": "/guides/tas/payroll-tax-registration"
+    },
+    {
+      "kind": "ACT_BUILDER_LICENCE",
+      "state": "act",
+      "slug": "builder-licence",
+      "path": "/guides/act/builder-licence"
+    },
+    {
+      "kind": "VIC_PAYROLL_TAX_REGISTRATION",
+      "state": "vic",
+      "slug": "payroll-tax-registration",
+      "path": "/guides/vic/payroll-tax-registration"
+    },
+    {
+      "kind": "NT_PAYROLL_TAX_REGISTRATION",
+      "state": "nt",
+      "slug": "payroll-tax-registration",
+      "path": "/guides/nt/payroll-tax-registration"
+    },
+    {
+      "kind": "VIC_DOMESTIC_BUILDER_REGISTRATION",
+      "state": "vic",
+      "slug": "domestic-builder-registration",
+      "path": "/guides/vic/domestic-builder-registration"
+    },
+    {
+      "kind": "ACT_ELECTRICIAN_LICENCE",
+      "state": "act",
+      "slug": "electrician-licence",
+      "path": "/guides/act/electrician-licence"
+    },
+    {
+      "kind": "VIC_DOMESTIC_BUILDING_INSURANCE",
+      "state": "vic",
+      "slug": "domestic-building-insurance",
+      "path": "/guides/vic/domestic-building-insurance"
+    },
+    {
+      "kind": "ACT_PLUMBER_DRAINER_GASFITTER_LICENCE",
+      "state": "act",
+      "slug": "plumber-drainer-gasfitter-licence",
+      "path": "/guides/act/plumber-drainer-gasfitter-licence"
+    },
+    {
+      "kind": "VIC_PLUMBING_REGISTRATION",
+      "state": "vic",
+      "slug": "plumbing-registration",
+      "path": "/guides/vic/plumbing-registration"
+    },
+    {
+      "kind": "VIC_ELECTRICAL_LICENCE",
+      "state": "vic",
+      "slug": "electrical-licence",
+      "path": "/guides/vic/electrical-licence"
+    },
+    {
+      "kind": "ACT_INFECTION_CONTROL_LICENCE",
+      "state": "act",
+      "slug": "infection-control-licence",
+      "path": "/guides/act/infection-control-licence"
+    },
+    {
+      "kind": "ACT_EDUCATION_CARE_SERVICE_APPROVAL",
+      "state": "act",
+      "slug": "education-care-service-approval",
+      "path": "/guides/act/education-care-service-approval"
+    },
+    {
+      "kind": "NT_POOL_COMPLIANCE_CERTIFICATE",
+      "state": "nt",
+      "slug": "pool-compliance-certificate",
+      "path": "/guides/nt/pool-compliance-certificate"
+    },
+    {
+      "kind": "NSW_TENANCY_BOND_LODGEMENT",
+      "state": "nsw",
+      "slug": "tenancy-bond-lodgement",
+      "path": "/guides/nsw/tenancy-bond-lodgement"
+    },
+    {
+      "kind": "WA_BOND_LODGEMENT",
+      "state": "wa",
+      "slug": "bond-lodgement",
+      "path": "/guides/wa/bond-lodgement"
+    },
+    {
+      "kind": "SA_BOND_LODGEMENT",
+      "state": "sa",
+      "slug": "bond-lodgement",
+      "path": "/guides/sa/bond-lodgement"
+    },
+    {
+      "kind": "ACT_BOND_LODGEMENT",
+      "state": "act",
+      "slug": "bond-lodgement",
+      "path": "/guides/act/bond-lodgement"
+    },
+    {
+      "kind": "VIC_RTBA_BOND_LODGEMENT",
+      "state": "vic",
+      "slug": "rtba-bond-lodgement",
+      "path": "/guides/vic/rtba-bond-lodgement"
+    },
+    {
+      "kind": "TAS_BOND_LODGEMENT",
+      "state": "tas",
+      "slug": "bond-lodgement",
+      "path": "/guides/tas/bond-lodgement"
+    },
+    {
+      "kind": "AICIS_REGISTRATION",
+      "state": "australia",
+      "slug": "aicis-registration",
+      "path": "/guides/australia/aicis-registration"
+    },
+    {
+      "kind": "ACT_VEHICLE_REGISTRATION",
+      "state": "act",
+      "slug": "vehicle-registration",
+      "path": "/guides/act/vehicle-registration"
+    },
+    {
+      "kind": "NT_BUILDING_CONTRACTOR_REGISTRATION",
+      "state": "nt",
+      "slug": "building-contractor-registration",
+      "path": "/guides/nt/building-contractor-registration"
+    },
+    {
+      "kind": "ARTG_INCLUSION",
+      "state": "australia",
+      "slug": "artg-inclusion",
+      "path": "/guides/australia/artg-inclusion"
+    },
+    {
+      "kind": "PRE_CHARGED_EQUIPMENT_LICENCE",
+      "state": "australia",
+      "slug": "pre-charged-equipment-licence",
+      "path": "/guides/australia/pre-charged-equipment-licence"
+    },
+    {
+      "kind": "ACT_MOTOR_VEHICLE_DEALER_LICENCE",
+      "state": "act",
+      "slug": "motor-vehicle-dealer-licence",
+      "path": "/guides/act/motor-vehicle-dealer-licence"
+    },
+    {
+      "kind": "NT_PLUMBER_LICENCE",
+      "state": "nt",
+      "slug": "plumber-licence",
+      "path": "/guides/nt/plumber-licence"
+    },
+    {
+      "kind": "EESS_RESPONSIBLE_SUPPLIER",
+      "state": "qld",
+      "slug": "eess-responsible-supplier",
+      "path": "/guides/qld/eess-responsible-supplier"
+    },
+    {
+      "kind": "NT_ELECTRICAL_CONTRACTOR_LICENCE",
+      "state": "nt",
+      "slug": "electrical-contractor-licence",
+      "path": "/guides/nt/electrical-contractor-licence"
+    },
+    {
+      "kind": "RESTRICTED_GOODS_PERMISSION",
+      "state": "australia",
+      "slug": "restricted-goods-permission",
+      "path": "/guides/australia/restricted-goods-permission"
+    },
+    {
+      "kind": "VIC_VESSEL_REGISTRATION",
+      "state": "vic",
+      "slug": "vessel-registration",
+      "path": "/guides/vic/vessel-registration"
+    },
+    {
+      "kind": "TOBACCO_IMPORT_PERMISSION",
+      "state": "australia",
+      "slug": "tobacco-import-permission",
+      "path": "/guides/australia/tobacco-import-permission"
+    },
+    {
+      "kind": "NT_PERSONAL_SERVICES_REGISTRATION",
+      "state": "nt",
+      "slug": "personal-services-registration",
+      "path": "/guides/nt/personal-services-registration"
+    },
+    {
+      "kind": "VIC_MARINE_LICENCE",
+      "state": "vic",
+      "slug": "marine-licence",
+      "path": "/guides/vic/marine-licence"
+    },
+    {
+      "kind": "WILDLIFE_TRADE_PERMIT",
+      "state": "australia",
+      "slug": "wildlife-trade-permit",
+      "path": "/guides/australia/wildlife-trade-permit"
+    },
+    {
+      "kind": "BIOSECURITY_IMPORT_PERMIT",
+      "state": "australia",
+      "slug": "biosecurity-import-permit",
+      "path": "/guides/australia/biosecurity-import-permit"
+    },
+    {
+      "kind": "NT_EDUCATION_CARE_SERVICE_APPROVAL",
+      "state": "nt",
+      "slug": "education-care-service-approval",
+      "path": "/guides/nt/education-care-service-approval"
+    },
+    {
+      "kind": "BMSB_TREATMENT",
+      "state": "australia",
+      "slug": "bmsb-treatment",
+      "path": "/guides/australia/bmsb-treatment"
+    },
+    {
+      "kind": "ICS_CLIENT_REGISTRATION",
+      "state": "australia",
+      "slug": "ics-client-registration",
+      "path": "/guides/australia/ics-client-registration"
+    },
+    {
+      "kind": "DEFERRED_GST",
+      "state": "australia",
+      "slug": "deferred-gst",
+      "path": "/guides/australia/deferred-gst"
+    },
+    {
+      "kind": "IMPORT_DECLARATION",
+      "state": "australia",
+      "slug": "import-declaration",
+      "path": "/guides/australia/import-declaration"
+    },
+    {
+      "kind": "IMPORTED_FOOD_INSPECTION",
+      "state": "australia",
+      "slug": "imported-food-inspection",
+      "path": "/guides/australia/imported-food-inspection"
+    },
+    {
+      "kind": "NT_VEHICLE_REGISTRATION",
+      "state": "nt",
+      "slug": "vehicle-registration",
+      "path": "/guides/nt/vehicle-registration"
+    },
+    {
+      "kind": "VEHICLE_IMPORT_APPROVAL",
+      "state": "australia",
+      "slug": "vehicle-import-approval",
+      "path": "/guides/australia/vehicle-import-approval"
+    },
+    {
+      "kind": "VEHICLE_ASBESTOS_ASSURANCE",
+      "state": "australia",
+      "slug": "vehicle-asbestos-assurance",
+      "path": "/guides/australia/vehicle-asbestos-assurance"
+    },
+    {
+      "kind": "NT_MOTOR_VEHICLE_DEALER_LICENCE",
+      "state": "nt",
+      "slug": "motor-vehicle-dealer-licence",
+      "path": "/guides/nt/motor-vehicle-dealer-licence"
+    },
+    {
+      "kind": "VEHICLE_BIOSECURITY_INSPECTION",
+      "state": "australia",
+      "slug": "vehicle-biosecurity-inspection",
+      "path": "/guides/australia/vehicle-biosecurity-inspection"
+    },
+    {
+      "kind": "VEHICLE_CUSTOMS_CLEARANCE",
+      "state": "australia",
+      "slug": "vehicle-customs-clearance",
+      "path": "/guides/australia/vehicle-customs-clearance"
+    },
+    {
+      "kind": "VEHICLE_COMPLIANCE_RAWS",
+      "state": "australia",
+      "slug": "vehicle-compliance-raws",
+      "path": "/guides/australia/vehicle-compliance-raws"
+    },
+    {
+      "kind": "WA_VEHICLE_REGISTRATION",
+      "state": "wa",
+      "slug": "vehicle-registration",
+      "path": "/guides/wa/vehicle-registration"
+    },
+    {
+      "kind": "QLD_VEHICLE_REGISTRATION",
+      "state": "qld",
+      "slug": "vehicle-registration",
+      "path": "/guides/qld/vehicle-registration"
+    },
+    {
+      "kind": "SA_VEHICLE_REGISTRATION",
+      "state": "sa",
+      "slug": "vehicle-registration",
+      "path": "/guides/sa/vehicle-registration"
+    },
+    {
+      "kind": "NSW_VEHICLE_REGISTRATION",
+      "state": "nsw",
+      "slug": "vehicle-registration",
+      "path": "/guides/nsw/vehicle-registration"
+    },
+    {
+      "kind": "VIC_VEHICLE_REGISTRATION",
+      "state": "vic",
+      "slug": "vehicle-registration",
+      "path": "/guides/vic/vehicle-registration"
+    },
+    {
+      "kind": "VIC_MOTOR_CAR_TRADER_LICENCE",
+      "state": "vic",
+      "slug": "motor-car-trader-licence",
+      "path": "/guides/vic/motor-car-trader-licence"
+    },
+    {
+      "kind": "NSW_MOTOR_DEALER_LICENCE",
+      "state": "nsw",
+      "slug": "motor-dealer-licence",
+      "path": "/guides/nsw/motor-dealer-licence"
+    },
+    {
+      "kind": "QLD_MOTOR_DEALER_LICENCE",
+      "state": "qld",
+      "slug": "motor-dealer-licence",
+      "path": "/guides/qld/motor-dealer-licence"
+    },
+    {
+      "kind": "WA_MOTOR_VEHICLE_DEALER_LICENCE",
+      "state": "wa",
+      "slug": "motor-vehicle-dealer-licence",
+      "path": "/guides/wa/motor-vehicle-dealer-licence"
+    },
+    {
+      "kind": "SA_VEHICLE_DEALER_LICENCE",
+      "state": "sa",
+      "slug": "vehicle-dealer-licence",
+      "path": "/guides/sa/vehicle-dealer-licence"
+    },
+    {
+      "kind": "EXPORT_REGISTERED_ESTABLISHMENT",
+      "state": "australia",
+      "slug": "export-registered-establishment",
+      "path": "/guides/australia/export-registered-establishment"
+    },
+    {
+      "kind": "DEFENCE_EXPORT_PERMIT",
+      "state": "australia",
+      "slug": "defence-export-permit",
+      "path": "/guides/australia/defence-export-permit"
+    },
+    {
+      "kind": "EXPORT_DECLARATION",
+      "state": "australia",
+      "slug": "export-declaration",
+      "path": "/guides/australia/export-declaration"
+    },
+    {
+      "kind": "EXPORT_GRANTS",
+      "state": "australia",
+      "slug": "export-grants",
+      "path": "/guides/australia/export-grants"
+    },
+    {
+      "kind": "SA_VESSEL_REGISTRATION",
+      "state": "sa",
+      "slug": "vessel-registration",
+      "path": "/guides/sa/vessel-registration"
+    },
+    {
+      "kind": "TAS_VESSEL_REGISTRATION",
+      "state": "tas",
+      "slug": "vessel-registration",
+      "path": "/guides/tas/vessel-registration"
+    },
+    {
+      "kind": "WA_VESSEL_REGISTRATION",
+      "state": "wa",
+      "slug": "vessel-registration",
+      "path": "/guides/wa/vessel-registration"
+    },
+    {
+      "kind": "NSW_VESSEL_REGISTRATION",
+      "state": "nsw",
+      "slug": "vessel-registration",
+      "path": "/guides/nsw/vessel-registration"
+    },
+    {
+      "kind": "NSW_BOAT_LICENCE",
+      "state": "nsw",
+      "slug": "boat-licence",
+      "path": "/guides/nsw/boat-licence"
+    },
+    {
+      "kind": "WA_BAL_ASSESSMENT",
+      "state": "wa",
+      "slug": "bal-assessment",
+      "path": "/guides/wa/bal-assessment"
+    },
+    {
+      "kind": "NSW_BUSHFIRE_ASSESSMENT",
+      "state": "nsw",
+      "slug": "bushfire-assessment",
+      "path": "/guides/nsw/bushfire-assessment"
+    },
+    {
+      "kind": "VIC_BAL_ASSESSMENT",
+      "state": "vic",
+      "slug": "bal-assessment",
+      "path": "/guides/vic/bal-assessment"
+    },
+    {
+      "kind": "ACT_EXEMPTION_DECLARATION",
+      "state": "act",
+      "slug": "exemption-declaration",
+      "path": "/guides/act/exemption-declaration"
+    },
+    {
+      "kind": "SA_BOAT_OPERATOR_LICENCE",
+      "state": "sa",
+      "slug": "boat-operator-licence",
+      "path": "/guides/sa/boat-operator-licence"
+    },
+    {
+      "kind": "TAS_MOTOR_BOAT_LICENCE",
+      "state": "tas",
+      "slug": "motor-boat-licence",
+      "path": "/guides/tas/motor-boat-licence"
+    },
+    {
+      "kind": "WA_SKIPPERS_TICKET",
+      "state": "wa",
+      "slug": "skippers-ticket",
+      "path": "/guides/wa/skippers-ticket"
+    },
+    {
+      "kind": "NSW_PWC_LICENCE",
+      "state": "nsw",
+      "slug": "pwc-licence",
+      "path": "/guides/nsw/pwc-licence"
+    },
+    {
+      "kind": "VIC_VICSMART_PERMIT",
+      "state": "vic",
+      "slug": "vicsmart-permit",
+      "path": "/guides/vic/vicsmart-permit"
+    },
+    {
+      "kind": "NSW_BASIX_CERTIFICATE",
+      "state": "nsw",
+      "slug": "basix-certificate",
+      "path": "/guides/nsw/basix-certificate"
+    },
+    {
+      "kind": "NT_DEVELOPMENT_PERMIT",
+      "state": "nt",
+      "slug": "development-permit",
+      "path": "/guides/nt/development-permit"
+    },
+    {
+      "kind": "TAS_PLANNING_PERMIT",
+      "state": "tas",
+      "slug": "planning-permit",
+      "path": "/guides/tas/planning-permit"
+    },
+    {
+      "kind": "VIC_PLANNING_PERMIT",
+      "state": "vic",
+      "slug": "planning-permit",
+      "path": "/guides/vic/planning-permit"
+    },
+    {
+      "kind": "ACT_DEVELOPMENT_APPLICATION",
+      "state": "act",
+      "slug": "development-application",
+      "path": "/guides/act/development-application"
+    },
+    {
+      "kind": "WA_DEVELOPMENT_APPROVAL",
+      "state": "wa",
+      "slug": "development-approval",
+      "path": "/guides/wa/development-approval"
+    },
+    {
+      "kind": "SA_PLANNING_CONSENT",
+      "state": "sa",
+      "slug": "planning-consent",
+      "path": "/guides/sa/planning-consent"
+    },
+    {
+      "kind": "NSW_MOORING_LICENCE",
+      "state": "nsw",
+      "slug": "mooring-licence",
+      "path": "/guides/nsw/mooring-licence"
+    },
+    {
+      "kind": "TAS_HERITAGE_WORKS_APPROVAL",
+      "state": "tas",
+      "slug": "heritage-works-approval",
+      "path": "/guides/tas/heritage-works-approval"
+    },
+    {
+      "kind": "TAS_CERTIFICATE_OF_LIKELY_COMPLIANCE",
+      "state": "tas",
+      "slug": "certificate-of-likely-compliance",
+      "path": "/guides/tas/certificate-of-likely-compliance"
+    },
+    {
+      "kind": "NSW_COMPLYING_DEVELOPMENT_CERTIFICATE",
+      "state": "nsw",
+      "slug": "complying-development-certificate",
+      "path": "/guides/nsw/complying-development-certificate"
+    },
+    {
+      "kind": "VIC_REPORT_AND_CONSENT",
+      "state": "vic",
+      "slug": "report-and-consent",
+      "path": "/guides/vic/report-and-consent"
+    },
+    {
+      "kind": "ACT_LEASE_VARIATION",
+      "state": "act",
+      "slug": "lease-variation",
+      "path": "/guides/act/lease-variation"
+    },
+    {
+      "kind": "WA_DEMOLITION_PERMIT",
+      "state": "wa",
+      "slug": "demolition-permit",
+      "path": "/guides/wa/demolition-permit"
+    },
+    {
+      "kind": "NT_BUILDING_PERMIT",
+      "state": "nt",
+      "slug": "building-permit",
+      "path": "/guides/nt/building-permit"
+    },
+    {
+      "kind": "TAS_BUILDING_PERMIT",
+      "state": "tas",
+      "slug": "building-permit",
+      "path": "/guides/tas/building-permit"
+    },
+    {
+      "kind": "WA_BUILDING_PERMIT",
+      "state": "wa",
+      "slug": "building-permit",
+      "path": "/guides/wa/building-permit"
+    },
+    {
+      "kind": "VIC_BUILDING_PERMIT",
+      "state": "vic",
+      "slug": "building-permit",
+      "path": "/guides/vic/building-permit"
+    },
+    {
+      "kind": "ACT_BUILDING_APPROVAL",
+      "state": "act",
+      "slug": "building-approval",
+      "path": "/guides/act/building-approval"
+    },
+    {
+      "kind": "SA_BUILDING_CONSENT",
+      "state": "sa",
+      "slug": "building-consent",
+      "path": "/guides/sa/building-consent"
+    },
+    {
+      "kind": "NSW_DEVELOPMENT_APPLICATION",
+      "state": "nsw",
+      "slug": "development-application",
+      "path": "/guides/nsw/development-application"
+    },
+    {
+      "kind": "TAS_PLUMBING_PERMIT",
+      "state": "tas",
+      "slug": "plumbing-permit",
+      "path": "/guides/tas/plumbing-permit"
+    },
+    {
+      "kind": "NSW_CONSTRUCTION_CERTIFICATE",
+      "state": "nsw",
+      "slug": "construction-certificate",
+      "path": "/guides/nsw/construction-certificate"
+    },
+    {
+      "kind": "SA_DEVELOPMENT_APPROVAL",
+      "state": "sa",
+      "slug": "development-approval",
+      "path": "/guides/sa/development-approval"
+    },
+    {
+      "kind": "SA_CERTIFICATE_OF_OCCUPANCY",
+      "state": "sa",
+      "slug": "certificate-of-occupancy",
+      "path": "/guides/sa/certificate-of-occupancy"
+    },
+    {
+      "kind": "ACT_CERTIFICATE_OF_OCCUPANCY",
+      "state": "act",
+      "slug": "certificate-of-occupancy",
+      "path": "/guides/act/certificate-of-occupancy"
+    },
+    {
+      "kind": "WA_OCCUPANCY_PERMIT",
+      "state": "wa",
+      "slug": "occupancy-permit",
+      "path": "/guides/wa/occupancy-permit"
+    },
+    {
+      "kind": "TAS_OCCUPANCY_PERMIT",
+      "state": "tas",
+      "slug": "occupancy-permit",
+      "path": "/guides/tas/occupancy-permit"
+    },
+    {
+      "kind": "VIC_OCCUPANCY_PERMIT",
+      "state": "vic",
+      "slug": "occupancy-permit",
+      "path": "/guides/vic/occupancy-permit"
+    },
+    {
+      "kind": "NSW_OCCUPATION_CERTIFICATE",
+      "state": "nsw",
+      "slug": "occupation-certificate",
+      "path": "/guides/nsw/occupation-certificate"
+    },
+    {
+      "kind": "NT_OCCUPANCY_PERMIT",
+      "state": "nt",
+      "slug": "occupancy-permit",
+      "path": "/guides/nt/occupancy-permit"
+    },
+    {
+      "kind": "VIC_SUBDIVISION_CERTIFICATION",
+      "state": "vic",
+      "slug": "subdivision-certification",
+      "path": "/guides/vic/subdivision-certification"
+    },
+    {
+      "kind": "SA_LAND_DIVISION",
+      "state": "sa",
+      "slug": "land-division",
+      "path": "/guides/sa/land-division"
+    },
+    {
+      "kind": "NSW_SUBDIVISION_CERTIFICATE",
+      "state": "nsw",
+      "slug": "subdivision-certificate",
+      "path": "/guides/nsw/subdivision-certificate"
+    },
+    {
+      "kind": "NT_SUBDIVISION",
+      "state": "nt",
+      "slug": "subdivision",
+      "path": "/guides/nt/subdivision"
+    },
+    {
+      "kind": "TAS_SUBDIVISION_SEALING",
+      "state": "tas",
+      "slug": "subdivision-sealing",
+      "path": "/guides/tas/subdivision-sealing"
+    },
+    {
+      "kind": "WA_SUBDIVISION_APPROVAL",
+      "state": "wa",
+      "slug": "subdivision-approval",
+      "path": "/guides/wa/subdivision-approval"
+    },
+    {
+      "kind": "ACT_SUBDIVISION",
+      "state": "act",
+      "slug": "subdivision",
+      "path": "/guides/act/subdivision"
+    },
+    {
+      "kind": "NT_HERITAGE_WORKS_APPROVAL",
+      "state": "nt",
+      "slug": "heritage-works-approval",
+      "path": "/guides/nt/heritage-works-approval"
+    },
+    {
+      "kind": "TAS_VEHICLE_REGISTRATION",
+      "state": "tas",
+      "slug": "vehicle-registration",
+      "path": "/guides/tas/vehicle-registration"
+    },
+    {
+      "kind": "TAS_MOTOR_VEHICLE_TRADER_LICENCE",
+      "state": "tas",
+      "slug": "motor-vehicle-trader-licence",
+      "path": "/guides/tas/motor-vehicle-trader-licence"
+    }
+  ]
+}
