@@ -243,6 +243,89 @@
         "Subdivisions are lodged with the WAPC through its eLodgement system.",
         "Houses and Class 10 buildings don't need occupancy permits in WA."
       ]
+    },
+    {
+      "state": "SA",
+      "name": "South Australia",
+      "checked_on": "2026-10-12",
+      "general_steps": [
+        "Look up your zone, subzone and overlays on the free SA Property and Planning Atlas (SAPPA).",
+        "Check the rules for your zone in the Planning and Design Code online to see whether your project is exempt, accepted, deemed-to-satisfy or performance assessed.",
+        "Talk to your council's duty planner or a town planner if you're unsure, and decide whether to use an accredited professional.",
+        "Prepare plans, a certificate of title and any reports the Code asks for, like a bushfire or heritage assessment.",
+        "Lodge one development application on the PlanSA portal and pay the lodgement fee. The application is verified in 5 business days.",
+        "Get planning consent (5 business days for deemed-to-satisfy, 20 to 70 for performance assessed), then building consent (20 business days for a house).",
+        "Development approval is issued once every consent is granted. Only then can you start work.",
+        "Build in line with the approval. Buildings other than houses need a certificate of occupancy before use."
+      ],
+      "forms": [
+        "sa-sappa",
+        "sa-planning-design-code",
+        "sa-plansa-portal"
+      ],
+      "source": {
+        "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages",
+        "title": "Assessment stages (PlanSA)"
+      },
+      "fees": {
+        "fee_year": "2026-27",
+        "schedule_url": "https://plan.sa.gov.au/__data/assets/pdf_file/0008/686087/Fees-and-Charges-at-a-Glance.pdf",
+        "items": [
+          {
+            "label": "Lodgement fee, $100,001 to $300,000",
+            "amount": "$187",
+            "note": "$98.50 up to $10,000; $197 to $500,000"
+          },
+          {
+            "label": "Deemed-to-satisfy planning consent, over $10,000",
+            "amount": "$250",
+            "note": "$151 under $10,000"
+          },
+          {
+            "label": "Performance assessed planning consent",
+            "amount": "$299 or 0.125% of cost",
+            "note": "Whichever is greater, capped at $200,000"
+          },
+          {
+            "label": "Building consent, Class 1 (houses)",
+            "amount": "$538 or 0.25% of cost",
+            "note": "Whichever is greater, council fee"
+          },
+          {
+            "label": "Land division",
+            "amount": "$210",
+            "note": "Plus $19.10 per extra lot over 4"
+          },
+          {
+            "label": "Land division certificate",
+            "amount": "$1,229"
+          },
+          {
+            "label": "Open space contribution per new lot",
+            "amount": "$10,166 / $3,723",
+            "note": "Greater Adelaide / elsewhere in SA"
+          },
+          {
+            "label": "Certificate of occupancy",
+            "amount": "$59.50",
+            "note": "Not needed for houses (Class 1a)"
+          }
+        ]
+      },
+      "planning_scheme_label": "Planning and Design Code",
+      "zoning_lookup_url": "https://sappa.plan.sa.gov.au/",
+      "portal": {
+        "url": "https://plan.sa.gov.au/development_applications/lodge_an_application/lodge_online",
+        "title": "PlanSA development application portal"
+      },
+      "gaps": [
+        "South Australia has one statewide Planning and Design Code and one portal (PlanSA) for every council, under the Planning, Development and Infrastructure Act 2016.",
+        "Fees are set statewide by the Fees Notice effective 1 July 2026.",
+        "Accredited professionals (private certifiers) can give building consent and decide some deemed-to-satisfy planning applications.",
+        "Ancillary accommodation (granny flats, up to 2 bedrooms) is deemed-to-satisfy up to 70 m2 when it meets every criterion; it always needs development approval.",
+        "PlanSA service desk: 1800 752 664.",
+        "SAPPA URL not opened this session (fetch budget)."
+      ]
     }
   ]
 }

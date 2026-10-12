@@ -1,0 +1,2158 @@
+{
+  "key": "business_sa",
+  "title": "SA: BusinessReady, vehicle registration and VesselReady (licences, insurance, tax, trades, personal services, childcare, imported vehicles, boats)",
+  "notes": "First sourced SA rules for BusinessReady, TradeReady (vehicles) and VesselReady. Built from SA Health, Consumer and Business Services, ReturnToWorkSA, RevenueSA, PlanSA, Education Standards Board and Department for Infrastructure and Transport pages (mostly on sa.gov.au) read on 2026-10-12. No SA Government business grant open or recurring in 2026 was confirmed, so there are no GrantReady rule sets. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it.",
+  "organisations": [
+    {
+      "ref": "sa_health",
+      "name": "SA Health (Department for Health and Wellbeing)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "SA",
+      "website": "https://www.sahealth.sa.gov.au"
+    },
+    {
+      "ref": "cbs",
+      "name": "Consumer and Business Services (Attorney-General's Department, SA)",
+      "kind": "REGULATOR",
+      "jurisdiction": "SA",
+      "website": "https://www.cbs.sa.gov.au"
+    },
+    {
+      "ref": "rtwsa",
+      "name": "ReturnToWorkSA",
+      "kind": "REGULATOR",
+      "jurisdiction": "SA",
+      "website": "https://www.rtwsa.com"
+    },
+    {
+      "ref": "revenuesa",
+      "name": "RevenueSA (Department of Treasury and Finance)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "SA",
+      "website": "https://www.revenuesa.sa.gov.au"
+    },
+    {
+      "ref": "plansa",
+      "name": "PlanSA (Department for Housing and Urban Development)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "SA",
+      "website": "https://plan.sa.gov.au"
+    },
+    {
+      "ref": "esb",
+      "name": "Education Standards Board (SA)",
+      "kind": "REGULATOR",
+      "jurisdiction": "SA",
+      "website": "https://www.esb.sa.gov.au"
+    },
+    {
+      "ref": "dit",
+      "name": "Department for Infrastructure and Transport (SA)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "SA",
+      "website": "https://www.dit.sa.gov.au"
+    },
+    {
+      "ref": "sagov",
+      "name": "Government of South Australia (sa.gov.au)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "SA",
+      "website": "https://www.sa.gov.au"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "sah_start_food",
+      "organisation": "sa_health",
+      "jurisdiction": "SA",
+      "title": "Starting a food business (SA Health)",
+      "url": "https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/public+health/food+safety+for+businesses/starting+a+food+business",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "cbs_liquor_rc",
+      "organisation": "cbs",
+      "jurisdiction": "SA",
+      "title": "Restaurant and catering liquor licence",
+      "url": "https://www.sa.gov.au/topics/business-and-trade/liquor/apply/restaurant-and-catering",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "cbs_liquor_rc_fees",
+      "organisation": "cbs",
+      "jurisdiction": "SA",
+      "title": "Application fees: restaurant and catering licence",
+      "url": "https://www.sa.gov.au/topics/business-and-trade/liquor/apply/restaurant-and-catering/drawer-restaurant-and-catering-licence-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "rtwsa_register",
+      "organisation": "rtwsa",
+      "jurisdiction": "SA",
+      "title": "Register for cover (ReturnToWorkSA)",
+      "url": "https://www.rtwsa.com/insurance/insurance-with-us/register",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "revenuesa_rates",
+      "organisation": "revenuesa",
+      "jurisdiction": "SA",
+      "title": "Payroll tax rates and thresholds",
+      "url": "https://www.revenuesa.sa.gov.au/payroll-tax/rates-and-thresholds",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "cbs_bwc",
+      "organisation": "cbs",
+      "jurisdiction": "SA",
+      "title": "Building work contractor's licence",
+      "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/building-and-trades/building-work-contractor-s-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "plansa_bii",
+      "organisation": "plansa",
+      "jurisdiction": "SA",
+      "title": "Advisory Notice Building 03/25: Building indemnity insurance",
+      "url": "https://www.plan.sa.gov.au/__data/assets/pdf_file/0011/1558694/Advisory-Notice-Building-03-25-Building-Indemnity-Insurance.pdf",
+      "source_type": "GUIDELINE"
+    },
+    {
+      "ref": "sagov_bii",
+      "organisation": "sagov",
+      "jurisdiction": "SA",
+      "title": "Building indemnity insurance",
+      "url": "https://www.sa.gov.au/topics/housing-and-property/buying-building-selling/building-or-buying-home/building-a-home/building-indemnity-insurance",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "cbs_pge",
+      "organisation": "cbs",
+      "jurisdiction": "SA",
+      "title": "Plumbing, gas fitting and electrical contractors' licences",
+      "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/building-and-trade/licensing",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "cbs_tattoo",
+      "organisation": "cbs",
+      "jurisdiction": "SA",
+      "title": "Tattoo industry",
+      "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/tattoo-industry",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "esb_approved",
+      "organisation": "esb",
+      "jurisdiction": "SA",
+      "title": "Approved providers and services",
+      "url": "https://www.esb.sa.gov.au/early-childhood/approved-providers-and-services",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "dit_import",
+      "organisation": "dit",
+      "jurisdiction": "SA",
+      "title": "Importing and registering a vehicle from overseas",
+      "url": "https://www.sa.gov.au/topics/driving-and-transport/vehicles/buying-and-selling/importing-motor-vehicles",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "dit_identity",
+      "organisation": "dit",
+      "jurisdiction": "SA",
+      "title": "Vehicle identity inspection",
+      "url": "https://sa.gov.au/topics/driving-and-transport/vehicles/vehicle-inspections/vehicle-identity-inspections",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "dit_insp_fees",
+      "organisation": "dit",
+      "jurisdiction": "SA",
+      "title": "Vehicle inspection fees",
+      "url": "https://www.sa.gov.au/topics/driving-and-transport/registration/motoring-fees/vehicle-inspection-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "dit_rego_fees",
+      "organisation": "dit",
+      "jurisdiction": "SA",
+      "title": "Vehicle registration fees",
+      "url": "https://www.sa.gov.au/topics/driving-and-transport/registration/motoring-fees/vehicle-registration-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "revenuesa_vehicle_duty",
+      "organisation": "revenuesa",
+      "jurisdiction": "SA",
+      "title": "Stamp duty on vehicles: rates",
+      "url": "https://www.revenuesa.sa.gov.au/stamp-duty-vehicles/rates",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "cbs_shvd",
+      "organisation": "cbs",
+      "jurisdiction": "SA",
+      "title": "Second-hand vehicle dealer licence",
+      "url": "https://www.sa.gov.au/topics/business-and-trade/licensing/vehicles/second-hand-vehicle-dealer-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "dit_boat_first",
+      "organisation": "dit",
+      "jurisdiction": "SA",
+      "title": "First-time boat registration in SA",
+      "url": "https://www.sa.gov.au/topics/boating-and-marine/boat-registration/first-time-registration",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "dit_boat_fees",
+      "organisation": "dit",
+      "jurisdiction": "SA",
+      "title": "Initial boat registration fees",
+      "url": "https://www.sa.gov.au/topics/boating-and-marine/fees/new-motorboat-registration-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "dit_boat_licence",
+      "organisation": "dit",
+      "jurisdiction": "SA",
+      "title": "Boat licences",
+      "url": "https://www.sa.gov.au/topics/boating-and-marine/boat-operators-licences-and-permits/boat-licences",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "sa_food_notify",
+      "document": "sah_start_food",
+      "section": "Notification, fees and Standard 3.2.2A",
+      "extracted_text": "[Summary, not the source's wording] Under the Food Act 2001 all food businesses must notify the appropriate enforcement agency, usually the local council, before opening, using the council's Food Business Notification form (or SA Health's form where the council has none or the business is outside a council area). There is no fee for notification. Penalties for not notifying are up to $120,000 for a body corporate and $25,000 for an individual (expiation $1,500 and $300). Businesses captured by Standard 3.2.2A, such as cafes, restaurants, supermarkets, mobile food vans and takeaways, must appoint a certified food safety supervisor, and food handlers of high-risk unpackaged food must be trained. Mobile food businesses notify the council where the vehicle is normally garaged; caterers where most food or equipment is stored.",
+      "interpretation": "SA food businesses notify their council before opening, free of charge, and most food service businesses need a food safety supervisor. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_liquor_rc",
+      "document": "cbs_liquor_rc",
+      "section": "Restaurant and catering licence",
+      "extracted_text": "[Summary, not the source's wording] The licence allows liquor to be sold to people dining, attending a function where food is provided, seated at a table, or at a licensee's cooking course; the primary service must be meals. Apply online through CBS Liquor and Gaming Online. Documents include two floor plans, landlord consent, certificate of title and the Council Approvals form; a council permit is needed for an extension of trading area. An approved responsible person must supervise whenever the venue is open. Some applications are advertised and can attract submissions or police intervention. About six to eight weeks without submissions. Contact liquorandgaming@sa.gov.au, 131 882 option 5.",
+      "interpretation": "Selling alcohol with meals in SA needs a CBS liquor licence; other venues need other licence classes. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_liquor_rc_fees",
+      "document": "cbs_liquor_rc_fees",
+      "section": "Application fees",
+      "extracted_text": "[Summary, not the source's wording] New restaurant and catering licence $754.00; extension of trading area $165.00; prescribed entertainment consent $754.00; responsible person $165.00; approval of a person in a position of authority $165.00. Annual fees are calculated separately.",
+      "interpretation": "Application fees for the SA restaurant and catering licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_rtwsa",
+      "document": "rtwsa_register",
+      "section": "Registering for work injury insurance",
+      "extracted_text": "[Summary, not the source's wording] A business that employs workers who usually work in or are based in South Australia must register for work injury insurance cover within 14 days of employing; registration is online and gives a certificate straight away. Employers paying less than $16,806 in total wages in 2026-27 need not register, but must report any injury, register and pay the minimum premium. Contact 13 18 55, premium@rtwsa.com.",
+      "interpretation": "SA employers register with ReturnToWorkSA within 14 days of employing. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_payroll",
+      "document": "revenuesa_rates",
+      "section": "Rates and threshold",
+      "extracted_text": "[Summary, not the source's wording] From 1 January 2019 the payroll tax threshold is $1,500,000 a year ($125,000 a month). The rate is variable from 0% to 4.95% for Australian taxable wages between $1.5 million and $1.7 million, and 4.95% above $1.7 million. An employer must register once Australian-wide taxable wages exceed the threshold and it pays wages in SA.",
+      "interpretation": "Employers with Australian wages over $1.5 million a year register for SA payroll tax. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_bwc_licence",
+      "document": "cbs_bwc",
+      "section": "Who needs a licence, requirements and fees",
+      "extracted_text": "[Summary, not the source's wording] Any person or business operating as a building work contractor must be licensed, including sub-contractors. All building work must be supervised by a registered building work supervisor. Licences cover general or specified building work; specified work needs at least $10,000 net assets, or a restricted subcontractor licence. Builders in major residential construction attach a certificate of eligibility for building indemnity insurance. Apply online, print, sign, scan and upload; National Police Certificate no more than 12 months old. Fees on the page (updated 14 September 2026): company general building work $1,575.00, specified $943.00, plus $166.00 per supervisor; individual general building work and supervisor's registration $1,139.00, specified $855.00; contractor only $864.00 (general) or $580.00 (specified); supervisor registration $537.00. Contact occupational@sa.gov.au, 131 882 option 4.",
+      "interpretation": "Every SA building work contractor needs a CBS licence and a registered supervisor. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_bii",
+      "document": "plansa_bii",
+      "section": "Building indemnity insurance threshold",
+      "extracted_text": "[Summary, not the source's wording] Building indemnity insurance under Division 3 of Part 5 of the Building Work Contractors Act 1995 is required for domestic building work valued at $20,000 or more that requires development approval under the Planning, Development and Infrastructure Act 2016, done by a building work contractor. The value increased from $12,000 to $20,000 on 10 November 2025. Exemptions under regulation 5 of the Building Work Contractors Regulations 2011 include demolition-only work and some multi-storey residential buildings. Work cannot start until the owner and council have a copy of the certificate.",
+      "interpretation": "Domestic building work of $20,000 or more needing approval must carry building indemnity insurance. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_pge",
+      "document": "cbs_pge",
+      "section": "Contractor licence and worker registration",
+      "extracted_text": "[Summary, not the source's wording] Individuals, partners and companies that run a business carrying out or organising plumbing, gas fitting or electrical work must hold a contractor's licence; people doing the work must be registered as a plumber, gas fitter or electrician. Contractors need at least $10,000 net assets or a restricted subcontractor licence, and a police check. Fees: company licence $1,012.00; worker registration $617.00; individual contractor $779.00; worker and contractor $1,396.00; apprentice registration free. Renewals: individual contractor $504.00 a year, company $737.00 a year, worker $342.00 every 3 years. Contact occupational@sa.gov.au, 131 882 option 4.",
+      "interpretation": "Plumbing, gas fitting and electrical businesses in SA need a CBS contractor licence and registered workers. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_tattoo",
+      "document": "cbs_tattoo",
+      "section": "Notifying CBS",
+      "extracted_text": "[Summary, not the source's wording] Anyone who tattoos another person (even free), runs a business providing tattoo services, is employed in one, is a director of a company providing tattoo services or sells tattoo equipment must notify CBS. There is no fee. Businesses give details of directors, employees, lease or title and premises; changes must be notified within 14 days. Some people, including members of organised crime groups and their associates, are disqualified. Before tattooing or body piercing a client must get prescribed risk and aftercare information, and premises must display a prescribed warning notice.",
+      "interpretation": "Tattoo businesses and tattooists in SA must notify CBS under the Tattooing Industry Control Act 2015. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_esb",
+      "document": "esb_approved",
+      "section": "Approvals",
+      "extracted_text": "[Summary, not the source's wording] Provider and service approvals must be in place before operating an education and care service. Apply by registering on NQAITS or using paper forms on the ACECQA website. The Education Standards Board monitors providers, services and nominated supervisors for compliance. Contact 1800 882 413, educationstandardsboard@sa.gov.au.",
+      "interpretation": "The Education Standards Board approves education and care providers and services in SA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_import_rego",
+      "document": "dit_import",
+      "section": "Registering an imported vehicle",
+      "extracted_text": "[Summary, not the source's wording] Import approval is needed first. Submit an imported vehicle for an identity inspection before beginning any modifications, then a roadworthy inspection where required, and a compliance plate exemption for personal imports. At a Service SA centre present the import approval or Record of Approved Vehicles entry, inspection certificates, the MR1 application for registration and compulsory third party insurance, and ID. Pay registration, inspection and number plate fees, and stamp duty on market value unless already paid in an Australian jurisdiction. Vehicle Standards 1300 882 248, vehiclestandards@sa.gov.au.",
+      "interpretation": "Imported vehicles are identity-inspected and then registered in person at Service SA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_identity_insp",
+      "document": "dit_identity",
+      "section": "Identity inspection",
+      "extracted_text": "[Summary, not the source's wording] The metropolitan inspection station is at 7 Naweena Road, Regency Park, open weekdays 8 am to 4.30 pm; no booking required; phone 8400 8777. The vehicle must be driven legally (registration, unregistered vehicle permit or trade plates). The $75 fee is paid with registration at Service SA. The report is valid for 3 months.",
+      "interpretation": "Where and how to get an identity inspection in Adelaide. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_insp_fees",
+      "document": "dit_insp_fees",
+      "section": "Inspection fees from 1 July 2026",
+      "extracted_text": "[Summary, not the source's wording] Tier 2 identity inspection $75. Roadworthy inspection (car, trailer or motorbike) $344 first inspection and $136 each subsequent one, including a $31 booking fee.",
+      "interpretation": "Current SA vehicle inspection fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_rego_fees",
+      "document": "dit_rego_fees",
+      "section": "Registration fees from 1 July 2026",
+      "extracted_text": "[Summary, not the source's wording] A 12-month registration for a 4-cylinder sedan or station wagon in the metropolitan area is $705, including a CTP insurance estimate and level 1 administration fee.",
+      "interpretation": "Typical SA registration and CTP cost. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_stamp_duty",
+      "document": "revenuesa_vehicle_duty",
+      "section": "Stamp duty rates",
+      "extracted_text": "[Summary, not the source's wording] Non-commercial vehicles: up to $1,000, $1 per $100 (minimum $5); $1,000 to $2,000, $10 plus $2 per $100 over $1,000; $2,000 to $3,000, $30 plus $3 per $100 over $2,000; over $3,000, $60 plus $4 per $100 over $3,000. Commercial vehicles: over $2,000, $30 plus $3 per $100 over $2,000.",
+      "interpretation": "Stamp duty on registering a vehicle in SA is about 4% of its value. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_dealer",
+      "document": "cbs_shvd",
+      "section": "Who needs a licence, fees",
+      "extracted_text": "[Summary, not the source's wording] Dealers must have a licence if they buy, sell or offer for sale four or more vehicles in 12 months. National Police Certificate no more than 12 months old. Companies nominate a manager holding a licence. Dealers may only trade from the registered address. Fees: company (motor vehicle and motorcycle) $1,243.00 plus $200.00 compensation fund; individual $952.00 plus $200.00; motorbike only $777.00/$650.00 plus $60.00. Apply online, print, sign, scan and upload. Contact 131 882 option 4.",
+      "interpretation": "Selling 4 or more vehicles a year in SA needs a CBS second-hand vehicle dealer's licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_boat_rego",
+      "document": "dit_boat_first",
+      "section": "First-time registration",
+      "extracted_text": "[Summary, not the source's wording] Complete the Application for initial registration (MR168); provide proof of ownership and identity (SA driver's licence or proof of age card, or previous SA registration); measure the hull bow to transom; a HIN check may be needed. Lodge at a Service SA centre or post to GPO Box 1533, Adelaide SA 5001. A 50% discount applies from 1 December 2025 to 1 December 2026. Service SA 13 23 24.",
+      "interpretation": "Recreational motorboats are registered through Service SA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_boat_fees",
+      "document": "dit_boat_fees",
+      "section": "Initial registration fees from 1 July 2026",
+      "extracted_text": "[Summary, not the source's wording] Twelve-month fees: under 3.1 m $59; 3.1 to 3.5 m $103; 3.5 to 5 m $174; 5 to 6 m $188; 6 to 7 m $335; 7 to 8 m $345; up to $843 over 20 m; personal watercraft $484. Six-month options to 7 m. 50% discount 1 December 2025 to 1 December 2026.",
+      "interpretation": "Current SA boat registration fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "sa_boat_licence",
+      "document": "dit_boat_licence",
+      "section": "When a licence is needed and fees",
+      "extracted_text": "[Summary, not the source's wording] You must hold a current boat operator's licence to operate any recreational vessel fitted with an engine. Without one, a person 12 or older may operate under the supervision of a licence holder at no more than 10 knots. Children 12 to 15 can apply for a special permit. Theory test $56; licence $53 ($22 for a former special permit holder); special permit test $25 and issue $22. Apply in person at Service SA with original ID. Interstate licences recognised for 90 days.",
+      "interpretation": "Anyone operating an engine-powered recreational boat in SA needs a boat operator's licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "business.sa.general",
+      "vertical": "BUSINESS",
+      "jurisdiction": "SA",
+      "title": "South Australia: business licences, insurance and tax",
+      "description": "Registrations, licences, insurance and tax most SA businesses check: food business notification, food safety supervisors, liquor licences, outdoor dining, ReturnToWorkSA registration and payroll tax.",
+      "applies_when": {
+        "fact": "business.state",
+        "op": "equals",
+        "value": "SA"
+      },
+      "limitations": [
+        "Built from SA Health, Consumer and Business Services, ReturnToWorkSA and RevenueSA web pages, not from the Acts themselves.",
+        "Does not decide which liquor licence you need. We use the restaurant and catering licence as the example; bars, small venues and bottle shops use other licence classes.",
+        "Outdoor dining rules are set by each council; we show them as something to check.",
+        "Does not check planning consent (development approval) for the use of your premises or a fit-out.",
+        "Not legal or tax advice. Confirm with the regulator or a qualified professional before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "food_business_notification",
+          "title": "Food business notification",
+          "condition": {
+            "fact": "business.handles_food",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Notify your local council before you open",
+              "detail": "Under the Food Act 2001 (SA) every food business must notify the enforcement agency before it opens. That is usually your local council's environmental health team. Lodge the council's food business notification form. There is no fee to notify, but councils may charge for inspections. Food vans notify the council where the van is normally garaged, and caterers notify the council where most food or equipment is stored. Trading without notifying can bring a fine of up to $25,000 for an individual or $120,000 for a company.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_FOOD_BUSINESS_NOTIFICATION",
+                  "authority": "Your local council (under the Food Act 2001 (SA))",
+                  "pathway": "Lodge a food business notification with your council"
+                },
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Notify your local council of your food business"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food business notification not identified",
+              "detail": "You said you won't handle food, so no food business notification was identified.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_FOOD_BUSINESS_NOTIFICATION",
+                  "authority": "Your local council (under the Food Act 2001 (SA))",
+                  "pathway": "Needed if you handle food for sale"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food business notification may be needed",
+              "detail": "Every SA food business must notify its council before it opens. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_FOOD_BUSINESS_NOTIFICATION",
+                  "authority": "Your local council (under the Food Act 2001 (SA))",
+                  "pathway": "Needed if you handle food for sale",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_food_notify",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "prepare_on_site"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No food",
+              "facts": {
+                "business.handles_food": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "food_safety_supervisor",
+          "title": "Food safety supervisor",
+          "condition": {
+            "all": [
+              {
+                "fact": "business.handles_food",
+                "op": "equals",
+                "value": true
+              },
+              {
+                "any": [
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "prepare_on_site"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "serve_on_premises"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "sell_unpackaged"
+                  },
+                  {
+                    "fact": "business.food_activities",
+                    "op": "contains",
+                    "value": "mobile_food"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Appoint a certified food safety supervisor and train your food handlers",
+              "detail": "Cafes, restaurants, takeaways, caterers, supermarkets and food vans that handle unpackaged, potentially hazardous food must meet Food Safety Standard 3.2.2A. You must appoint a certified food safety supervisor, and every food handler who handles that food must complete food safety training or show equivalent knowledge. Some businesses must also keep records of key food safety controls.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "Your local council (Standard 3.2.2A of the Food Standards Code)",
+                  "pathway": "Appoint a supervisor before you trade"
+                },
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Appoint a certified food safety supervisor and train your food handlers"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food safety supervisor not identified",
+              "detail": "From your answers you won't prepare, serve or sell unpackaged food, so Standard 3.2.2A wasn't identified.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "Your local council (Standard 3.2.2A of the Food Standards Code)",
+                  "pathway": "Needed if you handle unpackaged, high-risk food"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food safety supervisor may be needed",
+              "detail": "Businesses that prepare or serve unpackaged, high-risk food need a food safety supervisor. Tell us what food you'll handle so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_FOOD_SAFETY_SUPERVISOR",
+                  "authority": "Your local council (Standard 3.2.2A of the Food Standards Code)",
+                  "pathway": "Needed if you handle unpackaged, high-risk food",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_food_notify",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Restaurant",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "serve_on_premises"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Packaged only",
+              "facts": {
+                "business.handles_food": true,
+                "business.food_activities": [
+                  "sell_packaged"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "liquor_licence",
+          "title": "Liquor licence",
+          "condition": {
+            "fact": "business.sells_alcohol",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an SA liquor licence from Consumer and Business Services",
+              "detail": "Selling or supplying alcohol in SA needs a licence under the Liquor Licensing Act 1997. Apply online through the CBS Liquor and Gaming Online (LGO) portal. A restaurant and catering licence (for venues where meals are the main business) costs $754 to apply, plus annual fees. You need floor plans, landlord consent, the certificate of title and council approvals, and an approved responsible person must supervise whenever you're open. Without objections, it takes about 6 to 8 weeks.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_LIQUOR_LICENCE",
+                  "authority": "Consumer and Business Services (CBS) Liquor and Gaming",
+                  "pathway": "Apply online through CBS Liquor and Gaming Online"
+                },
+                "evidence": [
+                  {
+                    "kind": "RSA_COMPETENCY",
+                    "title": "Responsible service of alcohol training for each person serving alcohol"
+                  }
+                ],
+                "referral_categories": [
+                  "liquor_licensing_consultant",
+                  "lawyer"
+                ],
+                "task": "Choose a licence class and apply to CBS Liquor and Gaming"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Liquor licence not identified",
+              "detail": "You said you won't sell or serve alcohol.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_LIQUOR_LICENCE",
+                  "authority": "Consumer and Business Services (CBS) Liquor and Gaming",
+                  "pathway": "Needed if you sell or supply alcohol"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A liquor licence may be needed",
+              "detail": "Selling or serving alcohol in SA needs a licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_LIQUOR_LICENCE",
+                  "authority": "Consumer and Business Services (CBS) Liquor and Gaming",
+                  "pathway": "Needed if you sell or supply alcohol",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_liquor_rc",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "sa_liquor_rc_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Bar",
+              "facts": {
+                "business.sells_alcohol": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Dry cafe",
+              "facts": {
+                "business.sells_alcohol": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "outdoor_dining",
+          "title": "Outdoor dining permit",
+          "condition": {
+            "fact": "business.footpath_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get an outdoor dining permit from your council",
+              "detail": "Putting tables, chairs, signs or displays on a footpath or other council land in SA needs a permit from your council. Councils set their own rules, fees and insurance requirements. If you'll serve alcohol in that area, your liquor licence must also cover it: CBS asks for the council permit in your name when you apply to extend your trading area ($165).",
+              "payload": {
+                "approval": {
+                  "kind": "SA_OUTDOOR_DINING_PERMIT",
+                  "authority": "Your local council",
+                  "pathway": "Apply to your council"
+                },
+                "task": "Apply to your council for an outdoor dining permit"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Outdoor dining permit not identified",
+              "detail": "You said you won't use the footpath or other public space, so no outdoor dining permit was identified.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_OUTDOOR_DINING_PERMIT",
+                  "authority": "Your local council",
+                  "pathway": "Needed to use a footpath or public space"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A outdoor dining permit may be needed",
+              "detail": "Using a footpath for tables or displays needs a council permit in SA. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_OUTDOOR_DINING_PERMIT",
+                  "authority": "Your local council",
+                  "pathway": "Needed to use a footpath or public space",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_liquor_rc",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "sa_liquor_rc_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Footpath tables",
+              "facts": {
+                "business.footpath_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No footpath",
+              "facts": {
+                "business.footpath_use": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "workers_compensation",
+          "title": "ReturnToWorkSA registration",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "not_equals",
+            "value": "NONE"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register with ReturnToWorkSA within 14 days of employing",
+              "detail": "SA employers must register for work injury insurance with ReturnToWorkSA within 14 days of employing workers who usually work in, or are based in, SA. Register online and you'll get your certificate of registration straight away. If you'll pay less than $16,806 in total wages in 2026-27 you don't need to register, but if a worker is injured you must report it, register and pay the minimum premium.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_WORKERS_COMPENSATION_REGISTRATION",
+                  "authority": "ReturnToWorkSA",
+                  "pathway": "Register online with ReturnToWorkSA"
+                },
+                "referral_categories": [
+                  "insurance_broker",
+                  "whs_consultant"
+                ],
+                "task": "Register with ReturnToWorkSA for work injury insurance"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "ReturnToWorkSA registration not identified",
+              "detail": "You said you won't employ anyone. If you take on workers later, register within 14 days.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_WORKERS_COMPENSATION_REGISTRATION",
+                  "authority": "ReturnToWorkSA",
+                  "pathway": "Needed when you employ workers in SA"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A returnToWorkSA registration may be needed",
+              "detail": "SA employers must register with ReturnToWorkSA. Tell us how many people you employ so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_WORKERS_COMPENSATION_REGISTRATION",
+                  "authority": "ReturnToWorkSA",
+                  "pathway": "Needed when you employ workers in SA",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_rtwsa",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Employs staff",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No staff",
+              "facts": {
+                "business.employee_band": "NONE"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "payroll_tax",
+          "title": "Payroll tax",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "in",
+            "value": [
+              "20_199",
+              "200_PLUS"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Check whether you must register for SA payroll tax",
+              "detail": "SA payroll tax applies when your total Australian taxable wages (including grouped businesses) are more than $1.5 million a year, or $125,000 a month, and you pay wages in SA. Register with RevenueSA once you pass the threshold. The rate slides from 0% to 4.95% between $1.5 million and $1.7 million, and is 4.95% above that. With 20 or more staff you may be near the threshold.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_PAYROLL_TAX_REGISTRATION",
+                  "authority": "RevenueSA",
+                  "pathway": "Register with RevenueSA when wages pass the threshold",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Check your wages against the SA payroll tax threshold"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Payroll tax is unlikely at your size",
+              "detail": "SA payroll tax only applies once Australian wages pass $1.5 million a year. Keep an eye on it as you grow; grouped businesses count together."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_payroll",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Large employer",
+              "facts": {
+                "business.employee_band": "20_199"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small employer",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.sa.trades",
+      "vertical": "BUSINESS",
+      "jurisdiction": "SA",
+      "title": "South Australia: building, plumbing, gas fitting and electrical licences",
+      "description": "Building work contractor licences and supervisor registration, building indemnity insurance, and plumbing, gas fitting and electrical licences from Consumer and Business Services.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "SA"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "trades"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from sa.gov.au Consumer and Business Services pages and a PlanSA advisory notice, not from the Building Work Contractors Act 1995 or the Plumbers, Gas Fitters and Electricians Act 1995 directly.",
+        "In SA any building work contractor needs a licence; the CBS page sets no minimum dollar value, so we treat small building jobs as needing one too.",
+        "Our question about building work uses a $3,300 line set for Queensland. SA building indemnity insurance starts at $20,000, so it is shown as likely, not certain.",
+        "Gas fitting has no separate answer in our questions; it is shown under plumbing and 'other trade'.",
+        "Security, second-hand goods and other occupational licences are not covered.",
+        "Not legal advice. Confirm with CBS Licensing (131 882, option 4) before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "building_work_contractor_licence",
+          "title": "Building work contractor licence",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.trade_work",
+                "op": "contains",
+                "value": "building_over_3300"
+              },
+              {
+                "fact": "business.trade_work",
+                "op": "contains",
+                "value": "building_small"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a building work contractor's licence",
+              "detail": "In SA any person or business working as a building work contractor must hold a licence from Consumer and Business Services, including subcontractors. All building work must be supervised by a registered building work supervisor: sole traders usually apply for the licence and supervisor registration together, and companies nominate a supervisor. Apply online, then print, sign, scan and upload the form with a police certificate no more than 12 months old. An individual's general building work licence with supervisor registration costs $1,139; a company's general building work licence costs $1,575.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_BUILDING_WORK_CONTRACTOR_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Apply online to CBS with your supervisor registration"
+                },
+                "referral_categories": [
+                  "accountant",
+                  "lawyer"
+                ],
+                "task": "Apply for an SA building work contractor's licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Building work contractor licence not identified",
+              "detail": "You said you won't do building work.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_BUILDING_WORK_CONTRACTOR_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Needed to run a building business, including as a subcontractor"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A building work contractor licence may be needed",
+              "detail": "Building work contractors in SA need a CBS licence. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_BUILDING_WORK_CONTRACTOR_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Needed to run a building business, including as a subcontractor",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_bwc_licence",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small jobs",
+              "facts": {
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician only",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "building_indemnity_insurance",
+          "title": "Building indemnity insurance",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "building_over_3300"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Take out building indemnity insurance for domestic jobs of $20,000 or more",
+              "detail": "Under the Building Work Contractors Act 1995, domestic building work (on a house) valued at $20,000 or more that needs development approval must be covered by building indemnity insurance. The threshold rose from $12,000 to $20,000 on 10 November 2025. Work can't start until you have taken out the insurance and given the owner and the council a copy of the certificate. Builders doing major residential work must also attach a certificate of eligibility to their licence application.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_BUILDING_INDEMNITY_INSURANCE",
+                  "authority": "Approved building indemnity insurer (scheme under the Building Work Contractors Act 1995)",
+                  "pathway": "Get eligibility from an approved insurer, then a certificate per job",
+                  "certainty": "LIKELY_REQUIRED"
+                },
+                "referral_categories": [
+                  "insurance_broker"
+                ],
+                "task": "Arrange building indemnity insurance eligibility with an approved insurer"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Building indemnity insurance not identified",
+              "detail": "You said you won't do larger building jobs, so building indemnity insurance wasn't identified.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_BUILDING_INDEMNITY_INSURANCE",
+                  "authority": "Approved building indemnity insurer"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_bii",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "sa_bwc_licence",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician only",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "plumbing_gas_licence",
+          "title": "Plumbing and gas fitting licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "plumbing_drainage"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a plumbing contractor's licence and worker registration",
+              "detail": "In SA, a business that carries out or organises plumbing or gas fitting work needs a plumbing, gas fitting and electrical (PGE) contractor's licence from Consumer and Business Services, and anyone who does the work must be registered as a plumber or gas fitter for the type of work they do. You need at least $10,000 in net assets (or a restricted subcontractor licence) and a police check. A combined worker and contractor licence costs $1,396.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_PLUMBING_GAS_ELECTRICAL_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Apply online to CBS"
+                },
+                "task": "Apply for an SA plumbing contractor's licence and worker registration"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Plumbing licence not identified",
+              "detail": "You said you won't do plumbing or drainage work.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_PLUMBING_GAS_ELECTRICAL_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_pge",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "electrical_licence",
+          "title": "Electrical contractor licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "electrical"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an electrical contractor's licence and worker registration",
+              "detail": "In SA, a business that carries out or organises electrical work needs a PGE contractor's licence from Consumer and Business Services, and every electrician must be registered (a trade apprenticeship or Certificate III, or the National Restricted Electrical Licence for limited work). An individual contractor licence costs $779 and worker registration $617, or $1,396 for both.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_PLUMBING_GAS_ELECTRICAL_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Apply online to CBS"
+                },
+                "task": "Apply for an SA electrical contractor's licence and worker registration"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Electrical contractor licence not identified",
+              "detail": "You said you won't do electrical work.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_PLUMBING_GAS_ELECTRICAL_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_pge",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        },
+        {
+          "key": "other_trade_licences",
+          "title": "Other trade licences",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "other_trade"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "If you do gas fitting, check your licence",
+              "detail": "Gas fitting in SA needs the same PGE contractor's licence from Consumer and Business Services as plumbing and electrical work, plus registration as a gas fitter for the person doing the work. Other trades may need their own occupational licence from CBS; check with CBS Licensing on 131 882 (option 4).",
+              "payload": {
+                "approval": {
+                  "kind": "SA_PLUMBING_GAS_ELECTRICAL_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Apply online to CBS",
+                  "certainty": "MAY_APPLY"
+                },
+                "task": "Check whether your trade needs an SA occupational licence"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_pge",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Other trade",
+              "facts": {
+                "business.trade_work": [
+                  "other_trade"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.sa.personal_appearance",
+      "vertical": "BUSINESS",
+      "jurisdiction": "SA",
+      "title": "South Australia: tattoo, piercing and beauty businesses",
+      "description": "Notifying Consumer and Business Services under the Tattooing Industry Control Act 2015, and council public health oversight of skin penetration.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "SA"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "personal_services"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the sa.gov.au tattoo industry page and general knowledge of SA public health arrangements; the SA Health skin penetration guidelines were not read.",
+        "We don't know whether your council asks skin penetration businesses to register or notify; we show it as something to check.",
+        "Cosmetic injectables and lasers are regulated as health and radiation matters and are not covered.",
+        "Not legal advice. Check with CBS (131 882) and your council's environmental health team."
+      ],
+      "rules": [
+        {
+          "key": "tattoo_notification",
+          "title": "Tattoo business notification",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattooing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "body_piercing"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Notify Consumer and Business Services before you tattoo",
+              "detail": "Under the Tattooing Industry Control Act 2015, anyone who tattoos another person (even for free), runs a business that provides tattoo services, or sells tattoo equipment must notify Consumer and Business Services. Each tattooist and each director must notify individually. There is no fee. The business gives details of directors, employees, the lease or title and premises, and must tell CBS of any change within 14 days. Some people, including members of organised crime groups, are disqualified. Before tattooing or body piercing, you must give each client the prescribed risk and aftercare information and display the prescribed warning notice.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_TATTOO_BUSINESS_NOTIFICATION",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Notify CBS online"
+                },
+                "referral_categories": [
+                  "lawyer"
+                ],
+                "task": "Notify CBS of your tattoo business"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Tattoo business notification not identified",
+              "detail": "From your answers you won't do tattooing or body piercing.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_TATTOO_BUSINESS_NOTIFICATION",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Needed for tattooing"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A tattoo business notification may be needed",
+              "detail": "Tattoo businesses and tattooists must notify CBS. Tell us which services you'll offer so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_TATTOO_BUSINESS_NOTIFICATION",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Needed for tattooing",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_tattoo",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tattoo studio",
+              "facts": {
+                "business.personal_services": [
+                  "tattooing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair only",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "skin_penetration",
+          "title": "Skin penetration hygiene",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattooing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "body_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "ear_nose_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "implants_or_scarring"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "beauty"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattoo_removal"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Your council's environmental health officers can inspect you",
+              "detail": "Tattooing, piercing, waxing, electrolysis and other procedures that pierce the skin are overseen by your council's environmental health team under SA public health law. Before you fit out or open, ask your council whether it wants you to register or notify, and what hygiene standards (hand basins, sterilising and sharps disposal) it expects.",
+              "payload": {
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Ask your council about skin penetration requirements"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "INFO",
+              "title": "Skin penetration not identified",
+              "detail": "From your answers you won't do procedures that pierce the skin."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_tattoo",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Beauty salon",
+              "facts": {
+                "business.personal_services": [
+                  "beauty"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair only",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.sa.education_care",
+      "vertical": "BUSINESS",
+      "jurisdiction": "SA",
+      "title": "South Australia: childcare and education and care services",
+      "description": "Provider and service approval under the Education and Care Services National Law, with the Education Standards Board as SA's regulatory authority.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "SA"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "childcare_education"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the Education Standards Board approved providers and services page, not the National Law or regulations. Processing times and fees were not published on the page read.",
+        "Does not cover school registration or non-National Law services.",
+        "Does not check planning consent for a childcare centre.",
+        "Not legal advice. Talk to the Education Standards Board before you commit to premises."
+      ],
+      "rules": [
+        {
+          "key": "provider_and_service_approval",
+          "title": "Provider and service approval",
+          "condition": {
+            "fact": "business.education_care_service",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need provider approval and service approval",
+              "detail": "Long day care, family day care, outside school hours care and preschools in SA run under the Education and Care Services National Law. The Education Standards Board is SA's regulatory authority. Apply for provider approval first, then service approval for each service, online through the National Quality Agenda IT System (NQAITS) or on the paper forms on the ACECQA website. Approvals must be in place before you operate. Contact the Education Standards Board on 1800 882 413.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Education Standards Board (SA)",
+                  "pathway": "Apply online through the NQA IT System"
+                },
+                "referral_categories": [
+                  "education_care_consultant",
+                  "lawyer"
+                ],
+                "task": "Apply for provider approval, then service approval"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Provider and service approval not identified",
+              "detail": "You said you won't run an education and care service under the National Law.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Education Standards Board (SA)",
+                  "pathway": "Needed for long day care, family day care, outside school hours care and preschools"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A provider and service approval may be needed",
+              "detail": "Education and care services in SA need provider and service approval. Answer the question in the questionnaire so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Education Standards Board (SA)",
+                  "pathway": "Needed for long day care, family day care, outside school hours care and preschools",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_esb",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Childcare centre",
+              "facts": {
+                "business.education_care_service": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Tutoring",
+              "facts": {
+                "business.education_care_service": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "trade.sa.vehicles",
+      "vertical": "TRADE",
+      "jurisdiction": "SA",
+      "title": "South Australia: registering and selling imported vehicles",
+      "description": "Inspecting and registering an imported vehicle in SA (Department for Infrastructure and Transport and Service SA), stamp duty, and the CBS second-hand vehicle dealer licence for resale.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "trade.direction",
+            "op": "in",
+            "value": [
+              "import",
+              "both"
+            ]
+          },
+          {
+            "fact": "trade.goods_categories",
+            "op": "contains",
+            "value": "vehicles"
+          },
+          {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "SA"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from sa.gov.au, RevenueSA and Consumer and Business Services pages, not from the Motor Vehicles Act 1959 or the Second-hand Vehicle Dealers Act 1995.",
+        "Covers light vehicles. Heavy vehicles, trailers and caravans must be inspected at Regency Park and may have extra rules not covered here.",
+        "The CTP premium depends on the vehicle and region and is not shown separately; the $705 example covers a 4-cylinder car in metropolitan Adelaide.",
+        "Doesn't cover conditional (club) registration, or dealers selling only new vehicles.",
+        "Not legal advice. Confirm with Vehicle Standards (1300 882 248), Service SA (13 23 24) or CBS (131 882)."
+      ],
+      "rules": [
+        {
+          "key": "sa_registration",
+          "title": "Registering the vehicle in SA",
+          "condition": {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "SA"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get the vehicle inspected, then register it at Service SA",
+              "detail": "An imported vehicle must pass an identity inspection before any modifications, at the Department for Infrastructure and Transport's inspection station at 7 Naweena Road, Regency Park (no booking needed; phone 8400 8777). You need an unregistered vehicle permit or trade plates to drive it there. Then get a roadworthy inspection ($344, booked) if required, and a compliance plate exemption for personal imports. Take your import approval or Register of Approved Vehicles entry, the inspection certificates and the SA application for registration and compulsory third party insurance (MR1) to a Service SA centre. You pay registration and CTP (about $705 a year for a 4-cylinder car in Adelaide), the $75 identity inspection fee, number plates and stamp duty on the market value unless duty was already paid in another Australian state.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_VEHICLE_REGISTRATION",
+                  "authority": "Department for Infrastructure and Transport (SA), through Service SA",
+                  "pathway": "Identity inspection, then register in person at Service SA"
+                },
+                "task": "Have the vehicle identity-inspected at Regency Park and register it at Service SA"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_import_rego",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "sa_identity_insp",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "sa_insp_fees",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "sa_rego_fees",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "sa_stamp_duty",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "SA",
+              "facts": {
+                "trade.vehicle_state": "SA"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Queensland",
+              "facts": {
+                "trade.vehicle_state": "QLD"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "sa_vehicle_dealer",
+          "title": "Selling imported vehicles in SA",
+          "condition": {
+            "all": [
+              {
+                "fact": "trade.vehicle_purpose",
+                "op": "equals",
+                "value": "sell"
+              },
+              {
+                "fact": "trade.vehicle_state",
+                "op": "equals",
+                "value": "SA"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need a second-hand vehicle dealer's licence to sell imported vehicles",
+              "detail": "In SA you must hold a second-hand vehicle dealer's licence from Consumer and Business Services if you buy, sell or offer for sale 4 or more vehicles in 12 months. Used imports count as second-hand vehicles. Apply online, then print, sign, scan and upload the form with a National Police Certificate no more than 12 months old. An individual licence for cars and motorcycles costs $952 plus a $200 compensation fund contribution ($1,243 plus $200 for a company). You can only trade from the premises registered on your licence, and companies must nominate a licensed manager.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_VEHICLE_DEALER_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Apply online to CBS before you start selling"
+                },
+                "referral_categories": [
+                  "lawyer"
+                ],
+                "task": "Apply to CBS for a second-hand vehicle dealer's licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "SA dealer licence not identified",
+              "detail": "You said the vehicle is for your own use, so a dealer licence wasn't identified. Selling 4 or more vehicles in 12 months would need one.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_VEHICLE_DEALER_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Needed to sell 4 or more vehicles in 12 months"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A dealer licence may be needed",
+              "detail": "Selling 4 or more vehicles in 12 months in SA needs a second-hand vehicle dealer's licence. Tell us whether you'll sell the vehicle so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_VEHICLE_DEALER_LICENCE",
+                  "authority": "Consumer and Business Services (CBS)",
+                  "pathway": "Needed to sell 4 or more vehicles in 12 months",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_dealer",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Selling in SA",
+              "facts": {
+                "trade.vehicle_purpose": "sell",
+                "trade.vehicle_state": "SA"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Own use",
+              "facts": {
+                "trade.vehicle_purpose": "own_use",
+                "trade.vehicle_state": "SA"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Purpose not answered",
+              "facts": {
+                "trade.vehicle_state": "SA"
+              },
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vessel.sa.registration",
+      "vertical": "VESSEL",
+      "jurisdiction": "SA",
+      "title": "South Australia: boat registration and boat operator's licence",
+      "description": "Recreational motorboat registration and the boat operator's licence in SA, from Department for Infrastructure and Transport pages on sa.gov.au, and where commercial vessels fit.",
+      "applies_when": {
+        "fact": "vessel.home_state",
+        "op": "equals",
+        "value": "SA"
+      },
+      "limitations": [
+        "Built from sa.gov.au boating pages, not from the Harbors and Navigation Act 1993 or its regulations.",
+        "Treats any engine as making the boat a motorboat. Kayaks and canoes with small electric motors have special licence rules we don't ask about.",
+        "Fees shown are the listed 2026-27 fees; a 50% discount applies to registrations from 1 December 2025 to 1 December 2026.",
+        "Doesn't cover moorings, boats visiting from interstate (interstate licences are recognised for 90 days) or club registration.",
+        "Not legal advice. Check with Service SA (13 23 24) before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "recreational_registration",
+          "title": "Recreational boat registration",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "any": [
+                  {
+                    "fact": "vessel.propulsion",
+                    "op": "in",
+                    "value": [
+                      "inboard",
+                      "outboard",
+                      "sterndrive",
+                      "jet",
+                      "sail_auxiliary"
+                    ]
+                  },
+                  {
+                    "fact": "vessel.type",
+                    "op": "equals",
+                    "value": "personal_watercraft"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register the boat through Service SA",
+              "detail": "Recreational motorboats in SA must be registered with the Department for Infrastructure and Transport. Fill in the SA application for initial boat registration (MR168), measure the hull from bow to transom, and lodge it at a Service SA centre (or post it to GPO Box 1533, Adelaide SA 5001) with proof of ownership and ID. A Hull Identification Number check may be needed. Twelve-month fees in 2026-27 range from $59 (under 3.1 m) to $174 (3.5 to 5 m) and $484 for a jet ski; a 50% discount applies until 1 December 2026.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_VESSEL_REGISTRATION",
+                  "authority": "Department for Infrastructure and Transport (SA), through Service SA",
+                  "pathway": "Lodge at a Service SA centre or by post"
+                },
+                "task": "Register the boat through Service SA"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "SA registration not identified",
+              "detail": "From your answers this isn't a recreational motorboat. Boats without a motor don't need SA registration. Domestic commercial vessels are certified through AMSA instead.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_VESSEL_REGISTRATION",
+                  "authority": "Department for Infrastructure and Transport (SA), through Service SA"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "SA registration may be needed",
+              "detail": "Recreational motorboats must be registered in SA. Tell us how the boat is powered and whether it's for commercial use so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_VESSEL_REGISTRATION",
+                  "authority": "Department for Infrastructure and Transport (SA), through Service SA",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_boat_rego",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "sa_boat_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tinny with outboard",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.propulsion": "outboard"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Jet ski",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "personal_watercraft",
+                "vessel.propulsion": "jet"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Kayak",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "paddle",
+                "vessel.propulsion": "manual"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Commercial",
+              "facts": {
+                "vessel.commercial_use": true,
+                "vessel.propulsion": "outboard"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "boat_operator_licence",
+          "title": "Boat operator's licence",
+          "condition": {
+            "all": [
+              {
+                "fact": "vessel.commercial_use",
+                "op": "equals",
+                "value": false
+              },
+              {
+                "any": [
+                  {
+                    "fact": "vessel.propulsion",
+                    "op": "in",
+                    "value": [
+                      "inboard",
+                      "outboard",
+                      "sterndrive",
+                      "jet",
+                      "sail_auxiliary"
+                    ]
+                  },
+                  {
+                    "fact": "vessel.type",
+                    "op": "equals",
+                    "value": "personal_watercraft"
+                  }
+                ]
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an SA boat operator's licence",
+              "detail": "You must hold a current boat operator's licence to operate any recreational vessel fitted with an engine in SA, whatever its size. Without one you can only drive a motorboat if you're at least 12, supervised by a licence holder and stay at or under 10 knots. Pass the boat operator's licence theory test ($56), then apply in person at a Service SA centre with original ID (licence $53). Children aged 12 to 15 can get a special permit instead.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_BOAT_OPERATOR_LICENCE",
+                  "authority": "Department for Infrastructure and Transport (SA), through Service SA",
+                  "pathway": "Pass the theory test, then apply at Service SA"
+                },
+                "referral_categories": [
+                  "maritime_trainer"
+                ],
+                "task": "Sit the boat operator's licence theory test and apply at Service SA"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Boat operator's licence not identified",
+              "detail": "From your answers this boat has no engine, so a recreational boat licence wasn't identified. Commercial skippers need an AMSA certificate of competency instead.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_BOAT_OPERATOR_LICENCE",
+                  "authority": "Department for Infrastructure and Transport (SA), through Service SA"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A boat operator's licence may be needed",
+              "detail": "Anyone operating a recreational boat with an engine in SA needs a boat operator's licence. Tell us how the boat is powered so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "SA_BOAT_OPERATOR_LICENCE",
+                  "authority": "Department for Infrastructure and Transport (SA), through Service SA",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_boat_licence",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Runabout",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.propulsion": "outboard"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Sailing dinghy",
+              "facts": {
+                "vessel.commercial_use": false,
+                "vessel.type": "sail",
+                "vessel.propulsion": "sail"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "commercial_through_amsa",
+          "title": "Commercial vessels",
+          "condition": {
+            "fact": "vessel.commercial_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Commercial vessels are regulated by AMSA, not SA recreational registration",
+              "detail": "A boat used for business, hire or carrying paying passengers is a domestic commercial vessel. It needs AMSA certification and a unique vessel identifier instead of SA recreational registration, and its skipper needs an AMSA certificate of competency."
+            }
+          ],
+          "sources": [
+            {
+              "reference": "sa_boat_rego",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Charter boat",
+              "facts": {
+                "vessel.commercial_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Recreational",
+              "facts": {
+                "vessel.commercial_use": false
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

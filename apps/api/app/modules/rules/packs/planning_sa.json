@@ -1,0 +1,1759 @@
+{
+ "key": "planning_sa",
+ "title": "PlanningReady: South Australia (approval pathways)",
+ "notes": "First sourced rules for South Australia, statewide. Built on 2026-10-12 from PlanSA pages, the Planning, Development and Infrastructure Fees Notice effective 1 July 2026, the Ancillary Accommodation Code Amendment and sa.gov.au. Every reference is UNVERIFIED and carries a summary, not the source's wording. Planning and Design Code zones, overlays and policies are not encoded.",
+ "organisations": [
+  {
+   "ref": "plansa",
+   "name": "PlanSA (Government of South Australia)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "SA",
+   "website": "https://plan.sa.gov.au"
+  },
+  {
+   "ref": "sagov",
+   "name": "Government of South Australia (sa.gov.au)",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "SA",
+   "website": "https://www.sa.gov.au"
+  },
+  {
+   "ref": "onkaparinga",
+   "name": "City of Onkaparinga",
+   "kind": "COUNCIL",
+   "jurisdiction": "LGA:SA_ONKAPARINGA",
+   "website": "https://www.onkaparingacity.com"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "fees_notice",
+   "organisation": "plansa",
+   "jurisdiction": "SA",
+   "title": "Planning, Development and Infrastructure Fees Notice (effective 1 July 2026)",
+   "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0006/854538/Planning,-Development-and-Infrastructure-Fees-Notice.pdf",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "fees_glance",
+   "organisation": "plansa",
+   "jurisdiction": "SA",
+   "title": "Fees and charges at a glance, July 2026 (PlanSA)",
+   "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0008/686087/Fees-and-Charges-at-a-Glance.pdf",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "pathways",
+   "organisation": "plansa",
+   "jurisdiction": "SA",
+   "title": "Assessment pathways (PlanSA)",
+   "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_pathways",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "stages",
+   "organisation": "plansa",
+   "jurisdiction": "SA",
+   "title": "Assessment stages (PlanSA)",
+   "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "pc_times",
+   "organisation": "plansa",
+   "jurisdiction": "SA",
+   "title": "Assessment timetables: planning consent (PlanSA)",
+   "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages/assessment_timetables/planning_consent",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bc_times",
+   "organisation": "plansa",
+   "jurisdiction": "SA",
+   "title": "Assessment timetables: building consent (PlanSA)",
+   "url": "https://plan.sa.gov.au/development_applications/getting_approval/how_applications_are_assessed/assessment_stages/assessment_timetables/building_consent",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "ancillary_ca",
+   "organisation": "plansa",
+   "jurisdiction": "SA",
+   "title": "Ancillary Accommodation and Student Accommodation Definitions Review Code Amendment (approved)",
+   "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0011/1432982/Ancillary-Accommodation-and-Student-Accommodation-Definitions-Review-CA-approved.pdf",
+   "source_type": "PLANNING_SCHEME"
+  },
+  {
+   "ref": "ancillary_faq",
+   "organisation": "plansa",
+   "jurisdiction": "SA",
+   "title": "Ancillary accommodation, caravans and moveable housing FAQ (PlanSA)",
+   "url": "https://plan.sa.gov.au/__data/assets/pdf_file/0018/1344132/Ancillary-accommodation-caravans-and-moveable-housing-FAQ.pdf",
+   "source_type": "GUIDELINE"
+  },
+  {
+   "ref": "subdividing",
+   "organisation": "sagov",
+   "jurisdiction": "SA",
+   "title": "Subdividing land (sa.gov.au)",
+   "url": "https://www.sa.gov.au/topics/housing-and-property/planning-and-property/subdividing-land",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "pd_fund",
+   "organisation": "plansa",
+   "jurisdiction": "SA",
+   "title": "Planning and Development Fund (PlanSA)",
+   "url": "https://plan.sa.gov.au/our_planning_system/schemes/planning_and_development_fund",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "onkaparinga",
+   "organisation": "onkaparinga",
+   "jurisdiction": "LGA:SA_ONKAPARINGA",
+   "title": "Ancillary accommodation: granny flats, tiny homes and transportables (City of Onkaparinga)",
+   "url": "https://www.onkaparingacity.com/Planning-and-development/Planning-and-development-FAQs/Ancillary-accommodation-granny-flats-tiny-homes-and-transportables",
+   "source_type": "WEBPAGE"
+  }
+ ],
+ "references": [
+  {
+   "ref": "pathways_overview",
+   "document": "pathways",
+   "section": "Assessment pathways",
+   "extracted_text": "[Summary, not the source's wording] Exempt development needs no approval (Schedules 4, 4A, 5 and 13 of the General Regulations 2017). Accepted development needs building consent only, no planning consent. Deemed-to-satisfy development is straightforward, envisaged for its location, fast-tracked and cannot be refused. Performance assessed development is assessed on merit against the Planning and Design Code and may involve public notification or referrals. Restricted development is assessed by the State Planning Commission. The Code online and the SA Property and Planning Atlas show the zones, overlays and likely pathways for a property. Accredited professionals can decide eligible applications.",
+   "interpretation": "Which pathway applies depends on the zone and overlays, which we don't know, so planning consent is MAY_APPLY. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "stages_overview",
+   "document": "stages",
+   "section": "Assessment stages",
+   "extracted_text": "[Summary, not the source's wording] Every assessment has a 5 business day verification period at the start and 2 business days at the end. Stages are lodgement, more information, referrals, public notification if required, planning decision, appeals, building consent, building decision, then full development approval issued by a council or the State Planning Commission, then building work. Land division consent takes 30 business days for 10 or fewer allotments with no new public road, otherwise 60. A Certificate of Occupancy is required for all new habitable buildings except Class 1a.",
+   "interpretation": "Development approval comes only after every consent is granted. Houses (Class 1a) don't need a certificate of occupancy. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pc_timeframes",
+   "document": "pc_times",
+   "section": "Legislated times for planning consent",
+   "extracted_text": "[Summary, not the source's wording] Planning consent timeframes in business days: deemed-to-satisfy 5; performance assessed with no notification or referral 20; with a referral 50; with public notification 70 (including 15 days of notification and 15 for the applicant's response); restricted with notification 95.",
+   "interpretation": "Statutory timeframes to quote in guides and outcomes. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "bc_timeframes",
+   "document": "bc_times",
+   "section": "Building consent timeframes",
+   "extracted_text": "[Summary, not the source's wording] Building consent timeframes in business days: Class 1 or 10, 20 (plus 10 if referred to SCAP); Class 2 to 9, 60 (plus 10 if referred to SCAP).",
+   "interpretation": "Houses, granny flats and sheds are Class 1 or 10, so building consent is normally 20 business days. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "fees_2026",
+   "document": "fees_notice",
+   "section": "Clause 2 and Schedule (fees from 1 July 2026)",
+   "extracted_text": "[Summary, not the source's wording] The notice has effect on 1 July 2026. Land division under section 102(1)(c) or (d): $210 plus $19.10 for each additional allotment where more than 4 are created or a public road is involved. Commission concurrence or opinion: $412. Section 198 contribution: $10,166 for each new allotment or strata lot of 1 hectare or less in Greater Adelaide, and $3,723 elsewhere in South Australia.",
+   "interpretation": "Read directly from the notice PDF via an automated summary. Statewide fees for 2026-27. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "fees_glance_2026",
+   "document": "fees_glance",
+   "section": "Fees and charges at a glance, July 2026",
+   "extracted_text": "[Summary, not the source's wording] Lodgement fee by development cost from $98.50 (up to $10,000) to $197 ($300,001 to $500,000) and more for larger projects. Deemed-to-satisfy planning consent $151 (under $10,000) or $250. Performance assessed $299 or 0.125% of cost up to $200,000, whichever is greater. Building consent Class 1 $538 or 0.25% of cost; Class 10 $154 or 0.25%. Certificate of Approval (land division certificate) $1,229. Certificate of Occupancy $59.50. Class 1 inspection $287. Minor variation $151.",
+   "interpretation": "Statewide 2026-27 fees that council and the portal charge. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "ancillary_definition",
+   "document": "ancillary_ca",
+   "section": "Instruction 1 (definition) and DTS/DPF 19.5 and 13.5",
+   "extracted_text": "[Summary, not the source's wording] Ancillary accommodation is on the same site as an existing dwelling and ancillary to it, can be self-contained, and has no more than 2 bedrooms or rooms capable of being bedrooms. Deemed-to-satisfy criteria include a floor area of 70 m2 or less, wall height up to 3 m, roof height up to 5 m, not in front of the dwelling's building line, no separate connection to utilities and services, and unrestricted access to the existing dwelling's private open space. The amendment had interim operation from 29 February 2024.",
+   "interpretation": "A granny flat up to 70 m2 that meets every deemed-to-satisfy criterion can follow the deemed-to-satisfy pathway, where the zone allows. Larger ones or ones that miss a criterion are likely performance assessed. Whether the deemed-to-satisfy criteria apply in every zone and overlay was not confirmed. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "ancillary_approval",
+   "document": "ancillary_faq",
+   "section": "Ancillary accommodation",
+   "extracted_text": "[Summary, not the source's wording] Building ancillary accommodation needs development approval: planning approval for siting and building approval because it is a Class 1a habitable building. There are no limits on who can occupy it, and approval conditions can't stop it being leased or rented. Tiny homes on wheels need approval unless used as ancillary accommodation with no building work. A parked caravan used by an occupant of the dwelling does not need approval.",
+   "interpretation": "Granny flats always need development approval (planning and building consent). Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "onk_ancillary",
+   "document": "onkaparinga",
+   "section": "Ancillary accommodation FAQ",
+   "extracted_text": "[Summary, not the source's wording] Development approval is required regardless of size. Planning approval covers siting and impacts; building approval covers the National Construction Code. Applications are lodged on the PlanSA portal. Building without approval can attract a penalty of up to $120,000.",
+   "interpretation": "Council confirmation that small granny flats are not exempt. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "subdivision_overview",
+   "document": "subdividing",
+   "section": "Subdividing land",
+   "extracted_text": "[Summary, not the source's wording] A licensed surveyor prepares the plans for lodgement with the State Commission Assessment Panel (SCAP). A conveyancer or solicitor lodges with Land Services SA. Fees include SCAP and Land Services SA lodgement fees, surveying and conveyancing, and possibly SA Water, SA Power Networks and open space contribution fees. Large subdivisions must set aside at least 12.5% of the land as open space; smaller ones may pay a contribution into the Planning and Development Fund instead.",
+   "interpretation": "Subdivision needs land division consent and a separate step to get new titles. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "pd_fund_overview",
+   "document": "pd_fund",
+   "section": "Planning and Development Fund",
+   "extracted_text": "[Summary, not the source's wording] The Fund receives payments in lieu of open space for land divisions of 20 or fewer allotments and for strata and community titles. It is administered by the Department for Housing and Urban Development.",
+   "interpretation": "Small subdivisions usually pay an open space contribution rather than giving land. Captured on 2026-10-12 from an automated summary of the published page; the exact wording was not available. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "planning.sa.building",
+   "vertical": "PLANNING",
+   "jurisdiction": "SA",
+   "title": "South Australia: houses, extensions and granny flats",
+   "description": "Planning consent, building consent and development approval in South Australia for new houses, extensions and ancillary accommodation.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say which assessment pathway applies, only which approvals you may need.",
+    "The Planning and Design Code's zone and overlay rules are not encoded. The free SA Property and Planning Atlas (SAPPA) shows your zone and overlays.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, an accredited professional or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "planning_consent_option",
+     "title": "Planning consent may be needed, depending on zone and overlays",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need planning consent",
+       "detail": "In South Australia the Planning and Design Code sets the pathway for your project. Minor work may be exempt or accepted (building consent only). A new house in a residential zone is often deemed-to-satisfy, which is decided in 5 business days and can't be refused if it meets every criterion. Anything else is performance assessed on merit, in 20 to 70 business days. Look up your zone and overlays on the SA Property and Planning Atlas (SAPPA).",
+       "payload": {
+        "approval": {
+         "kind": "SA_PLANNING_CONSENT",
+         "authority": "Your local council (assessment manager or assessment panel), or an accredited professional for eligible deemed-to-satisfy applications",
+         "pathway": "Planning consent under the Planning, Development and Infrastructure Act 2016, assessed against the Planning and Design Code",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "SITE_PLAN",
+          "title": "Site plan with setbacks, heights and existing buildings"
+         },
+         {
+          "kind": "CERTIFICATE_OF_TITLE",
+          "title": "Current certificate of title"
+         },
+         {
+          "kind": "ARCHITECTURAL_PLANS",
+          "title": "Floor plans and elevations"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Look up your zone and overlays on SAPPA and check the pathway in the Planning and Design Code"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pc_timeframes",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "MAY_APPLY because we don't know the zone or overlays."
+    },
+    {
+     "key": "building_consent",
+     "title": "Building work needs building consent",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You likely need building consent",
+       "detail": "Building a house, granny flat or extension needs building consent, checked against the National Construction Code. Your council or a private building certifier (an accredited professional) can give it. For a house it takes 20 business days, plus 10 if referred to SCAP. The fee to council is $538 or 0.25% of the cost, whichever is greater.",
+       "payload": {
+        "approval": {
+         "kind": "SA_BUILDING_CONSENT",
+         "authority": "Your council or an accredited professional (private building certifier)",
+         "pathway": "Building consent under the Planning, Development and Infrastructure Act 2016, assessed against the Building Rules (National Construction Code)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "ENGINEERING_DRAWINGS",
+          "title": "Structural engineering drawings and calculations"
+         },
+         {
+          "kind": "ENERGY_RATING",
+          "title": "Energy efficiency assessment"
+         }
+        ],
+        "referral_categories": [
+         "building_certifier",
+         "architect",
+         "builder"
+        ],
+        "task": "Choose your council or a private building certifier for building consent"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "bc_timeframes",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_glance_2026",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "stages_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "development_approval",
+     "title": "Development approval comes after all consents",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You need development approval before you start",
+       "detail": "Development approval is the final step. It is issued once every consent you need (planning, building and any land division) is granted. You can't start work until you have it. It is issued through the PlanSA portal.",
+       "payload": {
+        "approval": {
+         "kind": "SA_DEVELOPMENT_APPROVAL",
+         "authority": "Your local council or the State Planning Commission, once every consent is granted",
+         "pathway": "Development approval under the Planning, Development and Infrastructure Act 2016",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "task": "Wait for development approval on the PlanSA portal before work starts"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "stages_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pathways_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "heritage",
+     "title": "Heritage places need planning consent",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "heritage"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Heritage listing means you likely need planning consent",
+       "detail": "If your property is a State Heritage Place or Local Heritage Place, or is in a Historic Area, the Code's heritage overlays apply. Work is usually performance assessed and State Heritage Places are referred to the state heritage authority. Expect longer timeframes (50 or 70 business days) and talk to your council early.",
+       "payload": {
+        "approval": {
+         "kind": "SA_PLANNING_CONSENT",
+         "authority": "Your local council (assessment manager or assessment panel), or an accredited professional for eligible deemed-to-satisfy applications",
+         "pathway": "Planning consent under the Planning, Development and Infrastructure Act 2016, assessed against the Planning and Design Code",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "HERITAGE_IMPACT_STATEMENT",
+          "title": "Heritage impact statement"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "architect"
+        ],
+        "task": "Check the heritage overlays for your land on SAPPA and talk to your council"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pc_timeframes",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Heritage ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other constraint",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Overlay names (State Heritage Place, Local Heritage Place, Historic Area) are from knowledge of the Code, not read this session."
+    },
+    {
+     "key": "bushfire",
+     "title": "Bushfire hazard overlays add requirements",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "bushfire"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "A bushfire overlay may affect your design",
+       "detail": "Land in one of the Code's Hazards (Bushfire) overlays has extra planning rules, like access for fire trucks, water supply and vegetation clearance, and the building must be built to the right bushfire construction level. In higher risk areas the application may be referred to the CFS, which adds time. Check the overlay on SAPPA.",
+       "payload": {
+        "approval": {
+         "kind": "SA_PLANNING_CONSENT",
+         "authority": "Your local council (assessment manager or assessment panel), or an accredited professional for eligible deemed-to-satisfy applications",
+         "pathway": "Planning consent under the Planning, Development and Infrastructure Act 2016, assessed against the Planning and Design Code",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "BUSHFIRE_ASSESSMENT",
+          "title": "Bushfire attack level (BAL) assessment"
+         }
+        ],
+        "referral_categories": [
+         "town_planner",
+         "building_certifier"
+        ],
+        "task": "Check which Hazards (Bushfire) overlay applies on SAPPA"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pc_timeframes",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Bushfire ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Heritage only",
+       "facts": {
+        "planning.known_constraints": [
+         "heritage"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Overlay detail and CFS referral not read this session; WARNING outcome."
+    },
+    {
+     "key": "flooding",
+     "title": "Flood hazard overlays",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "flooding"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Flooding may change your floor levels and pathway",
+       "detail": "If your land is in a flood hazard overlay, the Code can set minimum floor levels and other design rules. That can move your application from deemed-to-satisfy to performance assessed. Check the overlays on SAPPA and ask your council about flood levels.",
+       "payload": {
+        "task": "Check flood overlays on SAPPA and ask council for the flood level"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Flooding ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "flooding"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other",
+       "facts": {
+        "planning.known_constraints": [
+         "easement"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "vegetation",
+     "title": "Trees and native vegetation",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "vegetation"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Removing or damaging trees may need approval",
+       "detail": "Removing or damaging a regulated or significant tree is development in South Australia and needs approval. Clearing native vegetation can also need separate approval. Ask your council or an arborist before you plan to remove trees.",
+       "payload": {
+        "approval": {
+         "kind": "SA_PLANNING_CONSENT",
+         "authority": "Your local council (assessment manager or assessment panel), or an accredited professional for eligible deemed-to-satisfy applications",
+         "pathway": "Planning consent under the Planning, Development and Infrastructure Act 2016, assessed against the Planning and Design Code",
+         "certainty": "MAY_APPLY"
+        },
+        "evidence": [
+         {
+          "kind": "ARBORIST_REPORT",
+          "title": "Arborist report on trees on and near the site"
+         }
+        ],
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Ask council whether any tree on the site is regulated or significant"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vegetation ticked",
+       "facts": {
+        "planning.known_constraints": [
+         "vegetation"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Other",
+       "facts": {
+        "planning.known_constraints": [
+         "steep_slope"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Regulated tree rules are from knowledge, not read this session."
+    },
+    {
+     "key": "certificate_of_occupancy_house",
+     "title": "Houses don't need a certificate of occupancy",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "new_dwelling",
+       "secondary_dwelling"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "No certificate of occupancy for a house or granny flat",
+       "detail": "A certificate of occupancy is needed for new habitable buildings in South Australia, except Class 1a buildings such as houses and granny flats. Your builder still has to finish the work in line with the approval, and inspections apply."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "stages_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.sa.ancillary",
+   "vertical": "PLANNING",
+   "jurisdiction": "SA",
+   "title": "South Australia: ancillary accommodation (granny flats)",
+   "description": "Ancillary accommodation rules in the Planning and Design Code.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say which assessment pathway applies, only which approvals you may need.",
+    "The Planning and Design Code's zone and overlay rules are not encoded. The free SA Property and Planning Atlas (SAPPA) shows your zone and overlays.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, an accredited professional or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "floor_area",
+     "title": "Granny flats up to 70 m2 can be deemed-to-satisfy",
+     "condition": {
+      "fact": "planning.secondary_dwelling_floor_area_m2",
+      "op": "less_equal",
+      "value": 70
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "At 70 m2 or less, your granny flat may be deemed-to-satisfy",
+       "detail": "Under the Planning and Design Code, ancillary accommodation up to 70 m2 can be deemed-to-satisfy if it also meets the other criteria: wall height up to 3 m, roof up to 5 m, not in front of the house, no separate utility connections and shared access to the backyard. Deemed-to-satisfy is decided in 5 business days and can't be refused. You still need planning and building consent.",
+       "payload": {
+        "approval": {
+         "kind": "SA_PLANNING_CONSENT",
+         "authority": "Your local council (assessment manager or assessment panel), or an accredited professional for eligible deemed-to-satisfy applications",
+         "pathway": "Planning consent under the Planning, Development and Infrastructure Act 2016, assessed against the Planning and Design Code (deemed-to-satisfy where every criterion is met)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "task": "Check your design against the ancillary accommodation deemed-to-satisfy criteria"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Over 70 m2, your granny flat will likely be performance assessed",
+       "detail": "Ancillary accommodation over 70 m2 doesn't meet the deemed-to-satisfy floor area. It is likely to be performance assessed on merit, which takes 20 business days or more and can be refused.",
+       "payload": {
+        "approval": {
+         "kind": "SA_PLANNING_CONSENT",
+         "authority": "Your local council (assessment manager or assessment panel), or an accredited professional for eligible deemed-to-satisfy applications",
+         "pathway": "Planning consent under the Planning, Development and Infrastructure Act 2016, assessed against the Planning and Design Code (performance assessed)",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Ask a town planner whether a smaller design would be quicker"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ancillary_definition",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "ancillary_approval",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "60 m2",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 60
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "90 m2",
+       "facts": {
+        "planning.secondary_dwelling_floor_area_m2": 90
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Ancillary Accommodation Code Amendment set 70 m2 (not 60 m2 as first proposed). Zone exclusions not confirmed."
+    },
+    {
+     "key": "bedrooms",
+     "title": "Ancillary accommodation has at most 2 bedrooms",
+     "condition": {
+      "fact": "planning.secondary_dwelling_bedrooms",
+      "op": "greater_than",
+      "value": 2
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "With more than 2 bedrooms it isn't ancillary accommodation",
+       "detail": "The Code defines ancillary accommodation as having no more than 2 bedrooms or rooms that could be bedrooms. With more, it is treated as a second dwelling, which is usually performance assessed and may not be allowed in your zone.",
+       "payload": {
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Reduce to 2 bedrooms or get planning advice on a second dwelling"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ancillary_definition",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "3 bedrooms",
+       "facts": {
+        "planning.secondary_dwelling_bedrooms": 3
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "1 bedroom",
+       "facts": {
+        "planning.secondary_dwelling_bedrooms": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "existing_home",
+     "title": "Ancillary accommodation must go with an existing house",
+     "condition": {
+      "fact": "property.has_existing_dwelling",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your granny flat would sit with your existing house",
+       "detail": "Ancillary accommodation must be on the same site as an existing dwelling and ancillary to it. You can rent it to anyone: approval conditions can't stop it being leased."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Without a house on the site, it isn't ancillary accommodation",
+       "detail": "Ancillary accommodation has to be on the same site as an existing dwelling. If there is no house yet, apply for the house first or together, or get planning advice.",
+       "payload": {
+        "referral_categories": [
+         "town_planner"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "ancillary_definition",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "ancillary_approval",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Has house",
+       "facts": {
+        "property.has_existing_dwelling": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Vacant",
+       "facts": {
+        "property.has_existing_dwelling": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.sa.land_division",
+   "vertical": "PLANNING",
+   "jurisdiction": "SA",
+   "title": "South Australia: land division",
+   "description": "Land division consent, development approval, open space contributions and the land division certificate.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "subdivision"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say which assessment pathway applies, only which approvals you may need.",
+    "The Planning and Design Code's zone and overlay rules are not encoded. The free SA Property and Planning Atlas (SAPPA) shows your zone and overlays.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, an accredited professional or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "land_division_consent",
+     "title": "Subdividing needs land division consent",
+     "condition": {
+      "fact": "planning.proposed_lots",
+      "op": "greater_equal",
+      "value": 2
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You need land division consent and a land division certificate",
+       "detail": "Dividing land in South Australia needs development approval for the land division, usually lodged by a licensed surveyor on the PlanSA portal and assessed by SCAP or your council. Consent takes 30 business days for 10 or fewer lots with no new road, otherwise 60. Once conditions are met, you get a land division certificate ($1,229) and lodge the plan with Land Services SA for new titles.",
+       "payload": {
+        "approval": {
+         "kind": "SA_LAND_DIVISION",
+         "authority": "State Commission Assessment Panel (SCAP) or your council, depending on the proposal",
+         "pathway": "Land division consent and a land division certificate (Certificate of Approval) under the Planning, Development and Infrastructure Act 2016",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "evidence": [
+         {
+          "kind": "PLAN_OF_DIVISION",
+          "title": "Proposed plan of division from a licensed surveyor"
+         },
+         {
+          "kind": "CERTIFICATE_OF_TITLE",
+          "title": "Current certificate of title"
+         }
+        ],
+        "referral_categories": [
+         "cadastral_surveyor",
+         "town_planner",
+         "lawyer"
+        ],
+        "task": "Engage a licensed surveyor to prepare and lodge the land division application"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "subdivision_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "stages_overview",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "fees_glance_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Two lots",
+       "facts": {
+        "planning.proposed_lots": 2
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "One lot",
+       "facts": {
+        "planning.proposed_lots": 1
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "development_approval_ld",
+     "title": "Development approval for the land division",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "subdivision"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Development approval follows land division consent",
+       "detail": "After land division consent (and any planning or building consent), development approval is issued. Then the conditions must be met before the land division certificate.",
+       "payload": {
+        "approval": {
+         "kind": "SA_DEVELOPMENT_APPROVAL",
+         "authority": "Your local council or the State Planning Commission, once every consent is granted",
+         "pathway": "Development approval under the Planning, Development and Infrastructure Act 2016",
+         "certainty": "LIKELY_REQUIRED"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "stages_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "open_space",
+     "title": "Open space contribution",
+     "condition": {
+      "fact": "planning.proposed_lots",
+      "op": "less_equal",
+      "value": 20
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Budget for an open space contribution per new lot",
+       "detail": "Land divisions of 20 or fewer lots usually pay into the Planning and Development Fund instead of giving land for parks. From 1 July 2026 it is $10,166 for each new lot in Greater Adelaide and $3,723 elsewhere in South Australia. It is paid before the land division certificate is issued.",
+       "payload": {
+        "task": "Budget for the open space contribution for each new lot"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Larger land divisions must provide open space",
+       "detail": "Land divisions of more than 20 lots generally have to set aside at least 12.5% of the land for open space, or pay in lieu where allowed."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "fees_2026",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pd_fund_overview",
+       "relationship": "SUPPORTING"
+      },
+      {
+       "reference": "subdivision_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Two lots",
+       "facts": {
+        "planning.proposed_lots": 2
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Thirty lots",
+       "facts": {
+        "planning.proposed_lots": 30
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ],
+     "notes": "Payment timing (before the certificate) is from knowledge of section 198, not read this session."
+    },
+    {
+     "key": "bushfire_subdivision",
+     "title": "Bushfire and land division",
+     "condition": {
+      "fact": "planning.known_constraints",
+      "op": "contains",
+      "value": "bushfire"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "WARNING",
+       "title": "Bushfire overlays affect subdivision design",
+       "detail": "In a Hazards (Bushfire) overlay, new lots may need fire truck access, water supply and space for asset protection zones. Your surveyor and planner should design for this from the start.",
+       "payload": {
+        "referral_categories": [
+         "town_planner",
+         "cadastral_surveyor"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Bushfire",
+       "facts": {
+        "planning.known_constraints": [
+         "bushfire"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "None",
+       "facts": {
+        "planning.known_constraints": [
+         "easement"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.sa.change_of_use",
+   "vertical": "PLANNING",
+   "jurisdiction": "SA",
+   "title": "South Australia: change of use",
+   "description": "Planning consent, building consent and certificate of occupancy for a change of use.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "change_of_use"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say which assessment pathway applies, only which approvals you may need.",
+    "The Planning and Design Code's zone and overlay rules are not encoded. The free SA Property and Planning Atlas (SAPPA) shows your zone and overlays.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, an accredited professional or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "change_of_use_planning",
+     "title": "A change of use may need planning consent",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need planning consent for the new use",
+       "detail": "Changing how land or a building is used is development in South Australia. Whether it needs planning consent, and which pathway applies, depends on the zone and the new use in the Planning and Design Code. Check on SAPPA and the Code online, then ask your council.",
+       "payload": {
+        "approval": {
+         "kind": "SA_PLANNING_CONSENT",
+         "authority": "Your local council (assessment manager or assessment panel), or an accredited professional for eligible deemed-to-satisfy applications",
+         "pathway": "Planning consent under the Planning, Development and Infrastructure Act 2016, assessed against the Planning and Design Code",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner"
+        ],
+        "task": "Check whether your new use is envisaged in your zone in the Planning and Design Code"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "pc_timeframes",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "change_of_use_building",
+     "title": "Building consent for a change of classification",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need building consent and a certificate of occupancy",
+       "detail": "If the new use changes the building's classification under the National Construction Code, or needs building work, you need building consent ($202 to change classification). A certificate of occupancy ($59.50) is needed before people use a new habitable building other than a house.",
+       "payload": {
+        "approval": {
+         "kind": "SA_BUILDING_CONSENT",
+         "authority": "Your council or an accredited professional (private building certifier)",
+         "pathway": "Building consent under the Planning, Development and Infrastructure Act 2016, assessed against the Building Rules (National Construction Code)",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "building_certifier"
+        ],
+        "task": "Ask a building certifier whether the building's classification changes"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "stages_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_glance_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Extension",
+       "facts": {
+        "planning.development_type": "extension"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "change_of_use_occupancy",
+     "title": "Certificate of occupancy",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "change_of_use"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need a certificate of occupancy",
+       "detail": "A certificate of occupancy is required for new habitable buildings other than Class 1a houses. If your change of use needs building consent, ask whether you need one before you open or move in.",
+       "payload": {
+        "approval": {
+         "kind": "SA_CERTIFICATE_OF_OCCUPANCY",
+         "authority": "Your council or the accredited professional who granted building consent",
+         "pathway": "Certificate of occupancy under the Planning, Development and Infrastructure Act 2016",
+         "certainty": "MAY_APPLY"
+        },
+        "task": "Confirm whether a certificate of occupancy is needed before you open"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "stages_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "fees_glance_2026",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Change of use",
+       "facts": {
+        "planning.development_type": "change_of_use"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "New house",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "planning.sa.general",
+   "vertical": "PLANNING",
+   "jurisdiction": "SA",
+   "title": "South Australia: every project",
+   "description": "Steps that apply to every planning project in South Australia.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "property.address.state",
+      "op": "equals",
+      "value": "SA"
+     },
+     {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     }
+    ]
+   },
+   "limitations": [
+    "We don't know your zone or the overlays on your land, so we can't say which assessment pathway applies, only which approvals you may need.",
+    "The Planning and Design Code's zone and overlay rules are not encoded. The free SA Property and Planning Atlas (SAPPA) shows your zone and overlays.",
+    "Constraints like heritage, bushfire and flooding come from your answers. Not ticking one doesn't mean it doesn't apply.",
+    "Not legal advice. Confirm with your council, an accredited professional or a town planner before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "sappa_lookup",
+     "title": "Start with SAPPA and the Code",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "subdivision",
+       "change_of_use",
+       "other"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Look up your zone and overlays on SAPPA",
+       "detail": "The SA Property and Planning Atlas (SAPPA) is free and shows your zone, subzone and overlays. Then check the rules in the Planning and Design Code online. Together they show whether your project is likely exempt, accepted, deemed-to-satisfy or performance assessed. Questions: PlanSA service desk on 1800 752 664.",
+       "payload": {
+        "task": "Look up your property on SAPPA"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Any project",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "accredited_professionals",
+     "title": "Accredited professionals",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "secondary_dwelling",
+       "new_dwelling",
+       "extension",
+       "change_of_use"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You can use a private certifier",
+       "detail": "In South Australia, accredited professionals can decide eligible applications instead of council. A private building certifier can give building consent, and accredited planners can decide some deemed-to-satisfy planning applications. They set their own fees.",
+       "payload": {
+        "referral_categories": [
+         "building_certifier",
+         "town_planner"
+        ]
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "other_project",
+     "title": "Other projects",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "equals",
+      "value": "other"
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Your project may need development approval",
+       "detail": "Some minor work is exempt (like many fences and small sheds) and some is accepted, needing building consent only (like many carports). We can't tell from the description. Check the Code and SAPPA, and ask your council.",
+       "payload": {
+        "approval": {
+         "kind": "SA_DEVELOPMENT_APPROVAL",
+         "authority": "Your local council or the State Planning Commission, once every consent is granted",
+         "pathway": "Development approval under the Planning, Development and Infrastructure Act 2016",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "town_planner",
+         "building_certifier"
+        ],
+        "task": "Ask your council whether your project is exempt or accepted"
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "pathways_overview",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "stages_overview",
+       "relationship": "SUPPORTING"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Other",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "House",
+       "facts": {
+        "planning.development_type": "new_dwelling"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "other_project_building",
+     "title": "Building consent for other projects",
+     "condition": {
+      "fact": "planning.development_type",
+      "op": "in",
+      "value": [
+       "other",
+       "change_of_use"
+      ]
+     },
+     "effective_from": "2026-07-01",
+     "max_confidence": "LIKELY",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Development approval comes after all consents",
+       "detail": "If your project needs any consent, you can't start until development approval is issued on the PlanSA portal.",
+       "payload": {
+        "approval": {
+         "kind": "SA_DEVELOPMENT_APPROVAL",
+         "authority": "Your local council or the State Planning Commission, once every consent is granted",
+         "pathway": "Development approval under the Planning, Development and Infrastructure Act 2016",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "stages_overview",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Other",
+       "facts": {
+        "planning.development_type": "other"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Subdivision",
+       "facts": {
+        "planning.development_type": "subdivision"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

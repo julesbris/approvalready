@@ -1,0 +1,68 @@
+{
+  "key": "rent.sa_end_of_tenancy",
+  "vertical": "RENT",
+  "title": "Ending a South Australian tenancy",
+  "description": "Steps for ending a tenancy after the 2024 and 2025 reforms. Summarised from Consumer and Business Services and SA.GOV.AU guidance.",
+  "sources": [
+    {
+      "title": "Tenancy reforms for landlords and agents",
+      "organisation": "Consumer and Business Services",
+      "url": "https://www.cbs.sa.gov.au/sections/renting/renting/tenancy-reforms-for-landlords-and-agents"
+    },
+    {
+      "title": "Forms and fact sheets for private rental tenancies",
+      "organisation": "SA.GOV.AU",
+      "url": "https://www.sa.gov.au/topics/housing/renting-and-letting/renting-privately/forms-and-fact-sheets-for-private-rental-tenancies"
+    }
+  ],
+  "items": [
+    {
+      "key": "prescribed_reason",
+      "title": "Confirm you have a prescribed reason to end or not renew the tenancy"
+    },
+    {
+      "key": "evidence",
+      "title": "Gather evidence of the reason"
+    },
+    {
+      "key": "fixed_term_notice",
+      "title": "To end a fixed term at its end, give 60 days' notice on the SA Form 9 notice of termination at end of fixed term",
+      "required": false
+    },
+    {
+      "key": "periodic_notice",
+      "title": "For a periodic tenancy, use the SA Form 7 notice of termination (possession required) or the SA Form 8 notice of termination on specified ground",
+      "required": false
+    },
+    {
+      "key": "breach_notice",
+      "title": "For a breach, use the SA Form 5 landlord's notice of breach",
+      "required": false
+    },
+    {
+      "key": "early_leave",
+      "title": "Expect that the tenant may leave early on 7 days' notice"
+    },
+    {
+      "key": "final_inspection",
+      "title": "Inspect with the SA inspection sheet from the start of the tenancy"
+    },
+    {
+      "key": "bond_refund",
+      "title": "Agree the bond refund and process it through SA Residential Bonds Online"
+    },
+    {
+      "key": "abandoned_goods",
+      "title": "Keep any goods left behind safe for 7 days",
+      "required": false
+    },
+    {
+      "key": "no_relet",
+      "title": "Don't re-let the home within 6 months of your notice unless SACAT allows it"
+    },
+    {
+      "key": "records",
+      "title": "Keep the tenant's records for 3 years after the tenancy ends, securely"
+    }
+  ]
+}
