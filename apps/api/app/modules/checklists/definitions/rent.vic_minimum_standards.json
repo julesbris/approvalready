@@ -1,0 +1,86 @@
+{
+  "key": "rent.vic_minimum_standards",
+  "vertical": "RENT",
+  "title": "Victorian rental minimum standards",
+  "description": "The 15 categories of minimum standards a Victorian rental must meet when advertised and before the renter moves in. Summarised from Consumer Affairs Victoria.",
+  "sources": [
+    {
+      "title": "Minimum standards for rental properties",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/minimum-standards/minimum-standards-for-rental-properties"
+    },
+    {
+      "title": "New changes to the rental laws",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/new-changes-to-the-rental-laws"
+    }
+  ],
+  "items": [
+    {
+      "key": "bathroom",
+      "title": "Washbasin and shower or bath with reasonable hot and cold water",
+      "detail": "Showers need a 3-star water rating where one can be fitted."
+    },
+    {
+      "key": "electrical",
+      "title": "Modern switchboard with circuit breakers and safety switches (RCDs)"
+    },
+    {
+      "key": "heating",
+      "title": "A fixed, energy-efficient heater in the main living area"
+    },
+    {
+      "key": "kitchen",
+      "title": "Cooking and food preparation area, sink with hot and cold water, stovetop with 2 or more burners"
+    },
+    {
+      "key": "laundry",
+      "title": "Hot and cold water in the laundry",
+      "required": false
+    },
+    {
+      "key": "lighting",
+      "title": "Natural light by day and artificial light at night in rooms and hallways"
+    },
+    {
+      "key": "locks",
+      "title": "Working deadlocks or qualifying locks on external entry doors"
+    },
+    {
+      "key": "mould_damp",
+      "title": "All rooms free from mould and damp caused by the building structure"
+    },
+    {
+      "key": "structure",
+      "title": "Structurally sound and weatherproof"
+    },
+    {
+      "key": "toilet",
+      "title": "Working toilet in a separate room, connected to sewer or an approved system"
+    },
+    {
+      "key": "ventilation",
+      "title": "Adequate ventilation in habitable rooms, bathrooms, toilets and laundry"
+    },
+    {
+      "key": "bins",
+      "title": "Vermin-proof rubbish and recycling bins that meet council requirements"
+    },
+    {
+      "key": "windows",
+      "title": "External windows that open have working latches"
+    },
+    {
+      "key": "window_coverings",
+      "title": "Curtains or blinds in bedrooms and living areas that block light and give privacy"
+    },
+    {
+      "key": "blind_cords",
+      "title": "Anchors fitted on all corded internal blinds and curtains"
+    },
+    {
+      "key": "records",
+      "title": "Keep records showing the property met the standards (from 13 October 2026)"
+    }
+  ]
+}

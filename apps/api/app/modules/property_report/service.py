@@ -65,10 +65,14 @@ CADASTRE_URL = "https://qldglobe.information.qld.gov.au/"
 STATE_MAP_URLS = {
     "QLD": CADASTRE_URL,
     "NSW": "https://www.planningportal.nsw.gov.au/spatialviewer/",
+    "VIC": "https://mapshare.vic.gov.au/vicplan/",
 }
 STATE_HAZARDS_INTRO = {
     "NSW": "Zoning, heritage, bush fire prone land, flood planning areas and the coastal "
     "use area mapped by the NSW Government over this land.",
+    "VIC": "The planning zone and overlays (heritage, bushfire, flooding, vegetation and "
+    "others), bushfire prone areas and heritage registers mapped by the Victorian Government "
+    "over this land.",
 }
 
 

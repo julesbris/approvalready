@@ -1103,3 +1103,17 @@ confirmed in its gaps.
 | Lookups | `lookups/nsw.py` (`NswSpatial`): address search on the NSW Spatial Services address points (prefix match), lot from the cadastre (`200//DP1287229`), council and suburb from the admin boundaries, zone from the Planning Portal's land zoning layer, and overlays from the LEP heritage, State Heritage Register, bush fire prone land, flood planning and coastal layers. Settings `nsw_spatial_base_url`, `nsw_planning_base_url` (defaults are the public services, no key). The property report shows the zone and NSW hazards. |
 | Pack builders | A reference whose every source page is shared with another council or guide keeps the first one rather than failing the build. |
 | Tests | `tests/test_nsw.py` (parsing, address search, parcel with zone and overlays and a failed layer, exact match, 128 councils, every NSW approval has a guide, packs load). |
+
+## 48. Victoria
+
+Built like New South Wales (§47). Content gathered from Victorian Government sites on
+2026-10-12; what couldn't be confirmed is in each entry's gaps.
+
+| Part | As built |
+|---|---|
+| Councils | `councils/vic_councils.json`: all 79 Victorian councils (spatial names as Vicmap's LGA layer and VicPlan's planning scheme boundary spell them), pack `councils_vic`. `states.json` VIC: permit steps, 2026-27 statutory fees (fee unit $17.27), VicPlan for zones and overlays; no statewide portal (councils run their own; subdivisions go through SPEAR). |
+| Planning | Pack `planning_vic`: planning permits, VicSmart, small second dwellings up to 60 m² (VC253), building and occupancy permits, report and consent, BAL assessment, subdivision certification. |
+| Selling and renting | Pack `property_vic` (`sell.vic.vendor_statement`, `rent.vic.residential_tenancy`, including the 25 November 2025 and 13 October 2026 rental changes) and checklists `rent.vic_*`, `sell.vic_section_32`. |
+| Business, vehicles, vessels, grants | Pack `business_vic`: food (classes, FoodTrader), liquor, footpath, WorkSafe, payroll tax, builder, plumber and electrician registration, Home Warranty, personal services, VECRA for childcare, VicRoads registration and motor car traders, boat registration and marine licences, the Hospitality Security Fund. |
+| Lookups | `lookups/vic.py` (`VicSpatial`): type-ahead from the Vicmap address geocoder (falls back to VicPlan's address layer by prefix), parcel by SPI (`1\PS123456`) with the area worked out from the boundary (`spatial.rings_area_m2`, Vicmap has no area field), council from the planning scheme boundary, zone and overlays from VicPlan's zone and overlay layers, plus bushfire prone areas, the Victorian Heritage Register and Aboriginal cultural heritage sensitivity. Settings `vic_geocoder_base_url`, `vic_planning_base_url` (public, no key). |
+| Tests | `tests/test_vic.py`; pack tests now cover every `property_*`, `planning_*` and `business_*` pack. |

@@ -107,7 +107,10 @@ def test_pack_names_only_real_checklists_and_categories() -> None:
     categories = {c.key: c for c in marketplace.load_bundled()}
     named: set[str] = set()
     rule_sets = [
-        rs for name in ("property_qld", "property_nsw") for rs in packs.load_file(name).rule_sets
+        rs
+        for name in packs.available()
+        if name.startswith("property_")
+        for rs in packs.load_file(name).rule_sets
     ]
     for rs in rule_sets:
         for rule in rs.rules:

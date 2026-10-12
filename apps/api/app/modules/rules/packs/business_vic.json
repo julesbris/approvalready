@@ -1,0 +1,2784 @@
+{
+ "key": "business_vic",
+ "title": "Victoria: business licences, trades, imported vehicles, boats and grants",
+ "notes": "Victorian rules for BusinessReady, TradeReady (vehicles), VesselReady and GrantReady. Built from Safe Food Victoria, Department of Health, Liquor Control Victoria, WorkSafe Victoria, Building and Plumbing Commission, Energy Safe Victoria, VECRA, VicRoads, Consumer Affairs Victoria, Business Victoria, ABLIS and council web pages read on 2026-10-12. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it. The Acts themselves are not encoded.",
+ "organisations": [
+  {
+   "ref": "safefood_vic",
+   "name": "Safe Food Victoria",
+   "kind": "REGULATOR",
+   "jurisdiction": "VIC",
+   "website": "https://www.safefood.vic.gov.au"
+  },
+  {
+   "ref": "vic_health",
+   "name": "Victorian Department of Health",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "VIC",
+   "website": "https://www.health.vic.gov.au"
+  },
+  {
+   "ref": "lcv",
+   "name": "Liquor Control Victoria",
+   "kind": "REGULATOR",
+   "jurisdiction": "VIC",
+   "website": "https://www.vic.gov.au/liquor-control-victoria"
+  },
+  {
+   "ref": "worksafe_vic",
+   "name": "WorkSafe Victoria",
+   "kind": "REGULATOR",
+   "jurisdiction": "VIC",
+   "website": "https://www.worksafe.vic.gov.au"
+  },
+  {
+   "ref": "sro_vic",
+   "name": "State Revenue Office Victoria",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "VIC",
+   "website": "https://www.sro.vic.gov.au"
+  },
+  {
+   "ref": "bpc_vic",
+   "name": "Building and Plumbing Commission (Victoria)",
+   "kind": "REGULATOR",
+   "jurisdiction": "VIC",
+   "website": "https://www.bpc.vic.gov.au"
+  },
+  {
+   "ref": "esv",
+   "name": "Energy Safe Victoria",
+   "kind": "REGULATOR",
+   "jurisdiction": "VIC",
+   "website": "https://www.energysafe.vic.gov.au"
+  },
+  {
+   "ref": "hume_council",
+   "name": "Hume City Council",
+   "kind": "COUNCIL",
+   "jurisdiction": "VIC",
+   "website": "https://www.hume.vic.gov.au"
+  },
+  {
+   "ref": "whittlesea_council",
+   "name": "City of Whittlesea",
+   "kind": "COUNCIL",
+   "jurisdiction": "VIC",
+   "website": "https://www.whittlesea.vic.gov.au"
+  },
+  {
+   "ref": "monash_council",
+   "name": "City of Monash",
+   "kind": "COUNCIL",
+   "jurisdiction": "VIC",
+   "website": "https://www.monash.vic.gov.au"
+  },
+  {
+   "ref": "ablis",
+   "name": "Australian Business Licence and Information Service (ABLIS)",
+   "kind": "CTH_AGENCY",
+   "jurisdiction": "CTH",
+   "website": "https://ablis.business.gov.au"
+  },
+  {
+   "ref": "banyule_council",
+   "name": "Banyule City Council",
+   "kind": "COUNCIL",
+   "jurisdiction": "VIC",
+   "website": "https://www.banyule.vic.gov.au"
+  },
+  {
+   "ref": "vecra",
+   "name": "Victorian Early Childhood Regulatory Authority (VECRA)",
+   "kind": "REGULATOR",
+   "jurisdiction": "VIC",
+   "website": "https://www.vecra.vic.gov.au"
+  },
+  {
+   "ref": "vicroads",
+   "name": "VicRoads",
+   "kind": "STATE_AGENCY",
+   "jurisdiction": "VIC",
+   "website": "https://www.vicroads.vic.gov.au"
+  },
+  {
+   "ref": "cav",
+   "name": "Consumer Affairs Victoria",
+   "kind": "REGULATOR",
+   "jurisdiction": "VIC",
+   "website": "https://www.consumer.vic.gov.au"
+  },
+  {
+   "ref": "business_vic",
+   "name": "Business Victoria (Department of Jobs, Skills, Industry and Regions)",
+   "kind": "GRANT_BODY",
+   "jurisdiction": "VIC",
+   "website": "https://business.vic.gov.au"
+  }
+ ],
+ "documents": [
+  {
+   "ref": "sfv_classes",
+   "organisation": "safefood_vic",
+   "jurisdiction": "VIC",
+   "title": "Classifications for food businesses",
+   "url": "https://www.safefood.vic.gov.au/classifications-food-businesses",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "sfv_fss",
+   "organisation": "safefood_vic",
+   "jurisdiction": "VIC",
+   "title": "Food Safety Supervisor",
+   "url": "https://www.safefood.vic.gov.au/food-safety-supervisor",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "health_class_changes",
+   "organisation": "vic_health",
+   "jurisdiction": "VIC",
+   "title": "Changes to food business classifications and requirements from 1 July 2022",
+   "url": "https://www.health.vic.gov.au/food-safety/changes-to-food-business-classifications-and-requirements-from-1-july-2022",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "health_mobile",
+   "organisation": "vic_health",
+   "jurisdiction": "VIC",
+   "title": "Food trucks, vans and market stalls",
+   "url": "https://www.health.vic.gov.au/food-safety/food-trucks-vans-and-market-stalls",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "whittlesea_food",
+   "organisation": "whittlesea_council",
+   "jurisdiction": "VIC",
+   "title": "Food business registration",
+   "url": "https://whittlesea.vic.gov.au/Business/Starting-a-business/Food-business-registration",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "monash_mobile",
+   "organisation": "monash_council",
+   "jurisdiction": "VIC",
+   "title": "Temporary and mobile food premises",
+   "url": "https://www.monash.vic.gov.au/Business/Food-Premises/Temporary-and-Mobile-Food-Premises",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "lcv_on_premises",
+   "organisation": "lcv",
+   "jurisdiction": "VIC",
+   "title": "On-premises liquor licence",
+   "url": "https://www.vic.gov.au/apply-on-premises-liquor-licence",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "lcv_restaurant",
+   "organisation": "lcv",
+   "jurisdiction": "VIC",
+   "title": "Restaurant and cafe liquor licence",
+   "url": "https://www.vic.gov.au/apply-restaurant-and-cafe-liquor-licence",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "lcv_renewal_fees",
+   "organisation": "lcv",
+   "jurisdiction": "VIC",
+   "title": "Liquor licence renewal fees",
+   "url": "https://www.vic.gov.au/liquor-licence-renewal-fees",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "ablis_hume_footpath",
+   "organisation": "ablis",
+   "jurisdiction": "VIC",
+   "title": "Outdoor Dining / Footpath Trading Permit - Hume City Council - Victoria",
+   "url": "https://ablis.business.gov.au/service/vic/outdoor-dining-footpath-trading-permit-hume-city-council/40314",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "worksafe_register",
+   "organisation": "worksafe_vic",
+   "jurisdiction": "VIC",
+   "title": "Do I need to register for WorkCover insurance?",
+   "url": "https://www.worksafe.vic.gov.au/do-i-need-register-workcover-insurance",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bpc_engaging_builder",
+   "organisation": "bpc_vic",
+   "jurisdiction": "VIC",
+   "title": "Engaging a builder",
+   "url": "https://www.bpc.vic.gov.au/home-owners/before-you-start-building/engaging-a-builder",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bpc_domestic_builder",
+   "organisation": "bpc_vic",
+   "jurisdiction": "VIC",
+   "title": "Domestic builder",
+   "url": "https://www.bpc.vic.gov.au/builders/builder-classes/domestic-builder",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bpc_builder_fees",
+   "organisation": "bpc_vic",
+   "jurisdiction": "VIC",
+   "title": "Registration fees (builders)",
+   "url": "https://www.bpc.vic.gov.au/builders/registration/registration-fees",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "bpc_home_warranty",
+   "organisation": "bpc_vic",
+   "jurisdiction": "VIC",
+   "title": "Arrange Home Warranty for a project",
+   "url": "https://www.bpc.vic.gov.au/builders/builders-insurance/arrange-home-warranty-for-a-project",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bpc_dbi",
+   "organisation": "bpc_vic",
+   "jurisdiction": "VIC",
+   "title": "What is domestic building insurance (DBI)?",
+   "url": "https://www.bpc.vic.gov.au/builders/builders-insurance/what-is-domestic-building-insurance-dbi",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bpc_plumbing_which",
+   "organisation": "bpc_vic",
+   "jurisdiction": "VIC",
+   "title": "Which registration or licence do I need? (plumbing)",
+   "url": "https://www.bpc.vic.gov.au/plumbers/registration-and-licensing/which-registration-or-licence-do-i-need",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "bpc_plumber_fees",
+   "organisation": "bpc_vic",
+   "jurisdiction": "VIC",
+   "title": "Plumber registration fees",
+   "url": "https://www.bpc.vic.gov.au/plumbers/registration-and-licensing/plumber-fees",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "esv_rec",
+   "organisation": "esv",
+   "jurisdiction": "VIC",
+   "title": "Registered Electrical Contractors (REC)",
+   "url": "https://www.energysafe.vic.gov.au/licensing/electrical-licences/licence-types/registered-electrical-contractors-rec",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "esv_fees",
+   "organisation": "esv",
+   "jurisdiction": "VIC",
+   "title": "Electrical licensing fees",
+   "url": "https://www.energysafe.vic.gov.au/licensing/electrical-licences/fees",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "ablis_payroll",
+   "organisation": "ablis",
+   "jurisdiction": "VIC",
+   "title": "Registration for Payroll Tax - VIC",
+   "url": "https://ablis.business.gov.au/service/vic/registration-for-payroll-tax/24476",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "banyule_phw",
+   "organisation": "banyule_council",
+   "jurisdiction": "VIC",
+   "title": "Hair, beauty, body art businesses",
+   "url": "https://www.banyule.vic.gov.au/For-business/Hair-beauty-body-art-businesses",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "vecra_provider",
+   "organisation": "vecra",
+   "jurisdiction": "VIC",
+   "title": "Early childhood provider approval",
+   "url": "https://www.vecra.vic.gov.au/early-childhood-provider-approval",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "vicroads_register",
+   "organisation": "vicroads",
+   "jurisdiction": "VIC",
+   "title": "Register a vehicle",
+   "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-vehicle",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "vicroads_imported",
+   "organisation": "vicroads",
+   "jurisdiction": "VIC",
+   "title": "Register an imported vehicle",
+   "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-imported-vehicle",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "vicroads_fees",
+   "organisation": "vicroads",
+   "jurisdiction": "VIC",
+   "title": "Vehicle fees",
+   "url": "https://www.vicroads.vic.gov.au/registrations/fees-and-charges/vehicle-fees",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "vicroads_duty",
+   "organisation": "vicroads",
+   "jurisdiction": "VIC",
+   "title": "Motor vehicle duty fees",
+   "url": "https://www.vicroads.vic.gov.au/registrations/fees-and-charges/motor-vehicle-duty-fee",
+   "source_type": "FEE_SCHEDULE"
+  },
+  {
+   "ref": "cav_lmct_apply",
+   "organisation": "cav",
+   "jurisdiction": "VIC",
+   "title": "Apply for a motor car trader's licence",
+   "url": "https://www.consumer.vic.gov.au/licensing-and-registration/motor-car-traders/licensing/apply-for-a-licence",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "vicroads_vessel_reg",
+   "organisation": "vicroads",
+   "jurisdiction": "VIC",
+   "title": "Register a boat or jet ski",
+   "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-boat-or-jet-ski",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "vicroads_marine_licence",
+   "organisation": "vicroads",
+   "jurisdiction": "VIC",
+   "title": "Marine and boat licence",
+   "url": "https://www.vicroads.vic.gov.au/licences/boat-motorbike-other-licences/marine-boat-licence",
+   "source_type": "WEBPAGE"
+  },
+  {
+   "ref": "hsf_guidelines",
+   "organisation": "business_vic",
+   "jurisdiction": "VIC",
+   "title": "Hospitality Security Fund Grant Program Guidelines",
+   "url": "https://business.vic.gov.au/__data/assets/pdf_file/0011/2489141/Hospitality-Security-Fund-Grant-Program-Guidelines-.pdf",
+   "source_type": "GRANT_GUIDELINES"
+  }
+ ],
+ "references": [
+  {
+   "ref": "vic_food_classes",
+   "document": "sfv_classes",
+   "section": "Food premises classes",
+   "extracted_text": "[Summary, not the source's wording] Every food premises in Victoria is classified by the highest risk food handling it does. Class 1 serves potentially hazardous food to vulnerable people (hospitals, aged care, childcare). Class 2 handles unpackaged potentially hazardous food (most restaurants, cafes and takeaways). Class 3A makes hot-fill products such as chutney at home based or temporary premises. Class 3 handles unpackaged low risk food or stores and distributes pre-packaged food. Class 4 only does low risk activities such as selling pre-packaged low risk food, whole fruit and vegetables, or tea and coffee. Your registering council decides the class.",
+   "interpretation": "A business that prepares or sells unpackaged food will be class 1, 2, 3 or 3A and must be registered with its council; a class 4 business only notifies council. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_food_class_requirements",
+   "document": "health_class_changes",
+   "section": "Requirements by class",
+   "extracted_text": "[Summary, not the source's wording] Class 2 premises must be registered under the Food Act 1984, have a nominated food safety supervisor and have a food safety program (with an annual audit, assessment or inspection depending on the program). Class 3 and 3A premises must be registered and are inspected annually; class 3A must have a food safety supervisor. Class 4 premises only notify their council.",
+   "interpretation": "Registration applies to classes 1 to 3A; class 4 is notification only. Class 1 and 2 need a food safety program; class 1, 2 and 3A need a food safety supervisor. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_fss",
+   "document": "sfv_fss",
+   "section": "Who needs a food safety supervisor",
+   "extracted_text": "[Summary, not the source's wording] Class 1, most class 2 and class 3A food premises must have a food safety supervisor who holds a Statement of Attainment from a registered training organisation in the units for their food sector (for example SITXFSA005 and SITXFSA006 for hospitality). Class 3 and 4 premises are exempt, as are some class 2 community groups trading for no more than 2 consecutive days.",
+   "interpretation": "A cafe, restaurant or takeaway handling potentially hazardous food needs a trained food safety supervisor. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_food_mobile",
+   "document": "health_mobile",
+   "section": "FoodTrader",
+   "extracted_text": "[Summary, not the source's wording] Temporary and mobile food premises such as food trucks, vans and market stalls apply online to their local council through the department's state-wide registration system, FoodTrader, which replaced Streatrader.",
+   "interpretation": "A food van or stall registers once through FoodTrader with its principal council and then lodges statements of trade for each place it trades. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_food_council_example",
+   "document": "whittlesea_food",
+   "section": "New food business registration",
+   "extracted_text": "[Summary, not the source's wording] Council example: plans approval before construction (fee A$231.75 for classes 1 to 3), then the Food Act application and fee, classification by an Environmental Health Officer, progress and final inspections, then the certificate of registration. Registration fees depend on class and opening month (for example class 2 A$809.20 from January to June). Class 4 premises only notify council. Registration is renewed each calendar year.",
+   "interpretation": "Shows the usual council process and order of magnitude of fees; each council sets its own fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_liquor_on_premises",
+   "document": "lcv_on_premises",
+   "section": "On-premises licence",
+   "extracted_text": "[Summary, not the source's wording] An on-premises licence lets you sell alcohol to drink at your venue without serving meals. Apply online through Service Victoria with proof of new entrant and RSA training, a red line plan, patron capacity and proof of right to occupy. The application goes to Victoria Police and council, you display a public notice for 28 days, and a decision takes about 9 to 11 weeks. Application fees are A$690.80 to A$863.20 depending on capacity. Staff serving alcohol need a current RSA certificate.",
+   "interpretation": "Any business that sells or serves alcohol needs a licence or permit from Liquor Control Victoria; the type depends on the business. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_liquor_restaurant",
+   "document": "lcv_restaurant",
+   "section": "Restaurant and cafe licence",
+   "extracted_text": "[Summary, not the source's wording] A restaurant and cafe licence is for venues where preparing and serving meals is the main activity at all times. Application fees are A$518.10 (0 to 200 customers), A$759.90 (201 to 400) or A$1,036.20 (401 or more). The same public notice and 9 to 11 week timeframe apply.",
+   "interpretation": "Most cafes and restaurants that serve alcohol with meals apply for this licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_footpath",
+   "document": "ablis_hume_footpath",
+   "section": "Outdoor dining and footpath trading permit",
+   "extracted_text": "[Summary, not the source's wording] A council permit is needed to place outdoor dining furniture, goods or A-frame signs on a footpath, road or other council land. Example (Hume City Council): General Purposes Local Law No. 1 2023, application fee A$226.00 (2025-26), permits expire on 31 August each year, and you must hold adequate public liability insurance.",
+   "interpretation": "Using the footpath for tables, chairs, signs or goods needs a permit from the council under its local law; fees and rules differ by council. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_workcover",
+   "document": "worksafe_register",
+   "section": "Who must register",
+   "extracted_text": "[Summary, not the source's wording] Employers who employ workers in Victoria must register for WorkCover insurance with WorkSafe Victoria. You are exempt only if you have no apprentices and pay, or expect to pay, less than A$7,500 a year in remuneration.",
+   "interpretation": "A business with employees must take out a WorkCover insurance policy unless it pays under A$7,500 a year in wages and has no apprentices. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_builder_threshold",
+   "document": "bpc_engaging_builder",
+   "section": "When a registered builder is needed",
+   "extracted_text": "[Summary, not the source's wording] Domestic building work worth more than A$10,000, including labour, materials and GST, must be carried out by a builder registered with the Building and Plumbing Commission. Work by an unregistered builder over A$10,000 is not covered by domestic building insurance.",
+   "interpretation": "A trade business that contracts for domestic building work over A$10,000 a job must be a registered domestic builder. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_builder_classes",
+   "document": "bpc_domestic_builder",
+   "section": "Domestic builder classes",
+   "extracted_text": "[Summary, not the source's wording] Domestic Builder (Unlimited) covers all components of domestic building work, possibly with conditions; Domestic Builder (Limited) classes cover particular work such as carpentry or glazing. You apply through BPC Online with a technical referee report from a builder registered in the same or a higher class.",
+   "interpretation": "The class you need depends on the work you contract for. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_home_warranty",
+   "document": "bpc_home_warranty",
+   "section": "Home Warranty from 1 July 2026",
+   "extracted_text": "[Summary, not the source's wording] From 1 July 2026 Home Warranty applies to eligible domestic building work valued at more than A$20,000 on homes and residential buildings up to 3 storeys, unless an exclusion applies. Builders arrange it for each project through an approved distributor and pay the premium to get a Notice of Cover. Contracts signed before 1 July 2026 fall under domestic building insurance transitional arrangements.",
+   "interpretation": "A registered builder taking on domestic building work over A$20,000 must arrange Home Warranty cover for each project before starting. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_plumbing",
+   "document": "bpc_plumbing_which",
+   "section": "Registration and licence",
+   "extracted_text": "[Summary, not the source's wording] Plumbing work in Victoria must be done by a plumber registered or licensed with the Building and Plumbing Commission in the class of work. Registered plumbers can do the work but cannot supervise others or issue compliance certificates; a licensed plumber can supervise, issue compliance certificates (within 5 days of completing the work) and do design work. Registration lasts up to 3 years and a licence up to 12 months.",
+   "interpretation": "A plumbing business needs at least one licensed plumber to issue compliance certificates for its work. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_electrical",
+   "document": "esv_rec",
+   "section": "Registered electrical contractors",
+   "extracted_text": "[Summary, not the source's wording] A person or company in the business of electrical contracting, or offering to contract, must be a Registered Electrical Contractor (REC) with a business supervisor and a technical supervisor who holds a current Victorian electrician's licence, and at least A$5 million public liability insurance. Registration can be renewed for up to 5 years.",
+   "interpretation": "An electrician working for customers needs an electrician's licence, and the business needs REC registration. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_liquor_renewal",
+   "document": "lcv_renewal_fees",
+   "section": "Renewal fees 2026-27",
+   "extracted_text": "[Summary, not the source's wording] Licences are renewed every year. 2026-27 base renewal fees: restaurant and cafe A$391.70, on-premises A$1,327.50, general A$1,327.50, packaged liquor A$2,655.10, renewable limited A$391.70, plus risk fees for late trading, venue capacity and demerit points.",
+   "interpretation": "The yearly cost of keeping a liquor licence depends on its type, trading hours and compliance history. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_payroll_tax",
+   "document": "ablis_payroll",
+   "section": "Registration for payroll tax",
+   "extracted_text": "[Summary, not the source's wording] Employers in Victoria must register for and pay payroll tax when their Australian wages go over the threshold; ABLIS states a monthly threshold of A$75,000 from 1 July 2024 and a general rate of 4.85%, with a lower rate for regional employers. Registration is online with the State Revenue Office.",
+   "interpretation": "Only employers with a large wage bill (roughly 20 or more staff, depending on wages) are likely to reach the threshold. The threshold has changed since 1 July 2024; confirm the current figure with the SRO. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_phw_registration",
+   "document": "banyule_phw",
+   "section": "Registration of hair, beauty and body art businesses",
+   "extracted_text": "[Summary, not the source's wording] Hair, beauty, tattoo and other personal care or body art businesses must register their premises with council under the Public Health and Wellbeing Act 2008 before opening. Registration is renewed each year, except that hairdressing and low risk beauty businesses (temporary make-up, henna, spray tans, lash and brow tinting) can choose a one-off ongoing registration that lasts until the business closes or changes owner. Council inspects the fit-out before issuing a registration certificate. A buyer of an existing business applies to transfer the registration.",
+   "interpretation": "Any hair, beauty, tattooing, piercing or similar business needs council registration; only the renewal arrangement differs by risk. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_ecec_approvals",
+   "document": "vecra_provider",
+   "section": "Provider approval",
+   "extracted_text": "[Summary, not the source's wording] Education and care services in Victoria under the Education and Care Services National Law are regulated by the Victorian Early Childhood Regulatory Authority (VECRA). Providers apply through the National Quality Agenda IT System (NQA ITS) with forms PA01 and PA02, criminal history checks, a Victorian Working with Children Check or VIT registration for each person with management or control, and the fee. A decision is due within 60 days of a complete application. Once a provider is approved, it applies for service approval in the state where the service will operate.",
+   "interpretation": "Running long day care, kindergarten, outside school hours care or family day care in Victoria needs provider approval and service approval from VECRA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_vehicle_imported",
+   "document": "vicroads_imported",
+   "section": "Registering an imported vehicle",
+   "extracted_text": "[Summary, not the source's wording] An imported vehicle needs import approval first. To register it in Victoria you need a current roadworthy certificate, the VIN recorded on the Register of Approved Vehicles (for example as Concessional - Vehicles modified by a RAW, Personal Effects or Older Vehicles) and stamped on the vehicle, and for vehicles built after 1968 a blue modification plate and VASS approval certificate. Complete the vehicle registration application form and book an appointment at a VicRoads Customer Service Centre. Vehicles less than 30 years old must be right-hand drive.",
+   "interpretation": "Every imported road vehicle garaged in Victoria needs these documents before VicRoads will register it. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_vehicle_register",
+   "document": "vicroads_register",
+   "section": "Register a vehicle",
+   "extracted_text": "[Summary, not the source's wording] To register a vehicle you need a completed vehicle registration form, evidence of identity, and a current original roadworthy certificate, and you bring the vehicle to the appointment for inspection. You pay an appointment fee, the registration charge, a number plate fee, the Transport Accident Commission (TAC) charge and motor vehicle duty.",
+   "interpretation": "The registration appointment is where all charges, including the TAC charge and duty, are paid. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_vehicle_fees",
+   "document": "vicroads_fees",
+   "section": "Annual registration fee including TAC charge",
+   "extracted_text": "[Summary, not the source's wording] The annual registration fee including the TAC charge for a passenger vehicle garaged in the metropolitan (high risk) area is A$958.80.",
+   "interpretation": "Typical first-year registration and TAC cost for a car in Melbourne. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_vehicle_duty",
+   "document": "vicroads_duty",
+   "section": "Passenger car duty rates",
+   "extracted_text": "[Summary, not the source's wording] Motor vehicle duty on passenger cars is A$8.40 per A$200 of market value (or part) up to A$80,567 and for low emission vehicles, A$10.40 per A$200 from A$80,568 to A$100,000, A$14.00 per A$200 from A$100,001 to A$150,000 and A$18.00 per A$200 above that. Market value is the higher of the purchase price and the open market value, including GST and Commonwealth taxes.",
+   "interpretation": "Duty is charged when the imported vehicle is first registered in Victoria. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_lmct",
+   "document": "cav_lmct_apply",
+   "section": "Who needs a licence",
+   "extracted_text": "[Summary, not the source's wording] Generally, if you deal in four or more cars a year you need a motor car trader's licence from Consumer Affairs Victoria (sometimes fewer). You must be 18 or over, a fit and proper person, have lawful premises and know the Motor Car Traders Act 1986. You apply through myCAV. The combined application fee and first annual licence fee for 1 July 2026 to 30 June 2027 is A$2,965.20.",
+   "interpretation": "Importing cars to sell as a business in Victoria needs a motor car trader's licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_vessel_registration",
+   "document": "vicroads_vessel_reg",
+   "section": "Which vessels must be registered",
+   "extracted_text": "[Summary, not the source's wording] A boat, jet ski or e-foil that can use an engine for propulsion in Victorian waters must be registered. Vessels without a propulsion engine, recreational tenders and domestic commercial vessels are exempt, and some interstate vessels may be. You lodge the vessel registration form with evidence of identity, by post or at a Customer Service Centre, display the registration number on each side of the hull (at least 150 mm high, 100 mm for personal watercraft) and renew every 12 months.",
+   "interpretation": "Any recreational vessel with an engine, whatever its power, needs Victorian registration; commercial vessels are dealt with by AMSA. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "vic_marine_licence",
+   "document": "vicroads_marine_licence",
+   "section": "Marine licence and PWC endorsement",
+   "extracted_text": "[Summary, not the source's wording] To get a Victorian marine licence you pass an eyesight test and a 30 question knowledge test (26 correct to pass), based on the Victorian Recreational Boating Safety Handbook, at a VicRoads Customer Service Centre or an accredited training provider. A restricted marine licence is available from 12 years old. Operating a personal watercraft needs a PWC endorsement, which needs a separate 15 question test and is available from 16 years old.",
+   "interpretation": "The person driving a registered recreational vessel needs a marine licence; a jet ski rider also needs a PWC endorsement. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "hsf_eligibility",
+   "document": "hsf_guidelines",
+   "section": "Eligibility and streams",
+   "extracted_text": "[Summary, not the source's wording] Grants help licensed hospitality venues improve security and fire suppression. Stream 1 (Security Uplift Grant) is a flat A$5,000 rebate for projects costing at least A$10,000 excluding GST, with a matched A$5,000 co-contribution; spending before approval isn't eligible. Stream 2 (Direct Impact Grant) gives up to A$25,000 to venues affected by fire-related crime investigated by Operation Eclipse. Applicants must have held an active ABN and GST registration continuously from 27 April 2026, be a company, sole trader, partnership or trustee (not an incorporated association or not-for-profit), trade as a cafe or restaurant, pub, tavern or bar, or hospitality club, hold an eligible liquor licence, trade at night past 6pm, have fewer than 50 employees by headcount, be registered with WorkSafe Victoria, and have the venue in the City of Melbourne, Port Phillip, Stonnington or Yarra.",
+   "interpretation": "The criteria below are the ones we can check from your answers; the industry, liquor licence, night trading and location tests are not checked. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  },
+  {
+   "ref": "hsf_dates",
+   "document": "hsf_guidelines",
+   "section": "Application dates",
+   "extracted_text": "[Summary, not the source's wording] Applications opened on 3 July 2026 and closed at 4pm on 28 August 2026, or earlier if funds ran out. Funds must be spent by 28 February 2027.",
+   "interpretation": "The only round has closed; a later round has not been announced. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+  }
+ ],
+ "rule_sets": [
+  {
+   "key": "business.vic.general",
+   "vertical": "BUSINESS",
+   "jurisdiction": "VIC",
+   "title": "Victoria: business licences and insurance",
+   "description": "Food premises registration, food safety supervisors and programs, liquor licences, footpath trading, WorkCover insurance and payroll tax for Victorian businesses, from Safe Food Victoria, Department of Health, Liquor Control Victoria, WorkSafe Victoria, ABLIS and council pages.",
+   "applies_when": {
+    "fact": "business.state",
+    "op": "equals",
+    "value": "VIC"
+   },
+   "limitations": [
+    "Built from regulator, ABLIS and council web pages, not from the Food Act 1984, the Liquor Control Reform Act 1998 or the other Acts themselves.",
+    "Doesn't decide your food premises class; your council does. Meat, poultry, seafood and dairy businesses are licensed by Safe Food Victoria and aren't covered.",
+    "Doesn't decide which liquor licence type you need, or cover BYO permits, late night licences or packaged liquor in detail.",
+    "Footpath trading rules, fees and insurance amounts differ by council; only an example council was read.",
+    "Payroll tax is checked from staff numbers only; the current threshold couldn't be confirmed and grouping isn't checked.",
+    "Doesn't cover planning permits, building permits for a fit-out, signs or trade waste.",
+    "Not legal advice. Confirm with the regulator, your council or a qualified professional before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "food_premises_registration",
+     "title": "Food premises registration (Food Act 1984)",
+     "condition": {
+      "all": [
+       {
+        "fact": "business.handles_food",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "any": [
+         {
+          "fact": "business.food_activities",
+          "op": "contains",
+          "value": "prepare_on_site"
+         },
+         {
+          "fact": "business.food_activities",
+          "op": "contains",
+          "value": "sell_unpackaged"
+         },
+         {
+          "fact": "business.food_activities",
+          "op": "contains",
+          "value": "serve_on_premises"
+         },
+         {
+          "fact": "business.food_activities",
+          "op": "contains",
+          "value": "mobile_food"
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Register your food premises with your council",
+       "detail": "In Victoria, a business that makes food or sells unpackaged food must register its premises with the local council under the Food Act 1984 before it trades. Council puts you in a class from 1 (highest risk) to 4. Most cafes, restaurants and takeaways are class 2. Food vans and market stalls register through FoodTrader instead of a council form.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_FOOD_PREMISES_REGISTRATION",
+         "authority": "Your local council (Environmental Health)",
+         "pathway": "Plans approval, registration, then a final inspection"
+        },
+        "evidence": [
+         {
+          "kind": "FLOOR_PLAN",
+          "title": "Scaled floor plan and fit-out details",
+          "detail": "Most councils want a 1:100 plan showing benches, sinks, hand basins, finishes and equipment before you build."
+         }
+        ],
+        "referral_categories": [
+         "food_safety_consultant"
+        ],
+        "task": "Contact your council's environmental health team and apply to register your food premises"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Food premises registration not identified",
+       "detail": "From your answers you won't make food or sell unpackaged food, so registration wasn't identified. If you sell only pre-packaged low risk food, or tea and coffee, you are class 4 and must still notify your council before you start.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_FOOD_PREMISES_REGISTRATION",
+         "authority": "Your local council (Environmental Health)",
+         "pathway": "Needed if you make food or sell it unpackaged"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Food premises registration may be needed",
+       "detail": "Making food or selling unpackaged food needs council registration. Answer the food questions so we can check this.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_FOOD_PREMISES_REGISTRATION",
+         "authority": "Your local council (Environmental Health)",
+         "pathway": "Needed if you make food or sell it unpackaged",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_food_classes",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_food_class_requirements",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_food_council_example",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Cafe",
+       "facts": {
+        "business.handles_food": true,
+        "business.food_activities": [
+         "prepare_on_site",
+         "serve_on_premises"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Packaged food only",
+       "facts": {
+        "business.handles_food": true,
+        "business.food_activities": [
+         "sell_packaged"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No food",
+       "facts": {
+        "business.handles_food": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "foodtrader_mobile",
+     "title": "Food vans and stalls: FoodTrader",
+     "condition": {
+      "all": [
+       {
+        "fact": "business.handles_food",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "any": [
+         {
+          "fact": "business.food_activities",
+          "op": "contains",
+          "value": "mobile_food"
+         },
+         {
+          "fact": "business.premises_type",
+          "op": "equals",
+          "value": "mobile"
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Register your food van or stall through FoodTrader",
+       "detail": "Food vans, trucks, carts and market stalls register online through FoodTrader, Victoria's state-wide system. Your principal council (usually where you garage or store the van) approves the registration. You then lodge a statement of trade in FoodTrader for each place and date you trade, anywhere in Victoria. Selling on a footpath, road or reserve also needs that council's permit.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_FOOD_PREMISES_REGISTRATION",
+         "authority": "Your principal council, through FoodTrader",
+         "pathway": "Register in FoodTrader, then lodge statements of trade"
+        },
+        "task": "Create a FoodTrader account and register your van or stall"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Not a mobile or temporary food business",
+       "detail": "From your answers you won't sell food from a van, truck or stall, so FoodTrader wasn't identified."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_food_mobile",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_food_classes",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Food van",
+       "facts": {
+        "business.handles_food": true,
+        "business.food_activities": [
+         "mobile_food"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Mobile business selling food",
+       "facts": {
+        "business.handles_food": true,
+        "business.food_activities": [
+         "sell_packaged"
+        ],
+        "business.premises_type": "mobile"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Shop cafe",
+       "facts": {
+        "business.handles_food": true,
+        "business.food_activities": [
+         "prepare_on_site"
+        ],
+        "business.premises_type": "leased_commercial"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "No food",
+       "facts": {
+        "business.handles_food": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "food_safety_supervisor_program",
+     "title": "Food safety supervisor and food safety program",
+     "condition": {
+      "all": [
+       {
+        "fact": "business.handles_food",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "any": [
+         {
+          "fact": "business.food_activities",
+          "op": "contains",
+          "value": "prepare_on_site"
+         },
+         {
+          "fact": "business.food_activities",
+          "op": "contains",
+          "value": "serve_on_premises"
+         },
+         {
+          "fact": "business.food_activities",
+          "op": "contains",
+          "value": "mobile_food"
+         }
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "EVIDENCE_REQUIRED",
+       "title": "Have a food safety supervisor and a food safety program",
+       "detail": "Class 1, most class 2 and class 3A premises must have a food safety supervisor with a Statement of Attainment from a registered training organisation (for cafes and restaurants, units SITXFSA005 and SITXFSA006). Class 1 and 2 premises also need a food safety program, which council checks each year. Food service businesses must also meet national Standard 3.2.2A (trained food handlers and, for many, records).",
+       "payload": {
+        "evidence": [
+         {
+          "kind": "FOOD_SAFETY_SUPERVISOR",
+          "title": "Food safety supervisor's Statement of Attainment",
+          "detail": "Check the units for your food sector with council before your supervisor trains."
+         },
+         {
+          "kind": "FOOD_SAFETY_PROGRAM",
+          "title": "Food safety program",
+          "detail": "Class 1 and 2 premises. Ask council whether a registered template program suits your business."
+         }
+        ],
+        "referral_categories": [
+         "food_safety_consultant"
+        ]
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Food safety supervisor not identified",
+       "detail": "From your answers you won't prepare or serve food, so a food safety supervisor and program weren't identified. Council confirms your class when you register or notify."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_fss",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_food_class_requirements",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Restaurant",
+       "facts": {
+        "business.handles_food": true,
+        "business.food_activities": [
+         "prepare_on_site"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Packaged food only",
+       "facts": {
+        "business.handles_food": true,
+        "business.food_activities": [
+         "sell_packaged"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "liquor_licence",
+     "title": "Liquor licence (Liquor Control Victoria)",
+     "condition": {
+      "fact": "business.sells_alcohol",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need a liquor licence from Liquor Control Victoria",
+       "detail": "Selling or serving alcohol in Victoria needs a licence or permit from Liquor Control Victoria. Cafes and restaurants where meals are the main activity usually need a restaurant and cafe licence; bars need an on-premises licence; bottle shops need a packaged liquor licence. Apply at least 11 weeks ahead: decisions take about 9 to 11 weeks and you must display a public notice for 28 days. You and your staff need RSA training.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_LIQUOR_LICENCE",
+         "authority": "Liquor Control Victoria",
+         "pathway": "Apply online through Service Victoria"
+        },
+        "evidence": [
+         {
+          "kind": "RED_LINE_PLAN",
+          "title": "Red line plan of where alcohol is sold and consumed"
+         },
+         {
+          "kind": "RSA_CERTIFICATE",
+          "title": "New entrant and RSA training certificates"
+         }
+        ],
+        "referral_categories": [
+         "liquor_licensing_consultant",
+         "lawyer"
+        ],
+        "task": "Choose the right liquor licence type and apply to Liquor Control Victoria"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Liquor licence not identified",
+       "detail": "You said you won't sell or serve alcohol. Letting customers bring their own alcohol (BYO) still needs a BYO permit.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_LIQUOR_LICENCE",
+         "authority": "Liquor Control Victoria",
+         "pathway": "Needed if you sell or serve alcohol"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A liquor licence may be needed",
+       "detail": "Selling or serving alcohol needs a Liquor Control Victoria licence. Answer the alcohol question so we can check this.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_LIQUOR_LICENCE",
+         "authority": "Liquor Control Victoria",
+         "pathway": "Needed if you sell or serve alcohol",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_liquor_restaurant",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_liquor_on_premises",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_liquor_renewal",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Sells alcohol",
+       "facts": {
+        "business.sells_alcohol": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No alcohol",
+       "facts": {
+        "business.sells_alcohol": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "footpath_trading_permit",
+     "title": "Footpath trading permit",
+     "condition": {
+      "all": [
+       {
+        "fact": "business.premises_type",
+        "op": "in",
+        "value": [
+         "leased_commercial",
+         "owned_commercial"
+        ]
+       },
+       {
+        "fact": "business.footpath_use",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need a footpath trading permit from your council",
+       "detail": "Putting tables, chairs, A-frame signs or goods on the footpath needs a permit from your council under its local law. You usually need public liability insurance and a plan of the area, and permits are renewed each year. If you serve alcohol outside, the area must also be on your liquor licence's red line plan.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_FOOTPATH_TRADING_PERMIT",
+         "authority": "Your local council",
+         "pathway": "Permit under council's local law"
+        },
+        "evidence": [
+         {
+          "kind": "PUBLIC_LIABILITY_INSURANCE",
+          "title": "Public liability insurance certificate",
+          "detail": "Check the minimum cover with your council."
+         },
+         {
+          "kind": "SITE_PLAN",
+          "title": "Plan of the footpath area and furniture layout"
+         }
+        ],
+        "referral_categories": [
+         "insurance_broker"
+        ],
+        "task": "Apply to your council for a footpath trading permit"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Footpath trading permit not identified",
+       "detail": "From your answers you won't use the footpath outside commercial premises. Food vans and mobile traders need separate council street trading permits.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_FOOTPATH_TRADING_PERMIT",
+         "authority": "Your local council",
+         "pathway": "Needed to use the footpath"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us about footpath use",
+       "detail": "If you put tables, chairs, signs or goods on the footpath you need a council permit. Answer the footpath question so we can check."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_footpath",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Outdoor tables",
+       "facts": {
+        "business.premises_type": "leased_commercial",
+        "business.footpath_use": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Inside only",
+       "facts": {
+        "business.premises_type": "leased_commercial",
+        "business.footpath_use": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Online",
+       "facts": {
+        "business.premises_type": "online"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "workcover_insurance",
+     "title": "WorkCover insurance (WorkSafe Victoria)",
+     "condition": {
+      "fact": "business.employee_band",
+      "op": "not_equals",
+      "value": "NONE"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Register for WorkCover insurance with WorkSafe Victoria",
+       "detail": "If you employ workers in Victoria you must register for WorkCover insurance with WorkSafe Victoria. The only exemption is if you have no apprentices and pay less than A$7,500 a year in wages. Register online through one of WorkSafe's authorised insurance agents before your first employee starts.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_WORKCOVER_INSURANCE",
+         "authority": "WorkSafe Victoria",
+         "pathway": "Register with a WorkSafe authorised agent"
+        },
+        "referral_categories": [
+         "insurance_broker",
+         "whs_consultant"
+        ],
+        "task": "Register for WorkCover insurance before your first employee starts"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "WorkCover insurance not identified",
+       "detail": "You said it's just you, so WorkCover insurance wasn't identified. Register once you employ someone, including an apprentice.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_WORKCOVER_INSURANCE",
+         "authority": "WorkSafe Victoria",
+         "pathway": "Needed once you employ workers"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "WorkCover insurance may be needed",
+       "detail": "Employers in Victoria must register for WorkCover insurance. Tell us how many people will work in the business.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_WORKCOVER_INSURANCE",
+         "authority": "WorkSafe Victoria",
+         "pathway": "Needed once you employ workers",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_workcover",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Employees",
+       "facts": {
+        "business.employee_band": "1_4"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Just me",
+       "facts": {
+        "business.employee_band": "NONE"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "payroll_tax",
+     "title": "Payroll tax registration (State Revenue Office)",
+     "condition": {
+      "fact": "business.employee_band",
+      "op": "in",
+      "value": [
+       "20_199",
+       "200_PLUS"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You may need to register for payroll tax",
+       "detail": "Victorian employers must register for payroll tax with the State Revenue Office once their Australian wages go over the payroll tax threshold. With 20 or more employees many businesses reach it. Use the SRO's threshold calculator and register online as soon as you go over.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_PAYROLL_TAX_REGISTRATION",
+         "authority": "State Revenue Office Victoria",
+         "pathway": "Register online once wages exceed the threshold",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "accountant"
+        ],
+        "task": "Check your wages against the payroll tax threshold with your accountant"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Payroll tax probably not due yet",
+       "detail": "With fewer than 20 employees most businesses' wages are under the payroll tax threshold. Check again if your wage bill grows, or if your business is grouped with related businesses."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us how many people will work in the business",
+       "detail": "Payroll tax applies once Australian wages go over the threshold. Tell us your staff numbers so we can check."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_payroll_tax",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Large employer",
+       "facts": {
+        "business.employee_band": "20_199"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Small employer",
+       "facts": {
+        "business.employee_band": "1_4"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "business.vic.trades",
+   "vertical": "BUSINESS",
+   "jurisdiction": "VIC",
+   "title": "Victoria: trade registrations and licences",
+   "description": "Domestic builder registration and Home Warranty from the Building and Plumbing Commission, plumbing registration and licences, and electrical licences and contractor registration from Energy Safe Victoria.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "business.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     {
+      "fact": "business.activity",
+      "op": "equals",
+      "value": "trades"
+     }
+    ]
+   },
+   "limitations": [
+    "Our question uses Queensland's A$3,300 job value; Victoria's builder registration threshold is A$10,000 and Home Warranty applies over A$20,000, so these findings are 'likely' rather than certain.",
+    "Doesn't cover commercial building practitioners, building surveyors, gas fitting, refrigeration (ARCtick) or asbestos removal.",
+    "Doesn't check which builder or plumbing class you need, or your qualifications.",
+    "Not legal advice. Confirm with the Building and Plumbing Commission or Energy Safe Victoria."
+   ],
+   "rules": [
+    {
+     "key": "domestic_builder_registration",
+     "title": "Domestic builder registration (BPC)",
+     "condition": {
+      "fact": "business.trade_work",
+      "op": "contains",
+      "value": "building_over_3300"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "You need to be a registered domestic builder for jobs over A$10,000",
+       "detail": "In Victoria, domestic building work worth more than A$10,000 a job (including labour, materials and GST) must be done by a builder registered with the Building and Plumbing Commission (BPC, formerly the VBA). Our question uses Queensland's A$3,300 limit, so if all your jobs are A$10,000 or less you don't need registration. Choose the class that covers your work: Domestic Builder (Unlimited) or a Limited class such as carpentry.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_DOMESTIC_BUILDER_REGISTRATION",
+         "authority": "Building and Plumbing Commission",
+         "pathway": "Apply through BPC Online",
+         "certainty": "LIKELY_REQUIRED"
+        },
+        "referral_categories": [
+         "accountant",
+         "lawyer"
+        ],
+        "task": "Apply to the BPC for domestic builder registration in the right class"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Domestic builder registration not identified",
+       "detail": "From your answers you won't do building work over A$3,300 a job, so you are under Victoria's A$10,000 registration threshold.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_DOMESTIC_BUILDER_REGISTRATION",
+         "authority": "Building and Plumbing Commission",
+         "pathway": "Needed for domestic building work over A$10,000"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Builder registration may be needed",
+       "detail": "Domestic building work over A$10,000 a job needs BPC registration. Tell us what work you will do.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_DOMESTIC_BUILDER_REGISTRATION",
+         "authority": "Building and Plumbing Commission",
+         "pathway": "Needed for domestic building work over A$10,000",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_builder_threshold",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_builder_classes",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Builder",
+       "facts": {
+        "business.trade_work": [
+         "building_over_3300"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Small jobs",
+       "facts": {
+        "business.trade_work": [
+         "building_small"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "home_warranty_insurance",
+     "title": "Home Warranty (domestic building insurance)",
+     "condition": {
+      "fact": "business.trade_work",
+      "op": "contains",
+      "value": "building_over_3300"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Arrange Home Warranty for domestic jobs over A$20,000",
+       "detail": "From 1 July 2026, a registered builder must arrange Home Warranty cover through the BPC, via an approved distributor, for each eligible domestic building job worth more than A$20,000 (homes and residential buildings up to 3 storeys), and pay the premium to get a Notice of Cover before starting. Contracts signed before 1 July 2026 use the old domestic building insurance transitional arrangements.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_DOMESTIC_BUILDING_INSURANCE",
+         "authority": "Building and Plumbing Commission (through an approved distributor)",
+         "pathway": "Notice of Cover for each eligible job",
+         "certainty": "MAY_APPLY"
+        },
+        "referral_categories": [
+         "insurance_broker"
+        ],
+        "task": "Contact an approved distributor about Home Warranty for your jobs"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Home Warranty not identified",
+       "detail": "From your answers you won't do building jobs large enough to need Home Warranty cover.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_DOMESTIC_BUILDING_INSURANCE",
+         "authority": "Building and Plumbing Commission (through an approved distributor)",
+         "pathway": "Needed for domestic jobs over A$20,000"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_home_warranty",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Builder",
+       "facts": {
+        "business.trade_work": [
+         "building_over_3300"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Electrician",
+       "facts": {
+        "business.trade_work": [
+         "electrical"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "plumbing_registration",
+     "title": "Plumbing registration or licence (BPC)",
+     "condition": {
+      "fact": "business.trade_work",
+      "op": "contains",
+      "value": "plumbing_drainage"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need plumbing registration or a plumbing licence",
+       "detail": "Plumbing and drainage work in Victoria must be done by a plumber registered or licensed with the Building and Plumbing Commission in that class of work. Only a licensed plumber can supervise others and issue compliance certificates, so a plumbing business needs at least one licensed plumber.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_PLUMBING_REGISTRATION",
+         "authority": "Building and Plumbing Commission",
+         "pathway": "Registration (3 years) or licence (12 months) per class"
+        },
+        "task": "Apply to the BPC for plumbing registration or a licence in your classes"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Plumbing registration not identified",
+       "detail": "From your answers you won't do plumbing or drainage work.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_PLUMBING_REGISTRATION",
+         "authority": "Building and Plumbing Commission",
+         "pathway": "Needed for any plumbing or drainage work"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_plumbing",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Plumber",
+       "facts": {
+        "business.trade_work": [
+         "plumbing_drainage"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Electrician",
+       "facts": {
+        "business.trade_work": [
+         "electrical"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "electrical_licence_rec",
+     "title": "Electrician's licence and registered electrical contractor",
+     "condition": {
+      "fact": "business.trade_work",
+      "op": "contains",
+      "value": "electrical"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need an electrician's licence and REC registration",
+       "detail": "Electrical installation work in Victoria needs an electrician's licence (A grade) from Energy Safe Victoria. A business that contracts or offers to do electrical work must also be a Registered Electrical Contractor (REC), with a licensed electrician as technical supervisor and at least A$5 million public liability insurance.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_ELECTRICAL_LICENCE",
+         "authority": "Energy Safe Victoria",
+         "pathway": "Electrician's licence for the worker, REC for the business"
+        },
+        "evidence": [
+         {
+          "kind": "PUBLIC_LIABILITY_INSURANCE",
+          "title": "Public liability insurance of at least A$5 million"
+         }
+        ],
+        "referral_categories": [
+         "insurance_broker"
+        ],
+        "task": "Apply to Energy Safe Victoria for REC registration"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Electrical licence not identified",
+       "detail": "From your answers you won't do electrical work.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_ELECTRICAL_LICENCE",
+         "authority": "Energy Safe Victoria",
+         "pathway": "Needed for any electrical installation work"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_electrical",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Electrician",
+       "facts": {
+        "business.trade_work": [
+         "electrical"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Plumber",
+       "facts": {
+        "business.trade_work": [
+         "plumbing_drainage"
+        ]
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "business.vic.personal_appearance",
+   "vertical": "BUSINESS",
+   "jurisdiction": "VIC",
+   "title": "Victoria: hair, beauty and body art businesses",
+   "description": "Council registration of hair, beauty, tattooing and skin penetration premises under the Public Health and Wellbeing Act 2008, from council guidance.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "business.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     {
+      "fact": "business.activity",
+      "op": "equals",
+      "value": "personal_services"
+     }
+    ]
+   },
+   "limitations": [
+    "Built from one council's page (Banyule); other councils administer the same Act with their own forms and fees.",
+    "Doesn't cover mobile operators, cosmetic procedures by health practitioners, or infection control standards in detail.",
+    "Not legal advice. Confirm with your council."
+   ],
+   "rules": [
+    {
+     "key": "phw_premises_registration",
+     "title": "Council registration of hair, beauty and body art premises",
+     "condition": {
+      "any": [
+       {
+        "fact": "business.personal_services",
+        "op": "contains",
+        "value": "hairdressing"
+       },
+       {
+        "fact": "business.personal_services",
+        "op": "contains",
+        "value": "beauty"
+       },
+       {
+        "fact": "business.personal_services",
+        "op": "contains",
+        "value": "ear_nose_piercing"
+       },
+       {
+        "fact": "business.personal_services",
+        "op": "contains",
+        "value": "tattooing"
+       },
+       {
+        "fact": "business.personal_services",
+        "op": "contains",
+        "value": "body_piercing"
+       },
+       {
+        "fact": "business.personal_services",
+        "op": "contains",
+        "value": "implants_or_scarring"
+       },
+       {
+        "fact": "business.personal_services",
+        "op": "contains",
+        "value": "tattoo_removal"
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Register your premises with your council",
+       "detail": "Hair, beauty, tattooing, piercing and other skin penetration businesses must register their premises with the local council under the Public Health and Wellbeing Act 2008 before opening. Council inspects your fit-out first. Tattooing, piercing and most beauty treatments renew every year; hairdressing and low risk beauty (such as make-up, spray tans and lash tinting) can choose a one-off ongoing registration.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_PERSONAL_SERVICES_REGISTRATION",
+         "authority": "Your local council (Environmental Health)",
+         "pathway": "Fit-out inspection, then registration"
+        },
+        "evidence": [
+         {
+          "kind": "FLOOR_PLAN",
+          "title": "Floor plan of the premises",
+          "detail": "Many councils check plans before you fit out."
+         }
+        ],
+        "referral_categories": [
+         "infection_control_trainer"
+        ],
+        "task": "Apply to your council to register your premises under the Public Health and Wellbeing Act"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Premises registration not identified",
+       "detail": "From your answers you won't offer hair, beauty or body art services.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_PERSONAL_SERVICES_REGISTRATION",
+         "authority": "Your local council (Environmental Health)",
+         "pathway": "Needed for hair, beauty and body art businesses"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Council registration may be needed",
+       "detail": "Hair, beauty and body art businesses register with council. Tell us which services you will offer.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_PERSONAL_SERVICES_REGISTRATION",
+         "authority": "Your local council (Environmental Health)",
+         "pathway": "Needed for hair, beauty and body art businesses",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_phw_registration",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Tattoo studio",
+       "facts": {
+        "business.personal_services": [
+         "tattooing"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Hair salon",
+       "facts": {
+        "business.personal_services": [
+         "hairdressing"
+        ]
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "business.vic.education_care",
+   "vertical": "BUSINESS",
+   "jurisdiction": "VIC",
+   "title": "Victoria: education and care services",
+   "description": "Provider and service approvals for long day care, kindergarten, outside school hours care and family day care under the Education and Care Services National Law, from the Victorian Early Childhood Regulatory Authority's guidance.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "business.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     {
+      "fact": "business.activity",
+      "op": "equals",
+      "value": "childcare_education"
+     }
+    ]
+   },
+   "limitations": [
+    "Doesn't cover services under Victoria's Children's Services Act 1996 (limited hours and occasional care), schools, or Working with Children Checks for staff.",
+    "Not legal advice. Confirm with VECRA."
+   ],
+   "rules": [
+    {
+     "key": "provider_and_service_approval",
+     "title": "Provider and service approval (VECRA)",
+     "condition": {
+      "fact": "business.education_care_service",
+      "op": "equals",
+      "value": true
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need a provider approval and a service approval",
+       "detail": "Running long day care, kindergarten, outside school hours care or family day care in Victoria needs a provider approval and a service approval under the Education and Care Services National Law. In Victoria the regulatory authority is the Victorian Early Childhood Regulatory Authority (VECRA). Apply through the national NQA IT System; a provider decision is due within 60 days of a complete application.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_EDUCATION_CARE_SERVICE_APPROVAL",
+         "authority": "Victorian Early Childhood Regulatory Authority (VECRA)",
+         "pathway": "Provider approval, then service approval, through NQA ITS"
+        },
+        "referral_categories": [
+         "education_care_consultant",
+         "lawyer"
+        ],
+        "task": "Prepare the provider and service approval applications in NQA ITS"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Service approval not identified",
+       "detail": "You said you won't run long day care, family day care, kindergarten or outside school hours care.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_EDUCATION_CARE_SERVICE_APPROVAL",
+         "authority": "Victorian Early Childhood Regulatory Authority (VECRA)",
+         "pathway": "Needed to run an education and care service"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "A service approval may be needed",
+       "detail": "Education and care services need provider and service approvals. Answer the question in the questionnaire so we can check this.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_EDUCATION_CARE_SERVICE_APPROVAL",
+         "authority": "Victorian Early Childhood Regulatory Authority (VECRA)",
+         "pathway": "Needed to run an education and care service",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_ecec_approvals",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Long day care",
+       "facts": {
+        "business.education_care_service": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Tutoring",
+       "facts": {
+        "business.education_care_service": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "trade.vic.vehicles",
+   "vertical": "TRADE",
+   "jurisdiction": "VIC",
+   "title": "Victoria: registering and selling imported vehicles",
+   "description": "Registering an imported vehicle with VicRoads (roadworthy, VASS, registration, TAC charge and duty) and the motor car trader licence from Consumer Affairs Victoria.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "trade.direction",
+      "op": "in",
+      "value": [
+       "import",
+       "both"
+      ]
+     },
+     {
+      "fact": "trade.goods_categories",
+      "op": "contains",
+      "value": "vehicles"
+     },
+     {
+      "fact": "trade.vehicle_state",
+      "op": "equals",
+      "value": "VIC"
+     }
+    ]
+   },
+   "limitations": [
+    "Built from VicRoads and Consumer Affairs Victoria pages, not the Road Safety Act 1986 or the Motor Car Traders Act 1986.",
+    "Fees shown are for a passenger car garaged in metropolitan Melbourne; other vehicles and areas differ.",
+    "Doesn't cover heavy vehicles, club permits or conditional registration.",
+    "Not legal advice. Confirm with VicRoads or Consumer Affairs Victoria."
+   ],
+   "rules": [
+    {
+     "key": "vic_registration",
+     "title": "Registering the vehicle in Victoria",
+     "condition": {
+      "fact": "trade.vehicle_state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Get a roadworthy certificate and register the vehicle with VicRoads",
+       "detail": "Once the vehicle is on the Register of Approved Vehicles, get a roadworthy certificate from a licensed vehicle tester and, for most vehicles built after 1968, a VASS approval certificate and blue modification plate. Then book a VicRoads registration appointment and bring the vehicle. You pay the registration fee and TAC charge (A$958.80 a year for a car garaged in Melbourne) plus motor vehicle duty from A$8.40 per A$200 of the car's value.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_VEHICLE_REGISTRATION",
+         "authority": "VicRoads",
+         "pathway": "Roadworthy certificate, then a registration appointment"
+        },
+        "task": "Get a roadworthy certificate and book a VicRoads registration appointment"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Victorian registration not identified",
+       "detail": "You said the vehicle won't be registered in Victoria. Check the road authority in your state."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_vehicle_imported",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_vehicle_register",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_vehicle_fees",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_vehicle_duty",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Vic",
+       "facts": {
+        "trade.vehicle_state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Qld",
+       "facts": {
+        "trade.vehicle_state": "QLD"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "vic_motor_car_trader",
+     "title": "Motor car trader licence for selling imports",
+     "condition": {
+      "all": [
+       {
+        "fact": "trade.vehicle_purpose",
+        "op": "equals",
+        "value": "sell"
+       },
+       {
+        "fact": "trade.vehicle_state",
+        "op": "equals",
+        "value": "VIC"
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "You need a Victorian motor car trader's licence to sell imported cars",
+       "detail": "Dealing in four or more cars a year in Victoria (sometimes fewer) needs a motor car trader's licence from Consumer Affairs Victoria. Apply through myCAV; the application fee and first annual fee together are A$2,965.20 for 2026-27. You need lawful business premises. Each car must also be on the Register of Approved Vehicles before it is first sold.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_MOTOR_CAR_TRADER_LICENCE",
+         "authority": "Consumer Affairs Victoria (Business Licensing Authority)",
+         "pathway": "Apply online through myCAV"
+        },
+        "task": "Apply for a motor car trader's licence before selling imported cars"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "Motor car trader licence not identified",
+       "detail": "From your answers the vehicle is for your own use, or won't be registered in Victoria."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_lmct",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Sell in Vic",
+       "facts": {
+        "trade.vehicle_purpose": "sell",
+        "trade.vehicle_state": "VIC"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Own use",
+       "facts": {
+        "trade.vehicle_purpose": "own_use",
+        "trade.vehicle_state": "VIC"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Purpose not answered",
+       "facts": {
+        "trade.vehicle_state": "VIC"
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "vessel.vic.registration",
+   "vertical": "VESSEL",
+   "jurisdiction": "VIC",
+   "title": "Victoria: boat registration and licences",
+   "description": "Recreational vessel registration, marine licences and PWC endorsements in Victoria, from VicRoads pages.",
+   "applies_when": {
+    "fact": "vessel.home_state",
+    "op": "equals",
+    "value": "VIC"
+   },
+   "limitations": [
+    "Built from VicRoads web pages, not from the Marine Safety Act 2010 or its regulations.",
+    "Doesn't cover tenders, hire and drive vessels, interstate vessels visiting Victoria or e-foils in detail.",
+    "Not legal advice. Check with Safe Transport Victoria or VicRoads before you rely on it."
+   ],
+   "rules": [
+    {
+     "key": "recreational_registration",
+     "title": "Recreational vessel registration",
+     "condition": {
+      "all": [
+       {
+        "fact": "vessel.commercial_use",
+        "op": "equals",
+        "value": false
+       },
+       {
+        "fact": "vessel.propulsion",
+        "op": "not_in",
+        "value": [
+         "sail",
+         "manual"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "Register the vessel in Victoria",
+       "detail": "In Victoria any recreational boat, jet ski or e-foil that can use an engine must be registered with VicRoads before it is used on Victorian waters, whatever the engine's power. Display the registration number on both sides of the hull and renew every 12 months.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_VESSEL_REGISTRATION",
+         "authority": "VicRoads (for Safe Transport Victoria)",
+         "pathway": "Vessel registration form, by post or at a Customer Service Centre"
+        },
+        "task": "Register the vessel with VicRoads"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "Victorian recreational registration not identified",
+       "detail": "From your answers this isn't a recreational vessel with an engine. Vessels without an engine don't need registration, and domestic commercial vessels are certified through AMSA instead.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_VESSEL_REGISTRATION",
+         "authority": "VicRoads (for Safe Transport Victoria)"
+        }
+       }
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "APPROVAL_LIKELY",
+       "title": "Victorian registration may be needed",
+       "detail": "Recreational vessels that can use an engine must be registered in Victoria. Tell us how the vessel is powered and whether it is for business.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_VESSEL_REGISTRATION",
+         "authority": "VicRoads (for Safe Transport Victoria)",
+         "certainty": "MAY_APPLY"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_vessel_registration",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Recreational outboard",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.propulsion": "outboard"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Sail only",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.propulsion": "sail"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Commercial",
+       "facts": {
+        "vessel.commercial_use": true,
+        "vessel.propulsion": "outboard"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Propulsion not answered",
+       "facts": {
+        "vessel.commercial_use": false
+       },
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "marine_licence",
+     "title": "Victorian marine licence",
+     "condition": {
+      "all": [
+       {
+        "fact": "vessel.commercial_use",
+        "op": "equals",
+        "value": false
+       },
+       {
+        "fact": "vessel.propulsion",
+        "op": "not_in",
+        "value": [
+         "sail",
+         "manual"
+        ]
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "The operator needs a Victorian marine licence",
+       "detail": "Whoever drives the registered vessel needs a Victorian marine licence. You pass an eyesight test and a 30 question knowledge test at VicRoads or an accredited training provider. People aged 12 to 15 can hold a restricted marine licence.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_MARINE_LICENCE",
+         "authority": "VicRoads (for Safe Transport Victoria)",
+         "pathway": "Eyesight test and knowledge test"
+        },
+        "referral_categories": [
+         "maritime_trainer"
+        ],
+        "task": "Sit the marine licence knowledge test"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "NOT_REQUIRED",
+       "title": "A recreational marine licence wasn't identified",
+       "detail": "From your answers this isn't a recreational vessel with an engine. Commercial operators need AMSA certificates of competency instead.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_MARINE_LICENCE",
+         "authority": "VicRoads (for Safe Transport Victoria)"
+        }
+       }
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_marine_licence",
+       "relationship": "BASIS"
+      },
+      {
+       "reference": "vic_vessel_registration",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Recreational outboard",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.propulsion": "outboard"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Paddle craft",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.propulsion": "manual"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "pwc_endorsement",
+     "title": "Personal watercraft (PWC) endorsement",
+     "condition": {
+      "all": [
+       {
+        "fact": "vessel.commercial_use",
+        "op": "equals",
+        "value": false
+       },
+       {
+        "fact": "vessel.type",
+        "op": "equals",
+        "value": "personal_watercraft"
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "APPROVAL_REQUIRED",
+       "title": "The rider needs a PWC endorsement on their marine licence",
+       "detail": "In Victoria a jet ski rider needs a marine licence with a personal watercraft (PWC) endorsement. The endorsement needs a separate 15 question test (13 correct to pass) and you must be at least 16.",
+       "payload": {
+        "approval": {
+         "kind": "VIC_MARINE_LICENCE",
+         "authority": "VicRoads (for Safe Transport Victoria)",
+         "pathway": "Marine licence plus PWC endorsement test"
+        },
+        "referral_categories": [
+         "maritime_trainer"
+        ],
+        "task": "Sit the PWC endorsement test"
+       }
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "INFO",
+       "title": "PWC endorsement not identified",
+       "detail": "From your answers the vessel isn't a recreational jet ski."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "vic_marine_licence",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Recreational jet ski",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.type": "personal_watercraft"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Motor boat",
+       "facts": {
+        "vessel.commercial_use": false,
+        "vessel.type": "motor"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "grant.vic.hospitality_security_fund",
+   "vertical": "GRANT",
+   "jurisdiction": "VIC",
+   "title": "Hospitality Security Fund (Victoria)",
+   "description": "Eligibility criteria for the Hospitality Security Fund, from the program guidelines. Each rule is one criterion and matches when it is met.",
+   "applies_when": {
+    "all": [
+     {
+      "fact": "grant.state",
+      "op": "equals",
+      "value": "VIC"
+     },
+     {
+      "fact": "grant.applicant_type",
+      "op": "equals",
+      "value": "business"
+     }
+    ]
+   },
+   "limitations": [
+    "Built from the 2026 program guidelines. The only round closed on 28 August 2026 and no later round has been announced.",
+    "Doesn't check the venue's location (City of Melbourne, Port Phillip, Stonnington or Yarra), its ANZSIC industry class, its liquor licence, night trading past 6pm or WorkSafe registration.",
+    "Checks fewer than 20 employees as a safe match; businesses with 20 to 49 employees were also eligible.",
+    "Stream 2 (venues affected by fire-related crime) is only mentioned, not checked.",
+    "Meeting these criteria doesn't mean an application will succeed. Not financial or legal advice."
+   ],
+   "rules": [
+    {
+     "key": "abn_and_gst",
+     "title": "ABN and GST registration",
+     "condition": {
+      "all": [
+       {
+        "fact": "grant.has_abn",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "grant.gst_registered",
+        "op": "equals",
+        "value": true
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You have an ABN and are registered for GST",
+       "detail": "The fund required an active ABN and GST registration, both held continuously from 27 April 2026."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "The fund needs an ABN and GST registration",
+       "detail": "Applicants had to hold an active ABN and GST registration continuously from 27 April 2026."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us about your ABN and GST registration",
+       "detail": "The fund required an ABN and GST registration."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "hsf_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "ABN and GST",
+       "facts": {
+        "grant.has_abn": true,
+        "grant.gst_registered": true
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "No GST",
+       "facts": {
+        "grant.has_abn": true,
+        "grant.gst_registered": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "entity_type",
+     "title": "Eligible entity type",
+     "condition": {
+      "fact": "grant.entity_type",
+      "op": "in",
+      "value": [
+       "COMPANY",
+       "SOLE_TRADER",
+       "PARTNERSHIP",
+       "TRUST"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your business structure is eligible",
+       "detail": "Companies, sole traders, partnerships and trustees could apply."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Your business structure may not be eligible",
+       "detail": "Incorporated associations, not-for-profits and government bodies couldn't apply. Check Appendix 1 of the guidelines for other structures."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us your business structure",
+       "detail": "Only some entity types could apply."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "hsf_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Company",
+       "facts": {
+        "grant.entity_type": "COMPANY"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Association",
+       "facts": {
+        "grant.entity_type": "INCORPORATED_ASSOCIATION"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "fewer_than_50_employees",
+     "title": "Fewer than 50 employees",
+     "condition": {
+      "fact": "grant.employee_band",
+      "op": "in",
+      "value": [
+       "NONE",
+       "1_4",
+       "5_19"
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You have fewer than 50 employees",
+       "detail": "The fund was for businesses with fewer than 50 employees by headcount."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Check your headcount: the fund needs fewer than 50 employees",
+       "detail": "The fund was for businesses with fewer than 50 employees by headcount. If you have 20 to 49 you may still be eligible; 50 or more are not."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us how many employees you have",
+       "detail": "The fund was for businesses with fewer than 50 employees."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "hsf_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "5 to 19",
+       "facts": {
+        "grant.employee_band": "5_19"
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "200 plus",
+       "facts": {
+        "grant.employee_band": "200_PLUS"
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "co_contribution",
+     "title": "A$5,000 co-contribution (Stream 1)",
+     "condition": {
+      "all": [
+       {
+        "fact": "grant.co_contribution_available",
+        "op": "equals",
+        "value": true
+       },
+       {
+        "fact": "grant.co_contribution_cents",
+        "op": "greater_equal",
+        "value": 500000
+       }
+      ]
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "You can make the A$5,000 co-contribution",
+       "detail": "Stream 1 paid a flat A$5,000 rebate on projects of at least A$10,000 excluding GST, so you fund at least A$5,000."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Stream 1 needs at least A$5,000 of your own money",
+       "detail": "Stream 1 projects had to cost at least A$10,000 excluding GST, with a A$5,000 co-contribution. Stream 2 (venues hit by fire-related crime) had no co-contribution."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us how much you could contribute",
+       "detail": "Stream 1 needed a A$5,000 co-contribution."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "hsf_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "A$6,000",
+       "facts": {
+        "grant.co_contribution_available": true,
+        "grant.co_contribution_cents": 600000
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Can't contribute",
+       "facts": {
+        "grant.co_contribution_available": false
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    },
+    {
+     "key": "not_started",
+     "title": "Project not started (Stream 1)",
+     "condition": {
+      "fact": "grant.project_started",
+      "op": "equals",
+      "value": false
+     },
+     "effective_from": "2026-10-12",
+     "max_confidence": "LIKELY",
+     "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+     "outcomes": [
+      {
+       "on_result": "MATCH",
+       "outcome_type": "INFO",
+       "title": "Your project hasn't started",
+       "detail": "Stream 1 didn't fund spending before the grant was approved."
+      },
+      {
+       "on_result": "NO_MATCH",
+       "outcome_type": "WARNING",
+       "title": "Spending before approval wasn't eligible for Stream 1",
+       "detail": "Stream 1 didn't fund costs incurred before approval. Stream 2 could cover costs since 1 March 2026 for venues hit by fire-related crime investigated by Operation Eclipse."
+      },
+      {
+       "on_result": "UNKNOWN",
+       "outcome_type": "INFO",
+       "title": "Tell us whether the project has started",
+       "detail": "Stream 1 didn't fund spending before approval."
+      }
+     ],
+     "sources": [
+      {
+       "reference": "hsf_eligibility",
+       "relationship": "BASIS"
+      }
+     ],
+     "test_cases": [
+      {
+       "name": "Not started",
+       "facts": {
+        "grant.project_started": false
+       },
+       "expected_result": "MATCH"
+      },
+      {
+       "name": "Started",
+       "facts": {
+        "grant.project_started": true
+       },
+       "expected_result": "NO_MATCH"
+      },
+      {
+       "name": "Not answered",
+       "facts": {},
+       "expected_result": "UNKNOWN"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "grant_programs": [
+  {
+   "key": "grant.vic.hospitality_security_fund",
+   "title": "Hospitality Security Fund (Victoria)",
+   "administrator": "business_vic",
+   "jurisdiction": "VIC",
+   "url": "https://business.vic.gov.au/__data/assets/pdf_file/0011/2489141/Hospitality-Security-Fund-Grant-Program-Guidelines-.pdf",
+   "rule_set": "grant.vic.hospitality_security_fund",
+   "summary": "Rebates for licensed cafes, restaurants, bars, pubs and hospitality clubs in the City of Melbourne, Port Phillip, Stonnington and Yarra to improve venue security (CCTV, alarms, lockable cash equipment), fire suppression, security or fire audits and emergency training.",
+   "funding_summary": "Stream 1: flat A$5,000 rebate on projects of at least A$10,000 excluding GST. Stream 2: up to A$25,000 for venues affected by fire-related crime investigated by Operation Eclipse.",
+   "min_amount_cents": 500000,
+   "max_amount_cents": 2500000,
+   "rounds": [
+    {
+     "title": "2026 round",
+     "status": "CLOSED",
+     "opens_on": "2026-07-03",
+     "closes_on": "2026-08-28",
+     "dates_note": "Opened 3 July 2026 and closed 4pm 28 August 2026 (or earlier if funds ran out). Funds must be spent by 28 February 2027.",
+     "reference": "hsf_dates"
+    }
+   ]
+  }
+ ]
+}

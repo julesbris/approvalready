@@ -9816,6 +9816,2188 @@
       "forms": [
         "nsw-private-mooring-licence"
       ]
+    },
+    {
+      "kind": "VIC_PLANNING_PERMIT",
+      "title": "Get a planning permit from your council (Victoria)",
+      "summary": "In Victoria your council's planning scheme decides whether you need a planning permit. The zone and overlays on your land set the rules. If a permit is needed, you apply to the council, which may tell your neighbours and must normally decide within 60 statutory days. You can ask VCAT to review a refusal or conditions.",
+      "authority": "Your local council (the responsible authority under the Planning and Environment Act 1987)",
+      "publisher": "Department of Transport and Planning (Victoria)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "VIC",
+      "order": 620,
+      "checked_on": "2026-10-12",
+      "timeframe": "60 statutory days for a decision once the application is complete, longer if council asks for more information or neighbours object.",
+      "cost_summary": "Statutory fees for 2026-27: $233.10 to $1,744.30 for a single dwelling depending on cost, $1,537.00 for a use or a 2-lot subdivision.",
+      "before_you_start": [
+        "Download a free VicPlan planning property report to see your zone and overlays.",
+        "Order a current copy of title (Victorian title search (LANDATA)) to check covenants, easements and the title plan.",
+        "Read your zone and overlay clauses in the Victorian planning schemes online.",
+        "Have plans drawn: site plan, floor plans and elevations, and a written report on how you meet the planning scheme.",
+        "If you aren't the owner, get the owner's signature or tell them about the application."
+      ],
+      "steps": [
+        {
+          "title": "Check whether you need a permit",
+          "detail": "Look up your zone and overlays on VicPlan, then read those clauses in your council's planning scheme. Each zone lists uses that need no permit, need a permit or are prohibited, and the buildings and works that need a permit. Overlays like the Heritage, Bushfire Management or Land Subject to Inundation overlays add their own triggers.",
+          "cost": "Free",
+          "url": "https://mapshare.vic.gov.au/vicplan/"
+        },
+        {
+          "title": "Talk to council before you lodge",
+          "detail": "Call the duty planner or book a pre-application meeting. Council can tell you what reports to include, which can save a further information request later. Some councils offer pre-lodgement certification with faster decisions.",
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/planning-permits"
+        },
+        {
+          "title": "Prepare and lodge the application",
+          "detail": "Lodge with your council, usually through its online portal, with the council's planning permit application form, the plans, a current copy of title and the fee. Council can check the application is complete within 5 business days. If it asks for missing information and you don't provide it by the deadline, the application lapses and the fee is refunded.",
+          "cost": "See the statutory fees below",
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/planning-permits"
+        },
+        {
+          "title": "Further information and referral",
+          "detail": "Council may ask for more information. Some applications are referred to authorities like the CFA, a water corporation or Heritage Victoria, which have 28 days to respond."
+        },
+        {
+          "title": "Notice to neighbours (advertising)",
+          "detail": "Unless council decides no one would be materially affected, it requires notice of the application: letters to neighbours, a sign on the site, or both, for at least 14 days. Anyone affected can object in writing. Council can't decide until the notice period ends.",
+          "timeframe": "At least 14 days"
+        },
+        {
+          "title": "Council decides",
+          "detail": "Council issues a permit, a notice of decision to grant a permit (if there were objections), or a refusal. Read the conditions carefully: many must be met before you start, like endorsed plans.",
+          "timeframe": "60 statutory days, adjusted for further information requests"
+        },
+        {
+          "title": "Ask VCAT for a review if needed",
+          "detail": "You can apply to the Victorian Civil and Administrative Tribunal (VCAT) within 60 days of a refusal or of conditions you disagree with, or if council doesn't decide in time. Objectors can also seek a review of a notice of decision.",
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/chapter-5-reviews"
+        },
+        {
+          "title": "Act on the permit before it expires",
+          "detail": "A permit expires if the development doesn't start or finish in the time it sets. You can ask council for an extension of time. Then get your building permit, which must be consistent with the planning permit."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Use only (Class 1)",
+          "amount": "$1,537.00",
+          "note": "2026-27"
+        },
+        {
+          "label": "Single dwelling works, cost $10,000 or less (Class 2)",
+          "amount": "$233.10",
+          "note": "2026-27"
+        },
+        {
+          "label": "Single dwelling works, $10,001 to $100,000 (Class 3)",
+          "amount": "$734.00",
+          "note": "2026-27"
+        },
+        {
+          "label": "Single dwelling works, $100,001 to $500,000 (Class 4)",
+          "amount": "$1,502.50",
+          "note": "2026-27"
+        },
+        {
+          "label": "Single dwelling works, $500,001 to $1 million (Class 5)",
+          "amount": "$1,623.40",
+          "note": "2026-27"
+        },
+        {
+          "label": "Single dwelling works, $1,000,001 to $2 million (Class 6)",
+          "amount": "$1,744.30",
+          "note": "2026-27"
+        },
+        {
+          "label": "Subdivide land into 2 lots (Class 18)",
+          "amount": "$1,537.00",
+          "note": "2026-27"
+        },
+        {
+          "label": "Extension of time for a permit for 1 dwelling",
+          "amount": "$455.72",
+          "note": "2026-27, as listed by Darebin"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning department",
+          "note": "Most councils offer a duty planner by phone or a pre-application meeting. Check your council's website.",
+          "url": "https://www.vic.gov.au/know-your-council"
+        },
+        {
+          "name": "VCAT Planning and Environment List",
+          "url": "https://www.vcat.vic.gov.au/",
+          "note": "For reviews of council planning decisions."
+        },
+        {
+          "name": "Department of Transport and Planning: planning enquiries",
+          "url": "https://www.planning.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Get the planning permit before the building permit. A building surveyor can't issue a permit that conflicts with the planning scheme.",
+        "Victoria's planning laws are being reformed. Rules on notice and third-party appeals change by 29 October 2027 at the latest. Check the current rules when you apply.",
+        "Covenants on your title can stop a development even if the planning scheme allows it.",
+        "Starting work or a use without a needed permit is an offence, and penalties increased from 3 August 2026.",
+        "Changing plans after lodging restarts the clock."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/planning-permits",
+          "title": "Guide to Victoria's planning system: Planning permits (DTP)"
+        },
+        {
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/chapter-5-reviews",
+          "title": "Guide to Victoria's planning system: Reviews (DTP)"
+        },
+        {
+          "url": "https://www.darebin.vic.gov.au/files/assets/public/v/1/planning-and-building/documents/statutory-planning-fee-schedule-26-27-final.pdf",
+          "title": "Statutory planning fee schedule 2026-27 (Darebin City Council)"
+        },
+        {
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/legislation-regulation-and-fees/updating-the-planning-and-environment-act",
+          "title": "Updating the Planning and Environment Act (DTP)"
+        }
+      ],
+      "gaps": [
+        "The 2026-27 fees come from a council's published schedule of the Planning and Environment (Fees) Regulations 2016, not DTP's own fee page, which couldn't be read.",
+        "The decision timeframe is described as 60 days in DTP's guide; whether reforms now count business days wasn't confirmed.",
+        "Objector review periods and VCAT filing fees weren't confirmed.",
+        "No statewide planning permit application form exists; each council publishes its own.",
+        "The council finder link (vic.gov.au Know Your Council) was not opened this session."
+      ],
+      "forms": [
+        "vic-vicplan-property-report",
+        "vic-landata-title-search",
+        "vic-planning-schemes-online"
+      ]
+    },
+    {
+      "kind": "VIC_VICSMART_PERMIT",
+      "title": "Get a 10 day VicSmart planning permit (Victoria)",
+      "summary": "VicSmart is a fast-track planning permit for simple proposals listed in the planning scheme, decided in 10 business days. Applications aren't advertised and neighbours can't appeal. A single dwelling or small second dwelling on a lot under 300 m2 that meets every deemed-to-comply standard in clause 54 can use it, as can some simple subdivisions and minor works.",
+      "authority": "Your local council (usually decided by the CEO or a delegate)",
+      "publisher": "Department of Transport and Planning (Victoria)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "VIC",
+      "order": 615,
+      "checked_on": "2026-10-12",
+      "timeframe": "10 business days once the application is complete.",
+      "cost_summary": "$233.10 if the work costs $10,000 or less, $500.80 if more (2026-27).",
+      "before_you_start": [
+        "Download a VicPlan planning property report to confirm your zone and overlays.",
+        "Check the VicSmart class in your planning scheme matches your proposal exactly.",
+        "Have your designer check the plans against every deemed-to-comply standard.",
+        "Get a current copy of title."
+      ],
+      "steps": [
+        {
+          "title": "Confirm the proposal is a VicSmart class",
+          "detail": "VicSmart classes are listed in the planning scheme. For homes on lots under 300 m2, the design must meet each listed clause 54 standard, like street setback, site coverage, private open space and tree canopy.",
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/all-guides/residential-development/single-home-code"
+        },
+        {
+          "title": "Prepare the plans and information",
+          "detail": "VicSmart has its own short list of information requirements. Include plans showing how each standard is met and a copy of title."
+        },
+        {
+          "title": "Lodge with your council and pay the fee",
+          "detail": "Lodge through your council's online portal, marked as a VicSmart application.",
+          "cost": "$233.10 or $500.80 (2026-27)"
+        },
+        {
+          "title": "Council decides in 10 business days",
+          "detail": "There's no notice to neighbours and no objector appeal. If the proposal doesn't meet the standards, council can treat it as a regular permit application.",
+          "timeframe": "10 business days"
+        },
+        {
+          "title": "Review if refused",
+          "detail": "You can ask VCAT to review a refusal, or apply if council hasn't decided after 10 business days.",
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/chapter-5-reviews"
+        }
+      ],
+      "fees": [
+        {
+          "label": "VicSmart, cost of works $10,000 or less (Class 7)",
+          "amount": "$233.10",
+          "note": "2026-27"
+        },
+        {
+          "label": "VicSmart, cost of works over $10,000 (Class 8)",
+          "amount": "$500.80",
+          "note": "2026-27"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning department",
+          "note": "Most councils offer a duty planner by phone or a pre-application meeting. Check your council's website.",
+          "url": "https://www.vic.gov.au/know-your-council"
+        }
+      ],
+      "watch_out": [
+        "Missing even one deemed-to-comply standard takes you out of VicSmart.",
+        "Overlays may still need a separate permit.",
+        "You still need a building permit after VicSmart approval."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/all-guides/residential-development/single-home-code",
+          "title": "Single Home Code: clause 54 (DTP)"
+        },
+        {
+          "url": "https://www.planning.vic.gov.au/news/articles/new-streamlined-requirements-for-single-dwellings-and-small-second-dwellings",
+          "title": "New streamlined requirements for single dwellings and small second dwellings (DTP)"
+        },
+        {
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/chapter-5-reviews",
+          "title": "Guide to Victoria's planning system: Reviews (DTP)"
+        },
+        {
+          "url": "https://www.darebin.vic.gov.au/files/assets/public/v/1/planning-and-building/documents/statutory-planning-fee-schedule-26-27-final.pdf",
+          "title": "Statutory planning fee schedule 2026-27 (Darebin City Council)"
+        }
+      ],
+      "gaps": [
+        "The full list of VicSmart classes (clause 59) wasn't read this session.",
+        "Whether a VicSmart application that fails the standards is converted or refused depends on the council; not confirmed."
+      ],
+      "forms": [
+        "vic-vicplan-property-report"
+      ]
+    },
+    {
+      "kind": "VIC_BUILDING_PERMIT",
+      "title": "Get a building permit from a registered building surveyor (Victoria)",
+      "summary": "Almost all building work in Victoria needs a building permit under the Building Act 1993, including every new house, extension and small second dwelling. You choose and appoint a registered building surveyor, either council's municipal building surveyor or a private one. The surveyor checks your plans, issues the permit, inspects the work at key stages and signs it off at the end.",
+      "authority": "A registered building surveyor (council or private)",
+      "publisher": "Building and Plumbing Commission (Victoria)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "VIC",
+      "order": 640,
+      "checked_on": "2026-10-12",
+      "timeframe": "Usually a few weeks, depending on the surveyor and whether report and consent is needed.",
+      "cost_summary": "The surveyor's fee, plus the state building permit levy of 0.128% of the cost of work over $10,000.",
+      "before_you_start": [
+        "Get any planning permit first. The building permit must be consistent with it.",
+        "Have construction drawings, specifications, a structural engineer's design, a soil report and an energy rating.",
+        "If using a builder for work over $10,000, have a major domestic building contract. Over $16,000 the builder needs domestic building insurance.",
+        "In a Bushfire Prone Area, get the BAL assessed so the design can meet it."
+      ],
+      "steps": [
+        {
+          "title": "Appoint a building surveyor",
+          "detail": "You, not your builder, appoint the surveyor. Check they are registered on the BPC's Find a Practitioner search.",
+          "url": "https://www.bpc.vic.gov.au"
+        },
+        {
+          "title": "Apply with the Victorian building permit application form",
+          "detail": "Your surveyor will usually help fill it in. It names the owner, the builder (or owner-builder), the cost of work and the documents provided.",
+          "form": {
+            "name": "Victorian building permit application form",
+            "url": "https://www.bpc.vic.gov.au/__data/assets/word_doc/0020/24185/Form-1-Building-Permit-Application-25-November-2025.docx"
+          }
+        },
+        {
+          "title": "Report and consent if siting rules aren't met",
+          "detail": "If the design varies from the siting rules in Part 5 of the Building Regulations 2018, or is over an easement or on flood-prone land, the surveyor needs council's report and consent before issuing the permit."
+        },
+        {
+          "title": "Pay the building permit levy",
+          "detail": "If the work costs more than $10,000, the levy is paid to the BPC through its Building Activity Management System (BAMS) by BPAY or card before the permit is issued. A building permit number is issued once it clears, usually in 1 to 2 business days for BPAY.",
+          "cost": "0.128% of the cost of work",
+          "url": "https://www.bpc.vic.gov.au/building-surveyors/building-activity-management-system-bams/bams-faqs"
+        },
+        {
+          "title": "Permit issued and work starts",
+          "detail": "The permit lists the mandatory inspections, like footings, frame and final. Your builder must build to the approved plans."
+        },
+        {
+          "title": "Inspections and completion",
+          "detail": "The surveyor inspects at each mandatory stage. At the end you get an occupancy permit or a certificate of final inspection."
+        }
+      ],
+      "fees": [
+        {
+          "label": "State building permit levy",
+          "amount": "0.128% of the cost of work",
+          "note": "Only if the cost of work is over $10,000. Knox example: cost of works x 0.00128."
+        },
+        {
+          "label": "Building Reform Levy",
+          "amount": "$3.70 per $1,000",
+          "note": "From 1 July 2026, only for Class 2 to 8 buildings in metropolitan Melbourne costing $1.5 million or more"
+        },
+        {
+          "label": "Council lodgement fee (permit by a private surveyor)",
+          "amount": "$142.10",
+          "note": "Knox 2026-27 example"
+        },
+        {
+          "label": "Building surveyor's fee",
+          "amount": "Varies: set by the surveyor"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building and Plumbing Commission (BPC) Consumer and Practitioner Service Centre",
+          "phone": "1300 067 088",
+          "hours": "Monday to Friday, 8:30am to 5pm",
+          "url": "https://www.bpc.vic.gov.au"
+        },
+        {
+          "name": "BPC building permit levy (BAMS) enquiries",
+          "email": "BAMS@bpc.vic.gov.au",
+          "url": "https://www.bpc.vic.gov.au/building-surveyors/building-activity-management-system-bams/bams-faqs"
+        }
+      ],
+      "watch_out": [
+        "It's an offence to start work without a building permit.",
+        "If the cost of work changes after the permit, tell the BPC within 28 days; the levy can be reassessed.",
+        "Owner-builders need a certificate of consent from the BPC for larger jobs.",
+        "Choose your surveyor yourself, so they work for you, not the builder."
+      ],
+      "sources": [
+        {
+          "url": "https://www.bpc.vic.gov.au/_media/resource-hub/fact-sheets/information-for-homeowners-and-applicants.pdf",
+          "title": "Information for homeowners and applicants (BPC)"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/resource-hub/info-sheets/protect-your-build",
+          "title": "Protect your build (BPC)"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/building-surveyors/building-activity-management-system-bams/bams-faqs",
+          "title": "BAMS FAQs (BPC)"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/building-surveyors/building-activity-management-system-bams/building-reform-levy",
+          "title": "Building Reform Levy (BPC)"
+        },
+        {
+          "url": "https://www.knox.vic.gov.au/building-fees",
+          "title": "Building fees 2026-27 (Knox City Council)"
+        }
+      ],
+      "gaps": [
+        "The 0.128% levy rate comes from a council fee page (Knox); the BPC page read didn't state it.",
+        "The owner-builder certificate of consent threshold wasn't confirmed this session.",
+        "Typical building permit processing times aren't published statewide."
+      ],
+      "forms": [
+        "vic-building-permit-application"
+      ]
+    },
+    {
+      "kind": "VIC_OCCUPANCY_PERMIT",
+      "title": "Get an occupancy permit or certificate of final inspection (Victoria)",
+      "summary": "When the building work is finished, your building surveyor does a final inspection. For a new home or a new small second dwelling you get an occupancy permit, and it's illegal to move in without it. For other work, like many extensions, you may get a certificate of final inspection instead. Your building permit says which.",
+      "authority": "Your relevant building surveyor",
+      "publisher": "Building and Plumbing Commission (Victoria)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "VIC",
+      "order": 660,
+      "checked_on": "2026-10-12",
+      "timeframe": "Usually issued soon after a successful final inspection.",
+      "cost_summary": "Usually included in the building surveyor's fee.",
+      "before_you_start": [
+        "Check your building permit to see whether it needs an occupancy permit or a certificate of final inspection.",
+        "Collect the plumbing and electrical compliance certificates and any other certificates the surveyor asks for."
+      ],
+      "steps": [
+        {
+          "title": "Finish the work and gather certificates",
+          "detail": "Your builder gives the surveyor the compliance certificates for plumbing, electrical, glazing, smoke alarms and similar."
+        },
+        {
+          "title": "Book the final inspection",
+          "detail": "The surveyor inspects the finished work against the permit and approved plans."
+        },
+        {
+          "title": "Fix any defects",
+          "detail": "The surveyor can issue directions to fix work before signing off."
+        },
+        {
+          "title": "Receive the occupancy permit or certificate",
+          "detail": "Once satisfied, the surveyor issues it. Keep a copy: buyers, lenders and insurers ask for it.",
+          "url": "https://www.bpc.vic.gov.au/resource-hub/info-sheets/protect-your-build"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Final inspection and permit",
+          "amount": "Varies: set by the surveyor",
+          "note": "Often part of the building permit fee"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building and Plumbing Commission (BPC) Consumer and Practitioner Service Centre",
+          "phone": "1300 067 088",
+          "hours": "Monday to Friday, 8:30am to 5pm",
+          "url": "https://www.bpc.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Don't move in or let anyone live in a new home until the occupancy permit is issued.",
+        "A small second dwelling still needs its occupancy permit, even with no planning permit."
+      ],
+      "sources": [
+        {
+          "url": "https://www.bpc.vic.gov.au/resource-hub/info-sheets/protect-your-build",
+          "title": "Protect your build (BPC)"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/_media/resource-hub/fact-sheets/information-for-homeowners-and-applicants.pdf",
+          "title": "Information for homeowners and applicants (BPC)"
+        }
+      ],
+      "gaps": [
+        "The exact rule on which work gets a certificate of final inspection instead of an occupancy permit wasn't read from the Building Act."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "VIC_REPORT_AND_CONSENT",
+      "title": "Get council's report and consent for a siting variation (Victoria)",
+      "summary": "If your house, extension or small second dwelling doesn't meet a siting rule in Part 5 of the Building Regulations 2018, like a setback, height, site coverage or overlooking limit, council must give its report and consent before your building surveyor can issue the building permit. The same applies to some other matters, like building over an easement.",
+      "authority": "Your local council (building department)",
+      "publisher": "Building and Plumbing Commission (Victoria)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "VIC",
+      "order": 630,
+      "checked_on": "2026-10-12",
+      "timeframe": "Council has a set time to decide; it is often several weeks with neighbour comments.",
+      "cost_summary": "Set in fee units by the Building Regulations; Knox charges $474.10 for a Part 5 variation in 2026-27.",
+      "before_you_start": [
+        "Ask your building surveyor which regulation the design doesn't meet.",
+        "Have the plans showing the variation, and photos of the site and neighbouring properties.",
+        "Talk to affected neighbours early; their comments carry weight."
+      ],
+      "steps": [
+        {
+          "title": "Confirm the variation with your surveyor",
+          "detail": "Your surveyor identifies each siting regulation that isn't met."
+        },
+        {
+          "title": "Apply to council on its report and consent form",
+          "detail": "Each council publishes its own form. Explain why the variation is reasonable and how it affects neighbours.",
+          "cost": "Knox example: $474.10 (2026-27)",
+          "url": "https://www.knox.vic.gov.au/building-fees"
+        },
+        {
+          "title": "Council asks neighbours for comment",
+          "detail": "Adjoining owners can comment on how the variation affects them."
+        },
+        {
+          "title": "Council decides",
+          "detail": "Council gives or refuses consent, sometimes with conditions. Your surveyor then decides the building permit."
+        },
+        {
+          "title": "Appeal if refused",
+          "detail": "You can appeal a refusal to the Building Appeals Board."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Report and consent, Part 5 siting variation",
+          "amount": "$474.10",
+          "note": "Knox 2026-27 example"
+        },
+        {
+          "label": "Report and consent, building over an easement",
+          "amount": "$385.00",
+          "note": "Knox 2026-27 example"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning department",
+          "note": "Most councils offer a duty planner by phone or a pre-application meeting. Check your council's website.",
+          "url": "https://www.vic.gov.au/know-your-council"
+        },
+        {
+          "name": "Building and Plumbing Commission (BPC) Consumer and Practitioner Service Centre",
+          "phone": "1300 067 088",
+          "hours": "Monday to Friday, 8:30am to 5pm",
+          "url": "https://www.bpc.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "On a lot under 300 m2 in a residential zone, siting is assessed through the planning permit instead.",
+        "Changing the design to meet the rule is often faster than seeking consent."
+      ],
+      "sources": [
+        {
+          "url": "https://www.knox.vic.gov.au/building-fees",
+          "title": "Building fees 2026-27 (Knox City Council)"
+        },
+        {
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/all-guides/residential-development/single-home-code",
+          "title": "Single Home Code: clause 54 (DTP)"
+        }
+      ],
+      "gaps": [
+        "No statewide report and consent form or fee page was read; fees are a council example.",
+        "Decision timeframes and Building Appeals Board details weren't confirmed this session."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "VIC_BAL_ASSESSMENT",
+      "title": "Get a bushfire attack level (BAL) assessment (Victoria)",
+      "summary": "In a designated Bushfire Prone Area, new homes and extensions must be built to a bushfire construction standard set by the site's bushfire attack level (BAL) under AS 3959. If the land is also in the Bushfire Management Overlay, you need a planning permit with a bushfire management statement, the CFA comments, and the permit sets the BAL and defendable space.",
+      "authority": "Your building surveyor (Bushfire Prone Area); your council with the CFA (Bushfire Management Overlay)",
+      "publisher": "Department of Transport and Planning (Victoria)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "VIC",
+      "order": 610,
+      "checked_on": "2026-10-12",
+      "timeframe": "A BAL assessment usually takes days to weeks. CFA referral adds to the planning permit time.",
+      "cost_summary": "Consultant or surveyor fees; not set by the state.",
+      "before_you_start": [
+        "Check VicPlan for the Bushfire Prone Area and the Bushfire Management Overlay.",
+        "Have a site plan with the building location and the vegetation around the site."
+      ],
+      "steps": [
+        {
+          "title": "Check the mapping",
+          "detail": "A VicPlan planning property report shows whether the land is in a designated Bushfire Prone Area and whether the Bushfire Management Overlay applies.",
+          "url": "https://mapshare.vic.gov.au/vicplan/"
+        },
+        {
+          "title": "Get a BAL assessment",
+          "detail": "The BAL measures exposure to embers, radiant heat and flames, from BAL-LOW to BAL-FZ (flame zone), based on vegetation, slope and distance."
+        },
+        {
+          "title": "BMO land: apply for a planning permit",
+          "detail": "Prepare a bushfire hazard site assessment, a bushfire hazard landscape assessment and a bushfire management statement. Council refers the application to the CFA.",
+          "url": "https://www.planning.vic.gov.au/__data/assets/pdf_file/0029/639506/Technical-Guide-Planning-Permit-Applications-Bushfire-Management-Overlay.pdf"
+        },
+        {
+          "title": "Design and build to the BAL",
+          "detail": "Your building surveyor checks the design meets the BAL construction requirements before issuing the building permit."
+        }
+      ],
+      "fees": [
+        {
+          "label": "BAL assessment",
+          "amount": "Varies: set by the consultant or surveyor"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning department",
+          "note": "Most councils offer a duty planner by phone or a pre-application meeting. Check your council's website.",
+          "url": "https://www.vic.gov.au/know-your-council"
+        },
+        {
+          "name": "Country Fire Authority (CFA)",
+          "url": "https://www.cfa.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Higher BALs add significant construction cost. Assess the BAL before finalising the design.",
+        "BMO permits usually need defendable space kept clear for the life of the building."
+      ],
+      "sources": [
+        {
+          "url": "https://www.planning.vic.gov.au/__data/assets/pdf_file/0029/639506/Technical-Guide-Planning-Permit-Applications-Bushfire-Management-Overlay.pdf",
+          "title": "Technical Guide: Planning permit applications, Bushfire Management Overlay (DTP)"
+        },
+        {
+          "url": "https://mapshare.vic.gov.au/vicplan/",
+          "title": "VicPlan (DTP)"
+        }
+      ],
+      "gaps": [
+        "The building regulation setting the minimum BAL in Bushfire Prone Areas wasn't read this session.",
+        "BMO clause 44.06 and clause 53.02 weren't read directly; the summary comes from DTP's technical guide listing.",
+        "The CFA planning contact page wasn't opened."
+      ],
+      "forms": [
+        "vic-vicplan-property-report"
+      ]
+    },
+    {
+      "kind": "VIC_SUBDIVISION_CERTIFICATION",
+      "title": "Certify your plan of subdivision and get a statement of compliance (Victoria)",
+      "summary": "After you have a planning permit to subdivide, the Subdivision Act 1988 process creates the new lots. Your licensed land surveyor lodges the plan with council through SPEAR. Council certifies it, and once you meet the permit conditions it issues a statement of compliance. The plan is then registered at Land Use Victoria and new titles issue.",
+      "authority": "Your local council (certification and statement of compliance); Land Use Victoria (registration)",
+      "publisher": "Department of Transport and Planning (Victoria)",
+      "verticals": [
+        "PLANNING"
+      ],
+      "jurisdiction": "VIC",
+      "order": 670,
+      "checked_on": "2026-10-12",
+      "timeframe": "Depends on works and servicing authority consents; often several months after the permit.",
+      "cost_summary": "Certification of a plan of subdivision $203.80 (2026-27), plus Land Use Victoria registration fees and authority charges.",
+      "before_you_start": [
+        "Have the planning permit for the subdivision.",
+        "Engage a licensed land surveyor and, where needed, a civil engineer.",
+        "Budget for the public open space contribution and service authority charges."
+      ],
+      "steps": [
+        {
+          "title": "Surveyor lodges the plan in SPEAR",
+          "detail": "SPEAR is Victoria's online system for subdivision applications and referrals.",
+          "url": "https://www.spear.land.vic.gov.au/spear/"
+        },
+        {
+          "title": "Referral to servicing authorities",
+          "detail": "Water, power and other authorities consent to the plan and set requirements."
+        },
+        {
+          "title": "Council certifies the plan",
+          "detail": "Council certifies the plan once it matches the planning permit.",
+          "cost": "$203.80 (2026-27)"
+        },
+        {
+          "title": "Meet the permit conditions",
+          "detail": "Build any required works, pay the open space contribution and get authority sign-offs."
+        },
+        {
+          "title": "Statement of compliance",
+          "detail": "Council issues the statement of compliance when every condition is met."
+        },
+        {
+          "title": "Register at Land Use Victoria",
+          "detail": "Your surveyor or conveyancer lodges the plan for registration and new titles are issued."
+        }
+      ],
+      "fees": [
+        {
+          "label": "Certification of a plan of subdivision",
+          "amount": "$203.80",
+          "note": "2026-27"
+        },
+        {
+          "label": "Alteration of plan",
+          "amount": "$129.50",
+          "note": "2026-27"
+        },
+        {
+          "label": "Amendment of certified plan",
+          "amount": "$164.10",
+          "note": "2026-27"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council's planning department",
+          "note": "Most councils offer a duty planner by phone or a pre-application meeting. Check your council's website.",
+          "url": "https://www.vic.gov.au/know-your-council"
+        }
+      ],
+      "watch_out": [
+        "A lot containing a small second dwelling can't be subdivided off.",
+        "Certification lapses if the plan isn't registered within the set time."
+      ],
+      "sources": [
+        {
+          "url": "https://www.darebin.vic.gov.au/files/assets/public/v/1/planning-and-building/documents/statutory-planning-fee-schedule-26-27-final.pdf",
+          "title": "Statutory planning fee schedule 2026-27 (Darebin City Council)"
+        },
+        {
+          "url": "https://www.planning.vic.gov.au/guides-and-resources/guides/guide-to-victorias-planning-system/planning-permits",
+          "title": "Guide to Victoria's planning system: Planning permits (DTP)"
+        },
+        {
+          "url": "https://www.planning.vic.gov.au/__data/assets/pdf_file/0037/699463/DTP0604-Small-Second-Dwellings_Planning-and-building-framework-4.pdf",
+          "title": "Small second dwellings: planning and building framework (DTP)"
+        }
+      ],
+      "gaps": [
+        "The SPEAR site and Land Use Victoria registration fees weren't opened this session.",
+        "Public open space contribution rates (clause 53.01) weren't confirmed."
+      ],
+      "forms": [
+        "vic-spear"
+      ]
+    },
+    {
+      "kind": "VIC_RTBA_BOND_LODGEMENT",
+      "title": "Lodging a rental bond with the RTBA in Victoria",
+      "summary": "Every bond for a Victorian rental is held by the Residential Tenancies Bond Authority (RTBA), not by you or your agent. The bond is usually at most one month's rent. You register for RTBA online, start the lodgement, and each renter accepts it by email. If you receive the money, you must lodge it within 14 days. The renter can instead pay the RTBA directly or transfer a portable bond.",
+      "authority": "Residential Tenancies Bond Authority",
+      "publisher": "Consumer Affairs Victoria",
+      "jurisdiction": "VIC",
+      "verticals": [
+        "RENT"
+      ],
+      "order": 300,
+      "checked_on": "2026-10-12",
+      "timeframe": "Lodge within 14 days of receiving the bond. Renters have 14 days to accept; lodgement usually completes in one business day.",
+      "cost_summary": "No lodgement fee was published on the pages read. The bond is usually at most one month's rent.",
+      "before_you_start": [
+        "Work out the bond: no more than one month's rent unless the rent is over $900 a week or VCAT allows more.",
+        "Each renter needs their own email address and a mobile number to pass Service Victoria identity checks.",
+        "Decide who pays: you (from money the renter gave you), the renter directly, or a portable bond transfer.",
+        "If the renter will pay the RTBA directly, they must tell you in writing before you start the lodgement."
+      ],
+      "steps": [
+        {
+          "title": "Register for RTBA online",
+          "detail": "Create a rental provider account. Add your bank details if the RTBA is to debit the bond from your account.",
+          "form": {
+            "name": "RTBA rental provider registration",
+            "url": "https://www.rentalbonds.vic.gov.au/s/rpregistration"
+          },
+          "url": "https://www.rentalbonds.vic.gov.au/s/rpregistration"
+        },
+        {
+          "title": "Start the lodgement",
+          "detail": "Enter the bond amount, property address and each renter's contact details. On the funding page choose 'Rental provider' if you hold the money, or choose renter payment or a portable bond.",
+          "timeframe": "Within 14 days of receiving the bond",
+          "url": "https://www.rentalbonds.vic.gov.au/"
+        },
+        {
+          "title": "Renters accept",
+          "detail": "Each renter gets an email link to review and accept. If they don't accept within 14 days the lodgement lapses and you can restart it with the same details.",
+          "timeframe": "14 days"
+        },
+        {
+          "title": "Payment and receipt",
+          "detail": "The RTBA debits your account, or the renter pays by BPAY, direct debit or card (the link lasts 48 hours). The RTBA sends receipts with the bond number to every renter within 7 days; ask if you want one. If nothing arrives within 15 days, call the RTBA.",
+          "timeframe": "Usually one business day; payments can take up to 8 days"
+        },
+        {
+          "title": "Manage and claim",
+          "detail": "Use your account to accept change requests within 14 days, update details or cancel. At the end of the tenancy, tell the renter in advance if you will claim on the bond (from 13 October 2026), and make the claim through RTBA online. Disputes go to VCAT.",
+          "url": "https://www.rentalbonds.vic.gov.au/"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Maximum bond",
+          "amount": "Varies: one month's rent",
+          "note": "Unless rent is over $900 a week or VCAT approves more"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Residential Tenancies Bond Authority",
+          "phone": "1300 137 164",
+          "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/bond/rtba-enquiries-form",
+          "note": "Use the online enquiries form; no email address was published on the page read."
+        }
+      ],
+      "watch_out": [
+        "Lodging late or keeping the bond yourself breaches the Residential Tenancies Act 1997.",
+        "Only one renter can make the payment, so renters should agree who pays."
+      ],
+      "sources": [
+        {
+          "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/bond/lodging-the-bond-with-the-rtba",
+          "title": "Lodging the bond with the RTBA"
+        },
+        {
+          "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/bond/bond-amounts-and-paying-a-bond",
+          "title": "Bond amounts and paying a bond"
+        },
+        {
+          "url": "https://www.consumer.vic.gov.au/housing/renting/new-changes-to-the-rental-laws",
+          "title": "New changes to the rental laws"
+        }
+      ],
+      "gaps": [
+        "The RTBA website is a script-driven portal and couldn't be read; steps come from Consumer Affairs Victoria's page.",
+        "Penalties for late lodgement were not on the pages read.",
+        "Whether a paper bond lodgement form is still available was not confirmed."
+      ],
+      "forms": [
+        "vic-rtba-provider-registration",
+        "vic-rtba-online"
+      ]
+    },
+    {
+      "kind": "VIC_POOL_REGISTRATION",
+      "title": "Registering a pool or spa and lodging a barrier certificate in Victoria",
+      "summary": "Every pool or spa in Victoria that can hold more than 300mm of water must be registered with the local council. A registered inspector then checks the barrier and issues a certificate of barrier compliance, which you lodge with council within 30 days. The barrier must be re-inspected every 4 years. Rental providers must also keep the barrier in good repair and give the renter a copy of the certificate on request.",
+      "authority": "Your local council",
+      "publisher": "Building and Plumbing Commission",
+      "jurisdiction": "VIC",
+      "verticals": [
+        "SELL",
+        "RENT"
+      ],
+      "order": 200,
+      "checked_on": "2026-10-12",
+      "timeframe": "Lodge the certificate within 30 days of receiving it; re-inspect every 4 years.",
+      "cost_summary": "Council registration and lodgement fees and inspector fees vary and were not published on the pages read.",
+      "before_you_start": [
+        "Check whether your pool or spa can hold more than 300mm of water. If so, it must be registered.",
+        "Find your council's pool registration page through Know Your Council.",
+        "Check the barrier, gates and self-closing latches before booking an inspection."
+      ],
+      "steps": [
+        {
+          "title": "Register the pool or spa with council",
+          "detail": "Follow your council's registration process. Council will tell you when the barrier inspection certificate is due.",
+          "url": "https://knowyourcouncil.vic.gov.au/councils"
+        },
+        {
+          "title": "Book a barrier inspection",
+          "detail": "Engage a registered pool inspector, building inspector or building surveyor. They inspect the barrier and tell you what must be fixed.",
+          "url": "https://www.bpc.vic.gov.au/home-owners/home-renovation-and-building-essentials/swimming-pools-and-spas"
+        },
+        {
+          "title": "Fix any issues and get the certificate",
+          "detail": "Once problems are fixed the inspector issues a certificate of barrier compliance."
+        },
+        {
+          "title": "Lodge the certificate with council",
+          "detail": "Lodge it with council within 30 days of receiving it. Keep a copy for buyers or renters.",
+          "timeframe": "Within 30 days"
+        },
+        {
+          "title": "Re-inspect every 4 years",
+          "detail": "Book the next inspection before 4 years pass and lodge each new certificate."
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building and Plumbing Commission",
+          "url": "https://www.bpc.vic.gov.au/help-and-support"
+        }
+      ],
+      "watch_out": [
+        "For a rental, pool barrier repairs are urgent repairs."
+      ],
+      "sources": [
+        {
+          "url": "https://www.bpc.vic.gov.au/home-owners/home-renovation-and-building-essentials/swimming-pools-and-spas",
+          "title": "Swimming pools and spas"
+        },
+        {
+          "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/keeping-the-property-safe/swimming-pools-and-spa-safety",
+          "title": "Swimming pools and spas - safety"
+        }
+      ],
+      "gaps": [
+        "Council fees, penalties and the certificate of barrier non-compliance process were not on the pages read.",
+        "The BPC registration requirements page was linked but not read.",
+        "Whether a sale needs the certificate attached to the section 32 statement was not confirmed."
+      ],
+      "forms": []
+    },
+    {
+      "kind": "VIC_FOOD_PREMISES_REGISTRATION",
+      "title": "Food premises registration with your council (Victoria)",
+      "summary": "In Victoria every business that sells food must be classified under the Food Act 1984. Class 1, 2, 3 and 3A premises must register with their local council before trading; class 4 premises (for example only pre-packaged low risk food, whole fruit or tea and coffee) only notify council. Most cafes, restaurants and takeaways are class 2. Fixed premises register with the council where they are; food vans and market stalls register once through the state-wide FoodTrader system with their principal council and can then trade anywhere in Victoria.",
+      "authority": "Your local council's environmental health team, under the Food Act 1984 (Vic)",
+      "publisher": "Safe Food Victoria, Victorian Department of Health and Victorian councils",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 160,
+      "timeframe": "Example (City of Whittlesea): plans approval within 14 days of complete plans, then progress and final inspections before the certificate of registration. Registration is renewed every calendar year.",
+      "cost_summary": "Each council sets its own fees. Example, City of Whittlesea: plans approval A$231.75 (classes 1 to 3); registration A$809.20 for class 2, A$1,129.80 for class 1 and A$564.35 for class 3 and 3A when opening January to June (half price July to September). Class 4 notification has no registration fee there.",
+      "before_you_start": [
+        "Work out your class. Class 2 covers any premises handling unpackaged potentially hazardous food (such as meat, dairy, cooked rice or sushi). Class 3 covers unpackaged low risk food or warehousing of packaged food. Class 4 covers only low risk activities. If your activity isn't listed, council's environmental health officer decides.",
+        "Sort out planning and building first. Councils check that you have any planning or building permits the premises needs before they register it.",
+        "Meat, poultry, seafood and dairy businesses are licensed by Safe Food Victoria (started 1 July 2026), not by council.",
+        "Class 1, most class 2 and class 3A premises need a food safety supervisor; class 1 and 2 also need a food safety program. Plan the training before you open.",
+        "If you buy an existing food business, ask council about transferring the registration and any outstanding defects before settlement."
+      ],
+      "steps": [
+        {
+          "title": "Talk to your council's environmental health team",
+          "detail": "Call or email council to confirm your likely class, whether you need planning or building permits, and the council's own forms and fees. Many councils have a business concierge or a food premises design guide.",
+          "cost": "Free",
+          "url": "https://www.safefood.vic.gov.au/classifications-food-businesses"
+        },
+        {
+          "title": "Get your plans approved before you build",
+          "detail": "Submit a scaled floor plan (often 1:100) with details of benches, sinks, hand basins, finishes, exhaust and equipment. Don't start major work until council returns approved plans and conditions.",
+          "timeframe": "Example: 14 days from complete plans (City of Whittlesea)",
+          "cost": "Example: A$231.75 (City of Whittlesea)",
+          "url": "https://whittlesea.vic.gov.au/Business/Starting-a-business/Food-business-registration"
+        },
+        {
+          "title": "Apply to register and pay the fee",
+          "detail": "Lodge council's Food Act registration application and fee. Council won't assess it until the fee is paid. An environmental health officer confirms your class and whether you need a food safety program and supervisor.",
+          "cost": "Set by council; see fees",
+          "url": "https://whittlesea.vic.gov.au/Business/Starting-a-business/Food-business-registration"
+        },
+        {
+          "title": "Pass the final inspection",
+          "detail": "Council inspects the fit-out before you open. If it meets the Food Standards Code you get a certificate of registration. You can't trade before then.",
+          "url": "https://whittlesea.vic.gov.au/Business/Starting-a-business/Food-business-registration"
+        },
+        {
+          "title": "Food vans, trucks and stalls: use FoodTrader",
+          "detail": "Create a FoodTrader account, register your temporary or mobile premises with your principal council, and lodge a statement of trade for each event or location. Once registered you can trade anywhere in Victoria. Trading on a footpath or council land also needs that council's permit.",
+          "form": {
+            "name": "FoodTrader",
+            "url": "https://foodtrader.vic.gov.au/"
+          },
+          "url": "https://www.health.vic.gov.au/food-safety/food-trucks-vans-and-market-stalls"
+        },
+        {
+          "title": "Class 4: notify council instead",
+          "detail": "If council confirms you are class 4, lodge its class 4 notification form. There is no registration, but you still must follow the Food Standards Code.",
+          "cost": "Usually free",
+          "url": "https://www.health.vic.gov.au/food-safety/changes-to-food-business-classifications-and-requirements-from-1-july-2022"
+        },
+        {
+          "title": "Renew every year",
+          "detail": "Registration runs by calendar year. Councils send renewal notices late in the year; keep your food safety program audit or assessment and supervisor details current.",
+          "timeframe": "Each calendar year"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Plans approval, classes 1 to 3 (City of Whittlesea example)",
+          "amount": "A$231.75"
+        },
+        {
+          "label": "Class 1 registration, opening January to June (City of Whittlesea example)",
+          "amount": "A$1,129.80",
+          "note": "A$564.90 if opening July to September"
+        },
+        {
+          "label": "Class 2 registration, opening January to June (City of Whittlesea example)",
+          "amount": "A$809.20",
+          "note": "A$404.60 if opening July to September"
+        },
+        {
+          "label": "Class 3 and 3A registration, opening January to June (City of Whittlesea example)",
+          "amount": "A$564.35",
+          "note": "A$282.15 if opening July to September"
+        },
+        {
+          "label": "Class 4 notification",
+          "amount": "Free: No registration fee at City of Whittlesea",
+          "note": "Other councils may differ"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council, environmental health team",
+          "note": "Ask for environmental health or the business concierge"
+        },
+        {
+          "name": "City of Whittlesea (example council)",
+          "phone": "(03) 9217 2170",
+          "email": "business.concierge@whittlesea.vic.gov.au",
+          "url": "https://whittlesea.vic.gov.au/Business/Starting-a-business/Food-business-registration"
+        },
+        {
+          "name": "Safe Food Victoria",
+          "url": "https://www.safefood.vic.gov.au/contact-safe-food-victoria",
+          "note": "Licences meat, poultry, seafood and dairy businesses"
+        }
+      ],
+      "watch_out": [
+        "Don't sign a lease or start a fit-out before council has seen your plans. Fit-outs that don't meet the Food Standards Code must be redone.",
+        "You can't trade until you hold the certificate of registration.",
+        "Registration doesn't transfer automatically when you buy a business. Apply to transfer it and ask council about outstanding work.",
+        "A food van registered in FoodTrader still needs a statement of trade for each location, and a council permit to trade on public land.",
+        "Class 2 premises with a food safety program have it audited or assessed every year, which adds cost."
+      ],
+      "sources": [
+        {
+          "url": "https://www.safefood.vic.gov.au/classifications-food-businesses",
+          "title": "Safe Food Victoria: Classifications for food businesses"
+        },
+        {
+          "url": "https://www.health.vic.gov.au/food-safety/changes-to-food-business-classifications-and-requirements-from-1-july-2022",
+          "title": "Department of Health: Changes to food business classifications from 1 July 2022"
+        },
+        {
+          "url": "https://www.health.vic.gov.au/food-safety/food-trucks-vans-and-market-stalls",
+          "title": "Department of Health: Food trucks, vans and market stalls"
+        },
+        {
+          "url": "https://www.monash.vic.gov.au/Business/Food-Premises/Temporary-and-Mobile-Food-Premises",
+          "title": "City of Monash: Temporary and mobile food premises"
+        },
+        {
+          "url": "https://whittlesea.vic.gov.au/Business/Starting-a-business/Food-business-registration",
+          "title": "City of Whittlesea: Food business registration"
+        },
+        {
+          "url": "https://www.safefood.vic.gov.au/",
+          "title": "Safe Food Victoria: home page (commenced 1 July 2026)"
+        }
+      ],
+      "gaps": [
+        "There is no statewide fee: each council sets its own registration fees. Whittlesea's fees are shown as an example and the fee year wasn't labelled on its page.",
+        "The FoodTrader website itself wasn't read; registration fees for mobile and temporary premises are set by the principal council and weren't confirmed.",
+        "Safe Food Victoria started on 1 July 2026; some Department of Health food safety pages now redirect to it. Which agency now publishes the class guidance was not fully confirmed.",
+        "Statewide processing timeframes for registration aren't published; the 14 day plans approval time is Whittlesea's."
+      ],
+      "forms": [
+        "vic-foodtrader"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_LIQUOR_LICENCE",
+      "title": "Liquor licence (Liquor Control Victoria)",
+      "summary": "Selling or serving alcohol in Victoria needs a licence or permit from Liquor Control Victoria (LCV). Cafes and restaurants where meals are the main activity usually need a restaurant and cafe licence; bars and venues that don't serve meals need an on-premises licence; bottle shops need a packaged liquor licence. You apply online through Service Victoria, police and council can object, and you display a public notice for 28 days. Decisions take about 9 to 11 weeks.",
+      "authority": "Liquor Control Victoria, under the Liquor Control Reform Act 1998 (Vic)",
+      "publisher": "Liquor Control Victoria (vic.gov.au)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 170,
+      "timeframe": "Apply at least 11 weeks before you need the licence; decisions take about 9 to 11 weeks, longer with objections.",
+      "cost_summary": "Application: restaurant and cafe A$518.10 to A$1,036.20, on-premises A$690.80 to A$863.20, by capacity. 2026-27 annual renewal base fees: restaurant and cafe A$391.70, on-premises and general A$1,327.50, packaged liquor A$2,655.10, plus risk fees.",
+      "before_you_start": [
+        "Use LCV's liquor licence selector to pick the licence type. A restaurant and cafe licence needs meals to be the main activity at all times.",
+        "The applicant must complete, or book, new entrant training and RSA (responsible service of alcohol) training before applying.",
+        "Check council needs first: planning permit, food premises registration and any footpath or outdoor dining permit.",
+        "You no longer upload a council planning permit; you upload the LCV new licence or permit planning document instead.",
+        "Prepare a red line plan showing where alcohol will be sold and consumed, your maximum patron capacity and proof of your right to occupy the venue. Companies need an ASIC extract dated within 90 days."
+      ],
+      "steps": [
+        {
+          "title": "Choose the licence type",
+          "detail": "Use the liquor licence selector. Restaurant and cafe licences trade 7am to 1am Monday to Saturday and 10am to 1am Sunday; trading after 1am needs a late night licence.",
+          "cost": "Free",
+          "url": "https://www.vic.gov.au/liquor-licence-selector"
+        },
+        {
+          "title": "Complete the training",
+          "detail": "Complete or book new entrant training and RSA training. All staff who serve alcohol need a current RSA certificate before you trade.",
+          "url": "https://www.vic.gov.au/apply-on-premises-liquor-licence"
+        },
+        {
+          "title": "Apply online through Service Victoria",
+          "detail": "Lodge the application with your documents and pay the fee by Visa or Mastercard. It takes about 45 minutes. Include a venue management plan if you plan live or amplified music.",
+          "cost": "A$518.10 to A$1,036.20 (restaurant and cafe); A$690.80 to A$863.20 (on-premises)",
+          "form": {
+            "name": "LCV new licence or permit planning document",
+            "url": "https://www.vic.gov.au/apply-on-premises-liquor-licence"
+          },
+          "url": "https://www.vic.gov.au/apply-restaurant-and-cafe-liquor-licence"
+        },
+        {
+          "title": "Display the public notice",
+          "detail": "Display LCV's public notice template for 28 days where passers-by can see it. Police and council are also notified and can object, and the community has 30 days to object. Then email your statement of display to contact@liquor.vic.gov.au.",
+          "timeframe": "28 days display; 30 day objection period"
+        },
+        {
+          "title": "Get the decision and start trading",
+          "detail": "LCV may ask for more information. When the licence is granted, display it and keep RSA certificates on site.",
+          "timeframe": "About 9 to 11 weeks in total"
+        },
+        {
+          "title": "Renew every year",
+          "detail": "Pay the annual renewal fee, which depends on licence type, trading hours, capacity and compliance history.",
+          "cost": "From A$391.70 a year (2026-27)",
+          "url": "https://www.vic.gov.au/liquor-licence-renewal-fees"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Restaurant and cafe licence application, 0 to 200 customers",
+          "amount": "A$518.10",
+          "note": "Non-refundable"
+        },
+        {
+          "label": "Restaurant and cafe licence application, 201 to 400 customers",
+          "amount": "A$759.90"
+        },
+        {
+          "label": "Restaurant and cafe licence application, 401 or more customers",
+          "amount": "A$1,036.20"
+        },
+        {
+          "label": "On-premises licence application, 0 to 200 customers",
+          "amount": "A$690.80",
+          "note": "Non-refundable"
+        },
+        {
+          "label": "On-premises licence application, 201 to 400 customers",
+          "amount": "A$791.10"
+        },
+        {
+          "label": "On-premises licence application, 401 or more customers",
+          "amount": "A$863.20"
+        },
+        {
+          "label": "Annual renewal base fee, restaurant and cafe",
+          "amount": "A$391.70",
+          "note": "2026-27; A$3,562.30 extra if trading after 1am"
+        },
+        {
+          "label": "Annual renewal base fee, on-premises or general",
+          "amount": "A$1,327.50",
+          "note": "2026-27, plus a venue capacity risk fee"
+        },
+        {
+          "label": "Annual renewal base fee, packaged liquor",
+          "amount": "A$2,655.10",
+          "note": "2026-27, plus trading hours and floor space risk fees"
+        },
+        {
+          "label": "Annual renewal base fee, renewable limited licence",
+          "amount": "A$391.70",
+          "note": "2026-27"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Liquor Control Victoria",
+          "phone": "1300 182 457",
+          "email": "contact@liquor.vic.gov.au",
+          "url": "https://www.vic.gov.au/liquor-control-victoria",
+          "note": "PO Box 1019, Richmond 3121"
+        }
+      ],
+      "watch_out": [
+        "Allow at least 11 weeks. You can't sell alcohol until the licence is granted.",
+        "Under a restaurant and cafe licence, preparing and serving meals must be your main activity at all times. Choose an on-premises licence if drinks without meals are the focus.",
+        "Outdoor areas must be on your red line plan and need council permission for footpath use.",
+        "Demerit points for breaches add large risk fees to future renewals (A$12,954.60 or more).",
+        "Letting customers bring their own alcohol needs a BYO permit."
+      ],
+      "sources": [
+        {
+          "url": "https://www.vic.gov.au/apply-restaurant-and-cafe-liquor-licence",
+          "title": "Liquor Control Victoria: Restaurant and cafe liquor licence"
+        },
+        {
+          "url": "https://www.vic.gov.au/apply-on-premises-liquor-licence",
+          "title": "Liquor Control Victoria: On-premises liquor licence"
+        },
+        {
+          "url": "https://www.vic.gov.au/liquor-licence-renewal-fees",
+          "title": "Liquor Control Victoria: Liquor licence renewal fees 2026-27"
+        },
+        {
+          "url": "https://www.vic.gov.au/sites/default/files/2026-06/LCV-Renewal-of-licence-or-permit-by-owner.pdf",
+          "title": "Liquor Control Victoria: contact details (renewal form header)"
+        }
+      ],
+      "gaps": [
+        "Application fees for packaged liquor, general, late night and limited licences and BYO permits weren't read.",
+        "The renewal due date wasn't stated on the renewal fees page.",
+        "The fee year for application fees wasn't labelled on the licence pages; they are taken as current at 12 October 2026."
+      ],
+      "forms": [
+        "vic-lcv-planning-document"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_FOOTPATH_TRADING_PERMIT",
+      "title": "Footpath trading or outdoor dining permit (Victorian councils)",
+      "summary": "Putting tables, chairs, A-frame signs or goods on a footpath, road or other council land in Victoria needs a permit from the council under its local law. Each council sets its own rules, fees and renewal dates, and usually asks for public liability insurance and a plan of the area.",
+      "authority": "Your local council, under its local law and the Local Government Act 2020 (Vic)",
+      "publisher": "Victorian councils (via ABLIS)",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 180,
+      "cost_summary": "Set by each council. Example: Hume City Council application fee A$226.00 (2025-26), permits expire 31 August each year.",
+      "before_you_start": [
+        "Check your council's footpath trading or outdoor dining guidelines for clearances (space left for pedestrians), furniture and screens.",
+        "Have public liability insurance; ask council for the minimum cover and to be noted on the policy if required.",
+        "If you serve alcohol outside, the area must be on your liquor licence red line plan."
+      ],
+      "steps": [
+        {
+          "title": "Read your council's footpath trading rules",
+          "detail": "Find the footpath trading, outdoor dining or street trading page on your council's website. Rules come from the council's local law.",
+          "cost": "Free",
+          "url": "https://ablis.business.gov.au/service/vic/outdoor-dining-footpath-trading-permit-hume-city-council/40314"
+        },
+        {
+          "title": "Apply to council",
+          "detail": "Lodge the council's application with a plan of the area and furniture, your insurance certificate and the fee. Example: Hume City Council's online Outdoor Eating Furniture and Associated Facilities Application.",
+          "cost": "Example: A$226.00 (Hume, 2025-26)"
+        },
+        {
+          "title": "Display and renew the permit",
+          "detail": "Keep within the approved area and renew before the permit expires (31 August each year at Hume).",
+          "timeframe": "Yearly"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Outdoor dining or footpath trading application (Hume City Council example)",
+          "amount": "A$226.00",
+          "note": "2025-26"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council",
+          "note": "Hume City Council example: 03 9205 2200"
+        }
+      ],
+      "watch_out": [
+        "Food vans and mobile traders need a separate street trading permit from each council where they trade."
+      ],
+      "sources": [
+        {
+          "url": "https://ablis.business.gov.au/service/vic/outdoor-dining-footpath-trading-permit-hume-city-council/40314",
+          "title": "ABLIS: Outdoor dining / footpath trading permit, Hume City Council"
+        }
+      ],
+      "gaps": [
+        "No statewide rule or fee exists; only Hume City Council's ABLIS entry was read. City of Melbourne's footpath trading page couldn't be read.",
+        "Processing times and minimum insurance amounts weren't stated."
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_WORKCOVER_INSURANCE",
+      "title": "WorkCover insurance (WorkSafe Victoria)",
+      "summary": "If you employ workers in Victoria you must register for WorkCover insurance with WorkSafe Victoria. It covers your workers' wages and medical costs if they are injured at work. The only exemption is a business with no apprentices that pays, or expects to pay, less than A$7,500 a year in remuneration.",
+      "authority": "WorkSafe Victoria, under the Workplace Injury Rehabilitation and Compensation Act 2013 (Vic)",
+      "publisher": "WorkSafe Victoria",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 200,
+      "cost_summary": "Your premium is based on your industry and the remuneration you pay (wages, super and other benefits).",
+      "before_you_start": [
+        "Remuneration counts wages, salaries, superannuation and other benefits, not just take-home pay.",
+        "Any apprentice or trainee means you must register, whatever your wage bill.",
+        "Have your ABN, business details, industry and an estimate of the year's remuneration ready."
+      ],
+      "steps": [
+        {
+          "title": "Check whether you must register",
+          "detail": "Register if you employ anyone in Victoria, unless you have no apprentices and pay under A$7,500 a year in remuneration.",
+          "cost": "Free",
+          "form": {
+            "name": "WorkCover insurance registration",
+            "url": "https://www.worksafe.vic.gov.au/do-i-need-register-workcover-insurance"
+          },
+          "url": "https://www.worksafe.vic.gov.au/do-i-need-register-workcover-insurance"
+        },
+        {
+          "title": "Register before your first employee starts",
+          "detail": "Register online through WorkSafe's website, which directs you to one of its authorised insurance agents. The agent sets up your policy and premium.",
+          "url": "https://www.worksafe.vic.gov.au/getting-started-workcover-insurance"
+        },
+        {
+          "title": "Keep your remuneration estimate up to date",
+          "detail": "Each year you declare your actual remuneration so the premium can be adjusted.",
+          "url": "https://www.worksafe.vic.gov.au/getting-started-workcover-insurance"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "WorkSafe Victoria advisory service",
+          "phone": "1800 136 089",
+          "url": "https://www.worksafe.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Not registering when you must can lead to WorkSafe recovering unpaid premiums and penalties (see WorkSafe's premium guideline on failure to register).",
+        "Hiring your first apprentice triggers registration even if your total wages are small."
+      ],
+      "sources": [
+        {
+          "url": "https://www.worksafe.vic.gov.au/do-i-need-register-workcover-insurance",
+          "title": "WorkSafe Victoria: Do I need to register for WorkCover insurance?"
+        },
+        {
+          "url": "https://www.worksafe.vic.gov.au/getting-started-workcover-insurance",
+          "title": "WorkSafe Victoria: Getting started with WorkCover insurance"
+        },
+        {
+          "url": "https://www.worksafe.vic.gov.au/resources/premium-guideline-failure-register-workcover-insurance",
+          "title": "WorkSafe Victoria: Premium guideline, failure to register"
+        }
+      ],
+      "gaps": [
+        "The registration page was last reviewed in November 2023; the current list of authorised agents and the 2026-27 average premium rate weren't read.",
+        "The registration steps are summarised from page headings; the exact online steps weren't read.",
+        "Penalty amounts for failing to register weren't read."
+      ],
+      "forms": [
+        "vic-workcover-registration"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_PAYROLL_TAX_REGISTRATION",
+      "title": "Payroll tax registration (State Revenue Office Victoria)",
+      "summary": "Victorian employers must register for payroll tax with the State Revenue Office (SRO) once their total Australian wages go over the payroll tax threshold. The general rate is 4.85%, with a lower rate for regional Victorian employers. Related businesses can be grouped and share one threshold.",
+      "authority": "State Revenue Office Victoria, under the Payroll Tax Act 2007 (Vic)",
+      "publisher": "State Revenue Office Victoria and ABLIS",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 210,
+      "cost_summary": "4.85% of taxable wages above the threshold (lower rate for regional employers). Registration is free.",
+      "before_you_start": [
+        "Wages include salaries, superannuation, fringe benefits, some contractor payments and other amounts; check the SRO's definition.",
+        "Use the SRO's payroll tax threshold calculator, and include wages of any grouped businesses."
+      ],
+      "steps": [
+        {
+          "title": "Check your wages against the threshold",
+          "detail": "Use the SRO threshold calculator each month as your wage bill grows.",
+          "cost": "Free",
+          "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/thresholds-and-grouping/payroll-tax-threshold-calculator"
+        },
+        {
+          "title": "Register online with the SRO",
+          "detail": "Register as soon as your wages go over the monthly threshold.",
+          "form": {
+            "name": "SRO payroll tax registration",
+            "url": "https://www.e-business.sro.vic.gov.au/eBusiness/ptx/faces/register/welcome.xhtml"
+          },
+          "url": "https://ablis.business.gov.au/service/vic/registration-for-payroll-tax/24476"
+        },
+        {
+          "title": "Lodge returns and pay",
+          "detail": "Lodge monthly returns and an annual reconciliation, and pay the tax by the due dates.",
+          "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/understanding-payroll-tax"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Payroll tax rate",
+          "amount": "4.85% of taxable wages above the threshold",
+          "note": "Lower rate for regional Victorian employers"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "State Revenue Office Victoria",
+          "url": "https://www.sro.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Businesses that share owners or staff may be grouped and share one threshold."
+      ],
+      "sources": [
+        {
+          "url": "https://ablis.business.gov.au/service/vic/registration-for-payroll-tax/24476",
+          "title": "ABLIS: Registration for payroll tax, Victoria"
+        },
+        {
+          "url": "https://www.sro.vic.gov.au/about-us/rates-and-statistics/current-rates/payroll-tax-current-rates",
+          "title": "SRO: Payroll tax current rates"
+        }
+      ],
+      "gaps": [
+        "The SRO's current rates page couldn't be read (it loads with JavaScript). ABLIS gives a monthly threshold of A$75,000 from 1 July 2024; the threshold has since changed, so the current figure, the regional rate and the mental health and wellbeing surcharge weren't confirmed.",
+        "The registration deadline (how many days after going over the threshold) wasn't confirmed.",
+        "Lodgement frequency and due dates are summarised from the SRO's page titles, not read."
+      ],
+      "forms": [
+        "vic-sro-payroll-tax-registration"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_DOMESTIC_BUILDER_REGISTRATION",
+      "title": "Domestic builder registration (Building and Plumbing Commission)",
+      "summary": "In Victoria, domestic building work worth more than A$10,000 a job, including labour, materials and GST, must be carried out by a builder registered with the Building and Plumbing Commission (BPC, which replaced the Victorian Building Authority). You choose a class: Domestic Builder (Unlimited), possibly with conditions, or a Limited class for particular work such as carpentry or glazing.",
+      "authority": "Building and Plumbing Commission, under the Building Act 1993 (Vic)",
+      "publisher": "Building and Plumbing Commission",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 220,
+      "cost_summary": "2026-27 application fees: individual A$1,039.00 (Unlimited) or A$831.20 (Limited); company A$1,454.80 or A$1,163.70. Annual fees from A$415.50.",
+      "before_you_start": [
+        "Check the 'What is domestic building work?' information sheet for the qualifications and experience each class needs.",
+        "You need a technical referee report from a domestic builder registered in the same class or a higher one.",
+        "Companies and partnerships also register, with a registered builder as director or partner.",
+        "From 1 July 2026, builders must also meet Minimum Financial Requirements and arrange Home Warranty for jobs over A$20,000."
+      ],
+      "steps": [
+        {
+          "title": "Choose your class",
+          "detail": "Decide between Domestic Builder (Unlimited) and a Limited class, based on the work you contract for.",
+          "cost": "Free",
+          "url": "https://www.bpc.vic.gov.au/builders/builder-classes/domestic-builder"
+        },
+        {
+          "title": "Apply through BPC Online",
+          "detail": "Log in to BPC Online and start a new application from the Registration and licensing page. Upload evidence of qualifications and experience and the technical referee report.",
+          "cost": "See fees",
+          "form": {
+            "name": "BPC Online",
+            "url": "https://bams.vba.vic.gov.au/bams/s/login-landing"
+          },
+          "url": "https://www.bpc.vic.gov.au/builders/registration"
+        },
+        {
+          "title": "Pay the annual fee and keep registration current",
+          "detail": "Pay the annual fee each year and keep your details and insurance up to date.",
+          "cost": "From A$415.50 a year",
+          "url": "https://www.bpc.vic.gov.au/builders/registration/registration-fees"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Domestic builder, individual, Unlimited: application",
+          "amount": "A$1,039.00",
+          "note": "2026-27; annual fee A$519.50"
+        },
+        {
+          "label": "Domestic builder, individual, Limited: application",
+          "amount": "A$831.20",
+          "note": "2026-27; annual fee A$415.50"
+        },
+        {
+          "label": "Domestic builder, company, Unlimited: application",
+          "amount": "A$1,454.80",
+          "note": "2026-27; annual fee A$727.30"
+        },
+        {
+          "label": "Domestic builder, company, Limited: application",
+          "amount": "A$1,163.70",
+          "note": "2026-27; annual fee A$581.70"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building and Plumbing Commission",
+          "phone": "1300 067 088",
+          "url": "https://www.bpc.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Work over A$10,000 by an unregistered builder isn't covered by domestic building insurance, and the BPC is running a statewide crackdown on unregistered practitioners.",
+        "Queensland's A$3,300 limit doesn't apply in Victoria; the Victorian figure is A$10,000 including GST."
+      ],
+      "sources": [
+        {
+          "url": "https://www.bpc.vic.gov.au/home-owners/before-you-start-building/engaging-a-builder",
+          "title": "BPC: Engaging a builder"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/builders/builder-classes/domestic-builder",
+          "title": "BPC: Domestic builder"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/builders/registration/registration-fees",
+          "title": "BPC: Registration fees 2026-27"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/builders/builders-insurance",
+          "title": "BPC: Insurance requirements for builders"
+        }
+      ],
+      "gaps": [
+        "Processing times, any exam or interview, and police check requirements weren't stated on the pages read.",
+        "The fee page labels company fees as 'individual'; the company figures shown are those listed under the company heading."
+      ],
+      "forms": [
+        "vic-bpc-online"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_DOMESTIC_BUILDING_INSURANCE",
+      "title": "Home Warranty (domestic building insurance) for Victorian builders",
+      "summary": "From 1 July 2026 a registered builder must arrange Home Warranty cover through the Building and Plumbing Commission, via an approved distributor, for each eligible domestic building job worth more than A$20,000 on homes and residential buildings up to 3 storeys, unless an exclusion applies. You pay a premium for each job and get a Notice of Cover. Contracts signed before 1 July 2026 use the old domestic building insurance (DBI) transitional arrangements.",
+      "authority": "Building and Plumbing Commission",
+      "publisher": "Building and Plumbing Commission",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 225,
+      "cost_summary": "A premium for each eligible job, paid through an approved distributor; rates depend on the job and your approved workload limit.",
+      "before_you_start": [
+        "You must be a registered domestic builder.",
+        "From 1 July 2026, Minimum Financial Requirements replace the old DBI eligibility assessment and set your workload limit.",
+        "If your broker isn't an approved distributor, you still need to nominate one for the broker to work with."
+      ],
+      "steps": [
+        {
+          "title": "Meet the Minimum Financial Requirements",
+          "detail": "Show the BPC you have the financial capacity for your approved workload limit.",
+          "url": "https://www.bpc.vic.gov.au/builders/builders-insurance/minimum-financial-requirements-for-domestic-builders"
+        },
+        {
+          "title": "Contact an approved distributor",
+          "detail": "Arrange Home Warranty through an approved distributor, directly or through your broker.",
+          "url": "https://www.bpc.vic.gov.au/builders/builders-insurance/dbi-approved-distributors"
+        },
+        {
+          "title": "Pay the premium for each job and get a Notice of Cover",
+          "detail": "Get the Notice of Cover before you start each eligible job over A$20,000.",
+          "url": "https://www.bpc.vic.gov.au/builders/builders-insurance/paying-the-premium"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building and Plumbing Commission",
+          "phone": "1300 067 088",
+          "url": "https://www.bpc.vic.gov.au/builders/builders-insurance"
+        }
+      ],
+      "watch_out": [
+        "Older BPC pages still say DBI is required over A$16,000; for contracts from 1 July 2026 the Home Warranty threshold is A$20,000.",
+        "Contracts signed before 1 July 2026 without DBI need cover under the transitional arrangements."
+      ],
+      "sources": [
+        {
+          "url": "https://www.bpc.vic.gov.au/builders/builders-insurance/arrange-home-warranty-for-a-project",
+          "title": "BPC: Arrange Home Warranty for a project"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/builders/builders-insurance",
+          "title": "BPC: Insurance requirements for builders"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/builders/builders-insurance/what-is-domestic-building-insurance-dbi",
+          "title": "BPC: What is domestic building insurance (DBI)?"
+        }
+      ],
+      "gaps": [
+        "Premium amounts, what you must give the owner, penalties and the exclusions list weren't read.",
+        "Whether Home Warranty is now 'first resort' cover (owners claim directly) wasn't stated on the pages read."
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_PLUMBING_REGISTRATION",
+      "title": "Plumbing registration or licence (Building and Plumbing Commission)",
+      "summary": "Plumbing and drainage work in Victoria must be done by a plumber registered or licensed with the Building and Plumbing Commission in that class of work. A registered plumber can do the work. A licensed plumber can also supervise apprentices and registered plumbers, issue compliance certificates and do design work, so a plumbing business needs at least one licensed plumber.",
+      "authority": "Building and Plumbing Commission, under the Building Act 1993 (Vic)",
+      "publisher": "Building and Plumbing Commission",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 230,
+      "cost_summary": "2026-27: application A$66.30, registration A$416.30 for 3 years, licence A$369.00 for 12 months.",
+      "before_you_start": [
+        "Check which classes of plumbing work you need (shown on the back of your plumbing ID card).",
+        "You need two certified identity documents (one Category A and one Category B, one with a photo) and a passport-style photo taken in the last 6 months.",
+        "Licensed plumbers must hold and maintain the required insurance."
+      ],
+      "steps": [
+        {
+          "title": "Choose registration or licence",
+          "detail": "Registration lets you do the work; a licence also lets you supervise and issue compliance certificates.",
+          "cost": "Free",
+          "url": "https://www.bpc.vic.gov.au/plumbers/registration-and-licensing/which-registration-or-licence-do-i-need"
+        },
+        {
+          "title": "Apply through the BPC",
+          "detail": "Apply for a plumbing licence and/or registration online (eToolbox) with your identity documents, photo and qualifications.",
+          "cost": "A$66.30 application plus registration or licence fee",
+          "url": "https://www.bpc.vic.gov.au/plumbers/registration-and-licensing/which-registration-or-licence-do-i-need"
+        },
+        {
+          "title": "Issue compliance certificates",
+          "detail": "A licensed plumber must issue a compliance certificate within 5 days of completing the work, including work by registered plumbers and apprentices they supervise.",
+          "timeframe": "Within 5 days of completion"
+        },
+        {
+          "title": "Renew",
+          "detail": "Registration lasts up to 3 years and a licence up to 12 months.",
+          "url": "https://www.bpc.vic.gov.au/plumbers/registration-and-licensing/plumber-fees"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Application fee (all accreditation levels)",
+          "amount": "A$66.30",
+          "note": "2026-27"
+        },
+        {
+          "label": "Plumbing registration",
+          "amount": "A$416.30",
+          "note": "3 years, 2026-27"
+        },
+        {
+          "label": "Plumbing licence",
+          "amount": "A$369.00",
+          "note": "12 months, 2026-27"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Building and Plumbing Commission",
+          "phone": "1300 067 088",
+          "url": "https://www.bpc.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Registered plumbers can't issue compliance certificates or supervise; without a licensed plumber your business can't sign off its work."
+      ],
+      "sources": [
+        {
+          "url": "https://www.bpc.vic.gov.au/plumbers/registration-and-licensing/which-registration-or-licence-do-i-need",
+          "title": "BPC: Which registration or licence do I need?"
+        },
+        {
+          "url": "https://www.bpc.vic.gov.au/plumbers/registration-and-licensing/plumber-fees",
+          "title": "BPC: Plumber registration fees 2026-27"
+        }
+      ],
+      "gaps": [
+        "The classes of plumbing work and any exam requirements weren't listed on the pages read.",
+        "The required insurance amount for licensed plumbers wasn't read."
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_ELECTRICAL_LICENCE",
+      "title": "Electrician's licence and Registered Electrical Contractor (Energy Safe Victoria)",
+      "summary": "Electrical installation work in Victoria needs an electrician's licence (A grade) from Energy Safe Victoria. A person or company in the business of electrical contracting, or offering to contract, must also be a Registered Electrical Contractor (REC), with a business supervisor, a licensed electrician as technical supervisor, and at least A$5 million public liability insurance.",
+      "authority": "Energy Safe Victoria, under the Electricity Safety Act 1998 (Vic)",
+      "publisher": "Energy Safe Victoria",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 235,
+      "cost_summary": "2026-27 (5 year terms): electrician's licence A$471.50 application, A$235.70 renewal; REC A$734.30 application, A$352.70 renewal.",
+      "before_you_start": [
+        "Each REC needs a business supervisor (who may need a business supervisor qualification) and a technical supervisor with a current Victorian electrician's licence.",
+        "Have public liability insurance of at least A$5 million.",
+        "Get signed consent forms from your supervisors (on ESV's REC page).",
+        "Application fees include a A$70 non-refundable administration component and are paid by credit card."
+      ],
+      "steps": [
+        {
+          "title": "Hold an electrician's licence",
+          "detail": "Apply to Energy Safe Victoria for an A grade electrician's licence if you don't have one.",
+          "cost": "A$471.50 (2026-27)",
+          "url": "https://www.energysafe.vic.gov.au/licensing/electrical-licences"
+        },
+        {
+          "title": "Register the business as an REC",
+          "detail": "Apply to ESV with supervisor consents and insurance details.",
+          "cost": "A$734.30 (2026-27)",
+          "url": "https://www.energysafe.vic.gov.au/licensing/electrical-licences/licence-types/registered-electrical-contractors-rec"
+        },
+        {
+          "title": "Renew",
+          "detail": "Licences and REC registration renew for up to 5 years.",
+          "timeframe": "Up to 5 years",
+          "url": "https://www.energysafe.vic.gov.au/licensing/electrical-licences/fees"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Electrician's licence (A grade): application",
+          "amount": "A$471.50",
+          "note": "2026-27, 5 years"
+        },
+        {
+          "label": "Electrician's licence (A grade): renewal",
+          "amount": "A$235.70",
+          "note": "2026-27, 5 years"
+        },
+        {
+          "label": "Registered Electrical Contractor: application",
+          "amount": "A$734.30",
+          "note": "2026-27, 5 years"
+        },
+        {
+          "label": "Registered Electrical Contractor: renewal",
+          "amount": "A$352.70",
+          "note": "2026-27, 5 years"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Energy Safe Victoria",
+          "url": "https://www.energysafe.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Some subcontracting arrangements are exempt from REC registration; check with ESV before relying on an exemption."
+      ],
+      "sources": [
+        {
+          "url": "https://www.energysafe.vic.gov.au/licensing/electrical-licences/licence-types/registered-electrical-contractors-rec",
+          "title": "Energy Safe Victoria: Registered Electrical Contractors (REC)"
+        },
+        {
+          "url": "https://www.energysafe.vic.gov.au/licensing/electrical-licences/fees",
+          "title": "Energy Safe Victoria: Fees 2026-27"
+        }
+      ],
+      "gaps": [
+        "Processing times and step-by-step application instructions weren't stated.",
+        "Requirements to get an A grade licence (qualifications, licensed electrician's assessment) weren't read."
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_PERSONAL_SERVICES_REGISTRATION",
+      "title": "Registering a hair, beauty or body art business with council (Victoria)",
+      "summary": "Hair, beauty, tattooing, body piercing and other personal care or skin penetration businesses in Victoria must register their premises with the local council under the Public Health and Wellbeing Act 2008 before they open. Most registrations are renewed each year, but hairdressing and low risk beauty businesses (temporary make-up, henna, spray tans, lash and brow tinting) can choose a one-off ongoing registration that lasts until the business closes or changes owner.",
+      "authority": "Your local council's environmental health team, under the Public Health and Wellbeing Act 2008 (Vic)",
+      "publisher": "Victorian councils and the Victorian Department of Health",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 190,
+      "cost_summary": "Set by each council.",
+      "before_you_start": [
+        "Get any planning and building permits first.",
+        "Read the Department of Health's infection prevention and control guidelines for your industry.",
+        "If you are buying an existing business, apply to transfer its registration."
+      ],
+      "steps": [
+        {
+          "title": "Send council your plans",
+          "detail": "Many councils recommend lodging floor plans for checking before you fit out (Banyule calls this a plan submission and inspection of unregistered public health premises).",
+          "url": "https://www.banyule.vic.gov.au/For-business/Hair-beauty-body-art-businesses"
+        },
+        {
+          "title": "Book a fit-out inspection",
+          "detail": "Contact council to inspect the premises when the fit-out is finished."
+        },
+        {
+          "title": "Apply for registration and pay the fee",
+          "detail": "Council issues a registration certificate under the Public Health and Wellbeing Act 2008. You can open once you have it.",
+          "cost": "Set by council"
+        },
+        {
+          "title": "Renew or keep ongoing registration current",
+          "detail": "Renew each year, unless you hold a one-off ongoing registration for hairdressing or low risk beauty.",
+          "timeframe": "Yearly for most businesses"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Your local council, environmental health team",
+          "note": "Banyule City Council example: 9490 4222, enquiries@banyule.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "A one-off ongoing registration ends when the business changes owner; the new owner must apply.",
+        "Mobile operators should ask each council where they work about registration."
+      ],
+      "sources": [
+        {
+          "url": "https://www.banyule.vic.gov.au/For-business/Hair-beauty-body-art-businesses",
+          "title": "Banyule City Council: Hair, beauty, body art businesses"
+        },
+        {
+          "url": "https://www.health.vic.gov.au/infectious-diseases/hair-beauty-tattooing-and-skin-penetration-industries",
+          "title": "Department of Health: Hair, beauty, tattooing and skin penetration industries"
+        }
+      ],
+      "gaps": [
+        "The Department of Health's own registration rules couldn't be read; requirements here come from Banyule City Council's page.",
+        "Fees vary by council and weren't confirmed for any council.",
+        "Rules for mobile operators weren't confirmed."
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_EDUCATION_CARE_SERVICE_APPROVAL",
+      "title": "Provider and service approval for education and care services (Victoria)",
+      "summary": "Long day care, kindergarten, outside school hours care and family day care in Victoria operate under the Education and Care Services National Law. You need a provider approval and then a service approval. In Victoria the regulatory authority is the Victorian Early Childhood Regulatory Authority (VECRA). Applications go through the national NQA IT System.",
+      "authority": "Victorian Early Childhood Regulatory Authority (VECRA), under the Education and Care Services National Law",
+      "publisher": "Victorian Early Childhood Regulatory Authority",
+      "verticals": [
+        "BUSINESS"
+      ],
+      "order": 150,
+      "timeframe": "Provider approval: a decision within 60 days of a complete application (can be extended with your consent); you are told within 7 days of the decision.",
+      "cost_summary": "Prescribed national fees, paid online in NQA ITS (see ACECQA's fee information).",
+      "before_you_start": [
+        "Each applicant and person with management or control (PMC) is assessed as fit and proper and needs a Victorian Working with Children Check or VIT registration.",
+        "Each PMC completes an online knowledge assessment.",
+        "Gather criminal history checks, proof of legal entity, resumes and qualifications."
+      ],
+      "steps": [
+        {
+          "title": "Apply for provider approval in NQA ITS",
+          "detail": "Lodge the VECRA provider approval forms (PA01 and PA02) with the supporting documents and fee.",
+          "timeframe": "Decision within 60 days of a complete application",
+          "form": {
+            "name": "VECRA provider approval forms (PA01 and PA02)",
+            "url": "https://www.vecra.vic.gov.au/early-childhood-provider-approval"
+          },
+          "url": "https://www.vecra.vic.gov.au/early-childhood-provider-approval"
+        },
+        {
+          "title": "Complete the PMC knowledge assessments",
+          "detail": "Each person with management or control completes the online assessment.",
+          "url": "https://www.vecra.vic.gov.au/early-childhood-provider-approval"
+        },
+        {
+          "title": "Apply for service approval",
+          "detail": "Once you hold provider approval, apply for service approval for each service in Victoria.",
+          "url": "https://www.vecra.vic.gov.au/which-early-childhood-services-are-regulated"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "VECRA",
+          "phone": "1300 307 415",
+          "email": "vecra.licensing@education.vic.gov.au",
+          "url": "https://www.vecra.vic.gov.au",
+          "hours": "9am to 5pm, Monday to Friday",
+          "note": "General email vecra@education.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Late payment of the fee can make the application invalid."
+      ],
+      "sources": [
+        {
+          "url": "https://www.vecra.vic.gov.au/early-childhood-provider-approval",
+          "title": "VECRA: Early childhood provider approval"
+        },
+        {
+          "url": "https://www.vecra.vic.gov.au/new-regulatory-authority-early-childhood-education",
+          "title": "VECRA: A new regulatory authority for early childhood education"
+        }
+      ],
+      "gaps": [
+        "Fee amounts weren't stated; they are set nationally (ACECQA).",
+        "The date VECRA took over from the Department of Education's Quality Assessment and Regulation Division wasn't confirmed.",
+        "The service approval page wasn't read."
+      ],
+      "forms": [
+        "vic-vecra-provider-approval"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_VEHICLE_REGISTRATION",
+      "title": "Registering an imported vehicle in Victoria (VicRoads)",
+      "summary": "Once an imported vehicle is cleared and on the Register of Approved Vehicles (RAV), you register it with VicRoads. You need a roadworthy certificate from a licensed vehicle tester, the VIN recorded on the RAV and stamped on the vehicle, and for most vehicles built after 1968 a VASS approval certificate and blue modification plate. At the registration appointment you pay the registration fee, the Transport Accident Commission (TAC) charge, a number plate fee and motor vehicle duty.",
+      "authority": "VicRoads (Department of Transport and Planning)",
+      "publisher": "VicRoads",
+      "verticals": [
+        "TRADE"
+      ],
+      "order": 480,
+      "cost_summary": "Registration and TAC charge A$958.80 a year for a car garaged in metropolitan Melbourne, plus motor vehicle duty of A$8.40 per A$200 of market value for most cars (more for luxury cars), an appointment fee and a number plate fee.",
+      "before_you_start": [
+        "You must be at least 16 and the vehicle must be garaged in Victoria.",
+        "Vehicles less than 30 years old must be right-hand drive.",
+        "The VIN must be recorded on the RAV, for example as 'Concessional - Vehicles modified by a RAW', 'Concessional - Personal Effects' or 'Concessional - Older Vehicles'.",
+        "Vehicles built after 1968 (June 1975 for motorcycles) need a VASS approval certificate and a blue modification plate, even if unmodified.",
+        "Motor vehicle duty is worked out on the higher of the purchase price and the market value, including GST and Commonwealth taxes such as customs duty and luxury car tax."
+      ],
+      "steps": [
+        {
+          "title": "Get a roadworthy certificate",
+          "detail": "Take the vehicle to a licensed vehicle tester for a roadworthy certificate. It must be current and original when you register.",
+          "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-vehicle"
+        },
+        {
+          "title": "Get VASS approval and a modification plate if needed",
+          "detail": "For most imported vehicles built after 1968, get a VASS approval certificate and blue modification plate from a VASS signatory.",
+          "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-imported-vehicle"
+        },
+        {
+          "title": "Complete the registration form",
+          "detail": "Fill in the VicRoads vehicle registration form. Have evidence of identity and, if someone attends for you, an authority to act as an agent form.",
+          "form": {
+            "name": "VicRoads vehicle registration form",
+            "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-vehicle"
+          },
+          "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-vehicle"
+        },
+        {
+          "title": "Book an appointment and bring the vehicle",
+          "detail": "Book a registration appointment at a VicRoads Customer Service Centre. Bring your documents, the vehicle (it is usually inspected) and tools to fit the number plates.",
+          "cost": "Appointment fee, registration and TAC charge, plates and duty"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Annual registration including TAC charge, passenger car, metropolitan (high risk) zone",
+          "amount": "A$958.80"
+        },
+        {
+          "label": "Motor vehicle duty, passenger car up to A$80,567 or low emission",
+          "amount": "A$8.40 per A$200 of market value or part"
+        },
+        {
+          "label": "Motor vehicle duty, A$80,568 to A$100,000",
+          "amount": "A$10.40 per A$200"
+        },
+        {
+          "label": "Motor vehicle duty, A$100,001 to A$150,000",
+          "amount": "A$14.00 per A$200"
+        },
+        {
+          "label": "Motor vehicle duty, over A$150,000",
+          "amount": "A$18.00 per A$200"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "VicRoads",
+          "url": "https://www.vicroads.vic.gov.au"
+        }
+      ],
+      "watch_out": [
+        "Online booking isn't available for some vehicles; you may need to call or visit.",
+        "Left-hand drive vehicles under 30 years old can't be registered in Victoria."
+      ],
+      "sources": [
+        {
+          "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-imported-vehicle",
+          "title": "VicRoads: Register an imported vehicle"
+        },
+        {
+          "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-vehicle",
+          "title": "VicRoads: Register a vehicle"
+        },
+        {
+          "url": "https://www.vicroads.vic.gov.au/registrations/fees-and-charges/vehicle-fees",
+          "title": "VicRoads: Vehicle fees"
+        },
+        {
+          "url": "https://www.vicroads.vic.gov.au/registrations/fees-and-charges/motor-vehicle-duty-fee",
+          "title": "VicRoads: Motor vehicle duty fees"
+        }
+      ],
+      "gaps": [
+        "The registration fee and TAC charge weren't shown separately, and rural rates weren't read.",
+        "Appointment and number plate fees weren't read.",
+        "The duty thresholds (A$80,567) look like 2025-26 figures; the fee pages didn't show an effective date.",
+        "Roadworthy certificate prices are set by testers and aren't published by VicRoads."
+      ],
+      "forms": [
+        "vic-vicroads-vehicle-registration"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_MOTOR_CAR_TRADER_LICENCE",
+      "title": "Motor car trader licence if you import cars to sell in Victoria",
+      "summary": "If you deal in four or more cars a year in Victoria (and sometimes fewer), you need a motor car trader's licence from Consumer Affairs Victoria. You apply through myCAV, need lawful business premises and must show you know the Motor Car Traders Act 1986. Under federal law each car must also be on the Register of Approved Vehicles before it is first sold.",
+      "authority": "Consumer Affairs Victoria (Business Licensing Authority)",
+      "publisher": "Consumer Affairs Victoria",
+      "verticals": [
+        "TRADE"
+      ],
+      "order": 490,
+      "cost_summary": "A$2,965.20 combined application fee and first annual licence fee for 1 July 2026 to 30 June 2027.",
+      "before_you_start": [
+        "You must be 18 or over and a fit and proper person; the Business Licensing Authority runs a criminal history check and a licensing officer interviews you by phone.",
+        "Have premises you can lawfully trade from: a current planning permit or council letter (unless a licensed trader used them in the last 6 months), plus a lease, owner's letter or contract of sale.",
+        "Prepare bank statements, a deed of indemnity and a 12-month cash flow projection."
+      ],
+      "steps": [
+        {
+          "title": "Apply through myCAV",
+          "detail": "Lodge your myCAV motor car trader application with the documents for your business structure (sole trader, partnership or company).",
+          "cost": "A$2,965.20 (2026-27)",
+          "form": {
+            "name": "myCAV motor car trader application",
+            "url": "https://www.consumer.vic.gov.au/licensing-and-registration/motor-car-traders/licensing/apply-for-a-licence"
+          },
+          "url": "https://www.consumer.vic.gov.au/licensing-and-registration/motor-car-traders/licensing/apply-for-a-licence"
+        },
+        {
+          "title": "Complete the interview",
+          "detail": "A licensing officer interviews you by phone about the Act and your business."
+        },
+        {
+          "title": "Keep the licence current",
+          "detail": "Lodge the annual statement and pay the annual fee.",
+          "url": "https://www.consumer.vic.gov.au/licensing-and-registration/motor-car-traders/licensing/maintain-your-licence/annual-statement-and-fees"
+        }
+      ],
+      "fees": [
+        {
+          "label": "Application fee and first annual licence fee",
+          "amount": "A$2,965.20",
+          "note": "1 July 2026 to 30 June 2027; application fee non-refundable"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "Consumer Affairs Victoria",
+          "url": "https://www.consumer.vic.gov.au/licensing-and-registration/motor-car-traders"
+        }
+      ],
+      "watch_out": [
+        "Selling a car that isn't yet on the RAV is a federal offence.",
+        "Past claims against the Motor Car Traders Guarantee Fund can affect your eligibility."
+      ],
+      "sources": [
+        {
+          "url": "https://www.consumer.vic.gov.au/licensing-and-registration/motor-car-traders/licensing/apply-for-a-licence",
+          "title": "Consumer Affairs Victoria: Apply for a motor car trader's licence"
+        }
+      ],
+      "gaps": [
+        "Processing times, the separate annual fee and any guarantee fund contribution weren't stated on the page read."
+      ],
+      "forms": [
+        "vic-mycav-motor-car-trader"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_VESSEL_REGISTRATION",
+      "title": "Registering a recreational boat or jet ski in Victoria",
+      "summary": "In Victoria any boat, jet ski or e-foil that can use an engine for propulsion must be registered with VicRoads before it is used on Victorian waters, whatever the engine's power. Vessels without an engine, recreational tenders and domestic commercial vessels (which AMSA certifies) are exempt. Registration is renewed every 12 months.",
+      "authority": "VicRoads, for Safe Transport Victoria, under the Marine Safety Act 2010 (Vic)",
+      "publisher": "VicRoads",
+      "verticals": [
+        "VESSEL"
+      ],
+      "order": 320,
+      "timeframe": "Register before first use; renew every 12 months.",
+      "before_you_start": [
+        "Have evidence of identity and, if you belong to an approved club with a reserved number, the club's approval letter.",
+        "To apply by post you need a Victorian driver or marine licence or a VicRoads customer number, and you pay by money order.",
+        "Plan where the registration number goes: on each side of the hull, forward of the beam, digits at least 150 mm high (100 mm for personal watercraft, 80 mm for an e-foil) in a contrasting colour."
+      ],
+      "steps": [
+        {
+          "title": "Complete the vessel registration form",
+          "detail": "Fill in the VicRoads vessel registration form.",
+          "form": {
+            "name": "VicRoads vessel registration form",
+            "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-boat-or-jet-ski"
+          },
+          "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-boat-or-jet-ski"
+        },
+        {
+          "title": "Lodge it by post or at a Customer Service Centre",
+          "detail": "Post the form with a money order, or book an appointment at a VicRoads Customer Service Centre.",
+          "cost": "See VicRoads boat and vessel fees",
+          "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-boat-or-jet-ski"
+        },
+        {
+          "title": "Display the number and label",
+          "detail": "Display the registration number on both sides of the hull and the registration label where it is clearly visible on the outside or upper part of the vessel."
+        },
+        {
+          "title": "Renew every 12 months",
+          "detail": "Renew the registration each year.",
+          "timeframe": "Every 12 months"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "VicRoads",
+          "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-boat-or-jet-ski"
+        }
+      ],
+      "watch_out": [
+        "Victoria has no minimum engine power: even a small electric outboard means the boat must be registered.",
+        "Commercial vessels aren't registered by VicRoads; follow the AMSA steps instead."
+      ],
+      "sources": [
+        {
+          "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-boat-or-jet-ski",
+          "title": "VicRoads: Register a boat or jet ski"
+        },
+        {
+          "url": "https://www.vicroads.vic.gov.au/registrations/fees-and-charges/boat-vessel-fees",
+          "title": "VicRoads: Boat and vessel fees"
+        }
+      ],
+      "gaps": [
+        "Registration fees (including any length-based tiers) couldn't be read; see VicRoads' boat and vessel fees page.",
+        "Rules for interstate vessels visiting Victoria weren't read."
+      ],
+      "forms": [
+        "vic-vicroads-vessel-registration"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
+    },
+    {
+      "kind": "VIC_MARINE_LICENCE",
+      "title": "Victorian marine licence and PWC endorsement",
+      "summary": "The person driving a registered recreational vessel in Victoria needs a marine licence. You get one by passing an eyesight test and a 30 question knowledge test at a VicRoads Customer Service Centre or an accredited training provider. People aged 12 to 15 can get a restricted marine licence. Riding a personal watercraft (jet ski) also needs a PWC endorsement, which has its own test and a minimum age of 16.",
+      "authority": "VicRoads, for Safe Transport Victoria, under the Marine Safety Act 2010 (Vic)",
+      "publisher": "VicRoads",
+      "verticals": [
+        "VESSEL"
+      ],
+      "order": 330,
+      "before_you_start": [
+        "Study the Victorian Recreational Boating Safety Handbook (2023 edition) and try the practice tests.",
+        "Bring evidence of identity and a completed application form.",
+        "If you hold an interstate licence you must convert it if you will operate a vessel in Victoria for more than 3 months."
+      ],
+      "steps": [
+        {
+          "title": "Study and practise",
+          "detail": "Read the handbook and try the practice marine licence and PWC tests.",
+          "cost": "Free",
+          "url": "https://transportsafety.vic.gov.au/maritime-safety/recreational-vessel-operators/powerboat/licensing/practice-tests"
+        },
+        {
+          "title": "Sit the tests",
+          "detail": "At a VicRoads Customer Service Centre or an accredited training provider, pass the eyesight test and the 30 question knowledge test (26 correct). For a PWC endorsement, also pass the 15 question PWC test (13 correct).",
+          "form": {
+            "name": "Victorian marine licence application",
+            "url": "https://www.vicroads.vic.gov.au/licences/boat-motorbike-other-licences/marine-boat-licence"
+          },
+          "url": "https://www.vicroads.vic.gov.au/licences/boat-motorbike-other-licences/marine-boat-licence"
+        },
+        {
+          "title": "Pay and get your licence",
+          "detail": "Pay the licence fee and any PWC endorsement fee.",
+          "url": "https://www.vicroads.vic.gov.au/licences/licence-fees/marine-licence-fees"
+        }
+      ],
+      "contacts": [
+        {
+          "name": "VicRoads",
+          "url": "https://www.vicroads.vic.gov.au/licences/boat-motorbike-other-licences/marine-boat-licence"
+        }
+      ],
+      "watch_out": [
+        "A restricted marine licence holder (12 to 15) can't get a PWC endorsement until 16."
+      ],
+      "sources": [
+        {
+          "url": "https://www.vicroads.vic.gov.au/licences/boat-motorbike-other-licences/marine-boat-licence",
+          "title": "VicRoads: Marine and boat licence"
+        },
+        {
+          "url": "https://www.vicroads.vic.gov.au/licences/licence-fees/marine-licence-fees",
+          "title": "VicRoads: Marine licence fees"
+        }
+      ],
+      "gaps": [
+        "Licence and PWC endorsement fees, the licence term and the general (unrestricted) minimum age couldn't be read.",
+        "The rule that the operator of a registered vessel needs a licence, and any supervision exemption, wasn't read on Safe Transport Victoria's own pages.",
+        "Accredited training providers' course costs aren't published by VicRoads."
+      ],
+      "forms": [
+        "vic-vicroads-marine-licence"
+      ],
+      "jurisdiction": "VIC",
+      "checked_on": "2026-10-12"
     }
   ]
 }

@@ -12,6 +12,7 @@ from app.modules.lookups.listing import DomainListings
 from app.modules.lookups.nsw import NswSpatial
 from app.modules.lookups.qld import QldSpatial
 from app.modules.lookups.spatial import StateSpatial
+from app.modules.lookups.vic import VicSpatial
 from app.modules.property_report.sources import AbsCensus, Overpass, QldSchoolsAndFlood, QpsCrime
 
 
@@ -26,7 +27,10 @@ class Lookups:
         self.nsw = NswSpatial(
             self.http, settings.nsw_spatial_base_url, settings.nsw_planning_base_url
         )
-        self.states: dict[str, StateSpatial] = {"QLD": self.qld, "NSW": self.nsw}
+        self.vic = VicSpatial(
+            self.http, settings.vic_geocoder_base_url, settings.vic_planning_base_url
+        )
+        self.states: dict[str, StateSpatial] = {"QLD": self.qld, "NSW": self.nsw, "VIC": self.vic}
         self.amsa = AmsaVesselList(self.http, settings)
         self.postcodes = AbsPostcodes(self.http, settings.abs_geo_base_url)
         key = settings.domain_api_key.get_secret_value() if settings.domain_api_key else None

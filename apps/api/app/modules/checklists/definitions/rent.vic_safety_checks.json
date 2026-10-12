@@ -1,0 +1,68 @@
+{
+  "key": "rent.vic_safety_checks",
+  "vertical": "RENT",
+  "title": "Victorian rental safety checks",
+  "description": "Recurring gas, electrical, smoke alarm and pool checks for a Victorian rental. Summarised from Consumer Affairs Victoria and the Building and Plumbing Commission.",
+  "sources": [
+    {
+      "title": "Rental providers: gas and electrical safety",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/gas-electrical-and-water-safety-standards/rental-providers-gas-and-electrical-safety"
+    },
+    {
+      "title": "Smoke alarms and fire safety",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/keeping-the-property-safe/smoke-alarms-and-fire-safety"
+    },
+    {
+      "title": "Swimming pools and spas - safety",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/repairs-alterations-safety-and-pets/keeping-the-property-safe/swimming-pools-and-spa-safety"
+    },
+    {
+      "title": "Swimming pools and spas",
+      "organisation": "Building and Plumbing Commission",
+      "url": "https://www.bpc.vic.gov.au/home-owners/home-renovation-and-building-essentials/swimming-pools-and-spas"
+    }
+  ],
+  "items": [
+    {
+      "key": "gas_check",
+      "title": "Gas safety check by a licensed gasfitter at least every 2 years",
+      "detail": "Keep the report, including the gas servicing record, until the next check."
+    },
+    {
+      "key": "electrical_check",
+      "title": "Electrical safety check by a licensed electrician at least every 2 years",
+      "detail": "Keep the AS/NZS 3019 report until the next check."
+    },
+    {
+      "key": "gas_before_draughtproofing",
+      "title": "Have a gas check done before draughtproofing",
+      "required": false
+    },
+    {
+      "key": "smoke_alarm_check",
+      "title": "Annual smoke alarm safety check",
+      "detail": "Alarms must meet AS 3786. Repair or replace a faulty alarm immediately."
+    },
+    {
+      "key": "disclose_dates",
+      "title": "Tell new renters the dates of the last gas and electrical checks"
+    },
+    {
+      "key": "copy_on_request",
+      "title": "Give a renter a copy of the latest check within 7 days of a written request"
+    },
+    {
+      "key": "pool_registered",
+      "title": "Pool or spa registered with council",
+      "required": false
+    },
+    {
+      "key": "pool_barrier",
+      "title": "Pool barrier inspected every 4 years and certificate lodged with council within 30 days",
+      "required": false
+    }
+  ]
+}

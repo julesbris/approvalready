@@ -1116,6 +1116,409 @@
         "VESSEL"
       ],
       "note": "Applications go through the Private Mooring Map"
+    },
+    {
+      "id": "vic-vicplan-property-report",
+      "name": "VicPlan planning property report",
+      "publisher": "Department of Transport and Planning (Victoria)",
+      "url": "https://mapshare.vic.gov.au/vicplan/",
+      "mentions": [
+        "VicPlan planning property report"
+      ],
+      "verticals": [
+        "PLANNING"
+      ],
+      "note": "Free. Shows zone, overlays and Bushfire Prone Area status."
+    },
+    {
+      "id": "vic-planning-schemes-online",
+      "name": "Victorian planning schemes online",
+      "publisher": "Department of Transport and Planning (Victoria)",
+      "url": "https://planning-schemes.app.planning.vic.gov.au/",
+      "mentions": [
+        "Victorian planning schemes online"
+      ],
+      "verticals": [
+        "PLANNING"
+      ]
+    },
+    {
+      "id": "vic-landata-title-search",
+      "name": "Victorian title search (LANDATA)",
+      "publisher": "Victorian Land Registry Services for Land Use Victoria",
+      "url": "https://www.landata.vic.gov.au/",
+      "mentions": [
+        "Victorian title search (LANDATA)"
+      ],
+      "verticals": [
+        "PLANNING"
+      ],
+      "note": "Paid search."
+    },
+    {
+      "id": "vic-building-permit-application",
+      "code": "Form 1 (Building Regulations 2018)",
+      "name": "Victorian building permit application form",
+      "publisher": "Building and Plumbing Commission (Victoria)",
+      "url": "https://www.bpc.vic.gov.au/__data/assets/word_doc/0020/24185/Form-1-Building-Permit-Application-25-November-2025.docx",
+      "mentions": [
+        "Victorian building permit application form"
+      ],
+      "verticals": [
+        "PLANNING"
+      ],
+      "note": "Version of 25 November 2025 (Word document). Your building surveyor may supply their own copy."
+    },
+    {
+      "id": "vic-spear",
+      "name": "SPEAR (Surveying and Planning through Electronic Applications and Referrals)",
+      "publisher": "Land Use Victoria",
+      "url": "https://www.spear.land.vic.gov.au/spear/",
+      "mentions": [
+        "SPEAR subdivision lodgement",
+        "SPEAR"
+      ],
+      "verticals": [
+        "PLANNING"
+      ],
+      "note": "Used by surveyors and councils for subdivision plans and certification."
+    },
+    {
+      "id": "vic-residential-rental-agreement",
+      "code": "Form 1",
+      "name": "Residential rental agreement",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/forms/housing-and-accommodation/renting/form-1-residential-rental-agreement.docx",
+      "mentions": [
+        "Victorian residential rental agreement form"
+      ],
+      "verticals": [
+        "RENT"
+      ],
+      "note": "Prescribed form for a fixed term of 5 years or less, or a periodic agreement (Word)"
+    },
+    {
+      "id": "vic-long-term-rental-agreement",
+      "code": "Form 2",
+      "name": "Residential rental agreement for a fixed term of more than five years",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/forms/housing-and-accommodation/renting/form-2-residential-rental-agreement-for-a-fixed-term-of-more-than-five-years.docx",
+      "mentions": [
+        "Victorian long-term rental agreement form"
+      ],
+      "verticals": [
+        "RENT"
+      ],
+      "note": "Must be in writing for terms over 5 years"
+    },
+    {
+      "id": "vic-condition-report",
+      "name": "Condition report template",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/forms/housing-and-accommodation/renting/condition-report-word.docx",
+      "mentions": [
+        "Victorian condition report template"
+      ],
+      "verticals": [
+        "RENT"
+      ],
+      "note": "Give 2 copies (or 1 electronic) before move-in; renter returns it within 5 business days"
+    },
+    {
+      "id": "vic-rental-application",
+      "name": "Residential rental application (from 31 March 2026)",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/forms/housing-and-accommodation/renting/residential-rental-application-31-march-2026.docx",
+      "mentions": [
+        "Victorian rental application form"
+      ],
+      "verticals": [
+        "RENT"
+      ],
+      "note": "Prescribed form; ask only for what it sets out"
+    },
+    {
+      "id": "vic-rtba-online",
+      "name": "RTBA online",
+      "publisher": "Residential Tenancies Bond Authority",
+      "url": "https://www.rentalbonds.vic.gov.au/",
+      "mentions": [
+        "RTBA online"
+      ],
+      "verticals": [
+        "RENT"
+      ],
+      "note": "Lodge, transfer and claim bonds online"
+    },
+    {
+      "id": "vic-rtba-provider-registration",
+      "name": "RTBA rental provider registration",
+      "publisher": "Residential Tenancies Bond Authority",
+      "url": "https://www.rentalbonds.vic.gov.au/s/rpregistration",
+      "mentions": [
+        "RTBA rental provider registration"
+      ],
+      "verticals": [
+        "RENT"
+      ],
+      "note": "Register before your first lodgement; add bank details if the RTBA is to debit the bond"
+    },
+    {
+      "id": "vic-notice-to-vacate",
+      "name": "Notice to vacate to renter/s of rented premises",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/forms/housing-and-accommodation/renting/notice-to-vacate-to-renter-of-rented-premises.docx",
+      "mentions": [
+        "Victorian notice to vacate form"
+      ],
+      "verticals": [
+        "RENT",
+        "SELL"
+      ],
+      "note": "State a valid reason and attach the required evidence"
+    },
+    {
+      "id": "vic-notice-of-rent-increase",
+      "name": "Notice of proposed rent increase to renter of rented premises",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/forms/housing-and-accommodation/renting/notice-of-proposed-rent-increase-to-renter-of-rented-premises.docx",
+      "mentions": [
+        "Victorian notice of proposed rent increase"
+      ],
+      "verticals": [
+        "RENT"
+      ],
+      "note": "Give at least 90 days before the increase"
+    },
+    {
+      "id": "vic-notice-of-intention-to-sell",
+      "name": "Notice of intention to sell the property",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/forms/housing-and-accommodation/renting/notice-of-intention-to-sell.docx",
+      "mentions": [
+        "Victorian notice of intention to sell"
+      ],
+      "verticals": [
+        "RENT",
+        "SELL"
+      ],
+      "note": "At least 14 days before showing the property to buyers"
+    },
+    {
+      "id": "vic-notice-of-entry",
+      "name": "Notice to renter of entry to rented premises",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/forms/housing-and-accommodation/renting/notice-to-renter-of-entry-to-rented-premises.docx",
+      "mentions": [
+        "Victorian notice of entry"
+      ],
+      "verticals": [
+        "RENT",
+        "SELL"
+      ],
+      "note": "At least 48 hours' written notice for sale inspections"
+    },
+    {
+      "id": "vic-minimum-standards-checklist",
+      "name": "Rental minimum standards checklist for rental providers",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/publications/housing-and-accommodation/renting/rental-minimum-standards/rental-minimum-standards-checklist-for-rental-providers-pdf.pdf",
+      "mentions": [
+        "Victorian rental minimum standards checklist"
+      ],
+      "verticals": [
+        "RENT"
+      ]
+    },
+    {
+      "id": "vic-due-diligence-checklist",
+      "name": "Due diligence checklist",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/publications/housing-and-accommodation/buying-and-selling-property/due-diligence-checklist.docx",
+      "mentions": [
+        "Victorian due diligence checklist"
+      ],
+      "verticals": [
+        "SELL"
+      ],
+      "note": "Copies at every open inspection and a link on the listing"
+    },
+    {
+      "id": "vic-property-price-statement",
+      "name": "Property Price Statement (single residential property, Melbourne metropolitan area)",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/library/publications/businesses/estate-agents/pps--single-residential-property-located-in-the-melbourne-metropolitan-area.docx",
+      "mentions": [
+        "Property Price Statement"
+      ],
+      "verticals": [
+        "SELL"
+      ],
+      "note": "Replaced the Statement of Information from 1 October 2026; other versions exist for regional and multi-unit sales"
+    },
+    {
+      "id": "vic-owner-builder-defects-report",
+      "name": "Owner Builder Domestic building report template",
+      "publisher": "Building and Plumbing Commission",
+      "url": "https://www.bpc.vic.gov.au/resource-hub/forms/owner-builder-domestic-building-report-template",
+      "mentions": [
+        "owner-builder defects inspection report template"
+      ],
+      "verticals": [
+        "SELL"
+      ],
+      "note": "Completed by a prescribed practitioner; no older than 6 months at sale"
+    },
+    {
+      "id": "vic-pool-registration",
+      "name": "Pool and spa registration requirements",
+      "publisher": "Building and Plumbing Commission",
+      "url": "https://www.bpc.vic.gov.au/home-owners/home-renovation-and-building-essentials/swimming-pools-and-spas/pool-and-spa-registration-requirements",
+      "mentions": [
+        "Victorian pool and spa registration"
+      ],
+      "verticals": [
+        "RENT",
+        "SELL"
+      ],
+      "note": "Registration itself is with your local council"
+    },
+    {
+      "id": "vic-sro-property-clearance-certificate",
+      "name": "Apply for a property clearance certificate",
+      "publisher": "State Revenue Office Victoria",
+      "url": "https://www.sro.vic.gov.au/buying-property/property-clearance-certificates/apply-property-clearance-certificate",
+      "mentions": [
+        "SRO property clearance certificate"
+      ],
+      "verticals": [
+        "SELL"
+      ]
+    },
+    {
+      "id": "vic-foodtrader",
+      "name": "FoodTrader registration and statements of trade (temporary and mobile food premises)",
+      "publisher": "Victorian Department of Health",
+      "url": "https://foodtrader.vic.gov.au/",
+      "mentions": [
+        "FoodTrader"
+      ],
+      "verticals": [
+        "BUSINESS"
+      ],
+      "note": "Online system; replaced Streatrader"
+    },
+    {
+      "id": "vic-lcv-planning-document",
+      "name": "LCV new licence or permit planning document",
+      "publisher": "Liquor Control Victoria",
+      "url": "https://www.vic.gov.au/apply-on-premises-liquor-licence",
+      "mentions": [
+        "LCV new licence or permit planning document"
+      ],
+      "verticals": [
+        "BUSINESS"
+      ],
+      "note": "Download it from the licence application page; it replaces uploading a planning permit"
+    },
+    {
+      "id": "vic-workcover-registration",
+      "name": "WorkCover insurance registration",
+      "publisher": "WorkSafe Victoria",
+      "url": "https://www.worksafe.vic.gov.au/do-i-need-register-workcover-insurance",
+      "mentions": [
+        "WorkCover insurance registration"
+      ],
+      "verticals": [
+        "BUSINESS"
+      ]
+    },
+    {
+      "id": "vic-sro-payroll-tax-registration",
+      "name": "Payroll tax registration (SRO online)",
+      "publisher": "State Revenue Office Victoria",
+      "url": "https://www.e-business.sro.vic.gov.au/eBusiness/ptx/faces/register/welcome.xhtml",
+      "mentions": [
+        "SRO payroll tax registration"
+      ],
+      "verticals": [
+        "BUSINESS"
+      ]
+    },
+    {
+      "id": "vic-bpc-online",
+      "name": "BPC Online (builder registration applications)",
+      "publisher": "Building and Plumbing Commission",
+      "url": "https://bams.vba.vic.gov.au/bams/s/login-landing",
+      "mentions": [
+        "BPC Online"
+      ],
+      "verticals": [
+        "BUSINESS"
+      ]
+    },
+    {
+      "id": "vic-vecra-provider-approval",
+      "name": "Provider approval application and fitness and propriety declarations (PA01 and PA02)",
+      "publisher": "Victorian Early Childhood Regulatory Authority",
+      "url": "https://www.vecra.vic.gov.au/early-childhood-provider-approval",
+      "mentions": [
+        "VECRA provider approval forms (PA01 and PA02)"
+      ],
+      "verticals": [
+        "BUSINESS"
+      ],
+      "note": "Lodged through the National Quality Agenda IT System (NQA ITS)"
+    },
+    {
+      "id": "vic-vicroads-vehicle-registration",
+      "name": "Vehicle registration application form",
+      "publisher": "VicRoads",
+      "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-vehicle",
+      "mentions": [
+        "VicRoads vehicle registration form"
+      ],
+      "verticals": [
+        "TRADE"
+      ],
+      "note": "PDF linked from the Register a vehicle page"
+    },
+    {
+      "id": "vic-mycav-motor-car-trader",
+      "name": "Motor car trader licence application (myCAV)",
+      "publisher": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/licensing-and-registration/motor-car-traders/licensing/apply-for-a-licence",
+      "mentions": [
+        "myCAV motor car trader application"
+      ],
+      "verticals": [
+        "TRADE"
+      ]
+    },
+    {
+      "id": "vic-vicroads-vessel-registration",
+      "name": "Vessel registration form",
+      "publisher": "VicRoads",
+      "url": "https://www.vicroads.vic.gov.au/registrations/new-registrations/register-boat-or-jet-ski",
+      "mentions": [
+        "VicRoads vessel registration form"
+      ],
+      "verticals": [
+        "VESSEL"
+      ],
+      "note": "PDF linked from the Register a boat or jet ski page"
+    },
+    {
+      "id": "vic-vicroads-marine-licence",
+      "name": "Marine licence application",
+      "publisher": "VicRoads",
+      "url": "https://www.vicroads.vic.gov.au/licences/boat-motorbike-other-licences/marine-boat-licence",
+      "mentions": [
+        "Victorian marine licence application"
+      ],
+      "verticals": [
+        "VESSEL"
+      ]
     }
   ]
 }

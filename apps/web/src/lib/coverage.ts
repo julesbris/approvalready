@@ -12,7 +12,7 @@ export const STATE_NAMES: Record<string, string> = {
 
 /** The states and territories whose addresses and land parcels we look up (the API's
  * `Lookups.states`). Each state added there is added here. */
-export const LOOKUP_STATE_CODES: readonly string[] = ["QLD", "NSW"];
+export const LOOKUP_STATE_CODES: readonly string[] = ["QLD", "NSW", "VIC"];
 export const LOOKUP_STATES: readonly string[] = LOOKUP_STATE_CODES.map((c) => STATE_NAMES[c] ?? c);
 
 /** "Queensland", "Queensland and New South Wales", "Queensland, New South Wales and Victoria". */

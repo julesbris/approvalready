@@ -1,0 +1,68 @@
+{
+  "key": "rent.vic_end_of_tenancy",
+  "vertical": "RENT",
+  "title": "Ending a Victorian tenancy",
+  "description": "Steps for giving notice and closing out a Victorian rental agreement after the 2025 reforms. Summarised from Consumer Affairs Victoria.",
+  "sources": [
+    {
+      "title": "Notice to vacate in rental properties",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/moving-out-giving-notice-and-evictions/notice-to-vacate/notice-to-vacate-in-rental-properties"
+    },
+    {
+      "title": "Condition reports",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/rent-bond-bills-and-condition-reports/condition-reports"
+    },
+    {
+      "title": "New changes to the rental laws",
+      "organisation": "Consumer Affairs Victoria",
+      "url": "https://www.consumer.vic.gov.au/housing/renting/new-changes-to-the-rental-laws"
+    }
+  ],
+  "items": [
+    {
+      "key": "valid_reason",
+      "title": "Confirm you have a valid reason: no-reason notices ended on 25 November 2025"
+    },
+    {
+      "key": "evidence",
+      "title": "Gather the evidence the reason needs",
+      "detail": "For example a contract of sale or agent engagement, a building permit, or a witnessed statutory declaration."
+    },
+    {
+      "key": "notice_period",
+      "title": "Check the notice period",
+      "detail": "90 days for sale, moving in, renovation or demolition; 14 days for reasons such as 14 days' rent owing."
+    },
+    {
+      "key": "fixed_term",
+      "title": "For a fixed term, set the termination date on or after the end date"
+    },
+    {
+      "key": "notice_form",
+      "title": "Complete and sign the Victorian notice to vacate form, stating the reason and date"
+    },
+    {
+      "key": "deliver",
+      "title": "Deliver it by registered post, by hand, or by email if the renter agreed"
+    },
+    {
+      "key": "relet_ban",
+      "title": "Don't re-let for 6 months where the reason requires it",
+      "required": false
+    },
+    {
+      "key": "exit_report",
+      "title": "Complete the exit condition report within 10 days, giving the renter a chance to attend"
+    },
+    {
+      "key": "bond_notice",
+      "title": "Tell the renter in advance if you will claim on the bond"
+    },
+    {
+      "key": "bond_claim",
+      "title": "Make the bond claim or refund through RTBA online"
+    }
+  ]
+}
