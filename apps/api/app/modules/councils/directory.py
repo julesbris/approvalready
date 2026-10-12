@@ -61,6 +61,14 @@ class CouncilContact(_Strict):
     email: Line | None = None
     address: Line | None = None
     hours: Line | None = None
+    # Where planning and development enquiries go, when the council publishes it. The
+    # email may be the council's general address when that is what the council says to
+    # use for planning questions (``planning_email_general``), and ``planning_source`` is
+    # the page it was published on.
+    planning_email: Line | None = None
+    planning_email_general: bool = False
+    planning_phone: Line | None = None
+    planning_source: Url | None = None
 
 
 class CouncilFeeItem(_Strict):

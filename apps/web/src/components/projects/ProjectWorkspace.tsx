@@ -57,6 +57,8 @@ type Props = {
   documents?: DocumentOut[];
   /** For a planning project in a council we know: how to apply to it. */
   council?: CouncilOut;
+  /** The planning answers the council came from, to write the enquiry email from. */
+  councilAnswers?: Record<string, unknown>;
   whatsLeft?: WhatsLeftOut;
   /** The project plan's state (undefined when it couldn't be read). */
   plan?: ProjectPlanOut;
@@ -306,7 +308,7 @@ export function ProjectWorkspace(props: Props) {
 
       {latest && props.plan ? <PlanPanel projectId={project.id} plan={props.plan} /> : null}
 
-      {props.council ? <CouncilGuide council={props.council} /> : null}
+      {props.council ? <CouncilGuide council={props.council} answers={props.councilAnswers} /> : null}
 
       {project.vertical === "SELL" ? (
         <section className="panel" aria-labelledby="sale-panel-title">

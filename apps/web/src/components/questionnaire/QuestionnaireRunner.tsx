@@ -715,7 +715,7 @@ export function QuestionnaireRunner({
             guides={result.guides}
             forms={forms}
           >
-            {shownCouncil ? <CouncilGuide council={shownCouncil} /> : null}
+            {shownCouncil ? <CouncilGuide council={shownCouncil} answers={draft} /> : null}
           </AssessmentReport>
         </div>
       ) : null}

@@ -6662,6 +6662,17 @@ export interface components {
             hours: string | null;
             /** Phone */
             phone: string | null;
+            /** Planning Email */
+            planning_email: string | null;
+            /**
+             * Planning Email General
+             * @default false
+             */
+            planning_email_general: boolean;
+            /** Planning Phone */
+            planning_phone: string | null;
+            /** Planning Source */
+            planning_source: string | null;
         };
         /** CouncilFeeItem */
         CouncilFeeItem: {

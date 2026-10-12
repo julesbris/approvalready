@@ -56,6 +56,8 @@ def summary(council: Council) -> str:
         ("Email", contact.email),
         ("Address", contact.address),
         ("Hours", contact.hours),
+        ("Planning enquiries email", contact.planning_email),
+        ("Planning enquiries phone", contact.planning_phone),
     ):
         if value:
             lines.append(f"{label}: {value}")

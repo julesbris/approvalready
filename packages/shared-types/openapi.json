@@ -4598,13 +4598,61 @@
               }
             ],
             "title": "Phone"
+          },
+          "planning_email": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Planning Email"
+          },
+          "planning_email_general": {
+            "default": false,
+            "title": "Planning Email General",
+            "type": "boolean"
+          },
+          "planning_phone": {
+            "anyOf": [
+              {
+                "maxLength": 500,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Planning Phone"
+          },
+          "planning_source": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "pattern": "^https?://[^\\s]+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Planning Source"
           }
         },
         "required": [
           "phone",
           "email",
           "address",
-          "hours"
+          "hours",
+          "planning_email",
+          "planning_email_general",
+          "planning_phone",
+          "planning_source"
         ],
         "title": "CouncilContact",
         "type": "object"

@@ -184,7 +184,7 @@ export default async function AssessmentPage({ params, searchParams }: Props) {
           documents={documents.ok ? documents.data : []}
           canWrite={canWrite}
         />
-        {council?.ok ? <CouncilGuide council={council.data} /> : null}
+        {council?.ok ? <CouncilGuide council={council.data} answers={assessment.facts} /> : null}
         <ReportDownloads
           organisationId={orgId}
           assessmentId={assessment.id}

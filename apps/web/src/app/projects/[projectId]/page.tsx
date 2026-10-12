@@ -72,11 +72,13 @@ export default async function ProjectPage({ params }: Props) {
   // Planning projects: how to apply to the council the latest answers name.
   const latest = [...found.submissions].sort((a, b) => b.updated_at.localeCompare(a.updated_at))[0];
   let council: CouncilOut | undefined;
+  let councilAnswers: Record<string, unknown> | undefined;
   if (found.vertical === "PLANNING" && latest) {
     const submission = await serverGet<SubmissionOut>(`${base}/submissions/${latest.id}`);
     const key = submission.ok ? councilKey(submission.data.answers["property.lga"]) : null;
     const councilResult = key ? await serverGet<CouncilOut>(`/councils/${key}`) : null;
     council = councilResult?.ok ? councilResult.data : undefined;
+    councilAnswers = submission.ok ? submission.data.answers : undefined;
   }
   return (
     <AppShell session={session}>
@@ -97,6 +99,7 @@ export default async function ProjectPage({ params }: Props) {
         forms={forms.ok ? forms.data : []}
         documents={orNotFound(documents)}
         council={council}
+        councilAnswers={councilAnswers}
         whatsLeft={whatsLeft.ok ? whatsLeft.data : undefined}
         plan={plan.ok ? plan.data : undefined}
         currentUserId={session.user.id}
