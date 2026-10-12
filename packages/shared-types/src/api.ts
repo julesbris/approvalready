@@ -2006,6 +2006,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/billing/membership": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Membership Offer
+         * @description ApprovalReady Plus for the public sales page: price, free days, reminder. No sign-in.
+         */
+        get: operations["membership_offer_v1_billing_membership_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/checklists": {
         parameters: {
             query?: never;
@@ -2453,6 +2473,47 @@ export interface paths {
          * @description A Stripe Checkout page to start a plan. The plan starts when Stripe confirms it.
          */
         post: operations["plan_checkout_v1_organisations__organisation_id__billing_checkout_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/billing/membership": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Membership
+         * @description The membership offer and where this organisation stands with it.
+         */
+        get: operations["membership_v1_organisations__organisation_id__billing_membership_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/billing/membership/checkout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Membership Checkout
+         * @description Stripe Checkout for ApprovalReady Plus: the card is saved now, and the first month is
+         *     free when the organisation hasn't had a trial before.
+         */
+        post: operations["membership_checkout_v1_organisations__organisation_id__billing_membership_checkout_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -9766,6 +9827,18 @@ export interface components {
             /** Currency */
             currency: string | null;
             /**
+             * Included In Membership
+             * @description The organisation's ApprovalReady Plus includes it.
+             * @default false
+             */
+            included_in_membership: boolean;
+            /**
+             * Membership On Sale
+             * @description ApprovalReady Plus (which includes plans) can be bought.
+             * @default false
+             */
+            membership_on_sale: boolean;
+            /**
              * On Sale
              * @description A price is set and payments are on: starting it charges.
              */
@@ -9971,6 +10044,54 @@ export interface components {
             status?: components["schemas"]["PlanItemStatus"] | null;
             /** Title */
             title?: string | null;
+        };
+        /**
+         * PlusMembershipOut
+         * @description The membership for one organisation: the offer, and where the organisation stands.
+         */
+        PlusMembershipOut: {
+            offer: components["schemas"]["PlusOfferOut"];
+            /**
+             * Other Plan
+             * @description A different plan the organisation already has (cancel it first).
+             */
+            other_plan: string | null;
+            subscription: components["schemas"]["SubscriptionOut"] | null;
+            /**
+             * Trial Available
+             * @description Starting now begins with the free trial.
+             */
+            trial_available: boolean;
+        };
+        /**
+         * PlusOfferOut
+         * @description ApprovalReady Plus as sold on the public sales page.
+         */
+        PlusOfferOut: {
+            /** Amount Cents */
+            amount_cents: number | null;
+            /** Currency */
+            currency: string | null;
+            /** Description */
+            description: string;
+            interval: components["schemas"]["PriceInterval"] | null;
+            /**
+             * On Sale
+             * @description Payments are on and staff have set a price.
+             */
+            on_sale: boolean;
+            /** Product Name */
+            product_name: string;
+            /**
+             * Reminder Days
+             * @description Days before the first charge we email a reminder.
+             */
+            reminder_days: number;
+            /**
+             * Trial Days
+             * @description Days free before the first charge (0: no trial).
+             */
+            trial_days: number;
         };
         /**
          * PolicyDocument
@@ -12894,6 +13015,11 @@ export interface components {
             /** Product Name */
             product_name: string;
             status: components["schemas"]["SubscriptionStatus"];
+            /**
+             * Trial End
+             * @description On a free trial: when it ends and the first charge is taken.
+             */
+            trial_end?: string | null;
         };
         /**
          * SubscriptionStatus
@@ -17224,6 +17350,26 @@ export interface operations {
             };
         };
     };
+    membership_offer_v1_billing_membership_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlusOfferOut"];
+                };
+            };
+        };
+    };
     list_definitions_v1_checklists_get: {
         parameters: {
             query?: {
@@ -18089,6 +18235,68 @@ export interface operations {
                 "application/json": components["schemas"]["PlanCheckoutIn"];
             };
         };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RedirectOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    membership_v1_organisations__organisation_id__billing_membership_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlusMembershipOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    membership_checkout_v1_organisations__organisation_id__billing_membership_checkout_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {

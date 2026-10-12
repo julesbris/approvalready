@@ -253,6 +253,10 @@ class Settings(BaseSettings):
     stripe_timeout_seconds: float = Field(default=20.0, gt=0, le=60)
     # Webhooks signed longer ago than this are refused (replay protection).
     stripe_webhook_tolerance_seconds: int = Field(default=300, ge=30, le=3600)
+    # ApprovalReady Plus (the membership): days free before the first charge (0: no trial),
+    # and how many days before that charge the reminder email goes out.
+    membership_trial_days: int = Field(default=30, ge=0, le=90)
+    membership_trial_reminder_days: int = Field(default=7, ge=1, le=30)
 
     # --- Marketplace analytics (Milestone 16, app/modules/analytics) ---
     # Partners see other partners' figures only as a median over at least this many partners

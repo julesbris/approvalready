@@ -2,6 +2,8 @@
 
 import type { BillingOut, ProductOut, RedirectOut } from "@approvalready/shared-types";
 
+import Link from "next/link";
+
 import { useAction } from "@/components/admin/useAction";
 import { FormError } from "@/components/auth/FormStatus";
 import {
@@ -21,6 +23,9 @@ type Props = {
   /** Back from Stripe Checkout: "done" or "cancelled". */
   checkout: string | null;
 };
+
+/** ApprovalReady Plus starts from its own page, which shows the free month and its dates. */
+const PLUS_KEY = "membership.plus";
 
 const LIVE = new Set(["INCOMPLETE", "TRIALING", "ACTIVE", "PAST_DUE", "UNPAID", "PAUSED"]);
 
@@ -47,7 +52,12 @@ function PlanCard({
         ))}
       </span>
       <span className="button-row">
-        {plan.prices.map((price) => (
+        {plan.key === PLUS_KEY ? (
+          <Link className="button" href="/membership/start">
+            Start
+          </Link>
+        ) : null}
+        {plan.key === PLUS_KEY ? null : plan.prices.map((price) => (
           <button
             key={price.id}
             type="button"
@@ -109,7 +119,12 @@ export function BillingPanel({ organisationId, billing, checkout }: Props) {
                 </span>
                 <br />
                 {priceLabel(s)}
-                {s.current_period_end
+                {s.status === "TRIALING" && s.trial_end
+                  ? `. Free until ${formatDateTime(s.trial_end)}, ` +
+                    (s.cancel_at_period_end
+                      ? "then it ends. Nothing will be charged."
+                      : "then the first charge is taken from your saved card.")
+                  : s.current_period_end
                   ? s.cancel_at_period_end
                     ? `. Ends ${formatDateTime(s.current_period_end)}.`
                     : `. Renews ${formatDateTime(s.current_period_end)}.`

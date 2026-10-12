@@ -36,6 +36,9 @@ export function SiteFooter() {
                 <Link href="/newsletter">Guides by email</Link>
               </li>
               <li>
+                <Link href="/membership">ApprovalReady Plus</Link>
+              </li>
+              <li>
                 <Link href="/terms">Terms of Use</Link>
               </li>
               <li>

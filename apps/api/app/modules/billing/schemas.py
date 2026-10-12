@@ -73,6 +73,9 @@ class SubscriptionOut(BaseModel):
     cancel_at_period_end: bool
     canceled_at: datetime | None
     past_due_since: datetime | None
+    trial_end: datetime | None = Field(
+        default=None, description="On a free trial: when it ends and the first charge is taken."
+    )
     grace_ends_at: datetime | None = Field(
         description="Payment overdue: when the plan stops working if the card isn't updated."
     )
@@ -131,6 +134,30 @@ class PlanCheckoutIn(_In):
 
 class RedirectOut(BaseModel):
     url: str = Field(description="A Stripe page: send the browser there.")
+
+
+class PlusOfferOut(BaseModel):
+    """ApprovalReady Plus as sold on the public sales page."""
+
+    on_sale: bool = Field(description="Payments are on and staff have set a price.")
+    product_name: str
+    description: str
+    amount_cents: int | None
+    currency: str | None
+    interval: PriceInterval | None
+    trial_days: int = Field(description="Days free before the first charge (0: no trial).")
+    reminder_days: int = Field(description="Days before the first charge we email a reminder.")
+
+
+class PlusMembershipOut(BaseModel):
+    """The membership for one organisation: the offer, and where the organisation stands."""
+
+    offer: PlusOfferOut
+    trial_available: bool = Field(description="Starting now begins with the free trial.")
+    other_plan: str | None = Field(
+        description="A different plan the organisation already has (cancel it first)."
+    )
+    subscription: SubscriptionOut | None
 
 
 # --- Staff ------------------------------------------------------------------------------
