@@ -6,6 +6,7 @@ import httpx
 
 from app.core.config import Settings
 from app.modules.lookups.abs import AbsPostcodes
+from app.modules.lookups.act import ActSpatial
 from app.modules.lookups.amsa import AmsaVesselList
 from app.modules.lookups.client import create_http_client
 from app.modules.lookups.listing import DomainListings
@@ -32,11 +33,13 @@ class Lookups:
             self.http, settings.vic_geocoder_base_url, settings.vic_planning_base_url
         )
         self.tas = TasSpatial(self.http, settings.tas_list_base_url)
+        self.act = ActSpatial(self.http, settings.act_actmapi_base_url)
         self.states: dict[str, StateSpatial] = {
             "QLD": self.qld,
             "NSW": self.nsw,
             "VIC": self.vic,
             "TAS": self.tas,
+            "ACT": self.act,
         }
         self.amsa = AmsaVesselList(self.http, settings)
         self.postcodes = AbsPostcodes(self.http, settings.abs_geo_base_url)

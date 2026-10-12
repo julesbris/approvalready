@@ -1,0 +1,82 @@
+{
+  "key": "sell.act_required_documents",
+  "vertical": "SELL",
+  "title": "ACT required documents for selling a home",
+  "description": "What your conveyancer needs to attach to the draft contract before the property is first offered for sale under the Civil Law (Sale of Residential Property) Act 2003. Summarised from the Access Canberra Reality Check guide.",
+  "sources": [
+    {
+      "title": "Reality Check: a real estate guide for buyers and sellers in the ACT",
+      "organisation": "Access Canberra",
+      "url": "https://www.accesscanberra.act.gov.au/__data/assets/pdf_file/0017/2312144/Reality-Check-A-real-estate-guide-for-buyers-and-sellers-in-the-ACT.pdf"
+    },
+    {
+      "title": "Home swimming pool safety reforms",
+      "organisation": "ACT Planning",
+      "url": "https://www.planning.act.gov.au/planning-projects/building-regulatory-system/home-swimming-pool-safety-reforms"
+    }
+  ],
+  "items": [
+    {
+      "key": "conveyancer",
+      "title": "Engage a conveyancer or lawyer to prepare the draft contract"
+    },
+    {
+      "key": "crown_lease",
+      "title": "Crown lease and certificate of title"
+    },
+    {
+      "key": "deposited_plan",
+      "title": "Deposited plan for the block"
+    },
+    {
+      "key": "conveyancing_inquiries",
+      "title": "Building and lease conveyancing inquiries",
+      "detail": "Your conveyancer orders these; they show approvals on file for the block."
+    },
+    {
+      "key": "eer",
+      "title": "Energy efficiency rating (EER) statement from an accredited assessor"
+    },
+    {
+      "key": "building_report",
+      "title": "Building and compliance inspection report",
+      "detail": "Buyers can usually rely on it for 180 days, so time it close to listing."
+    },
+    {
+      "key": "pest_report",
+      "title": "Pest inspection report"
+    },
+    {
+      "key": "asbestos",
+      "title": "Asbestos assessment report, or asbestos advice if there is no report"
+    },
+    {
+      "key": "unit_certificate",
+      "title": "For a unit, the unit title certificate from the owners corporation",
+      "required": false
+    },
+    {
+      "key": "unit_minutes",
+      "title": "For a multi-storey unit, 2 years of owners corporation and executive committee minutes",
+      "required": false
+    },
+    {
+      "key": "pool_documents",
+      "title": "For a pool or spa, the Pool Owners Guidance Material and a disclosure statement or compliance certificate",
+      "required": false
+    },
+    {
+      "key": "smoke_alarms",
+      "title": "Check smoke alarms work (hard-wired for houses built after 1 November 1994)"
+    },
+    {
+      "key": "authority",
+      "title": "Have your power of attorney, probate or other authority to sell ready",
+      "required": false
+    },
+    {
+      "key": "ready_before_listing",
+      "title": "Confirm the draft contract and documents are ready before the first ad or open home"
+    }
+  ]
+}

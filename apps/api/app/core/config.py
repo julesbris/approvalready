@@ -209,6 +209,9 @@ class Settings(BaseSettings):
     # The LIST (Land Tasmania) addresses, titles, council areas and the Tasmanian Heritage
     # Register for Tasmanian addresses (app/modules/lookups/tas.py).
     tas_list_base_url: str = "https://services.thelist.tas.gov.au/arcgis/rest/services"
+    # ACT Government open data on ACTmapi (addresses, blocks, Territory Plan zones and
+    # overlays, heritage, bushfire, flood) for ACT addresses (app/modules/lookups/act.py).
+    act_actmapi_base_url: str = "https://services1.arcgis.com/E5n4f1VY84i0xSjy/arcgis/rest/services"
     # ABS postal areas, for the postcode of a Queensland address (app/modules/lookups/abs.py).
     abs_geo_base_url: str = "https://geo.abs.gov.au/arcgis/rest/services"
     # The AMSA page that links the current list of domestic commercial vessels with a vessel

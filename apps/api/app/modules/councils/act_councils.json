@@ -1,0 +1,101 @@
+{
+  "councils": [
+    {
+      "key": "act_government",
+      "name": "ACT Government",
+      "spatial_name": "UNINCORPORATED ACT",
+      "checked_on": "2026-10-12",
+      "website": "https://www.act.gov.au/",
+      "planning_url": "https://www.planning.act.gov.au/applications-and-assessments/development-applications",
+      "planning_scheme": {
+        "name": "Territory Plan",
+        "url": "https://www.planning.act.gov.au/professionals/our-planning-system/the-territory-plan"
+      },
+      "lodgement": [
+        {
+          "method": "ONLINE",
+          "label": "Lodge online through eDevelopment (ACT Planning)",
+          "url": "https://edevelopment.act.gov.au/SignIn.aspx?ReturnUrl=%2fdefault.aspx"
+        }
+      ],
+      "steps": [
+        "Look up your block on ACTmapi and check your crown lease.",
+        "Check whether your work is exempt from a DA, or ask a building certifier.",
+        "Book a free pre-lodgement meeting with the DA Gateway Team.",
+        "Register for eDevelopment and lodge your DA with a Development Outcomes Report.",
+        "Pay the fee once the DA passes the completeness check."
+      ],
+      "pre_lodgement": {
+        "available": true,
+        "url": "https://www.planning.act.gov.au/applications-and-assessments/development-applications/before-you-apply",
+        "note": "Pre-lodgement meetings are free; written pre-application advice is charged."
+      },
+      "contact": {
+        "phone": "13 22 81",
+        "email": "planningenquiries@act.gov.au",
+        "hours": "Customer Service Centre 02 6207 1923, 8:30am to 4:30pm Monday to Friday",
+        "planning_email": "planningenquiries@act.gov.au",
+        "planning_email_general": false,
+        "planning_phone": "02 6205 2888",
+        "planning_source": "https://www.planning.act.gov.au/applications-and-assessments/development-applications/lodge-a-da"
+      },
+      "fees": {
+        "schedule_url": "https://www.planning.act.gov.au/__data/assets/pdf_file/0003/3092970/2026-27-Fees-and-Charges-Planning.pdf",
+        "fee_year": "2026-27",
+        "items": [
+          {
+            "label": "DA, cost up to $1,500",
+            "amount": "$147.02"
+          },
+          {
+            "label": "DA, $150,001 to $250,000",
+            "amount": "$1,121.36 plus 0.585% over $150,000"
+          },
+          {
+            "label": "DA, $250,001 to $500,000",
+            "amount": "$1,747.00 plus 0.438% over $250,000"
+          },
+          {
+            "label": "Exemption declaration, single dwelling",
+            "amount": "$728.96"
+          },
+          {
+            "label": "Lease variation",
+            "amount": "$2,732.33"
+          },
+          {
+            "label": "Pre-lodgement meeting",
+            "amount": "Free"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.planning.act.gov.au/contact",
+          "title": "Contact (ACT Planning)"
+        },
+        {
+          "url": "https://www.planning.act.gov.au/applications-and-assessments/development-applications/lodge-a-da",
+          "title": "Lodge a DA (ACT Planning)"
+        },
+        {
+          "url": "https://www.planning.act.gov.au/__data/assets/pdf_file/0003/3092970/2026-27-Fees-and-Charges-Planning.pdf",
+          "title": "Fees and charges 2026-27 (ACT Planning)"
+        },
+        {
+          "url": "https://www.planning.act.gov.au/professionals/our-planning-system/the-territory-plan",
+          "title": "The Territory Plan (ACT Planning)"
+        },
+        {
+          "url": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/LGA/MapServer/0",
+          "title": "ABS ASGS 2021 LGA layer (lga_name_2021 'Unincorporated ACT', code 89399)"
+        }
+      ],
+      "gaps": [
+        "The ACT has no councils; the ACT Government handles planning and municipal services.",
+        "No shopfront street address was published on the ACT Planning contact page.",
+        "The ACT's own address data may not carry an LGA name; the ABS name 'Unincorporated ACT' is used."
+      ]
+    }
+  ]
+}

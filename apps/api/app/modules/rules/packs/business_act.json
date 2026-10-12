@@ -1,0 +1,1688 @@
+{
+  "key": "business_act",
+  "title": "ACT: BusinessReady, vehicle registration and VesselReady (licences, insurance, tax, trades, skin penetration, childcare, imported vehicles, boats)",
+  "notes": "First sourced ACT rules for BusinessReady, TradeReady (vehicles) and VesselReady. Built from ACT Health, Access Canberra, WorkSafe ACT, ACT Revenue Office, ACT Planning and ACT Government pages read on 2026-10-12. No ACT Government business grant with confirmed open dates was found (the grants page lists programs without status), so there are no GrantReady rule sets. Every reference is UNVERIFIED and carries a summary, not the source's wording: staff must capture each source, replace the extract with the exact text and verify it.",
+  "organisations": [
+    {
+      "ref": "acthealth",
+      "name": "ACT Health Protection Service (ACT Government)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT",
+      "website": "https://www.act.gov.au/health"
+    },
+    {
+      "ref": "accesscanberra",
+      "name": "Access Canberra",
+      "kind": "REGULATOR",
+      "jurisdiction": "ACT",
+      "website": "https://www.accesscanberra.act.gov.au"
+    },
+    {
+      "ref": "worksafe",
+      "name": "WorkSafe ACT",
+      "kind": "REGULATOR",
+      "jurisdiction": "ACT",
+      "website": "https://www.worksafe.act.gov.au"
+    },
+    {
+      "ref": "actrevenue",
+      "name": "ACT Revenue Office",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT",
+      "website": "https://www.revenue.act.gov.au"
+    },
+    {
+      "ref": "actplanning",
+      "name": "City and Environment Directorate (ACT Planning)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT",
+      "website": "https://www.planning.act.gov.au"
+    },
+    {
+      "ref": "actgov",
+      "name": "ACT Government (act.gov.au)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT",
+      "website": "https://www.act.gov.au"
+    }
+  ],
+  "documents": [
+    {
+      "ref": "food_reg",
+      "organisation": "acthealth",
+      "jurisdiction": "ACT",
+      "title": "Register a food business",
+      "url": "https://www.act.gov.au/business/health-licenses-and-inspections/food-businesses-and-events-registration/register-a-food-business",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "food_fees",
+      "organisation": "acthealth",
+      "jurisdiction": "ACT",
+      "title": "Fees to register a food business",
+      "url": "https://www.act.gov.au/health/businesses/licences-permits-and-registration/food-businesses-and-events-registration/fees-to-register-a-food-business",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "liquor",
+      "organisation": "accesscanberra",
+      "jurisdiction": "ACT",
+      "title": "Liquor licences",
+      "url": "https://www.accesscanberra.act.gov.au/business-and-work/hospitality-liquor-and-gaming/liquor-licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "liquor_fees",
+      "organisation": "accesscanberra",
+      "jurisdiction": "ACT",
+      "title": "Liquor licence and permit fees",
+      "url": "https://www.accesscanberra.act.gov.au/business-and-work/business-and-work-related-fees/liquor-licence-and-permit-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "dining",
+      "organisation": "accesscanberra",
+      "jurisdiction": "ACT",
+      "title": "Outdoor dining permits",
+      "url": "https://www.accesscanberra.act.gov.au/business-and-work/hospitality-liquor-and-gaming/outdoor-dining-permits",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "wc_how",
+      "organisation": "worksafe",
+      "jurisdiction": "ACT",
+      "title": "How to get workers' compensation insurance in the ACT",
+      "url": "https://www.worksafe.act.gov.au/workers-compensation/how-to-get-workers-compensation",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "wc_employer",
+      "organisation": "worksafe",
+      "jurisdiction": "ACT",
+      "title": "Who is an employer, and the employer's obligations",
+      "url": "https://www.worksafe.act.gov.au/workers-compensation/who-is-an-employer",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "payroll",
+      "organisation": "actrevenue",
+      "jurisdiction": "ACT",
+      "title": "About payroll tax",
+      "url": "https://www.revenue.act.gov.au/business-taxes-and-levies/payroll-tax/about-payroll-tax",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "construction",
+      "organisation": "actplanning",
+      "jurisdiction": "ACT",
+      "title": "Construction licences",
+      "url": "https://www.planning.act.gov.au/professionals/regulation-and-responsibilities/construction-licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "infection",
+      "organisation": "acthealth",
+      "jurisdiction": "ACT",
+      "title": "Infection control activity licences",
+      "url": "https://www.act.gov.au/business/health-licenses-and-inspections/infection-prevention-and-control/infection-control-activity-licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "ceca",
+      "organisation": "actgov",
+      "jurisdiction": "ACT",
+      "title": "Open an early childhood education and care service",
+      "url": "https://www.act.gov.au/education-and-training/education-service-providers/open-an-early-childhood-education-and-care-service",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "rego",
+      "organisation": "accesscanberra",
+      "jurisdiction": "ACT",
+      "title": "Vehicle registration and transfer",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/registration/vehicle-registration-and-transfer",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "roadworthy",
+      "organisation": "accesscanberra",
+      "jurisdiction": "ACT",
+      "title": "Roadworthy inspections",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/registration/roadworthy-inspections",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "insp_fees",
+      "organisation": "accesscanberra",
+      "jurisdiction": "ACT",
+      "title": "Vehicle inspection fees",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/vehicle-and-transport-related-fees/vehicle-inspection-fees",
+      "source_type": "FEE_SCHEDULE"
+    },
+    {
+      "ref": "dealer",
+      "organisation": "accesscanberra",
+      "jurisdiction": "ACT",
+      "title": "Motor vehicle dealer and repairer licences",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/licences/motor-vehicle-dealer-and-repairer-licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "boating",
+      "organisation": "accesscanberra",
+      "jurisdiction": "ACT",
+      "title": "Boating on ACT lakes",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/licences/boating-on-act-lakes",
+      "source_type": "WEBPAGE"
+    }
+  ],
+  "references": [
+    {
+      "ref": "act_food_reg",
+      "document": "food_reg",
+      "section": "Who must register and how",
+      "extracted_text": "[Summary, not the source's wording] Most food businesses that sell food to the public must register with the Health Protection Service before opening, including non-profit community organisations such as school canteens. Apply online through the ACT Government smart form or lodge the Food Business - Registration Application by email to hps@act.gov.au. ACT Health inspects the premises before registration is granted. All registered food businesses must nominate an appropriately trained food safety supervisor (some non-profit community organisations are exempt). The registration certificate must be displayed. Food transport vehicles registered in another state and businesses that only transport food are exempt. Contact 02 5124 9700.",
+      "interpretation": "ACT food businesses register with the Health Protection Service before opening, under the Food Act 2001 (ACT). Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_food_fees",
+      "document": "food_fees",
+      "section": "Registration fees",
+      "extracted_text": "[Summary, not the source's wording] Fees depend on the risk classification and the length of registration: 1 year $163.00 (low risk), $239.50 (medium), $321.55 (high); 2 years $326.00, $479.00, $643.10; 3 years $489.00, $718.50, $964.65. Businesses that supply food while providing services (hospitals, licensed childcare, parent-run school canteens) and some community organisations are exempt. The risk classification section of the application form sets the category.",
+      "interpretation": "Page last updated 2 January 2026; the fee year is not stated. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_liquor",
+      "document": "liquor",
+      "section": "Licence classes and applying",
+      "extracted_text": "[Summary, not the source's wording] Licence types include general, on (bar, nightclub, and restaurant and cafe subclasses), off, club, special, caterer's and micro-producer off licences. Apply on the Application for liquor licence form, in person at an Access Canberra Service Centre or online through the Liquor Licence Enquiry form. A risk assessment management plan is needed where liquor is consumed on the premises (not for off licences or restaurants and cafes unless asked). Everyone serving liquor and crowd controllers need current RSA certification. Attach approved plans and certificates of occupancy, police checks issued within 3 months for each person named, and a provision of lease advice certificate. Access Canberra publishes a public notice and gives you a sign to display during a 30-day consultation. Approval can take up to 90 days. Phone 13 22 81.",
+      "interpretation": "Selling or supplying alcohol in the ACT needs a licence under the Liquor Act 2010 from Access Canberra. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_liquor_fees",
+      "document": "liquor_fees",
+      "section": "Application fees 2026-27",
+      "extracted_text": "[Summary, not the source's wording] New licence application fees from 1 July 2026 to 30 June 2027: general $3,759.00; caterer's $3,049.00; on $3,049.00; club $3,049.00; off $3,049.00 (first-year micro-producer $302.00); special $4,585.00. Annual fees are set in the Liquor (Fees) Determination.",
+      "interpretation": "Fees were matched to classes by table order; confirm before quoting. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_dining",
+      "document": "dining",
+      "section": "Outdoor dining permits",
+      "extracted_text": "[Summary, not the source's wording] A business placing non-fixed or semi-fixed objects in an outdoor dining area needs a public unleased land permit. Apply on the Public place permit smart form with an area plan. You need public liability insurance of at least $20 million covering the area with the ACT Government noted as an interested party. Fees depend on location and area, are paid after approval and are set by the Public Unleased Land (Fees) Determination 2026 (No 1). Processing typically takes up to 10 business days. To sell alcohol in the area, get or amend your liquor licence first. Phone 13 22 81.",
+      "interpretation": "Footpath dining in the ACT needs an Access Canberra public unleased land permit. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_wc",
+      "document": "wc_how",
+      "section": "Getting insurance",
+      "extracted_text": "[Summary, not the source's wording] Workers' compensation insurance in the ACT is provided by private insurers licensed under the Workers Compensation Act 1951; WorkSafe ACT publishes the list of licensed insurers (including Allianz, Guild, QBE, CGU and GIO). Employers with the resources can apply to be licensed self-insurers. Contact WorkersCompensation@worksafe.act.gov.au.",
+      "interpretation": "ACT employers buy a policy from a licensed insurer; there is no government insurer. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_wc_employer",
+      "document": "wc_employer",
+      "section": "Employer obligations",
+      "extracted_text": "[Summary, not the source's wording] Employers must hold a current workers' compensation policy for all their workers in the ACT, including Pty Ltd companies with one or more workers. Workers include anyone under a contract of service, and a contractor who works on a regular and systematic basis is deemed a worker. Operating without cover brings penalties, payment of the avoided premium and up to double the avoided premium for up to five years. Employers keep an injury register on site, display a notice with the insurer's name and policy details, and give the insurer written notice of an injury within 48 hours.",
+      "interpretation": "Applies to every ACT employer. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_payroll",
+      "document": "payroll",
+      "section": "Threshold, rates and registration",
+      "extracted_text": "[Summary, not the source's wording] From 1 July 2026 the ACT payroll tax threshold is $1.75 million a year ($145,833.33 a month), down from $2 million. 2026-27 rates: 6.75% for Australia-wide wages over $1.75 million up to $20 million, rising in steps to 8.75% over $150 million. Employers must apply to register within seven days after the end of the month they go over the threshold, using the online payroll tax registration notification form. Returns are monthly (due the 7th, December's by 14 January) with an annual reconciliation due 28 July, lodged through the Self Service Portal.",
+      "interpretation": "Employers with Australia-wide wages over $1.75 million a year and ACT wages register for ACT payroll tax. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_construction",
+      "document": "construction",
+      "section": "Construction occupation licences",
+      "extracted_text": "[Summary, not the source's wording] Construction occupations are licensed under the Construction Occupations (Licensing) Act 2004, with applications handled by Access Canberra's Construction and Workplace Licensing team. Builder licences: Class A (unlimited height), Class B (up to 3 storeys), Class C (up to 2 storeys for Class 1, 2 or 10a buildings and some Class 10b structures) and Class D (non-structural basic building work); demolition and pool installation need endorsements. Electricians have six licence classes; plumbers, drainers and gasfitters have several classes. Apply on the online forms for an individual builder (formCode 1707), electrician (1715), plumber, drainer, gasfitter and gas appliance worker (1716), or company or partnership (1295). First-time Class A, B or C builders must pass the ACT Regulatory Assessment at CIT (80% pass mark). Fees are set by the annual fee determination. Builder applications take at least 4 weeks; prioritised electrician and plumbing applications about 3 weeks. The licence is on the public register within 7 days of paying the term fee. Criminal history checks older than 6 months aren't accepted. Contact 02 6207 8096, cwpl@act.gov.au.",
+      "interpretation": "Building, electrical, plumbing, drainage and gasfitting work in the ACT needs a construction occupation licence. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_infection",
+      "document": "infection",
+      "section": "Infection control activity licence",
+      "extracted_text": "[Summary, not the source's wording] Any business that performs skin penetration procedures must hold an infection control licence, including at temporary events such as markets and festivals. Apply online (formCode 1237) with floor plans that comply with the Infection Control Code of Practice and photo ID; companies nominate an authorised agent and give an ASIC extract under 30 days old. The licence costs $230.60 for 12 months; transfer of ownership $94.25; temporary events are pro rata. Contact 02 5124 9700, hps@act.gov.au.",
+      "interpretation": "Tattooing, piercing and other skin penetration businesses in the ACT need an infection control licence from the Health Protection Service. The page doesn't list which treatments count. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_ceca",
+      "document": "ceca",
+      "section": "Provider and service approvals",
+      "extracted_text": "[Summary, not the source's wording] Children's Education and Care Assurance (CECA) grants provider and service approvals in the ACT. First become an approved provider (you need an ABN and a principal office in the ACT), then apply to open each service, through the ACECQA website. Premises in a multi-storey building need approval in principle. Buildings must meet the National Law and Regulations, the National Quality Standard, the National Construction Code (Class 9b) and the ACT education and care services planning guidelines. CECA must decide provider applications within 60 days and service applications within 90 days unless extended. Contact CECA@act.gov.au, 02 6207 1114.",
+      "interpretation": "Education and care services in the ACT need CECA approval under the Education and Care Services National Law. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_rego",
+      "document": "rego",
+      "section": "Registering a vehicle",
+      "extracted_text": "[Summary, not the source's wording] A vehicle must be registered to be driven in the ACT; an unregistered vehicle is uninsured. Register in person at an Access Canberra Service Centre with proof of identity, after a roadworthy inspection where required. A private applicant completes the application to establish registration on the back of the vehicle inspection report. You choose a Motor Accident Injuries (MAI) insurer (AAMI, APIA, GIO or NRMA) and pay registration, MAI and stamp duty of 1.5% of the purchase price or market value, whichever is higher, by card. Registration can be for 3, 6 or 12 months. Phone 13 22 81.",
+      "interpretation": "Imported vehicles are registered in person at an Access Canberra Service Centre after inspection. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_roadworthy",
+      "document": "roadworthy",
+      "section": "Roadworthy inspections",
+      "extracted_text": "[Summary, not the source's wording] Vehicles being registered in Australia for the first time, and imported and left-hand-drive vehicles, must be inspected at the Access Canberra Motor Vehicle Inspection Station in Hume, by appointment (13 22 81). Concessional RAV entry vehicles such as personal imports and vehicles over 25 years old can use any authorised inspection station. Drive an unregistered vehicle there on an unregistered vehicle permit. Bring a debit or credit card. A certificate of inspection is valid for one month.",
+      "interpretation": "Inspection step for imported vehicles in the ACT. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_insp_fees",
+      "document": "insp_fees",
+      "section": "Vehicle inspection fees 2026-27",
+      "extracted_text": "[Summary, not the source's wording] As at 1 July 2026: light vehicle inspection $89.20; basic identity inspection $68.40; written-off vehicle and complex identity inspection $745.50.",
+      "interpretation": "Current ACT inspection fees. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_dealer",
+      "document": "dealer",
+      "section": "Motor vehicle dealer licence",
+      "extracted_text": "[Summary, not the source's wording] Anyone who deals in, buys, sells or exchanges motor vehicles as a business, or buys and sells them to sell on to dealers or financiers, needs a licence. Apply on the Application for Motor Vehicle Sale, Motor Vehicle Repairer, Second-Hand Dealer and Pawnbroker Licences form (formCode 1345) with two proof of identity documents and a name-only police check for each individual, partner or director (and a current ASIC extract for companies). 2026-27 fees: motor vehicle dealer, wholesaler or car market operator $891.00 (1 year) or $4,037.00 (5 years); event licence $93.00 (10 days). Phone 13 22 81.",
+      "interpretation": "Selling vehicles as a business in the ACT needs an Access Canberra motor vehicle dealer licence. The page sets no number-of-vehicles threshold. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    },
+    {
+      "ref": "act_boating",
+      "document": "boating",
+      "section": "Boat licences and registration",
+      "extracted_text": "[Summary, not the source's wording] The ACT Government has no boat licence or registration scheme. Power boats operated on ACT lakes must be registered with an Australian state or territory, and the driver needs a licence from another state or territory. Power boats can be used on Lake Ginninderra, Lake Tuggeranong, Kingston Harbour and the Molonglo River above Lake Burley Griffin; boats under 10 knots don't need separate approval, faster boats need an authorisation (Environment.protection@act.gov.au, 13 22 81). The National Capital Authority regulates powered boats on Lake Burley Griffin (02 6271 2888). A free ACT Government permit is needed for powered boats on Googong Reservoir.",
+      "interpretation": "ACT-based boat owners register and license through another state, usually NSW. Captured on 2026-10-12 from a reading of the published page; the exact wording was not copied. Replace this with the source's own text, capture a snapshot and verify before relying on it."
+    }
+  ],
+  "rule_sets": [
+    {
+      "key": "business.act.general",
+      "vertical": "BUSINESS",
+      "jurisdiction": "ACT",
+      "title": "ACT: business licences, insurance and tax",
+      "description": "Registrations, licences, insurance and tax most ACT businesses check: food business registration and food safety supervisors, liquor licences, outdoor dining (public unleased land) permits, workers' compensation insurance and payroll tax.",
+      "applies_when": {
+        "fact": "business.state",
+        "op": "equals",
+        "value": "ACT"
+      },
+      "limitations": [
+        "Built from ACT Health, Access Canberra, WorkSafe ACT and ACT Revenue Office web pages, not from the Acts themselves.",
+        "Does not decide which liquor licence class you need.",
+        "Outdoor dining fees depend on location and area and are not shown.",
+        "Does not check Territory planning approval (development approval) for your premises or fit-out.",
+        "Not legal or tax advice. Confirm with the regulator or a qualified professional before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "food_business_registration",
+          "title": "Food business registration",
+          "condition": {
+            "fact": "business.handles_food",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Register with the Health Protection Service before you open",
+              "detail": "Most ACT food businesses must register with the Health Protection Service before opening. Apply online, or email the ACT food business registration application to hps@act.gov.au. ACT Health inspects your premises before registration is granted. The fee depends on your risk classification: for 1 year it is $163.00 (low risk), $239.50 (medium) or $321.55 (high), and you can register for up to 3 years. Display the certificate once you have it.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "ACT Health Protection Service (under the Food Act 2001 (ACT))",
+                  "pathway": "Apply online or by email to the Health Protection Service"
+                },
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Register your food business with the Health Protection Service"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Food business registration not identified",
+              "detail": "You said you won't handle food, so no food business registration was identified.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "ACT Health Protection Service (under the Food Act 2001 (ACT))",
+                  "pathway": "Needed if you sell food to the public"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A food business registration may be needed",
+              "detail": "Most ACT food businesses must register before they open. Answer the food question so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_FOOD_BUSINESS_REGISTRATION",
+                  "authority": "ACT Health Protection Service (under the Food Act 2001 (ACT))",
+                  "pathway": "Needed if you sell food to the public",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_food_reg",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "act_food_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.handles_food": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No food",
+              "facts": {
+                "business.handles_food": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "food_safety_supervisor",
+          "title": "Food safety supervisor",
+          "condition": {
+            "fact": "business.handles_food",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "WARNING",
+              "title": "Nominate a trained food safety supervisor",
+              "detail": "Every registered ACT food business must nominate a food safety supervisor who is appropriately trained. Some non-profit community organisations are exempt. Name your supervisor when you register, and make sure food handlers are trained too.",
+              "payload": {
+                "referral_categories": [
+                  "food_safety_consultant"
+                ],
+                "task": "Nominate a trained food safety supervisor"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_food_reg",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Cafe",
+              "facts": {
+                "business.handles_food": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No food",
+              "facts": {
+                "business.handles_food": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "liquor_licence",
+          "title": "Liquor licence",
+          "condition": {
+            "fact": "business.sells_alcohol",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an ACT liquor licence from Access Canberra",
+              "detail": "Selling or supplying alcohol in the ACT needs a licence under the Liquor Act 2010. Choose the class (for example an on licence, restaurant and cafe subclass, for a restaurant) and lodge the ACT application for a liquor licence at an Access Canberra Service Centre or online. Include approved plans, certificates of occupancy, police checks and a provision of lease advice certificate, and a risk assessment management plan if alcohol is drunk on site. A 30-day public notice runs and approval can take up to 90 days. The 2026-27 application fee is $3,049.00 for an on licence ($3,759.00 for a general licence), plus annual fees.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_LIQUOR_LICENCE",
+                  "authority": "Access Canberra (Liquor Act 2010)",
+                  "pathway": "Lodge the application with Access Canberra"
+                },
+                "evidence": [
+                  {
+                    "kind": "RSA_COMPETENCY",
+                    "title": "Responsible service of alcohol certification for each person serving alcohol"
+                  }
+                ],
+                "referral_categories": [
+                  "liquor_licensing_consultant",
+                  "lawyer"
+                ],
+                "task": "Choose a licence class and apply to Access Canberra"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Liquor licence not identified",
+              "detail": "You said you won't sell or serve alcohol.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_LIQUOR_LICENCE",
+                  "authority": "Access Canberra (Liquor Act 2010)",
+                  "pathway": "Needed if you sell or supply alcohol"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A liquor licence may be needed",
+              "detail": "Selling or serving alcohol in the ACT needs a licence. Answer the question so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_LIQUOR_LICENCE",
+                  "authority": "Access Canberra (Liquor Act 2010)",
+                  "pathway": "Needed if you sell or supply alcohol",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_liquor",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "act_liquor_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Bar",
+              "facts": {
+                "business.sells_alcohol": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Dry cafe",
+              "facts": {
+                "business.sells_alcohol": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "outdoor_dining",
+          "title": "Outdoor dining permit",
+          "condition": {
+            "fact": "business.footpath_use",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get a public unleased land permit for outdoor dining",
+              "detail": "Putting tables, chairs or other movable objects on a footpath or other public land in the ACT needs a public unleased land permit from Access Canberra. Lodge the ACT public place permit application online with an area plan. You need public liability insurance of at least $20 million with the ACT Government noted as an interested party. Fees depend on the location and area and are paid after approval. It usually takes up to 10 business days. If you'll serve alcohol outside, get or amend your liquor licence first.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_OUTDOOR_DINING_PERMIT",
+                  "authority": "Access Canberra (public unleased land permit)",
+                  "pathway": "Apply online to Access Canberra"
+                },
+                "evidence": [
+                  {
+                    "kind": "PUBLIC_LIABILITY_INSURANCE",
+                    "title": "Public liability certificate of currency ($20 million minimum, ACT Government noted)"
+                  }
+                ],
+                "task": "Apply for a public unleased land permit"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Outdoor dining permit not identified",
+              "detail": "You said you won't use the footpath or other public land.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_OUTDOOR_DINING_PERMIT",
+                  "authority": "Access Canberra (public unleased land permit)",
+                  "pathway": "Needed to use a footpath or public space"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A outdoor dining permit may be needed",
+              "detail": "Using a footpath for tables or displays needs an ACT permit. Answer the question so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_OUTDOOR_DINING_PERMIT",
+                  "authority": "Access Canberra (public unleased land permit)",
+                  "pathway": "Needed to use a footpath or public space",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_dining",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Footpath tables",
+              "facts": {
+                "business.footpath_use": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "No footpath",
+              "facts": {
+                "business.footpath_use": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "workers_compensation",
+          "title": "Workers' compensation insurance",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "not_equals",
+            "value": "NONE"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Take out workers' compensation insurance before your first worker starts",
+              "detail": "ACT employers must hold a workers' compensation policy for all their workers in the ACT. Policies come from private insurers licensed by WorkSafe ACT (such as Allianz, Guild, QBE, CGU and GIO), so get quotes from the list. Contractors who work for you on a regular and systematic basis can count as workers. Display a notice with your insurer and policy details, keep an injury register and tell your insurer of any injury in writing within 48 hours. Working without cover can cost you the unpaid premium plus up to double it.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_WORKERS_COMPENSATION_INSURANCE",
+                  "authority": "A licensed insurer (regulated by WorkSafe ACT)",
+                  "pathway": "Buy a policy from a licensed insurer"
+                },
+                "referral_categories": [
+                  "insurance_broker",
+                  "whs_consultant"
+                ],
+                "task": "Take out workers' compensation insurance"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Workers' compensation insurance not identified",
+              "detail": "You said you have no employees. If you take on workers, or use regular contractors, you'll need a policy.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_WORKERS_COMPENSATION_INSURANCE",
+                  "authority": "A licensed insurer (regulated by WorkSafe ACT)",
+                  "pathway": "Needed when you employ workers in the ACT"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A workers' compensation insurance may be needed",
+              "detail": "ACT employers must insure their workers. Tell us how many people you'll employ so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_WORKERS_COMPENSATION_INSURANCE",
+                  "authority": "A licensed insurer (regulated by WorkSafe ACT)",
+                  "pathway": "Needed when you employ workers in the ACT",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_wc",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "act_wc_employer",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Small team",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Sole trader",
+              "facts": {
+                "business.employee_band": "NONE"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "payroll_tax",
+          "title": "ACT payroll tax registration",
+          "condition": {
+            "fact": "business.employee_band",
+            "op": "in",
+            "value": [
+              "20_199",
+              "200_PLUS"
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Check whether your wages pass the $1.75 million payroll tax threshold",
+              "detail": "From 1 July 2026 the ACT payroll tax threshold is $1.75 million a year ($145,833.33 a month) of Australia-wide wages. With your number of staff you may pass it. If you do, apply to register with the ACT Revenue Office within 7 days after the end of the month you went over. The 2026-27 rate is 6.75% on wages up to $20 million, rising for larger employers. Returns are lodged monthly through the Self Service Portal.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_PAYROLL_TAX_REGISTRATION",
+                  "authority": "ACT Revenue Office",
+                  "pathway": "Register online once you pass the threshold",
+                  "certainty": "MAY_APPLY"
+                },
+                "referral_categories": [
+                  "accountant"
+                ],
+                "task": "Check your wages against the ACT payroll tax threshold"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "ACT payroll tax unlikely",
+              "detail": "With fewer than 20 staff your wages are unlikely to pass the $1.75 million threshold. Check again as you grow, and remember the threshold counts wages across Australia and across grouped businesses.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_PAYROLL_TAX_REGISTRATION",
+                  "authority": "ACT Revenue Office",
+                  "pathway": "Needed once Australia-wide wages pass $1.75 million a year"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_payroll",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Mid-size",
+              "facts": {
+                "business.employee_band": "20_199"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small",
+              "facts": {
+                "business.employee_band": "1_4"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.act.trades",
+      "vertical": "BUSINESS",
+      "jurisdiction": "ACT",
+      "title": "ACT: construction occupation licences",
+      "description": "Builder (Classes A to D), electrician, and plumber, drainer and gasfitter licences under the Construction Occupations (Licensing) Act 2004, issued by Access Canberra.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "ACT"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "trades"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the ACT Planning construction licences page, not from the Construction Occupations (Licensing) Act 2004.",
+        "Licence fees are set by an annual fee determination that was not read.",
+        "Does not check residential building insurance or fidelity fund requirements for home building work.",
+        "Not legal advice. Confirm with Access Canberra (02 6207 8096) before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "builder_licence",
+          "title": "Builder licence",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.trade_work",
+                "op": "contains",
+                "value": "building_over_3300"
+              },
+              {
+                "fact": "business.trade_work",
+                "op": "contains",
+                "value": "building_small"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an ACT builder licence for the class of work you do",
+              "detail": "Building work in the ACT needs a construction occupation licence from Access Canberra. Class A covers unlimited height, Class B up to 3 storeys, Class C up to 2 storeys for houses, townhouses and garages, and Class D non-structural basic building work. Demolition and pool installation need endorsements. First-time Class A, B or C applicants must pass the ACT Regulatory Assessment at CIT. Apply on the ACT individual builder licence application, and if you trade through a company or partnership also lodge the ACT construction company or partnership licence application. Allow at least 4 weeks.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_BUILDER_LICENCE",
+                  "authority": "Access Canberra (Construction and Workplace Licensing)",
+                  "pathway": "Apply online to Access Canberra"
+                },
+                "referral_categories": [
+                  "lawyer",
+                  "accountant"
+                ],
+                "task": "Apply for an ACT builder licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Builder licence not identified",
+              "detail": "From your answers you won't do building work.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_BUILDER_LICENCE",
+                  "authority": "Access Canberra (Construction and Workplace Licensing)",
+                  "pathway": "Needed for building work"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A builder licence may be needed",
+              "detail": "Building work in the ACT needs a builder licence. Tell us what trade work you'll do so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_BUILDER_LICENCE",
+                  "authority": "Access Canberra (Construction and Workplace Licensing)",
+                  "pathway": "Needed for building work",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_construction",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Builder",
+              "facts": {
+                "business.trade_work": [
+                  "building_over_3300"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Small jobs",
+              "facts": {
+                "business.trade_work": [
+                  "building_small"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician only",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "electrician_licence",
+          "title": "Electrician licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "electrical"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an ACT electrician licence",
+              "detail": "Electrical work in the ACT needs a construction occupation licence from Access Canberra; there are six electrician licence classes and two permit classes. Apply on the ACT individual electrician licence application (and the ACT construction company or partnership licence application for a company or partnership). Prioritised electrician applications take about 3 weeks. Criminal history checks older than 6 months aren't accepted.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_ELECTRICIAN_LICENCE",
+                  "authority": "Access Canberra (Construction and Workplace Licensing)",
+                  "pathway": "Apply online to Access Canberra"
+                },
+                "task": "Apply for an ACT electrician licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Electrician licence not identified",
+              "detail": "From your answers you won't do electrical work.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_ELECTRICIAN_LICENCE",
+                  "authority": "Access Canberra (Construction and Workplace Licensing)",
+                  "pathway": "Needed for electrical work"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A electrician licence may be needed",
+              "detail": "Electrical work in the ACT needs a licence. Tell us what trade work you'll do so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_ELECTRICIAN_LICENCE",
+                  "authority": "Access Canberra (Construction and Workplace Licensing)",
+                  "pathway": "Needed for electrical work",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_construction",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "plumbing_licence",
+          "title": "Plumbing, drainage and gasfitting licence",
+          "condition": {
+            "fact": "business.trade_work",
+            "op": "contains",
+            "value": "plumbing_drainage"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "You need an ACT plumber, drainer or gasfitter licence",
+              "detail": "Plumbing, drainage and gasfitting work in the ACT needs a construction occupation licence from Access Canberra, with several classes in each occupation. Apply on the ACT plumber, drainer and gasfitter licence application (and the ACT construction company or partnership licence application for a company or partnership). Prioritised applications take about 3 weeks.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_PLUMBER_DRAINER_GASFITTER_LICENCE",
+                  "authority": "Access Canberra (Construction and Workplace Licensing)",
+                  "pathway": "Apply online to Access Canberra"
+                },
+                "task": "Apply for an ACT plumbing licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Plumbing, drainage and gasfitting licence not identified",
+              "detail": "From your answers you won't do plumbing, drainage or gasfitting work.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_PLUMBER_DRAINER_GASFITTER_LICENCE",
+                  "authority": "Access Canberra (Construction and Workplace Licensing)",
+                  "pathway": "Needed for plumbing, drainage or gasfitting work"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A plumbing, drainage and gasfitting licence may be needed",
+              "detail": "Plumbing and drainage work in the ACT needs a licence. Tell us what trade work you'll do so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_PLUMBER_DRAINER_GASFITTER_LICENCE",
+                  "authority": "Access Canberra (Construction and Workplace Licensing)",
+                  "pathway": "Needed for plumbing, drainage or gasfitting work",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_construction",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Plumber",
+              "facts": {
+                "business.trade_work": [
+                  "plumbing_drainage"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Electrician",
+              "facts": {
+                "business.trade_work": [
+                  "electrical"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.act.personal_appearance",
+      "vertical": "BUSINESS",
+      "jurisdiction": "ACT",
+      "title": "ACT: tattoo, piercing and skin penetration businesses",
+      "description": "The infection control activity licence from the ACT Health Protection Service for businesses that perform skin penetration procedures.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "ACT"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "personal_services"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the ACT infection control activity licence page; the Public Health Act 1997 and the Infection Control Code of Practice were not read.",
+        "The page doesn't list which beauty treatments count as skin penetration; we treat tattooing, piercing, implants, scarring and tattoo removal as covered and ask beauty businesses to check.",
+        "The ACT has no separate tattoo industry licensing scheme on the pages read.",
+        "Not legal advice. Check with the Health Protection Service (02 5124 9700)."
+      ],
+      "rules": [
+        {
+          "key": "infection_control_licence",
+          "title": "Infection control licence",
+          "condition": {
+            "any": [
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattooing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "body_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "ear_nose_piercing"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "implants_or_scarring"
+              },
+              {
+                "fact": "business.personal_services",
+                "op": "contains",
+                "value": "tattoo_removal"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get an infection control licence before you open",
+              "detail": "Any ACT business that performs skin penetration procedures, such as tattooing and piercing, must hold an infection control licence from the Health Protection Service. Lodge the ACT infection control licence application online with floor plans that meet the Infection Control Code of Practice and photo ID. It costs $230.60 for 12 months. Temporary events such as markets need a separate licence each time.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_INFECTION_CONTROL_LICENCE",
+                  "authority": "ACT Health Protection Service",
+                  "pathway": "Apply online to the Health Protection Service"
+                },
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Apply for an infection control licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Infection control licence not identified",
+              "detail": "From your answers you won't do procedures that pierce the skin.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_INFECTION_CONTROL_LICENCE",
+                  "authority": "ACT Health Protection Service",
+                  "pathway": "Needed for skin penetration procedures"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A infection control licence may be needed",
+              "detail": "Businesses that pierce the skin need an ACT infection control licence. Tell us which services you'll offer so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_INFECTION_CONTROL_LICENCE",
+                  "authority": "ACT Health Protection Service",
+                  "pathway": "Needed for skin penetration procedures",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_infection",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Tattoo studio",
+              "facts": {
+                "business.personal_services": [
+                  "tattooing"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair only",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "beauty_skin_penetration",
+          "title": "Beauty treatments that pierce the skin",
+          "condition": {
+            "fact": "business.personal_services",
+            "op": "contains",
+            "value": "beauty"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "Check whether any of your beauty treatments pierce the skin",
+              "detail": "If a treatment you offer pierces the skin (for example electrolysis, cosmetic tattooing or micro-needling), you need an ACT infection control licence and must lodge the ACT infection control licence application. Ask the Health Protection Service on 02 5124 9700 which of your treatments are covered.",
+              "payload": {
+                "referral_categories": [
+                  "infection_control_trainer"
+                ],
+                "task": "Ask the Health Protection Service which treatments need a licence"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_infection",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Beauty salon",
+              "facts": {
+                "business.personal_services": [
+                  "beauty"
+                ]
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Hair only",
+              "facts": {
+                "business.personal_services": [
+                  "hairdressing"
+                ]
+              },
+              "expected_result": "NO_MATCH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "business.act.education_care",
+      "vertical": "BUSINESS",
+      "jurisdiction": "ACT",
+      "title": "ACT: early childhood education and care services",
+      "description": "Provider and service approvals from Children's Education and Care Assurance (CECA), the ACT regulatory authority under the Education and Care Services National Law.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "business.state",
+            "op": "equals",
+            "value": "ACT"
+          },
+          {
+            "fact": "business.activity",
+            "op": "equals",
+            "value": "childcare_education"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from the ACT Government page on opening a service, not the National Law or Regulations.",
+        "Doesn't cover Child Care Subsidy approval, family day care specifics or schools.",
+        "Not legal advice. Check with CECA (02 6207 1114) before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "education_care_approval",
+          "title": "Education and care service approval",
+          "condition": {
+            "fact": "business.education_care_service",
+            "op": "equals",
+            "value": true
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get provider approval, then service approval, from CECA",
+              "detail": "To run a long day care, preschool, outside school hours care or family day care service in the ACT you need provider approval and then service approval from Children's Education and Care Assurance (CECA). Apply through the ACECQA website. You need an ABN and a principal office in the ACT. Premises in a multi-storey building need approval in principle first, and buildings must meet the National Construction Code (Class 9b) and the ACT planning guidelines for education and care services. CECA has 60 days to decide a provider application and 90 days for a service.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Children's Education and Care Assurance (CECA)",
+                  "pathway": "Apply through ACECQA to CECA"
+                },
+                "referral_categories": [
+                  "education_care_consultant"
+                ],
+                "task": "Apply to CECA for provider approval"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "Education and care service approval not identified",
+              "detail": "You said you won't run an education and care service.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Children's Education and Care Assurance (CECA)",
+                  "pathway": "Needed to run an education and care service"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A education and care service approval may be needed",
+              "detail": "Education and care services in the ACT need CECA approval. Answer the question so we can check this.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_EDUCATION_CARE_SERVICE_APPROVAL",
+                  "authority": "Children's Education and Care Assurance (CECA)",
+                  "pathway": "Needed to run an education and care service",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_ceca",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Childcare centre",
+              "facts": {
+                "business.education_care_service": true
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Tutoring",
+              "facts": {
+                "business.education_care_service": false
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "trade.act.vehicles",
+      "vertical": "TRADE",
+      "jurisdiction": "ACT",
+      "title": "ACT: registering and selling imported vehicles",
+      "description": "Inspecting and registering an imported vehicle with Access Canberra, and the motor vehicle dealer licence for selling vehicles as a business.",
+      "applies_when": {
+        "all": [
+          {
+            "fact": "trade.direction",
+            "op": "in",
+            "value": [
+              "import",
+              "both"
+            ]
+          },
+          {
+            "fact": "trade.goods_categories",
+            "op": "contains",
+            "value": "vehicles"
+          },
+          {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "ACT"
+          }
+        ]
+      },
+      "limitations": [
+        "Built from Access Canberra pages, not from the Road Transport (Vehicle Registration) Act 1999 or the Sale of Motor Vehicles Act 1977.",
+        "Registration fees and MAI premiums depend on the vehicle and are not shown.",
+        "Covers light vehicles. Heavy vehicles have extra rules.",
+        "Not legal advice. Confirm with Access Canberra (13 22 81)."
+      ],
+      "rules": [
+        {
+          "key": "act_registration",
+          "title": "Registering the vehicle in the ACT",
+          "condition": {
+            "fact": "trade.vehicle_state",
+            "op": "equals",
+            "value": "ACT"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_REQUIRED",
+              "title": "Get the vehicle inspected at Hume, then register it at an Access Canberra Service Centre",
+              "detail": "A vehicle being registered in Australia for the first time must be inspected at the Access Canberra Motor Vehicle Inspection Station in Hume, by appointment (call 13 22 81). Personal imports and vehicles over 25 years old can use any authorised inspection station. Drive it there on an unregistered vehicle permit. A light vehicle inspection costs $89.20 in 2026-27. Then take the inspection report (fill in the registration application on the back) and your ID to an Access Canberra Service Centre within a month. Choose a Motor Accident Injuries insurer and pay registration, MAI and stamp duty of 1.5% of the price or market value, whichever is higher.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_VEHICLE_REGISTRATION",
+                  "authority": "Access Canberra",
+                  "pathway": "Inspection at Hume, then register in person"
+                },
+                "task": "Book an inspection at Hume and register the vehicle with Access Canberra"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_rego",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "act_roadworthy",
+              "relationship": "BASIS"
+            },
+            {
+              "reference": "act_insp_fees",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "ACT",
+              "facts": {
+                "trade.vehicle_state": "ACT"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "NSW",
+              "facts": {
+                "trade.vehicle_state": "NSW"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        },
+        {
+          "key": "act_vehicle_dealer",
+          "title": "Selling imported vehicles in the ACT",
+          "condition": {
+            "all": [
+              {
+                "fact": "trade.vehicle_purpose",
+                "op": "equals",
+                "value": "sell"
+              },
+              {
+                "fact": "trade.vehicle_state",
+                "op": "equals",
+                "value": "ACT"
+              }
+            ]
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "Selling vehicles as a business needs a motor vehicle dealer licence",
+              "detail": "In the ACT anyone who buys, sells or exchanges motor vehicles as a business needs a licence from Access Canberra. Lodge the ACT motor vehicle dealer licence application online with two proof of identity documents and a name-only police check for each person (plus an ASIC extract for a company). The 2026-27 fee is $891.00 for 1 year or $4,037.00 for 5 years.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_MOTOR_VEHICLE_DEALER_LICENCE",
+                  "authority": "Access Canberra (Commissioner for Fair Trading)",
+                  "pathway": "Apply online before you start selling"
+                },
+                "referral_categories": [
+                  "lawyer"
+                ],
+                "task": "Apply to Access Canberra for a motor vehicle dealer licence"
+              }
+            },
+            {
+              "on_result": "NO_MATCH",
+              "outcome_type": "NOT_REQUIRED",
+              "title": "ACT dealer licence not identified",
+              "detail": "You said the vehicle is for your own use, so a dealer licence wasn't identified. Selling vehicles as a business would need one.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_MOTOR_VEHICLE_DEALER_LICENCE",
+                  "authority": "Access Canberra (Commissioner for Fair Trading)",
+                  "pathway": "Needed to sell vehicles as a business"
+                }
+              }
+            },
+            {
+              "on_result": "UNKNOWN",
+              "outcome_type": "APPROVAL_LIKELY",
+              "title": "A dealer licence may be needed",
+              "detail": "Selling vehicles as a business in the ACT needs a motor vehicle dealer licence. Tell us whether you'll sell the vehicle so we can check.",
+              "payload": {
+                "approval": {
+                  "kind": "ACT_MOTOR_VEHICLE_DEALER_LICENCE",
+                  "authority": "Access Canberra (Commissioner for Fair Trading)",
+                  "pathway": "Needed to sell vehicles as a business",
+                  "certainty": "MAY_APPLY"
+                }
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_dealer",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "Selling in ACT",
+              "facts": {
+                "trade.vehicle_purpose": "sell",
+                "trade.vehicle_state": "ACT"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "Own use",
+              "facts": {
+                "trade.vehicle_purpose": "own_use",
+                "trade.vehicle_state": "ACT"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "vessel.act.registration",
+      "vertical": "VESSEL",
+      "jurisdiction": "ACT",
+      "title": "ACT: boat registration and licences",
+      "description": "The ACT has no boat registration or licence scheme; ACT boat owners register and license in another state, and ACT lakes have their own permits.",
+      "applies_when": {
+        "fact": "vessel.home_state",
+        "op": "equals",
+        "value": "ACT"
+      },
+      "limitations": [
+        "Built from the Access Canberra 'Boating on ACT lakes' page; NSW registration and licence rules were not read.",
+        "Doesn't cover National Capital Authority approvals in detail.",
+        "Not legal advice. Check with Access Canberra (13 22 81) or the NSW agency before you rely on it."
+      ],
+      "rules": [
+        {
+          "key": "no_act_scheme",
+          "title": "No ACT boat registration or licence",
+          "condition": {
+            "fact": "vessel.home_state",
+            "op": "equals",
+            "value": "ACT"
+          },
+          "effective_from": "2026-10-12",
+          "max_confidence": "LIKELY",
+          "notes": "Effective from the date the source was read (2026-10-12), not the date the law began: capped at likely until the reference is verified.",
+          "outcomes": [
+            {
+              "on_result": "MATCH",
+              "outcome_type": "INFO",
+              "title": "The ACT doesn't register boats or license drivers: use NSW or another state",
+              "detail": "The ACT Government has no boat registration or licence scheme. A power boat used on ACT lakes must be registered in an Australian state or territory, and you need that state's boat licence. If you will use the boat on NSW waters, register and license it with NSW. In the ACT, power boats are allowed on Lake Ginninderra, Lake Tuggeranong, Kingston Harbour and the Molonglo River above Lake Burley Griffin; going faster than 10 knots needs an ACT authorisation. The National Capital Authority approves powered boats on Lake Burley Griffin, and Googong Reservoir needs a free ACT boating permit.",
+              "payload": {
+                "task": "Register and license the boat in NSW or another state"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "reference": "act_boating",
+              "relationship": "BASIS"
+            }
+          ],
+          "test_cases": [
+            {
+              "name": "ACT",
+              "facts": {
+                "vessel.home_state": "ACT"
+              },
+              "expected_result": "MATCH"
+            },
+            {
+              "name": "NSW",
+              "facts": {
+                "vessel.home_state": "NSW"
+              },
+              "expected_result": "NO_MATCH"
+            },
+            {
+              "name": "Not answered",
+              "facts": {},
+              "expected_result": "UNKNOWN"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

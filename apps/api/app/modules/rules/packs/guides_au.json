@@ -154,6 +154,12 @@
       "jurisdiction": "NSW"
     },
     {
+      "ref": "act_health_protection_service",
+      "name": "ACT Health Protection Service",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT"
+    },
+    {
       "ref": "city_of_hobart",
       "name": "City of Hobart",
       "kind": "STATE_AGENCY",
@@ -182,6 +188,12 @@
       "name": "Racing, Gaming and Liquor",
       "kind": "STATE_AGENCY",
       "jurisdiction": "WA"
+    },
+    {
+      "ref": "access_canberra",
+      "name": "Access Canberra",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT"
     },
     {
       "ref": "liquor_control_victoria_vic_gov_au",
@@ -256,6 +268,12 @@
       "jurisdiction": "QLD"
     },
     {
+      "ref": "worksafe_act",
+      "name": "WorkSafe ACT",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT"
+    },
+    {
       "ref": "icare_nsw_insurance_and_care_nsw",
       "name": "icare NSW (Insurance and Care NSW)",
       "kind": "STATE_AGENCY",
@@ -272,6 +290,12 @@
       "name": "Building and Plumbing Commission",
       "kind": "STATE_AGENCY",
       "jurisdiction": "VIC"
+    },
+    {
+      "ref": "act_revenue_office",
+      "name": "ACT Revenue Office",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT"
     },
     {
       "ref": "worksafe_victoria",
@@ -304,6 +328,12 @@
       "jurisdiction": "TAS"
     },
     {
+      "ref": "city_and_environment_directorate_act_planning",
+      "name": "City and Environment Directorate (ACT Planning)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT"
+    },
+    {
       "ref": "state_revenue_office_victoria_and_ablis",
       "name": "State Revenue Office Victoria and ABLIS",
       "kind": "STATE_AGENCY",
@@ -314,6 +344,12 @@
       "name": "Energy Safe Victoria",
       "kind": "STATE_AGENCY",
       "jurisdiction": "VIC"
+    },
+    {
+      "ref": "act_government_act_gov_au",
+      "name": "ACT Government (act.gov.au)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT"
     },
     {
       "ref": "consumer_protection_wa",
@@ -448,6 +484,12 @@
       "jurisdiction": "VIC"
     },
     {
+      "ref": "act_planning_act_government",
+      "name": "ACT Planning (ACT Government)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT"
+    },
+    {
       "ref": "state_planning_office_tasmania",
       "name": "State Planning Office (Tasmania)",
       "kind": "STATE_AGENCY",
@@ -482,6 +524,12 @@
       "name": "Building and Energy (Government of Western Australia)",
       "kind": "STATE_AGENCY",
       "jurisdiction": "WA"
+    },
+    {
+      "ref": "access_canberra_act_government",
+      "name": "Access Canberra (ACT Government)",
+      "kind": "STATE_AGENCY",
+      "jurisdiction": "ACT"
     },
     {
       "ref": "your_local_council",
@@ -1466,6 +1514,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "act_food_business_registration_doc1",
+      "organisation": "act_health_protection_service",
+      "jurisdiction": "ACT",
+      "title": "Register a food business",
+      "url": "https://www.act.gov.au/business/health-licenses-and-inspections/food-businesses-and-events-registration/register-a-food-business",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_food_business_registration_doc2",
+      "organisation": "act_health_protection_service",
+      "jurisdiction": "ACT",
+      "title": "Fees to register a food business",
+      "url": "https://www.act.gov.au/health/businesses/licences-permits-and-registration/food-businesses-and-events-registration/fees-to-register-a-food-business",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "tas_food_business_registration_doc1",
       "organisation": "city_of_hobart",
       "jurisdiction": "TAS",
@@ -1583,6 +1647,22 @@
       "jurisdiction": "WA",
       "title": "Racing, Gaming and Liquor: Fees and charges, liquor licensing",
       "url": "https://www.wa.gov.au/organisation/racing-gaming-and-liquor/fees-and-charges-liquor-licensing",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_liquor_licence_doc1",
+      "organisation": "access_canberra",
+      "jurisdiction": "ACT",
+      "title": "Liquor licences",
+      "url": "https://www.accesscanberra.act.gov.au/business-and-work/hospitality-liquor-and-gaming/liquor-licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_liquor_licence_doc2",
+      "organisation": "access_canberra",
+      "jurisdiction": "ACT",
+      "title": "Liquor licence and permit fees",
+      "url": "https://www.accesscanberra.act.gov.au/business-and-work/business-and-work-related-fees/liquor-licence-and-permit-fees",
       "source_type": "WEBPAGE"
     },
     {
@@ -1810,6 +1890,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "act_outdoor_dining_permit_doc1",
+      "organisation": "access_canberra",
+      "jurisdiction": "ACT",
+      "title": "Outdoor dining permits",
+      "url": "https://www.accesscanberra.act.gov.au/business-and-work/hospitality-liquor-and-gaming/outdoor-dining-permits",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "nsw_tobacco_retail_licence_doc1",
       "organisation": "nsw_health",
       "jurisdiction": "NSW",
@@ -1919,6 +2007,22 @@
       "jurisdiction": "QLD",
       "title": "Business Queensland: Where to get workers' compensation insurance",
       "url": "https://www.business.qld.gov.au/running-business/employing/legal-obligations/workers-compensation/insurance",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_workers_compensation_insurance_doc1",
+      "organisation": "worksafe_act",
+      "jurisdiction": "ACT",
+      "title": "How to get workers' compensation insurance in the ACT",
+      "url": "https://www.worksafe.act.gov.au/workers-compensation/how-to-get-workers-compensation",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_workers_compensation_insurance_doc2",
+      "organisation": "worksafe_act",
+      "jurisdiction": "ACT",
+      "title": "Who is an employer",
+      "url": "https://www.worksafe.act.gov.au/workers-compensation/who-is-an-employer",
       "source_type": "WEBPAGE"
     },
     {
@@ -2082,6 +2186,14 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "act_payroll_tax_registration_doc1",
+      "organisation": "act_revenue_office",
+      "jurisdiction": "ACT",
+      "title": "About payroll tax",
+      "url": "https://www.revenue.act.gov.au/business-taxes-and-levies/payroll-tax/about-payroll-tax",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "vic_workcover_insurance_doc1",
       "organisation": "worksafe_victoria",
       "jurisdiction": "VIC",
@@ -2143,6 +2255,14 @@
       "jurisdiction": "TAS",
       "title": "State Revenue Office: Rates and thresholds",
       "url": "https://www.sro.tas.gov.au/payroll-tax/rates-thresholds",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_builder_licence_doc1",
+      "organisation": "city_and_environment_directorate_act_planning",
+      "jurisdiction": "ACT",
+      "title": "Construction licences",
+      "url": "https://www.planning.act.gov.au/professionals/regulation-and-responsibilities/construction-licences",
       "source_type": "WEBPAGE"
     },
     {
@@ -2242,6 +2362,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "act_infection_control_licence_doc1",
+      "organisation": "act_health_protection_service",
+      "jurisdiction": "ACT",
+      "title": "Infection control activity licences",
+      "url": "https://www.act.gov.au/business/health-licenses-and-inspections/infection-prevention-and-control/infection-control-activity-licences",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_education_care_service_approval_doc1",
+      "organisation": "act_government_act_gov_au",
+      "jurisdiction": "ACT",
+      "title": "Open an early childhood education and care service",
+      "url": "https://www.act.gov.au/education-and-training/education-service-providers/open-an-early-childhood-education-and-care-service",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "nsw_tenancy_bond_lodgement_doc1",
       "organisation": "nsw_fair_trading",
       "jurisdiction": "NSW",
@@ -2303,6 +2439,30 @@
       "jurisdiction": "SA",
       "title": "Forms and fact sheets for private rental tenancies",
       "url": "https://www.sa.gov.au/topics/housing/renting-and-letting/renting-privately/forms-and-fact-sheets-for-private-rental-tenancies",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_bond_lodgement_doc1",
+      "organisation": "act_revenue_office",
+      "jurisdiction": "ACT",
+      "title": "How to lodge a bond or security deposit",
+      "url": "https://www.revenue.act.gov.au/rental-bonds/how-to-lodge-a-bond-or-security-deposit",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_bond_lodgement_doc2",
+      "organisation": "act_revenue_office",
+      "jurisdiction": "ACT",
+      "title": "Starting a tenancy",
+      "url": "https://www.act.gov.au/housing-planning-and-property/renting/starting-a-tenancy",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_bond_lodgement_doc3",
+      "organisation": "act_revenue_office",
+      "jurisdiction": "ACT",
+      "title": "Rental bonds forms",
+      "url": "https://www.revenue.act.gov.au/rental-bonds/forms",
       "source_type": "WEBPAGE"
     },
     {
@@ -2426,6 +2586,30 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "act_vehicle_registration_doc1",
+      "organisation": "access_canberra",
+      "jurisdiction": "ACT",
+      "title": "Vehicle registration and transfer",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/registration/vehicle-registration-and-transfer",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_vehicle_registration_doc2",
+      "organisation": "access_canberra",
+      "jurisdiction": "ACT",
+      "title": "Roadworthy inspections",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/registration/roadworthy-inspections",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_vehicle_registration_doc3",
+      "organisation": "access_canberra",
+      "jurisdiction": "ACT",
+      "title": "Vehicle inspection fees",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/vehicle-and-transport-related-fees/vehicle-inspection-fees",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "artg_inclusion_doc1",
       "organisation": "therapeutic_goods_administration",
       "jurisdiction": "CTH",
@@ -2519,6 +2703,14 @@
       "jurisdiction": "CTH",
       "title": "DCCEEW - Do I need an equipment licence or a bulk gas licence?",
       "url": "https://www.dcceew.gov.au/environment/protection/ozone/licences-and-reporting/equipment-or-bulk-gas-licence",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_motor_vehicle_dealer_licence_doc1",
+      "organisation": "access_canberra",
+      "jurisdiction": "ACT",
+      "title": "Motor vehicle dealer and repairer licences",
+      "url": "https://www.accesscanberra.act.gov.au/driving-transport-and-parking/licences/motor-vehicle-dealer-and-repairer-licences",
       "source_type": "WEBPAGE"
     },
     {
@@ -4058,6 +4250,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "act_exemption_declaration_doc1",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "Check if you're exempt from a DA (ACT Planning)",
+      "url": "https://www.planning.act.gov.au/applications-and-assessments/development-applications/check-if-you-need-a-da",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_exemption_declaration_doc2",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "Fees and charges 2026-27: Planning, Lease Administration and Building Services (ACT Planning)",
+      "url": "https://www.planning.act.gov.au/__data/assets/pdf_file/0003/3092970/2026-27-Fees-and-Charges-Planning.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "sa_boat_operator_licence_doc1",
       "organisation": "department_for_infrastructure_and_transport_sa",
       "jurisdiction": "SA",
@@ -4215,6 +4423,30 @@
       "jurisdiction": "VIC",
       "title": "Updating the Planning and Environment Act (DTP)",
       "url": "https://www.planning.vic.gov.au/guides-and-resources/legislation-regulation-and-fees/updating-the-planning-and-environment-act",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_development_application_doc1",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "Lodge a DA (ACT Planning)",
+      "url": "https://www.planning.act.gov.au/applications-and-assessments/development-applications/lodge-a-da",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_development_application_doc2",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "After you apply (ACT Planning)",
+      "url": "https://www.planning.act.gov.au/applications-and-assessments/development-applications/after-you-apply",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_development_application_doc3",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "Guide to development applications (ACT Planning)",
+      "url": "https://www.planning.act.gov.au/__data/assets/pdf_file/0015/2323023/guide-to-development-applications.pdf",
       "source_type": "WEBPAGE"
     },
     {
@@ -4410,6 +4642,22 @@
       "source_type": "WEBPAGE"
     },
     {
+      "ref": "act_lease_variation_doc3",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "Planning (Lease Variation Charges) Determination 2026",
+      "url": "https://www.legislation.act.gov.au/di/2026-142/",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_lease_variation_doc4",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "Case study 2: Grant and his granny flat (ACT Planning)",
+      "url": "https://www.planning.act.gov.au/professionals/resources/resource-articles/case-study-2-grant-and-his-granny-flat",
+      "source_type": "WEBPAGE"
+    },
+    {
       "ref": "wa_demolition_permit_doc1",
       "organisation": "building_and_energy_government_of_western_australi",
       "jurisdiction": "WA",
@@ -4455,6 +4703,30 @@
       "jurisdiction": "VIC",
       "title": "Building Reform Levy (BPC)",
       "url": "https://www.bpc.vic.gov.au/building-surveyors/building-activity-management-system-bams/building-reform-levy",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_building_approval_doc1",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "Building approvals (ACT Planning)",
+      "url": "https://www.planning.act.gov.au/applications-and-assessments/building-approvals",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_building_approval_doc3",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "Construction Note 2025/04 (Access Canberra)",
+      "url": "https://www.accesscanberra.act.gov.au/__data/assets/pdf_file/0012/2918739/2025_04-Construction-Note-Certificate-of-Occupancy-and-Use-Requirement-for-nomination-at-Application-of-Building-Approval-under-Section-26-2b-of-the-Building-Act.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_building_approval_doc4",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "Construction Note 2026/04 (Access Canberra)",
+      "url": "https://www.accesscanberra.act.gov.au/__data/assets/pdf_file/0004/3086230/202604-Construction-Note-Requirements-for-Bushfire-Prone-Blocks-on-ACT-leased-land.pdf",
       "source_type": "WEBPAGE"
     },
     {
@@ -4543,6 +4815,14 @@
       "jurisdiction": "WA",
       "title": "Guide to subdivision applications and fees (WAPC)",
       "url": "https://www.wa.gov.au/system/files/2023-07/guide_to_subdivision_applications_and_fees_june2023.pdf",
+      "source_type": "WEBPAGE"
+    },
+    {
+      "ref": "act_subdivision_doc4",
+      "organisation": "act_planning_act_government",
+      "jurisdiction": "ACT",
+      "title": "ACT Legislative Assembly question on notice, Planning, answered 23 November 2023",
+      "url": "https://questions.parliament.act.gov.au/details/ffe67ecda83440f4949c2db0763ee593",
       "source_type": "WEBPAGE"
     },
     {
@@ -4868,6 +5148,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The NSW Food Authority's website blocks automated reading, so this guide relies on business.gov.au and council pages. Check foodauthority.nsw.gov.au before you rely on it. Council notification and inspection fees are set by each council and were not collected statewide. The maximum council inspection fee and any annual administration charge under the Food Regulation 2025 could not be read."
     },
     {
+      "ref": "act_food_business_registration_guide",
+      "document": "act_food_business_registration_doc1",
+      "section": "Approval guide: ACT_FOOD_BUSINESS_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering a food business in the ACT (ACT Health Protection Service, under the Food Act 2001 (ACT)).\nMost ACT food businesses must register with the Health Protection Service (ACT Health) before they open. ACT Health inspects the premises before registration is granted, and every registered business nominates a trained food safety supervisor.\nTimeframe: Register before you open. Allow time for the premises inspection; no processing time is published.\nCost: From $163.00 (1 year, low risk) to $321.55 (1 year, high risk); multi-year options available.\nBefore you start: Fit out your premises to the Food Standards Code before the inspection.\nBefore you start: Choose a trained food safety supervisor to nominate.\nBefore you start: Work out your risk classification using the section in the application form.\nBefore you start: Check Territory planning approval for the premises use.\nStep 1: Complete the application. Fill in the ACT food business registration application, including the risk classification section, or use the online smart form.\nStep 2: Lodge it. Email the form to hps@act.gov.au, or submit the smart form. (time: Before you open)\nStep 3: Inspection. ACT Health inspects your premises before registration is granted. (time: After you apply)\nStep 4: Pay and display. Pay the fee for your risk category and term, then display the registration certificate where the public can see it. (cost: Varies: $163.00 to $964.65 depending on risk and term)\nFee: 1 year: low / medium / high risk: $163.00 / $239.50 / $321.55\nFee: 2 years: low / medium / high risk: $326.00 / $479.00 / $643.10\nFee: 3 years: low / medium / high risk: $489.00 / $718.50 / $964.65\nContact: Health Protection Service (ACT Health): 02 5124 9700, hps@act.gov.au\nWatch out: Opening before registration is granted is not allowed.\nWatch out: Some services, such as hospitals and licensed childcare, are exempt from the fee but still register.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The fee page doesn't state a financial year (last updated 2 January 2026). Processing times and penalties were not on the pages read. Mobile food van rules were not on the pages read."
+    },
+    {
       "ref": "tas_food_business_registration_guide",
       "document": "tas_food_business_registration_doc1",
       "section": "Approval guide: TAS_FOOD_BUSINESS_REGISTRATION",
@@ -4936,6 +5223,13 @@
       "section": "Approval guide: WA_LIQUOR_LICENCE",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting a liquor licence (WA) (Racing, Gaming and Liquor (Department of Local Government, Industry Regulation and Safety)).\nSelling or supplying alcohol in WA needs a licence from Racing, Gaming and Liquor, part of the Department of Local Government, Industry Regulation and Safety, under the Liquor Control Act 1988. Restaurants and small bars apply for a restaurant or small bar licence; pubs need a tavern or hotel licence; bottle shops a liquor store licence. One-off events use an occasional licence.\nTimeframe: Allow several months for a new licence: applications may need advertising and objection periods.\nCost: Restaurant or small bar application A$1,058.50; tavern or liquor store A$4,129.50; annual fee A$697.50 (all excluding GST, as updated 26 June 2026).\nBefore you start: Get planning approval for the use of your premises from your local government first.\nBefore you start: Decide on the licence type that matches your trading (restaurant, small bar, tavern, liquor store or occasional).\nBefore you start: Name an approved manager who will supervise the premises; they need a manager's approval.\nBefore you start: Make sure staff who serve alcohol complete responsible service of alcohol training.\nStep 1: Choose the licence type. Read the licence types on the Racing, Gaming and Liquor applications page and check any conditions, such as restaurants serving liquor mainly with meals. (time: 1 to 2 hours)\nStep 2: Prepare your application. Gather your plans, planning approval, ownership and lease details, and any public interest assessment the licence type needs. (time: Weeks)\nStep 3: Lodge and pay. Lodge the application with Racing, Gaming and Liquor and pay the application fee. (cost: A$1,058.50 to A$4,129.50)\nStep 4: Apply for approved manager approval. Each approved manager applies separately. (cost: A$212.00 at Australia Post)\nStep 5: Pay the annual fee. Once granted, pay the annual licence fee each year. (time: Yearly; cost: A$697.50)\nFee: Restaurant licence application: A$1,058.50 (Excludes GST.)\nFee: Small bar licence application: A$1,058.50\nFee: Tavern licence application: A$4,129.50\nFee: Liquor store licence application: A$4,129.50\nFee: Occasional licence (up to 250 patrons): A$62.00 (Higher fees for larger events.)\nFee: Annual licence fee: A$697.50 (Club restricted A$342.00.)\nFee: Approved manager application: A$212.00 (At Australia Post.)\nContact: Racing, Gaming and Liquor: https://www.wa.gov.au/organisation/racing-gaming-and-liquor\nWatch out: Don't sell alcohol before your licence is granted.\nWatch out: An alfresco area needs to be covered by your licence or an extended trading permit (from A$414.50).",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The application steps, advertising rules and processing times page was not read; steps are summarised at a high level. The RSA training requirement and timeframe for staff were not confirmed from an official page."
+    },
+    {
+      "ref": "act_liquor_licence_guide",
+      "document": "act_liquor_licence_doc1",
+      "section": "Approval guide: ACT_LIQUOR_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting a liquor licence in the ACT (Access Canberra (Commissioner for Fair Trading), Liquor Act 2010).\nSelling or supplying alcohol in the ACT needs a licence from Access Canberra under the Liquor Act 2010. Classes include general, on (bar, nightclub, restaurant and cafe), off, club, special and caterer's licences. A 30-day public notice runs and approval can take up to 90 days.\nTimeframe: Up to 90 days, including a 30-day public consultation.\nCost: Application fee $3,049.00 for most classes in 2026-27 ($3,759.00 general, $4,585.00 special), plus annual fees.\nBefore you start: Pick the licence class that matches your venue.\nBefore you start: Get approved plans and certificates of occupancy for the premises.\nBefore you start: Make sure everyone who will serve alcohol has current RSA certification.\nBefore you start: Get police checks (issued within 3 months) for each person named.\nStep 1: Prepare your documents. Gather approved plans, certificates of occupancy, police checks, a provision of lease advice certificate and, if alcohol is drunk on site, a risk assessment management plan.\nStep 2: Lodge the application. Lodge the ACT application for a liquor licence at an Access Canberra Service Centre or through the online Liquor Licence Enquiry form. Access Canberra contacts online applicants to pay. (cost: Varies: $3,049.00 for an on licence)\nStep 3: Public notice. Access Canberra publishes a notice and gives you a sign to display at the premises for the 30-day consultation. (time: 30 days)\nStep 4: Decision. Wait for the decision before you sell alcohol. (time: Up to 90 days)\nFee: New on, off, club or caterer's licence application: $3,049.00\nFee: New general licence application: $3,759.00\nFee: New special licence application: $4,585.00\nFee: Annual licence fee: See the Liquor (Fees) Determination\nContact: Access Canberra: 13 22 81, https://www.accesscanberra.act.gov.au\nWatch out: Selling alcohol before the licence is granted is an offence.\nWatch out: Outdoor areas need the licence amended as well as a public unleased land permit.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Fee amounts were matched to licence classes by table order; confirm before relying on them. Annual fees were not read."
     },
     {
       "ref": "vic_liquor_licence_guide",
@@ -5008,6 +5302,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Only Hobart's permit was read; other councils' fees and timeframes are not confirmed. Insurance requirements and processing times were not listed."
     },
     {
+      "ref": "act_outdoor_dining_permit_guide",
+      "document": "act_outdoor_dining_permit_doc1",
+      "section": "Approval guide: ACT_OUTDOOR_DINING_PERMIT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an outdoor dining permit in the ACT (Access Canberra (Public Unleased Land Act 2013)).\nPutting tables, chairs or other movable objects on a footpath or other public land in the ACT needs a public unleased land permit from Access Canberra.\nTimeframe: Usually up to 10 business days.\nCost: Fees depend on location and area and are paid after approval.\nBefore you start: Draw an area plan showing how you'll use the space.\nBefore you start: Get public liability insurance of at least $20 million with the ACT Government noted as an interested party.\nBefore you start: If you'll serve alcohol outside, get or amend your liquor licence first.\nStep 1: Apply online. Lodge the ACT public place permit application and upload your area plan.\nStep 2: Assessment. Access Canberra assesses the application. (time: Up to 10 business days)\nStep 3: Pay the fee. Pay the fee for your location and area after approval. (cost: Varies: set by the Public Unleased Land (Fees) Determination 2026 (No 1))\nFee: Outdoor dining permit: Varies: by location and area\nContact: Access Canberra: 13 22 81, https://www.accesscanberra.act.gov.au\nWatch out: Keep your insurance current for the permit area.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The fee determination was not read, so no rates are shown. The Act name is from general knowledge; the page didn't name it."
+    },
+    {
       "ref": "nsw_tobacco_retail_licence_guide",
       "document": "nsw_tobacco_retail_licence_doc1",
       "section": "Approval guide: NSW_TOBACCO_RETAIL_LICENCE",
@@ -5050,6 +5351,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: WorkCover's pages do not state a minimum premium or the exact legal deadline to take out a policy relative to a worker's first day; the safe course is to have the policy in place before anyone starts. Individual industry rates (by WIC) are in the annual Queensland Government Gazette, which was not read; the 2026-27 gazette rate for cafes and restaurants is not confirmed here. Penalty unit amounts for the offence of failing to insure were not published on the pages read."
     },
     {
+      "ref": "act_workers_compensation_insurance_guide",
+      "document": "act_workers_compensation_insurance_doc1",
+      "section": "Approval guide: ACT_WORKERS_COMPENSATION_INSURANCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Workers' compensation insurance in the ACT (WorkSafe ACT (Workers Compensation Act 1951)).\nACT employers must hold a workers' compensation policy for all their workers in the ACT. Policies are sold by private insurers licensed by WorkSafe ACT; there is no government insurer.\nTimeframe: Before your first worker starts.\nCost: Premiums are set by each insurer.\nBefore you start: Work out who counts as a worker, including regular contractors.\nBefore you start: Estimate your wages for the year for quotes.\nStep 1: Get quotes. Use WorkSafe ACT's list of licensed insurers to get quotes.\nStep 2: Take out the policy. Choose an insurer and keep the policy current for all workers in the ACT.\nStep 3: Display and record. Display a notice with your insurer's name and policy details, and keep an injury register on site.\nStep 4: Report injuries. Tell your insurer in writing within 48 hours of becoming aware of a workplace injury. (time: 48 hours)\nFee: Premium: Varies: set by the insurer\nContact: WorkSafe ACT: WorkersCompensation@worksafe.act.gov.au, https://www.worksafe.act.gov.au/workers-compensation/how-to-get-workers-compensation\nWatch out: Working without cover can cost the unpaid premium plus up to double it, for up to five years.\nWatch out: Missing the 48-hour injury notice makes you directly liable for weekly payments until notice is given.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The penalties page and WorkSafe ACT phone number were not read."
+    },
+    {
       "ref": "nsw_workers_compensation_policy_guide",
       "document": "nsw_workers_compensation_policy_doc1",
       "section": "Approval guide: NSW_WORKERS_COMPENSATION_POLICY",
@@ -5076,6 +5384,13 @@
       "section": "Approval guide: VIC_POOL_REGISTRATION",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering a pool or spa and lodging a barrier certificate in Victoria (Your local council).\nEvery pool or spa in Victoria that can hold more than 300mm of water must be registered with the local council. A registered inspector then checks the barrier and issues a certificate of barrier compliance, which you lodge with council within 30 days. The barrier must be re-inspected every 4 years. Rental providers must also keep the barrier in good repair and give the renter a copy of the certificate on request.\nTimeframe: Lodge the certificate within 30 days of receiving it; re-inspect every 4 years.\nCost: Council registration and lodgement fees and inspector fees vary and were not published on the pages read.\nBefore you start: Check whether your pool or spa can hold more than 300mm of water. If so, it must be registered.\nBefore you start: Find your council's pool registration page through Know Your Council.\nBefore you start: Check the barrier, gates and self-closing latches before booking an inspection.\nStep 1: Register the pool or spa with council. Follow your council's registration process. Council will tell you when the barrier inspection certificate is due.\nStep 2: Book a barrier inspection. Engage a registered pool inspector, building inspector or building surveyor. They inspect the barrier and tell you what must be fixed.\nStep 3: Fix any issues and get the certificate. Once problems are fixed the inspector issues a certificate of barrier compliance.\nStep 4: Lodge the certificate with council. Lodge it with council within 30 days of receiving it. Keep a copy for buyers or renters. (time: Within 30 days)\nStep 5: Re-inspect every 4 years. Book the next inspection before 4 years pass and lodge each new certificate.\nContact: Building and Plumbing Commission: https://www.bpc.vic.gov.au/help-and-support\nWatch out: For a rental, pool barrier repairs are urgent repairs.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Council fees, penalties and the certificate of barrier non-compliance process were not on the pages read. The BPC registration requirements page was linked but not read. Whether a sale needs the certificate attached to the section 32 statement was not confirmed."
+    },
+    {
+      "ref": "act_payroll_tax_registration_guide",
+      "document": "act_payroll_tax_registration_doc1",
+      "section": "Approval guide: ACT_PAYROLL_TAX_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering for ACT payroll tax (ACT Revenue Office (Payroll Tax Act 2011)).\nFrom 1 July 2026 ACT payroll tax applies once Australia-wide wages pass $1.75 million a year ($145,833.33 a month). Register with the ACT Revenue Office within 7 days after the end of the month you go over.\nTimeframe: Within 7 days after the end of the month you pass the threshold.\nCost: 6.75% on wages over the threshold up to $20 million in 2026-27; higher rates above that.\nBefore you start: Add up wages across Australia, including grouped businesses.\nBefore you start: Have your ABN and wage details ready.\nStep 1: Check the threshold. Compare your monthly Australia-wide wages with $145,833.33.\nStep 2: Register online. Use the online payroll tax registration notification form on the ACT Revenue Office site. (time: Within 7 days of month end)\nStep 3: Lodge returns. Lodge monthly returns by the 7th of the next month (December's by 14 January) and the annual reconciliation by 28 July through the Self Service Portal.\nFee: Rate on wages over $1.75 million up to $20 million (2026-27): Varies: 6.75% of taxable wages\nFee: Registration: Free\nContact: ACT Revenue Office: https://www.revenue.act.gov.au/help-and-resources/contact-us\nWatch out: The threshold dropped from $2 million on 1 July 2026, so check again even if you weren't liable before.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: No phone number was on the page read. Whether registration has any fee was not stated; 'Free' assumes none."
     },
     {
       "ref": "vic_workcover_insurance_guide",
@@ -5113,6 +5428,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The registration page (when you must register after passing the threshold) and SRO phone and email were not read."
     },
     {
+      "ref": "act_builder_licence_guide",
+      "document": "act_builder_licence_doc1",
+      "section": "Approval guide: ACT_BUILDER_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an ACT builder licence (Access Canberra (Construction Occupations (Licensing) Act 2004)).\nBuilding work in the ACT needs a construction occupation licence from Access Canberra. Class A covers unlimited height, Class B up to 3 storeys, Class C up to 2 storeys for houses and similar buildings, and Class D non-structural basic building work.\nTimeframe: At least 4 weeks; the licence is on the public register within 7 days of paying the term fee.\nCost: Set by the annual fee determination.\nBefore you start: Pass the ACT Regulatory Assessment at CIT (80%) if you are a first-time Class A, B or C applicant.\nBefore you start: Get a criminal history check less than 6 months old.\nBefore you start: Decide whether you need demolition or pool endorsements.\nStep 1: Apply online. Lodge the ACT individual builder licence application. If you trade through a company or partnership, also lodge the ACT construction company or partnership licence application.\nStep 2: Assessment. Access Canberra assesses the application. Applications aren't fast-tracked. (time: At least 4 weeks)\nStep 3: Pay the term fee. Pay the term fee; the licence goes on the public register within 7 days and the card can take 21 days. (cost: See the construction occupations fee determination)\nFee: Builder licence: See the construction occupations fee determination\nContact: Access Canberra Construction and Workplace Licensing: 02 6207 8096, cwpl@act.gov.au\nWatch out: Doing building work without the right class of licence is an offence.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Licence fees are set in the annual fee determination, which was not read. The exact online form addresses were given as form codes on forms.act.gov.au; confirm the links open the right form. Residential building insurance or fidelity fund rules were not read."
+    },
+    {
       "ref": "vic_payroll_tax_registration_guide",
       "document": "vic_payroll_tax_registration_doc1",
       "section": "Approval guide: VIC_PAYROLL_TAX_REGISTRATION",
@@ -5127,11 +5449,25 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Processing times, any exam or interview, and police check requirements weren't stated on the pages read. The fee page labels company fees as 'individual'; the company figures shown are those listed under the company heading."
     },
     {
+      "ref": "act_electrician_licence_guide",
+      "document": "act_builder_licence_doc1",
+      "section": "Approval guide: ACT_ELECTRICIAN_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an ACT electrician licence (Access Canberra (Construction Occupations (Licensing) Act 2004)).\nElectrical work in the ACT needs a construction occupation licence from Access Canberra. There are six electrician licence classes and two permit classes.\nTimeframe: About 3 weeks for prioritised applications.\nCost: Set by the annual fee determination.\nBefore you start: Have your qualifications and a criminal history check less than 6 months old.\nStep 1: Apply online. Lodge the ACT individual electrician licence application, and the ACT construction company or partnership licence application if you trade through a company or partnership.\nStep 2: Assessment. Access Canberra assesses the application. (time: About 3 weeks)\nStep 3: Pay the term fee. Pay the term fee; the licence goes on the public register within 7 days. (cost: See the construction occupations fee determination)\nFee: Electrician licence: See the construction occupations fee determination\nContact: Access Canberra Construction and Workplace Licensing: 02 6207 8096, cwpl@act.gov.au\nWatch out: Check which of the licence classes covers your work.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Licence fees are set in the annual fee determination, which was not read. The exact online form addresses were given as form codes on forms.act.gov.au; confirm the links open the right form."
+    },
+    {
       "ref": "vic_domestic_building_insurance_guide",
       "document": "vic_domestic_building_insurance_doc1",
       "section": "Approval guide: VIC_DOMESTIC_BUILDING_INSURANCE",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Home Warranty (domestic building insurance) for Victorian builders (Building and Plumbing Commission).\nFrom 1 July 2026 a registered builder must arrange Home Warranty cover through the Building and Plumbing Commission, via an approved distributor, for each eligible domestic building job worth more than A$20,000 on homes and residential buildings up to 3 storeys, unless an exclusion applies. You pay a premium for each job and get a Notice of Cover. Contracts signed before 1 July 2026 use the old domestic building insurance (DBI) transitional arrangements.\nCost: A premium for each eligible job, paid through an approved distributor; rates depend on the job and your approved workload limit.\nBefore you start: You must be a registered domestic builder.\nBefore you start: From 1 July 2026, Minimum Financial Requirements replace the old DBI eligibility assessment and set your workload limit.\nBefore you start: If your broker isn't an approved distributor, you still need to nominate one for the broker to work with.\nStep 1: Meet the Minimum Financial Requirements. Show the BPC you have the financial capacity for your approved workload limit.\nStep 2: Contact an approved distributor. Arrange Home Warranty through an approved distributor, directly or through your broker.\nStep 3: Pay the premium for each job and get a Notice of Cover. Get the Notice of Cover before you start each eligible job over A$20,000.\nContact: Building and Plumbing Commission: 1300 067 088, https://www.bpc.vic.gov.au/builders/builders-insurance\nWatch out: Older BPC pages still say DBI is required over A$16,000; for contracts from 1 July 2026 the Home Warranty threshold is A$20,000.\nWatch out: Contracts signed before 1 July 2026 without DBI need cover under the transitional arrangements.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Premium amounts, what you must give the owner, penalties and the exclusions list weren't read. Whether Home Warranty is now 'first resort' cover (owners claim directly) wasn't stated on the pages read."
+    },
+    {
+      "ref": "act_plumber_drainer_gasfitter_licence_guide",
+      "document": "act_builder_licence_doc1",
+      "section": "Approval guide: ACT_PLUMBER_DRAINER_GASFITTER_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an ACT plumber, drainer or gasfitter licence (Access Canberra (Construction Occupations (Licensing) Act 2004)).\nPlumbing, drainage and gasfitting work in the ACT needs a construction occupation licence from Access Canberra, with several classes in each occupation.\nTimeframe: About 3 weeks for prioritised applications.\nCost: Set by the annual fee determination.\nBefore you start: Have your qualifications and a criminal history check less than 6 months old.\nStep 1: Apply online. Lodge the ACT plumber, drainer and gasfitter licence application, and the ACT construction company or partnership licence application if you trade through a company or partnership.\nStep 2: Assessment. Access Canberra assesses the application. (time: About 3 weeks)\nStep 3: Pay the term fee. Pay the term fee; the licence goes on the public register within 7 days. (cost: See the construction occupations fee determination)\nFee: Plumbing, drainage or gasfitting licence: See the construction occupations fee determination\nContact: Access Canberra Construction and Workplace Licensing: 02 6207 8096, cwpl@act.gov.au\nWatch out: Medical gas work has a separate application by email to cwpl@act.gov.au.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Licence fees are set in the annual fee determination, which was not read. The exact online form addresses were given as form codes on forms.act.gov.au; confirm the links open the right form."
     },
     {
       "ref": "vic_plumbing_registration_guide",
@@ -5146,6 +5482,20 @@
       "section": "Approval guide: VIC_ELECTRICAL_LICENCE",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Electrician's licence and Registered Electrical Contractor (Energy Safe Victoria) (Energy Safe Victoria, under the Electricity Safety Act 1998 (Vic)).\nElectrical installation work in Victoria needs an electrician's licence (A grade) from Energy Safe Victoria. A person or company in the business of electrical contracting, or offering to contract, must also be a Registered Electrical Contractor (REC), with a business supervisor, a licensed electrician as technical supervisor, and at least A$5 million public liability insurance.\nCost: 2026-27 (5 year terms): electrician's licence A$471.50 application, A$235.70 renewal; REC A$734.30 application, A$352.70 renewal.\nBefore you start: Each REC needs a business supervisor (who may need a business supervisor qualification) and a technical supervisor with a current Victorian electrician's licence.\nBefore you start: Have public liability insurance of at least A$5 million.\nBefore you start: Get signed consent forms from your supervisors (on ESV's REC page).\nBefore you start: Application fees include a A$70 non-refundable administration component and are paid by credit card.\nStep 1: Hold an electrician's licence. Apply to Energy Safe Victoria for an A grade electrician's licence if you don't have one. (cost: A$471.50 (2026-27))\nStep 2: Register the business as an REC. Apply to ESV with supervisor consents and insurance details. (cost: A$734.30 (2026-27))\nStep 3: Renew. Licences and REC registration renew for up to 5 years. (time: Up to 5 years)\nFee: Electrician's licence (A grade): application: A$471.50 (2026-27, 5 years)\nFee: Electrician's licence (A grade): renewal: A$235.70 (2026-27, 5 years)\nFee: Registered Electrical Contractor: application: A$734.30 (2026-27, 5 years)\nFee: Registered Electrical Contractor: renewal: A$352.70 (2026-27, 5 years)\nContact: Energy Safe Victoria: https://www.energysafe.vic.gov.au\nWatch out: Some subcontracting arrangements are exempt from REC registration; check with ESV before relying on an exemption.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Processing times and step-by-step application instructions weren't stated. Requirements to get an A grade licence (qualifications, licensed electrician's assessment) weren't read."
+    },
+    {
+      "ref": "act_infection_control_licence_guide",
+      "document": "act_infection_control_licence_doc1",
+      "section": "Approval guide: ACT_INFECTION_CONTROL_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an infection control licence in the ACT (ACT Health Protection Service).\nAny ACT business that performs skin penetration procedures, such as tattooing and piercing, must hold an infection control licence from the Health Protection Service. It costs $230.60 for 12 months.\nTimeframe: Before you start. No processing time is published.\nCost: $230.60 for 12 months.\nBefore you start: Plan your fit-out to meet the Infection Control Code of Practice.\nBefore you start: Have floor plans and photo ID ready.\nBefore you start: Companies: nominate an authorised agent and get an ASIC extract less than 30 days old.\nStep 1: Apply online. Lodge the ACT infection control licence application with floor plans and photo ID. (cost: $230.60)\nStep 2: Temporary events. For markets or festivals, contact a Public Health Officer and apply for each event. (cost: Varies: pro rata by event length)\nFee: Infection control activity licence (12 months): $230.60\nFee: Transfer of ownership: $94.25\nContact: Health Protection Service (ACT Health): 02 5124 9700, hps@act.gov.au\nWatch out: A new owner must transfer the licence.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The page doesn't list which beauty treatments count as skin penetration. The fee year isn't stated."
+    },
+    {
+      "ref": "act_education_care_service_approval_guide",
+      "document": "act_education_care_service_approval_doc1",
+      "section": "Approval guide: ACT_EDUCATION_CARE_SERVICE_APPROVAL",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting provider and service approval for an education and care service in the ACT (Children's Education and Care Assurance (CECA)).\nChildren's Education and Care Assurance (CECA) approves education and care providers and services in the ACT. Become an approved provider first, then apply for each service, through the ACECQA website.\nTimeframe: CECA decides provider applications within 60 days and service applications within 90 days, unless extended.\nCost: Fees were not on the page read.\nBefore you start: You need an ABN and a principal office in the ACT.\nBefore you start: For premises in a multi-storey building, get approval in principle first.\nBefore you start: Check the building meets NCC Class 9b and the ACT education and care services planning guidelines.\nStep 1: Provider approval. Apply through the ACECQA website to become an approved provider. (time: 60 days)\nStep 2: Service approval. Once approved, apply through ACECQA to open each service. (time: 90 days)\nFee: Application fees: See ACECQA\nContact: Children's Education and Care Assurance: 02 6207 1114, CECA@act.gov.au\nWatch out: You can't operate before both approvals are granted.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Application fees were not read."
     },
     {
       "ref": "nsw_tenancy_bond_lodgement_guide",
@@ -5169,6 +5519,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The SA.GOV.AU 'Lodging a bond' page couldn't be read (fetch budget ran out): the lodgement deadline (believed to be 2 weeks), payment methods and penalties are unconfirmed. The RBO portal steps come from page titles and links, not from the portal itself. Whether a bond lodgement fee applies was not confirmed."
     },
     {
+      "ref": "act_bond_lodgement_guide",
+      "document": "act_bond_lodgement_doc1",
+      "section": "Approval guide: ACT_BOND_LODGEMENT",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Lodging a rental bond with the ACT Revenue Office (ACT Revenue Office (Rental Bonds Office)).\nEvery bond for an ACT rental is held by the Rental Bonds Office at the ACT Revenue Office, not by you or your agent. The bond can't be more than 4 weeks' rent. A landlord must lodge it within 2 weeks, and an agency within 4 weeks. Keeping a bond without lodging it is an offence.\nTimeframe: Within 2 weeks of receiving the bond (4 weeks for an agency).\nCost: No lodgement fee was published on the pages read. The bond itself is up to 4 weeks' rent.\nBefore you start: Work out the bond: no more than 4 weeks' rent, and only one bond.\nBefore you start: Have the signed tenancy agreement and each tenant's details.\nBefore you start: Tenants on low incomes may get an interest-free bond loan from the ACT Government.\nStep 1: Log in to the Rental Bonds Portal. Register or log in to the ACT Rental Bonds Portal to lodge the bond online.\nStep 2: Or let the tenant lodge. If you agree, the tenant can lodge the bond using the ACT tenant bond lodgement form.\nStep 3: Lodge within the deadline. Lodge within 2 weeks of receiving the bond (4 weeks if an agency lodges). Give the tenant a receipt. (time: 2 weeks)\nStep 4: Refund at the end. When the tenancy ends, either of you can ask for the refund with the ACT bond refund form. If you claim part of the bond, include a written statement of reasons and a repair estimate. Disputes go to ACAT.\nFee: Maximum bond: Varies: up to 4 weeks' rent\nFee: Lodgement fee: See ACT Revenue Office\nContact: ACT Revenue Office: https://www.revenue.act.gov.au/help-and-resources/contact-us\nWatch out: Keeping the bond instead of lodging it is an offence.\nWatch out: You can't take more than one bond, or extra bond because of a pet.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The Rental Bonds Portal steps, payment methods and any fee were not on the pages read; the portal page redirects to a login screen. The Rental Bonds Office phone number and email were not captured. Penalty amounts for not lodging were not read."
+    },
+    {
       "ref": "vic_rtba_bond_lodgement_guide",
       "document": "vic_rtba_bond_lodgement_doc1",
       "section": "Approval guide: VIC_RTBA_BOND_LODGEMENT",
@@ -5190,6 +5547,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Several industrialchemicals.gov.au pages block automated reading (robots.txt), so some content was read through node-number URLs of the same pages. The 2026-27 Cost Recovery Implementation Statement itself was not read. Penalty amounts for introducing without registration are not stated on the pages read. Payment methods and invoice due dates for registration were not stated on the pages read. AICIS contact page lists no email address or business hours. The new 2026-27 assessment certificate application fee amounts were not confirmed (the consultation page proposed the consolidated fee rising from A$7,235 to A$7,475, but the final amount was not read). The AICIS Business Services enrolment page was found in search results but not opened."
     },
     {
+      "ref": "act_vehicle_registration_guide",
+      "document": "act_vehicle_registration_doc1",
+      "section": "Approval guide: ACT_VEHICLE_REGISTRATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Registering an imported vehicle in the ACT (Access Canberra).\nA vehicle being registered in Australia for the first time is inspected at the Access Canberra Motor Vehicle Inspection Station in Hume, then registered in person at an Access Canberra Service Centre.\nTimeframe: Book the inspection, then register within a month (the inspection certificate is valid for one month).\nCost: Light vehicle inspection $89.20 (2026-27), plus registration, MAI insurance and stamp duty of 1.5% of the value.\nBefore you start: Have your import approval and compliance documents ready.\nBefore you start: Get an unregistered vehicle permit to drive to the inspection.\nStep 1: Book the inspection. Call 13 22 81 to book at Hume. Personal imports and vehicles over 25 years old can use any authorised inspection station. (cost: $89.20)\nStep 2: Register. Take the inspection report (with the registration application on the back) and your ID to an Access Canberra Service Centre. (time: Within one month)\nStep 3: Choose MAI insurance and pay. Choose an MAI insurer (AAMI, APIA, GIO or NRMA) and pay registration, MAI and stamp duty by card. (cost: Varies: depends on the vehicle)\nFee: Light vehicle inspection: $89.20\nFee: Basic identity inspection: $68.40\nFee: Stamp duty: Varies: 1.5% of the price or market value, whichever is higher\nFee: Registration and MAI: See Access Canberra vehicle registration fees\nContact: Access Canberra: 13 22 81, https://www.accesscanberra.act.gov.au\nWatch out: An unregistered vehicle is uninsured: don't drive it without a permit.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Whether an identity inspection is needed for imports, and the unregistered vehicle permit fee, were not confirmed. Registration and MAI amounts were not read."
+    },
+    {
       "ref": "artg_inclusion_guide",
       "document": "artg_inclusion_doc1",
       "section": "Approval guide: ARTG_INCLUSION",
@@ -5202,6 +5566,13 @@
       "section": "Approval guide: PRE_CHARGED_EQUIPMENT_LICENCE",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-11; a summary, not the source's wording] How to get: Equipment licence to import pre-charged refrigeration and air conditioning equipment (National Environmental Protection Agency (National EPA). The licence pages now sit on nationalepa.gov.au; some related pages are still on the Department of Climate Change, Energy, the Environment and Water (DCCEEW) site.).\nIf you import refrigeration or air conditioning equipment (including vehicles, boats and other goods with air conditioners) that contains or is designed to use a synthetic greenhouse gas or HCFC refrigerant, you generally need an equipment licence (EQPL) under the Ozone Protection and Synthetic Greenhouse Gas Management Act 1989 before you import. The licence costs A$3,000, lasts 2 years, and comes with 6-monthly reporting and a levy on the gas you import.\nTimeframe: The National EPA aims to assess a complete application within 2 weeks; the legal maximum is 60 days. Apply before you import.\nCost: A$3,000 non-refundable licence application fee (every 2 years), plus an import levy of A$165 per metric tonne of synthetic greenhouse gas (HCFCs A$3,000 per ozone depleting potential tonne), waived if the total for a reporting period is A$330 or less. You also need membership of an approved product stewardship scheme. No GST.\nBefore you start: Check if you need a licence at all. Equipment using carbon dioxide (R744), hydrocarbons or ammonia (R717) does not need an EQPL.\nBefore you start: Small-quantity exemption: you do not need a licence if you import up to 25 kilograms of HFC, PFC, SF6 or NF3 equipment in a calendar year (measured by the gas in the equipment).\nBefore you start: Personal-use exemption: vehicles or other equipment you have owned for more than 12 months and are importing for your own use may qualify. Email ozone@dcceew.gov.au before you import or pay the fee to check.\nBefore you start: Check the equipment is not banned. Importing and manufacturing HCFC and CFC refrigeration and air conditioning equipment is banned, with limited exceptions. Air conditioning equipment with a refrigerant charge of 2.6 kg or less is also subject to restrictions under the Ozone Protection and Synthetic Greenhouse Gas Management Regulations 1995.\nBefore you start: The applicant's legal name must match the Australian Business Register and you need an ABN. A trust cannot hold a licence, so apply in the trustee's name.\nBefore you start: Join an approved product stewardship scheme before applying. The licence page names Refrigerant Reclaim Australia as the currently approved scheme, and you must attach evidence of membership.\nBefore you start: Have certified identification for the person signing the application, and a trust deed or partnership authority document if relevant.\nStep 1: Confirm whether your goods need an EQPL. Work out what gas the equipment contains or is designed to use and how many kilograms you will import in the calendar year. If it is a natural refrigerant (CO2, hydrocarbon, ammonia) or you stay at 25 kg or less of HFC/PFC/SF6/NF3 equipment, you do not need a licence. If unsure whether your import is equipment or bulk gas, contact the regulator.\nStep 2: Join a product stewardship scheme. Get evidence that you are a member of an approved product stewardship scheme (currently Refrigerant Reclaim Australia). You attach it to your application. (time: Before applying; cost: Scheme membership costs not published on the regulator page)\nStep 3: Lodge the online EQPL application and pay. Complete the online EQPL application form with your legal name, ABN, addresses, contact people and details of the goods. Attach certified ID of the signatory, stewardship scheme evidence and any trust or partnership documents. Pay the A$3,000 fee with the application unless you have a fee waiver (available for HCFC equipment of 25 kg or less used for certain testing, medical, veterinary, defence, industrial safety or public safety purposes). (time: Aim: 2 weeks from a complete application; maximum 60 days; cost: A$3,000 (non-refundable))\nStep 4: Import under the licence. Import only once the licence is in force. The licence lasts 2 years from when it comes into force unless a shorter period is set. (time: Licence valid 2 years)\nStep 5: Report every 6 months. Report the equipment and gas you imported. For 1 January to 30 June, reports are due 14 July. For 1 July to 31 December, reports are due 14 January. You do not need to report for a period with no imports or exports. Note: the official page says reporting is 6-monthly, not quarterly. (time: Due 14 July and 14 January)\nStep 6: Pay the import levy. You are invoiced the Import/Manufacture Levy based on your report. Levy payments are due 29 August (for January to June) and 1 March (for July to December). The levy is waived if the total for a period is A$330 or less. (time: Due 29 August and 1 March; cost: A$165 per metric tonne of synthetic greenhouse gas)\nStep 7: Renew before expiry. Apply to renew at least 14 days before your licence expires. (time: At least 14 days before expiry; cost: A$3,000)\nFee: Equipment licence (EQPL) application: A$3,000.00 (Non-refundable, even if you no longer need the licence. Licence lasts 2 years. No GST.)\nFee: Import levy, synthetic greenhouse gases: A$165.00 (Per metric tonne of gas imported)\nFee: Import levy, HCFCs: A$3,000.00 (Per ozone depleting potential tonne (equivalent to A$165 per metric tonne of HCFC-22))\nFee: Levy waiver threshold: A$330.00 (Levy is waived if your total for a reporting period is A$330 or less)\nContact: National EPA ozone and synthetic greenhouse gas team (general enquiries): ozone@nationalepa.gov.au, https://www.nationalepa.gov.au/node/264\nContact: Licence and reporting enquiries: ozonereporting@nationalepa.gov.au, https://www.nationalepa.gov.au/node/264\nContact: Import Operations Team (exemptions and eligibility): ozone@dcceew.gov.au, https://www.nationalepa.gov.au/node/264\nWatch out: Apply early and before importing: the regulator tells importers to lodge before they import, and assessment can take up to the 60-day legal maximum.\nWatch out: Cars, boats, caravans and other goods with air conditioning can need a licence too, because equipment contained in other equipment is covered.\nWatch out: The 25 kg exemption is per calendar year and counts all your HFC, PFC, SF6 and NF3 equipment imports together.\nWatch out: The A$3,000 fee is not refunded if your application is refused or you change your mind.\nWatch out: Approval is not guaranteed, and HCFC and CFC equipment is banned except in limited circumstances.\nWatch out: Reporting is every 6 months (14 July and 14 January). Missing reports or levy payments is a separate compliance failure.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The task mentioned quarterly reporting; the official page says reporting is 6-monthly. Quarterly reporting applies to some bulk gas licences, which were not researched here. The pages read do not state, in words, which agency issues the licence or from what date. Contact emails are at nationalepa.gov.au and the site is titled National Environmental Protection Agency, while the exemptions contact remains ozone@dcceew.gov.au. Industry news (not official) says the scheme moved to the new National EPA in mid-2026. Some nationalepa.gov.au pages (the EQPL FAQ and vehicles/boats pages) block automated reading; content was read through the node URL of the equipment licence page. No phone number for the ozone team was found on the pages read. The detailed small air conditioner restriction (refrigerant charge 2.6 kg or less) was not fully described on the page read; check the Regulations for which gases are restricted. Product stewardship scheme membership costs are not published on the regulator page."
+    },
+    {
+      "ref": "act_motor_vehicle_dealer_licence_guide",
+      "document": "act_motor_vehicle_dealer_licence_doc1",
+      "section": "Approval guide: ACT_MOTOR_VEHICLE_DEALER_LICENCE",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Getting an ACT motor vehicle dealer licence (Access Canberra (Commissioner for Fair Trading)).\nAnyone who buys, sells or exchanges motor vehicles as a business in the ACT needs a motor vehicle dealer licence from Access Canberra.\nTimeframe: No processing time is published.\nCost: $891.00 for 1 year or $4,037.00 for 5 years (2026-27).\nBefore you start: Get a name-only police check for each individual, partner or director.\nBefore you start: Have two proof of identity documents each, one with a photo.\nBefore you start: Companies: get an ASIC extract issued within 30 days.\nStep 1: Apply online. Lodge the ACT motor vehicle dealer licence application and complete the declaration.\nStep 2: Pay the fee. Pay for a 1-year or 5-year licence. (cost: $891.00 or $4,037.00)\nFee: Dealer, wholesaler or car market operator (1 year): $891.00\nFee: Dealer, wholesaler or car market operator (5 years): $4,037.00\nFee: Event licence (10 days): $93.00\nContact: Access Canberra: 13 22 81, https://www.accesscanberra.act.gov.au\nWatch out: The ACT page sets no minimum number of vehicles: any dealing as a business needs a licence.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Processing time was not on the page."
     },
     {
       "ref": "eess_responsible_supplier_guide",
@@ -5477,6 +5848,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The building regulation setting the minimum BAL in Bushfire Prone Areas wasn't read this session. BMO clause 44.06 and clause 53.02 weren't read directly; the summary comes from DTP's technical guide listing. The CFA planning contact page wasn't opened."
     },
     {
+      "ref": "act_exemption_declaration_guide",
+      "document": "act_exemption_declaration_doc1",
+      "section": "Approval guide: ACT_EXEMPTION_DECLARATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get an exemption declaration (ACT) (Territory Planning Authority (ACT Planning)).\nIf your house or extension is almost exempt from a DA but has a minor non-compliance, like a small encroachment into a setback or building envelope, you may be able to get an exemption declaration instead of a full DA.\nTimeframe: Not confirmed; ask the DA Gateway Team.\nCost: $728.96 for a non-compliant single dwelling (2026-27).\nBefore you start: Have your certifier check the design against the ACT Planning (Exempt Development) Regulation 2023 and identify exactly what doesn't comply.\nBefore you start: Get plans showing the non-compliance.\nStep 1: Confirm it is minor. Ask your certifier or the DA Gateway Team whether the non-compliance is minor enough for a declaration.\nStep 2: Apply. Lodge the application with plans on the ACT eDevelopment portal and pay the fee. (cost: $728.96)\nStep 3: Decision. If granted, the work is treated as exempt. Then get building approval from your certifier.\nFee: Exemption declaration, non-compliant single dwelling: $728.96 (2026-27)\nContact: ACT Planning DA Gateway Team: 02 6205 2888, planningenquiries@act.gov.au, https://www.planning.act.gov.au/contact\nWatch out: The DA Gateway Team gives advice but doesn't issue exemption approvals. Only a certifier can give a formal exemption notice.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The exemption declaration page wasn't opened; whether it is lodged on eDevelopment and its timeframe weren't confirmed."
+    },
+    {
       "ref": "sa_boat_operator_licence_guide",
       "document": "sa_boat_operator_licence_doc1",
       "section": "Approval guide: SA_BOAT_OPERATOR_LICENCE",
@@ -5533,6 +5911,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The 2026-27 fees come from a council's published schedule of the Planning and Environment (Fees) Regulations 2016, not DTP's own fee page, which couldn't be read. The decision timeframe is described as 60 days in DTP's guide; whether reforms now count business days wasn't confirmed. Objector review periods and VCAT filing fees weren't confirmed. No statewide planning permit application form exists; each council publishes its own. The council finder link (vic.gov.au Know Your Council) was not opened this session."
     },
     {
+      "ref": "act_development_application_guide",
+      "document": "act_development_application_doc1",
+      "section": "Approval guide: ACT_DEVELOPMENT_APPLICATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get development approval (ACT) (Territory Planning Authority (ACT Planning)).\nIn the ACT the Territory Planning Authority decides development applications (DAs) under the Planning Act 2023 and the Territory Plan. Many single houses and minor works are exempt. If yours isn't, you lodge a DA on eDevelopment. A standard DA is decided in 30 working days, or 45 if people comment. The fee depends on the cost of works.\nTimeframe: 30 working days (standard, no representations), 45 (with representations), 60 (significant development), after formal lodgement.\nCost: 2026-27: $147.02 minimum, then a base fee plus 0.585% or 0.438% of the cost of works, for example about $1,700 for a $250,000 project.\nBefore you start: Check whether your work is exempt using the ACT Planning (Exempt Development) Regulation 2023, or ask a building certifier for a formal exemption notice.\nBefore you start: Look up your zone and overlays on ACT ACTmapi and read the zone policy in the Territory Plan.\nBefore you start: Get a copy of your crown lease and check its purpose clause and the number of dwellings it allows.\nBefore you start: Book a free pre-lodgement meeting with ACT Planning and talk to your neighbours early.\nBefore you start: Register for the ACT eDevelopment portal with the ACT Application for Access to Electronic Services.\nStep 1: Check if you need a DA. Read the general and Schedule 1 criteria in the ACT Planning (Exempt Development) Regulation 2023. If you only slightly miss a criterion, an exemption declaration may be an option instead. (cost: Free)\nStep 2: Get pre-lodgement advice. Ask the DA Gateway Team for a pre-lodgement meeting. Written pre-application advice costs extra. (cost: Free meeting; $413.08 or $1,562.36 for written advice)\nStep 3: Prepare your documents. Plans in landscape format, a Development Outcomes Report (required for every DA), a design response where needed, an ACT DA letter of authorisation if someone lodges for you, and redacted floor plans for the public register. Name each PDF using ACT Planning's naming conventions.\nStep 4: Lodge on eDevelopment. Submit the DA on the ACT eDevelopment portal and answer every question. ACT Planning checks it is complete, then asks you to pay. It is formally lodged once you pay. (cost: See the DA fees below)\nStep 5: Public notification and referrals. Most DAs are publicly notified for 15 working days. Entities like the ACT Heritage Council or the Emergency Services Agency may be asked for advice. (time: 15 working days notification)\nStep 6: Decision. You get a notice of decision: approval with conditions, or refusal. (time: 30, 45 or 60 working days)\nStep 7: Reconsideration or review. Within 20 working days you can ask for reconsideration ($413.08) or apply to the ACT Civil and Administrative Tribunal (ACAT) for review.\nStep 8: Then get building approval. Development approval alone doesn't let you build. You also need building approval from a private certifier. Approval generally lasts five years.\nFee: DA, cost of works up to $1,500: $147.02 (2026-27, minimum fee)\nFee: DA, $20,001 to $100,000: $307.36 plus 0.585% of cost over $20,000 (2026-27)\nFee: DA, $100,001 to $150,000: $806.70 plus 0.585% of cost over $100,000 (2026-27)\nFee: DA, $150,001 to $250,000: $1,121.36 plus 0.585% of cost over $150,000 (2026-27)\nFee: DA, $250,001 to $500,000: $1,747.00 plus 0.438% of cost over $250,000 (2026-27)\nFee: DA, $500,001 to $1,000,000: $2,921.80 plus 0.438% of cost over $500,000 (2026-27)\nFee: DA, $1,000,001 to $10 million: $6,166.79 plus 0.290% of cost over $1 million (2026-27)\nFee: Amendment of a single residential DA (first): $382.71 (2026-27, plus notification fee)\nFee: Reconsideration: $413.08 (2026-27)\nFee: Pre-lodgement meeting: Free\nFee: Written pre-application advice: $1,562.36 (2026-27)\nContact: ACT Planning DA Gateway Team: 02 6205 2888, planningenquiries@act.gov.au, https://www.planning.act.gov.au/contact\nContact: Access Canberra: 13 22 81, https://services.accesscanberra.act.gov.au/s/forms/land-planning-and-building-enquiry\nWatch out: A secondary residence (granny flat) always needs a DA: a house is only exempt when it is the only dwelling on the block.\nWatch out: Your crown lease may limit the number of dwellings or the use. Varying it is a separate approval with its own fee and possibly a Lease Variation Charge.\nWatch out: Exempt work still needs to meet the Building Act 2004 and usually needs building approval.\nWatch out: Approval generally lapses five years after it takes effect.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The minimum documentation requirements instrument (NI2026-13) wasn't read. Notification fee amounts weren't read. ACAT review fees and third-party review limits weren't read."
+    },
+    {
       "ref": "wa_development_approval_guide",
       "document": "wa_development_approval_doc1",
       "section": "Approval guide: WA_DEVELOPMENT_APPROVAL",
@@ -5582,6 +5967,13 @@
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: No statewide report and consent form or fee page was read; fees are a council example. Decision timeframes and Building Appeals Board details weren't confirmed this session."
     },
     {
+      "ref": "act_lease_variation_guide",
+      "document": "act_lease_variation_doc3",
+      "section": "Approval guide: ACT_LEASE_VARIATION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Vary your crown lease (ACT) (Territory Planning Authority (ACT Planning)).\nEvery ACT block is held on a crown lease that sets its purpose and often the number of dwellings. To use the land differently, add a dwelling, or subdivide, you may need to vary the lease. A lease variation is a development application and may attract a Lease Variation Charge.\nTimeframe: DA timeframes apply: 30 to 60 working days.\nCost: $2,732.33 plus $362.02 per extra component (2026-27), plus any Lease Variation Charge.\nBefore you start: Get a copy of your crown lease and read the purpose clause.\nBefore you start: Ask ACT Planning's Leasing Team whether a variation and a Lease Variation Charge apply.\nStep 1: Check your lease. See whether your plan is allowed by the lease purpose and dwelling limit.\nStep 2: Lodge the variation. Lodge it as a DA on the ACT eDevelopment portal, often together with the DA for the building work. (cost: $2,732.33)\nStep 3: Decision. The variation is assessed like other DAs. (time: 30 to 60 working days)\nStep 4: Pay any charge and vary the lease. Pay any Lease Variation Charge and have the lease varied within 2 years, or the approval ends.\nFee: Lease variation application: $2,732.33 (2026-27)\nFee: Each additional component: $362.02 (2026-27)\nFee: Reconsideration of a Lease Variation Charge determination: $4,394.27 (2026-27)\nFee: Lease Variation Charge: Varies: fixed amounts by variation and suburb in the Planning (Lease Variation Charges) Determination 2026 (For example $180,750 in Ainslie for a second dwelling)\nContact: ACT Planning Leasing Team: 02 6205 2888, https://www.planning.act.gov.au/contact\nContact: Access Canberra: 13 22 81, https://services.accesscanberra.act.gov.au/s/forms/land-planning-and-building-enquiry\nWatch out: Lease variation approval ends if the lease isn't varied within 2 years.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Lease Variation Charge remissions (for example for secondary residences) weren't checked; the ACT Revenue Office page couldn't be fetched."
+    },
+    {
       "ref": "wa_demolition_permit_guide",
       "document": "wa_demolition_permit_doc1",
       "section": "Approval guide: WA_DEMOLITION_PERMIT",
@@ -5608,6 +6000,13 @@
       "section": "Approval guide: VIC_BUILDING_PERMIT",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a building permit from a registered building surveyor (Victoria) (A registered building surveyor (council or private)).\nAlmost all building work in Victoria needs a building permit under the Building Act 1993, including every new house, extension and small second dwelling. You choose and appoint a registered building surveyor, either council's municipal building surveyor or a private one. The surveyor checks your plans, issues the permit, inspects the work at key stages and signs it off at the end.\nTimeframe: Usually a few weeks, depending on the surveyor and whether report and consent is needed.\nCost: The surveyor's fee, plus the state building permit levy of 0.128% of the cost of work over $10,000.\nBefore you start: Get any planning permit first. The building permit must be consistent with it.\nBefore you start: Have construction drawings, specifications, a structural engineer's design, a soil report and an energy rating.\nBefore you start: If using a builder for work over $10,000, have a major domestic building contract. Over $16,000 the builder needs domestic building insurance.\nBefore you start: In a Bushfire Prone Area, get the BAL assessed so the design can meet it.\nStep 1: Appoint a building surveyor. You, not your builder, appoint the surveyor. Check they are registered on the BPC's Find a Practitioner search.\nStep 2: Apply with the Victorian building permit application form. Your surveyor will usually help fill it in. It names the owner, the builder (or owner-builder), the cost of work and the documents provided. (form: Victorian building permit application form)\nStep 3: Report and consent if siting rules aren't met. If the design varies from the siting rules in Part 5 of the Building Regulations 2018, or is over an easement or on flood-prone land, the surveyor needs council's report and consent before issuing the permit.\nStep 4: Pay the building permit levy. If the work costs more than $10,000, the levy is paid to the BPC through its Building Activity Management System (BAMS) by BPAY or card before the permit is issued. A building permit number is issued once it clears, usually in 1 to 2 business days for BPAY. (cost: 0.128% of the cost of work)\nStep 5: Permit issued and work starts. The permit lists the mandatory inspections, like footings, frame and final. Your builder must build to the approved plans.\nStep 6: Inspections and completion. The surveyor inspects at each mandatory stage. At the end you get an occupancy permit or a certificate of final inspection.\nFee: State building permit levy: 0.128% of the cost of work (Only if the cost of work is over $10,000. Knox example: cost of works x 0.00128.)\nFee: Building Reform Levy: $3.70 per $1,000 (From 1 July 2026, only for Class 2 to 8 buildings in metropolitan Melbourne costing $1.5 million or more)\nFee: Council lodgement fee (permit by a private surveyor): $142.10 (Knox 2026-27 example)\nFee: Building surveyor's fee: Varies: set by the surveyor\nContact: Building and Plumbing Commission (BPC) Consumer and Practitioner Service Centre: 1300 067 088, https://www.bpc.vic.gov.au\nContact: BPC building permit levy (BAMS) enquiries: BAMS@bpc.vic.gov.au, https://www.bpc.vic.gov.au/building-surveyors/building-activity-management-system-bams/bams-faqs\nWatch out: It's an offence to start work without a building permit.\nWatch out: If the cost of work changes after the permit, tell the BPC within 28 days; the levy can be reassessed.\nWatch out: Owner-builders need a certificate of consent from the BPC for larger jobs.\nWatch out: Choose your surveyor yourself, so they work for you, not the builder.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: The 0.128% levy rate comes from a council fee page (Knox); the BPC page read didn't state it. The owner-builder certificate of consent threshold wasn't confirmed this session. Typical building permit processing times aren't published statewide."
+    },
+    {
+      "ref": "act_building_approval_guide",
+      "document": "act_building_approval_doc1",
+      "section": "Approval guide: ACT_BUILDING_APPROVAL",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get building approval (ACT) (A private licensed building surveyor (building certifier) you appoint).\nMost building work in the ACT needs building approval under the Building Act 2004, even when it doesn't need a DA. Building approval is given by a private licensed building surveyor (a certifier) that you appoint. The certifier then issues a commencement notice so your builder can start, and inspects the work.\nTimeframe: Set by your certifier; no statutory timeframe was found.\nCost: Building levy 1.40% of the cost of a house (1.28% for other work) plus 0.2% training levy for work of $10,000 or more, plus the certifier's fee.\nBefore you start: Have development approval, or confirm the work is exempt from a DA.\nBefore you start: Find a licensed building certifier on the Access Canberra public register.\nBefore you start: Get construction drawings, engineering and an energy efficiency assessment.\nBefore you start: Get a cost of building work estimate under the Building (General) (Cost of Building Work) Determination.\nStep 1: Appoint a certifier. Choose a licensed building surveyor and sign the ACT Appointment of a Certifier and Application for Building Approval. On it you nominate the kind of certificate of occupancy you will apply for.\nStep 2: Certifier assesses the plans. The certifier checks your plans against the Building Code and any DA conditions, and lodges the approval with Access Canberra.\nStep 3: Pay the levies. Pay the building levy and the training levy based on the cost of the work. (cost: 1.40% plus 0.2% of the cost of a house)\nStep 4: Appoint your builder. Your licensed builder (or you, if a licensed owner-builder) completes the ACT Appointment of Builder and Application for Commencement Notice.\nStep 5: Commencement notice. The certifier issues the commencement notice. Only then can work start.\nStep 6: Inspections. The certifier inspects at set stages and does the final inspection.\nFee: Building levy, class 1 and 2 work: Varies: 1.40% of the total cost of work (2026-27)\nFee: Building levy, other work: Varies: 1.28% of the total cost of work (2026-27)\nFee: Training levy: Varies: 0.2% of the total cost of work (Work of $10,000 or more)\nFee: Late lodgement of building approval documents: $78.61 (2026-27)\nFee: Certifier's fee: Varies: set by the certifier\nContact: Environment, Planning and Land Services Customer Service Centre: 02 6207 1923, acepdcustomerservices@act.gov.au, https://www.planning.act.gov.au/contact\nContact: Access Canberra: 13 22 81, https://services.accesscanberra.act.gov.au/s/forms/land-planning-and-building-enquiry\nWatch out: Exempt from a DA doesn't mean exempt from building approval.\nWatch out: Don't start work until the commencement notice is issued.\nWatch out: On bushfire prone blocks, build to the BAL in AS 3959-2018. Your certifier checks this.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Mandatory inspection stages weren't read. The 'Check if you need a BA' page wasn't opened. The training levy is listed in the ACT Planning fee booklet; who collects it wasn't confirmed."
     },
     {
       "ref": "sa_building_consent_guide",
@@ -5650,6 +6049,13 @@
       "section": "Approval guide: SA_CERTIFICATE_OF_OCCUPANCY",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a certificate of occupancy (South Australia) (Your council or the accredited professional who granted building consent).\nA certificate of occupancy says a new building is fit to use. In South Australia it is required for all new habitable buildings except Class 1a buildings such as houses and granny flats. It mostly matters for shops, offices, units and changes of use.\nTimeframe: Apply once building work is finished; no statutory timeframe was found.\nCost: $59.50 (2026-27).\nBefore you start: Check whether your building is Class 1a. If it is, you don't need one.\nBefore you start: Collect the builder's statement and certificates for essential safety provisions, like fire systems.\nStep 1: Finish the work. Complete the building in line with the development approval and get final inspections done.\nStep 2: Apply for the certificate. Apply through the PlanSA development application portal to the council or certifier who granted building consent. (cost: $59.50)\nStep 3: Certificate issued. Once satisfied, the authority issues the certificate. You can then occupy or open the building.\nFee: Certificate of occupancy: $59.50 (2026-27)\nFee: Essential safety provisions (Classes 2 to 9): $287 (2026-27)\nContact: PlanSA service desk: 1800 752 664, https://plan.sa.gov.au/\nContact: Your local council's planning and building team: https://www.lga.sa.gov.au/sa-councils/councils-listing\nWatch out: Don't occupy or open a non-house building before the certificate is issued.\nWatch out: A change of use that changes the building's classification may need a certificate of occupancy even without new building work.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: PlanSA's certificate of occupancy page wasn't read; the Class 1a exception comes from the assessment stages page. Documents needed (builder's statement of compliance) weren't confirmed."
+    },
+    {
+      "ref": "act_certificate_of_occupancy_guide",
+      "document": "act_building_approval_doc3",
+      "section": "Approval guide: ACT_CERTIFICATE_OF_OCCUPANCY",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Get a certificate of occupancy and use (ACT) (Construction Occupations Registrar (Access Canberra), after your certifier's final inspection).\nWhen building work is finished and your certifier has done the final inspection, a certificate of occupancy and use is issued. You nominate which kind of certificate you will apply for when you apply for building approval. Don't move in or use the building until you have it.\nTimeframe: After completion; no statutory timeframe was found.\nCost: $361.53 (2026-27).\nBefore you start: Make sure you nominated the certificate type on the ACT Appointment of a Certifier and Application for Building Approval.\nBefore you start: Keep the certificates from your builder, plumber and electrician.\nStep 1: Finish the work. Complete the building in line with the building approval and any DA conditions.\nStep 2: Final inspection. Your certifier does the final inspection and prepares the documents for the certificate.\nStep 3: Certificate issued. The certificate of occupancy and use is issued and the fee paid. (cost: $361.53)\nFee: Certificate of occupancy and use: $361.53 (2026-27)\nContact: Environment, Planning and Land Services Customer Service Centre: 02 6207 1923, acepdcustomerservices@act.gov.au, https://www.planning.act.gov.au/contact\nContact: Access Canberra: 13 22 81, https://services.accesscanberra.act.gov.au/s/forms/land-planning-and-building-enquiry\nWatch out: Using a building before the certificate is issued can be an offence and affect insurance.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: Access Canberra's certificate of occupancy page wasn't read; who issues it (the Construction Occupations Registrar) is from general knowledge. The documents the certifier must give weren't confirmed."
     },
     {
       "ref": "wa_occupancy_permit_guide",
@@ -5713,6 +6119,13 @@
       "section": "Approval guide: WA_SUBDIVISION_APPROVAL",
       "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Subdivide land through the WA Planning Commission (Western Australian Planning Commission, then Landgate for titles).\nIn WA, subdivision is approved by the Western Australian Planning Commission (WAPC), not your council. A licensed surveyor or town planner usually lodges the application online. After approval you clear the conditions, and Landgate issues a new certificate of title for each lot.\nTimeframe: WAPC decision usually within 90 days; clearing conditions and new titles often take 6 to 18 months more.\nCost: WAPC application and endorsement fees by number of lots, plus surveyor, service connection and Landgate fees.\nBefore you start: Check your R-Code on PlanWA. It sets the minimum and average lot sizes for your land.\nBefore you start: Get a certificate of title from Landgate and check for easements and covenants.\nBefore you start: Ask Water Corporation and Western Power what connections will cost.\nBefore you start: If the land is bushfire prone, get a BAL contour map and bushfire management plan.\nStep 1: Check what lot sizes are allowed. Your R-Code and local planning scheme set minimum and average lot sizes. A surveyor can tell you how many lots fit.\nStep 2: Prepare the plan and application. Your surveyor prepares the plan of subdivision. Complete WAPC Form 1A subdivision application, signed by all owners. (form: WAPC Form 1A subdivision application)\nStep 3: Lodge online and pay. Lodge through the WAPC's eLodgement system with the plan, title, owner signatures and fee.\nStep 4: Referral and decision. The WAPC sends the application to your council and service agencies for comment, then approves it with conditions or refuses it. You can ask the State Administrative Tribunal for a review. (time: Usually 90 days)\nStep 5: Clear the conditions. Meet each condition: service connections, crossovers, demolition, fill or easements. Each agency gives a clearance. Approval lapses if conditions aren't cleared in time, usually 3 years for up to 4 lots.\nStep 6: Lodge the deposited plan and get new titles. Your surveyor lodges the deposited plan with Landgate. The WAPC endorses it once all clearances are in, and Landgate issues the new certificates of title.\nFee: WAPC subdivision application and endorsement fees: Varies: set by number of lots under the Planning and Development Regulations 2009 (See the WAPC guide to subdivision applications and fees)\nContact: Western Australian Planning Commission (DPLH): https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage\nContact: Landgate: https://www.landgate.wa.gov.au/\nContact: Your local council's planning or building team: https://mycouncil.wa.gov.au/\nWatch out: Service connection costs (Water Corporation, Western Power) are often the biggest cost of a small subdivision.\nWatch out: Built strata can be an alternative for lots with two existing homes; it uses a different WAPC form.\nWatch out: Restrictive covenants on your title can stop a subdivision even if the R-Code allows it.",
       "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: WAPC subdivision fees by number of lots couldn't be read (the web fetch budget ran out); see the WAPC guide. The 90 day decision period and the 3 or 4 year validity periods are from prior knowledge of the Planning and Development Act 2005 and weren't confirmed. Typical clearance times are estimates, not official figures. No WAPC phone number or email was confirmed."
+    },
+    {
+      "ref": "act_subdivision_guide",
+      "document": "act_subdivision_doc4",
+      "section": "Approval guide: ACT_SUBDIVISION",
+      "extracted_text": "[Gathered by ApprovalReady from official websites on 2026-10-12; a summary, not the source's wording] How to get: Subdivide or unit title (ACT) (Territory Planning Authority (ACT Planning)).\nIn the ACT land is leased, not freehold. Creating new blocks needs a subdivision design application, a significant DA decided in 60 working days. Splitting a block with two homes is usually done by unit titling. Both usually involve varying the crown lease and may attract a Lease Variation Charge.\nTimeframe: 60 working days for a subdivision design application; unit titling timeframe not confirmed.\nCost: 2026-27: unit titling $2,851.52 for two units; lease variation $2,732.33; DA fee by cost of works; plus surveyor and any Lease Variation Charge.\nBefore you start: Check your zone on ACT ACTmapi and the subdivision and dual occupancy rules in the Territory Plan.\nBefore you start: Get a copy of your crown lease.\nBefore you start: Engage a registered surveyor and, if needed, a town planner and a lawyer.\nBefore you start: Ask ACT Planning for a pre-lodgement meeting.\nStep 1: Get advice. Ask the DA Gateway Team or Leasing Team which applications you need: subdivision design, lease variation, unit titling or a mix. (cost: Free)\nStep 2: Prepare the plans. Your surveyor prepares the subdivision or units plan.\nStep 3: Lodge. Lodge on the ACT eDevelopment portal and pay the fees.\nStep 4: Assessment and notification. Subdivision design applications are significant development: two notification stages of 20 and 10 working days. (time: 60 working days)\nStep 5: Lease variation and charge. If the lease is varied, pay any Lease Variation Charge. The approval ends if the lease isn't varied within 2 years.\nStep 6: New leases or unit titles. Once approved and conditions are met, the new leases or units plan are registered.\nFee: Unit titling, two-unit residential: $2,851.52 (2026-27)\nFee: Unit titling, three or four units (un-staged): $4,259.68 (2026-27)\nFee: Lease variation, consolidation or subdivision: $2,732.33 (Plus $362.02 per extra component, 2026-27)\nFee: Lease Variation Charge: Varies: fixed amounts by variation and suburb in the Planning (Lease Variation Charges) Determination 2026 (For example $180,750 in Ainslie for a second dwelling)\nFee: Surveyor and lawyer fees: Varies: quoted by each provider\nContact: ACT Planning DA Gateway Team: 02 6205 2888, planningenquiries@act.gov.au, https://www.planning.act.gov.au/contact\nContact: Access Canberra: 13 22 81, https://services.accesscanberra.act.gov.au/s/forms/land-planning-and-building-enquiry\nWatch out: A secondary residence (granny flat) can't be unit titled or sold separately.\nWatch out: Since 27 November 2023, a dual occupancy on an RZ1 block over 800 m2 can be unit titled if the second dwelling is 120 m2 or less.\nWatch out: The Lease Variation Charge can be large. Ask early.",
+      "interpretation": "Check each line against the source pages (this guide's documents) and correct approval_guides.json if anything is wrong before verifying. Gaps found: ACT Revenue Office Lease Variation Charge page couldn't be read; amounts are from the 2026 determination via a summary. Unit titling application steps and timeframe weren't read. Dual occupancy unit titling rule is from a summary of an Assembly answer, not the Territory Plan."
     },
     {
       "ref": "tas_vehicle_registration_guide",
