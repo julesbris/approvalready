@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { FinanceCallout } from "@/components/finance/FinanceCallout";
 import { FormLinks, FormList, FormText } from "@/components/guidance/FormText";
 import { phoneHref } from "@/lib/approvalGuides";
 import {
@@ -280,6 +281,8 @@ export function PublicGuideArticle({ guide }: { guide: PublicGuide }) {
           </Link>
         </p>
       </section>
+
+      <FinanceCallout vertical={vertical} />
 
       <section aria-labelledby="sources">
         <h2 id="sources">Sources and how we checked</h2>

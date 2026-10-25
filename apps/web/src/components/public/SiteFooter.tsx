@@ -33,6 +33,9 @@ export function SiteFooter() {
                 <Link href="/guides">Guides</Link>
               </li>
               <li>
+                <Link href="/finance">Mortgages and finance</Link>
+              </li>
+              <li>
                 <Link href="/newsletter">Guides by email</Link>
               </li>
               <li>

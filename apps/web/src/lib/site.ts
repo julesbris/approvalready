@@ -51,6 +51,7 @@ export function sitemapEntries(): SitemapEntry[] {
           ...PUBLIC_GUIDES.map((g) => ({ path: g.path, lastModified: g.checked_on })),
         ]
       : []),
+    { path: "/finance" },
     { path: "/membership" },
     { path: "/newsletter" },
     { path: "/contact" },

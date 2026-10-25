@@ -3347,3 +3347,66 @@ a.card-title:hover {
     gap: 2px;
   }
 }
+
+/* Mortgages and finance call to action. */
+.finance-callout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  margin: 24px 0;
+  padding: 24px;
+  border: 1px solid var(--ar-border);
+  border-left: 4px solid var(--ar-brand-teal);
+  border-radius: var(--ar-radius-lg);
+  background: var(--ar-brand-mist);
+  color: var(--ar-brand-navy);
+}
+
+.finance-callout > div {
+  flex: 1 1 320px;
+  max-width: 62ch;
+}
+
+.finance-callout h2 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  color: var(--ar-brand-navy);
+}
+
+.finance-callout p {
+  margin: 0;
+}
+
+.finance-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.finance-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.finance-services > li {
+  padding: 20px;
+  border: 1px solid var(--ar-border);
+  border-radius: var(--ar-radius-lg);
+  background: var(--ar-surface);
+}
+
+.finance-services h2 {
+  margin: 0 0 6px;
+  font-size: 1.125rem;
+}
+
+.finance-services ul {
+  margin: 8px 0 0;
+  padding-left: 1.2em;
+}

@@ -18,6 +18,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AssessmentReport } from "@/components/assessments/AssessmentReport";
 import { FormError } from "@/components/auth/FormStatus";
 import { CouncilGuide } from "@/components/councils/CouncilGuide";
+import { FinanceCallout } from "@/components/finance/FinanceCallout";
 import { QuestionField } from "@/components/questionnaire/QuestionField";
 import { guideKinds, guideQuery } from "@/lib/approvalGuides";
 import { CONFIDENCE_HELP, CONFIDENCE_LABELS, MAP_VERTICALS } from "@/lib/assessment";
@@ -717,6 +718,7 @@ export function QuestionnaireRunner({
           >
             {shownCouncil ? <CouncilGuide council={shownCouncil} answers={draft} /> : null}
           </AssessmentReport>
+          <FinanceCallout vertical={questionnaire.vertical} />
         </div>
       ) : null}
     </div>

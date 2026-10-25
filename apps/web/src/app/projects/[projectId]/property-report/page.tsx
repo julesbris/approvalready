@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AppShell, NoAccess } from "@/components/app/AppShell";
+import { FinanceCallout } from "@/components/finance/FinanceCallout";
 import { PropertyReport } from "@/components/property/PropertyReport";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
@@ -39,6 +40,7 @@ export default async function PropertyReportPage({ params }: Props) {
           then come back for its free report.
         </p>
       )}
+      <FinanceCallout vertical="SELL" />
     </AppShell>
   );
 }
