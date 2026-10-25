@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { FinanceCallout } from "@/components/finance/FinanceCallout";
 import type { Guide } from "@/lib/guides";
 import { formatDate } from "@/lib/questionnaire";
 
@@ -61,6 +62,7 @@ export function GuideArticle({ guide }: { guide: Guide }) {
           ))}
         </ul>
       </section>
+      <FinanceCallout />
       <section className="principle">
         <p>
           Want to know what applies to your site? <Link href="/register">Create an account</Link>,

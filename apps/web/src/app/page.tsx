@@ -1,6 +1,7 @@
 import type { Confidence } from "@approvalready/shared-types";
 import Link from "next/link";
 
+import { FinanceCallout } from "@/components/finance/FinanceCallout";
 import { ProductIcon } from "@/components/public/ProductIcon";
 import { SiteFooter } from "@/components/public/SiteFooter";
 import { SiteHeader } from "@/components/public/SiteHeader";
@@ -153,6 +154,10 @@ export default function HomePage() {
             </ol>
           </div>
         </section>
+
+        <div className="container">
+          <FinanceCallout />
+        </div>
 
         <section className="container" aria-labelledby="cta-title">
           <div className="cta-band">

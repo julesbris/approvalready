@@ -25,6 +25,7 @@ import { type FormEvent, useState } from "react";
 import { FormError } from "@/components/auth/FormStatus";
 import { CouncilGuide } from "@/components/councils/CouncilGuide";
 import { DocumentsPanel } from "@/components/documents/DocumentsPanel";
+import { FinanceCallout } from "@/components/finance/FinanceCallout";
 import { BusinessPanel } from "@/components/projects/BusinessPanel";
 import { ChecklistsPanel } from "@/components/projects/ChecklistsPanel";
 import { SitePanel } from "@/components/projects/SitePanel";
@@ -309,6 +310,8 @@ export function ProjectWorkspace(props: Props) {
       {latest && props.plan ? <PlanPanel projectId={project.id} plan={props.plan} /> : null}
 
       {props.council ? <CouncilGuide council={props.council} answers={props.councilAnswers} /> : null}
+
+      <FinanceCallout vertical={project.vertical} />
 
       {project.vertical === "SELL" ? (
         <section className="panel" aria-labelledby="sale-panel-title">
