@@ -17015,6 +17015,11 @@
             "title": "Disclaimer",
             "type": "string"
           },
+          "finance_url": {
+            "description": "Where a finance enquiry goes.",
+            "title": "Finance Url",
+            "type": "string"
+          },
           "generated_at": {
             "format": "date-time",
             "title": "Generated At",
@@ -17028,10 +17033,30 @@
             "title": "Headline",
             "type": "array"
           },
+          "overall_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Overall Score"
+          },
           "property_id": {
             "format": "uuid",
             "title": "Property Id",
             "type": "string"
+          },
+          "scores": {
+            "default": [],
+            "description": "Neighbourhood scores out of 10, each with how it was worked out.",
+            "items": {
+              "$ref": "#/components/schemas/ReportScore"
+            },
+            "title": "Scores",
+            "type": "array"
           },
           "sections": {
             "items": {
@@ -17058,6 +17083,7 @@
           "suburb",
           "council",
           "headline",
+          "finance_url",
           "sections",
           "generated_at",
           "disclaimer"
@@ -19041,6 +19067,70 @@
         "title": "RentalUpdate",
         "type": "object"
       },
+      "ReportBar": {
+        "properties": {
+          "compare": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The state's figure, if known.",
+            "title": "Compare"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "value": {
+            "description": "A percentage, 0 to 100.",
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": [
+          "label",
+          "value"
+        ],
+        "title": "ReportBar",
+        "type": "object"
+      },
+      "ReportChart": {
+        "properties": {
+          "bars": {
+            "items": {
+              "$ref": "#/components/schemas/ReportBar"
+            },
+            "title": "Bars",
+            "type": "array"
+          },
+          "compare_label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "e.g. 'Queensland'.",
+            "title": "Compare Label"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "bars"
+        ],
+        "title": "ReportChart",
+        "type": "object"
+      },
       "ReportFact": {
         "properties": {
           "compare": {
@@ -19151,8 +19241,48 @@
         "title": "ReportLink",
         "type": "object"
       },
+      "ReportScore": {
+        "properties": {
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "score": {
+            "description": "Out of 10.",
+            "maximum": 10.0,
+            "minimum": 0.0,
+            "title": "Score",
+            "type": "number"
+          },
+          "summary": {
+            "description": "How the score was worked out, in plain words.",
+            "title": "Summary",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "label",
+          "score",
+          "summary"
+        ],
+        "title": "ReportScore",
+        "type": "object"
+      },
       "ReportSection": {
         "properties": {
+          "charts": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/ReportChart"
+            },
+            "title": "Charts",
+            "type": "array"
+          },
           "facts": {
             "default": [],
             "items": {
