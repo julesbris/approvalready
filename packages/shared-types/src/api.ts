@@ -10992,6 +10992,11 @@ export interface components {
             /** Disclaimer */
             disclaimer: string;
             /**
+             * Finance Url
+             * @description Where a finance enquiry goes.
+             */
+            finance_url: string;
+            /**
              * Generated At
              * Format: date-time
              */
@@ -11001,11 +11006,19 @@ export interface components {
              * @description The few things worth knowing first.
              */
             headline: string[];
+            /** Overall Score */
+            overall_score?: number | null;
             /**
              * Property Id
              * Format: uuid
              */
             property_id: string;
+            /**
+             * Scores
+             * @description Neighbourhood scores out of 10, each with how it was worked out.
+             * @default []
+             */
+            scores: components["schemas"]["ReportScore"][];
             /** Sections */
             sections: components["schemas"]["ReportSection"][];
             /** Suburb */
@@ -11702,6 +11715,33 @@ export interface components {
             rent_cents?: number | null;
             rent_period?: components["schemas"]["RentPeriod"] | null;
         };
+        /** ReportBar */
+        ReportBar: {
+            /**
+             * Compare
+             * @description The state's figure, if known.
+             */
+            compare?: number | null;
+            /** Label */
+            label: string;
+            /**
+             * Value
+             * @description A percentage, 0 to 100.
+             */
+            value: number;
+        };
+        /** ReportChart */
+        ReportChart: {
+            /** Bars */
+            bars: components["schemas"]["ReportBar"][];
+            /**
+             * Compare Label
+             * @description e.g. 'Queensland'.
+             */
+            compare_label?: string | null;
+            /** Title */
+            title: string;
+        };
         /** ReportFact */
         ReportFact: {
             /**
@@ -11736,8 +11776,30 @@ export interface components {
             /** Why */
             why: string;
         };
+        /** ReportScore */
+        ReportScore: {
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /**
+             * Score
+             * @description Out of 10.
+             */
+            score: number;
+            /**
+             * Summary
+             * @description How the score was worked out, in plain words.
+             */
+            summary: string;
+        };
         /** ReportSection */
         ReportSection: {
+            /**
+             * Charts
+             * @default []
+             */
+            charts: components["schemas"]["ReportChart"][];
             /**
              * Facts
              * @default []

@@ -1218,3 +1218,15 @@ as marketing posts.
 | Images | `marketing/cards.py` draws each guide in three sizes (JPEG for Instagram): `square` 1080², `portrait` 1080×1350 with the first steps (Instagram posts use it), `wide` 1200×630 (Open Graph). Navy with the reversed lockup, a teal line drawing per scenario, the state and scenario, title, and chips (steps, official forms). Served at `/guide-cards/<ref>.jpg`, `<ref>.portrait.jpg`, `<ref>.wide.jpg` (API `?format=`). `cards.alt_text` gives the alt text. |
 | Marketing | Approval-guide posts now link to their public page (with utm tags) and get state hashtags; emails also link to a free check. |
 | CSP | With a static page per guide, `scripts/csp-hashes.mjs` writes hashes per page (`pages`) and a short shared list for anything else; `proxy.ts` sends each page only its own. JSON-LD blocks aren't scripts and aren't hashed. |
+
+## 55. Property report: every state, scores, surroundings and repayments
+
+Goal: a free property report that beats the free reports on Domain, realestate.com.au and CoreLogic. Those lead with price estimates and sales (data we can't legally copy, so we keep linking to them); ours adds what they don't show, worked out openly from official and open data.
+
+| Area | What |
+| --- | --- |
+| Census | `AbsCensus.profile` now works for any state: the ABS key is `.{SAL}.SAL.{first digit of the SAL code}`. `sources.STATE_CENSUS` holds each state's QuickStats figures (abs.gov.au/census/find-census-data/quickstats/2021/1 to /8); the people and market sections compare the suburb with its own state. Tenure, dwelling types and ages are `ReportChart`s (suburb bars against the state). |
+| Surroundings | `Overpass.surroundings`: one Overpass query for major roads (motorway, trunk, primary), railways, high-voltage power lines, industrial land, landfill/quarries/sewage works and airports; lines are measured point-to-segment (`distance_to_line`). Shown as the "Noise and surroundings" section. |
+| Scores | `scores.py`: walk score (8 everyday needs within 800 m), shops, transport, schools (OSM plus the QLD state school list), health, parks and a quiet score, each 0-10 with a plain summary of how it was worked out; `overall_score` is their mean. Linear between an "easy walk" and a "drive" distance per category; quiet starts at 10 and loses weight for each nuisance within reach. |
+| Other states | All sections except reported crime (QLD only) now show; outside QLD the schools section uses OpenStreetMap schools and childcare, and transport links to Google Maps instead of Translink. |
+| Finance | `PropertyReportOut.finance_url`. On the web the market section is followed by a repayment calculator (browser-only, principal and interest, LMI hint under 20% deposit) and the `FinanceCallout`; the PDF has a finance box. The page no longer shows a second callout under the report. |

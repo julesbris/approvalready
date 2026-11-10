@@ -26,15 +26,19 @@ from app.modules.lookups.service import Lookups
 from app.modules.lookups.spatial import AddressMatch, NotChecked, ParcelReport
 from app.modules.property_report.schemas import (
     PropertyReportOut,
+    ReportBar,
+    ReportChart,
     ReportFact,
     ReportItem,
     ReportLink,
     ReportSection,
     ReportSource,
 )
+from app.modules.property_report.scores import neighbourhood_scores, overall
 from app.modules.property_report.sources import (
-    QLD_CENSUS,
+    STATE_CENSUS,
     CrimeRates,
+    Nearby,
     Place,
     School,
     Suburb,
@@ -58,6 +62,28 @@ CATCHMENT_URL = "https://www.qld.gov.au/education/schools/find/enrolment/catchme
 FLOOD_URL = "https://floodcheck.information.qld.gov.au/"
 QPS_SOURCE = "Queensland Police Service, reported offence rates by council area (open data)"
 QPS_URL = "https://www.police.qld.gov.au/maps-and-statistics"
+STATE_NAMES = {
+    "NSW": "New South Wales",
+    "VIC": "Victoria",
+    "QLD": "Queensland",
+    "SA": "South Australia",
+    "WA": "Western Australia",
+    "TAS": "Tasmania",
+    "NT": "the Northern Territory",
+    "ACT": "the ACT",
+}
+
+
+def state_name(state: str) -> str:
+    return STATE_NAMES.get(state, state)
+
+
+def _cap(text: str) -> str:
+    return text[:1].upper() + text[1:]
+
+
+# Finance enquiries go to our finance partner's contact form (the web app's lib/finance.ts).
+FINANCE_ENQUIRY_URL = "https://approvalreadyai.com/#contact"
 OSM_SOURCE = "OpenStreetMap (© OpenStreetMap contributors, ODbL)"
 OSM_URL = "https://www.openstreetmap.org/copyright"
 CADASTRE_URL = "https://qldglobe.information.qld.gov.au/"
@@ -114,20 +140,22 @@ def money(value: float | None, per: str) -> str | None:
     return f"${value:,.0f} {per}" if value else None
 
 
-def _vs(value: float | None, qld: float | None, unit: str = "") -> str | None:
-    if not value or not qld:
+def _vs(
+    value: float | None, base: float | None, unit: str = "", name: str = "Queensland"
+) -> str | None:
+    if not value or not base:
         return None
-    diff = round(100 * (value - qld) / qld)
+    diff = round(100 * (value - base) / base)
     if abs(diff) < 3:
-        return f"About the same as Queensland ({unit}{qld:,.0f})"
+        return f"About the same as {name} ({unit}{base:,.0f})"
     word = "above" if diff > 0 else "below"
-    return f"{abs(diff)}% {word} Queensland ({unit}{qld:,.0f})"
+    return f"{abs(diff)}% {word} {name} ({unit}{base:,.0f})"
 
 
-def _pct_vs(value: float | None, qld: float | None) -> str | None:
-    if value is None or qld is None:
+def _pct_vs(value: float | None, base: float | None, name: str = "Queensland") -> str | None:
+    if value is None or base is None:
         return None
-    return f"Queensland: {qld:g}%"
+    return f"{_cap(name)}: {base:g}%"
 
 
 def distance_words(metres: int) -> str:
@@ -318,7 +346,7 @@ def schools_section(
     )
 
 
-def places_section(places: list[Place] | None) -> ReportSection:
+def places_section(places: list[Place] | None, state: str = "QLD") -> ReportSection:
     items = [
         ReportItem(
             label=p.label,
@@ -345,13 +373,151 @@ def places_section(places: list[Place] | None) -> ReportSection:
                 why="Public transport times from the address (South East Queensland and "
                 "regional services).",
             )
+        ]
+        if state == "QLD"
+        else [
+            ReportLink(
+                label="Google Maps directions",
+                url="https://www.google.com/maps/dir/",
+                why="Public transport, walking and driving times from the address.",
+            )
         ],
         sources=[ReportSource(name=OSM_SOURCE, url=OSM_URL, as_at=_today())],
     )
 
 
-def people_section(suburb: Suburb | None, census: dict[str, Any] | None) -> ReportSection:
+def surroundings_section(surroundings: list[Nearby] | None) -> ReportSection:
+    """Busy roads, railways, power lines, industry, landfill and airports near the address:
+    things that affect noise and resale and that a listing never mentions."""
+    items = []
+    clear = []
+    for n in surroundings or []:
+        if n.distance_m is None:
+            clear.append(n.label.lower())
+            continue
+        items.append(
+            ReportItem(
+                label=n.label + (f": {n.name}" if n.name else ""),
+                detail=n.meaning,
+                distance_m=n.distance_m,
+            )
+        )
+    items.sort(key=lambda i: i.distance_m or 0)
+    facts = []
+    if surroundings is not None:
+        facts.append(
+            ReportFact(
+                label="Close by",
+                value=f"{len(items)} of {len(surroundings)} checked" if items else "None found",
+                note="Straight-line distance to the nearest of each, from OpenStreetMap.",
+            )
+        )
+    if clear:
+        facts.append(ReportFact(label="Not found nearby", value=_cap(", ".join(clear))))
+    return ReportSection(
+        key="surroundings",
+        title="Noise and surroundings",
+        intro="Major roads, railways, power lines, industry, landfill and airports near the "
+        "address: things that affect noise, smell and resale and a listing won't mention.",
+        status="ok" if surroundings is not None else "unavailable",
+        facts=facts,
+        items=items,
+        links=[
+            ReportLink(
+                label="Aircraft noise maps (Airservices Australia)",
+                url="https://www.airservicesaustralia.com/community/environment/aircraft-noise/",
+                why="Flight paths and noise near Australia's major airports.",
+            ),
+            ReportLink(
+                label="Visit at peak hour and at night",
+                url="https://www.google.com/maps",
+                why="Street View shows the street; only a visit tells you how it sounds.",
+            ),
+        ],
+        sources=[ReportSource(name=OSM_SOURCE, url=OSM_URL, as_at=_today())],
+    )
+
+
+def local_schools_section(places: list[Place] | None) -> ReportSection:
+    """Schools from OpenStreetMap, for states whose school lists we don't look up yet."""
+    near = {p.key: p for p in places or []}
+    items = [
+        ReportItem(
+            label=f"Nearest {p.label.lower()}" + (f": {p.nearest_name}" if p.nearest_name else ""),
+            detail=f"{p.count} within 2 km",
+            distance_m=p.nearest_m,
+        )
+        for key in ("school", "childcare")
+        if (p := near.get(key))
+    ]
+    facts = []
+    if places is not None and not items:
+        facts.append(ReportFact(label="Schools within 2 km", value="None mapped"))
+    return ReportSection(
+        key="schools",
+        title="Schools",
+        intro="The nearest school and childcare within 2 km (straight-line distance). Check "
+        "the state's school finder for the local school zone.",
+        status="ok" if places is not None else "unavailable",
+        facts=facts,
+        items=items,
+        links=[
+            ReportLink(
+                label="My School",
+                url="https://www.myschool.edu.au/",
+                why="NAPLAN results, enrolments and funding for every school.",
+            ),
+            ReportLink(
+                label="Starting Blocks (childcare)",
+                url="https://www.startingblocks.gov.au/find-child-care",
+                why="Childcare centres near the address, with quality ratings and fees.",
+            ),
+        ],
+        sources=[ReportSource(name=OSM_SOURCE, url=OSM_URL, as_at=_today())],
+    )
+
+
+TENURE_BARS = (
+    ("owned_outright", "Owned outright"),
+    ("owned_mortgage", "Owned with a mortgage"),
+    ("rented", "Rented"),
+)
+DWELLING_BARS = (
+    ("separate_house", "Separate houses"),
+    ("semi_detached", "Townhouses, terraces and semis"),
+    ("flat", "Units and apartments"),
+)
+
+
+def people_charts(census: dict[str, Any], state: str) -> list[ReportChart]:
+    base = STATE_CENSUS.get(state, {})
+    name = _cap(state_name(state))
+    charts = []
+    ages = census.get("age_groups") or []
+    if ages:
+        charts.append(
+            ReportChart(
+                title="Ages",
+                bars=[ReportBar(label=label, value=share) for label, share in ages],
+            )
+        )
+    for title, rows in (("Homes owned and rented", TENURE_BARS), ("Kinds of homes", DWELLING_BARS)):
+        bars = [
+            ReportBar(label=label, value=census[key], compare=base.get(key))
+            for key, label in rows
+            if census.get(key) is not None
+        ]
+        if bars:
+            charts.append(ReportChart(title=title, compare_label=name, bars=bars))
+    return charts
+
+
+def people_section(
+    suburb: Suburb | None, census: dict[str, Any] | None, state: str = "QLD"
+) -> ReportSection:
     c = census or {}
+    base = STATE_CENSUS.get(state, {})
+    name = state_name(state)
     facts: list[ReportFact] = []
 
     def add(
@@ -366,37 +532,27 @@ def people_section(suburb: Suburb | None, census: dict[str, Any] | None) -> Repo
             density = f"{c['population'] / suburb.area_km2:,.0f} people per km²"
         add("People", f"{c['population']:,}", None, density)
     if c.get("median_age"):
-        add("Median age", f"{c['median_age']:g}", f"Queensland: {QLD_CENSUS['median_age']}")
+        add(
+            "Median age",
+            f"{c['median_age']:g}",
+            f"{_cap(name)}: {base['median_age']:g}" if base.get("median_age") else None,
+        )
     add(
         "Median household income",
         money(c.get("household_income"), "a week"),
-        _vs(c.get("household_income"), QLD_CENSUS["household_income"], "$"),
+        _vs(c.get("household_income"), base.get("household_income"), "$", name),
     )
     add(
         "Median personal income",
         money(c.get("personal_income"), "a week"),
-        _vs(c.get("personal_income"), QLD_CENSUS["personal_income"], "$"),
+        _vs(c.get("personal_income"), base.get("personal_income"), "$", name),
     )
     if c.get("household_size"):
         add(
             "Average household",
             f"{c['household_size']:g} people",
-            f"Queensland: {QLD_CENSUS['household_size']}",
+            f"{_cap(name)}: {base['household_size']:g}" if base.get("household_size") else None,
         )
-    for key, label in (
-        ("owned_outright", "Homes owned outright"),
-        ("owned_mortgage", "Homes owned with a mortgage"),
-        ("rented", "Homes rented"),
-        ("separate_house", "Separate houses"),
-        ("semi_detached", "Townhouses, terraces and semis"),
-        ("flat", "Units and apartments"),
-    ):
-        if c.get(key) is not None:
-            add(label, f"{c[key]:g}%", _pct_vs(c[key], QLD_CENSUS[key]))
-    items = [
-        ReportItem(label=f"Aged {label}", detail=f"{share:g}% of people")
-        for label, share in c.get("age_groups") or []
-    ]
     links = []
     sources = []
     if suburb:
@@ -414,10 +570,10 @@ def people_section(suburb: Suburb | None, census: dict[str, Any] | None) -> Repo
         key="people",
         title=f"Who lives in {suburb.name}" if suburb else "Who lives here",
         intro="The suburb at the 2021 Census (the latest; the next is in 2026), compared "
-        "with Queensland.",
+        f"with {name}.",
         status="ok" if census else "unavailable",
         facts=facts,
-        items=items,
+        charts=people_charts(c, state) if census else [],
         links=links,
         sources=sources,
     )
@@ -429,14 +585,21 @@ def _slug(text: str) -> str:
 
 def market_section(subject: Subject, census: dict[str, Any] | None) -> ReportSection:
     c = census or {}
+    base = STATE_CENSUS.get(subject.state, {})
+    name = state_name(subject.state)
+    rent_note = (
+        "Rents have risen since 2021: check today's in the RTA's median rents."
+        if subject.state == "QLD"
+        else "Rents have risen since 2021: check today's asking rents in the links below."
+    )
     facts = []
     if c.get("rent"):
         facts.append(
             ReportFact(
                 label="Median rent (Census 2021)",
                 value=money(c["rent"], "a week") or "",
-                compare=_vs(c["rent"], QLD_CENSUS["rent"], "$"),
-                note="Rents have risen since 2021: check today's in the RTA's median rents.",
+                compare=_vs(c["rent"], base.get("rent"), "$", name),
+                note=rent_note,
             )
         )
     if c.get("mortgage"):
@@ -444,7 +607,7 @@ def market_section(subject: Subject, census: dict[str, Any] | None) -> ReportSec
             ReportFact(
                 label="Median mortgage repayment (Census 2021)",
                 value=money(c["mortgage"], "a month") or "",
-                compare=_vs(c["mortgage"], QLD_CENSUS["mortgage"], "$"),
+                compare=_vs(c["mortgage"], base.get("mortgage"), "$", name),
             )
         )
     if c.get("persons_per_bedroom"):
@@ -468,18 +631,21 @@ def market_section(subject: Subject, census: dict[str, Any] | None) -> ReportSec
             why="Free sale history and a price estimate (CoreLogic data).",
         ),
         ReportLink(
-            label="RTA median rents",
-            url="https://www.rta.qld.gov.au/forms-resources/median-rents-quick-finder",
-            why="Today's median weekly rent by postcode and number of bedrooms, from bonds "
-            "lodged in Queensland.",
-        ),
-        ReportLink(
             label="SQM Research vacancy rates",
             url=f"https://sqmresearch.com.au/graph_vacancy.php?postcode={subject.postcode}",
             why="How many rentals are empty in the postcode, and asking rents.",
         ),
     ]
     if subject.state == "QLD":
+        links.insert(
+            3,
+            ReportLink(
+                label="RTA median rents",
+                url="https://www.rta.qld.gov.au/forms-resources/median-rents-quick-finder",
+                why="Today's median weekly rent by postcode and number of bedrooms, from bonds "
+                "lodged in Queensland.",
+            ),
+        )
         links.append(
             ReportLink(
                 label="Land valuation (Queensland Valuer-General)",
@@ -609,6 +775,7 @@ def headline(
     catchments: list[tuple[str, str]] | None,
     census: dict[str, Any] | None,
     places: list[Place] | None,
+    state: str = "QLD",
 ) -> list[str]:
     out = []
     if parcel and parcel.land_area_m2:
@@ -627,7 +794,12 @@ def headline(
     if catchments:
         out.append("In the catchment for " + " and ".join(name for _, name in catchments) + ".")
     if census and census.get("household_income"):
-        compare = _vs(census["household_income"], QLD_CENSUS["household_income"], "$")
+        compare = _vs(
+            census["household_income"],
+            STATE_CENSUS.get(state, {}).get("household_income"),
+            "$",
+            state_name(state),
+        )
         out.append(
             f"Median household income {money(census['household_income'], 'a week')}"
             + (f", {compare[0].lower()}{compare[1:]}" if compare else "")
@@ -701,6 +873,10 @@ async def build_report(lookups: Lookups, subject: Subject) -> PropertyReportOut:
     located = lat is not None and lon is not None
     y, x = (lat or 0.0), (lon or 0.0)  # only used when located
     budget = BUDGET_SECONDS - 3.5 - (time.monotonic() - started)
+    # asyncio.gather is typed for up to six awaitables, so the seventh runs alongside.
+    around = asyncio.ensure_future(
+        _within(lookups.places.surroundings(y, x), budget, None) if located else _none()
+    )
     (parcel, parcel_failed), suburb, catchments, schools, flood, places = await asyncio.gather(
         _within(_parcel(lookups, subject.state, lot_plan), budget, (None, True))
         if mapped
@@ -713,33 +889,39 @@ async def build_report(lookups: Lookups, subject: Subject) -> PropertyReportOut:
         else _none(),
         _within(lookups.places.places(y, x), budget, None) if located else _none(),
     )
+    surroundings = await around
     local_authority = (parcel.local_authority if parcel else None) or local_authority
     council = for_local_authority(local_authority, subject.state)
     council_name = council.name if council else local_authority
     budget = BUDGET_SECONDS - (time.monotonic() - started)
     census, crime = await asyncio.gather(
-        _within(lookups.census.profile(suburb.code), budget, None) if suburb and qld else _none(),
+        _within(lookups.census.profile(suburb.code), budget, None) if suburb else _none(),
         _within(lookups.crime.rates(local_authority), budget, None) if qld else _none(),
     )
     sections = [
         land_section(subject, parcel, council_name),
         hazards_section(parcel, parcel_failed, flood, subject.state),
-        schools_section(catchments, schools),
-        places_section(places),
-        people_section(suburb, census),
+        schools_section(catchments, schools) if qld else local_schools_section(places),
+        places_section(places, subject.state),
+        surroundings_section(surroundings),
+        people_section(suburb, census, subject.state),
         market_section(subject, census),
         safety_section(crime, council_name),
         checks_section(subject, council.website if council else None),
     ]
     if not qld:
-        kept = {"land", "nearby", "market", "checks"} | ({"hazards"} if mapped else set())
-        sections = [s for s in sections if s.key in kept]
+        dropped = {"safety"} | (set() if mapped else {"hazards"})
+        sections = [s for s in sections if s.key not in dropped]
+    scores = neighbourhood_scores(places, schools, surroundings)
     return PropertyReportOut(
         property_id=subject.property_id,
         address=subject.address,
         suburb=suburb.name if suburb else subject.suburb,
         council=council_name,
-        headline=headline(parcel, flood, catchments, census, places),
+        headline=headline(parcel, flood, catchments, census, places, subject.state),
+        scores=scores,
+        overall_score=overall(scores),
+        finance_url=FINANCE_ENQUIRY_URL,
         sections=sections,
         generated_at=datetime.now(UTC),
         disclaimer=DISCLAIMER,

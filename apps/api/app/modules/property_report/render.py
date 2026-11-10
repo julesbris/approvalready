@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from app.modules.documents.render import brand_logo, brand_style, html_to_pdf, sandbox
-from app.modules.property_report.schemas import PropertyReportOut
+from app.modules.property_report.schemas import PropertyReportOut, ReportChart
 
 _TEMPLATE = """<!doctype html>
 <html lang="en-AU">
@@ -14,6 +14,16 @@ _TEMPLATE = """<!doctype html>
 .headline li { margin-bottom: 4px; }
 .status { color: #4b5b74; font-size: 9pt; }
 td.num { white-space: nowrap; }
+.scores { width: 100%; border-collapse: collapse; }
+.scores td { padding: 4px 6px; vertical-align: top; }
+.score { font-size: 16pt; font-weight: 700; color: #012455; white-space: nowrap; }
+.score small { font-size: 9pt; font-weight: 400; color: #4b5b74; }
+.overall { font-size: 26pt; font-weight: 700; color: #00776b; }
+.chart { margin: 6px 0 12px; }
+.chart td { padding: 2px 6px; border: none; }
+.bar { height: 9px; background: #00776b; border-radius: 2px; }
+.bar.compare { background: #b9c4d3; margin-top: 2px; }
+.finance { border: 2px solid #00776b; border-radius: 8px; padding: 10px 14px; margin: 14px 0; }
 </style>
 </head>
 <body>
@@ -27,6 +37,16 @@ td.num { white-space: nowrap; }
 <tr><th>Council</th><td>{{ r.council or "Not known" }}</td></tr>
 <tr><th>Prepared</th><td>{{ generated }}</td></tr>
 </table>
+{% if r.overall_score is not none %}
+<h2>Neighbourhood scores</h2>
+<p><span class="overall">{{ "%.1f"|format(r.overall_score) }}</span> out of 10 overall.
+Each score is worked out from distances in this report.</p>
+<table class="scores">
+{% for sc in r.scores %}<tr><td class="score">{{ "%.1f"|format(sc.score) }}<small>/10</small></td>
+<td><strong>{{ sc.label }}</strong><br>{{ sc.summary }}</td></tr>
+{% endfor %}
+</table>
+{% endif %}
 {% if r.headline %}
 <h2>At a glance</h2>
 <ul class="headline">{% for h in r.headline %}<li>{{ h }}</li>{% endfor %}</ul>
@@ -46,6 +66,27 @@ td.num { white-space: nowrap; }
 {%- if f.note %}<br>{{ f.note }}{% endif %}</td></tr>
 {% endfor %}
 </table>
+{% endif %}
+{% for c in s.charts %}
+<h3>{{ c.title }}</h3>
+<table class="chart">
+{% set top = scale(c) %}
+{% for b in c.bars %}<tr><td>{{ b.label }}</td><td style="width:45%">
+<div class="bar" style="width:{{ b.value * 100 / top }}%"></div>
+{%- if b.compare is not none %}<div class="bar compare" style="width:{{ b.compare * 100 / top }}%">
+</div>{% endif %}</td>
+<td class="num">{{ "%g"|format(b.value) }}% {% if b.compare is not none %}
+<span class="status">({{ c.compare_label }} {{ "%g"|format(b.compare) }}%)</span>
+{%- endif %}</td></tr>
+{% endfor %}
+</table>
+{% endfor %}
+{% if s.key == "market" %}
+<div class="finance">
+<h3>Buying your next place?</h3>
+<p>Home loans, bridging finance while you sell, and refinancing. Send an enquiry and a
+finance specialist will contact you: {{ r.finance_url }}</p>
+</div>
 {% endif %}
 {% if s.items %}
 <table>
@@ -73,6 +114,12 @@ td.num { white-space: nowrap; }
 """
 
 
+def scale(chart: ReportChart) -> float:
+    """The longest bar fills the column, so small shares stay readable."""
+    values = [b.value for b in chart.bars] + [b.compare or 0 for b in chart.bars]
+    return max([*values, 1.0])
+
+
 def distance(metres: int) -> str:
     if metres < 1000:
         return f"{round(metres / 10) * 10} m"
@@ -88,6 +135,7 @@ def report_html(report: PropertyReportOut) -> str:
             style=brand_style(),
             logo=brand_logo(),
             distance=distance,
+            scale=scale,
             generated=report.generated_at.strftime("%d %B %Y").lstrip("0"),
         )
     )

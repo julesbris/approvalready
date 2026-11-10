@@ -12,11 +12,22 @@ from fastapi import FastAPI
 from app.core.config import PropertyFactsProviderKind, Settings
 from app.main import create_app
 from app.modules.lookups.listing import domain_details, parse_listing_url
+from app.modules.property_report.scores import neighbourhood_scores, overall
+from app.modules.property_report.service import (
+    local_schools_section,
+    people_section,
+    surroundings_section,
+)
 from app.modules.property_report.sources import (
+    Nearby,
+    Place,
+    Suburb,
     _norm_lga,
+    distance_to_line,
     last_twelve_months,
     places_from,
     sdmx_series,
+    surroundings_from,
 )
 from tests.conftest import make_settings
 from tests.harness import ApiHarness
@@ -107,6 +118,29 @@ DOMAIN_LISTING = {
 }
 
 
+# A highway about 150 m north and an airport about 5 km east of -17.0, 145.7.
+SURROUNDINGS_BODY = {
+    "elements": [
+        {
+            "type": "way",
+            "tags": {"highway": "primary", "name": "Bruce Highway"},
+            "geometry": [{"lat": -16.99865, "lon": 145.69}, {"lat": -16.99865, "lon": 145.71}],
+        },
+        {
+            "type": "way",
+            "tags": {"highway": "residential"},
+            "geometry": [{"lat": -17.0, "lon": 145.69}, {"lat": -17.0, "lon": 145.71}],
+        },
+        {
+            "type": "node",
+            "tags": {"aeroway": "aerodrome", "name": "Cairns Airport"},
+            "lat": -17.0,
+            "lon": 145.747,
+        },
+    ]
+}
+
+
 def fake_everything() -> httpx.MockTransport:
     government, _ = fake_government(OVERLAYS)
 
@@ -137,6 +171,8 @@ def fake_everything() -> httpx.MockTransport:
             return httpx.Response(200, json={"features": []})
         if "BasinOnePercentAEP" in url:
             return httpx.Response(200, json={"count": 0})
+        if url == OVERPASS and b"aerodrome" in request.content:
+            return httpx.Response(200, json=SURROUNDINGS_BODY)
         if url == OVERPASS:
             assert b"supermarket" in request.content
             return httpx.Response(200, json=OVERPASS_BODY)
@@ -218,6 +254,76 @@ def test_places_nearest_and_counts() -> None:
     assert places["supermarket"].count == 2
     assert 100 < places["supermarket"].nearest_m < 120
     assert places["park"].nearest_name is None
+
+
+def test_distance_to_a_line() -> None:
+    # A line running east-west 0.001 degrees (about 111 m) north of the point.
+    assert distance_to_line(-17.0, 145.7, [(-16.999, 145.69), (-16.999, 145.71)]) == 111
+    assert distance_to_line(-17.0, 145.7, []) is None
+
+
+def test_surroundings_nearest_of_each() -> None:
+    found = {n.key: n for n in surroundings_from(SURROUNDINGS_BODY, -17.0, 145.7)}
+    assert 140 < (found["major_road"].distance_m or 0) < 160
+    assert found["major_road"].name == "Bruce Highway"
+    assert 4900 < (found["airport"].distance_m or 0) < 5100
+    assert found["railway"].distance_m is None
+    section = surroundings_section(list(found.values()))
+    assert [i.label for i in section.items] == [
+        "Major road or motorway: Bruce Highway",
+        "Airport or airfield: Cairns Airport",
+    ]
+    assert section.facts[0].value == "2 of 6 checked"
+    assert surroundings_section(None).status == "unavailable"
+
+
+def test_neighbourhood_scores() -> None:
+    places = [
+        Place("supermarket", "Supermarket", "Woolworths", 300, 2),
+        Place("bus", "Bus stop", None, 1500, 4),
+        Place("park", "Park", None, 200, 3),
+    ]
+    surroundings = [Nearby("major_road", "Major road", 150, 800, None, "Noise.")]
+    scores = {s.key: s for s in neighbourhood_scores(places, None, surroundings)}
+    assert list(scores) == ["walk", "shops", "transport", "schools", "health", "outdoors", "quiet"]
+    assert scores["walk"].score == 2.5  # supermarket and park of the 8 everyday needs
+    assert scores["shops"].score == 10.0
+    assert scores["transport"].score == 0.0
+    assert scores["schools"].summary == "No school or childcare within 2 km."
+    assert scores["quiet"].score == 8.0  # a major road at half its 300 m reach takes off 2
+    assert "major road 150 m" in scores["quiet"].summary
+    assert overall(scores.values()) == round(sum(s.score for s in scores.values()) / 7, 1)
+    assert neighbourhood_scores(None, None, None) == []
+    assert overall([]) is None
+
+
+def test_people_compared_with_their_own_state() -> None:
+    census = {
+        "population": 12000,
+        "median_age": 41,
+        "household_income": 2000,
+        "rented": 40.0,
+        "owned_outright": 25.0,
+        "separate_house": 50.0,
+        "age_groups": [("0 to 4", 6.0)],
+    }
+    suburb = Suburb(code="10001", name="Newtown", area_km2=2.0)
+    section = people_section(suburb, census, "NSW")
+    facts = {f.label: f for f in section.facts}
+    assert facts["Median household income"].compare == "9% above New South Wales ($1,829)"
+    assert facts["Median age"].compare == "New South Wales: 39"
+    assert "compared with New South Wales" in section.intro
+    charts = {c.title: c for c in section.charts}
+    assert charts["Ages"].bars[0].compare is None
+    rented = next(b for b in charts["Homes owned and rented"].bars if b.label == "Rented")
+    assert (rented.value, rented.compare) == (40.0, 32.6)
+    assert charts["Kinds of homes"].compare_label == "New South Wales"
+
+
+def test_schools_from_openstreetmap_outside_queensland() -> None:
+    section = local_schools_section([Place("school", "School", "Newtown Public", 450, 3)])
+    assert section.items[0].label == "Nearest school: Newtown Public"
+    assert local_schools_section(None).status == "unavailable"
 
 
 def test_crime_uses_the_latest_twelve_months() -> None:
@@ -318,6 +424,7 @@ async def test_property_report(api: ApiHarness) -> None:
         "hazards",
         "schools",
         "nearby",
+        "surroundings",
         "people",
         "market",
         "safety",
@@ -330,8 +437,16 @@ async def test_property_report(api: ApiHarness) -> None:
     assert facts["Primary state school catchment"]["value"] == "Bentley Park State School"
     assert facts["Median household income"]["value"] == "$1,500 a week"
     assert facts["Median household income"]["compare"] == "10% below Queensland ($1,675)"
-    assert facts["Homes rented"]["value"] == "37.5%"
-    assert facts["Separate houses"]["value"] == "75%"
+    charts = {c["title"]: c for c in sections["people"]["charts"]}
+    bars = {b["label"]: b for b in charts["Homes owned and rented"]["bars"]}
+    assert (bars["Rented"]["value"], bars["Rented"]["compare"]) == (37.5, 33.1)
+    assert charts["Kinds of homes"]["bars"][0]["value"] == 75
+    assert sections["surroundings"]["items"][0]["label"] == "Major road or motorway: Bruce Highway"
+    scores = {s["key"]: s for s in report["scores"]}
+    assert scores["schools"]["score"] > 9.5  # the state school is about 530 m away
+    assert scores["quiet"]["score"] < 10
+    assert report["overall_score"] is not None
+    assert report["finance_url"] == "https://approvalreadyai.com/#contact"
     assert facts["Break-ins (unlawful entry)"]["value"] == "1,200 per 100,000 people"
     assert "100% above Queensland" in facts["Break-ins (unlawful entry)"]["compare"]
     assert [i["label"] for i in sections["hazards"]["items"]] == [

@@ -22,6 +22,7 @@ import asyncio
 import contextlib
 import csv
 import io
+import itertools
 import math
 import re
 import time
@@ -32,8 +33,6 @@ from typing import Any
 import httpx
 
 from app.modules.lookups.client import TtlCache
-
-QLD_STATE_CODE = "3"
 
 
 def distance_m(lat1: float, lon1: float, lat2: float, lon2: float) -> int:
@@ -77,22 +76,131 @@ class Suburb:
     area_km2: float | None
 
 
-# Queensland figures from Census 2021 QuickStats, for comparison (they don't change).
-QLD_CENSUS = {
-    "median_age": 38,
-    "personal_income": 787,
-    "family_income": 2024,
-    "household_income": 1675,
-    "mortgage": 1733,
-    "rent": 365,
-    "household_size": 2.5,
-    "owned_outright": 29.1,
-    "owned_mortgage": 34.4,
-    "rented": 33.1,
-    "separate_house": 74.8,
-    "semi_detached": 11.7,
-    "flat": 12.5,
+# Each state's figures from ABS Census 2021 QuickStats (abs.gov.au/census/find-census-data/
+# quickstats/2021/1 to /8), for comparison. Census figures don't change.
+STATE_CENSUS: dict[str, dict[str, float]] = {
+    "NSW": {
+        "median_age": 39,
+        "personal_income": 813,
+        "family_income": 2185,
+        "household_income": 1829,
+        "mortgage": 2167,
+        "rent": 420,
+        "household_size": 2.6,
+        "owned_outright": 31.5,
+        "owned_mortgage": 32.5,
+        "rented": 32.6,
+        "separate_house": 65.6,
+        "semi_detached": 11.7,
+        "flat": 21.7,
+    },
+    "VIC": {
+        "median_age": 38,
+        "personal_income": 803,
+        "family_income": 2136,
+        "household_income": 1759,
+        "mortgage": 1859,
+        "rent": 370,
+        "household_size": 2.5,
+        "owned_outright": 32.2,
+        "owned_mortgage": 36.1,
+        "rented": 28.5,
+        "separate_house": 73.4,
+        "semi_detached": 13.9,
+        "flat": 12.1,
+    },
+    "QLD": {
+        "median_age": 38,
+        "personal_income": 787,
+        "family_income": 2024,
+        "household_income": 1675,
+        "mortgage": 1733,
+        "rent": 365,
+        "household_size": 2.5,
+        "owned_outright": 29.1,
+        "owned_mortgage": 34.4,
+        "rented": 33.1,
+        "separate_house": 74.8,
+        "semi_detached": 11.7,
+        "flat": 12.5,
+    },
+    "SA": {
+        "median_age": 41,
+        "personal_income": 734,
+        "family_income": 1889,
+        "household_income": 1455,
+        "mortgage": 1500,
+        "rent": 300,
+        "household_size": 2.4,
+        "owned_outright": 32.8,
+        "owned_mortgage": 35.6,
+        "rented": 27.6,
+        "separate_house": 78.0,
+        "semi_detached": 14.6,
+        "flat": 6.8,
+    },
+    "WA": {
+        "median_age": 38,
+        "personal_income": 848,
+        "family_income": 2214,
+        "household_income": 1815,
+        "mortgage": 1842,
+        "rent": 340,
+        "household_size": 2.5,
+        "owned_outright": 29.2,
+        "owned_mortgage": 40.0,
+        "rented": 27.3,
+        "separate_house": 79.7,
+        "semi_detached": 13.0,
+        "flat": 6.5,
+    },
+    "TAS": {
+        "median_age": 42,
+        "personal_income": 701,
+        "family_income": 1720,
+        "household_income": 1358,
+        "mortgage": 1313,
+        "rent": 290,
+        "household_size": 2.4,
+        "owned_outright": 37.1,
+        "owned_mortgage": 33.0,
+        "rented": 26.4,
+        "separate_house": 87.7,
+        "semi_detached": 6.1,
+        "flat": 5.3,
+    },
+    "NT": {
+        "median_age": 33,
+        "personal_income": 936,
+        "family_income": 2213,
+        "household_income": 2061,
+        "mortgage": 2000,
+        "rent": 325,
+        "household_size": 2.8,
+        "owned_outright": 15.8,
+        "owned_mortgage": 30.2,
+        "rented": 47.6,
+        "separate_house": 66.8,
+        "semi_detached": 12.7,
+        "flat": 17.9,
+    },
+    "ACT": {
+        "median_age": 35,
+        "personal_income": 1203,
+        "family_income": 2872,
+        "household_income": 2373,
+        "mortgage": 2080,
+        "rent": 450,
+        "household_size": 2.5,
+        "owned_outright": 26.6,
+        "owned_mortgage": 40.2,
+        "rented": 30.7,
+        "separate_house": 63.2,
+        "semi_detached": 17.2,
+        "flat": 19.4,
+    },
 }
+QLD_CENSUS = STATE_CENSUS["QLD"]
 G02 = {
     "1": "median_age",
     "2": "personal_income",
@@ -195,8 +303,9 @@ class AbsCensus:
         return series
 
     async def profile(self, sal_code: str) -> dict[str, Any] | None:
-        """Census 2021 figures for a Queensland suburb, or None when the ABS didn't answer."""
-        place = f"{sal_code}.SAL.{QLD_STATE_CODE}"
+        """Census 2021 figures for a suburb in any state, or None when the ABS didn't answer."""
+        # A suburb's code starts with its state's: 1 NSW, 2 VIC, 3 QLD ... 8 ACT.
+        place = f"{sal_code}.SAL.{sal_code[0]}"
         ages = "+".join(["P_1", *(code for code, _ in AGE_GROUPS)])
         medians, people, homes = await asyncio.gather(
             self._flow("C21_G02_SAL", f".{place}"),
@@ -348,6 +457,7 @@ class QldSchoolsAndFlood:
 # (key, label, OSM tag filters) - the nearest of each, and how many within the radius.
 PLACES: tuple[tuple[str, str, tuple[tuple[str, str], ...]], ...] = (
     ("supermarket", "Supermarket", (("shop", "supermarket"),)),
+    ("school", "School", (("amenity", "school"),)),
     ("shops", "Corner shop or bakery", (("shop", "convenience"), ("shop", "bakery"))),
     ("cafe", "Cafe or restaurant", (("amenity", "cafe"), ("amenity", "restaurant"))),
     ("childcare", "Childcare or kindy", (("amenity", "childcare"), ("amenity", "kindergarten"))),
@@ -416,6 +526,155 @@ def places_from(body: Any, lat: float, lon: float) -> list[Place]:
     ]
 
 
+# --- OpenStreetMap: noise and surroundings ----------------------------------------------
+
+# (key, label, how far to look in metres, Overpass filter, what it can mean)
+SURROUNDINGS: tuple[tuple[str, str, int, str, str], ...] = (
+    (
+        "major_road",
+        "Major road or motorway",
+        800,
+        'way["highway"~"^(motorway|trunk|primary)$"]',
+        "Traffic noise and fumes, mostly within about 100 m.",
+    ),
+    (
+        "railway",
+        "Railway line",
+        800,
+        'way["railway"~"^(rail|light_rail)$"][!"service"]',
+        "Train noise and vibration, mostly within about 200 m.",
+    ),
+    (
+        "power_line",
+        "High-voltage power line",
+        800,
+        'way["power"="line"]',
+        "Some buyers avoid these; easements may limit building.",
+    ),
+    (
+        "industrial",
+        "Industrial area",
+        1000,
+        'nwr["landuse"="industrial"]',
+        "Possible noise, trucks and smells, and night-time activity.",
+    ),
+    (
+        "landfill",
+        "Landfill, quarry or sewage works",
+        2000,
+        'nwr["landuse"~"^(landfill|quarry)$"];nwr["man_made"="wastewater_plant"]',
+        "Possible smells, dust and truck traffic.",
+    ),
+    (
+        "airport",
+        "Airport or airfield",
+        10000,
+        'nw["aeroway"="aerodrome"]',
+        "Aircraft noise depends on flight paths: check the airport's noise maps.",
+    ),
+)
+LINE_KEYS = {"major_road", "railway", "power_line"}
+
+
+@dataclass(frozen=True)
+class Nearby:
+    key: str
+    label: str
+    distance_m: int | None  # None: nothing within the search distance
+    search_m: int
+    name: str | None
+    meaning: str
+
+
+def surroundings_query(lat: float, lon: float) -> str:
+    def sets(keys: set[str], inside: bool) -> str:
+        out = ""
+        for key, _, radius, filters, _ in SURROUNDINGS:
+            if (key in keys) == inside:
+                for f in filters.split(";"):
+                    out += f"{f}(around:{radius},{lat:.6f},{lon:.6f});"
+        return out
+
+    return (
+        "[out:json][timeout:25];"
+        f"({sets(LINE_KEYS, True)})->.lines;.lines out tags geom qt 500;"
+        f"({sets(LINE_KEYS, False)})->.areas;.areas out tags center qt 500;"
+    )
+
+
+def _to_xy(lat0: float, lat: float, lon: float) -> tuple[float, float]:
+    k = math.cos(math.radians(lat0))
+    return lon * 111_320 * k, lat * 110_540
+
+
+def distance_to_line(lat: float, lon: float, points: list[tuple[float, float]]) -> int | None:
+    """Shortest distance in metres from a point to a polyline of (lat, lon) points."""
+    if not points:
+        return None
+    px, py = _to_xy(lat, lat, lon)
+    xy = [_to_xy(lat, a, b) for a, b in points]
+    if len(xy) == 1:
+        return round(math.hypot(xy[0][0] - px, xy[0][1] - py))
+    best = math.inf
+    for (x1, y1), (x2, y2) in itertools.pairwise(xy):
+        dx, dy = x2 - x1, y2 - y1
+        length = dx * dx + dy * dy
+        t = 0.0 if length == 0 else max(0.0, min(1.0, ((px - x1) * dx + (py - y1) * dy) / length))
+        best = min(best, math.hypot(x1 + t * dx - px, y1 + t * dy - py))
+    return round(best)
+
+
+def _matches(key: str, tags: dict[str, Any]) -> bool:
+    highway, railway = tags.get("highway"), tags.get("railway")
+    return {
+        "major_road": highway in ("motorway", "trunk", "primary"),
+        "railway": railway in ("rail", "light_rail") and not tags.get("service"),
+        "power_line": tags.get("power") == "line",
+        "industrial": tags.get("landuse") == "industrial",
+        "landfill": tags.get("landuse") in ("landfill", "quarry")
+        or tags.get("man_made") == "wastewater_plant",
+        "airport": tags.get("aeroway") == "aerodrome",
+    }[key]
+
+
+def surroundings_from(body: Any, lat: float, lon: float) -> list[Nearby]:
+    best: dict[str, tuple[int, str | None]] = {}
+    for el in (body or {}).get("elements") or []:
+        tags = el.get("tags") or {}
+        if el.get("geometry"):
+            pts = [
+                (g["lat"], g["lon"])
+                for g in el["geometry"]
+                if isinstance(g, dict) and "lat" in g and "lon" in g
+            ]
+            d = distance_to_line(lat, lon, pts)
+        else:
+            y = el.get("lat", (el.get("center") or {}).get("lat"))
+            x = el.get("lon", (el.get("center") or {}).get("lon"))
+            d = (
+                distance_m(lat, lon, y, x)
+                if isinstance(y, int | float) and isinstance(x, int | float)
+                else None
+            )
+        if d is None:
+            continue
+        for key, *_ in SURROUNDINGS:
+            if _matches(key, tags) and (key not in best or d < best[key][0]):
+                name = tags.get("name") or tags.get("ref")
+                best[key] = (d, str(name) if name else None)
+    return [
+        Nearby(
+            key=key,
+            label=label,
+            distance_m=best[key][0] if key in best else None,
+            search_m=radius,
+            name=best[key][1] if key in best else None,
+            meaning=meaning,
+        )
+        for key, label, radius, _, meaning in SURROUNDINGS
+    ]
+
+
 class Overpass:
     def __init__(self, http: httpx.AsyncClient, url: str) -> None:
         self.http = http
@@ -438,6 +697,24 @@ class Overpass:
         places = places_from(body, lat, lon)
         self._cache.put(key, places)
         return places
+
+    async def surroundings(self, lat: float, lon: float) -> list[Nearby] | None:
+        """Major roads, railways, power lines, industry and airports near the address."""
+        key = f"around:{lat:.4f},{lon:.4f}"
+        cached = self._cache.get(key)
+        if cached is not None:
+            return cached  # type: ignore[no-any-return]
+        try:
+            response = await self.http.post(
+                self.url, data={"data": surroundings_query(lat, lon)}, timeout=30
+            )
+            response.raise_for_status()
+            body = response.json()
+        except (httpx.HTTPError, ValueError):
+            return None
+        found = surroundings_from(body, lat, lon)
+        self._cache.put(key, found)
+        return found
 
 
 # --- Queensland Police Service: reported offences ---------------------------------------

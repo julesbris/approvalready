@@ -157,6 +157,9 @@ export type ListingDetailsOut = Schemas["ListingDetailsOut"];
 // Free property report
 export type PropertyReportOut = Schemas["PropertyReportOut"];
 export type ReportSection = Schemas["ReportSection"];
+export type ReportChart = Schemas["ReportChart"];
+export type ReportBar = Schemas["ReportBar"];
+export type ReportScore = Schemas["ReportScore"];
 
 // AI drafting (Milestone 12)
 export type AIJobOut = Schemas["AIJobOut"];
