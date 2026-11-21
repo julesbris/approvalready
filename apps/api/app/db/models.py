@@ -21,6 +21,7 @@ from app.modules.privacy import models as privacy_models  # noqa: F401
 from app.modules.projects import models as projects_models  # noqa: F401
 from app.modules.questionnaires import models as questionnaires_models  # noqa: F401
 from app.modules.regulatory import models as regulatory_models  # noqa: F401
+from app.modules.remotesafe import models as remotesafe_models  # noqa: F401
 from app.modules.rentals import models as rentals_models  # noqa: F401
 from app.modules.review import models as review_models  # noqa: F401
 from app.modules.rules import models as rules_models  # noqa: F401

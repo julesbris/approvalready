@@ -167,6 +167,18 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     "newsletter_subscriber": CRUD,
     "marketing_post": WRITE,
     "marketing_autopost": WRITE,
+    # RemoteSafe (0035)
+    "rs_settings": WRITE,
+    "rs_member_role": CRUD,
+    "rs_vehicle": WRITE,
+    "rs_journey": WRITE,
+    "rs_route_leg": CRUD,
+    "rs_checkin_plan": CRUD,
+    "rs_risk_assessment": APPEND,
+    "rs_hazard_finding": APPEND,
+    "rs_control_check": WRITE,
+    "rs_journey_event": APPEND,
+    "rs_journey_revision": APPEND,
 }
 
 TENANT_TABLES = sorted(
