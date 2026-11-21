@@ -906,7 +906,7 @@ configuration changes, no code changes. See `docs/DEPLOY_KAMATERA.md`.
 | Audit | `message.sent` with the match and side; the text stays out of the audit log. |
 | Web | Customer: a "Messages" panel on `/projects/[id]/referrals` (one conversation per partner, unread count, write box). Partner: "Messages with the customer" on `/partner/leads/[match]`, and "N new messages" on the referral list. Opening a conversation marks the other side's messages read; your own show "Seen" once read. |
 | Tests | `tests/test_messages.py`: the journey (both sides write, one notice per batch, unread and read, separate conversations per partner, the trigger, nothing of the text in the audit log) and the rules (claim first, privacy between partners and customers, blank and long text, the hourly limit, read-only once lost). Web: `Messages.test.tsx`. |
-| Not built | Attachments; messages in "Download my data"; a staff view for disputes; live updates without reloading; customer-to-partner messages before a partner accepts. |
+| Not built | ~~Attachments~~ (files in messages, below); messages in "Download my data"; a staff view for disputes; live updates without reloading; customer-to-partner messages before a partner accepts. |
 
 ## 35. Milestone 27 as built (staff accounts page)
 
@@ -1234,3 +1234,15 @@ Goal: a free property report that beats the free reports on Domain, realestate.c
 ## RemoteSafe (Stage 1)
 
 Remote-work journey planning is a separate module (`apps/api/app/modules/remotesafe`, web pages under `/remotesafe`, migration 0035). Its architecture assessment, decisions, limitations and remaining milestones are in [docs/REMOTESAFE.md](docs/REMOTESAFE.md).
+
+## Files in messages (migration 0036)
+
+| Concern | Implementation |
+|---|---|
+| Migration | `0036` (revises `0035`): platform table `lead_message_attachment` (one per message: match, stored key, file name, detected type, size, SHA-256, scan status, engine, signature, attempts, scanned at). A trigger refuses changes to what was sent; only the scan columns (and the key, when quarantined) change, and a scan result is recorded once. Granted SELECT, INSERT, UPDATE. |
+| Sending | `POST .../conversations/{match}/files` (customer, `project.write`) and `POST .../partner/leads/{match}/files` (partner, `lead.claim`), multipart `file` plus optional `body`. Same checks as project uploads (size, real file type, the per-user uploads-per-hour limit) and the conversation's rules (open, hourly message limit). With no text the message reads "Sent a file: <name>". The audit `message.sent` adds the file's type, size and hash. |
+| Scanning | Stored at `messages/<match>/<id>`, `PENDING` until the worker task `leads.scan_attachment` (inline in tests) scans it; infected files move to `quarantine/messages/...` and are never served. `documents.requeue_stalled` re-queues scans pending over two hours. |
+| Downloads | `GET .../files/{attachment}/content` on either side, only for a side of that conversation and only once `CLEAN` (409 otherwise); same download headers as documents (attachment, sandbox CSP, signed URL with S3). Audit `message_attachment.downloaded`. `GET .../conversations/{match}/messages` lets the customer's page refresh one conversation while a scan runs. |
+| Privacy | Kept with the messages when a closed account's workspace is deleted, like the rest of a referral partners received. |
+| Web | `Messages.tsx`: "Attach a file (optional)" on both sides; the file shows under its message, as a link once checked and "Checking for viruses" until then (the page re-checks every two seconds for a minute). |
+| Tests | `tests/test_messages.py`: both sides send and download, other partners and customers get 404, infected file quarantined, file types checked, trigger, scanner outage then ERROR, stalled scans found. Web: `Messages.test.tsx`. |

@@ -1,12 +1,14 @@
-import type { ConversationOut } from "@approvalready/shared-types";
+import type { ConversationOut, MessageOut } from "@approvalready/shared-types";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import { Conversation, CustomerMessages } from "./Messages";
 
 const apiRequest = vi.fn();
+const apiUpload = vi.fn();
 
 vi.mock("@/lib/client-api", () => ({
   apiRequest: (...args: unknown[]) => apiRequest(...args),
+  apiUpload: (...args: unknown[]) => apiUpload(...args),
 }));
 
 function conversation(overrides: Partial<ConversationOut> = {}): ConversationOut {
@@ -101,5 +103,65 @@ describe("CustomerMessages", () => {
   it("explains messages before any partner accepts", () => {
     render(<CustomerMessages organisationId="o" projectId="p" conversations={[]} canWrite />);
     expect(screen.getByText(/When a partner accepts your request/)).toBeInTheDocument();
+  });
+});
+
+describe("Files in messages", () => {
+  beforeEach(() => {
+    apiRequest.mockReset();
+    apiUpload.mockReset();
+  });
+
+  const file = {
+    id: "f1",
+    filename: "site plan.pdf",
+    content_type: "application/pdf",
+    size_bytes: 2048,
+    scan_status: "CLEAN" as const,
+  };
+
+  it("links a checked file and labels one still being checked", () => {
+    const base = conversation({ unread: 0 });
+    const [mine, theirs] = base.messages as [MessageOut, MessageOut];
+    render(
+      <Conversation
+        conversation={{
+          ...base,
+          messages: [
+            { ...mine, attachment: file },
+            { ...theirs, attachment: { ...file, id: "f2", scan_status: "PENDING" } },
+          ],
+        }}
+        path="/x/m1"
+        otherName="Reef Planning"
+        canWrite
+      />,
+    );
+    const links = screen.getAllByRole("link", { name: "site plan.pdf" });
+    expect(links).toHaveLength(1);
+    expect(links[0]).toHaveAttribute("href", "/api/v1/x/m1/files/f1/content");
+    expect(screen.getByText(/Checking for viruses/)).toBeInTheDocument();
+  });
+
+  it("sends a chosen file with the message text", async () => {
+    const base = conversation({ unread: 0 });
+    const [mine] = base.messages as [MessageOut];
+    const sent = {
+      ...base,
+      messages: [...base.messages, { ...mine, id: "c", body: "The plan", attachment: file }],
+    };
+    apiUpload.mockResolvedValue({ ok: true, data: sent });
+    render(<Conversation conversation={base} path="/x/m1" otherName="Reef Planning" canWrite />);
+    const chosen = new File(["%PDF-1.7"], "site plan.pdf", { type: "application/pdf" });
+    fireEvent.change(screen.getByLabelText(/Attach a file/), { target: { files: [chosen] } });
+    fireEvent.change(screen.getByLabelText("Message to Reef Planning"), {
+      target: { value: "The plan" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Send file" }));
+    await waitFor(() =>
+      expect(apiUpload).toHaveBeenCalledWith("/x/m1/files", chosen, { body: "The plan" }),
+    );
+    expect(await screen.findByRole("link", { name: "site plan.pdf" })).toBeInTheDocument();
+    expect(apiRequest).not.toHaveBeenCalledWith("GET", "/x/m1/messages");
   });
 });

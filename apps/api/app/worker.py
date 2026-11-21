@@ -130,6 +130,12 @@ def scan_document(self: Any, organisation_id: str, document_id: str) -> str | No
     return _run(self, jobs.scan_job, organisation_id, document_id)
 
 
+@celery_app.task(name=jobs.ATTACHMENT_SCAN_TASK, bind=True, max_retries=DOCUMENT_JOB_RETRIES)
+def scan_attachment(self: Any, match_id: str, attachment_id: str) -> str | None:
+    """Virus-check a file sent in a message."""
+    return _run(self, jobs.attachment_scan_job, match_id, attachment_id)
+
+
 @celery_app.task(name=jobs.GENERATE_TASK, bind=True, max_retries=DOCUMENT_JOB_RETRIES)
 def generate_document(self: Any, organisation_id: str, generated_id: str) -> str | None:
     return _run(self, jobs.generate_job, organisation_id, generated_id)
@@ -196,6 +202,10 @@ def requeue_stalled() -> int:
     for kind, target_id, organisation_id in stalled:
         name = names[kind]
         celery_app.send_task(name, args=[organisation_id, target_id])
+    # Files sent in messages whose scan was never queued (or was lost).
+    files = asyncio.run(jobs.stalled_attachment_scans(settings, older_than_minutes=120))
+    for match_id, attachment_id in files:
+        celery_app.send_task(jobs.ATTACHMENT_SCAN_TASK, args=[match_id, attachment_id])
     # Stripe events still waiting (the queue was down) or failed with tries left.
     events = asyncio.run(jobs.stalled_billing_events(settings, older_than_minutes=10))
     for event_id in events:
@@ -204,7 +214,7 @@ def requeue_stalled() -> int:
     refunds = asyncio.run(jobs.pending_refunds(settings, older_than_minutes=10))
     for organisation_id, refund_id in refunds:
         celery_app.send_task(jobs.REFUND_TASK, args=[organisation_id, refund_id])
-    return len(stalled) + len(events) + len(refunds)
+    return len(stalled) + len(files) + len(events) + len(refunds)
 
 
 # --- Notifications (Milestone 11) ------------------------------------------------------

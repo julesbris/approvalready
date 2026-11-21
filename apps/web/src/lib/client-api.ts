@@ -71,10 +71,16 @@ export async function apiRequest<T>(
   return { ok: true, status: response.status, data: data as T };
 }
 
-/** Upload a file as multipart form data (the browser sets the boundary). */
-export async function apiUpload<T>(path: string, file: File): Promise<ApiResult<T>> {
+/** Upload a file as multipart form data (the browser sets the boundary), with optional
+ * text fields sent alongside it. */
+export async function apiUpload<T>(
+  path: string,
+  file: File,
+  fields: Record<string, string> = {},
+): Promise<ApiResult<T>> {
   const form = new FormData();
   form.append("file", file, file.name);
+  for (const [name, value] of Object.entries(fields)) form.append(name, value);
   const headers: Record<string, string> = { accept: "application/json" };
   const csrf = readCsrfToken(document.cookie);
   if (csrf) headers["x-csrf-token"] = csrf;

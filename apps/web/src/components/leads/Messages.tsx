@@ -1,12 +1,36 @@
 "use client";
 
-import type { ConversationOut } from "@approvalready/shared-types";
-import { useEffect, useState } from "react";
+import type { AttachmentOut, ConversationOut } from "@approvalready/shared-types";
+import { useEffect, useRef, useState } from "react";
 
 import { useAction } from "@/components/admin/useAction";
 import { FormError } from "@/components/auth/FormStatus";
-import { apiRequest } from "@/lib/client-api";
+import { apiRequest, apiUpload } from "@/lib/client-api";
+import { ACCEPT, SCAN_LABELS, formatBytes, waitUntil } from "@/lib/documents";
 import { formatDateTime } from "@/lib/labels";
+
+/** A file sent with a message: a download link once it passed the virus check. */
+export function Attachment({ file, path }: { file: AttachmentOut; path: string }) {
+  const clean = file.scan_status === "CLEAN";
+  return (
+    <p className="message-file">
+      {clean ? (
+        <a href={`/api/v1${path}/files/${file.id}/content`} download={file.filename}>
+          {file.filename}
+        </a>
+      ) : (
+        <span>{file.filename}</span>
+      )}{" "}
+      <span className="muted">
+        ({formatBytes(file.size_bytes)}
+        {clean ? "" : ` · ${SCAN_LABELS[file.scan_status]}`})
+      </span>
+    </p>
+  );
+}
+
+const pendingFile = (c: ConversationOut) =>
+  c.messages.some((m) => m.attachment?.scan_status === "PENDING");
 
 /** One conversation between a customer and a partner about a referral: the messages, oldest
  * first, and a box to write. Opening it marks the other side's messages as read. */
@@ -17,13 +41,16 @@ export function Conversation({
   canWrite,
 }: {
   conversation: ConversationOut;
-  /** API path of the conversation: `${path}/messages` sends, `${path}/read` marks read. */
+  /** API path of the conversation: `${path}/messages` reads and sends, `${path}/files`
+   * sends a file, `${path}/read` marks read. */
   path: string;
   otherName: string;
   canWrite: boolean;
 }) {
   const [conversation, setConversation] = useState(initial);
   const [draft, setDraft] = useState("");
+  const [file, setFile] = useState<File | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
   const { busy, error, run } = useAction();
   const unread = initial.unread;
 
@@ -34,13 +61,25 @@ export function Conversation({
   async function send(e: React.FormEvent) {
     e.preventDefault();
     const body = draft.trim();
-    if (!body) return;
+    if (!body && !file) return;
     const done = await run(() =>
-      apiRequest<ConversationOut>("POST", `${path}/messages`, { body }),
+      file
+        ? apiUpload<ConversationOut>(`${path}/files`, file, body ? { body } : {})
+        : apiRequest<ConversationOut>("POST", `${path}/messages`, { body }),
     );
     if (done !== null) {
       setConversation(done);
       setDraft("");
+      setFile(null);
+      if (fileInput.current) fileInput.current.value = "";
+      // A file is checked for viruses in the background: show it once it's ready.
+      if (pendingFile(done)) {
+        const result = await waitUntil(
+          () => apiRequest<ConversationOut>("GET", `${path}/messages`),
+          (c) => !pendingFile(c),
+        );
+        if (result.ok) setConversation(result.data);
+      }
     }
   }
 
@@ -61,6 +100,7 @@ export function Conversation({
                 {m.from_you && m.read_at ? <span className="muted"> · Seen</span> : null}
               </p>
               <p className="message-body">{m.body}</p>
+              {m.attachment ? <Attachment file={m.attachment} path={path} /> : null}
             </li>
           ))}
         </ol>
@@ -73,14 +113,27 @@ export function Conversation({
               value={draft}
               maxLength={4000}
               rows={3}
-              required
+              required={!file}
               onChange={(e) => setDraft(e.target.value)}
             />
           </label>
+          <label>
+            Attach a file (optional)
+            <input
+              ref={fileInput}
+              type="file"
+              accept={ACCEPT}
+              onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+            />
+            <span className="muted">
+              Plans, photos, quotes: PDF, Word, Excel, images or text. Checked for viruses
+              before {otherName} can open it.
+            </span>
+          </label>
           <FormError message={error} />
           <div className="button-row">
-            <button type="submit" className="button" disabled={busy || !draft.trim()}>
-              Send message
+            <button type="submit" className="button" disabled={busy || (!draft.trim() && !file)}>
+              {file ? "Send file" : "Send message"}
             </button>
           </div>
         </form>

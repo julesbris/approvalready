@@ -11,7 +11,9 @@
 * ``/v1/organisations/{id}/projects/{pid}/conversations...`` (Milestone 26): the customer's
   messages with each partner who accepted (``project.read`` to read, ``project.write`` to
   write). Partners use ``partner/leads/{match_id}/messages`` (``lead.read`` to read,
-  ``lead.claim`` to write).
+  ``lead.claim`` to write). Either side sends a file with a message by posting it as
+  multipart to ``.../files`` and downloads a virus-checked one from
+  ``.../files/{attachment_id}/content``.
 * ``/v1/admin/leads...``: staff (``lead.manage``): leads with their matches and scores (never
   contact details), lead prices, credit adjustments and fee refunds.
 """
@@ -21,11 +23,12 @@ from __future__ import annotations
 import uuid
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, File, Form, Query, Response, UploadFile
 from sqlalchemy import select
 
 from app.api.deps import (
     DbDep,
+    LimiterDep,
     MetaDep,
     OrgContext,
     ResourcesDep,
@@ -33,14 +36,17 @@ from app.api.deps import (
     require_org_permission,
     require_platform_permission,
 )
-from app.core.errors import ApiError, not_found
+from app.core.errors import ApiError, not_found, rate_limited
+from app.core.ratelimit import Limit
 from app.db.tenant import bind_tenant
 from app.modules.assessments.service import assessment_date
 from app.modules.billing import service as billing
 from app.modules.billing.models import PaymentPurpose, Price, PriceInterval, Product, ProductKind
 from app.modules.billing.router import StripeDep, _require
 from app.modules.billing.schemas import RedirectOut
-from app.modules.leads import consent, jobs, messages, quotes, service
+from app.modules.documents import service as documents
+from app.modules.documents.router import _dispatch, _download
+from app.modules.leads import attachments, consent, jobs, messages, quotes, service
 from app.modules.leads.models import (
     OPEN_MATCH,
     CreditLedgerEntry,
@@ -328,23 +334,65 @@ async def list_conversations(
     return await _conversations(db, project)
 
 
-@conversations_router.post("/{match_id}/messages", response_model=ConversationOut, status_code=201)
-async def send_customer_message(
+MessageText = Annotated[str | None, Form(max_length=4000, description="Text to send with it.")]
+FileUpload = Annotated[UploadFile, File(description="The file to send (checked for viruses).")]
+
+
+async def _read_file(
+    ctx: OrgContext,
+    settings: SettingsDep,
+    resources: ResourcesDep,
+    limiter: LimiterDep,
+    file: UploadFile,
+) -> messages.FileToSend:
+    """Read and check an uploaded file (size, real type, the uploads-per-hour limit)."""
+    limit = Limit("upload", settings.uploads_per_user_per_hour, 3600)
+    subject = str(ctx.auth.user.id)
+    if await limiter.exceeded(limit, subject):
+        raise rate_limited(await limiter.retry_after(limit, subject))
+    max_bytes = settings.upload_max_bytes
+    data = await file.read(max_bytes + 1)
+    checked = documents.check_upload(data, file.filename, file.content_type, max_bytes)
+    await limiter.hit(limit, subject)
+    return messages.FileToSend(data, checked, resources.storage)
+
+
+async def _commit_sent(db: DbDep, resources: ResourcesDep, sent: messages.Sent) -> None:
+    """Commit a sent message; remove its stored file if that fails, else queue the scan."""
+    try:
+        await db.commit()
+    except Exception:
+        if sent.attachment is not None:
+            await resources.storage.delete(sent.attachment.storage_key)
+        raise
+    if sent.attachment is not None:
+        a = sent.attachment
+        await _dispatch("attachment scan", resources.jobs.attachment_scan(a.lead_match_id, a.id))
+
+
+async def _customer_send(
     project_id: uuid.UUID,
     match_id: uuid.UUID,
-    body: MessageIn,
-    ctx: ProjectWrite,
+    text: str,
+    ctx: OrgContext,
     db: DbDep,
     meta: MetaDep,
     resources: ResourcesDep,
     settings: SettingsDep,
+    file: messages.FileToSend | None = None,
 ) -> ConversationOut:
-    """Write to the partner. They are told about the first message waiting for them."""
     project = await projects.get_project(db, ctx.organisation.id, project_id)
     found, sent = await messages.customer_send(
-        db, project, match_id, body.body, actor_id=ctx.auth.user.id, meta=meta, now=service.utcnow()
+        db,
+        project,
+        match_id,
+        text,
+        actor_id=ctx.auth.user.id,
+        meta=meta,
+        now=service.utcnow(),
+        file=file,
     )
-    await db.commit()
+    await _commit_sent(db, resources, sent)
     if sent.notify:
         pending = await jobs.notify_message(
             db,
@@ -358,6 +406,81 @@ async def send_customer_message(
     await bind_tenant(db, ctx.organisation.id)
     found = await messages.get_for_customer(db, project, match_id)
     return await found.out(db)
+
+
+@conversations_router.get("/{match_id}/messages", response_model=ConversationOut)
+async def get_customer_conversation(
+    project_id: uuid.UUID, match_id: uuid.UUID, ctx: ProjectRead, db: DbDep
+) -> ConversationOut:
+    """One conversation, oldest message first (to see whether a file passed its check)."""
+    project = await projects.get_project(db, ctx.organisation.id, project_id)
+    return await (await messages.get_for_customer(db, project, match_id)).out(db)
+
+
+@conversations_router.post("/{match_id}/messages", response_model=ConversationOut, status_code=201)
+async def send_customer_message(
+    project_id: uuid.UUID,
+    match_id: uuid.UUID,
+    body: MessageIn,
+    ctx: ProjectWrite,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+) -> ConversationOut:
+    """Write to the partner. They are told about the first message waiting for them."""
+    return await _customer_send(project_id, match_id, body.body, ctx, db, meta, resources, settings)
+
+
+@conversations_router.post("/{match_id}/files", response_model=ConversationOut, status_code=201)
+async def send_customer_file(
+    project_id: uuid.UUID,
+    match_id: uuid.UUID,
+    ctx: ProjectWrite,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+    limiter: LimiterDep,
+    file: FileUpload,
+    body: MessageText = None,
+) -> ConversationOut:
+    """Send the partner a file (a site plan, photos), with an optional message. They can
+    download it once it has passed the virus check."""
+    checked = await _read_file(ctx, settings, resources, limiter, file)
+    text = messages.file_message(body, checked.checked.filename)
+    return await _customer_send(
+        project_id, match_id, text, ctx, db, meta, resources, settings, checked
+    )
+
+
+@conversations_router.get(
+    "/{match_id}/files/{attachment_id}/content",
+    response_class=Response,
+    responses={200: {"content": {"application/octet-stream": {}}}, 303: {}},
+)
+async def download_customer_file(
+    project_id: uuid.UUID,
+    match_id: uuid.UUID,
+    attachment_id: uuid.UUID,
+    ctx: ProjectRead,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+) -> Response:
+    """A file sent in this conversation, as a download (only once it passed the virus
+    check)."""
+    project = await projects.get_project(db, ctx.organisation.id, project_id)
+    await messages.get_for_customer(db, project, match_id)
+    attachment = await attachments.get(db, match_id, attachment_id)
+    attachments.require_clean(attachment)
+    await attachments.record_download(
+        db, attachment, organisation_id=ctx.organisation.id, actor_id=ctx.auth.user.id, meta=meta
+    )
+    await db.commit()
+    return await _download(
+        resources, attachment.storage_key, attachment.original_filename, attachment.detected_mime
+    )
 
 
 @conversations_router.post("/{match_id}/read", response_model=ConversationOut)
@@ -574,22 +697,28 @@ async def get_partner_conversation(
     return await _partner_conversation(db, ctx, offer)
 
 
-@partner_router.post("/leads/{match_id}/messages", response_model=ConversationOut, status_code=201)
-async def send_partner_message(
+async def _partner_send(
     match_id: uuid.UUID,
-    body: MessageIn,
-    ctx: LeadClaimCtx,
+    text: str,
+    ctx: OrgContext,
     db: DbDep,
     meta: MetaDep,
     resources: ResourcesDep,
     settings: SettingsDep,
+    file: messages.FileToSend | None = None,
 ) -> ConversationOut:
-    """Write to the customer. They are told about the first message waiting for them."""
     partner = await _partner(ctx, db)
     offer, sent = await messages.partner_send(
-        db, partner, match_id, body.body, actor_id=ctx.auth.user.id, meta=meta, now=service.utcnow()
+        db,
+        partner,
+        match_id,
+        text,
+        actor_id=ctx.auth.user.id,
+        meta=meta,
+        now=service.utcnow(),
+        file=file,
     )
-    await db.commit()
+    await _commit_sent(db, resources, sent)
     if sent.notify:
         pending = await jobs.notify_message(
             db,
@@ -603,6 +732,67 @@ async def send_partner_message(
     await bind_tenant(db, ctx.organisation.id)
     offer = await messages.partner_offer(db, partner, match_id)
     return await _partner_conversation(db, ctx, offer)
+
+
+@partner_router.post("/leads/{match_id}/messages", response_model=ConversationOut, status_code=201)
+async def send_partner_message(
+    match_id: uuid.UUID,
+    body: MessageIn,
+    ctx: LeadClaimCtx,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+) -> ConversationOut:
+    """Write to the customer. They are told about the first message waiting for them."""
+    return await _partner_send(match_id, body.body, ctx, db, meta, resources, settings)
+
+
+@partner_router.post("/leads/{match_id}/files", response_model=ConversationOut, status_code=201)
+async def send_partner_file(
+    match_id: uuid.UUID,
+    ctx: LeadClaimCtx,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+    settings: SettingsDep,
+    limiter: LimiterDep,
+    file: FileUpload,
+    body: MessageText = None,
+) -> ConversationOut:
+    """Send the customer a file (a quote, a plan), with an optional message. They can
+    download it once it has passed the virus check."""
+    checked = await _read_file(ctx, settings, resources, limiter, file)
+    text = messages.file_message(body, checked.checked.filename)
+    return await _partner_send(match_id, text, ctx, db, meta, resources, settings, checked)
+
+
+@partner_router.get(
+    "/leads/{match_id}/files/{attachment_id}/content",
+    response_class=Response,
+    responses={200: {"content": {"application/octet-stream": {}}}, 303: {}},
+)
+async def download_partner_file(
+    match_id: uuid.UUID,
+    attachment_id: uuid.UUID,
+    ctx: LeadRead,
+    db: DbDep,
+    meta: MetaDep,
+    resources: ResourcesDep,
+) -> Response:
+    """A file sent in this conversation, as a download (only once it passed the virus
+    check)."""
+    partner = await _partner(ctx, db)
+    offer = await messages.partner_offer(db, partner, match_id)
+    attachment = await attachments.get(db, offer.match.id, attachment_id)
+    attachments.require_clean(attachment)
+    await attachments.record_download(
+        db, attachment, organisation_id=ctx.organisation.id, actor_id=ctx.auth.user.id, meta=meta
+    )
+    await db.commit()
+    return await _download(
+        resources, attachment.storage_key, attachment.original_filename, attachment.detected_mime
+    )
 
 
 @partner_router.post("/leads/{match_id}/messages/read", response_model=ConversationOut)

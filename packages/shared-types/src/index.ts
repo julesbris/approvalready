@@ -276,6 +276,7 @@ export type QuoteStatus = Schemas["QuoteStatus"];
 export type GstTreatment = Schemas["GstTreatment"];
 export type MessageIn = Schemas["MessageIn"];
 export type MessageOut = Schemas["MessageOut"];
+export type AttachmentOut = Schemas["AttachmentOut"];
 export type ConversationOut = Schemas["ConversationOut"];
 
 export type FunnelOut = Schemas["FunnelOut"];

@@ -46,6 +46,7 @@ AI_TASK = "ai.run"
 BILLING_EVENT_TASK = "billing.process_event"
 REFUND_TASK = "billing.send_refund"
 LEAD_MATCH_TASK = "leads.match"
+ATTACHMENT_SCAN_TASK = "leads.scan_attachment"
 
 
 def _disabled_ai() -> AIProvider:
@@ -94,6 +95,29 @@ async def scan_job(
             log.warning("document scan failed", extra={"document_id": str(document_id)})
             await service.record_scan_failure(
                 db, organisation_id, document_id, give_up=final_attempt
+            )
+            await db.commit()
+            if final_attempt:
+                return "ERROR"
+            raise RetryLater(str(exc)) from exc
+
+
+async def attachment_scan_job(
+    ctx: JobContext, match_id: uuid.UUID, attachment_id: uuid.UUID, *, final_attempt: bool
+) -> str | None:
+    """Scan a file sent in a message (a platform row: no organisation to bind)."""
+    from app.modules.leads import attachments
+
+    async with ctx.session_factory() as db:
+        try:
+            result = await attachments.scan(db, ctx.storage, ctx.scanner, match_id, attachment_id)
+            await db.commit()
+            return result
+        except (ScannerUnavailable, StorageError) as exc:
+            await db.rollback()
+            log.warning("attachment scan failed", extra={"attachment_id": str(attachment_id)})
+            await attachments.record_scan_failure(
+                db, match_id, attachment_id, give_up=final_attempt
             )
             await db.commit()
             if final_attempt:
@@ -344,6 +368,19 @@ async def pending_refunds(settings: Settings, older_than_minutes: int) -> list[t
         await engine.dispose()
 
 
+async def stalled_attachment_scans(
+    settings: Settings, older_than_minutes: int
+) -> list[tuple[str, str]]:
+    from app.modules.leads import attachments
+
+    engine = create_async_engine(settings.database_url, poolclass=NullPool)
+    try:
+        async with async_sessionmaker(engine)() as db:
+            return await attachments.stalled(db, utcnow(), older_than_minutes)
+    finally:
+        await engine.dispose()
+
+
 async def stalled_billing_events(settings: Settings, older_than_minutes: int) -> list[str]:
     from app.modules.billing import webhooks
 
@@ -392,6 +429,8 @@ class JobRunner(Protocol):
 
     async def lead_match(self, lead_id: uuid.UUID) -> None: ...
 
+    async def attachment_scan(self, match_id: uuid.UUID, attachment_id: uuid.UUID) -> None: ...
+
 
 class CeleryJobs:
     async def _send(self, name: str, *args: str) -> None:
@@ -416,6 +455,9 @@ class CeleryJobs:
 
     async def lead_match(self, lead_id: uuid.UUID) -> None:
         await self._send(LEAD_MATCH_TASK, str(lead_id))
+
+    async def attachment_scan(self, match_id: uuid.UUID, attachment_id: uuid.UUID) -> None:
+        await self._send(ATTACHMENT_SCAN_TASK, str(match_id), str(attachment_id))
 
 
 class InlineJobs:
@@ -447,6 +489,9 @@ class InlineJobs:
         from app.modules.leads import jobs as leads
 
         await leads.match_lead(self.ctx.session_factory, self.ctx.email, self.ctx.settings, lead_id)
+
+    async def attachment_scan(self, match_id: uuid.UUID, attachment_id: uuid.UUID) -> None:
+        await attachment_scan_job(self.ctx, match_id, attachment_id, final_attempt=True)
 
 
 def create_job_runner(settings: Settings, ctx: JobContext) -> JobRunner:

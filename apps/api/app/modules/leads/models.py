@@ -29,6 +29,8 @@ release. Then:
 * ``lead_message`` (platform, Milestone 26): messages between the customer and a partner who
   accepted their referral. Never edited or deleted; only when the other side read it is
   recorded, once.
+* ``lead_message_attachment`` (platform): a file sent with a message (one per message).
+  Checked for viruses before either side can download it; only the scan result changes.
 
 Leads are platform rows guarded by the API (partners match across customers), like the
 partner tables; the customer's consent and the partner's credits are tenant rows with RLS.
@@ -50,6 +52,7 @@ from sqlalchemy import (
     ForeignKey,
     Index,
     Integer,
+    LargeBinary,
     Numeric,
     String,
     Text,
@@ -508,3 +511,46 @@ class LeadMessage(UUIDPrimaryKeyMixin, Base):
     )
     # When someone on the other side first opened the conversation after it arrived.
     read_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class LeadMessageAttachment(UUIDPrimaryKeyMixin, Base):
+    """A file sent with a message. Unusable until its virus scan says ``CLEAN`` (the scan
+    statuses are the documents module's)."""
+
+    __tablename__ = "lead_message_attachment"
+    __table_args__ = (
+        UniqueConstraint("lead_message_id"),
+        UniqueConstraint("storage_key"),
+        CheckConstraint(
+            "scan_status IN ('PENDING', 'CLEAN', 'INFECTED', 'ERROR')", name="scan_status_valid"
+        ),
+        CheckConstraint("octet_length(sha256) = 32", name="sha256_length"),
+        CheckConstraint("size_bytes > 0", name="size_positive"),
+        Index("ix_lead_message_attachment_match", "lead_match_id"),
+        Index(
+            "ix_lead_message_attachment_pending",
+            "created_at",
+            postgresql_where=text("scan_status = 'PENDING'"),
+        ),
+    )
+
+    lead_message_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("lead_message.id", ondelete="CASCADE"), nullable=False
+    )
+    lead_match_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("lead_match.id", ondelete="CASCADE"), nullable=False
+    )
+    storage_key: Mapped[str] = mapped_column(String(300), nullable=False)
+    original_filename: Mapped[str] = mapped_column(String(200), nullable=False)
+    extension: Mapped[str] = mapped_column(String(10), nullable=False)
+    detected_mime: Mapped[str] = mapped_column(String(100), nullable=False)
+    size_bytes: Mapped[int] = mapped_column(BigInteger, nullable=False)
+    sha256: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+    scan_status: Mapped[str] = mapped_column(Text, nullable=False, server_default="PENDING")
+    scan_engine: Mapped[str | None] = mapped_column(String(40))
+    scan_signature: Mapped[str | None] = mapped_column(String(200))
+    scan_attempts: Mapped[int] = mapped_column(Integer, nullable=False, server_default="0")
+    scanned_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
