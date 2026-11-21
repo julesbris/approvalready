@@ -40,3 +40,5 @@ class QuietProjectOut(BaseModel):
     checklist_open: int
     nudges_sent: int
     last_nudged_at: datetime | None
+    # When staff last called or emailed the owner (logged on their account page).
+    last_contacted_at: datetime | None = None

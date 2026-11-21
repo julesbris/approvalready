@@ -11,6 +11,10 @@ import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = { title: "Stuck projects", robots: { index: false } };
 
+function contactLink(userId: string, reference: string): string {
+  return `/admin/accounts/${userId}?project=${encodeURIComponent(reference)}#contact`;
+}
+
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 export default async function StuckProjectsPage({ searchParams }: Props) {
@@ -33,7 +37,8 @@ export default async function StuckProjectsPage({ searchParams }: Props) {
       <p className="muted">
         Open projects nobody has touched for a while that still have something to do, and where
         they stopped. Customers get up to three reminders of what&apos;s left (after a day, three
-        days and a week). A personal call or email helps most with the ones still stuck after that.
+        days and a week). A personal call or email helps most with the ones still stuck after
+        that: use &ldquo;Email or log a call&rdquo; and it shows here.
       </p>
       <nav aria-label="Quiet for" className="admin-nav">
         {QUIET_FILTERS.map((d) => (
@@ -61,6 +66,7 @@ export default async function StuckProjectsPage({ searchParams }: Props) {
                 <th>Still open</th>
                 <th>Last active</th>
                 <th>Reminders sent</th>
+                <th>Staff contact</th>
               </tr>
             </thead>
             <tbody>
@@ -94,6 +100,16 @@ export default async function StuckProjectsPage({ searchParams }: Props) {
                     {p.nudges_sent}
                     {p.last_nudged_at ? (
                       <div className="muted">Last {formatDateTime(p.last_nudged_at)}</div>
+                    ) : null}
+                  </td>
+                  <td>
+                    {p.last_contacted_at ? formatDateTime(p.last_contacted_at) : "None yet"}
+                    {p.owner_user_id ? (
+                      <div>
+                        <Link href={contactLink(p.owner_user_id, p.reference_code)}>
+                          Email or log a call
+                        </Link>
+                      </div>
                     ) : null}
                   </td>
                 </tr>

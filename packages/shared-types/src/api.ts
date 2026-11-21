@@ -123,6 +123,57 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/accounts/{user_id}/email": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Email Account */
+        post: operations["email_account_v1_admin_accounts__user_id__email_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/accounts/{user_id}/notes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Add Note */
+        post: operations["add_note_v1_admin_accounts__user_id__notes_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/accounts/{user_id}/notes/{note_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Delete Note */
+        delete: operations["delete_note_v1_admin_accounts__user_id__notes__note_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/ai/prompts": {
         parameters: {
             query?: never;
@@ -5733,6 +5784,8 @@ export interface components {
         AccountDetail: {
             /** Allowed Actions */
             allowed_actions: string[];
+            /** Can Contact */
+            can_contact: boolean;
             /** Closed */
             closed: boolean;
             /**
@@ -5759,6 +5812,8 @@ export interface components {
             memberships: components["schemas"]["AccountMembership"][];
             /** Mfa Enabled */
             mfa_enabled: boolean;
+            /** Notes */
+            notes: components["schemas"]["StaffNoteOut"][];
             /** Organisations */
             organisations: number;
             /** Password Changed At */
@@ -12093,6 +12148,8 @@ export interface components {
              * Format: date-time
              */
             last_activity_at: string;
+            /** Last Contacted At */
+            last_contacted_at?: string | null;
             /** Last Nudged At */
             last_nudged_at: string | null;
             /** Nudges Sent */
@@ -14286,6 +14343,19 @@ export interface components {
          * @enum {string}
          */
         SourceType: "LEGISLATION" | "REGULATION" | "PLANNING_SCHEME" | "POLICY" | "GUIDELINE" | "FORM" | "FEE_SCHEDULE" | "WEBPAGE" | "GRANT_GUIDELINES";
+        /**
+         * StaffEmailIn
+         * @description An email from staff to the person, sent from the team address. A copy is kept as a
+         *     note on the account.
+         */
+        StaffEmailIn: {
+            /** Message */
+            message: string;
+            /** Project Reference */
+            project_reference?: string | null;
+            /** Subject */
+            subject: string;
+        };
         /** StaffLeadOut */
         StaffLeadOut: {
             /** Category Key */
@@ -14358,6 +14428,47 @@ export interface components {
             /** Score Breakdown */
             score_breakdown: components["schemas"]["ScoreFactorOut"][];
             status: components["schemas"]["LeadMatchStatus"];
+        };
+        /** StaffNoteIn */
+        StaffNoteIn: {
+            /** Body */
+            body: string;
+            /**
+             * Kind
+             * @default NOTE
+             * @enum {string}
+             */
+            kind: "NOTE" | "CALL";
+            /** Project Reference */
+            project_reference?: string | null;
+        };
+        /** StaffNoteOut */
+        StaffNoteOut: {
+            /** Author Name */
+            author_name: string | null;
+            /** Body */
+            body: string;
+            /** Can Delete */
+            can_delete: boolean;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Kind
+             * @enum {string}
+             */
+            kind: "NOTE" | "CALL" | "EMAIL";
+            /** Project Reference */
+            project_reference: string | null;
+            /** Subject */
+            subject: string | null;
         };
         /** StaffPartnerOut */
         StaffPartnerOut: {
@@ -15405,6 +15516,108 @@ export interface operations {
                 "application/json": components["schemas"]["AccountActionIn"];
             };
         };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountActionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    email_account_v1_admin_accounts__user_id__email_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StaffEmailIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountActionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    add_note_v1_admin_accounts__user_id__notes_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StaffNoteIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountActionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    delete_note_v1_admin_accounts__user_id__notes__note_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+                note_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
         responses: {
             /** @description Successful Response */
             200: {

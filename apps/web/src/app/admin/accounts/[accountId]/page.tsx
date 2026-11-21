@@ -4,14 +4,28 @@ import Link from "next/link";
 
 import { AccountActions } from "@/components/admin/AccountActions";
 import { AdminNav } from "@/components/admin/AdminNav";
+import { EmailCustomer, StaffNotes } from "@/components/admin/StaffNotes";
 import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
-import { accountState, describeDevice, eventBy, eventLabel } from "@/lib/accounts";
+import {
+  accountState,
+  describeDevice,
+  eventBy,
+  eventLabel,
+  stuckEmailDraft,
+} from "@/lib/accounts";
 import { formatDateTime, KIND_LABELS, ROLE_LABELS, roleList } from "@/lib/labels";
+import { firstParam } from "@/lib/redirect";
 import { orNotFound, requireSession, serverGet } from "@/lib/session";
 
 export const metadata: Metadata = { title: "Account", robots: { index: false } };
 
-type Props = { params: Promise<{ accountId: string }> };
+type Props = {
+  params: Promise<{ accountId: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+// A project reference as shown on Stuck projects (letters, digits and dashes).
+const REFERENCE = /^[A-Z0-9-]{3,40}$/;
 
 const SURFACE_LABELS: Record<string, string> = {
   app: "App",
@@ -20,8 +34,10 @@ const SURFACE_LABELS: Record<string, string> = {
   public: "Website",
 };
 
-export default async function AccountAdminPage({ params }: Props) {
+export default async function AccountAdminPage({ params, searchParams }: Props) {
   const { accountId } = await params;
+  const asked = (firstParam((await searchParams).project) ?? "").trim().toUpperCase();
+  const project = REFERENCE.test(asked) ? asked : null;
   const session = await requireSession(`/admin/accounts/${accountId}`);
   if (!session.permissions.includes("platform.users.read")) {
     return (
@@ -109,6 +125,28 @@ export default async function AccountAdminPage({ params }: Props) {
         ) : (
           <AccountActions accountId={account.id} actions={account.allowed_actions} />
         )}
+      </section>
+
+      {account.can_contact ? (
+        <section className="panel" id="contact">
+          <h2 className="section-title">Email this person</h2>
+          <EmailCustomer
+            accountId={account.id}
+            email={account.email}
+            project={project}
+            draft={project ? stuckEmailDraft(project) : null}
+          />
+        </section>
+      ) : null}
+
+      <section className="panel" id="notes">
+        <h2 className="section-title">Staff notes and calls</h2>
+        <StaffNotes
+          accountId={account.id}
+          notes={account.notes}
+          canAdd={account.can_contact}
+          project={project}
+        />
       </section>
 
       <section className="panel">
