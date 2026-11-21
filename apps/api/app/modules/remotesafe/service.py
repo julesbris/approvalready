@@ -46,10 +46,10 @@ from app.modules.remotesafe.models import (
 )
 from app.modules.remotesafe.policy import RATINGS, Policy, build_policy
 from app.modules.remotesafe.schemas import (
-    CheckinIn,
+    CheckinPlanIn,
     JourneyIn,
     JourneyPatch,
-    LegIn,
+    RouteLegIn,
 )
 from app.modules.remotesafe.timezones import check_zone, to_utc
 from app.modules.tenancy.models import MemberStatus, OrganisationKind, OrganisationMember
@@ -557,7 +557,7 @@ async def update_journey(
 
 
 async def replace_legs(
-    db: AsyncSession, ctx: RsContext, j: RsJourney, legs: list[LegIn]
+    db: AsyncSession, ctx: RsContext, j: RsJourney, legs: list[RouteLegIn]
 ) -> list[RsRouteLeg]:
     require_edit(ctx, j)
     rows: list[RsRouteLeg] = []
@@ -626,7 +626,7 @@ def _leg_key(r: RsRouteLeg) -> tuple[Any, ...]:
 
 
 async def replace_checkins(
-    db: AsyncSession, ctx: RsContext, j: RsJourney, checkins: list[CheckinIn]
+    db: AsyncSession, ctx: RsContext, j: RsJourney, checkins: list[CheckinPlanIn]
 ) -> list[RsCheckinPlan]:
     require_edit(ctx, j)
     times = [to_utc(c.due_at, j.timezone, "Check-in") for c in checkins]

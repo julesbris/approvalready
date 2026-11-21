@@ -9,7 +9,12 @@ from __future__ import annotations
 
 from app.modules.documents.render import brand_logo, brand_style, html_to_pdf, sandbox
 from app.modules.remotesafe.entitlements import LIMITATIONS
-from app.modules.remotesafe.schemas import AssessmentOut, ControlOut, EventOut, JourneyOut
+from app.modules.remotesafe.schemas import (
+    ControlCheckOut,
+    JourneyAssessmentOut,
+    JourneyEventOut,
+    JourneyOut,
+)
 
 _TEMPLATE = """<!doctype html>
 <html lang="en-AU">
@@ -166,9 +171,9 @@ Data sources: {{ a.data_sources|join(" ") }}</p></footer>
 
 def plan_html(
     j: JourneyOut,
-    a: AssessmentOut,
-    controls: list[ControlOut],
-    events: list[EventOut],
+    a: JourneyAssessmentOut,
+    controls: list[ControlCheckOut],
+    events: list[JourneyEventOut],
     created: str,
     approved: str,
 ) -> str:

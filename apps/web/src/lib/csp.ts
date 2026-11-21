@@ -26,6 +26,7 @@ export const NONCE_CSP_PATHS = [
   "/unsubscribe",
   "/newsletter",
   "/membership",
+  "/remotesafe",
 ] as const;
 
 export function usesNonceCsp(pathname: string): boolean {

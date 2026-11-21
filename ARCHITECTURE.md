@@ -1230,3 +1230,7 @@ Goal: a free property report that beats the free reports on Domain, realestate.c
 | Scores | `scores.py`: walk score (8 everyday needs within 800 m), shops, transport, schools (OSM plus the QLD state school list), health, parks and a quiet score, each 0-10 with a plain summary of how it was worked out; `overall_score` is their mean. Linear between an "easy walk" and a "drive" distance per category; quiet starts at 10 and loses weight for each nuisance within reach. |
 | Other states | All sections except reported crime (QLD only) now show; outside QLD the schools section uses OpenStreetMap schools and childcare, and transport links to Google Maps instead of Translink. |
 | Finance | `PropertyReportOut.finance_url`. On the web the market section is followed by a repayment calculator (browser-only, principal and interest, LMI hint under 20% deposit) and the `FinanceCallout`; the PDF has a finance box. The page no longer shows a second callout under the report. |
+
+## RemoteSafe (Stage 1)
+
+Remote-work journey planning is a separate module (`apps/api/app/modules/remotesafe`, web pages under `/remotesafe`, migration 0035). Its architecture assessment, decisions, limitations and remaining milestones are in [docs/REMOTESAFE.md](docs/REMOTESAFE.md).

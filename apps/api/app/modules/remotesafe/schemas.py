@@ -19,13 +19,13 @@ CheckinMethod = Literal["PHONE_CALL", "SMS", "SATELLITE_MESSAGE", "SATELLITE_CAL
 ControlStatusName = Literal["PENDING", "DONE", "FAILED", "NOT_APPLICABLE"]
 
 
-class LocalTime(BaseModel):
+class LocalTimeOut(BaseModel):
     utc: datetime
     local: str
     timezone: str
 
 
-class FeatureOut(BaseModel):
+class RsFeatureOut(BaseModel):
     key: str
     label: str
     tier: str
@@ -41,13 +41,13 @@ class RemoteSafeMeOut(BaseModel):
     can_plan: bool
     can_approve: bool
     can_administer: bool
-    features: list[FeatureOut]
+    features: list[RsFeatureOut]
     limitations: list[str]
     timezones: dict[str, str]
     default_timezone: str
 
 
-class EnableIn(BaseModel):
+class RemoteSafeEnableIn(BaseModel):
     default_timezone: str = "Australia/Brisbane"
 
 
@@ -59,11 +59,11 @@ class RsMemberOut(BaseModel):
     org_admin: bool
 
 
-class RolesIn(BaseModel):
+class RsRolesIn(BaseModel):
     roles: list[RsRoleName] = Field(max_length=4)
 
 
-class VehicleIn(BaseModel):
+class RsVehicleIn(BaseModel):
     name: str = Field(min_length=1, max_length=120)
     registration: str = Field(min_length=1, max_length=20)
     vehicle_type: str = Field(min_length=1, max_length=60)
@@ -72,11 +72,11 @@ class VehicleIn(BaseModel):
     active: bool = True
 
 
-class VehicleOut(VehicleIn):
+class RsVehicleOut(RsVehicleIn):
     id: uuid.UUID
 
 
-class EmergencyContact(BaseModel):
+class RsEmergencyContact(BaseModel):
     name: str = Field(min_length=1, max_length=120)
     relationship: str | None = Field(default=None, max_length=80)
     phone: str = Field(min_length=3, max_length=40)
@@ -111,7 +111,7 @@ class JourneyIn(BaseModel):
     comms_sat_phone: bool = False
     comms_sat_messenger: bool = False
     comms_notes: str | None = Field(default=None, max_length=1000)
-    emergency_contacts: list[EmergencyContact] = Field(default_factory=list, max_length=10)
+    emergency_contacts: list[RsEmergencyContact] = Field(default_factory=list, max_length=10)
     checkin_interval_minutes: int | None = Field(default=None, ge=15, le=1440)
     alternative_route: str | None = Field(default=None, max_length=2000)
     contingency_plan: str | None = Field(default=None, max_length=2000)
@@ -145,7 +145,7 @@ class JourneyPatch(BaseModel):
     comms_sat_phone: bool | None = None
     comms_sat_messenger: bool | None = None
     comms_notes: str | None = Field(default=None, max_length=1000)
-    emergency_contacts: list[EmergencyContact] | None = Field(default=None, max_length=10)
+    emergency_contacts: list[RsEmergencyContact] | None = Field(default=None, max_length=10)
     checkin_interval_minutes: int | None = Field(default=None, ge=15, le=1440)
     alternative_route: str | None = Field(default=None, max_length=2000)
     contingency_plan: str | None = Field(default=None, max_length=2000)
@@ -154,7 +154,7 @@ class JourneyPatch(BaseModel):
     weather_warnings: str | None = Field(default=None, max_length=1000)
 
 
-class LegIn(BaseModel):
+class RouteLegIn(BaseModel):
     origin: str = Field(min_length=1, max_length=200)
     destination: str = Field(min_length=1, max_length=200)
     origin_lat: float | None = Field(default=None, ge=-45, le=-9)
@@ -174,11 +174,11 @@ class LegIn(BaseModel):
     notes: str | None = Field(default=None, max_length=1000)
 
 
-class LegsIn(BaseModel):
-    legs: list[LegIn] = Field(max_length=30)
+class RouteLegsIn(BaseModel):
+    legs: list[RouteLegIn] = Field(max_length=30)
 
 
-class LegOut(BaseModel):
+class RouteLegOut(BaseModel):
     id: uuid.UUID
     position: int
     origin: str
@@ -188,8 +188,8 @@ class LegOut(BaseModel):
     destination_lat: float | None
     destination_lng: float | None
     timezone: str
-    departs: LocalTime
-    arrives: LocalTime
+    departs: LocalTimeOut
+    arrives: LocalTimeOut
     distance_km: float | None
     road_surface: str
     mobile_coverage: str
@@ -200,35 +200,35 @@ class LegOut(BaseModel):
     notes: str | None
 
 
-class CheckinIn(BaseModel):
+class CheckinPlanIn(BaseModel):
     due_at: datetime
     location: str | None = Field(default=None, max_length=200)
     method: CheckinMethod = "PHONE_CALL"
 
 
-class CheckinsIn(BaseModel):
-    checkins: list[CheckinIn] = Field(max_length=100)
+class CheckinPlansIn(BaseModel):
+    checkins: list[CheckinPlanIn] = Field(max_length=100)
 
 
-class CheckinOut(BaseModel):
+class CheckinPlanOut(BaseModel):
     position: int
-    due: LocalTime
+    due: LocalTimeOut
     location: str | None
     method: str
 
 
-class EvidenceOut(BaseModel):
+class RiskEvidenceOut(BaseModel):
     fact: str
     value: str
     source: str
     observed_at: str | None
 
 
-class FindingOut(BaseModel):
+class HazardFindingOut(BaseModel):
     hazard_key: str
     title: str
     description: str
-    evidence: list[EvidenceOut]
+    evidence: list[RiskEvidenceOut]
     likelihood: int
     consequence: int
     initial_score: int
@@ -242,13 +242,13 @@ class FindingOut(BaseModel):
     outstanding: list[str]
 
 
-class StopOut(BaseModel):
+class StopConditionOut(BaseModel):
     key: str
     reason: str
-    evidence: list[EvidenceOut]
+    evidence: list[RiskEvidenceOut]
 
 
-class AssessmentOut(BaseModel):
+class JourneyAssessmentOut(BaseModel):
     id: uuid.UUID
     revision: int
     outcome: str
@@ -256,14 +256,14 @@ class AssessmentOut(BaseModel):
     library_version: str
     policy_version: int
     facts: dict[str, Any]
-    stop_conditions: list[StopOut]
-    findings: list[FindingOut]
+    stop_conditions: list[StopConditionOut]
+    findings: list[HazardFindingOut]
     created_at: datetime
     disclaimer: str
     data_sources: list[str]
 
 
-class ControlOut(BaseModel):
+class ControlCheckOut(BaseModel):
     key: str
     group: str
     label: str
@@ -277,16 +277,16 @@ class ControlOut(BaseModel):
     exception_by_name: str | None
 
 
-class ControlIn(BaseModel):
+class ControlCheckIn(BaseModel):
     status: ControlStatusName
     note: str | None = Field(default=None, max_length=1000)
 
 
-class ExceptionIn(BaseModel):
+class ControlExceptionIn(BaseModel):
     reason: str = Field(min_length=10, max_length=1000)
 
 
-class PersonOut(BaseModel):
+class RsPersonOut(BaseModel):
     user_id: uuid.UUID
     display_name: str
 
@@ -298,12 +298,12 @@ class JourneySummaryOut(BaseModel):
     status: str
     revision: int
     risk_outcome: str | None
-    worker: PersonOut
-    supervisor: PersonOut | None
+    worker: RsPersonOut
+    supervisor: RsPersonOut | None
     origin: str
     destination: str
-    departs: LocalTime
-    arrives: LocalTime
+    departs: LocalTimeOut
+    arrives: LocalTimeOut
     archived: bool
     updated_at: datetime
 
@@ -311,13 +311,13 @@ class JourneySummaryOut(BaseModel):
 class JourneyOut(JourneySummaryOut):
     purpose: str
     activities: str | None
-    monitor: PersonOut | None
+    monitor: RsPersonOut | None
     team: str | None
     worker_phone: str | None
     remoteness: str
     return_journey: bool
     timezone: str
-    returns: LocalTime | None
+    returns: LocalTimeOut | None
     multi_day: bool
     vehicle_id: uuid.UUID | None
     vehicle_description: str | None
@@ -328,7 +328,7 @@ class JourneyOut(JourneySummaryOut):
     comms_sat_phone: bool
     comms_sat_messenger: bool
     comms_notes: str | None
-    emergency_contacts: list[EmergencyContact]
+    emergency_contacts: list[RsEmergencyContact]
     checkin_interval_minutes: int | None
     alternative_route: str | None
     contingency_plan: str | None
@@ -337,31 +337,31 @@ class JourneyOut(JourneySummaryOut):
     weather_warnings: str | None
     approved_revision: int | None
     approved_outcome: str | None
-    approved_by: PersonOut | None
+    approved_by: RsPersonOut | None
     approved_at: datetime | None
     critical_alternative_process: str | None
     submitted_at: datetime | None
     started_at: datetime | None
     completed_at: datetime | None
     cancelled_at: datetime | None
-    legs: list[LegOut]
-    checkins: list[CheckinOut]
+    legs: list[RouteLegOut]
+    checkins: list[CheckinPlanOut]
     allowed_actions: list[str]
     can_edit: bool
     blockers: list[str]
 
 
-class TransitionIn(BaseModel):
+class JourneyTransitionIn(BaseModel):
     note: str | None = Field(default=None, max_length=2000)
 
 
-class ApproveIn(BaseModel):
+class JourneyApproveIn(BaseModel):
     note: str | None = Field(default=None, max_length=2000)
     # Required to approve a CRITICAL journey: the documented alternative process followed.
     critical_alternative_process: str | None = Field(default=None, min_length=20, max_length=2000)
 
 
-class EventOut(BaseModel):
+class JourneyEventOut(BaseModel):
     kind: str
     from_status: str | None
     to_status: str | None
@@ -372,14 +372,14 @@ class EventOut(BaseModel):
     occurred_at: datetime
 
 
-class RevisionOut(BaseModel):
+class JourneyRevisionOut(BaseModel):
     revision: int
     changed_fields: list[str]
     created_at: datetime
     created_by_name: str | None
 
 
-class DashboardOut(BaseModel):
+class RemoteSafeDashboardOut(BaseModel):
     scope: str
     by_status: dict[str, int]
     by_outcome: dict[str, int]
@@ -392,12 +392,12 @@ class DashboardOut(BaseModel):
     monitoring_live: bool
 
 
-class PolicyOut(BaseModel):
+class RiskPolicyOut(BaseModel):
     library_version: str
     policy_version: int
     overrides: dict[str, Any]
     effective: dict[str, Any]
 
 
-class PolicyIn(BaseModel):
+class RiskPolicyIn(BaseModel):
     overrides: dict[str, Any]

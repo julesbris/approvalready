@@ -6036,7 +6036,7 @@ export interface components {
          * @description The submitted answers and the assessment worked out from them, in one go.
          */
         AnswersResultOut: {
-            assessment: components["schemas"]["app__modules__assessments__schemas__AssessmentOut"];
+            assessment: components["schemas"]["AssessmentOut"];
             submission: components["schemas"]["SubmissionOut"];
         };
         /** AnswersUpdate */
@@ -6223,13 +6223,6 @@ export interface components {
             /** Title */
             title: string;
         };
-        /** ApproveIn */
-        ApproveIn: {
-            /** Critical Alternative Process */
-            critical_alternative_process?: string | null;
-            /** Note */
-            note?: string | null;
-        };
         /** AreaFunnelOut */
         AreaFunnelOut: {
             /** Accept Rate */
@@ -6291,6 +6284,89 @@ export interface components {
              * @description Two or three sentences on what the assessment found overall.
              */
             summary: string;
+        };
+        /** AssessmentOut */
+        AssessmentOut: {
+            /**
+             * Approval Map
+             * @description Each kind of approval once, strongest certainty first (Required, Likely required, May apply, Not identified).
+             */
+            approval_map: components["schemas"]["ApprovalMapEntryOut"][];
+            /** Approval Requirements */
+            approval_requirements: components["schemas"]["ApprovalRequirementOut"][];
+            /**
+             * Assessed On
+             * Format: date
+             */
+            assessed_on: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Cross Sell
+             * @description Other products the rules suggest (CROSS_SELL findings that matched), each product once.
+             */
+            cross_sell?: components["schemas"]["CrossSellOut"][];
+            /** Engine Version */
+            engine_version: string;
+            /** Evidence Requirements */
+            evidence_requirements: components["schemas"]["EvidenceRequirementOut"][];
+            /**
+             * Fact Labels
+             * @description Question labels for the facts that appear in this assessment.
+             */
+            fact_labels: {
+                [key: string]: string;
+            };
+            /**
+             * Facts
+             * @description The facts assessed (encoded, see rules engine).
+             */
+            facts: {
+                [key: string]: unknown;
+            };
+            /** Facts Hash */
+            facts_hash: string;
+            /** Finding List */
+            finding_list: components["schemas"]["FindingOut"][];
+            /** Findings */
+            findings: number;
+            /**
+             * Grant Matches
+             * @description Grant projects: each grant program's match, best first, with its rounds as they stand today.
+             */
+            grant_matches?: components["schemas"]["GrantMatchOut"][];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Limitations
+             * @description What the applicable rule sets do not check, without repeats.
+             */
+            limitations: string[];
+            overall_confidence: components["schemas"]["Confidence"];
+            /**
+             * Project Id
+             * Format: uuid
+             */
+            project_id: string;
+            /**
+             * Referral Categories
+             * @description Who can help, from every finding that names a kind of professional.
+             */
+            referral_categories: components["schemas"]["ReferralCategoryOut"][];
+            /** Rule Sets */
+            rule_sets: components["schemas"]["RuleSetScopeOut"][];
+            status: components["schemas"]["AssessmentStatus"];
+            /**
+             * Submission Id
+             * Format: uuid
+             */
+            submission_id: string;
         };
         /**
          * AssessmentReviewOut
@@ -6827,8 +6903,8 @@ export interface components {
          * @enum {string}
          */
         CheckTrigger: "SCHEDULED" | "MANUAL";
-        /** CheckinIn */
-        CheckinIn: {
+        /** CheckinPlanIn */
+        CheckinPlanIn: {
             /**
              * Due At
              * Format: date-time
@@ -6843,9 +6919,9 @@ export interface components {
              */
             method: "PHONE_CALL" | "SMS" | "SATELLITE_MESSAGE" | "SATELLITE_CALL" | "UHF" | "APP";
         };
-        /** CheckinOut */
-        CheckinOut: {
-            due: components["schemas"]["LocalTime"];
+        /** CheckinPlanOut */
+        CheckinPlanOut: {
+            due: components["schemas"]["LocalTimeOut"];
             /** Location */
             location: string | null;
             /** Method */
@@ -6853,10 +6929,10 @@ export interface components {
             /** Position */
             position: number;
         };
-        /** CheckinsIn */
-        CheckinsIn: {
+        /** CheckinPlansIn */
+        CheckinPlansIn: {
             /** Checkins */
-            checkins: components["schemas"]["CheckinIn"][];
+            checkins: components["schemas"]["CheckinPlanIn"][];
         };
         /** ChecklistAddIn */
         ChecklistAddIn: {
@@ -7123,8 +7199,8 @@ export interface components {
             /** Site Address */
             site_address?: string | null;
         };
-        /** ControlIn */
-        ControlIn: {
+        /** ControlCheckIn */
+        ControlCheckIn: {
             /** Note */
             note?: string | null;
             /**
@@ -7133,8 +7209,8 @@ export interface components {
              */
             status: "PENDING" | "DONE" | "FAILED" | "NOT_APPLICABLE";
         };
-        /** ControlOut */
-        ControlOut: {
+        /** ControlCheckOut */
+        ControlCheckOut: {
             /** Completed At */
             completed_at: string | null;
             /** Completed By Name */
@@ -7157,6 +7233,11 @@ export interface components {
             required_by: string[];
             /** Status */
             status: string;
+        };
+        /** ControlExceptionIn */
+        ControlExceptionIn: {
+            /** Reason */
+            reason: string;
         };
         /**
          * ConversationOut
@@ -7571,35 +7652,6 @@ export interface components {
             /** Version */
             version: number;
         };
-        /** DashboardOut */
-        DashboardOut: {
-            /** Active */
-            active: number;
-            /** Awaiting My Approval */
-            awaiting_my_approval: number;
-            /** By Outcome */
-            by_outcome: {
-                [key: string]: number;
-            };
-            /** By Status */
-            by_status: {
-                [key: string]: number;
-            };
-            /** Completion Rate */
-            completion_rate: number | null;
-            /** Critical Control Failures */
-            critical_control_failures: number;
-            /** Monitoring Live */
-            monitoring_live: boolean;
-            /** Repeated Hazards */
-            repeated_hazards: {
-                [key: string]: unknown;
-            }[];
-            /** Scope */
-            scope: string;
-            /** Upcoming */
-            upcoming: components["schemas"]["JourneySummaryOut"][];
-        };
         /**
          * Decision
          * @enum {string}
@@ -7798,33 +7850,11 @@ export interface components {
          * @enum {string}
          */
         EmailStatus: "NOT_REQUESTED" | "PENDING" | "SENT" | "FAILED";
-        /** EmergencyContact */
-        EmergencyContact: {
-            /**
-             * Escalation Order
-             * @default 1
-             */
-            escalation_order: number;
-            /** Name */
-            name: string;
-            /** Phone */
-            phone: string;
-            /** Relationship */
-            relationship?: string | null;
-        };
         /**
          * EmployeeBand
          * @enum {string}
          */
         EmployeeBand: "NONE" | "1_4" | "5_19" | "20_199" | "200_PLUS";
-        /** EnableIn */
-        EnableIn: {
-            /**
-             * Default Timezone
-             * @default Australia/Brisbane
-             */
-            default_timezone: string;
-        };
         /** EnquiryCreate */
         EnquiryCreate: {
             /** Channel */
@@ -7912,30 +7942,6 @@ export interface components {
                 [key: string]: unknown;
             };
         };
-        /** EventOut */
-        EventOut: {
-            /** Actor Name */
-            actor_name: string | null;
-            /** Details */
-            details: {
-                [key: string]: unknown;
-            };
-            /** From Status */
-            from_status: string | null;
-            /** Kind */
-            kind: string;
-            /** Note */
-            note: string | null;
-            /**
-             * Occurred At
-             * Format: date-time
-             */
-            occurred_at: string;
-            /** Revision */
-            revision: number;
-            /** To Status */
-            to_status: string | null;
-        };
         /**
          * EventStatus
          * @enum {string}
@@ -7962,6 +7968,35 @@ export interface components {
              */
             uploaded_document_id: string;
         };
+        /** EvidenceOut */
+        EvidenceOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            document: components["schemas"]["DocumentOut"];
+            /**
+             * Evidence Requirement Id
+             * Format: uuid
+             */
+            evidence_requirement_id: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Note */
+            note: string | null;
+            /**
+             * Review Note
+             * @description The reviewer's reason for their decision.
+             */
+            review_note: string | null;
+            /** Reviewed At */
+            reviewed_at: string | null;
+            status: components["schemas"]["EvidenceStatus"];
+        };
         /** EvidenceRequirementOut */
         EvidenceRequirementOut: {
             confidence: components["schemas"]["Confidence"];
@@ -7987,11 +8022,6 @@ export interface components {
          * @enum {string}
          */
         EvidenceStatus: "SUBMITTED" | "ACCEPTED" | "REJECTED";
-        /** ExceptionIn */
-        ExceptionIn: {
-            /** Reason */
-            reason: string;
-        };
         /** ExplanationIn */
         ExplanationIn: {
             /**
@@ -8012,19 +8042,6 @@ export interface components {
              * @description Null: unlimited.
              */
             limit: number | null;
-        };
-        /** FeatureOut */
-        FeatureOut: {
-            /** Available */
-            available: boolean;
-            /** Built */
-            built: boolean;
-            /** Key */
-            key: string;
-            /** Label */
-            label: string;
-            /** Tier */
-            tier: string;
         };
         /** FeeOut */
         FeeOut: {
@@ -8053,6 +8070,53 @@ export interface components {
             included_limit: number | null;
             /** Included Used */
             included_used: number;
+        };
+        /** FindingOut */
+        FindingOut: {
+            confidence: components["schemas"]["Confidence"];
+            /** Confidence Reasons */
+            confidence_reasons: string[];
+            /** Detail */
+            detail: string | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Missing Facts */
+            missing_facts: string[];
+            outcome_type: components["schemas"]["OutcomeType"] | null;
+            /**
+             * Referral Categories
+             * @description Kinds of professional who can help.
+             */
+            referral_categories: string[];
+            result: components["schemas"]["RuleResult"];
+            /** Rule Key */
+            rule_key: string;
+            /**
+             * Rule Set Id
+             * Format: uuid
+             */
+            rule_set_id: string;
+            /** Rule Title */
+            rule_title: string;
+            /**
+             * Rule Version Id
+             * Format: uuid
+             */
+            rule_version_id: string;
+            /** Sources */
+            sources: components["schemas"]["FindingSourceOut"][];
+            /** Title */
+            title: string | null;
+            /**
+             * Trace
+             * @description Leaf-by-leaf evaluation of the rule.
+             */
+            trace: {
+                [key: string]: unknown;
+            };
         };
         /** FindingSourceOut */
         FindingSourceOut: {
@@ -8486,6 +8550,39 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /** HazardFindingOut */
+        HazardFindingOut: {
+            /** Consequence */
+            consequence: number;
+            /** Control Labels */
+            control_labels: string[];
+            /** Controls */
+            controls: string[];
+            /** Description */
+            description: string;
+            /** Evidence */
+            evidence: components["schemas"]["RiskEvidenceOut"][];
+            /** Hazard Key */
+            hazard_key: string;
+            /** Initial Rating */
+            initial_rating: string;
+            /** Initial Score */
+            initial_score: number;
+            /** Likelihood */
+            likelihood: number;
+            /** Outstanding */
+            outstanding: string[];
+            /** Residual Likelihood */
+            residual_likelihood: number;
+            /** Residual Rating */
+            residual_rating: string;
+            /** Residual Score */
+            residual_score: number;
+            /** Responsible */
+            responsible: string;
+            /** Title */
+            title: string;
+        };
         /** InspectionCreate */
         InspectionCreate: {
             kind: components["schemas"]["InspectionKind"];
@@ -8714,6 +8811,72 @@ export interface components {
              */
             status: "ok" | "error";
         };
+        /** JourneyApproveIn */
+        JourneyApproveIn: {
+            /** Critical Alternative Process */
+            critical_alternative_process?: string | null;
+            /** Note */
+            note?: string | null;
+        };
+        /** JourneyAssessmentOut */
+        JourneyAssessmentOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Data Sources */
+            data_sources: string[];
+            /** Disclaimer */
+            disclaimer: string;
+            /** Facts */
+            facts: {
+                [key: string]: unknown;
+            };
+            /** Findings */
+            findings: components["schemas"]["HazardFindingOut"][];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Library Version */
+            library_version: string;
+            /** Outcome */
+            outcome: string;
+            /** Pathway */
+            pathway: string;
+            /** Policy Version */
+            policy_version: number;
+            /** Revision */
+            revision: number;
+            /** Stop Conditions */
+            stop_conditions: components["schemas"]["StopConditionOut"][];
+        };
+        /** JourneyEventOut */
+        JourneyEventOut: {
+            /** Actor Name */
+            actor_name: string | null;
+            /** Details */
+            details: {
+                [key: string]: unknown;
+            };
+            /** From Status */
+            from_status: string | null;
+            /** Kind */
+            kind: string;
+            /** Note */
+            note: string | null;
+            /**
+             * Occurred At
+             * Format: date-time
+             */
+            occurred_at: string;
+            /** Revision */
+            revision: number;
+            /** To Status */
+            to_status: string | null;
+        };
         /**
          * JourneyIn
          * @description Create, or (PATCH) change any subset of, a journey plan.
@@ -8762,7 +8925,7 @@ export interface components {
             /** Destination */
             destination: string;
             /** Emergency Contacts */
-            emergency_contacts?: components["schemas"]["EmergencyContact"][];
+            emergency_contacts?: components["schemas"]["RsEmergencyContact"][];
             /** Monitor User Id */
             monitor_user_id?: string | null;
             /**
@@ -8825,14 +8988,14 @@ export interface components {
             alternative_route: string | null;
             /** Approved At */
             approved_at: string | null;
-            approved_by: components["schemas"]["PersonOut"] | null;
+            approved_by: components["schemas"]["RsPersonOut"] | null;
             /** Approved Outcome */
             approved_outcome: string | null;
             /** Approved Revision */
             approved_revision: number | null;
             /** Archived */
             archived: boolean;
-            arrives: components["schemas"]["LocalTime"];
+            arrives: components["schemas"]["LocalTimeOut"];
             /** Blockers */
             blockers: string[];
             /** Can Edit */
@@ -8842,7 +9005,7 @@ export interface components {
             /** Checkin Interval Minutes */
             checkin_interval_minutes: number | null;
             /** Checkins */
-            checkins: components["schemas"]["CheckinOut"][];
+            checkins: components["schemas"]["CheckinPlanOut"][];
             /** Comms Mobile */
             comms_mobile: boolean;
             /** Comms Notes */
@@ -8859,19 +9022,19 @@ export interface components {
             contingency_plan: string | null;
             /** Critical Alternative Process */
             critical_alternative_process: string | null;
-            departs: components["schemas"]["LocalTime"];
+            departs: components["schemas"]["LocalTimeOut"];
             /** Destination */
             destination: string;
             /** Emergency Contacts */
-            emergency_contacts: components["schemas"]["EmergencyContact"][];
+            emergency_contacts: components["schemas"]["RsEmergencyContact"][];
             /**
              * Id
              * Format: uuid
              */
             id: string;
             /** Legs */
-            legs: components["schemas"]["LegOut"][];
-            monitor: components["schemas"]["PersonOut"] | null;
+            legs: components["schemas"]["RouteLegOut"][];
+            monitor: components["schemas"]["RsPersonOut"] | null;
             /** Multi Day */
             multi_day: boolean;
             /** Occupants */
@@ -8886,7 +9049,7 @@ export interface components {
             remoteness: string;
             /** Return Journey */
             return_journey: boolean;
-            returns: components["schemas"]["LocalTime"] | null;
+            returns: components["schemas"]["LocalTimeOut"] | null;
             /** Revision */
             revision: number;
             /** Risk Outcome */
@@ -8897,7 +9060,7 @@ export interface components {
             status: string;
             /** Submitted At */
             submitted_at: string | null;
-            supervisor: components["schemas"]["PersonOut"] | null;
+            supervisor: components["schemas"]["RsPersonOut"] | null;
             /** Team */
             team: string | null;
             /** Timezone */
@@ -8921,7 +9084,7 @@ export interface components {
             weather_source: string | null;
             /** Weather Warnings */
             weather_warnings: string | null;
-            worker: components["schemas"]["PersonOut"];
+            worker: components["schemas"]["RsPersonOut"];
             /** Worker Phone */
             worker_phone: string | null;
         };
@@ -8952,7 +9115,7 @@ export interface components {
             /** Destination */
             destination?: string | null;
             /** Emergency Contacts */
-            emergency_contacts?: components["schemas"]["EmergencyContact"][] | null;
+            emergency_contacts?: components["schemas"]["RsEmergencyContact"][] | null;
             /** Monitor User Id */
             monitor_user_id?: string | null;
             /** Occupants */
@@ -8990,12 +9153,26 @@ export interface components {
             /** Worker Phone */
             worker_phone?: string | null;
         };
+        /** JourneyRevisionOut */
+        JourneyRevisionOut: {
+            /** Changed Fields */
+            changed_fields: string[];
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Created By Name */
+            created_by_name: string | null;
+            /** Revision */
+            revision: number;
+        };
         /** JourneySummaryOut */
         JourneySummaryOut: {
             /** Archived */
             archived: boolean;
-            arrives: components["schemas"]["LocalTime"];
-            departs: components["schemas"]["LocalTime"];
+            arrives: components["schemas"]["LocalTimeOut"];
+            departs: components["schemas"]["LocalTimeOut"];
             /** Destination */
             destination: string;
             /**
@@ -9013,7 +9190,7 @@ export interface components {
             risk_outcome: string | null;
             /** Status */
             status: string;
-            supervisor: components["schemas"]["PersonOut"] | null;
+            supervisor: components["schemas"]["RsPersonOut"] | null;
             /** Title */
             title: string;
             /**
@@ -9021,7 +9198,12 @@ export interface components {
              * Format: date-time
              */
             updated_at: string;
-            worker: components["schemas"]["PersonOut"];
+            worker: components["schemas"]["RsPersonOut"];
+        };
+        /** JourneyTransitionIn */
+        JourneyTransitionIn: {
+            /** Note */
+            note?: string | null;
         };
         /** LeadDeclineIn */
         LeadDeclineIn: {
@@ -9172,111 +9354,6 @@ export interface components {
             /** Title */
             title: string;
         };
-        /** LegIn */
-        LegIn: {
-            /**
-             * Arrives At
-             * Format: date-time
-             */
-            arrives_at: string;
-            /** Closure Observed At */
-            closure_observed_at?: string | null;
-            /** Closure Source */
-            closure_source?: string | null;
-            /**
-             * Closure Status
-             * @default NOT_CHECKED
-             * @enum {string}
-             */
-            closure_status: "NOT_CHECKED" | "NONE_KNOWN" | "RESTRICTED" | "CONFIRMED_CLOSED";
-            /**
-             * Crossings
-             * @default 0
-             */
-            crossings: number;
-            /**
-             * Departs At
-             * Format: date-time
-             */
-            departs_at: string;
-            /** Destination */
-            destination: string;
-            /** Destination Lat */
-            destination_lat?: number | null;
-            /** Destination Lng */
-            destination_lng?: number | null;
-            /** Distance Km */
-            distance_km?: number | null;
-            /**
-             * Mobile Coverage
-             * @default UNKNOWN
-             * @enum {string}
-             */
-            mobile_coverage: "UNKNOWN" | "GOOD" | "PATCHY" | "NONE";
-            /** Notes */
-            notes?: string | null;
-            /** Origin */
-            origin: string;
-            /** Origin Lat */
-            origin_lat?: number | null;
-            /** Origin Lng */
-            origin_lng?: number | null;
-            /**
-             * Road Surface
-             * @default UNKNOWN
-             * @enum {string}
-             */
-            road_surface: "UNKNOWN" | "SEALED" | "MIXED" | "UNSEALED";
-            /** Timezone */
-            timezone?: string | null;
-        };
-        /** LegOut */
-        LegOut: {
-            arrives: components["schemas"]["LocalTime"];
-            /** Closure Observed At */
-            closure_observed_at: string | null;
-            /** Closure Source */
-            closure_source: string | null;
-            /** Closure Status */
-            closure_status: string;
-            /** Crossings */
-            crossings: number;
-            departs: components["schemas"]["LocalTime"];
-            /** Destination */
-            destination: string;
-            /** Destination Lat */
-            destination_lat: number | null;
-            /** Destination Lng */
-            destination_lng: number | null;
-            /** Distance Km */
-            distance_km: number | null;
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /** Mobile Coverage */
-            mobile_coverage: string;
-            /** Notes */
-            notes: string | null;
-            /** Origin */
-            origin: string;
-            /** Origin Lat */
-            origin_lat: number | null;
-            /** Origin Lng */
-            origin_lng: number | null;
-            /** Position */
-            position: number;
-            /** Road Surface */
-            road_surface: string;
-            /** Timezone */
-            timezone: string;
-        };
-        /** LegsIn */
-        LegsIn: {
-            /** Legs */
-            legs: components["schemas"]["LegIn"][];
-        };
         /** ListingDetailsOut */
         ListingDetailsOut: {
             /** Bathrooms */
@@ -9357,8 +9434,8 @@ export interface components {
              */
             status: "ok";
         };
-        /** LocalTime */
-        LocalTime: {
+        /** LocalTimeOut */
+        LocalTimeOut: {
             /** Local */
             local: string;
             /** Timezone */
@@ -10816,16 +10893,6 @@ export interface components {
          * @enum {string}
          */
         PaymentStatus: "PENDING" | "PAID" | "FAILED" | "CANCELLED" | "REFUNDED" | "PARTIALLY_REFUNDED";
-        /** PersonOut */
-        PersonOut: {
-            /** Display Name */
-            display_name: string;
-            /**
-             * User Id
-             * Format: uuid
-             */
-            user_id: string;
-        };
         /** PlanCheckoutIn */
         PlanCheckoutIn: {
             /**
@@ -11189,12 +11256,15 @@ export interface components {
          * @enum {string}
          */
         PolicyDocument: "terms" | "privacy";
-        /** PolicyIn */
-        PolicyIn: {
-            /** Overrides */
-            overrides: {
-                [key: string]: unknown;
-            };
+        /** PolicyOut */
+        PolicyOut: {
+            document: components["schemas"]["PolicyDocument"];
+            /** Path */
+            path: string;
+            /** Title */
+            title: string;
+            /** Version */
+            version: string;
         };
         /** PostEditIn */
         PostEditIn: {
@@ -12496,6 +12566,43 @@ export interface components {
             /** Title */
             title: string;
         };
+        /** RemoteSafeDashboardOut */
+        RemoteSafeDashboardOut: {
+            /** Active */
+            active: number;
+            /** Awaiting My Approval */
+            awaiting_my_approval: number;
+            /** By Outcome */
+            by_outcome: {
+                [key: string]: number;
+            };
+            /** By Status */
+            by_status: {
+                [key: string]: number;
+            };
+            /** Completion Rate */
+            completion_rate: number | null;
+            /** Critical Control Failures */
+            critical_control_failures: number;
+            /** Monitoring Live */
+            monitoring_live: boolean;
+            /** Repeated Hazards */
+            repeated_hazards: {
+                [key: string]: unknown;
+            }[];
+            /** Scope */
+            scope: string;
+            /** Upcoming */
+            upcoming: components["schemas"]["JourneySummaryOut"][];
+        };
+        /** RemoteSafeEnableIn */
+        RemoteSafeEnableIn: {
+            /**
+             * Default Timezone
+             * @default Australia/Brisbane
+             */
+            default_timezone: string;
+        };
         /** RemoteSafeMeOut */
         RemoteSafeMeOut: {
             /** Can Administer */
@@ -12509,7 +12616,7 @@ export interface components {
             /** Enabled */
             enabled: boolean;
             /** Features */
-            features: components["schemas"]["FeatureOut"][];
+            features: components["schemas"]["RsFeatureOut"][];
             /** Limitations */
             limitations: string[];
             /** Org Admin */
@@ -12916,9 +13023,9 @@ export interface components {
          * @description Everything the assigned reviewer can see.
          */
         ReviewerWorkspaceOut: {
-            assessment: components["schemas"]["app__modules__assessments__schemas__AssessmentOut"];
+            assessment: components["schemas"]["AssessmentOut"];
             /** Evidence */
-            evidence: components["schemas"]["app__modules__documents__schemas__EvidenceOut"][];
+            evidence: components["schemas"]["EvidenceOut"][];
             project_status: components["schemas"]["ProjectStatus"];
             review: components["schemas"]["ReviewOut"];
             /** Shared Documents */
@@ -12929,24 +13036,38 @@ export interface components {
              */
             tasks: components["schemas"]["TaskOut"][];
         };
-        /** RevisionOut */
-        RevisionOut: {
-            /** Changed Fields */
-            changed_fields: string[];
-            /**
-             * Created At
-             * Format: date-time
-             */
-            created_at: string;
-            /** Created By Name */
-            created_by_name: string | null;
-            /** Revision */
-            revision: number;
+        /** RiskEvidenceOut */
+        RiskEvidenceOut: {
+            /** Fact */
+            fact: string;
+            /** Observed At */
+            observed_at: string | null;
+            /** Source */
+            source: string;
+            /** Value */
+            value: string;
         };
-        /** RolesIn */
-        RolesIn: {
-            /** Roles */
-            roles: ("WORKER" | "SUPERVISOR" | "MONITOR" | "WHS_ADMIN")[];
+        /** RiskPolicyIn */
+        RiskPolicyIn: {
+            /** Overrides */
+            overrides: {
+                [key: string]: unknown;
+            };
+        };
+        /** RiskPolicyOut */
+        RiskPolicyOut: {
+            /** Effective */
+            effective: {
+                [key: string]: unknown;
+            };
+            /** Library Version */
+            library_version: string;
+            /** Overrides */
+            overrides: {
+                [key: string]: unknown;
+            };
+            /** Policy Version */
+            policy_version: number;
         };
         /** RoundSourceOut */
         RoundSourceOut: {
@@ -12968,6 +13089,138 @@ export interface components {
          * @enum {string}
          */
         RoundStatus: "UPCOMING" | "OPEN" | "PAUSED" | "CLOSED";
+        /** RouteLegIn */
+        RouteLegIn: {
+            /**
+             * Arrives At
+             * Format: date-time
+             */
+            arrives_at: string;
+            /** Closure Observed At */
+            closure_observed_at?: string | null;
+            /** Closure Source */
+            closure_source?: string | null;
+            /**
+             * Closure Status
+             * @default NOT_CHECKED
+             * @enum {string}
+             */
+            closure_status: "NOT_CHECKED" | "NONE_KNOWN" | "RESTRICTED" | "CONFIRMED_CLOSED";
+            /**
+             * Crossings
+             * @default 0
+             */
+            crossings: number;
+            /**
+             * Departs At
+             * Format: date-time
+             */
+            departs_at: string;
+            /** Destination */
+            destination: string;
+            /** Destination Lat */
+            destination_lat?: number | null;
+            /** Destination Lng */
+            destination_lng?: number | null;
+            /** Distance Km */
+            distance_km?: number | null;
+            /**
+             * Mobile Coverage
+             * @default UNKNOWN
+             * @enum {string}
+             */
+            mobile_coverage: "UNKNOWN" | "GOOD" | "PATCHY" | "NONE";
+            /** Notes */
+            notes?: string | null;
+            /** Origin */
+            origin: string;
+            /** Origin Lat */
+            origin_lat?: number | null;
+            /** Origin Lng */
+            origin_lng?: number | null;
+            /**
+             * Road Surface
+             * @default UNKNOWN
+             * @enum {string}
+             */
+            road_surface: "UNKNOWN" | "SEALED" | "MIXED" | "UNSEALED";
+            /** Timezone */
+            timezone?: string | null;
+        };
+        /** RouteLegOut */
+        RouteLegOut: {
+            arrives: components["schemas"]["LocalTimeOut"];
+            /** Closure Observed At */
+            closure_observed_at: string | null;
+            /** Closure Source */
+            closure_source: string | null;
+            /** Closure Status */
+            closure_status: string;
+            /** Crossings */
+            crossings: number;
+            departs: components["schemas"]["LocalTimeOut"];
+            /** Destination */
+            destination: string;
+            /** Destination Lat */
+            destination_lat: number | null;
+            /** Destination Lng */
+            destination_lng: number | null;
+            /** Distance Km */
+            distance_km: number | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Mobile Coverage */
+            mobile_coverage: string;
+            /** Notes */
+            notes: string | null;
+            /** Origin */
+            origin: string;
+            /** Origin Lat */
+            origin_lat: number | null;
+            /** Origin Lng */
+            origin_lng: number | null;
+            /** Position */
+            position: number;
+            /** Road Surface */
+            road_surface: string;
+            /** Timezone */
+            timezone: string;
+        };
+        /** RouteLegsIn */
+        RouteLegsIn: {
+            /** Legs */
+            legs: components["schemas"]["RouteLegIn"][];
+        };
+        /** RsEmergencyContact */
+        RsEmergencyContact: {
+            /**
+             * Escalation Order
+             * @default 1
+             */
+            escalation_order: number;
+            /** Name */
+            name: string;
+            /** Phone */
+            phone: string;
+            /** Relationship */
+            relationship?: string | null;
+        };
+        /** RsFeatureOut */
+        RsFeatureOut: {
+            /** Available */
+            available: boolean;
+            /** Built */
+            built: boolean;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /** Tier */
+            tier: string;
+        };
         /** RsMemberOut */
         RsMemberOut: {
             /** Display Name */
@@ -12983,6 +13236,70 @@ export interface components {
              * Format: uuid
              */
             user_id: string;
+        };
+        /** RsPersonOut */
+        RsPersonOut: {
+            /** Display Name */
+            display_name: string;
+            /**
+             * User Id
+             * Format: uuid
+             */
+            user_id: string;
+        };
+        /** RsRolesIn */
+        RsRolesIn: {
+            /** Roles */
+            roles: ("WORKER" | "SUPERVISOR" | "MONITOR" | "WHS_ADMIN")[];
+        };
+        /** RsTierIn */
+        RsTierIn: {
+            /**
+             * Tier
+             * @enum {string}
+             */
+            tier: "STARTER" | "PROFESSIONAL" | "ENTERPRISE";
+        };
+        /** RsVehicleIn */
+        RsVehicleIn: {
+            /**
+             * Active
+             * @default true
+             */
+            active: boolean;
+            /** Fuel Range Km */
+            fuel_range_km?: number | null;
+            /** Name */
+            name: string;
+            /** Notes */
+            notes?: string | null;
+            /** Registration */
+            registration: string;
+            /** Vehicle Type */
+            vehicle_type: string;
+        };
+        /** RsVehicleOut */
+        RsVehicleOut: {
+            /**
+             * Active
+             * @default true
+             */
+            active: boolean;
+            /** Fuel Range Km */
+            fuel_range_km?: number | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Name */
+            name: string;
+            /** Notes */
+            notes?: string | null;
+            /** Registration */
+            registration: string;
+            /** Vehicle Type */
+            vehicle_type: string;
         };
         /** RuleCreate */
         RuleCreate: {
@@ -13469,7 +13786,7 @@ export interface components {
             /** Permissions */
             permissions: string[];
             /** Policies To Accept */
-            policies_to_accept?: components["schemas"]["app__modules__privacy__schemas__PolicyOut"][];
+            policies_to_accept?: components["schemas"]["PolicyOut"][];
             /**
              * Staff Mfa Required
              * @default false
@@ -14182,10 +14499,10 @@ export interface components {
             /** To Status */
             to_status: string;
         };
-        /** StopOut */
-        StopOut: {
+        /** StopConditionOut */
+        StopConditionOut: {
             /** Evidence */
-            evidence: components["schemas"]["app__modules__remotesafe__schemas__EvidenceOut"][];
+            evidence: components["schemas"]["RiskEvidenceOut"][];
             /** Key */
             key: string;
             /** Reason */
@@ -14644,14 +14961,6 @@ export interface components {
                 [key: string]: unknown;
             };
         };
-        /** TierIn */
-        TierIn: {
-            /**
-             * Tier
-             * @enum {string}
-             */
-            tier: "STARTER" | "PROFESSIONAL" | "ENTERPRISE";
-        };
         /**
          * Timing
          * @enum {string}
@@ -14666,11 +14975,6 @@ export interface components {
         TokenRequest: {
             /** Token */
             token: string;
-        };
-        /** TransitionIn */
-        TransitionIn: {
-            /** Note */
-            note?: string | null;
         };
         /**
          * TurnoverBand
@@ -14744,47 +15048,6 @@ export interface components {
          * @enum {string}
          */
         VaultCategory: "DISCLOSURE_STATEMENT" | "TITLE_SEARCH" | "REGISTERED_PLAN" | "BODY_CORPORATE" | "POOL_SAFETY" | "SMOKE_ALARMS" | "BUILDING_APPROVAL" | "RATES_AND_WATER" | "PLANNING_AND_ZONING" | "TENANCY" | "CONTRACT" | "OTHER";
-        /** VehicleIn */
-        VehicleIn: {
-            /**
-             * Active
-             * @default true
-             */
-            active: boolean;
-            /** Fuel Range Km */
-            fuel_range_km?: number | null;
-            /** Name */
-            name: string;
-            /** Notes */
-            notes?: string | null;
-            /** Registration */
-            registration: string;
-            /** Vehicle Type */
-            vehicle_type: string;
-        };
-        /** VehicleOut */
-        VehicleOut: {
-            /**
-             * Active
-             * @default true
-             */
-            active: boolean;
-            /** Fuel Range Km */
-            fuel_range_km?: number | null;
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /** Name */
-            name: string;
-            /** Notes */
-            notes?: string | null;
-            /** Registration */
-            registration: string;
-            /** Vehicle Type */
-            vehicle_type: string;
-        };
         /**
          * VerificationStatus
          * @enum {string}
@@ -14939,273 +15202,10 @@ export interface components {
             /** Items */
             items: components["schemas"]["LeftItemOut"][];
         };
-        /** AssessmentOut */
-        app__modules__assessments__schemas__AssessmentOut: {
-            /**
-             * Approval Map
-             * @description Each kind of approval once, strongest certainty first (Required, Likely required, May apply, Not identified).
-             */
-            approval_map: components["schemas"]["ApprovalMapEntryOut"][];
-            /** Approval Requirements */
-            approval_requirements: components["schemas"]["ApprovalRequirementOut"][];
-            /**
-             * Assessed On
-             * Format: date
-             */
-            assessed_on: string;
-            /**
-             * Created At
-             * Format: date-time
-             */
-            created_at: string;
-            /**
-             * Cross Sell
-             * @description Other products the rules suggest (CROSS_SELL findings that matched), each product once.
-             */
-            cross_sell?: components["schemas"]["CrossSellOut"][];
-            /** Engine Version */
-            engine_version: string;
-            /** Evidence Requirements */
-            evidence_requirements: components["schemas"]["EvidenceRequirementOut"][];
-            /**
-             * Fact Labels
-             * @description Question labels for the facts that appear in this assessment.
-             */
-            fact_labels: {
-                [key: string]: string;
-            };
-            /**
-             * Facts
-             * @description The facts assessed (encoded, see rules engine).
-             */
-            facts: {
-                [key: string]: unknown;
-            };
-            /** Facts Hash */
-            facts_hash: string;
-            /** Finding List */
-            finding_list: components["schemas"]["app__modules__assessments__schemas__FindingOut"][];
-            /** Findings */
-            findings: number;
-            /**
-             * Grant Matches
-             * @description Grant projects: each grant program's match, best first, with its rounds as they stand today.
-             */
-            grant_matches?: components["schemas"]["GrantMatchOut"][];
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /**
-             * Limitations
-             * @description What the applicable rule sets do not check, without repeats.
-             */
-            limitations: string[];
-            overall_confidence: components["schemas"]["Confidence"];
-            /**
-             * Project Id
-             * Format: uuid
-             */
-            project_id: string;
-            /**
-             * Referral Categories
-             * @description Who can help, from every finding that names a kind of professional.
-             */
-            referral_categories: components["schemas"]["ReferralCategoryOut"][];
-            /** Rule Sets */
-            rule_sets: components["schemas"]["RuleSetScopeOut"][];
-            status: components["schemas"]["AssessmentStatus"];
-            /**
-             * Submission Id
-             * Format: uuid
-             */
-            submission_id: string;
-        };
-        /** FindingOut */
-        app__modules__assessments__schemas__FindingOut: {
-            confidence: components["schemas"]["Confidence"];
-            /** Confidence Reasons */
-            confidence_reasons: string[];
-            /** Detail */
-            detail: string | null;
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /** Missing Facts */
-            missing_facts: string[];
-            outcome_type: components["schemas"]["OutcomeType"] | null;
-            /**
-             * Referral Categories
-             * @description Kinds of professional who can help.
-             */
-            referral_categories: string[];
-            result: components["schemas"]["RuleResult"];
-            /** Rule Key */
-            rule_key: string;
-            /**
-             * Rule Set Id
-             * Format: uuid
-             */
-            rule_set_id: string;
-            /** Rule Title */
-            rule_title: string;
-            /**
-             * Rule Version Id
-             * Format: uuid
-             */
-            rule_version_id: string;
-            /** Sources */
-            sources: components["schemas"]["FindingSourceOut"][];
-            /** Title */
-            title: string | null;
-            /**
-             * Trace
-             * @description Leaf-by-leaf evaluation of the rule.
-             */
-            trace: {
-                [key: string]: unknown;
-            };
-        };
-        /** EvidenceOut */
-        app__modules__documents__schemas__EvidenceOut: {
-            /**
-             * Created At
-             * Format: date-time
-             */
-            created_at: string;
-            document: components["schemas"]["DocumentOut"];
-            /**
-             * Evidence Requirement Id
-             * Format: uuid
-             */
-            evidence_requirement_id: string;
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /** Note */
-            note: string | null;
-            /**
-             * Review Note
-             * @description The reviewer's reason for their decision.
-             */
-            review_note: string | null;
-            /** Reviewed At */
-            reviewed_at: string | null;
-            status: components["schemas"]["EvidenceStatus"];
-        };
         /** RefundIn */
         app__modules__leads__schemas__RefundIn: {
             /** Note */
             note: string;
-        };
-        /** PolicyOut */
-        app__modules__privacy__schemas__PolicyOut: {
-            document: components["schemas"]["PolicyDocument"];
-            /** Path */
-            path: string;
-            /** Title */
-            title: string;
-            /** Version */
-            version: string;
-        };
-        /** AssessmentOut */
-        app__modules__remotesafe__schemas__AssessmentOut: {
-            /**
-             * Created At
-             * Format: date-time
-             */
-            created_at: string;
-            /** Data Sources */
-            data_sources: string[];
-            /** Disclaimer */
-            disclaimer: string;
-            /** Facts */
-            facts: {
-                [key: string]: unknown;
-            };
-            /** Findings */
-            findings: components["schemas"]["app__modules__remotesafe__schemas__FindingOut"][];
-            /**
-             * Id
-             * Format: uuid
-             */
-            id: string;
-            /** Library Version */
-            library_version: string;
-            /** Outcome */
-            outcome: string;
-            /** Pathway */
-            pathway: string;
-            /** Policy Version */
-            policy_version: number;
-            /** Revision */
-            revision: number;
-            /** Stop Conditions */
-            stop_conditions: components["schemas"]["StopOut"][];
-        };
-        /** EvidenceOut */
-        app__modules__remotesafe__schemas__EvidenceOut: {
-            /** Fact */
-            fact: string;
-            /** Observed At */
-            observed_at: string | null;
-            /** Source */
-            source: string;
-            /** Value */
-            value: string;
-        };
-        /** FindingOut */
-        app__modules__remotesafe__schemas__FindingOut: {
-            /** Consequence */
-            consequence: number;
-            /** Control Labels */
-            control_labels: string[];
-            /** Controls */
-            controls: string[];
-            /** Description */
-            description: string;
-            /** Evidence */
-            evidence: components["schemas"]["app__modules__remotesafe__schemas__EvidenceOut"][];
-            /** Hazard Key */
-            hazard_key: string;
-            /** Initial Rating */
-            initial_rating: string;
-            /** Initial Score */
-            initial_score: number;
-            /** Likelihood */
-            likelihood: number;
-            /** Outstanding */
-            outstanding: string[];
-            /** Residual Likelihood */
-            residual_likelihood: number;
-            /** Residual Rating */
-            residual_rating: string;
-            /** Residual Score */
-            residual_score: number;
-            /** Responsible */
-            responsible: string;
-            /** Title */
-            title: string;
-        };
-        /** PolicyOut */
-        app__modules__remotesafe__schemas__PolicyOut: {
-            /** Effective */
-            effective: {
-                [key: string]: unknown;
-            };
-            /** Library Version */
-            library_version: string;
-            /** Overrides */
-            overrides: {
-                [key: string]: unknown;
-            };
-            /** Policy Version */
-            policy_version: number;
         };
         /** RefundIn */
         app__modules__review__schemas__RefundIn: {
@@ -16903,7 +16903,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["TierIn"];
+                "application/json": components["schemas"]["RsTierIn"];
             };
         };
         responses: {
@@ -18830,7 +18830,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["app__modules__privacy__schemas__PolicyOut"][];
+                    "application/json": components["schemas"]["PolicyOut"][];
                 };
             };
             /** @description Validation Error */
@@ -19649,7 +19649,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["app__modules__assessments__schemas__AssessmentOut"];
+                    "application/json": components["schemas"]["AssessmentOut"];
                 };
             };
             /** @description Validation Error */
@@ -19821,7 +19821,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["app__modules__documents__schemas__EvidenceOut"][];
+                    "application/json": components["schemas"]["EvidenceOut"][];
                 };
             };
             /** @description Validation Error */
@@ -20479,7 +20479,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["app__modules__documents__schemas__EvidenceOut"];
+                    "application/json": components["schemas"]["EvidenceOut"];
                 };
             };
             /** @description Validation Error */
@@ -22308,7 +22308,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["app__modules__assessments__schemas__AssessmentOut"];
+                    "application/json": components["schemas"]["AssessmentOut"];
                 };
             };
             /** @description Validation Error */
@@ -24639,7 +24639,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["DashboardOut"];
+                    "application/json": components["schemas"]["RemoteSafeDashboardOut"];
                 };
             };
             /** @description Validation Error */
@@ -24664,7 +24664,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["EnableIn"];
+                "application/json": components["schemas"]["RemoteSafeEnableIn"];
             };
         };
         responses: {
@@ -24869,7 +24869,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["ApproveIn"];
+                "application/json": components["schemas"]["JourneyApproveIn"];
             };
         };
         responses: {
@@ -24911,7 +24911,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["app__modules__remotesafe__schemas__AssessmentOut"];
+                    "application/json": components["schemas"]["JourneyAssessmentOut"];
                 };
             };
             /** @description Validation Error */
@@ -24937,7 +24937,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["CheckinsIn"];
+                "application/json": components["schemas"]["CheckinPlansIn"];
             };
         };
         responses: {
@@ -24979,7 +24979,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ControlOut"][];
+                    "application/json": components["schemas"]["ControlCheckOut"][];
                 };
             };
             /** @description Validation Error */
@@ -25006,7 +25006,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["ControlIn"];
+                "application/json": components["schemas"]["ControlCheckIn"];
             };
         };
         responses: {
@@ -25016,7 +25016,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ControlOut"][];
+                    "application/json": components["schemas"]["ControlCheckOut"][];
                 };
             };
             /** @description Validation Error */
@@ -25043,7 +25043,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["ExceptionIn"];
+                "application/json": components["schemas"]["ControlExceptionIn"];
             };
         };
         responses: {
@@ -25053,7 +25053,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ControlOut"][];
+                    "application/json": components["schemas"]["ControlCheckOut"][];
                 };
             };
             /** @description Validation Error */
@@ -25085,7 +25085,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["EventOut"][];
+                    "application/json": components["schemas"]["JourneyEventOut"][];
                 };
             };
             /** @description Validation Error */
@@ -25143,7 +25143,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["LegsIn"];
+                "application/json": components["schemas"]["RouteLegsIn"];
             };
         };
         responses: {
@@ -25215,7 +25215,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["RevisionOut"][];
+                    "application/json": components["schemas"]["JourneyRevisionOut"][];
                 };
             };
             /** @description Validation Error */
@@ -25242,7 +25242,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["TransitionIn"];
+                "application/json": components["schemas"]["JourneyTransitionIn"];
             };
         };
         responses: {
@@ -25309,7 +25309,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["RolesIn"];
+                "application/json": components["schemas"]["RsRolesIn"];
             };
         };
         responses: {
@@ -25348,7 +25348,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["app__modules__remotesafe__schemas__PolicyOut"];
+                    "application/json": components["schemas"]["RiskPolicyOut"];
                 };
             };
             /** @description Validation Error */
@@ -25373,7 +25373,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["PolicyIn"];
+                "application/json": components["schemas"]["RiskPolicyIn"];
             };
         };
         responses: {
@@ -25383,7 +25383,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["app__modules__remotesafe__schemas__PolicyOut"];
+                    "application/json": components["schemas"]["RiskPolicyOut"];
                 };
             };
             /** @description Validation Error */
@@ -25414,7 +25414,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["VehicleOut"][];
+                    "application/json": components["schemas"]["RsVehicleOut"][];
                 };
             };
             /** @description Validation Error */
@@ -25439,7 +25439,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["VehicleIn"];
+                "application/json": components["schemas"]["RsVehicleIn"];
             };
         };
         responses: {
@@ -25449,7 +25449,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["VehicleOut"];
+                    "application/json": components["schemas"]["RsVehicleOut"];
                 };
             };
             /** @description Validation Error */
@@ -25475,7 +25475,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["VehicleIn"];
+                "application/json": components["schemas"]["RsVehicleIn"];
             };
         };
         responses: {
@@ -25485,7 +25485,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["VehicleOut"];
+                    "application/json": components["schemas"]["RsVehicleOut"];
                 };
             };
             /** @description Validation Error */
