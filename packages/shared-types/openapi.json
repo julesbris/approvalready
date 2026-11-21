@@ -3849,6 +3849,96 @@
         "title": "CheckTrigger",
         "type": "string"
       },
+      "CheckinPlanIn": {
+        "properties": {
+          "due_at": {
+            "format": "date-time",
+            "title": "Due At",
+            "type": "string"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Location"
+          },
+          "method": {
+            "default": "PHONE_CALL",
+            "enum": [
+              "PHONE_CALL",
+              "SMS",
+              "SATELLITE_MESSAGE",
+              "SATELLITE_CALL",
+              "UHF",
+              "APP"
+            ],
+            "title": "Method",
+            "type": "string"
+          }
+        },
+        "required": [
+          "due_at"
+        ],
+        "title": "CheckinPlanIn",
+        "type": "object"
+      },
+      "CheckinPlanOut": {
+        "properties": {
+          "due": {
+            "$ref": "#/components/schemas/LocalTimeOut"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Location"
+          },
+          "method": {
+            "title": "Method",
+            "type": "string"
+          },
+          "position": {
+            "title": "Position",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "position",
+          "due",
+          "location",
+          "method"
+        ],
+        "title": "CheckinPlanOut",
+        "type": "object"
+      },
+      "CheckinPlansIn": {
+        "properties": {
+          "checkins": {
+            "items": {
+              "$ref": "#/components/schemas/CheckinPlanIn"
+            },
+            "maxItems": 100,
+            "title": "Checkins",
+            "type": "array"
+          }
+        },
+        "required": [
+          "checkins"
+        ],
+        "title": "CheckinPlansIn",
+        "type": "object"
+      },
       "ChecklistAddIn": {
         "properties": {
           "key": {
@@ -4553,6 +4643,154 @@
           }
         },
         "title": "ContactIn",
+        "type": "object"
+      },
+      "ControlCheckIn": {
+        "properties": {
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "status": {
+            "enum": [
+              "PENDING",
+              "DONE",
+              "FAILED",
+              "NOT_APPLICABLE"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "ControlCheckIn",
+        "type": "object"
+      },
+      "ControlCheckOut": {
+        "properties": {
+          "completed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "completed_by_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed By Name"
+          },
+          "exception_by_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Exception By Name"
+          },
+          "exception_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Exception Reason"
+          },
+          "group": {
+            "title": "Group",
+            "type": "string"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "mandatory": {
+            "title": "Mandatory",
+            "type": "boolean"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "required_by": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Required By",
+            "type": "array"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "group",
+          "label",
+          "mandatory",
+          "required_by",
+          "status",
+          "note",
+          "completed_by_name",
+          "completed_at",
+          "exception_reason",
+          "exception_by_name"
+        ],
+        "title": "ControlCheckOut",
+        "type": "object"
+      },
+      "ControlExceptionIn": {
+        "properties": {
+          "reason": {
+            "maxLength": 1000,
+            "minLength": 10,
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "title": "ControlExceptionIn",
         "type": "object"
       },
       "ConversationOut": {
@@ -8453,6 +8691,101 @@
         "title": "HTTPValidationError",
         "type": "object"
       },
+      "HazardFindingOut": {
+        "properties": {
+          "consequence": {
+            "title": "Consequence",
+            "type": "integer"
+          },
+          "control_labels": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Control Labels",
+            "type": "array"
+          },
+          "controls": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Controls",
+            "type": "array"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/RiskEvidenceOut"
+            },
+            "title": "Evidence",
+            "type": "array"
+          },
+          "hazard_key": {
+            "title": "Hazard Key",
+            "type": "string"
+          },
+          "initial_rating": {
+            "title": "Initial Rating",
+            "type": "string"
+          },
+          "initial_score": {
+            "title": "Initial Score",
+            "type": "integer"
+          },
+          "likelihood": {
+            "title": "Likelihood",
+            "type": "integer"
+          },
+          "outstanding": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Outstanding",
+            "type": "array"
+          },
+          "residual_likelihood": {
+            "title": "Residual Likelihood",
+            "type": "integer"
+          },
+          "residual_rating": {
+            "title": "Residual Rating",
+            "type": "string"
+          },
+          "residual_score": {
+            "title": "Residual Score",
+            "type": "integer"
+          },
+          "responsible": {
+            "title": "Responsible",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "hazard_key",
+          "title",
+          "description",
+          "evidence",
+          "likelihood",
+          "consequence",
+          "initial_score",
+          "initial_rating",
+          "controls",
+          "control_labels",
+          "residual_likelihood",
+          "residual_score",
+          "residual_rating",
+          "responsible",
+          "outstanding"
+        ],
+        "title": "HazardFindingOut",
+        "type": "object"
+      },
       "InspectionCreate": {
         "additionalProperties": false,
         "properties": {
@@ -9090,6 +9423,1515 @@
           "status"
         ],
         "title": "JobsResponse",
+        "type": "object"
+      },
+      "JourneyApproveIn": {
+        "properties": {
+          "critical_alternative_process": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "minLength": 20,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Critical Alternative Process"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "title": "JourneyApproveIn",
+        "type": "object"
+      },
+      "JourneyAssessmentOut": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "data_sources": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Data Sources",
+            "type": "array"
+          },
+          "disclaimer": {
+            "title": "Disclaimer",
+            "type": "string"
+          },
+          "facts": {
+            "additionalProperties": true,
+            "title": "Facts",
+            "type": "object"
+          },
+          "findings": {
+            "items": {
+              "$ref": "#/components/schemas/HazardFindingOut"
+            },
+            "title": "Findings",
+            "type": "array"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "library_version": {
+            "title": "Library Version",
+            "type": "string"
+          },
+          "outcome": {
+            "title": "Outcome",
+            "type": "string"
+          },
+          "pathway": {
+            "title": "Pathway",
+            "type": "string"
+          },
+          "policy_version": {
+            "title": "Policy Version",
+            "type": "integer"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          },
+          "stop_conditions": {
+            "items": {
+              "$ref": "#/components/schemas/StopConditionOut"
+            },
+            "title": "Stop Conditions",
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "revision",
+          "outcome",
+          "pathway",
+          "library_version",
+          "policy_version",
+          "facts",
+          "stop_conditions",
+          "findings",
+          "created_at",
+          "disclaimer",
+          "data_sources"
+        ],
+        "title": "JourneyAssessmentOut",
+        "type": "object"
+      },
+      "JourneyEventOut": {
+        "properties": {
+          "actor_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Actor Name"
+          },
+          "details": {
+            "additionalProperties": true,
+            "title": "Details",
+            "type": "object"
+          },
+          "from_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "From Status"
+          },
+          "kind": {
+            "title": "Kind",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "occurred_at": {
+            "format": "date-time",
+            "title": "Occurred At",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          },
+          "to_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "To Status"
+          }
+        },
+        "required": [
+          "kind",
+          "from_status",
+          "to_status",
+          "revision",
+          "actor_name",
+          "note",
+          "details",
+          "occurred_at"
+        ],
+        "title": "JourneyEventOut",
+        "type": "object"
+      },
+      "JourneyIn": {
+        "description": "Create, or (PATCH) change any subset of, a journey plan.",
+        "properties": {
+          "activities": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Activities"
+          },
+          "alternative_route": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Alternative Route"
+          },
+          "arrives_at": {
+            "format": "date-time",
+            "title": "Arrives At",
+            "type": "string"
+          },
+          "checkin_interval_minutes": {
+            "anyOf": [
+              {
+                "maximum": 1440.0,
+                "minimum": 15.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checkin Interval Minutes"
+          },
+          "comms_mobile": {
+            "default": true,
+            "title": "Comms Mobile",
+            "type": "boolean"
+          },
+          "comms_notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comms Notes"
+          },
+          "comms_sat_messenger": {
+            "default": false,
+            "title": "Comms Sat Messenger",
+            "type": "boolean"
+          },
+          "comms_sat_phone": {
+            "default": false,
+            "title": "Comms Sat Phone",
+            "type": "boolean"
+          },
+          "comms_uhf": {
+            "default": false,
+            "title": "Comms Uhf",
+            "type": "boolean"
+          },
+          "contingency_plan": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contingency Plan"
+          },
+          "departs_at": {
+            "format": "date-time",
+            "title": "Departs At",
+            "type": "string"
+          },
+          "destination": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Destination",
+            "type": "string"
+          },
+          "emergency_contacts": {
+            "items": {
+              "$ref": "#/components/schemas/RsEmergencyContact"
+            },
+            "maxItems": 10,
+            "title": "Emergency Contacts",
+            "type": "array"
+          },
+          "monitor_user_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Monitor User Id"
+          },
+          "occupants": {
+            "default": 1,
+            "maximum": 60.0,
+            "minimum": 1.0,
+            "title": "Occupants",
+            "type": "integer"
+          },
+          "origin": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Origin",
+            "type": "string"
+          },
+          "purpose": {
+            "maxLength": 1000,
+            "minLength": 1,
+            "title": "Purpose",
+            "type": "string"
+          },
+          "remoteness": {
+            "default": "UNKNOWN",
+            "enum": [
+              "UNKNOWN",
+              "NOT_REMOTE",
+              "REMOTE",
+              "VERY_REMOTE"
+            ],
+            "title": "Remoteness",
+            "type": "string"
+          },
+          "return_journey": {
+            "default": false,
+            "title": "Return Journey",
+            "type": "boolean"
+          },
+          "returns_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Returns At"
+          },
+          "supervisor_user_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supervisor User Id"
+          },
+          "team": {
+            "anyOf": [
+              {
+                "maxLength": 120,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team"
+          },
+          "timezone": {
+            "default": "Australia/Brisbane",
+            "title": "Timezone",
+            "type": "string"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Title",
+            "type": "string"
+          },
+          "vehicle_description": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Description"
+          },
+          "vehicle_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Id"
+          },
+          "vehicle_registration": {
+            "anyOf": [
+              {
+                "maxLength": 20,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Registration"
+          },
+          "weather_checked_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Checked At"
+          },
+          "weather_source": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Source"
+          },
+          "weather_warnings": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Warnings"
+          },
+          "worker_phone": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Worker Phone"
+          },
+          "worker_user_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Worker User Id"
+          }
+        },
+        "required": [
+          "title",
+          "purpose",
+          "origin",
+          "destination",
+          "departs_at",
+          "arrives_at"
+        ],
+        "title": "JourneyIn",
+        "type": "object"
+      },
+      "JourneyOut": {
+        "properties": {
+          "activities": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Activities"
+          },
+          "allowed_actions": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Allowed Actions",
+            "type": "array"
+          },
+          "alternative_route": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Alternative Route"
+          },
+          "approved_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approved At"
+          },
+          "approved_by": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RsPersonOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "approved_outcome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approved Outcome"
+          },
+          "approved_revision": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approved Revision"
+          },
+          "archived": {
+            "title": "Archived",
+            "type": "boolean"
+          },
+          "arrives": {
+            "$ref": "#/components/schemas/LocalTimeOut"
+          },
+          "blockers": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Blockers",
+            "type": "array"
+          },
+          "can_edit": {
+            "title": "Can Edit",
+            "type": "boolean"
+          },
+          "cancelled_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cancelled At"
+          },
+          "checkin_interval_minutes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checkin Interval Minutes"
+          },
+          "checkins": {
+            "items": {
+              "$ref": "#/components/schemas/CheckinPlanOut"
+            },
+            "title": "Checkins",
+            "type": "array"
+          },
+          "comms_mobile": {
+            "title": "Comms Mobile",
+            "type": "boolean"
+          },
+          "comms_notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comms Notes"
+          },
+          "comms_sat_messenger": {
+            "title": "Comms Sat Messenger",
+            "type": "boolean"
+          },
+          "comms_sat_phone": {
+            "title": "Comms Sat Phone",
+            "type": "boolean"
+          },
+          "comms_uhf": {
+            "title": "Comms Uhf",
+            "type": "boolean"
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At"
+          },
+          "contingency_plan": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contingency Plan"
+          },
+          "critical_alternative_process": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Critical Alternative Process"
+          },
+          "departs": {
+            "$ref": "#/components/schemas/LocalTimeOut"
+          },
+          "destination": {
+            "title": "Destination",
+            "type": "string"
+          },
+          "emergency_contacts": {
+            "items": {
+              "$ref": "#/components/schemas/RsEmergencyContact"
+            },
+            "title": "Emergency Contacts",
+            "type": "array"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "legs": {
+            "items": {
+              "$ref": "#/components/schemas/RouteLegOut"
+            },
+            "title": "Legs",
+            "type": "array"
+          },
+          "monitor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RsPersonOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "multi_day": {
+            "title": "Multi Day",
+            "type": "boolean"
+          },
+          "occupants": {
+            "title": "Occupants",
+            "type": "integer"
+          },
+          "origin": {
+            "title": "Origin",
+            "type": "string"
+          },
+          "purpose": {
+            "title": "Purpose",
+            "type": "string"
+          },
+          "reference": {
+            "title": "Reference",
+            "type": "string"
+          },
+          "remoteness": {
+            "title": "Remoteness",
+            "type": "string"
+          },
+          "return_journey": {
+            "title": "Return Journey",
+            "type": "boolean"
+          },
+          "returns": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LocalTimeOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          },
+          "risk_outcome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Risk Outcome"
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "submitted_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Submitted At"
+          },
+          "supervisor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RsPersonOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "team": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team"
+          },
+          "timezone": {
+            "title": "Timezone",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "vehicle_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Description"
+          },
+          "vehicle_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Id"
+          },
+          "vehicle_registration": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Registration"
+          },
+          "weather_checked_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Checked At"
+          },
+          "weather_source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Source"
+          },
+          "weather_warnings": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Warnings"
+          },
+          "worker": {
+            "$ref": "#/components/schemas/RsPersonOut"
+          },
+          "worker_phone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Worker Phone"
+          }
+        },
+        "required": [
+          "id",
+          "reference",
+          "title",
+          "status",
+          "revision",
+          "risk_outcome",
+          "worker",
+          "supervisor",
+          "origin",
+          "destination",
+          "departs",
+          "arrives",
+          "archived",
+          "updated_at",
+          "purpose",
+          "activities",
+          "monitor",
+          "team",
+          "worker_phone",
+          "remoteness",
+          "return_journey",
+          "timezone",
+          "returns",
+          "multi_day",
+          "vehicle_id",
+          "vehicle_description",
+          "vehicle_registration",
+          "occupants",
+          "comms_mobile",
+          "comms_uhf",
+          "comms_sat_phone",
+          "comms_sat_messenger",
+          "comms_notes",
+          "emergency_contacts",
+          "checkin_interval_minutes",
+          "alternative_route",
+          "contingency_plan",
+          "weather_checked_at",
+          "weather_source",
+          "weather_warnings",
+          "approved_revision",
+          "approved_outcome",
+          "approved_by",
+          "approved_at",
+          "critical_alternative_process",
+          "submitted_at",
+          "started_at",
+          "completed_at",
+          "cancelled_at",
+          "legs",
+          "checkins",
+          "allowed_actions",
+          "can_edit",
+          "blockers"
+        ],
+        "title": "JourneyOut",
+        "type": "object"
+      },
+      "JourneyPatch": {
+        "properties": {
+          "activities": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Activities"
+          },
+          "alternative_route": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Alternative Route"
+          },
+          "arrives_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Arrives At"
+          },
+          "checkin_interval_minutes": {
+            "anyOf": [
+              {
+                "maximum": 1440.0,
+                "minimum": 15.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checkin Interval Minutes"
+          },
+          "comms_mobile": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comms Mobile"
+          },
+          "comms_notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comms Notes"
+          },
+          "comms_sat_messenger": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comms Sat Messenger"
+          },
+          "comms_sat_phone": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comms Sat Phone"
+          },
+          "comms_uhf": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comms Uhf"
+          },
+          "contingency_plan": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contingency Plan"
+          },
+          "departs_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Departs At"
+          },
+          "destination": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destination"
+          },
+          "emergency_contacts": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/RsEmergencyContact"
+                },
+                "maxItems": 10,
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Emergency Contacts"
+          },
+          "monitor_user_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Monitor User Id"
+          },
+          "occupants": {
+            "anyOf": [
+              {
+                "maximum": 60.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Occupants"
+          },
+          "origin": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Origin"
+          },
+          "purpose": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Purpose"
+          },
+          "remoteness": {
+            "anyOf": [
+              {
+                "enum": [
+                  "UNKNOWN",
+                  "NOT_REMOTE",
+                  "REMOTE",
+                  "VERY_REMOTE"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Remoteness"
+          },
+          "return_journey": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Return Journey"
+          },
+          "returns_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Returns At"
+          },
+          "supervisor_user_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supervisor User Id"
+          },
+          "team": {
+            "anyOf": [
+              {
+                "maxLength": 120,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Team"
+          },
+          "timezone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timezone"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "vehicle_description": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Description"
+          },
+          "vehicle_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Id"
+          },
+          "vehicle_registration": {
+            "anyOf": [
+              {
+                "maxLength": 20,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vehicle Registration"
+          },
+          "weather_checked_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Checked At"
+          },
+          "weather_source": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Source"
+          },
+          "weather_warnings": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Warnings"
+          },
+          "worker_phone": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Worker Phone"
+          }
+        },
+        "title": "JourneyPatch",
+        "type": "object"
+      },
+      "JourneyRevisionOut": {
+        "properties": {
+          "changed_fields": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Changed Fields",
+            "type": "array"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "created_by_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created By Name"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "revision",
+          "changed_fields",
+          "created_at",
+          "created_by_name"
+        ],
+        "title": "JourneyRevisionOut",
+        "type": "object"
+      },
+      "JourneySummaryOut": {
+        "properties": {
+          "archived": {
+            "title": "Archived",
+            "type": "boolean"
+          },
+          "arrives": {
+            "$ref": "#/components/schemas/LocalTimeOut"
+          },
+          "departs": {
+            "$ref": "#/components/schemas/LocalTimeOut"
+          },
+          "destination": {
+            "title": "Destination",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "origin": {
+            "title": "Origin",
+            "type": "string"
+          },
+          "reference": {
+            "title": "Reference",
+            "type": "string"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          },
+          "risk_outcome": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Risk Outcome"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "supervisor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RsPersonOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "worker": {
+            "$ref": "#/components/schemas/RsPersonOut"
+          }
+        },
+        "required": [
+          "id",
+          "reference",
+          "title",
+          "status",
+          "revision",
+          "risk_outcome",
+          "worker",
+          "supervisor",
+          "origin",
+          "destination",
+          "departs",
+          "arrives",
+          "archived",
+          "updated_at"
+        ],
+        "title": "JourneySummaryOut",
+        "type": "object"
+      },
+      "JourneyTransitionIn": {
+        "properties": {
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 2000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "title": "JourneyTransitionIn",
         "type": "object"
       },
       "LeadDeclineIn": {
@@ -9753,6 +11595,30 @@
           }
         },
         "title": "LiveResponse",
+        "type": "object"
+      },
+      "LocalTimeOut": {
+        "properties": {
+          "local": {
+            "title": "Local",
+            "type": "string"
+          },
+          "timezone": {
+            "title": "Timezone",
+            "type": "string"
+          },
+          "utc": {
+            "format": "date-time",
+            "title": "Utc",
+            "type": "string"
+          }
+        },
+        "required": [
+          "utc",
+          "local",
+          "timezone"
+        ],
+        "title": "LocalTimeOut",
         "type": "object"
       },
       "LocationIn": {
@@ -18734,6 +20600,177 @@
         "title": "ReminderOut",
         "type": "object"
       },
+      "RemoteSafeDashboardOut": {
+        "properties": {
+          "active": {
+            "title": "Active",
+            "type": "integer"
+          },
+          "awaiting_my_approval": {
+            "title": "Awaiting My Approval",
+            "type": "integer"
+          },
+          "by_outcome": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "By Outcome",
+            "type": "object"
+          },
+          "by_status": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "By Status",
+            "type": "object"
+          },
+          "completion_rate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completion Rate"
+          },
+          "critical_control_failures": {
+            "title": "Critical Control Failures",
+            "type": "integer"
+          },
+          "monitoring_live": {
+            "title": "Monitoring Live",
+            "type": "boolean"
+          },
+          "repeated_hazards": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Repeated Hazards",
+            "type": "array"
+          },
+          "scope": {
+            "title": "Scope",
+            "type": "string"
+          },
+          "upcoming": {
+            "items": {
+              "$ref": "#/components/schemas/JourneySummaryOut"
+            },
+            "title": "Upcoming",
+            "type": "array"
+          }
+        },
+        "required": [
+          "scope",
+          "by_status",
+          "by_outcome",
+          "awaiting_my_approval",
+          "active",
+          "critical_control_failures",
+          "repeated_hazards",
+          "completion_rate",
+          "upcoming",
+          "monitoring_live"
+        ],
+        "title": "RemoteSafeDashboardOut",
+        "type": "object"
+      },
+      "RemoteSafeEnableIn": {
+        "properties": {
+          "default_timezone": {
+            "default": "Australia/Brisbane",
+            "title": "Default Timezone",
+            "type": "string"
+          }
+        },
+        "title": "RemoteSafeEnableIn",
+        "type": "object"
+      },
+      "RemoteSafeMeOut": {
+        "properties": {
+          "can_administer": {
+            "title": "Can Administer",
+            "type": "boolean"
+          },
+          "can_approve": {
+            "title": "Can Approve",
+            "type": "boolean"
+          },
+          "can_plan": {
+            "title": "Can Plan",
+            "type": "boolean"
+          },
+          "default_timezone": {
+            "title": "Default Timezone",
+            "type": "string"
+          },
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "features": {
+            "items": {
+              "$ref": "#/components/schemas/RsFeatureOut"
+            },
+            "title": "Features",
+            "type": "array"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Limitations",
+            "type": "array"
+          },
+          "org_admin": {
+            "title": "Org Admin",
+            "type": "boolean"
+          },
+          "roles": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Roles",
+            "type": "array"
+          },
+          "tier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tier"
+          },
+          "timezones": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Timezones",
+            "type": "object"
+          }
+        },
+        "required": [
+          "enabled",
+          "tier",
+          "roles",
+          "org_admin",
+          "can_plan",
+          "can_approve",
+          "can_administer",
+          "features",
+          "limitations",
+          "timezones",
+          "default_timezone"
+        ],
+        "title": "RemoteSafeMeOut",
+        "type": "object"
+      },
       "RentPeriod": {
         "enum": [
           "WEEK",
@@ -19962,6 +21999,85 @@
         "title": "ReviewerWorkspaceOut",
         "type": "object"
       },
+      "RiskEvidenceOut": {
+        "properties": {
+          "fact": {
+            "title": "Fact",
+            "type": "string"
+          },
+          "observed_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observed At"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "value": {
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "fact",
+          "value",
+          "source",
+          "observed_at"
+        ],
+        "title": "RiskEvidenceOut",
+        "type": "object"
+      },
+      "RiskPolicyIn": {
+        "properties": {
+          "overrides": {
+            "additionalProperties": true,
+            "title": "Overrides",
+            "type": "object"
+          }
+        },
+        "required": [
+          "overrides"
+        ],
+        "title": "RiskPolicyIn",
+        "type": "object"
+      },
+      "RiskPolicyOut": {
+        "properties": {
+          "effective": {
+            "additionalProperties": true,
+            "title": "Effective",
+            "type": "object"
+          },
+          "library_version": {
+            "title": "Library Version",
+            "type": "string"
+          },
+          "overrides": {
+            "additionalProperties": true,
+            "title": "Overrides",
+            "type": "object"
+          },
+          "policy_version": {
+            "title": "Policy Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "library_version",
+          "policy_version",
+          "overrides",
+          "effective"
+        ],
+        "title": "RiskPolicyOut",
+        "type": "object"
+      },
       "RoundSourceOut": {
         "properties": {
           "citation": {
@@ -20001,6 +22117,663 @@
         ],
         "title": "RoundStatus",
         "type": "string"
+      },
+      "RouteLegIn": {
+        "properties": {
+          "arrives_at": {
+            "format": "date-time",
+            "title": "Arrives At",
+            "type": "string"
+          },
+          "closure_observed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Closure Observed At"
+          },
+          "closure_source": {
+            "anyOf": [
+              {
+                "maxLength": 200,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Closure Source"
+          },
+          "closure_status": {
+            "default": "NOT_CHECKED",
+            "enum": [
+              "NOT_CHECKED",
+              "NONE_KNOWN",
+              "RESTRICTED",
+              "CONFIRMED_CLOSED"
+            ],
+            "title": "Closure Status",
+            "type": "string"
+          },
+          "crossings": {
+            "default": 0,
+            "maximum": 500.0,
+            "minimum": 0.0,
+            "title": "Crossings",
+            "type": "integer"
+          },
+          "departs_at": {
+            "format": "date-time",
+            "title": "Departs At",
+            "type": "string"
+          },
+          "destination": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Destination",
+            "type": "string"
+          },
+          "destination_lat": {
+            "anyOf": [
+              {
+                "maximum": -9.0,
+                "minimum": -45.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destination Lat"
+          },
+          "destination_lng": {
+            "anyOf": [
+              {
+                "maximum": 155.0,
+                "minimum": 112.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destination Lng"
+          },
+          "distance_km": {
+            "anyOf": [
+              {
+                "exclusiveMaximum": 10000.0,
+                "exclusiveMinimum": 0.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Distance Km"
+          },
+          "mobile_coverage": {
+            "default": "UNKNOWN",
+            "enum": [
+              "UNKNOWN",
+              "GOOD",
+              "PATCHY",
+              "NONE"
+            ],
+            "title": "Mobile Coverage",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "origin": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Origin",
+            "type": "string"
+          },
+          "origin_lat": {
+            "anyOf": [
+              {
+                "maximum": -9.0,
+                "minimum": -45.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Origin Lat"
+          },
+          "origin_lng": {
+            "anyOf": [
+              {
+                "maximum": 155.0,
+                "minimum": 112.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Origin Lng"
+          },
+          "road_surface": {
+            "default": "UNKNOWN",
+            "enum": [
+              "UNKNOWN",
+              "SEALED",
+              "MIXED",
+              "UNSEALED"
+            ],
+            "title": "Road Surface",
+            "type": "string"
+          },
+          "timezone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timezone"
+          }
+        },
+        "required": [
+          "origin",
+          "destination",
+          "departs_at",
+          "arrives_at"
+        ],
+        "title": "RouteLegIn",
+        "type": "object"
+      },
+      "RouteLegOut": {
+        "properties": {
+          "arrives": {
+            "$ref": "#/components/schemas/LocalTimeOut"
+          },
+          "closure_observed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Closure Observed At"
+          },
+          "closure_source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Closure Source"
+          },
+          "closure_status": {
+            "title": "Closure Status",
+            "type": "string"
+          },
+          "crossings": {
+            "title": "Crossings",
+            "type": "integer"
+          },
+          "departs": {
+            "$ref": "#/components/schemas/LocalTimeOut"
+          },
+          "destination": {
+            "title": "Destination",
+            "type": "string"
+          },
+          "destination_lat": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destination Lat"
+          },
+          "destination_lng": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Destination Lng"
+          },
+          "distance_km": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Distance Km"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "mobile_coverage": {
+            "title": "Mobile Coverage",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "origin": {
+            "title": "Origin",
+            "type": "string"
+          },
+          "origin_lat": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Origin Lat"
+          },
+          "origin_lng": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Origin Lng"
+          },
+          "position": {
+            "title": "Position",
+            "type": "integer"
+          },
+          "road_surface": {
+            "title": "Road Surface",
+            "type": "string"
+          },
+          "timezone": {
+            "title": "Timezone",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "position",
+          "origin",
+          "destination",
+          "origin_lat",
+          "origin_lng",
+          "destination_lat",
+          "destination_lng",
+          "timezone",
+          "departs",
+          "arrives",
+          "distance_km",
+          "road_surface",
+          "mobile_coverage",
+          "crossings",
+          "closure_status",
+          "closure_source",
+          "closure_observed_at",
+          "notes"
+        ],
+        "title": "RouteLegOut",
+        "type": "object"
+      },
+      "RouteLegsIn": {
+        "properties": {
+          "legs": {
+            "items": {
+              "$ref": "#/components/schemas/RouteLegIn"
+            },
+            "maxItems": 30,
+            "title": "Legs",
+            "type": "array"
+          }
+        },
+        "required": [
+          "legs"
+        ],
+        "title": "RouteLegsIn",
+        "type": "object"
+      },
+      "RsEmergencyContact": {
+        "properties": {
+          "escalation_order": {
+            "default": 1,
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "Escalation Order",
+            "type": "integer"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "phone": {
+            "maxLength": 40,
+            "minLength": 3,
+            "title": "Phone",
+            "type": "string"
+          },
+          "relationship": {
+            "anyOf": [
+              {
+                "maxLength": 80,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Relationship"
+          }
+        },
+        "required": [
+          "name",
+          "phone"
+        ],
+        "title": "RsEmergencyContact",
+        "type": "object"
+      },
+      "RsFeatureOut": {
+        "properties": {
+          "available": {
+            "title": "Available",
+            "type": "boolean"
+          },
+          "built": {
+            "title": "Built",
+            "type": "boolean"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "label": {
+            "title": "Label",
+            "type": "string"
+          },
+          "tier": {
+            "title": "Tier",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "label",
+          "tier",
+          "available",
+          "built"
+        ],
+        "title": "RsFeatureOut",
+        "type": "object"
+      },
+      "RsMemberOut": {
+        "properties": {
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "email": {
+            "title": "Email",
+            "type": "string"
+          },
+          "org_admin": {
+            "title": "Org Admin",
+            "type": "boolean"
+          },
+          "roles": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Roles",
+            "type": "array"
+          },
+          "user_id": {
+            "format": "uuid",
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "display_name",
+          "email",
+          "roles",
+          "org_admin"
+        ],
+        "title": "RsMemberOut",
+        "type": "object"
+      },
+      "RsPersonOut": {
+        "properties": {
+          "display_name": {
+            "title": "Display Name",
+            "type": "string"
+          },
+          "user_id": {
+            "format": "uuid",
+            "title": "User Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "display_name"
+        ],
+        "title": "RsPersonOut",
+        "type": "object"
+      },
+      "RsRolesIn": {
+        "properties": {
+          "roles": {
+            "items": {
+              "enum": [
+                "WORKER",
+                "SUPERVISOR",
+                "MONITOR",
+                "WHS_ADMIN"
+              ],
+              "type": "string"
+            },
+            "maxItems": 4,
+            "title": "Roles",
+            "type": "array"
+          }
+        },
+        "required": [
+          "roles"
+        ],
+        "title": "RsRolesIn",
+        "type": "object"
+      },
+      "RsTierIn": {
+        "properties": {
+          "tier": {
+            "enum": [
+              "STARTER",
+              "PROFESSIONAL",
+              "ENTERPRISE"
+            ],
+            "title": "Tier",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tier"
+        ],
+        "title": "RsTierIn",
+        "type": "object"
+      },
+      "RsVehicleIn": {
+        "properties": {
+          "active": {
+            "default": true,
+            "title": "Active",
+            "type": "boolean"
+          },
+          "fuel_range_km": {
+            "anyOf": [
+              {
+                "maximum": 5000.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fuel Range Km"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "registration": {
+            "maxLength": 20,
+            "minLength": 1,
+            "title": "Registration",
+            "type": "string"
+          },
+          "vehicle_type": {
+            "maxLength": 60,
+            "minLength": 1,
+            "title": "Vehicle Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "registration",
+          "vehicle_type"
+        ],
+        "title": "RsVehicleIn",
+        "type": "object"
+      },
+      "RsVehicleOut": {
+        "properties": {
+          "active": {
+            "default": true,
+            "title": "Active",
+            "type": "boolean"
+          },
+          "fuel_range_km": {
+            "anyOf": [
+              {
+                "maximum": 5000.0,
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fuel Range Km"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "maxLength": 1000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "registration": {
+            "maxLength": 20,
+            "minLength": 1,
+            "title": "Registration",
+            "type": "string"
+          },
+          "vehicle_type": {
+            "maxLength": 60,
+            "minLength": 1,
+            "title": "Vehicle Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "registration",
+          "vehicle_type",
+          "id"
+        ],
+        "title": "RsVehicleOut",
+        "type": "object"
       },
       "RuleCreate": {
         "additionalProperties": false,
@@ -23545,6 +26318,32 @@
           "occurred_at"
         ],
         "title": "StatusEventOut",
+        "type": "object"
+      },
+      "StopConditionOut": {
+        "properties": {
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/RiskEvidenceOut"
+            },
+            "title": "Evidence",
+            "type": "array"
+          },
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "reason",
+          "evidence"
+        ],
+        "title": "StopConditionOut",
         "type": "object"
       },
       "StripeEventOut": {
@@ -28224,6 +31023,53 @@
         "summary": "Quiet Projects",
         "tags": [
           "admin: progress"
+        ]
+      }
+    },
+    "/v1/admin/remotesafe/organisations/{organisation_id}/tier": {
+      "put": {
+        "description": "No payment in Stage 1: staff set the plan by hand.",
+        "operationId": "set_tier_v1_admin_remotesafe_organisations__organisation_id__tier_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RsTierIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Tier",
+        "tags": [
+          "remotesafe"
         ]
       }
     },
@@ -40392,6 +43238,1535 @@
         "summary": "Property Report Pdf",
         "tags": [
           "property-report"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe": {
+      "get": {
+        "operationId": "me_v1_organisations__organisation_id__remotesafe_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteSafeMeOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Me",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/dashboard": {
+      "get": {
+        "operationId": "dashboard_v1_organisations__organisation_id__remotesafe_dashboard_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteSafeDashboardOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Dashboard",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/enable": {
+      "post": {
+        "operationId": "enable_v1_organisations__organisation_id__remotesafe_enable_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoteSafeEnableIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemoteSafeMeOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Enable",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys": {
+      "get": {
+        "operationId": "list_journeys_v1_organisations__organisation_id__remotesafe_journeys_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          },
+          {
+            "in": "query",
+            "name": "awaiting_me",
+            "required": false,
+            "schema": {
+              "default": false,
+              "title": "Awaiting Me",
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "include_archived",
+            "required": false,
+            "schema": {
+              "default": false,
+              "title": "Include Archived",
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/JourneySummaryOut"
+                  },
+                  "title": "Response List Journeys V1 Organisations  Organisation Id  Remotesafe Journeys Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Journeys",
+        "tags": [
+          "remotesafe"
+        ]
+      },
+      "post": {
+        "operationId": "create_journey_v1_organisations__organisation_id__remotesafe_journeys_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JourneyIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Journey",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys.csv": {
+      "get": {
+        "operationId": "export_csv_v1_organisations__organisation_id__remotesafe_journeys_csv_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Export Csv",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}": {
+      "get": {
+        "operationId": "get_journey_v1_organisations__organisation_id__remotesafe_journeys__journey_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Journey",
+        "tags": [
+          "remotesafe"
+        ]
+      },
+      "patch": {
+        "operationId": "update_journey_v1_organisations__organisation_id__remotesafe_journeys__journey_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JourneyPatch"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Journey",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/approve": {
+      "post": {
+        "operationId": "approve_v1_organisations__organisation_id__remotesafe_journeys__journey_id__approve_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JourneyApproveIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Approve",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/assessment": {
+      "get": {
+        "operationId": "get_assessment_v1_organisations__organisation_id__remotesafe_journeys__journey_id__assessment_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyAssessmentOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Assessment",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/checkins": {
+      "put": {
+        "operationId": "put_checkins_v1_organisations__organisation_id__remotesafe_journeys__journey_id__checkins_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckinPlansIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Checkins",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/controls": {
+      "get": {
+        "operationId": "get_controls_v1_organisations__organisation_id__remotesafe_journeys__journey_id__controls_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ControlCheckOut"
+                  },
+                  "title": "Response Get Controls V1 Organisations  Organisation Id  Remotesafe Journeys  Journey Id  Controls Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Controls",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/controls/{key}": {
+      "put": {
+        "operationId": "put_control_v1_organisations__organisation_id__remotesafe_journeys__journey_id__controls__key__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "title": "Key",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ControlCheckIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ControlCheckOut"
+                  },
+                  "title": "Response Put Control V1 Organisations  Organisation Id  Remotesafe Journeys  Journey Id  Controls  Key  Put",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Control",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/controls/{key}/exception": {
+      "post": {
+        "operationId": "control_exception_v1_organisations__organisation_id__remotesafe_journeys__journey_id__controls__key__exception_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "title": "Key",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ControlExceptionIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ControlCheckOut"
+                  },
+                  "title": "Response Control Exception V1 Organisations  Organisation Id  Remotesafe Journeys  Journey Id  Controls  Key  Exception Post",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Control Exception",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/events": {
+      "get": {
+        "operationId": "get_events_v1_organisations__organisation_id__remotesafe_journeys__journey_id__events_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/JourneyEventOut"
+                  },
+                  "title": "Response Get Events V1 Organisations  Organisation Id  Remotesafe Journeys  Journey Id  Events Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Events",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/export.json": {
+      "get": {
+        "operationId": "export_journey_v1_organisations__organisation_id__remotesafe_journeys__journey_id__export_json_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Export Journey",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/legs": {
+      "put": {
+        "operationId": "put_legs_v1_organisations__organisation_id__remotesafe_journeys__journey_id__legs_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RouteLegsIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Legs",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/plan.pdf": {
+      "get": {
+        "operationId": "plan_v1_organisations__organisation_id__remotesafe_journeys__journey_id__plan_pdf_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Plan",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/revisions": {
+      "get": {
+        "operationId": "get_revisions_v1_organisations__organisation_id__remotesafe_journeys__journey_id__revisions_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/JourneyRevisionOut"
+                  },
+                  "title": "Response Get Revisions V1 Organisations  Organisation Id  Remotesafe Journeys  Journey Id  Revisions Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Revisions",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/{action}": {
+      "post": {
+        "operationId": "act_v1_organisations__organisation_id__remotesafe_journeys__journey_id___action__post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "journey_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Journey Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "action",
+            "required": true,
+            "schema": {
+              "enum": [
+                "submit",
+                "request_changes",
+                "commence",
+                "complete",
+                "escalate",
+                "cancel",
+                "archive"
+              ],
+              "title": "Action",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JourneyTransitionIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JourneyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Act",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/members": {
+      "get": {
+        "operationId": "members_v1_organisations__organisation_id__remotesafe_members_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RsMemberOut"
+                  },
+                  "title": "Response Members V1 Organisations  Organisation Id  Remotesafe Members Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Members",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/members/{user_id}/roles": {
+      "put": {
+        "operationId": "set_roles_v1_organisations__organisation_id__remotesafe_members__user_id__roles_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "User Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RsRolesIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Roles",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/policy": {
+      "get": {
+        "operationId": "get_policy_v1_organisations__organisation_id__remotesafe_policy_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RiskPolicyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Policy",
+        "tags": [
+          "remotesafe"
+        ]
+      },
+      "put": {
+        "operationId": "put_policy_v1_organisations__organisation_id__remotesafe_policy_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RiskPolicyIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RiskPolicyOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Put Policy",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/vehicles": {
+      "get": {
+        "operationId": "list_vehicles_v1_organisations__organisation_id__remotesafe_vehicles_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RsVehicleOut"
+                  },
+                  "title": "Response List Vehicles V1 Organisations  Organisation Id  Remotesafe Vehicles Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Vehicles",
+        "tags": [
+          "remotesafe"
+        ]
+      },
+      "post": {
+        "operationId": "create_vehicle_v1_organisations__organisation_id__remotesafe_vehicles_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RsVehicleIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RsVehicleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Vehicle",
+        "tags": [
+          "remotesafe"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/remotesafe/vehicles/{vehicle_id}": {
+      "put": {
+        "operationId": "update_vehicle_v1_organisations__organisation_id__remotesafe_vehicles__vehicle_id__put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "vehicle_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Vehicle Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RsVehicleIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RsVehicleOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Vehicle",
+        "tags": [
+          "remotesafe"
         ]
       }
     },

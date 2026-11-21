@@ -3574,3 +3574,76 @@ a.card-title:hover {
     gap: 2px;
   }
 }
+
+/* RemoteSafe: risk ratings, stop conditions and the summary tiles. */
+.rating {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: var(--ar-radius-pill);
+  font-weight: 600;
+  font-size: 0.875rem;
+  background: var(--ar-surface-sunk);
+  color: var(--ar-ink);
+}
+
+.rating-low {
+  background: var(--ar-success-bg);
+  color: var(--ar-success);
+}
+
+.rating-moderate {
+  background: var(--ar-warning-bg);
+  color: var(--ar-ink);
+}
+
+.rating-high {
+  background: var(--ar-warning-bg);
+  color: var(--ar-warning);
+}
+
+.rating-critical {
+  background: var(--ar-danger-bg);
+  color: var(--ar-danger);
+}
+
+.notice-error {
+  background: var(--ar-danger-bg);
+  border-left: 4px solid var(--ar-danger);
+}
+
+.stat-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.stat-tiles li {
+  padding: 12px;
+  border: 1px solid var(--ar-border);
+  border-radius: var(--ar-radius);
+  background: var(--ar-surface-raised);
+}
+
+.stat-tiles strong {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--ar-heading);
+}
+
+dl.details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 16px;
+  margin: 0 0 12px;
+}
+
+dl.details dt {
+  color: var(--ar-ink-muted);
+}
+
+dl.details dd {
+  margin: 0;
+}

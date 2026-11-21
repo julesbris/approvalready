@@ -69,6 +69,8 @@ from app.modules.property_report.router import router as property_report_router
 from app.modules.questionnaires.router import router as questionnaires_router
 from app.modules.regulatory.fetch import Resolver, SourceFetcher
 from app.modules.regulatory.router import router as sources_router
+from app.modules.remotesafe.router import admin_router as remotesafe_admin_router
+from app.modules.remotesafe.router import router as remotesafe_router
 from app.modules.rentals.router import router as rentals_router
 from app.modules.review.router import admin_router as review_admin_router
 from app.modules.review.router import customer_router as review_customer_router
@@ -169,6 +171,8 @@ def create_app(
     app.include_router(guidance_router)
     app.include_router(sales_router)
     app.include_router(rentals_router)
+    app.include_router(remotesafe_router)
+    app.include_router(remotesafe_admin_router)
     app.include_router(notifications_router)
     app.include_router(notification_prefs_router)
     app.include_router(review_customer_router)

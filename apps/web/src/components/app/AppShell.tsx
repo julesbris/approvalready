@@ -39,6 +39,10 @@ export function AppShell({
           <Wordmark href="/projects" />
           <nav aria-label="Main" className="app-nav">
             <AppNavLink href="/projects">Projects</AppNavLink>
+            {session.organisations.find((o) => o.organisation_id === session.active_organisation_id)
+              ?.kind === "BUSINESS" ? (
+              <AppNavLink href="/remotesafe">RemoteSafe</AppNavLink>
+            ) : null}
             {session.permissions.includes("review.perform") ? (
               <AppNavLink href="/review">Reviews</AppNavLink>
             ) : null}

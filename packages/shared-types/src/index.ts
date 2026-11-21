@@ -337,3 +337,19 @@ export type NewsletterSubscriberOut = Schemas["SubscriberOut"];
 export type NewsletterStateOut = Schemas["NewsletterStateOut"];
 export type NewsletterSignUpOut = Schemas["SignUpOut"];
 export type AccountNewsletterOut = Schemas["AccountNewsletterOut"];
+
+// RemoteSafe (Stage 1): journey planning, risk assessment, controls and approvals.
+export type RemoteSafeMeOut = Schemas["RemoteSafeMeOut"];
+export type RsMemberOut = Schemas["RsMemberOut"];
+export type RsVehicleOut = Schemas["RsVehicleOut"];
+export type JourneySummaryOut = Schemas["JourneySummaryOut"];
+export type JourneyOut = Schemas["JourneyOut"];
+export type RouteLegOut = Schemas["RouteLegOut"];
+export type CheckinPlanOut = Schemas["CheckinPlanOut"];
+export type JourneyAssessmentOut = Schemas["JourneyAssessmentOut"];
+export type HazardFindingOut = Schemas["HazardFindingOut"];
+export type ControlCheckOut = Schemas["ControlCheckOut"];
+export type JourneyEventOut = Schemas["JourneyEventOut"];
+export type JourneyRevisionOut = Schemas["JourneyRevisionOut"];
+export type RemoteSafeDashboardOut = Schemas["RemoteSafeDashboardOut"];
+export type RiskPolicyOut = Schemas["RiskPolicyOut"];

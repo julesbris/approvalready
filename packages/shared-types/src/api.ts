@@ -943,6 +943,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/remotesafe/organisations/{organisation_id}/tier": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * Set Tier
+         * @description No payment in Stage 1: staff set the plan by hand.
+         */
+        put: operations["set_tier_v1_admin_remotesafe_organisations__organisation_id__tier_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/reviews": {
         parameters: {
             query?: never;
@@ -4412,6 +4432,401 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/remotesafe": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Me */
+        get: operations["me_v1_organisations__organisation_id__remotesafe_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/dashboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Dashboard */
+        get: operations["dashboard_v1_organisations__organisation_id__remotesafe_dashboard_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/enable": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Enable */
+        post: operations["enable_v1_organisations__organisation_id__remotesafe_enable_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Journeys */
+        get: operations["list_journeys_v1_organisations__organisation_id__remotesafe_journeys_get"];
+        put?: never;
+        /** Create Journey */
+        post: operations["create_journey_v1_organisations__organisation_id__remotesafe_journeys_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys.csv": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export Csv */
+        get: operations["export_csv_v1_organisations__organisation_id__remotesafe_journeys_csv_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Journey */
+        get: operations["get_journey_v1_organisations__organisation_id__remotesafe_journeys__journey_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Journey */
+        patch: operations["update_journey_v1_organisations__organisation_id__remotesafe_journeys__journey_id__patch"];
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/approve": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Approve */
+        post: operations["approve_v1_organisations__organisation_id__remotesafe_journeys__journey_id__approve_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/assessment": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Assessment */
+        get: operations["get_assessment_v1_organisations__organisation_id__remotesafe_journeys__journey_id__assessment_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/checkins": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Put Checkins */
+        put: operations["put_checkins_v1_organisations__organisation_id__remotesafe_journeys__journey_id__checkins_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/controls": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Controls */
+        get: operations["get_controls_v1_organisations__organisation_id__remotesafe_journeys__journey_id__controls_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/controls/{key}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Put Control */
+        put: operations["put_control_v1_organisations__organisation_id__remotesafe_journeys__journey_id__controls__key__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/controls/{key}/exception": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Control Exception */
+        post: operations["control_exception_v1_organisations__organisation_id__remotesafe_journeys__journey_id__controls__key__exception_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Events */
+        get: operations["get_events_v1_organisations__organisation_id__remotesafe_journeys__journey_id__events_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/export.json": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export Journey */
+        get: operations["export_journey_v1_organisations__organisation_id__remotesafe_journeys__journey_id__export_json_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/legs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Put Legs */
+        put: operations["put_legs_v1_organisations__organisation_id__remotesafe_journeys__journey_id__legs_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/plan.pdf": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Plan */
+        get: operations["plan_v1_organisations__organisation_id__remotesafe_journeys__journey_id__plan_pdf_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/revisions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Revisions */
+        get: operations["get_revisions_v1_organisations__organisation_id__remotesafe_journeys__journey_id__revisions_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/journeys/{journey_id}/{action}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Act */
+        post: operations["act_v1_organisations__organisation_id__remotesafe_journeys__journey_id___action__post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/members": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Members */
+        get: operations["members_v1_organisations__organisation_id__remotesafe_members_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/members/{user_id}/roles": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Set Roles */
+        put: operations["set_roles_v1_organisations__organisation_id__remotesafe_members__user_id__roles_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/policy": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Policy */
+        get: operations["get_policy_v1_organisations__organisation_id__remotesafe_policy_get"];
+        /** Put Policy */
+        put: operations["put_policy_v1_organisations__organisation_id__remotesafe_policy_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/vehicles": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Vehicles */
+        get: operations["list_vehicles_v1_organisations__organisation_id__remotesafe_vehicles_get"];
+        put?: never;
+        /** Create Vehicle */
+        post: operations["create_vehicle_v1_organisations__organisation_id__remotesafe_vehicles_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/remotesafe/vehicles/{vehicle_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update Vehicle */
+        put: operations["update_vehicle_v1_organisations__organisation_id__remotesafe_vehicles__vehicle_id__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/reviews/{review_id}": {
         parameters: {
             query?: never;
@@ -6488,6 +6903,37 @@ export interface components {
          * @enum {string}
          */
         CheckTrigger: "SCHEDULED" | "MANUAL";
+        /** CheckinPlanIn */
+        CheckinPlanIn: {
+            /**
+             * Due At
+             * Format: date-time
+             */
+            due_at: string;
+            /** Location */
+            location?: string | null;
+            /**
+             * Method
+             * @default PHONE_CALL
+             * @enum {string}
+             */
+            method: "PHONE_CALL" | "SMS" | "SATELLITE_MESSAGE" | "SATELLITE_CALL" | "UHF" | "APP";
+        };
+        /** CheckinPlanOut */
+        CheckinPlanOut: {
+            due: components["schemas"]["LocalTimeOut"];
+            /** Location */
+            location: string | null;
+            /** Method */
+            method: string;
+            /** Position */
+            position: number;
+        };
+        /** CheckinPlansIn */
+        CheckinPlansIn: {
+            /** Checkins */
+            checkins: components["schemas"]["CheckinPlanIn"][];
+        };
         /** ChecklistAddIn */
         ChecklistAddIn: {
             /** Key */
@@ -6752,6 +7198,46 @@ export interface components {
             phone?: string | null;
             /** Site Address */
             site_address?: string | null;
+        };
+        /** ControlCheckIn */
+        ControlCheckIn: {
+            /** Note */
+            note?: string | null;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "PENDING" | "DONE" | "FAILED" | "NOT_APPLICABLE";
+        };
+        /** ControlCheckOut */
+        ControlCheckOut: {
+            /** Completed At */
+            completed_at: string | null;
+            /** Completed By Name */
+            completed_by_name: string | null;
+            /** Exception By Name */
+            exception_by_name: string | null;
+            /** Exception Reason */
+            exception_reason: string | null;
+            /** Group */
+            group: string;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /** Mandatory */
+            mandatory: boolean;
+            /** Note */
+            note: string | null;
+            /** Required By */
+            required_by: string[];
+            /** Status */
+            status: string;
+        };
+        /** ControlExceptionIn */
+        ControlExceptionIn: {
+            /** Reason */
+            reason: string;
         };
         /**
          * ConversationOut
@@ -8064,6 +8550,39 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /** HazardFindingOut */
+        HazardFindingOut: {
+            /** Consequence */
+            consequence: number;
+            /** Control Labels */
+            control_labels: string[];
+            /** Controls */
+            controls: string[];
+            /** Description */
+            description: string;
+            /** Evidence */
+            evidence: components["schemas"]["RiskEvidenceOut"][];
+            /** Hazard Key */
+            hazard_key: string;
+            /** Initial Rating */
+            initial_rating: string;
+            /** Initial Score */
+            initial_score: number;
+            /** Likelihood */
+            likelihood: number;
+            /** Outstanding */
+            outstanding: string[];
+            /** Residual Likelihood */
+            residual_likelihood: number;
+            /** Residual Rating */
+            residual_rating: string;
+            /** Residual Score */
+            residual_score: number;
+            /** Responsible */
+            responsible: string;
+            /** Title */
+            title: string;
+        };
         /** InspectionCreate */
         InspectionCreate: {
             kind: components["schemas"]["InspectionKind"];
@@ -8291,6 +8810,400 @@ export interface components {
              * @enum {string}
              */
             status: "ok" | "error";
+        };
+        /** JourneyApproveIn */
+        JourneyApproveIn: {
+            /** Critical Alternative Process */
+            critical_alternative_process?: string | null;
+            /** Note */
+            note?: string | null;
+        };
+        /** JourneyAssessmentOut */
+        JourneyAssessmentOut: {
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Data Sources */
+            data_sources: string[];
+            /** Disclaimer */
+            disclaimer: string;
+            /** Facts */
+            facts: {
+                [key: string]: unknown;
+            };
+            /** Findings */
+            findings: components["schemas"]["HazardFindingOut"][];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Library Version */
+            library_version: string;
+            /** Outcome */
+            outcome: string;
+            /** Pathway */
+            pathway: string;
+            /** Policy Version */
+            policy_version: number;
+            /** Revision */
+            revision: number;
+            /** Stop Conditions */
+            stop_conditions: components["schemas"]["StopConditionOut"][];
+        };
+        /** JourneyEventOut */
+        JourneyEventOut: {
+            /** Actor Name */
+            actor_name: string | null;
+            /** Details */
+            details: {
+                [key: string]: unknown;
+            };
+            /** From Status */
+            from_status: string | null;
+            /** Kind */
+            kind: string;
+            /** Note */
+            note: string | null;
+            /**
+             * Occurred At
+             * Format: date-time
+             */
+            occurred_at: string;
+            /** Revision */
+            revision: number;
+            /** To Status */
+            to_status: string | null;
+        };
+        /**
+         * JourneyIn
+         * @description Create, or (PATCH) change any subset of, a journey plan.
+         */
+        JourneyIn: {
+            /** Activities */
+            activities?: string | null;
+            /** Alternative Route */
+            alternative_route?: string | null;
+            /**
+             * Arrives At
+             * Format: date-time
+             */
+            arrives_at: string;
+            /** Checkin Interval Minutes */
+            checkin_interval_minutes?: number | null;
+            /**
+             * Comms Mobile
+             * @default true
+             */
+            comms_mobile: boolean;
+            /** Comms Notes */
+            comms_notes?: string | null;
+            /**
+             * Comms Sat Messenger
+             * @default false
+             */
+            comms_sat_messenger: boolean;
+            /**
+             * Comms Sat Phone
+             * @default false
+             */
+            comms_sat_phone: boolean;
+            /**
+             * Comms Uhf
+             * @default false
+             */
+            comms_uhf: boolean;
+            /** Contingency Plan */
+            contingency_plan?: string | null;
+            /**
+             * Departs At
+             * Format: date-time
+             */
+            departs_at: string;
+            /** Destination */
+            destination: string;
+            /** Emergency Contacts */
+            emergency_contacts?: components["schemas"]["RsEmergencyContact"][];
+            /** Monitor User Id */
+            monitor_user_id?: string | null;
+            /**
+             * Occupants
+             * @default 1
+             */
+            occupants: number;
+            /** Origin */
+            origin: string;
+            /** Purpose */
+            purpose: string;
+            /**
+             * Remoteness
+             * @default UNKNOWN
+             * @enum {string}
+             */
+            remoteness: "UNKNOWN" | "NOT_REMOTE" | "REMOTE" | "VERY_REMOTE";
+            /**
+             * Return Journey
+             * @default false
+             */
+            return_journey: boolean;
+            /** Returns At */
+            returns_at?: string | null;
+            /** Supervisor User Id */
+            supervisor_user_id?: string | null;
+            /** Team */
+            team?: string | null;
+            /**
+             * Timezone
+             * @default Australia/Brisbane
+             */
+            timezone: string;
+            /** Title */
+            title: string;
+            /** Vehicle Description */
+            vehicle_description?: string | null;
+            /** Vehicle Id */
+            vehicle_id?: string | null;
+            /** Vehicle Registration */
+            vehicle_registration?: string | null;
+            /** Weather Checked At */
+            weather_checked_at?: string | null;
+            /** Weather Source */
+            weather_source?: string | null;
+            /** Weather Warnings */
+            weather_warnings?: string | null;
+            /** Worker Phone */
+            worker_phone?: string | null;
+            /** Worker User Id */
+            worker_user_id?: string | null;
+        };
+        /** JourneyOut */
+        JourneyOut: {
+            /** Activities */
+            activities: string | null;
+            /** Allowed Actions */
+            allowed_actions: string[];
+            /** Alternative Route */
+            alternative_route: string | null;
+            /** Approved At */
+            approved_at: string | null;
+            approved_by: components["schemas"]["RsPersonOut"] | null;
+            /** Approved Outcome */
+            approved_outcome: string | null;
+            /** Approved Revision */
+            approved_revision: number | null;
+            /** Archived */
+            archived: boolean;
+            arrives: components["schemas"]["LocalTimeOut"];
+            /** Blockers */
+            blockers: string[];
+            /** Can Edit */
+            can_edit: boolean;
+            /** Cancelled At */
+            cancelled_at: string | null;
+            /** Checkin Interval Minutes */
+            checkin_interval_minutes: number | null;
+            /** Checkins */
+            checkins: components["schemas"]["CheckinPlanOut"][];
+            /** Comms Mobile */
+            comms_mobile: boolean;
+            /** Comms Notes */
+            comms_notes: string | null;
+            /** Comms Sat Messenger */
+            comms_sat_messenger: boolean;
+            /** Comms Sat Phone */
+            comms_sat_phone: boolean;
+            /** Comms Uhf */
+            comms_uhf: boolean;
+            /** Completed At */
+            completed_at: string | null;
+            /** Contingency Plan */
+            contingency_plan: string | null;
+            /** Critical Alternative Process */
+            critical_alternative_process: string | null;
+            departs: components["schemas"]["LocalTimeOut"];
+            /** Destination */
+            destination: string;
+            /** Emergency Contacts */
+            emergency_contacts: components["schemas"]["RsEmergencyContact"][];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Legs */
+            legs: components["schemas"]["RouteLegOut"][];
+            monitor: components["schemas"]["RsPersonOut"] | null;
+            /** Multi Day */
+            multi_day: boolean;
+            /** Occupants */
+            occupants: number;
+            /** Origin */
+            origin: string;
+            /** Purpose */
+            purpose: string;
+            /** Reference */
+            reference: string;
+            /** Remoteness */
+            remoteness: string;
+            /** Return Journey */
+            return_journey: boolean;
+            returns: components["schemas"]["LocalTimeOut"] | null;
+            /** Revision */
+            revision: number;
+            /** Risk Outcome */
+            risk_outcome: string | null;
+            /** Started At */
+            started_at: string | null;
+            /** Status */
+            status: string;
+            /** Submitted At */
+            submitted_at: string | null;
+            supervisor: components["schemas"]["RsPersonOut"] | null;
+            /** Team */
+            team: string | null;
+            /** Timezone */
+            timezone: string;
+            /** Title */
+            title: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /** Vehicle Description */
+            vehicle_description: string | null;
+            /** Vehicle Id */
+            vehicle_id: string | null;
+            /** Vehicle Registration */
+            vehicle_registration: string | null;
+            /** Weather Checked At */
+            weather_checked_at: string | null;
+            /** Weather Source */
+            weather_source: string | null;
+            /** Weather Warnings */
+            weather_warnings: string | null;
+            worker: components["schemas"]["RsPersonOut"];
+            /** Worker Phone */
+            worker_phone: string | null;
+        };
+        /** JourneyPatch */
+        JourneyPatch: {
+            /** Activities */
+            activities?: string | null;
+            /** Alternative Route */
+            alternative_route?: string | null;
+            /** Arrives At */
+            arrives_at?: string | null;
+            /** Checkin Interval Minutes */
+            checkin_interval_minutes?: number | null;
+            /** Comms Mobile */
+            comms_mobile?: boolean | null;
+            /** Comms Notes */
+            comms_notes?: string | null;
+            /** Comms Sat Messenger */
+            comms_sat_messenger?: boolean | null;
+            /** Comms Sat Phone */
+            comms_sat_phone?: boolean | null;
+            /** Comms Uhf */
+            comms_uhf?: boolean | null;
+            /** Contingency Plan */
+            contingency_plan?: string | null;
+            /** Departs At */
+            departs_at?: string | null;
+            /** Destination */
+            destination?: string | null;
+            /** Emergency Contacts */
+            emergency_contacts?: components["schemas"]["RsEmergencyContact"][] | null;
+            /** Monitor User Id */
+            monitor_user_id?: string | null;
+            /** Occupants */
+            occupants?: number | null;
+            /** Origin */
+            origin?: string | null;
+            /** Purpose */
+            purpose?: string | null;
+            /** Remoteness */
+            remoteness?: ("UNKNOWN" | "NOT_REMOTE" | "REMOTE" | "VERY_REMOTE") | null;
+            /** Return Journey */
+            return_journey?: boolean | null;
+            /** Returns At */
+            returns_at?: string | null;
+            /** Supervisor User Id */
+            supervisor_user_id?: string | null;
+            /** Team */
+            team?: string | null;
+            /** Timezone */
+            timezone?: string | null;
+            /** Title */
+            title?: string | null;
+            /** Vehicle Description */
+            vehicle_description?: string | null;
+            /** Vehicle Id */
+            vehicle_id?: string | null;
+            /** Vehicle Registration */
+            vehicle_registration?: string | null;
+            /** Weather Checked At */
+            weather_checked_at?: string | null;
+            /** Weather Source */
+            weather_source?: string | null;
+            /** Weather Warnings */
+            weather_warnings?: string | null;
+            /** Worker Phone */
+            worker_phone?: string | null;
+        };
+        /** JourneyRevisionOut */
+        JourneyRevisionOut: {
+            /** Changed Fields */
+            changed_fields: string[];
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Created By Name */
+            created_by_name: string | null;
+            /** Revision */
+            revision: number;
+        };
+        /** JourneySummaryOut */
+        JourneySummaryOut: {
+            /** Archived */
+            archived: boolean;
+            arrives: components["schemas"]["LocalTimeOut"];
+            departs: components["schemas"]["LocalTimeOut"];
+            /** Destination */
+            destination: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Origin */
+            origin: string;
+            /** Reference */
+            reference: string;
+            /** Revision */
+            revision: number;
+            /** Risk Outcome */
+            risk_outcome: string | null;
+            /** Status */
+            status: string;
+            supervisor: components["schemas"]["RsPersonOut"] | null;
+            /** Title */
+            title: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            worker: components["schemas"]["RsPersonOut"];
+        };
+        /** JourneyTransitionIn */
+        JourneyTransitionIn: {
+            /** Note */
+            note?: string | null;
         };
         /** LeadDeclineIn */
         LeadDeclineIn: {
@@ -8520,6 +9433,18 @@ export interface components {
              * @constant
              */
             status: "ok";
+        };
+        /** LocalTimeOut */
+        LocalTimeOut: {
+            /** Local */
+            local: string;
+            /** Timezone */
+            timezone: string;
+            /**
+             * Utc
+             * Format: date-time
+             */
+            utc: string;
         };
         /** LocationIn */
         LocationIn: {
@@ -11641,6 +12566,70 @@ export interface components {
             /** Title */
             title: string;
         };
+        /** RemoteSafeDashboardOut */
+        RemoteSafeDashboardOut: {
+            /** Active */
+            active: number;
+            /** Awaiting My Approval */
+            awaiting_my_approval: number;
+            /** By Outcome */
+            by_outcome: {
+                [key: string]: number;
+            };
+            /** By Status */
+            by_status: {
+                [key: string]: number;
+            };
+            /** Completion Rate */
+            completion_rate: number | null;
+            /** Critical Control Failures */
+            critical_control_failures: number;
+            /** Monitoring Live */
+            monitoring_live: boolean;
+            /** Repeated Hazards */
+            repeated_hazards: {
+                [key: string]: unknown;
+            }[];
+            /** Scope */
+            scope: string;
+            /** Upcoming */
+            upcoming: components["schemas"]["JourneySummaryOut"][];
+        };
+        /** RemoteSafeEnableIn */
+        RemoteSafeEnableIn: {
+            /**
+             * Default Timezone
+             * @default Australia/Brisbane
+             */
+            default_timezone: string;
+        };
+        /** RemoteSafeMeOut */
+        RemoteSafeMeOut: {
+            /** Can Administer */
+            can_administer: boolean;
+            /** Can Approve */
+            can_approve: boolean;
+            /** Can Plan */
+            can_plan: boolean;
+            /** Default Timezone */
+            default_timezone: string;
+            /** Enabled */
+            enabled: boolean;
+            /** Features */
+            features: components["schemas"]["RsFeatureOut"][];
+            /** Limitations */
+            limitations: string[];
+            /** Org Admin */
+            org_admin: boolean;
+            /** Roles */
+            roles: string[];
+            /** Tier */
+            tier: string | null;
+            /** Timezones */
+            timezones: {
+                [key: string]: string;
+            };
+        };
         /**
          * RentPeriod
          * @enum {string}
@@ -12047,6 +13036,39 @@ export interface components {
              */
             tasks: components["schemas"]["TaskOut"][];
         };
+        /** RiskEvidenceOut */
+        RiskEvidenceOut: {
+            /** Fact */
+            fact: string;
+            /** Observed At */
+            observed_at: string | null;
+            /** Source */
+            source: string;
+            /** Value */
+            value: string;
+        };
+        /** RiskPolicyIn */
+        RiskPolicyIn: {
+            /** Overrides */
+            overrides: {
+                [key: string]: unknown;
+            };
+        };
+        /** RiskPolicyOut */
+        RiskPolicyOut: {
+            /** Effective */
+            effective: {
+                [key: string]: unknown;
+            };
+            /** Library Version */
+            library_version: string;
+            /** Overrides */
+            overrides: {
+                [key: string]: unknown;
+            };
+            /** Policy Version */
+            policy_version: number;
+        };
         /** RoundSourceOut */
         RoundSourceOut: {
             /** Citation */
@@ -12067,6 +13089,218 @@ export interface components {
          * @enum {string}
          */
         RoundStatus: "UPCOMING" | "OPEN" | "PAUSED" | "CLOSED";
+        /** RouteLegIn */
+        RouteLegIn: {
+            /**
+             * Arrives At
+             * Format: date-time
+             */
+            arrives_at: string;
+            /** Closure Observed At */
+            closure_observed_at?: string | null;
+            /** Closure Source */
+            closure_source?: string | null;
+            /**
+             * Closure Status
+             * @default NOT_CHECKED
+             * @enum {string}
+             */
+            closure_status: "NOT_CHECKED" | "NONE_KNOWN" | "RESTRICTED" | "CONFIRMED_CLOSED";
+            /**
+             * Crossings
+             * @default 0
+             */
+            crossings: number;
+            /**
+             * Departs At
+             * Format: date-time
+             */
+            departs_at: string;
+            /** Destination */
+            destination: string;
+            /** Destination Lat */
+            destination_lat?: number | null;
+            /** Destination Lng */
+            destination_lng?: number | null;
+            /** Distance Km */
+            distance_km?: number | null;
+            /**
+             * Mobile Coverage
+             * @default UNKNOWN
+             * @enum {string}
+             */
+            mobile_coverage: "UNKNOWN" | "GOOD" | "PATCHY" | "NONE";
+            /** Notes */
+            notes?: string | null;
+            /** Origin */
+            origin: string;
+            /** Origin Lat */
+            origin_lat?: number | null;
+            /** Origin Lng */
+            origin_lng?: number | null;
+            /**
+             * Road Surface
+             * @default UNKNOWN
+             * @enum {string}
+             */
+            road_surface: "UNKNOWN" | "SEALED" | "MIXED" | "UNSEALED";
+            /** Timezone */
+            timezone?: string | null;
+        };
+        /** RouteLegOut */
+        RouteLegOut: {
+            arrives: components["schemas"]["LocalTimeOut"];
+            /** Closure Observed At */
+            closure_observed_at: string | null;
+            /** Closure Source */
+            closure_source: string | null;
+            /** Closure Status */
+            closure_status: string;
+            /** Crossings */
+            crossings: number;
+            departs: components["schemas"]["LocalTimeOut"];
+            /** Destination */
+            destination: string;
+            /** Destination Lat */
+            destination_lat: number | null;
+            /** Destination Lng */
+            destination_lng: number | null;
+            /** Distance Km */
+            distance_km: number | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Mobile Coverage */
+            mobile_coverage: string;
+            /** Notes */
+            notes: string | null;
+            /** Origin */
+            origin: string;
+            /** Origin Lat */
+            origin_lat: number | null;
+            /** Origin Lng */
+            origin_lng: number | null;
+            /** Position */
+            position: number;
+            /** Road Surface */
+            road_surface: string;
+            /** Timezone */
+            timezone: string;
+        };
+        /** RouteLegsIn */
+        RouteLegsIn: {
+            /** Legs */
+            legs: components["schemas"]["RouteLegIn"][];
+        };
+        /** RsEmergencyContact */
+        RsEmergencyContact: {
+            /**
+             * Escalation Order
+             * @default 1
+             */
+            escalation_order: number;
+            /** Name */
+            name: string;
+            /** Phone */
+            phone: string;
+            /** Relationship */
+            relationship?: string | null;
+        };
+        /** RsFeatureOut */
+        RsFeatureOut: {
+            /** Available */
+            available: boolean;
+            /** Built */
+            built: boolean;
+            /** Key */
+            key: string;
+            /** Label */
+            label: string;
+            /** Tier */
+            tier: string;
+        };
+        /** RsMemberOut */
+        RsMemberOut: {
+            /** Display Name */
+            display_name: string;
+            /** Email */
+            email: string;
+            /** Org Admin */
+            org_admin: boolean;
+            /** Roles */
+            roles: string[];
+            /**
+             * User Id
+             * Format: uuid
+             */
+            user_id: string;
+        };
+        /** RsPersonOut */
+        RsPersonOut: {
+            /** Display Name */
+            display_name: string;
+            /**
+             * User Id
+             * Format: uuid
+             */
+            user_id: string;
+        };
+        /** RsRolesIn */
+        RsRolesIn: {
+            /** Roles */
+            roles: ("WORKER" | "SUPERVISOR" | "MONITOR" | "WHS_ADMIN")[];
+        };
+        /** RsTierIn */
+        RsTierIn: {
+            /**
+             * Tier
+             * @enum {string}
+             */
+            tier: "STARTER" | "PROFESSIONAL" | "ENTERPRISE";
+        };
+        /** RsVehicleIn */
+        RsVehicleIn: {
+            /**
+             * Active
+             * @default true
+             */
+            active: boolean;
+            /** Fuel Range Km */
+            fuel_range_km?: number | null;
+            /** Name */
+            name: string;
+            /** Notes */
+            notes?: string | null;
+            /** Registration */
+            registration: string;
+            /** Vehicle Type */
+            vehicle_type: string;
+        };
+        /** RsVehicleOut */
+        RsVehicleOut: {
+            /**
+             * Active
+             * @default true
+             */
+            active: boolean;
+            /** Fuel Range Km */
+            fuel_range_km?: number | null;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Name */
+            name: string;
+            /** Notes */
+            notes?: string | null;
+            /** Registration */
+            registration: string;
+            /** Vehicle Type */
+            vehicle_type: string;
+        };
         /** RuleCreate */
         RuleCreate: {
             /**
@@ -13264,6 +14498,15 @@ export interface components {
             occurred_at: string;
             /** To Status */
             to_status: string;
+        };
+        /** StopConditionOut */
+        StopConditionOut: {
+            /** Evidence */
+            evidence: components["schemas"]["RiskEvidenceOut"][];
+            /** Key */
+            key: string;
+            /** Reason */
+            reason: string;
         };
         /** StripeEventOut */
         StripeEventOut: {
@@ -15637,6 +16880,39 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["QuietProjectOut"][];
                 };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    set_tier_v1_admin_remotesafe_organisations__organisation_id__tier_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RsTierIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {
@@ -23303,6 +24579,914 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    me_v1_organisations__organisation_id__remotesafe_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RemoteSafeMeOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    dashboard_v1_organisations__organisation_id__remotesafe_dashboard_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RemoteSafeDashboardOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    enable_v1_organisations__organisation_id__remotesafe_enable_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RemoteSafeEnableIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RemoteSafeMeOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_journeys_v1_organisations__organisation_id__remotesafe_journeys_get: {
+        parameters: {
+            query?: {
+                status?: string | null;
+                awaiting_me?: boolean;
+                include_archived?: boolean;
+            };
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneySummaryOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_journey_v1_organisations__organisation_id__remotesafe_journeys_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["JourneyIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    export_csv_v1_organisations__organisation_id__remotesafe_journeys_csv_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_journey_v1_organisations__organisation_id__remotesafe_journeys__journey_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_journey_v1_organisations__organisation_id__remotesafe_journeys__journey_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["JourneyPatch"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    approve_v1_organisations__organisation_id__remotesafe_journeys__journey_id__approve_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["JourneyApproveIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_assessment_v1_organisations__organisation_id__remotesafe_journeys__journey_id__assessment_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyAssessmentOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    put_checkins_v1_organisations__organisation_id__remotesafe_journeys__journey_id__checkins_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CheckinPlansIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_controls_v1_organisations__organisation_id__remotesafe_journeys__journey_id__controls_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ControlCheckOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    put_control_v1_organisations__organisation_id__remotesafe_journeys__journey_id__controls__key__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                key: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ControlCheckIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ControlCheckOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    control_exception_v1_organisations__organisation_id__remotesafe_journeys__journey_id__controls__key__exception_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                key: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ControlExceptionIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ControlCheckOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_events_v1_organisations__organisation_id__remotesafe_journeys__journey_id__events_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyEventOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    export_journey_v1_organisations__organisation_id__remotesafe_journeys__journey_id__export_json_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    put_legs_v1_organisations__organisation_id__remotesafe_journeys__journey_id__legs_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RouteLegsIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    plan_v1_organisations__organisation_id__remotesafe_journeys__journey_id__plan_pdf_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_revisions_v1_organisations__organisation_id__remotesafe_journeys__journey_id__revisions_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyRevisionOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    act_v1_organisations__organisation_id__remotesafe_journeys__journey_id___action__post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                journey_id: string;
+                action: "submit" | "request_changes" | "commence" | "complete" | "escalate" | "cancel" | "archive";
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["JourneyTransitionIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["JourneyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    members_v1_organisations__organisation_id__remotesafe_members_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RsMemberOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    set_roles_v1_organisations__organisation_id__remotesafe_members__user_id__roles_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RsRolesIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_policy_v1_organisations__organisation_id__remotesafe_policy_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskPolicyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    put_policy_v1_organisations__organisation_id__remotesafe_policy_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RiskPolicyIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RiskPolicyOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_vehicles_v1_organisations__organisation_id__remotesafe_vehicles_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RsVehicleOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_vehicle_v1_organisations__organisation_id__remotesafe_vehicles_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RsVehicleIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RsVehicleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_vehicle_v1_organisations__organisation_id__remotesafe_vehicles__vehicle_id__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                vehicle_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RsVehicleIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RsVehicleOut"];
+                };
             };
             /** @description Validation Error */
             422: {
