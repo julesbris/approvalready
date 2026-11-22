@@ -14,6 +14,7 @@ from typing import Annotated, Any
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, StringConstraints, model_validator
 
+from app.modules.documents.models import ScanStatus
 from app.modules.entities.models import AustralianState
 from app.modules.leads.models import (
     CreditKind,
@@ -333,6 +334,16 @@ class MessageIn(_In):
     body: MessageBody
 
 
+class AttachmentOut(BaseModel):
+    """A file sent with a message. It can be downloaded once ``scan_status`` is ``CLEAN``."""
+
+    id: uuid.UUID
+    filename: str
+    content_type: str
+    size_bytes: int
+    scan_status: ScanStatus = Field(description="The virus check.")
+
+
 class MessageOut(BaseModel):
     id: uuid.UUID
     sender: MessageSender
@@ -340,6 +351,7 @@ class MessageOut(BaseModel):
     body: str
     sent_at: datetime
     read_at: datetime | None = Field(description="When the other side first opened it.")
+    attachment: AttachmentOut | None = Field(default=None, description="A file sent with it.")
 
 
 class ConversationOut(BaseModel):

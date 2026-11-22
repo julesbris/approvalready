@@ -14,6 +14,7 @@ from sqlalchemy import select, text
 from sqlalchemy.exc import DBAPIError
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
+from app.core.config import Settings
 from app.modules.leads import messages
 from app.modules.leads.models import LeadMessage
 from tests.harness import ApiHarness, User, platform_user
@@ -186,3 +187,157 @@ async def test_message_rules(api: ApiHarness, monkeypatch: pytest.MonkeyPatch) -
     assert r.status_code == 409
     [convo] = (await customer.get(customer_url)).json()
     assert convo["can_send"] is False and len(convo["messages"]) == 3
+
+
+# --- Files in messages ---------------------------------------------------------------------
+
+PDF = b"%PDF-1.7\n1 0 obj\n<<>>\nendobj\ntrailer\n<<>>\n%%EOF\n"
+
+
+async def send_file(
+    user: User, url: str, data: bytes, name: str, mime: str, body: str | None = None
+) -> Any:
+    return await user.post(
+        url,
+        files={"file": (name, data, mime)},
+        data={"body": body} if body is not None else None,
+    )
+
+
+async def test_files_in_messages(
+    api: ApiHarness, owner_sessions: async_sessionmaker[AsyncSession]
+) -> None:
+    from app.modules.documents.scanner import EICAR
+    from app.modules.leads.models import LeadMessageAttachment
+    from tests.test_documents import read_stored
+
+    customer, project, [(first, p1, m1), (second, p2, m2)] = await claimed(
+        api, ["Reef Files", "Tableland Files"]
+    )
+    partner_url = f"{leads_url(p1)}/{m1}"
+    customer_url = f"{conversations_url(customer, project)}/{m1}"
+
+    # 1. The customer sends a site plan with a note; it passes the virus check.
+    r = await send_file(
+        customer,
+        f"{customer_url}/files",
+        PDF,
+        "site plan.pdf",
+        "application/pdf",
+        "Here is the plan.",
+    )
+    assert r.status_code == 201, r.text
+    [msg] = r.json()["messages"]
+    assert msg["body"] == "Here is the plan."
+    a = msg["attachment"]
+    assert (a["filename"], a["content_type"], a["size_bytes"], a["scan_status"]) == (
+        "site plan.pdf",
+        "application/pdf",
+        len(PDF),
+        "CLEAN",
+    )
+    assert read_stored("messages", m1, a["id"]) == PDF
+
+    # 2. The partner is told, sees the file and downloads it; so can the customer.
+    assert any(
+        m.subject.startswith("New message from a customer") for m in api.emails_to(first.email)
+    )
+    got = (await first.get(f"{partner_url}/messages")).json()
+    assert got["messages"][0]["attachment"]["id"] == a["id"]
+    r = await first.get(f"{partner_url}/files/{a['id']}/content")
+    assert r.status_code == 200 and r.content == PDF
+    assert "attachment" in r.headers["content-disposition"]
+    assert r.headers["content-security-policy"] == "default-src 'none'; sandbox"
+    r = await customer.get(f"{customer_url}/files/{a['id']}/content")
+    assert r.status_code == 200 and r.content == PDF
+
+    # 3. The other partner can't reach it, through their own conversation or this one.
+    r = await second.get(f"{leads_url(p2)}/{m2}/files/{a['id']}/content")
+    assert r.status_code == 404
+    r = await second.get(f"{leads_url(p2)}/{m1}/files/{a['id']}/content")
+    assert r.status_code == 404
+    other, other_project, _ = await assessed(api)
+    r = await other.get(f"{conversations_url(other, other_project)}/{m1}/files/{a['id']}/content")
+    assert r.status_code == 404
+
+    # 4. The partner replies with a file and no text: the message names the file.
+    r = await send_file(
+        first, f"{partner_url}/files", b"Quote: $1,200 incl. GST\n", "quote.txt", "text/plain"
+    )
+    assert r.status_code == 201, r.text
+    last = r.json()["messages"][-1]
+    assert last["body"] == "Sent a file: quote.txt" and last["attachment"]["scan_status"] == "CLEAN"
+
+    # 5. An infected file is quarantined and never served.
+    r = await send_file(first, f"{partner_url}/files", EICAR, "x.txt", "text/plain")
+    bad = r.json()["messages"][-1]["attachment"]
+    assert bad["scan_status"] == "INFECTED"
+    assert read_stored("messages", m1, bad["id"]) is None
+    assert read_stored("quarantine", "messages", m1, bad["id"]) == EICAR
+    r = await customer.get(f"{customer_url}/files/{bad['id']}/content")
+    assert r.status_code == 409 and r.json()["detail"]["code"] == "document_infected"
+
+    # 6. File types are checked like uploads.
+    r = await send_file(
+        customer, f"{customer_url}/files", b"MZ\x90\x00", "run.exe", "application/octet-stream"
+    )
+    assert r.status_code == 415
+
+    # 7. What was sent never changes; the scan result is recorded once.
+    async with owner_sessions() as db:
+        with pytest.raises(DBAPIError, match="never changes"):
+            await db.execute(
+                text("UPDATE lead_message_attachment SET original_filename = 'x' WHERE id = :id"),
+                {"id": a["id"]},
+            )
+        await db.rollback()
+        with pytest.raises(DBAPIError, match="scanned once"):
+            await db.execute(
+                text("UPDATE lead_message_attachment SET scan_status = 'PENDING' WHERE id = :id"),
+                {"id": a["id"]},
+            )
+        await db.rollback()
+        count = (
+            await db.execute(
+                select(LeadMessageAttachment.id).where(
+                    LeadMessageAttachment.lead_match_id == uuid.UUID(m1)
+                )
+            )
+        ).all()
+        assert len(count) == 3
+
+
+async def test_file_waits_for_scan(api: ApiHarness, settings: Settings) -> None:  # noqa: F811
+    from dataclasses import replace
+
+    from app.modules.documents import jobs
+    from tests.test_documents import DownScanner, NoJobs
+
+    customer, project, [(first, p1, m1)] = await claimed(api, ["Pending Files"])
+    api.app.state.resources.jobs = NoJobs()
+    r = await send_file(
+        customer,
+        f"{conversations_url(customer, project)}/{m1}/files",
+        PDF,
+        "plan.pdf",
+        "application/pdf",
+    )
+    assert r.status_code == 201, r.text
+    a = r.json()["messages"][-1]["attachment"]
+    assert a["scan_status"] == "PENDING"
+    r = await first.get(f"{leads_url(p1)}/{m1}/files/{a['id']}/content")
+    assert r.status_code == 409 and r.json()["detail"]["code"] == "document_not_scanned"
+
+    # The sweep finds it; a scanner outage retries, then gives up as ERROR.
+    found = await jobs.stalled_attachment_scans(settings, 0)
+    assert (m1, a["id"]) in found
+    resources = api.app.state.resources
+    ctx = jobs.create_job_context(settings, resources.session_factory, resources.storage)
+    down = replace(ctx, scanner=DownScanner())
+    match, aid = uuid.UUID(m1), uuid.UUID(a["id"])
+    with pytest.raises(jobs.RetryLater):
+        await jobs.attachment_scan_job(down, match, aid, final_attempt=False)
+    assert await jobs.attachment_scan_job(down, match, aid, final_attempt=True) == "ERROR"
+    r = await customer.get(f"{conversations_url(customer, project)}/{m1}/files/{a['id']}/content")
+    assert r.status_code == 409 and r.json()["detail"]["code"] == "document_scan_failed"
+    assert (m1, a["id"]) not in await jobs.stalled_attachment_scans(settings, 0)

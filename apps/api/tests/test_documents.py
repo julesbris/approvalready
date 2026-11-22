@@ -74,6 +74,9 @@ class NoJobs:
     async def generate(self, organisation_id: uuid.UUID, generated_id: uuid.UUID) -> None:
         return None
 
+    async def attachment_scan(self, match_id: uuid.UUID, attachment_id: uuid.UUID) -> None:
+        return None
+
 
 class DownScanner:
     name = "clamav"

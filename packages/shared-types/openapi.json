@@ -2268,6 +2268,41 @@
         "title": "AssignIn",
         "type": "object"
       },
+      "AttachmentOut": {
+        "description": "A file sent with a message. It can be downloaded once ``scan_status`` is ``CLEAN``.",
+        "properties": {
+          "content_type": {
+            "title": "Content Type",
+            "type": "string"
+          },
+          "filename": {
+            "title": "Filename",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "scan_status": {
+            "$ref": "#/components/schemas/ScanStatus",
+            "description": "The virus check."
+          },
+          "size_bytes": {
+            "title": "Size Bytes",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "filename",
+          "content_type",
+          "size_bytes",
+          "scan_status"
+        ],
+        "title": "AttachmentOut",
+        "type": "object"
+      },
       "AuditChainOut": {
         "properties": {
           "checked": {
@@ -2822,6 +2857,62 @@
           "webhook_events"
         ],
         "title": "BillingStatusOut",
+        "type": "object"
+      },
+      "Body_send_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files_post": {
+        "properties": {
+          "body": {
+            "anyOf": [
+              {
+                "maxLength": 4000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Text to send with it.",
+            "title": "Body"
+          },
+          "file": {
+            "contentMediaType": "application/octet-stream",
+            "description": "The file to send (checked for viruses).",
+            "title": "File",
+            "type": "string"
+          }
+        },
+        "required": [
+          "file"
+        ],
+        "title": "Body_send_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files_post",
+        "type": "object"
+      },
+      "Body_send_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files_post": {
+        "properties": {
+          "body": {
+            "anyOf": [
+              {
+                "maxLength": 4000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Text to send with it.",
+            "title": "Body"
+          },
+          "file": {
+            "contentMediaType": "application/octet-stream",
+            "description": "The file to send (checked for viruses).",
+            "title": "File",
+            "type": "string"
+          }
+        },
+        "required": [
+          "file"
+        ],
+        "title": "Body_send_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files_post",
         "type": "object"
       },
       "Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post": {
@@ -12895,6 +12986,17 @@
       },
       "MessageOut": {
         "properties": {
+          "attachment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AttachmentOut"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A file sent with it."
+          },
           "body": {
             "title": "Body",
             "type": "string"
@@ -38690,6 +38792,133 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/files": {
+      "post": {
+        "description": "Send the customer a file (a quote, a plan), with an optional message. They can\ndownload it once it has passed the virus check.",
+        "operationId": "send_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_send_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Send Partner File",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/files/{attachment_id}/content": {
+      "get": {
+        "description": "A file sent in this conversation, as a download (only once it passed the virus\ncheck).",
+        "operationId": "download_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files__attachment_id__content_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "attachment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/octet-stream": {}
+            },
+            "description": "Successful Response"
+          },
+          "303": {
+            "description": "See Other"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Download Partner File",
+        "tags": [
+          "leads"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/partner/leads/{match_id}/messages": {
       "get": {
         "description": "Messages with the customer about this referral (once accepted), oldest first.",
@@ -39770,7 +39999,216 @@
         ]
       }
     },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/files": {
+      "post": {
+        "description": "Send the partner a file (a site plan, photos), with an optional message. They can\ndownload it once it has passed the virus check.",
+        "operationId": "send_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_send_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Send Customer File",
+        "tags": [
+          "messages"
+        ]
+      }
+    },
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/files/{attachment_id}/content": {
+      "get": {
+        "description": "A file sent in this conversation, as a download (only once it passed the virus\ncheck).",
+        "operationId": "download_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files__attachment_id__content_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "attachment_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Attachment Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/octet-stream": {}
+            },
+            "description": "Successful Response"
+          },
+          "303": {
+            "description": "See Other"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Download Customer File",
+        "tags": [
+          "messages"
+        ]
+      }
+    },
     "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/messages": {
+      "get": {
+        "description": "One conversation, oldest message first (to see whether a file passed its check).",
+        "operationId": "get_customer_conversation_v1_organisations__organisation_id__projects__project_id__conversations__match_id__messages_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "project_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Project Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "match_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Match Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Customer Conversation",
+        "tags": [
+          "messages"
+        ]
+      },
       "post": {
         "description": "Write to the partner. They are told about the first message waiting for them.",
         "operationId": "send_customer_message_v1_organisations__organisation_id__projects__project_id__conversations__match_id__messages_post",

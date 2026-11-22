@@ -3394,6 +3394,48 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/files": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Send Partner File
+         * @description Send the customer a file (a quote, a plan), with an optional message. They can
+         *     download it once it has passed the virus check.
+         */
+        post: operations["send_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/partner/leads/{match_id}/files/{attachment_id}/content": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Download Partner File
+         * @description A file sent in this conversation, as a download (only once it passed the virus
+         *     check).
+         */
+        get: operations["download_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files__attachment_id__content_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/organisations/{organisation_id}/partner/leads/{match_id}/messages": {
         parameters: {
             query?: never;
@@ -3651,7 +3693,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/messages": {
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/files": {
         parameters: {
             query?: never;
             header?: never;
@@ -3659,6 +3701,52 @@ export interface paths {
             cookie?: never;
         };
         get?: never;
+        put?: never;
+        /**
+         * Send Customer File
+         * @description Send the partner a file (a site plan, photos), with an optional message. They can
+         *     download it once it has passed the virus check.
+         */
+        post: operations["send_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/files/{attachment_id}/content": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Download Customer File
+         * @description A file sent in this conversation, as a download (only once it passed the virus
+         *     check).
+         */
+        get: operations["download_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files__attachment_id__content_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/organisations/{organisation_id}/projects/{project_id}/conversations/{match_id}/messages": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Customer Conversation
+         * @description One conversation, oldest message first (to see whether a file passed its check).
+         */
+        get: operations["get_customer_conversation_v1_organisations__organisation_id__projects__project_id__conversations__match_id__messages_get"];
         put?: never;
         /**
          * Send Customer Message
@@ -6484,6 +6572,25 @@ export interface components {
              */
             professional_id: string;
         };
+        /**
+         * AttachmentOut
+         * @description A file sent with a message. It can be downloaded once ``scan_status`` is ``CLEAN``.
+         */
+        AttachmentOut: {
+            /** Content Type */
+            content_type: string;
+            /** Filename */
+            filename: string;
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** @description The virus check. */
+            scan_status: components["schemas"]["ScanStatus"];
+            /** Size Bytes */
+            size_bytes: number;
+        };
         /** AuditChainOut */
         AuditChainOut: {
             /** Checked */
@@ -6667,6 +6774,32 @@ export interface components {
             webhook_events: string[];
             /** Webhook Path */
             webhook_path: string;
+        };
+        /** Body_send_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files_post */
+        Body_send_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files_post: {
+            /**
+             * Body
+             * @description Text to send with it.
+             */
+            body?: string | null;
+            /**
+             * File
+             * @description The file to send (checked for viruses).
+             */
+            file: string;
+        };
+        /** Body_send_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files_post */
+        Body_send_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files_post: {
+            /**
+             * Body
+             * @description Text to send with it.
+             */
+            body?: string | null;
+            /**
+             * File
+             * @description The file to send (checked for viruses).
+             */
+            file: string;
         };
         /** Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post */
         Body_upload_document_v1_organisations__organisation_id__projects__project_id__documents_post: {
@@ -9922,6 +10055,8 @@ export interface components {
         };
         /** MessageOut */
         MessageOut: {
+            /** @description A file sent with it. */
+            attachment?: components["schemas"]["AttachmentOut"] | null;
             /** Body */
             body: string;
             /**
@@ -22001,6 +22136,82 @@ export interface operations {
             };
         };
     };
+    send_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": components["schemas"]["Body_send_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files_post"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConversationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    download_partner_file_v1_organisations__organisation_id__partner_leads__match_id__files__attachment_id__content_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                match_id: string;
+                attachment_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": unknown;
+                };
+            };
+            /** @description See Other */
+            303: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     get_partner_conversation_v1_organisations__organisation_id__partner_leads__match_id__messages_get: {
         parameters: {
             query?: never;
@@ -22622,6 +22833,117 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ConversationOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    send_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": components["schemas"]["Body_send_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files_post"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConversationOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    download_customer_file_v1_organisations__organisation_id__projects__project_id__conversations__match_id__files__attachment_id__content_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                match_id: string;
+                attachment_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": unknown;
+                };
+            };
+            /** @description See Other */
+            303: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_customer_conversation_v1_organisations__organisation_id__projects__project_id__conversations__match_id__messages_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                project_id: string;
+                match_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ConversationOut"];
                 };
             };
             /** @description Validation Error */

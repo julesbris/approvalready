@@ -236,7 +236,8 @@ tests and updated docs before the next starts.
 - [x] Open while the job is in progress or won, read-only once lost; up to 30 messages an hour from each side
 - [x] Unread counts, "Seen", and a notice (in the app and by email, per the Referrals setting) for the first message waiting
 - [x] `lead_message` (migration 0025): never edited or deleted (trigger); the text stays out of the audit log
-- [ ] Next: attachments (reusing the scanned upload pipeline); include messages in "Download my data"; reminders before a quote expires; PDF quotes
+- [x] Files in messages: either side sends one file with a message (`.../files`, multipart); stored under `messages/<match>/<id>`, virus-checked by the worker (`leads.scan_attachment`, re-queued by `documents.requeue_stalled`), downloadable by both sides only once clean; infected files are quarantined (migration 0037, `lead_message_attachment`)
+- [ ] Next: include messages in "Download my data"; reminders before a quote expires; PDF quotes
 
 ## Milestone 27 — Staff accounts page ✅
 - [x] `/admin/accounts`: find any account by email, name, business name, ABN or id (posted, so emails stay out of logs), with filters for active, unconfirmed, suspended, staff and closed accounts
