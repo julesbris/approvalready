@@ -89,6 +89,8 @@ class AccountDetail(AccountSummary):
     notes: list[StaffNoteOut]
     # Whether the signed-in staff member may add a note or email this person.
     can_contact: bool
+    # Whether the signed-in staff member may give or take away this person's staff role.
+    can_change_role: bool
 
 
 class AccountActionIn(BaseModel):
@@ -122,3 +124,9 @@ class StaffEmailIn(BaseModel):
     subject: str = Field(min_length=1, max_length=200)
     message: str = Field(min_length=1, max_length=8000)
     project_reference: str | None = Field(default=None, max_length=40)
+
+
+class StaffRoleIn(BaseModel):
+    # null takes every staff role away.
+    role: Literal["STAFF", "ADMIN", "SUPERADMIN"] | None
+    reason: str = Field(default="", max_length=500)

@@ -333,6 +333,10 @@
             "title": "Allowed Actions",
             "type": "array"
           },
+          "can_change_role": {
+            "title": "Can Change Role",
+            "type": "boolean"
+          },
           "can_contact": {
             "title": "Can Contact",
             "type": "boolean"
@@ -467,7 +471,8 @@
           "events",
           "allowed_actions",
           "notes",
-          "can_contact"
+          "can_contact",
+          "can_change_role"
         ],
         "title": "AccountDetail",
         "type": "object"
@@ -26448,6 +26453,37 @@
         "title": "StaffReviewOut",
         "type": "object"
       },
+      "StaffRoleIn": {
+        "properties": {
+          "reason": {
+            "default": "",
+            "maxLength": 500,
+            "title": "Reason",
+            "type": "string"
+          },
+          "role": {
+            "anyOf": [
+              {
+                "enum": [
+                  "STAFF",
+                  "ADMIN",
+                  "SUPERADMIN"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Role"
+          }
+        },
+        "required": [
+          "role"
+        ],
+        "title": "StaffRoleIn",
+        "type": "object"
+      },
       "StatusEventOut": {
         "properties": {
           "actor_id": {
@@ -29200,6 +29236,59 @@
           }
         },
         "summary": "Delete Note",
+        "tags": [
+          "admin: accounts"
+        ]
+      }
+    },
+    "/v1/admin/accounts/{user_id}/staff-role": {
+      "put": {
+        "operationId": "set_staff_role_v1_admin_accounts__user_id__staff_role_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "User Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StaffRoleIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountActionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Staff Role",
         "tags": [
           "admin: accounts"
         ]
