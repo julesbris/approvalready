@@ -21,6 +21,22 @@ export function quoteStatusLabel(quote: Pick<QuoteOut, "status" | "expired">): s
   return quote.expired ? "Expired" : QUOTE_STATUS_LABELS[quote.status];
 }
 
+/** For a quote still waiting: "Ends today", "Ends tomorrow" or "Ends in N days" when it
+ * runs out within `withinDays` (the reminder window), else null. `today` is "YYYY-MM-DD". */
+export function endsSoon(
+  quote: Pick<QuoteOut, "status" | "expired" | "valid_until">,
+  today: string = isoDateAfter(0),
+  withinDays = 3,
+): string | null {
+  if (quote.status !== "SENT" || quote.expired) return null;
+  const days = Math.round(
+    (Date.parse(`${quote.valid_until}T00:00:00Z`) - Date.parse(`${today}T00:00:00Z`)) / 86_400_000,
+  );
+  if (days < 0 || days > withinDays) return null;
+  if (days === 0) return "Ends today";
+  return days === 1 ? "Ends tomorrow" : `Ends in ${days} days`;
+}
+
 /** The CSS status class to show it with. */
 export function quoteStatusClass(quote: Pick<QuoteOut, "status" | "expired">): string {
   return `status status-${quote.expired ? "expired" : quote.status.toLowerCase()}`;

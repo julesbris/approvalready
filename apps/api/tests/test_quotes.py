@@ -295,3 +295,48 @@ async def test_match_status_follows_the_quote(
     # The partner can revise it after a decline.
     offer = await send(user, p, match_id)
     assert [q["status"] for q in offer["quotes"]] == ["SENT", "DECLINED"]
+
+
+async def test_quote_deadline_reminders(api: ApiHarness) -> None:
+    from app.modules.leads import jobs
+
+    customer, project, [(first, p1, m1), (second, p2, m2)] = await claimed(
+        api, ["Soon Planning", "Later Planning"]
+    )
+    today = assessment_date()
+    await send(first, p1, m1, valid_until=(today + timedelta(days=2)).isoformat())
+    await send(second, p2, m2, valid_until=(today + timedelta(days=20)).isoformat())
+    resources = api.app.state.resources
+    run = lambda now: jobs.quote_deadlines(  # noqa: E731
+        resources.session_factory, resources.email, api.app.state.settings, now=now
+    )
+
+    # A quote sent today isn't reminded about yet (its own notice is enough).
+    now = service.utcnow()
+    assert await run(now) == 0
+
+    # A day later: the customer hears about the quote ending soon, once; not the other.
+    tomorrow = now + timedelta(days=1, hours=1)
+    assert await run(tomorrow) == 1
+    assert await run(tomorrow) == 0
+    mails = [m for m in api.emails_to(customer.email, "notification") if "ends" in m.subject]
+    assert len(mails) == 1 and mails[0].subject.startswith("Soon Planning's quote")
+    assert "revised quote" in mails[0].text
+
+    # After it runs out unanswered, the partner is told once, so they can revise it.
+    later = now + timedelta(days=4)
+    assert await run(later) == 1
+    assert await run(later) == 0
+    lapsed = [m for m in api.emails_to(first.email) if "expired without an answer" in m.subject]
+    assert len(lapsed) == 1
+    assert not [m for m in api.emails_to(second.email) if "expired" in m.subject]
+
+    # An answered quote gets nothing more.
+    listed = (await customer.get(quotes_url(customer, project))).json()
+    later_quote = next(
+        q for q in listed if q["valid_until"] == (today + timedelta(days=20)).isoformat()
+    )
+    r = await customer.post(f"{quotes_url(customer, project)}/{later_quote['id']}/decline", json={})
+    assert r.status_code == 200, r.text
+    assert await run(now + timedelta(days=19)) == 0
+    assert await run(now + timedelta(days=22)) == 0

@@ -8,6 +8,9 @@
   waiting for them.
 * ``sweep`` (Celery beat, every 15 minutes): expire leads past their date, match partners
   who became eligible since, release the next wave where it is due, and notify.
+* ``quote_deadlines`` (with the sweep): remind the customer a few days before a quote they
+  haven't answered runs out (``QUOTE_REMINDER_DAYS``), and tell the partner once it has run
+  out unanswered, so they can send a revised one. Each is sent once per quote.
 
 Notifications to partners carry the public view only (category and area), never the
 customer's details.
@@ -17,7 +20,7 @@ from __future__ import annotations
 
 import logging
 import uuid
-from datetime import datetime
+from datetime import date, datetime, timedelta
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
@@ -28,12 +31,14 @@ from app.db.tenant import bind_tenant
 from app.modules.assessments.service import assessment_date
 from app.modules.leads import matching
 from app.modules.leads.models import (
+    WORKING,
     Lead,
     LeadMatch,
     LeadMessage,
     LeadQuote,
     LeadStatus,
     MessageSender,
+    QuoteStatus,
     ReferralConsent,
 )
 from app.modules.leads.quotes import gst_amounts
@@ -191,6 +196,132 @@ async def notify_quote_answered(
     return pending
 
 
+# Days before a quote's valid-until date that the customer is reminded about it.
+QUOTE_REMINDER_DAYS = 3
+
+
+def _day(d: date) -> str:
+    return f"{d:%A} {d.day} {d:%B}"
+
+
+async def _open_quotes(db: AsyncSession, first: date, last: date) -> list[tuple[LeadQuote, Lead]]:
+    """Quotes still waiting for the customer, valid until a day in [first, last], on jobs
+    the partner is still working on."""
+    rows = await db.execute(
+        select(LeadQuote, Lead)
+        .join(LeadMatch, LeadMatch.id == LeadQuote.lead_match_id)
+        .join(Lead, Lead.id == LeadQuote.lead_id)
+        .where(
+            LeadQuote.status == QuoteStatus.SENT,
+            LeadQuote.valid_until >= first,
+            LeadQuote.valid_until <= last,
+            LeadMatch.status.in_(WORKING),
+            Lead.status != LeadStatus.WITHDRAWN,
+            Lead.project_id.is_not(None),
+        )
+        .order_by(LeadQuote.valid_until, LeadQuote.id)
+    )
+    return [(q, lead) for q, lead in rows.all()]
+
+
+async def notify_quote_ending(
+    db: AsyncSession, lead: Lead, quote: LeadQuote, partner_name: str, today: date
+) -> Pending:
+    """Remind the customer who asked that a quote they haven't answered ends soon."""
+    await bind_tenant(db, lead.organisation_id)
+    record = (
+        await db.execute(
+            select(ReferralConsent).where(ReferralConsent.id == lead.referral_consent_id)
+        )
+    ).scalar_one_or_none()
+    if record is None or record.withdrawn_at is not None:
+        return {}
+    _, total = gst_amounts(quote.total_cents, quote.gst)
+    when = "today" if quote.valid_until == today else f"on {_day(quote.valid_until)}"
+    nid = await notifications.create(
+        db,
+        organisation_id=lead.organisation_id,
+        recipient_user_id=record.user_id,
+        kind=NotificationKind.QUOTE_RECEIVED,
+        title=f"{partner_name}'s quote ({_money(total)}) ends {when}"[:200],
+        body=(
+            f"{quote.title}. Accept or decline it on your project before then. Need more "
+            f"time? Ask {partner_name} in Messages to send a revised quote with a later date."
+        ),
+        link_path=f"/projects/{lead.project_id}/referrals#quotes",
+        project_id=lead.project_id,
+        dedupe_key=f"quote-ending:{quote.id}",
+    )
+    return {lead.organisation_id: [nid]} if nid else {}
+
+
+async def notify_quote_lapsed(db: AsyncSession, quote: LeadQuote) -> Pending:
+    """Tell the partner their quote ran out without an answer."""
+    partner = await db.get(PartnerOrganisation, quote.partner_organisation_id)
+    if partner is None:
+        return {}
+    await bind_tenant(db, partner.organisation_id)
+    pending: Pending = {}
+    for user_id in await _lead_readers(db, partner):
+        nid = await notifications.create(
+            db,
+            organisation_id=partner.organisation_id,
+            recipient_user_id=user_id,
+            kind=NotificationKind.QUOTE_ANSWERED,
+            title=f"Quote expired without an answer: {quote.title}"[:200],
+            body=(
+                "The customer didn't accept or decline it in time. Send a revised quote with a "
+                "new valid-until date, or message them to check in."
+            ),
+            link_path=f"/partner/leads/{quote.lead_match_id}",
+            dedupe_key=f"quote-lapsed:{quote.id}",
+        )
+        if nid is not None:
+            pending.setdefault(partner.organisation_id, []).append(nid)
+    return pending
+
+
+async def quote_deadlines(
+    factory: async_sessionmaker[AsyncSession],
+    email: EmailProvider | None,
+    settings: Settings | None,
+    *,
+    now: datetime | None = None,
+) -> int:
+    """Send the quote reminders that are due. Returns how many notices were made."""
+    from app.modules.tenancy.models import Organisation
+
+    now = now or utcnow()
+    today = now.astimezone(BRISBANE).date()
+    made = 0
+    async with factory() as db:
+        ending = await _open_quotes(db, today, today + timedelta(days=QUOTE_REMINDER_DAYS))
+        lapsed = await _open_quotes(db, today - timedelta(days=7), today - timedelta(days=1))
+    for quote, lead in ending:
+        # A quote that arrives already close to its date: the "new quote" notice says it.
+        if quote.created_at > now - timedelta(days=1):
+            continue
+        async with factory() as db:
+            customer = await db.get(Organisation, lead.organisation_id)
+            if customer is None or customer.deleted_at is not None:
+                continue
+            partner = await db.get(PartnerOrganisation, quote.partner_organisation_id)
+            owner = await db.get(Organisation, partner.organisation_id) if partner else None
+            pending = await notify_quote_ending(
+                db, lead, quote, owner.name if owner else "Your partner", today
+            )
+            await db.commit()
+            await send_pending(db, email, settings, pending)
+            made += sum(len(v) for v in pending.values())
+    for quote, _lead in lapsed:
+        async with factory() as db:
+            pending = await notify_quote_lapsed(db, quote)
+            await db.commit()
+            await send_pending(db, email, settings, pending)
+            made += sum(len(v) for v in pending.values())
+    return made
+
+
 def _excerpt(text: str, limit: int = 280) -> str:
     flat = " ".join(text.split())
     return flat if len(flat) <= limit else flat[: limit - 1].rstrip() + "…"
@@ -320,4 +451,8 @@ async def sweep(
             await db.commit()
             await send_pending(db, email, settings, pending)
             made += len(offered)
+    try:
+        await quote_deadlines(factory, email, settings, now=now)
+    except Exception:
+        log.exception("quote reminders failed")
     return made

@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { groupByJob, gstAmounts, isoDateAfter, parseAmount, quoteStatusLabel } from "./quotes";
+import {
+  endsSoon,
+  groupByJob,
+  gstAmounts,
+  isoDateAfter,
+  parseAmount,
+  quoteStatusLabel,
+} from "./quotes";
 
 describe("quote helpers", () => {
   it("works out GST like the API", () => {
@@ -33,5 +40,20 @@ describe("quote helpers", () => {
     expect(
       groupByJob([q("a", "x"), q("b", "y"), q("c", "x")]).map((g) => g.map((i) => i.id)),
     ).toEqual([["a", "c"], ["b"]]);
+  });
+});
+
+describe("endsSoon", () => {
+  const q = { status: "SENT" as const, expired: false };
+  it("flags a waiting quote in its last three days", () => {
+    expect(endsSoon({ ...q, valid_until: "2026-11-22" }, "2026-11-22")).toBe("Ends today");
+    expect(endsSoon({ ...q, valid_until: "2026-11-23" }, "2026-11-22")).toBe("Ends tomorrow");
+    expect(endsSoon({ ...q, valid_until: "2026-11-25" }, "2026-11-22")).toBe("Ends in 3 days");
+    expect(endsSoon({ ...q, valid_until: "2026-11-26" }, "2026-11-22")).toBeNull();
+  });
+  it("says nothing for answered or expired quotes", () => {
+    const accepted = { ...q, status: "ACCEPTED" as const, valid_until: "2026-11-22" };
+    expect(endsSoon(accepted, "2026-11-22")).toBeNull();
+    expect(endsSoon({ ...q, expired: true, valid_until: "2026-11-20" }, "2026-11-22")).toBeNull();
   });
 });

@@ -11,7 +11,7 @@ import { apiRequest } from "@/lib/client-api";
 import { formatDateTime } from "@/lib/labels";
 import { money } from "@/lib/leads";
 import { formatDate } from "@/lib/questionnaire";
-import { groupByJob, quoteStatusClass, quoteStatusLabel } from "@/lib/quotes";
+import { endsSoon, groupByJob, quoteStatusClass, quoteStatusLabel } from "@/lib/quotes";
 
 /** The customer's quotes, one comparison per job: prices side by side, then each quote with
  * accept and decline. */
@@ -97,7 +97,10 @@ export function CustomerQuotes({
                         <a href={`#quote-${q.id}`}>{q.partner.name}</a>
                       </td>
                       <td className="amount">{money(q.total_inc_gst_cents)}</td>
-                      <td>{formatDate(q.valid_until)}</td>
+                      <td>
+                        {formatDate(q.valid_until)}
+                        {endsSoon(q) ? <span className="badge">{endsSoon(q)}</span> : null}
+                      </td>
                       <td>{q.start_estimate ?? "Not given"}</td>
                       <td>
                         <span className={quoteStatusClass(q)}>{quoteStatusLabel(q)}</span>
