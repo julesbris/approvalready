@@ -1,6 +1,13 @@
 import type { AccountEvent, AccountSummary } from "@approvalready/shared-types";
 
-import { ACCOUNT_ACTIONS, accountState, describeDevice, eventBy, eventLabel } from "./accounts";
+import {
+  ACCOUNT_ACTIONS,
+  accountState,
+  describeDevice,
+  eventBy,
+  eventLabel,
+  stuckEmailDraft,
+} from "./accounts";
 
 const account: AccountSummary = {
   id: "u1",
@@ -67,5 +74,13 @@ describe("accounts helpers", () => {
     expect(describeDevice(safariIphone)).toBe("Safari on iPhone or iPad");
     expect(describeDevice(null)).toBe("Unknown device");
     expect(describeDevice("curl/8.0")).toBe("Unknown device");
+  });
+});
+
+describe("stuckEmailDraft", () => {
+  it("names the project in the subject and the message", () => {
+    const draft = stuckEmailDraft("PLN-ABC123");
+    expect(draft.subject).toBe("Can we help with PLN-ABC123?");
+    expect(draft.message).toContain("PLN-ABC123");
   });
 });

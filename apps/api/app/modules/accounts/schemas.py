@@ -63,6 +63,19 @@ class AccountEvent(BaseModel):
     details: dict[str, Any]
 
 
+class StaffNoteOut(BaseModel):
+    id: uuid.UUID
+    kind: Literal["NOTE", "CALL", "EMAIL"]
+    subject: str | None
+    body: str
+    project_reference: str | None
+    created_at: datetime
+    # Who wrote it (null once that staff account is gone).
+    author_name: str | None
+    # Whether the signed-in staff member may delete it (the API checks again).
+    can_delete: bool
+
+
 class AccountDetail(AccountSummary):
     password_set: bool
     password_changed_at: datetime | None
@@ -72,6 +85,10 @@ class AccountDetail(AccountSummary):
     events: list[AccountEvent]
     # What the signed-in staff member may do to this account (the API checks again).
     allowed_actions: list[str]
+    # Staff notes, calls and emails, newest first.
+    notes: list[StaffNoteOut]
+    # Whether the signed-in staff member may add a note or email this person.
+    can_contact: bool
 
 
 class AccountActionIn(BaseModel):
@@ -90,3 +107,18 @@ class AccountActionIn(BaseModel):
 class AccountActionOut(BaseModel):
     message: str
     account: AccountDetail
+
+
+class StaffNoteIn(BaseModel):
+    kind: Literal["NOTE", "CALL"] = "NOTE"
+    body: str = Field(min_length=1, max_length=4000)
+    project_reference: str | None = Field(default=None, max_length=40)
+
+
+class StaffEmailIn(BaseModel):
+    """An email from staff to the person, sent from the team address. A copy is kept as a
+    note on the account."""
+
+    subject: str = Field(min_length=1, max_length=200)
+    message: str = Field(min_length=1, max_length=8000)
+    project_reference: str | None = Field(default=None, max_length=40)

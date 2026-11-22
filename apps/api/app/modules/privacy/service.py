@@ -32,6 +32,7 @@ from app.core.ratelimit import RateLimiter
 from app.core.security import verify_password
 from app.db.base import Base
 from app.db.tenant import bind_tenant
+from app.modules.accounts import notes as staff_notes
 from app.modules.audit import service as audit
 from app.modules.audit.models import AuditEvent
 from app.modules.audit.service import RequestMeta
@@ -367,6 +368,7 @@ async def close_account(
             org.name = "Closed account"
             org.deleted_at = now
     await newsletter.forget_account(db, user.id, old_email)
+    await staff_notes.forget(db, user.id)
     for model in (PasswordCredential, AuthIdentity, OneTimeToken, NotificationPreference):
         await db.execute(delete(model).where(model.user_id == user.id))
     await mfa.remove(db, user.id)

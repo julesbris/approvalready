@@ -16,6 +16,7 @@ from fastapi import APIRouter, Depends, Query
 from sqlalchemy import select
 
 from app.api.deps import DbDep, OrgContext, require_org_permission, require_platform_permission
+from app.modules.accounts import notes as staff_notes
 from app.modules.identity.models import AppUser
 from app.modules.progress import nudges
 from app.modules.progress.schemas import LeftItemOut, QuietProjectOut, WhatsLeftOut
@@ -62,6 +63,7 @@ async def quiet_projects(
         u.id: u
         for u in (await db.execute(select(AppUser).where(AppUser.id.in_(user_ids)))).scalars()
     }
+    contacted = await staff_notes.last_contacted(db, user_ids)
     out = []
     for r in rows:
         owner = users.get(r.owner_user_id) if r.owner_user_id else None
@@ -71,6 +73,7 @@ async def quiet_projects(
                 organisation_name=orgs.get(r.organisation_id, ""),
                 owner_email=owner.email if owner else None,
                 owner_name=owner.display_name if owner else None,
+                last_contacted_at=contacted.get(r.owner_user_id) if r.owner_user_id else None,
             )
         )
     return out

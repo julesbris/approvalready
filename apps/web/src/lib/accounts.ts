@@ -96,6 +96,10 @@ const EVENT_LABELS: Record<string, string> = {
   "admin.account.signed_out": "Signed out everywhere",
   "admin.account.suspended": "Account suspended",
   "admin.account.restored": "Account restored",
+  "admin.account.note_added": "Staff note added",
+  "admin.account.call_logged": "Call logged",
+  "admin.account.note_deleted": "Staff note deleted",
+  "admin.account.emailed": "Emailed by staff",
   "platform.role_granted": "Given a staff role",
 };
 
@@ -136,4 +140,21 @@ export function describeDevice(userAgent: string | null): string {
             : null;
   if (browser && system) return `${browser} on ${system}`;
   return browser ?? system ?? "Unknown device";
+}
+
+export const NOTE_KIND_LABELS: Record<string, string> = {
+  NOTE: "Note",
+  CALL: "Call",
+  EMAIL: "Email sent",
+};
+
+/** A first email to someone whose project went quiet, for staff to edit before sending. */
+export function stuckEmailDraft(reference: string): { subject: string; message: string } {
+  return {
+    subject: `Can we help with ${reference}?`,
+    message:
+      `I noticed your project ${reference} hasn't moved for a little while. If something is ` +
+      "unclear or you're stuck on a step, reply to this email and tell me where you're up to. " +
+      "I'm happy to walk you through it.",
+  };
 }
