@@ -8,6 +8,8 @@
 * ``POST /v1/admin/accounts/{id}/notes``: add a note or log a call (any platform role).
 * ``DELETE /v1/admin/accounts/{id}/notes/{note_id}``: delete a note (its author, or
   ``platform.users.manage``).
+* ``PUT /v1/admin/accounts/{id}/staff-role``: give, change or take away a staff role
+  (``platform.roles.manage``).
 * ``POST /v1/admin/accounts/{id}/email``: email the person from the team address and keep a
   copy as a note (any platform role).
 """
@@ -28,7 +30,7 @@ from app.api.deps import (
     SettingsDep,
     require_platform_permission,
 )
-from app.modules.accounts import notes, service
+from app.modules.accounts import notes, service, staff_roles
 from app.modules.accounts.schemas import (
     AccountActionIn,
     AccountActionOut,
@@ -37,6 +39,7 @@ from app.modules.accounts.schemas import (
     AccountSummary,
     StaffEmailIn,
     StaffNoteIn,
+    StaffRoleIn,
 )
 from app.modules.identity import service as identity
 from app.modules.tenancy.rbac import Perm
@@ -44,6 +47,9 @@ from app.modules.tenancy.rbac import Perm
 admin_router = APIRouter(prefix="/v1/admin/accounts", tags=["admin: accounts"])
 
 Reader = Annotated[OrgContext, Depends(require_platform_permission(Perm.PLATFORM_USERS_READ))]
+RoleManager = Annotated[
+    OrgContext, Depends(require_platform_permission(Perm.PLATFORM_ROLES_MANAGE))
+]
 Manager = Annotated[OrgContext, Depends(require_platform_permission(Perm.PLATFORM_USERS_MANAGE))]
 
 
@@ -129,4 +135,32 @@ async def email_account(
     )
     await db.commit()
     await identity.send_email(resources.email, email)
+    return AccountActionOut(message=message, account=await service.detail(db, staff, user_id))
+
+
+@admin_router.put("/{user_id}/staff-role", response_model=AccountActionOut)
+async def set_staff_role(
+    user_id: uuid.UUID,
+    body: StaffRoleIn,
+    ctx: RoleManager,
+    db: DbDep,
+    settings: SettingsDep,
+    resources: ResourcesDep,
+    meta: MetaDep,
+) -> AccountActionOut:
+    staff = _staff(ctx)
+    message, email = await staff_roles.set_role(
+        db,
+        settings,
+        staff.permissions,
+        staff.user_id,
+        ctx.organisation,
+        user_id,
+        body.role,
+        body.reason,
+        meta,
+    )
+    await db.commit()
+    if email is not None:
+        await identity.send_email(resources.email, email)
     return AccountActionOut(message=message, account=await service.detail(db, staff, user_id))

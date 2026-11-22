@@ -153,7 +153,8 @@ docker compose -f docker-compose.prod.yml --env-file .env exec api \
 ```
 
 This creates the `PLATFORM_ADMIN` organisation on first use. There is no HTTP endpoint for
-this step by design. Every sign-in starts in the personal organisation: the admin pages offer a
+this first step by design. After that, a super administrator gives other people staff roles
+from their page in Admin > Accounts (they sign up and confirm their email first). Every sign-in starts in the personal organisation: the admin pages offer a
 "Switch to ApprovalReady" button, or pick it in the organisation menu at the top. If an admin
 page still says "No access", see what the account has (changes nothing):
 

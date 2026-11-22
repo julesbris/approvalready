@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AccountActions } from "@/components/admin/AccountActions";
 import { AdminNav } from "@/components/admin/AdminNav";
 import { EmailCustomer, StaffNotes } from "@/components/admin/StaffNotes";
+import { StaffRole } from "@/components/admin/StaffRole";
 import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
 import {
   accountState,
@@ -126,6 +127,13 @@ export default async function AccountAdminPage({ params, searchParams }: Props) 
           <AccountActions accountId={account.id} actions={account.allowed_actions} />
         )}
       </section>
+
+      {account.can_change_role ? (
+        <section className="panel" id="staff-role">
+          <h2 className="section-title">Staff access</h2>
+          <StaffRole accountId={account.id} current={account.platform_role} />
+        </section>
+      ) : null}
 
       {account.can_contact ? (
         <section className="panel" id="contact">
