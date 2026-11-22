@@ -29,7 +29,7 @@ from app.core.config import Settings
 from app.core.email import OutgoingEmail
 from app.core.errors import ApiError, forbidden, not_found
 from app.core.ratelimit import RateLimiter
-from app.modules.accounts import notes
+from app.modules.accounts import notes, staff_roles
 from app.modules.accounts.schemas import (
     AccountDetail,
     AccountEvent,
@@ -394,6 +394,7 @@ async def detail(db: AsyncSession, staff: Staff, user_id: uuid.UUID) -> AccountD
         ),
         notes=await notes.list_for(db, staff.permissions, staff.user_id, user.id),
         can_contact=notes.may_contact(staff.permissions, staff.user_id, user),
+        can_change_role=staff_roles.may_change(staff.permissions, staff.user_id, user),
     )
 
 
