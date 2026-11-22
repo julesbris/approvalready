@@ -207,7 +207,8 @@ tests and updated docs before the next starts.
 - [x] Partners who accepted a referral send the customer a written quote: line items, GST, valid until, start estimate, terms; revisions supersede the waiting quote (migration 0022, `lead_quote`, fixed once sent by a trigger)
 - [x] Customers compare quotes per job on `/projects/[id]/referrals`, accept one (optionally declining the others) or decline with a note; referrals move to won or lost
 - [x] In-app and email notifications both ways; audit events; analytics unchanged (status events)
-- [ ] Next: PDF quotes; reminders before a quote expires; quote templates per partner; ~~messages between customer and partner~~ (Milestone 26)
+- [x] Quote deadline reminders: the customer is reminded once, three days before a quote they haven't answered runs out (in the app and by email, as their Referrals setting allows), and the partner is told once when it ran out unanswered so they can revise it (`leads.quote_deadlines`, run by the 15-minute leads sweep; no migration). Quotes ending within three days show "Ends in N days"
+- [ ] Next: PDF quotes; quote templates per partner; ~~messages between customer and partner~~ (Milestone 26)
 
 ## Checklist reports and project plans ✅
 - [x] Every product's assessment downloads as a printable checklist (PDF, Word, HTML): each approval's things to have ready and steps in order, with forms, costs, timeframes, fees, contacts, what to watch out for, documents and tasks, with tick boxes
@@ -237,7 +238,7 @@ tests and updated docs before the next starts.
 - [x] Unread counts, "Seen", and a notice (in the app and by email, per the Referrals setting) for the first message waiting
 - [x] `lead_message` (migration 0025): never edited or deleted (trigger); the text stays out of the audit log
 - [x] Files in messages: either side sends one file with a message (`.../files`, multipart); stored under `messages/<match>/<id>`, virus-checked by the worker (`leads.scan_attachment`, re-queued by `documents.requeue_stalled`), downloadable by both sides only once clean; infected files are quarantined (migration 0037, `lead_message_attachment`)
-- [ ] Next: include messages in "Download my data"; reminders before a quote expires; PDF quotes
+- [ ] Next: include messages in "Download my data"; PDF quotes
 
 ## Milestone 27 — Staff accounts page ✅
 - [x] `/admin/accounts`: find any account by email, name, business name, ABN or id (posted, so emails stay out of logs), with filters for active, unconfirmed, suspended, staff and closed accounts
