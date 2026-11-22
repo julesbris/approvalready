@@ -39,6 +39,8 @@ class AccountMembership(BaseModel):
     member_status: str
     roles: list[str]
     joined_at: datetime
+    # Whether the signed-in staff member may suspend or restore this organisation here.
+    can_suspend: bool = False
 
 
 class AccountSession(BaseModel):
@@ -129,4 +131,10 @@ class StaffEmailIn(BaseModel):
 class StaffRoleIn(BaseModel):
     # null takes every staff role away.
     role: Literal["STAFF", "ADMIN", "SUPERADMIN"] | None
+    reason: str = Field(default="", max_length=500)
+
+
+class OrganisationStatusIn(BaseModel):
+    status: Literal["SUSPENDED", "ACTIVE"]
+    # Required to suspend; saved in the audit log.
     reason: str = Field(default="", max_length=500)

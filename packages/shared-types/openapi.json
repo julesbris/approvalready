@@ -554,6 +554,11 @@
             ],
             "title": "Abn"
           },
+          "can_suspend": {
+            "default": false,
+            "title": "Can Suspend",
+            "type": "boolean"
+          },
           "joined_at": {
             "format": "date-time",
             "title": "Joined At",
@@ -14090,6 +14095,29 @@
           "permissions"
         ],
         "title": "OrganisationOut",
+        "type": "object"
+      },
+      "OrganisationStatusIn": {
+        "properties": {
+          "reason": {
+            "default": "",
+            "maxLength": 500,
+            "title": "Reason",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "SUSPENDED",
+              "ACTIVE"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "OrganisationStatusIn",
         "type": "object"
       },
       "OrganisationUpdate": {
@@ -29338,6 +29366,69 @@
           }
         },
         "summary": "Delete Note",
+        "tags": [
+          "admin: accounts"
+        ]
+      }
+    },
+    "/v1/admin/accounts/{user_id}/organisations/{organisation_id}/status": {
+      "put": {
+        "operationId": "set_organisation_status_v1_admin_accounts__user_id__organisations__organisation_id__status_put",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "User Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "organisation_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Organisation Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrganisationStatusIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountActionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Set Organisation Status",
         "tags": [
           "admin: accounts"
         ]

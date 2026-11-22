@@ -244,7 +244,7 @@ tests and updated docs before the next starts.
 - [x] Account page: organisations and roles, two-step sign-in and recovery codes, password age, signed-in devices, and recent history including what staff did to it
 - [x] Support actions for platform administrators (`platform.users.manage`, migration 0026): resend the verification email, send a password reset link, sign out everywhere, reset two-step sign-in (no server command needed), suspend and restore; reasons kept in the audit log
 - [x] Safeguards: no actions on your own account, only a super administrator can change a staff member's account, closed accounts are read-only, every view and action audited
-- [ ] Next: ~~change staff roles from the page~~ (Staff roles below); suspend a business organisation; ~~staff notes on an account~~ (Staff notes below)
+- [ ] Next: ~~change staff roles from the page~~ (Staff roles below); ~~suspend a business organisation~~ (Suspending business workspaces below); ~~staff notes on an account~~ (Staff notes below)
 
 ## Milestone 25 — TradeReady: importing and exporting goods ✅
 - [x] `TRADE` vertical (migration 0027), `trade.general` questionnaire, business profile prefill
@@ -286,6 +286,11 @@ tests and updated docs before the next starts.
 - [x] Super administrators give, change or take away Staff / Platform administrator / Super administrator from an account's page (`PUT /v1/admin/accounts/{id}/staff-role`), with a reason in the audit log; never on their own account, so one super administrator always remains
 - [x] Only active accounts with a confirmed email; the person is emailed how to reach the staff pages; taking the role away drops their sessions back to their own workspace
 - [ ] Next: staff invitations to people without an account yet (today they sign up first); `grant-platform-role` stays for the very first super administrator
+
+## Suspending business workspaces ✅
+- [x] Platform administrators suspend or restore a business or professional practice workspace from a member's page in Admin > Accounts, with a reason in the audit log (`org.suspended` / `org.restored`); every member is emailed
+- [x] A suspended workspace leaves its members' organisation menus, its pages and API stop for them, and its keep-going reminders stop (memberships only count while the organisation is active); nothing is deleted
+- [ ] Next: a staff Organisations page (search workspaces directly, not through a member); show suspended workspaces' members why on sign-in
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)
