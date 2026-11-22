@@ -174,6 +174,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/accounts/{user_id}/organisations/{organisation_id}/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Set Organisation Status */
+        put: operations["set_organisation_status_v1_admin_accounts__user_id__organisations__organisation_id__status_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/admin/accounts/{user_id}/staff-role": {
         parameters: {
             query?: never;
@@ -5966,6 +5983,11 @@ export interface components {
             /** Abn */
             abn: string | null;
             /**
+             * Can Suspend
+             * @default false
+             */
+            can_suspend: boolean;
+            /**
              * Joined At
              * Format: date-time
              */
@@ -10438,6 +10460,19 @@ export interface components {
             roles: string[];
             /** Status */
             status: string;
+        };
+        /** OrganisationStatusIn */
+        OrganisationStatusIn: {
+            /**
+             * Reason
+             * @default
+             */
+            reason: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "SUSPENDED" | "ACTIVE";
         };
         /** OrganisationUpdate */
         OrganisationUpdate: {
@@ -15782,6 +15817,42 @@ export interface operations {
             cookie?: never;
         };
         requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountActionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    set_organisation_status_v1_admin_accounts__user_id__organisations__organisation_id__status_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                user_id: string;
+                organisation_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["OrganisationStatusIn"];
+            };
+        };
         responses: {
             /** @description Successful Response */
             200: {

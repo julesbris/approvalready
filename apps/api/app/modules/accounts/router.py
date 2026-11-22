@@ -10,6 +10,8 @@
   ``platform.users.manage``).
 * ``PUT /v1/admin/accounts/{id}/staff-role``: give, change or take away a staff role
   (``platform.roles.manage``).
+* ``PUT /v1/admin/accounts/{id}/organisations/{org_id}/status``: suspend or restore a business
+  workspace the person belongs to (``platform.users.manage``).
 * ``POST /v1/admin/accounts/{id}/email``: email the person from the team address and keep a
   copy as a note (any platform role).
 """
@@ -30,13 +32,14 @@ from app.api.deps import (
     SettingsDep,
     require_platform_permission,
 )
-from app.modules.accounts import notes, service, staff_roles
+from app.modules.accounts import notes, organisations, service, staff_roles
 from app.modules.accounts.schemas import (
     AccountActionIn,
     AccountActionOut,
     AccountDetail,
     AccountSearch,
     AccountSummary,
+    OrganisationStatusIn,
     StaffEmailIn,
     StaffNoteIn,
     StaffRoleIn,
@@ -162,5 +165,36 @@ async def set_staff_role(
     )
     await db.commit()
     if email is not None:
+        await identity.send_email(resources.email, email)
+    return AccountActionOut(message=message, account=await service.detail(db, staff, user_id))
+
+
+@admin_router.put(
+    "/{user_id}/organisations/{organisation_id}/status", response_model=AccountActionOut
+)
+async def set_organisation_status(
+    user_id: uuid.UUID,
+    organisation_id: uuid.UUID,
+    body: OrganisationStatusIn,
+    ctx: Manager,
+    db: DbDep,
+    settings: SettingsDep,
+    resources: ResourcesDep,
+    meta: MetaDep,
+) -> AccountActionOut:
+    staff = _staff(ctx)
+    message, emails = await organisations.set_status(
+        db,
+        settings,
+        staff.permissions,
+        staff.user_id,
+        user_id,
+        organisation_id,
+        body.status,
+        body.reason,
+        meta,
+    )
+    await db.commit()
+    for email in emails:
         await identity.send_email(resources.email, email)
     return AccountActionOut(message=message, account=await service.detail(db, staff, user_id))

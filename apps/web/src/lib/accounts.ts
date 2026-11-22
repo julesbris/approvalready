@@ -101,6 +101,7 @@ const EVENT_LABELS: Record<string, string> = {
   "admin.account.note_deleted": "Staff note deleted",
   "admin.account.emailed": "Emailed by staff",
   "platform.role_granted": "Given a staff role",
+  "platform.role_removed": "Staff role taken away",
 };
 
 /** "Signed in", falling back to the raw action name for anything not listed. */

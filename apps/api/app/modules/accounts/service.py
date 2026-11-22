@@ -29,7 +29,7 @@ from app.core.config import Settings
 from app.core.email import OutgoingEmail
 from app.core.errors import ApiError, forbidden, not_found
 from app.core.ratelimit import RateLimiter
-from app.modules.accounts import notes, staff_roles
+from app.modules.accounts import notes, organisations, staff_roles
 from app.modules.accounts.schemas import (
     AccountDetail,
     AccountEvent,
@@ -227,7 +227,9 @@ async def _summaries(db: AsyncSession, users: list[AppUser]) -> list[AccountSumm
     ]
 
 
-async def _memberships(db: AsyncSession, user_id: uuid.UUID) -> list[AccountMembership]:
+async def _memberships(
+    db: AsyncSession, user_id: uuid.UUID, permissions: frozenset[str] = frozenset()
+) -> list[AccountMembership]:
     rows = (
         await db.execute(
             select(Organisation, OrganisationMember)
@@ -250,6 +252,7 @@ async def _memberships(db: AsyncSession, user_id: uuid.UUID) -> list[AccountMemb
             member_status=member.status,
             roles=list(await tenancy.member_role_keys(db, member.id)),
             joined_at=member.created_at,
+            can_suspend=organisations.may_suspend(permissions, org.kind),
         )
         for org, member in rows
     ]
@@ -371,7 +374,7 @@ async def detail(db: AsyncSession, staff: Staff, user_id: uuid.UUID) -> AccountD
         password_set=credential is not None,
         password_changed_at=credential.password_changed_at if credential else None,
         recovery_codes_left=await mfa.recovery_codes_left(db, user.id) if has_two_step else 0,
-        memberships=await _memberships(db, user.id),
+        memberships=await _memberships(db, user.id, staff.permissions),
         sessions=[
             AccountSession(
                 id=s.id,

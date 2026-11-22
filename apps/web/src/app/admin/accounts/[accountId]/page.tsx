@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { AccountActions } from "@/components/admin/AccountActions";
 import { AdminNav } from "@/components/admin/AdminNav";
+import { OrganisationStatus } from "@/components/admin/OrganisationStatus";
 import { EmailCustomer, StaffNotes } from "@/components/admin/StaffNotes";
 import { StaffRole } from "@/components/admin/StaffRole";
 import { AdminNoAccess, AppShell } from "@/components/app/AppShell";
@@ -49,6 +50,7 @@ export default async function AccountAdminPage({ params, searchParams }: Props) 
   }
   const account = orNotFound(await serverGet<AccountDetail>(`/admin/accounts/${accountId}`));
   const self = account.id === session.user.id;
+  const canSuspend = account.memberships.some((m) => m.can_suspend);
   return (
     <AppShell session={session}>
       <AdminNav current="accounts" />
@@ -169,6 +171,7 @@ export default async function AccountAdminPage({ params, searchParams }: Props) 
                 <th>Kind</th>
                 <th>Their roles</th>
                 <th>Since</th>
+                {canSuspend ? <th>Workspace access</th> : null}
               </tr>
             </thead>
             <tbody>
@@ -187,6 +190,18 @@ export default async function AccountAdminPage({ params, searchParams }: Props) 
                   <td>{KIND_LABELS[m.kind] ?? m.kind}</td>
                   <td>{roleList(m.roles)}</td>
                   <td>{formatDateTime(m.joined_at)}</td>
+                  {canSuspend ? (
+                    <td>
+                      {m.can_suspend ? (
+                        <OrganisationStatus
+                          accountId={account.id}
+                          organisationId={m.organisation_id}
+                          name={m.name}
+                          status={m.organisation_status}
+                        />
+                      ) : null}
+                    </td>
+                  ) : null}
                 </tr>
               ))}
             </tbody>
