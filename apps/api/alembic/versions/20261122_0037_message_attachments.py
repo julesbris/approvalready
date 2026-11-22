@@ -5,8 +5,8 @@ photos, a quote document) with a message.
   One file per message. What was sent never changes (trigger); only the virus scan's
   result is recorded, once it is known.
 
-Revision ID: 0036
-Revises: 0035
+Revision ID: 0037
+Revises: 0036
 Create Date: 2026-11-22
 """
 
@@ -16,8 +16,8 @@ import sqlalchemy as sa
 from alembic import op
 from sqlalchemy.dialects import postgresql
 
-revision: str = "0036"
-down_revision: str | None = "0035"
+revision: str = "0037"
+down_revision: str | None = "0036"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

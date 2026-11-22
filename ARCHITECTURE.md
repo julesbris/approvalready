@@ -1235,11 +1235,11 @@ Goal: a free property report that beats the free reports on Domain, realestate.c
 
 Remote-work journey planning is a separate module (`apps/api/app/modules/remotesafe`, web pages under `/remotesafe`, migration 0035). Its architecture assessment, decisions, limitations and remaining milestones are in [docs/REMOTESAFE.md](docs/REMOTESAFE.md).
 
-## Files in messages (migration 0036)
+## Files in messages (migration 0037)
 
 | Concern | Implementation |
 |---|---|
-| Migration | `0036` (revises `0035`): platform table `lead_message_attachment` (one per message: match, stored key, file name, detected type, size, SHA-256, scan status, engine, signature, attempts, scanned at). A trigger refuses changes to what was sent; only the scan columns (and the key, when quarantined) change, and a scan result is recorded once. Granted SELECT, INSERT, UPDATE. |
+| Migration | `0037` (revises `0036`): platform table `lead_message_attachment` (one per message: match, stored key, file name, detected type, size, SHA-256, scan status, engine, signature, attempts, scanned at). A trigger refuses changes to what was sent; only the scan columns (and the key, when quarantined) change, and a scan result is recorded once. Granted SELECT, INSERT, UPDATE. |
 | Sending | `POST .../conversations/{match}/files` (customer, `project.write`) and `POST .../partner/leads/{match}/files` (partner, `lead.claim`), multipart `file` plus optional `body`. Same checks as project uploads (size, real file type, the per-user uploads-per-hour limit) and the conversation's rules (open, hourly message limit). With no text the message reads "Sent a file: <name>". The audit `message.sent` adds the file's type, size and hash. |
 | Scanning | Stored at `messages/<match>/<id>`, `PENDING` until the worker task `leads.scan_attachment` (inline in tests) scans it; infected files move to `quarantine/messages/...` and are never served. `documents.requeue_stalled` re-queues scans pending over two hours. |
 | Downloads | `GET .../files/{attachment}/content` on either side, only for a side of that conversation and only once `CLEAN` (409 otherwise); same download headers as documents (attachment, sandbox CSP, signed URL with S3). Audit `message_attachment.downloaded`. `GET .../conversations/{match}/messages` lets the customer's page refresh one conversation while a scan runs. |

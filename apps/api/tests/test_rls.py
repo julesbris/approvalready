@@ -142,7 +142,7 @@ EXPECTED_PRIVILEGES: dict[str, set[str]] = {
     # Milestone 23: a sent quote only gains its answer (trigger), never deleted.
     "lead_quote": WRITE,
     "lead_message": WRITE,
-    # Files in messages (0036): only the scan result changes (trigger).
+    # Files in messages (0037): only the scan result changes (trigger).
     "lead_message_attachment": WRITE,
     # Milestone 17: the backup service writes backup runs as the owner; the worker may only
     # record the off-site copy (a column grant, which this table-level map doesn't list).
