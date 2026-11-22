@@ -29,6 +29,7 @@ from app.core.config import Settings
 from app.core.email import OutgoingEmail
 from app.core.errors import ApiError, forbidden, not_found
 from app.core.ratelimit import RateLimiter
+from app.modules.accounts import notes
 from app.modules.accounts.schemas import (
     AccountDetail,
     AccountEvent,
@@ -391,6 +392,8 @@ async def detail(db: AsyncSession, staff: Staff, user_id: uuid.UUID) -> AccountD
             has_two_step=has_two_step,
             live_sessions=len(sessions),
         ),
+        notes=await notes.list_for(db, staff.permissions, staff.user_id, user.id),
+        can_contact=notes.may_contact(staff.permissions, staff.user_id, user),
     )
 
 

@@ -244,7 +244,7 @@ tests and updated docs before the next starts.
 - [x] Account page: organisations and roles, two-step sign-in and recovery codes, password age, signed-in devices, and recent history including what staff did to it
 - [x] Support actions for platform administrators (`platform.users.manage`, migration 0026): resend the verification email, send a password reset link, sign out everywhere, reset two-step sign-in (no server command needed), suspend and restore; reasons kept in the audit log
 - [x] Safeguards: no actions on your own account, only a super administrator can change a staff member's account, closed accounts are read-only, every view and action audited
-- [ ] Next: change staff roles from the page; suspend a business organisation; staff notes on an account
+- [ ] Next: change staff roles from the page; suspend a business organisation; ~~staff notes on an account~~ (Staff notes below)
 
 ## Milestone 25 — TradeReady: importing and exporting goods ✅
 - [x] `TRADE` vertical (migration 0027), `trade.general` questionnaire, business profile prefill
@@ -273,7 +273,14 @@ tests and updated docs before the next starts.
 - [x] "Reminders to finish your projects" in notification settings, with one-click unsubscribe
 - [x] Staff see who stopped where at `/admin/progress` (Stuck projects)
 - [x] Migration 0030: `KEEP_GOING` kind, `PROGRESS` category, `quiet_projects` function
-- [ ] Next: SMS nudges; a "contact this customer" action from Stuck projects; nudging the other members of a business workspace
+- [ ] Next: SMS nudges; ~~a "contact this customer" action from Stuck projects~~ (Staff notes below); nudging the other members of a business workspace
+
+## Staff notes and contacting customers ✅
+- [x] `staff_note` (migration 0036): notes, logged calls and emails sent by staff on Admin > Accounts; any platform role may add them, the author or an administrator may delete them; the audit log records that it happened (and which project), never the words
+- [x] "Email this person" sends from the team address through the outbox (capped per address) and keeps a copy as a note
+- [x] Stuck projects shows when staff last called or emailed the owner, with "Email or log a call" opening the account with the project and a draft filled in
+- [x] Closing an account deletes its staff notes
+- [ ] Next: include staff notes in an access request answer (APP 12) if one is ever asked for; templates for common emails; replies threaded back onto the account
 
 ## Backlog / decisions to revisit
 - [ ] Questionnaire authoring in the admin UI (definitions are reviewed JSON files in the repo; revisit when non-developers need to edit them)

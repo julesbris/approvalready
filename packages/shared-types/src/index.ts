@@ -304,6 +304,7 @@ export type AccountSession = Schemas["AccountSession"];
 export type AccountEvent = Schemas["AccountEvent"];
 export type AccountActionIn = Schemas["AccountActionIn"];
 export type AccountActionOut = Schemas["AccountActionOut"];
+export type StaffNoteOut = Schemas["StaffNoteOut"];
 export type AccountSearch = Schemas["AccountSearch"];
 
 export type ProgressStep = Schemas["ProgressStep"];

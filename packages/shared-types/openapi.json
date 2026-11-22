@@ -333,6 +333,10 @@
             "title": "Allowed Actions",
             "type": "array"
           },
+          "can_contact": {
+            "title": "Can Contact",
+            "type": "boolean"
+          },
           "closed": {
             "title": "Closed",
             "type": "boolean"
@@ -388,6 +392,13 @@
           "mfa_enabled": {
             "title": "Mfa Enabled",
             "type": "boolean"
+          },
+          "notes": {
+            "items": {
+              "$ref": "#/components/schemas/StaffNoteOut"
+            },
+            "title": "Notes",
+            "type": "array"
           },
           "organisations": {
             "title": "Organisations",
@@ -454,7 +465,9 @@
           "memberships",
           "sessions",
           "events",
-          "allowed_actions"
+          "allowed_actions",
+          "notes",
+          "can_contact"
         ],
         "title": "AccountDetail",
         "type": "object"
@@ -19506,6 +19519,18 @@
             "title": "Last Activity At",
             "type": "string"
           },
+          "last_contacted_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Contacted At"
+          },
           "last_nudged_at": {
             "anyOf": [
               {
@@ -25777,6 +25802,41 @@
         "title": "SourceType",
         "type": "string"
       },
+      "StaffEmailIn": {
+        "description": "An email from staff to the person, sent from the team address. A copy is kept as a\nnote on the account.",
+        "properties": {
+          "message": {
+            "maxLength": 8000,
+            "minLength": 1,
+            "title": "Message",
+            "type": "string"
+          },
+          "project_reference": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Project Reference"
+          },
+          "subject": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Subject",
+            "type": "string"
+          }
+        },
+        "required": [
+          "subject",
+          "message"
+        ],
+        "title": "StaffEmailIn",
+        "type": "object"
+      },
       "StaffLeadOut": {
         "properties": {
           "category_key": {
@@ -25995,6 +26055,118 @@
           "claim_refunded_at"
         ],
         "title": "StaffMatchOut",
+        "type": "object"
+      },
+      "StaffNoteIn": {
+        "properties": {
+          "body": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Body",
+            "type": "string"
+          },
+          "kind": {
+            "default": "NOTE",
+            "enum": [
+              "NOTE",
+              "CALL"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "project_reference": {
+            "anyOf": [
+              {
+                "maxLength": 40,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Project Reference"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "title": "StaffNoteIn",
+        "type": "object"
+      },
+      "StaffNoteOut": {
+        "properties": {
+          "author_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Author Name"
+          },
+          "body": {
+            "title": "Body",
+            "type": "string"
+          },
+          "can_delete": {
+            "title": "Can Delete",
+            "type": "boolean"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "id": {
+            "format": "uuid",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "NOTE",
+              "CALL",
+              "EMAIL"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "project_reference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Project Reference"
+          },
+          "subject": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subject"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "subject",
+          "body",
+          "project_reference",
+          "created_at",
+          "author_name",
+          "can_delete"
+        ],
+        "title": "StaffNoteOut",
         "type": "object"
       },
       "StaffPartnerOut": {
@@ -28971,6 +29143,165 @@
           }
         },
         "summary": "Account Action",
+        "tags": [
+          "admin: accounts"
+        ]
+      }
+    },
+    "/v1/admin/accounts/{user_id}/email": {
+      "post": {
+        "operationId": "email_account_v1_admin_accounts__user_id__email_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "User Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StaffEmailIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountActionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Email Account",
+        "tags": [
+          "admin: accounts"
+        ]
+      }
+    },
+    "/v1/admin/accounts/{user_id}/notes": {
+      "post": {
+        "operationId": "add_note_v1_admin_accounts__user_id__notes_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "User Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StaffNoteIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountActionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Add Note",
+        "tags": [
+          "admin: accounts"
+        ]
+      }
+    },
+    "/v1/admin/accounts/{user_id}/notes/{note_id}": {
+      "delete": {
+        "operationId": "delete_note_v1_admin_accounts__user_id__notes__note_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "User Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "note_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Note Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountActionOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Note",
         "tags": [
           "admin: accounts"
         ]

@@ -2460,7 +2460,8 @@ a.card-title:hover {
   list-style: none;
 }
 
-.privacy-request-details {
+.privacy-request-details,
+.staff-note-body {
   white-space: pre-wrap;
 }
 

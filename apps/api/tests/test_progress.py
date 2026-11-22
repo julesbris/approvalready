@@ -311,6 +311,17 @@ async def test_staff_see_who_is_stuck_where(
     r = await staff.get("/v1/admin/progress/quiet", params={"days": 1})
     [row] = [x for x in r.json() if x["project_id"] == pid]
     assert row["nudges_sent"] == 1 and row["last_nudged_at"] is not None
+    assert row["last_contacted_at"] is None
+
+    # A note doesn't count as contact; a logged call does.
+    url = f"/v1/admin/accounts/{customer.id}/notes"
+    assert (await staff.post(url, json={"body": "Prefers mornings"})).status_code == 201
+    r = await staff.get("/v1/admin/progress/quiet", params={"days": 1})
+    assert next(x for x in r.json() if x["project_id"] == pid)["last_contacted_at"] is None
+    r = await staff.post(url, json={"kind": "CALL", "body": "Left a message"})
+    assert r.status_code == 201, r.text
+    r = await staff.get("/v1/admin/progress/quiet", params={"days": 1})
+    assert next(x for x in r.json() if x["project_id"] == pid)["last_contacted_at"] is not None
 
     assert (await customer.get("/v1/admin/progress/quiet")).status_code == 403
     assert (await staff.get("/v1/admin/progress/quiet", params={"days": 0})).status_code == 422
